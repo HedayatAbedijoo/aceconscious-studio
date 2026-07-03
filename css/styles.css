@@ -196,7 +196,7 @@ section {
 
 .section-label {
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: 1rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--accent);
@@ -205,7 +205,7 @@ section {
 
 .section-title {
   font-family: var(--font-display);
-  font-size: clamp(2.25rem, 5vw, 3.5rem);
+  font-size: clamp(2.5rem, 6vw, 4rem);
   font-weight: 400;
   letter-spacing: 0.02em;
   line-height: 1;
@@ -226,7 +226,7 @@ section {
   min-height: 100dvh;
   display: grid;
   align-items: center;
-  padding: calc(var(--nav-h) + 2rem) 0 4rem;
+  padding: calc(var(--nav-h) + 2rem) 0 3rem;
   background:
     radial-gradient(ellipse 80% 60% at 70% 40%, rgba(13, 13, 13, 0.06) 0%, transparent 60%),
     var(--parchment);
@@ -379,7 +379,7 @@ section {
 
 /* ── Synopsis ── */
 .synopsis {
-  padding: 6rem 0;
+  padding: 4rem 0;
   background: linear-gradient(180deg, var(--parchment) 0%, var(--parchment-deep) 100%);
 }
 
@@ -425,7 +425,7 @@ section {
 
 /* ── Table of contents ── */
 .toc {
-  padding: 6rem 0;
+  padding: 4rem 0;
   background: var(--parchment-dark);
   color: var(--white);
 }
@@ -482,7 +482,7 @@ section {
 
 /* ── Sample chapter ── */
 .sample {
-  padding: 6rem 0;
+  padding: 4rem 0;
 }
 
 .console-window {
@@ -559,7 +559,7 @@ section {
 
 /* ── Characters ── */
 .characters {
-  padding: 6rem 0;
+  padding: 4rem 0;
   background: linear-gradient(180deg, var(--parchment-deep) 0%, var(--parchment) 100%);
 }
 
@@ -620,7 +620,7 @@ section {
 
 /* ── Buy ── */
 .buy {
-  padding: 6rem 0;
+  padding: 4rem 0;
   background: var(--ink);
   color: var(--white);
 }
@@ -700,7 +700,7 @@ section {
 
 /* ── Author ── */
 .author {
-  padding: 6rem 0;
+  padding: 4rem 0;
 }
 
 .author__grid {
