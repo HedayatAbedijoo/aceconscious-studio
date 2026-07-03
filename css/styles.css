@@ -117,10 +117,12 @@ a:hover {
 
 .site-nav__logo {
   font-family: var(--font-display);
-  font-size: 1.5rem;
-  letter-spacing: 0.04em;
+  font-size: clamp(0.95rem, 2.2vw, 1.35rem);
+  letter-spacing: 0.03em;
+  line-height: 1.1;
   text-decoration: none;
   color: var(--ink);
+  max-width: min(14rem, 42vw);
 }
 
 .site-nav__logo span {
