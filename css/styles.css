@@ -20,6 +20,7 @@
   --font-serif: "Literata", "Georgia", serif;
   --font-mono: "JetBrains Mono", "Consolas", monospace;
   --font-hand: "Permanent Marker", cursive;
+  --font-brush: "Caveat Brush", cursive;
   --radius: 12px;
   --radius-lg: 20px;
   --shadow-ink: 0 24px 80px rgba(13, 13, 13, 0.35);
@@ -263,9 +264,10 @@ section {
 }
 
 .hero__tagline-hand {
-  font-family: var(--font-hand);
-  font-size: clamp(1.1rem, 2.5vw, 1.45rem);
-  line-height: 1.35;
+  font-family: var(--font-brush);
+  font-size: clamp(1.35rem, 3vw, 1.85rem);
+  line-height: 1.2;
+  letter-spacing: 0.02em;
   color: var(--ink);
   margin: 0 0 1.5rem;
   max-width: 28rem;
@@ -274,7 +276,7 @@ section {
 
 .hero__tagline-hand em {
   font-style: normal;
-  font-size: 1.35em;
+  font-size: 1.15em;
   display: block;
 }
 
