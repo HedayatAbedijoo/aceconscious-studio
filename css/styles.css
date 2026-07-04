@@ -117,13 +117,24 @@ a:hover {
 }
 
 .site-nav__logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
   font-family: var(--font-display);
   font-size: clamp(0.95rem, 2.2vw, 1.35rem);
   letter-spacing: 0.03em;
   line-height: 1.1;
   text-decoration: none;
   color: var(--ink);
-  max-width: min(14rem, 42vw);
+  max-width: min(18rem, 52vw);
+}
+
+.site-nav__logo-icon {
+  flex-shrink: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  object-fit: contain;
+  display: block;
 }
 
 .site-nav__logo span {
