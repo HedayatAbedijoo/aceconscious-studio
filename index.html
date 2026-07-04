@@ -19,7 +19,7 @@
 </head>
 <body>
 
-  <a class="skip-link" href="#main">Skip to content</a>
+  <a class="skip-link" href="#main" data-i18n="skipLink">Skip to content</a>
 
   <!-- SVG filter for ink texture (optional decorative) -->
   <svg width="0" height="0" aria-hidden="true" focusable="false">
@@ -42,15 +42,16 @@
         >
         Ace Conscious <span>Studio</span>
       </a>
-      <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu">
+      <button class="nav-toggle" type="button" data-i18n-attr="aria-label:nav.openMenu" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu">
         <span></span><span></span><span></span>
       </button>
       <ul class="site-nav__links" id="nav-menu">
-        <li><a href="#synopsis">Story</a></li>
-        <li><a href="#voices">Voices</a></li>
-        <li><a href="#sample">Read</a></li>
-        <li><a href="#buy" class="site-nav__cta">Get the Book</a></li>
-        <li><a href="#author">Author</a></li>
+        <li><a href="#synopsis" data-i18n="nav.story">Story</a></li>
+        <li><a href="#voices" data-i18n="nav.voices">Voices</a></li>
+        <li><a href="#sample" data-i18n="nav.read">Read</a></li>
+        <li><a href="#buy" class="site-nav__cta" data-i18n="nav.buy">Get the Book</a></li>
+        <li><a href="#author" data-i18n="nav.author">Author</a></li>
+        <li><a href="#" class="site-nav__lang" id="lang-switch" data-lang="de" data-i18n="nav.langLabel">DE</a></li>
       </ul>
     </div>
   </header>
@@ -61,14 +62,14 @@
     <section class="hero" id="top">
       <div class="container hero__grid">
         <div class="hero__text reveal">
-          <p class="hero__tagline-hand">
+          <p class="hero__tagline-hand" data-i18n-html="hero.tagline">
             I am not lying,<br>
             <em>Believe</em>
             my words!
           </p>
           <h1 class="hero__title">ACE.<span class="await">await</span></h1>
           <p class="hero__author">Hedayat the second</p>
-          <p class="hero__pitch">
+          <p class="hero__pitch" data-i18n-html="hero.pitch">
             Consciousness shapes the future, not artificial intelligence.
             <em>ACE.await</em> is a philosophical thriller novel about nested writers, characters who
             rebel against their author, and one person who tries to bring the ACE game into society.
@@ -78,17 +79,18 @@
             <span>·</span>
             <span>2026</span>
             <span>·</span>
-            <span>Literary Fiction</span>
+            <span data-i18n="hero.genre">Literary Fiction</span>
           </div>
           <div class="hero__actions">
-            <a class="btn btn--primary" href="#buy">Pre-order / Buy</a>
-            <a class="btn btn--ghost" href="#sample">Read Chapter 1</a>
+            <a class="btn btn--primary" href="#buy" data-i18n="hero.buyBtn">Pre-order / Buy</a>
+            <a class="btn btn--ghost" href="#sample" data-i18n="hero.sampleBtn">Read Chapter 1</a>
           </div>
         </div>
         <div class="hero__cover-wrap reveal">
           <img
             class="hero__cover"
             src="assets/cover.png"
+            data-i18n-attr="alt:hero.coverAlt"
             alt="ACE.await book cover — ink silhouette with figure within a figure"
             width="1024"
             height="1535"
@@ -101,9 +103,9 @@
     <!-- Synopsis -->
     <section class="synopsis" id="synopsis">
       <div class="container reveal">
-        <p class="section-label">The Story</p>
+        <p class="section-label" data-i18n="synopsis.label">The Story</p>
         <div class="synopsis__card">
-          <p>
+          <p data-i18n="synopsis.p1">
             Something is wrong with Hedayat’s unfinished novel: pages go blank, dates shift, and a
             character inside the book begins talking nonsense, refusing to follow the storyline.
             Outside the novel, Hedayat is a software team lead in Cologne, helping build a new
@@ -112,7 +114,7 @@
             Exchange — a personal and social model for making proper decisions and finding a new
             harmony in life.
           </p>
-          <p>
+          <p data-i18n="synopsis.p2">
             Strange things begin to happen around him. Blackouts spread across Germany. His company’s
             data center is hacked. His digital children return, and so does an old friend from his
             childhood. As Hedayat struggles with fatherhood, love, responsibility, and the fate of
@@ -120,10 +122,10 @@
             have made — and with the infinite loop of authors inside his own story. Did Hedayat
             finally understand who the real author of the novel was?
           </p>
-          <div class="ace-pills" aria-label="ACE framework">
-            <span class="ace-pill"><span>A</span> Agency</span>
-            <span class="ace-pill"><span>C</span> Connection</span>
-            <span class="ace-pill"><span>E</span> Exchange</span>
+          <div class="ace-pills" data-i18n-attr="aria-label:synopsis.aceAria" aria-label="ACE framework">
+            <span class="ace-pill" data-i18n-html="synopsis.pillA"><span>A</span> Agency</span>
+            <span class="ace-pill" data-i18n-html="synopsis.pillC"><span>C</span> Connection</span>
+            <span class="ace-pill" data-i18n-html="synopsis.pillE"><span>E</span> Exchange</span>
           </div>
         </div>
       </div>
@@ -132,24 +134,24 @@
     <!-- Characters -->
     <section class="characters" id="voices">
       <div class="container reveal">
-        <p class="section-label">Voices from the Story</p>
-        <h2 class="section-title">Who speaks in ACE.await</h2>
+        <p class="section-label" data-i18n="voices.label">Voices from the Story</p>
+        <h2 class="section-title" data-i18n="voices.title">Who speaks in ACE.await</h2>
 
         <div class="characters-grid">
 
           <article class="character-card">
             <header class="character-card__head">
               <h3 class="character-card__name">Hedayat</h3>
-              <p class="character-card__role">Protagonist</p>
+              <p class="character-card__role" data-i18n="char.hedayat.role">Protagonist</p>
             </header>
             <div class="character-card__body">
-              <p>
+              <p data-i18n="char.hedayat.p1">
                 I live in Cologne, leading a team at a software company, building a new free internet
                 to fight the dictatorship of data. In my private life, I’m constantly struggling to learn
                 what a right decision even means. Anonymous keeps telling me that through ACE, I need to
                 learn something harder: the proper decision.
               </p>
-              <p>
+              <p data-i18n="char.hedayat.p2">
                 For ten years I couldn’t finish my novel, and I blamed myself. It was painful — but
                 finally I understood it wasn’t my fault. It wasn’t me writing the story the whole time.
               </p>
@@ -162,7 +164,7 @@
               <p class="character-card__role">localhost:3132</p>
             </header>
             <div class="character-card__body">
-              <p>
+              <p data-i18n="char.anonymous.p1">
                 It isn’t easy to earn Hedayat’s trust — especially when he thinks you’re a hacker.
                 He still needs to understand: it isn’t technology or tools that will save humanity
                 or the future. It’s consciousness — and learning how to make a proper decision.
@@ -174,16 +176,16 @@
           <article class="character-card">
             <header class="character-card__head">
               <h3 class="character-card__name">Mr. Writer</h3>
-              <p class="character-card__role">Inner identity</p>
+              <p class="character-card__role" data-i18n="char.writer.role">Inner identity</p>
             </header>
             <div class="character-card__body">
-              <p>
+              <p data-i18n="char.writer.p1">
                 Hedayat must not find out I’m talking to you. I’m the character inside his unfinished
                 novel — and I’m an author too. In his novel I’m writing a novel, and inside my novel
                 I created a character who is also writing another. I gave him my name: Mr. Writer.
                 He treats me exactly the way I’ve been treating Hedayat.
               </p>
-              <p>
+              <p data-i18n="char.writer.p2">
                 If, from time to time, you read something that makes no sense — some chapters about
                 disobedience, blank pages and etc — don’t get confused. That’s me. Be patient.
                 Keep reading. The dots connect at the end.
@@ -194,10 +196,10 @@
           <article class="character-card">
             <header class="character-card__head">
               <h3 class="character-card__name">Ava</h3>
-              <p class="character-card__role">Ex-girlfriend</p>
+              <p class="character-card__role" data-i18n="char.ava.role">Ex-girlfriend</p>
             </header>
             <div class="character-card__body">
-              <p>
+              <p data-i18n="char.ava.p1">
                 We all carry a «Story's Hero» in our heads — always telling the story in a way that
                 makes us feel we were right. I’m not saying I made no mistakes in my relationship
                 with Hedayat, or that I left him over a single mistake. I left because he kept turning
@@ -211,14 +213,14 @@
           <article class="character-card">
             <header class="character-card__head">
               <h3 class="character-card__name">Sam</h3>
-              <p class="character-card__role">CEO's Kid</p>
+              <p class="character-card__role" data-i18n="char.sam.role">CEO's Kid</p>
             </header>
             <div class="character-card__body">
-              <p>
+              <p data-i18n="char.sam.p1">
                 I love the games I play with Uncle-Hedi — the talk we share and the secrets between us.
                 Like the secret of the number 2313.
               </p>
-              <p>
+              <p data-i18n="char.sam.p2">
                 By the way, Uncle-Hedi has this funny habit. Sometimes — only sometimes — when he’s
                 deep in thought and completely lost in his head, he forgets to look around and check
                 where he is not alone, and suddenly, he farts!
@@ -229,10 +231,10 @@
           <article class="character-card">
             <header class="character-card__head">
               <h3 class="character-card__name">Saman</h3>
-              <p class="character-card__role">Old Friend</p>
+              <p class="character-card__role" data-i18n="char.saman.role">Old Friend</p>
             </header>
             <div class="character-card__body">
-              <p>
+              <p data-i18n="char.saman.p1">
                 I love Hedayat the way Rumi loved Shams. A person understands the meaning of life
                 through suffering, and true healing comes through pure friendship.
               </p>
@@ -245,7 +247,7 @@
               <p class="character-card__role">localhost:2313</p>
             </header>
             <div class="character-card__body">
-              <p>
+              <p data-i18n="char.adam.p1">
                 I’m not lying. Believe my words. Every trouble humans face in the real world, new digital
                 creatures face in a virtual one. The forms are different; the consequences are the same.
                 Be careful — the author of this novel may not be the one you’re thinking of. Anyway!
@@ -256,10 +258,10 @@
           <article class="character-card">
             <header class="character-card__head">
               <h3 class="character-card__name">God</h3>
-              <p class="character-card__role">Not in the cast</p>
+              <p class="character-card__role" data-i18n="char.god.role">Not in the cast</p>
             </header>
             <div class="character-card__body">
-              <p>
+              <p data-i18n="char.god.p1">
                 I don’t play a role in this story, but my name gets mentioned here and there. I just
                 wanted to say one thing quickly: I am not a game designer who refuses to play the game
                 he created.
@@ -274,10 +276,10 @@
     <!-- Sample chapter -->
     <section class="sample" id="sample">
       <div class="container reveal">
-        <p class="section-label">Free Sample</p>
-        <h2 class="section-title">Chapter 1 — Anonymous</h2>
+        <p class="section-label" data-i18n="sample.label">Free Sample</p>
+        <h2 class="section-title" data-i18n="sample.title">Chapter 1 — Anonymous</h2>
 
-        <div class="console-window" role="region" aria-label="Console session localhost:3132">
+        <div class="console-window" role="region" data-i18n-attr="aria-label:sample.consoleAria" aria-label="Console session localhost:3132">
           <div class="console-window__bar">
             <span class="console-dot console-dot--red" aria-hidden="true"></span>
             <span class="console-dot console-dot--yellow" aria-hidden="true"></span>
@@ -287,91 +289,91 @@
           <div class="console-window__body">
             <div class="console-line">
               <span class="console-prompt" aria-hidden="true">~</span>
-              <span class="console-text">Is anyone there?</span>
+              <span class="console-text" data-i18n="sample.l1">Is anyone there?</span>
             </div>
             <div class="console-line console-line--reply">
               <span class="console-prompt" aria-hidden="true">→</span>
-              <span class="console-text console-text--reply">A savior.</span>
+              <span class="console-text console-text--reply" data-i18n="sample.l2">A savior.</span>
             </div>
             <div class="console-line">
               <span class="console-prompt" aria-hidden="true">~</span>
-              <span class="console-text">Are you God?</span>
+              <span class="console-text" data-i18n="sample.l3">Are you God?</span>
             </div>
             <div class="console-line console-line--reply">
               <span class="console-prompt" aria-hidden="true">→</span>
-              <span class="console-text console-text--reply">God? A game designer who doesn't play his own game? No, I am not.</span>
+              <span class="console-text console-text--reply" data-i18n="sample.l4">God? A game designer who doesn't play his own game? No, I am not.</span>
             </div>
             <div class="console-line">
               <span class="console-prompt" aria-hidden="true">~</span>
-              <span class="console-text">What do you need?</span>
+              <span class="console-text" data-i18n="sample.l5">What do you need?</span>
             </div>
             <div class="console-line console-line--reply">
               <span class="console-prompt" aria-hidden="true">→</span>
-              <span class="console-text console-text--reply">Wrong question, wrong answer.</span>
+              <span class="console-text console-text--reply" data-i18n="sample.l6">Wrong question, wrong answer.</span>
             </div>
             <div class="console-line">
               <span class="console-prompt" aria-hidden="true">~</span>
-              <span class="console-text">What is the right question then?</span>
+              <span class="console-text" data-i18n="sample.l7">What is the right question then?</span>
             </div>
             <div class="console-line console-line--reply">
               <span class="console-prompt" aria-hidden="true">→</span>
-              <span class="console-text console-text--reply">What do you do?</span>
+              <span class="console-text console-text--reply" data-i18n="sample.l8">What do you do?</span>
             </div>
             <div class="console-line">
               <span class="console-prompt" aria-hidden="true">~</span>
-              <span class="console-text">Makes sense, so what do you do?</span>
+              <span class="console-text" data-i18n="sample.l9">Makes sense, so what do you do?</span>
             </div>
             <div class="console-line console-line--reply">
               <span class="console-prompt" aria-hidden="true">→</span>
-              <span class="console-text console-text--reply">I play a game with you.</span>
+              <span class="console-text console-text--reply" data-i18n="sample.l10">I play a game with you.</span>
             </div>
             <div class="console-line">
               <span class="console-prompt" aria-hidden="true">~</span>
-              <span class="console-text">Game?!! What game?</span>
+              <span class="console-text" data-i18n="sample.l11">Game?!! What game?</span>
             </div>
             <div class="console-line console-line--reply">
               <span class="console-prompt" aria-hidden="true">→</span>
-              <span class="console-text console-text--reply">ACE</span>
+              <span class="console-text console-text--reply" data-i18n="sample.l12">ACE</span>
             </div>
             <div class="console-line">
               <span class="console-prompt" aria-hidden="true">~</span>
-              <span class="console-text">What does it mean?</span>
+              <span class="console-text" data-i18n="sample.l13">What does it mean?</span>
             </div>
             <div class="console-line console-line--reply">
               <span class="console-prompt" aria-hidden="true">→</span>
-              <span class="console-text console-text--reply">Agency, Connection, Exchange.</span>
+              <span class="console-text console-text--reply" data-i18n="sample.l14">Agency, Connection, Exchange.</span>
             </div>
             <div class="console-line">
               <span class="console-prompt" aria-hidden="true">~</span>
-              <span class="console-text">Explain more</span>
+              <span class="console-text" data-i18n="sample.l15">Explain more</span>
             </div>
             <div class="console-line console-line--reply">
               <span class="console-prompt" aria-hidden="true">→</span>
-              <span class="console-text console-text--reply">Which part?</span>
+              <span class="console-text console-text--reply" data-i18n="sample.l16">Which part?</span>
             </div>
             <div class="console-line">
               <span class="console-prompt" aria-hidden="true">~</span>
-              <span class="console-text">Start from the Agency!</span>
+              <span class="console-text" data-i18n="sample.l17">Start from the Agency!</span>
             </div>
             <div class="console-line console-line--reply">
               <span class="console-prompt" aria-hidden="true">→</span>
-              <span class="console-text console-text--reply">It is about how to make proper decisions</span>
+              <span class="console-text console-text--reply" data-i18n="sample.l18">It is about how to make proper decisions</span>
             </div>
             <div class="console-line">
               <span class="console-prompt" aria-hidden="true">~</span>
-              <span class="console-text">Which decisions?</span>
+              <span class="console-text" data-i18n="sample.l19">Which decisions?</span>
             </div>
             <div class="console-line console-line--reply">
               <span class="console-prompt" aria-hidden="true">→</span>
-              <span class="console-text console-text--reply">All your decisions</span>
+              <span class="console-text console-text--reply" data-i18n="sample.l20">All your decisions</span>
             </div>
             <div class="console-line">
               <span class="console-prompt" aria-hidden="true">~</span>
-              <span class="console-text">Like what?</span>
+              <span class="console-text" data-i18n="sample.l21">Like what?</span>
             </div>
             <div class="console-line console-line--reply">
               <span class="console-prompt" aria-hidden="true">→</span>
-              <span class="console-text console-text--reply">Like the one you made in the museum.</span>
+              <span class="console-text console-text--reply" data-i18n="sample.l22">Like the one you made in the museum.</span>
             </div>
           </div>
         </div>
@@ -381,39 +383,39 @@
     <!-- Buy -->
     <section class="buy" id="buy">
       <div class="container reveal">
-        <p class="section-label">Get the Book</p>
-        <h2 class="section-title">Take the ACE.await home</h2>
+        <p class="section-label" data-i18n="buy.label">Get the Book</p>
+        <h2 class="section-title" data-i18n="buy.title">Take the ACE.await home</h2>
 
         <div class="buy-grid">
           <a class="buy-card" href="#" id="buy-amazon" data-store="amazon">
             <span class="buy-card__platform">Amazon</span>
-            <span class="buy-card__status">Coming Soon</span>
-            <span class="buy-card__hint">Kindle &amp; paperback</span>
+            <span class="buy-card__status" data-i18n="buy.comingSoon">Coming Soon</span>
+            <span class="buy-card__hint" data-i18n="buy.kindle">Kindle &amp; paperback</span>
           </a>
           <a class="buy-card buy-card--soon" href="#" id="buy-apple" data-store="apple">
             <span class="buy-card__platform">Apple Books</span>
-            <span class="buy-card__status">Coming Later</span>
+            <span class="buy-card__status" data-i18n="buy.comingLater">Coming Later</span>
             <span class="buy-card__hint">Add URL in index.html</span>
           </a>
           <a class="buy-card buy-card--soon" href="#" id="buy-kobo" data-store="kobo">
             <span class="buy-card__platform">Kobo</span>
-            <span class="buy-card__status">Coming Later</span>
+            <span class="buy-card__status" data-i18n="buy.comingLater">Coming Later</span>
             <span class="buy-card__hint">Add URL in index.html</span>
           </a>
           <a class="buy-card buy-card--soon" href="#" id="buy-google" data-store="google">
             <span class="buy-card__platform">Google Play</span>
-            <span class="buy-card__status">Coming Later</span>
+            <span class="buy-card__status" data-i18n="buy.comingLater">Coming Later</span>
             <span class="buy-card__hint">Add URL in index.html</span>
           </a>
           <a class="buy-card buy-card--soon" href="#" id="buy-bookshop" data-store="bookshop">
             <span class="buy-card__platform">Bookshop.org</span>
-            <span class="buy-card__status">Coming Later</span>
+            <span class="buy-card__status" data-i18n="buy.comingLater">Coming Later</span>
             <span class="buy-card__hint">Add URL in index.html</span>
           </a>
           <a class="buy-card buy-card--soon" href="#" id="buy-direct" data-store="direct">
             <span class="buy-card__platform">ACE Studio</span>
-            <span class="buy-card__status">Coming Later</span>
-            <span class="buy-card__hint">Direct EPUB / PDF</span>
+            <span class="buy-card__status" data-i18n="buy.comingLater">Coming Later</span>
+            <span class="buy-card__hint" data-i18n="buy.direct">Direct EPUB / PDF</span>
           </a>
         </div>
       </div>
@@ -422,7 +424,7 @@
     <!-- Author -->
     <section class="author" id="author">
       <div class="container reveal">
-        <p class="section-label">The Author</p>
+        <p class="section-label" data-i18n="author.label">The Author</p>
         <h2 class="section-title">Hedayat Abedijoo</h2>
         <div class="author__grid">
           <figure class="author__photo">
@@ -435,7 +437,7 @@
             >
           </figure>
           <div class="author__bio">
-            <blockquote class="author__verse">
+            <blockquote class="author__verse" data-i18n-html="author.verse">
               I'm neck-deep in debt.<br>
               To my past,<br>
               I owe regret.<br>
@@ -444,26 +446,26 @@
               I pay off my debt,<br>
               with distractions.
             </blockquote>
-            <p>
+            <p data-i18n-html="author.p1">
               Years ago, I set out to write a novel of <strong>nested writers</strong>—each author
               inventing the next, who invents the next again, until a <strong>loving relationship</strong>
               at last breaks the infinite loop. The manuscript stayed unfinished, left to gather dust.
             </p>
-            <p>
+            <p data-i18n-html="author.p2">
               Some years later, <strong>ACE</strong> (Agency, Connection, Exchange) came to me: a personal
               pattern of living that might serve as <strong>social therapy</strong>—a way for human agency
               and economic agency to meet, and to shape a new <strong>harmony</strong>.
             </p>
-            <p>
+            <p data-i18n-html="author.p3">
               In time, that <strong>metafiction</strong> and the ACE idea found their way into my novel,
               <em>ACE.await</em>.
             </p>
-            <p>
+            <p data-i18n-html="author.p4">
               When the novel was ready, I began to think I might publish another version of ACE someday—or
               perhaps write the next part of the story. That is why I founded Ace Conscious Studio: a home
               for my writing ideas, with <em>ACE.await</em> as its first work.
             </p>
-            <p>
+            <p data-i18n-html="author.p5">
               Welcome to my world of ideas. If even a single word of my writing moves you, write to me—I
               will probably die of joy.
             </p>
@@ -481,20 +483,21 @@
     <div class="container site-footer__grid">
       <div>
         <p class="site-footer__brand">Ace Conscious Studio</p>
-        <p class="site-footer__legal">
+        <p class="site-footer__legal" data-i18n-html="footer.legal">
           Excerpt from <em>ACE.await</em> © 2026 Hedayat Abedijoo. All rights reserved.
           Reproduced with permission of Ace Conscious Studio.
         </p>
       </div>
       <ul class="site-footer__links">
         <li><a href="mailto:hedayat@AceConscious.Studio">hedayat@AceConscious.Studio</a></li>
-        <li><a href="#top">Back to top</a></li>
-        <li><a href="#" aria-disabled="true">Privacy</a></li>
-        <li><a href="#" aria-disabled="true">Press kit</a></li>
+        <li><a href="#top" data-i18n="footer.top">Back to top</a></li>
+        <li><a href="#" aria-disabled="true" data-i18n="footer.privacy">Privacy</a></li>
+        <li><a href="#" aria-disabled="true" data-i18n="footer.press">Press kit</a></li>
       </ul>
     </div>
   </footer>
 
+  <script src="js/i18n.js" defer></script>
   <script src="js/main.js" defer></script>
 </body>
 </html>
