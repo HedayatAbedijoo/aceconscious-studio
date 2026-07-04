@@ -346,7 +346,28 @@ section {
   font-family: var(--font-mono);
   font-size: 0.8125rem;
   color: var(--ink-muted);
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
+}
+
+.hero__topics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+  margin: 0 0 2rem;
+  padding: 0;
+}
+
+.hero__topics li {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  padding: 0.35rem 0.65rem;
+  border: 1px solid rgba(13, 13, 13, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.35);
 }
 
 .hero__actions {

@@ -3,14 +3,22 @@
 
   const STORAGE_KEY = "ace-lang";
   const DEFAULT_LANG = "en";
+  const SITE_URL = "https://aceconscious.studio";
 
   const translations = {
     en: {
-      "meta.title": "Ace Conscious Studio",
+      "meta.title": "ACE.await — Philosophical AI Thriller Novel | Ace Conscious Studio",
       "meta.description":
-        "ACE.await — a metafictional novel by Hedayat the second. Consciousness shapes the future, not artificial intelligence. Agency. Connection. Exchange.",
+        "ACE.await — a philosophical AI thriller novel by Hedayat the second. Metafiction about consciousness, peer-to-peer technology, the ACE game (Agency, Connection, Exchange), and harmony in personal and social life. Read a free sample chapter.",
+      "meta.keywords":
+        "ACE.await, philosophical thriller, AI novel, consciousness, artificial intelligence, metafiction, peer-to-peer internet, free internet, harmony, Agency Connection Exchange, ACE game, literary fiction, Cologne novel, nested writers, social therapy, thriller novel",
+      "meta.ogTitle": "ACE.await — Philosophical AI Thriller Novel",
       "meta.ogDescription":
-        "Consciousness shapes the future, not artificial intelligence. A philosophical thriller novel about nested writers and the ACE game.",
+        "Consciousness shapes the future, not artificial intelligence. A philosophical thriller about nested writers, peer-to-peer technology, and the ACE game — Agency, Connection, Exchange.",
+      "meta.twitterDescription":
+        "A metafictional thriller about consciousness, AI, peer-to-peer technology, and the ACE game. Free sample chapter available.",
+      "meta.bookDescription":
+        "ACE.await is a philosophical thriller novel about nested writers, characters who rebel against their author, peer-to-peer technology, and one person who tries to bring the ACE game — Agency, Connection, Exchange — into society. Consciousness shapes the future, not artificial intelligence.",
       "skipLink": "Skip to content",
       "nav.openMenu": "Open menu",
       "nav.story": "Story",
@@ -23,12 +31,18 @@
       "hero.tagline":
         "I am not lying,<br><em>Believe</em> my words!",
       "hero.pitch":
-        "Consciousness shapes the future, not artificial intelligence. <em>ACE.await</em> is a philosophical thriller novel about nested writers, characters who rebel against their author, and one person who tries to bring the ACE game into society.",
+        "Consciousness shapes the future, not artificial intelligence. <em>ACE.await</em> is a philosophical thriller novel about nested writers, peer-to-peer technology, characters who rebel against their author, and one person who tries to bring the ACE game — Agency, Connection, Exchange — into society.",
       "hero.genre": "Literary Fiction",
+      "hero.topic1": "Philosophical thriller",
+      "hero.topic2": "AI & consciousness",
+      "hero.topic3": "Metafiction",
+      "hero.topic4": "Peer-to-peer technology",
+      "hero.topic5": "Personal & social harmony",
+      "hero.topic6": "ACE game",
       "hero.buyBtn": "Pre-order / Buy",
       "hero.sampleBtn": "Read Chapter 1",
       "hero.coverAlt":
-        "ACE.await book cover — ink silhouette with figure within a figure",
+        "ACE.await book cover — philosophical AI thriller novel about consciousness and metafiction",
       "synopsis.label": "The Story",
       "synopsis.p1":
         "Something is wrong with Hedayat’s unfinished novel: pages go blank, dates shift, and a character inside the book begins talking nonsense, refusing to follow the storyline. Outside the novel, Hedayat is a software team lead in Cologne, helping build a new version of the internet for freedom against the dictatorships of the information age. Then a stranger called Anonymous pulls him into the ACE game — Agency, Connection, Exchange — a personal and social model for making proper decisions and finding a new harmony in life.",
@@ -120,11 +134,18 @@
       "footer.press": "Press kit",
     },
     de: {
-      "meta.title": "Ace Conscious Studio",
+      "meta.title": "ACE.await — Philosophischer KI-Thriller | Ace Conscious Studio",
       "meta.description":
-        "ACE.await — ein metafiktionaler Roman von Hedayat the second. Bewusstsein formt die Zukunft, nicht künstliche Intelligenz. Agency. Connection. Exchange.",
+        "ACE.await — ein philosophischer KI-Thriller von Hedayat the second. Metafiktion über Bewusstsein, Peer-to-Peer-Technologie, das ACE-Spiel (Agency, Connection, Exchange) und Harmonie im persönlichen und gesellschaftlichen Leben. Leseprobe gratis.",
+      "meta.keywords":
+        "ACE.await, philosophischer Thriller, KI-Roman, Bewusstsein, künstliche Intelligenz, Metafiktion, Peer-to-Peer-Internet, freies Internet, Harmonie, Agency Connection Exchange, ACE-Spiel, literarische Belletristik, Köln Roman, verschachtelte Autoren, soziale Therapie, Thriller Roman",
+      "meta.ogTitle": "ACE.await — Philosophischer KI-Thriller",
       "meta.ogDescription":
-        "Bewusstsein formt die Zukunft, nicht künstliche Intelligenz. Ein philosophischer Thriller über verschachtelte Autoren und das ACE-Spiel.",
+        "Bewusstsein formt die Zukunft, nicht künstliche Intelligenz. Ein philosophischer Thriller über verschachtelte Autoren, Peer-to-Peer-Technologie und das ACE-Spiel — Agency, Connection, Exchange.",
+      "meta.twitterDescription":
+        "Ein metafiktionaler Thriller über Bewusstsein, KI, Peer-to-Peer-Technologie und das ACE-Spiel. Gratis Leseprobe verfügbar.",
+      "meta.bookDescription":
+        "ACE.await ist ein philosophischer Thriller über verschachtelte Autoren, Figuren, die sich gegen ihren Autor auflehnen, Peer-to-Peer-Technologie und eine Person, die das ACE-Spiel — Agency, Connection, Exchange — in die Gesellschaft tragen will. Bewusstsein formt die Zukunft, nicht künstliche Intelligenz.",
       "skipLink": "Zum Inhalt springen",
       "nav.openMenu": "Menü öffnen",
       "nav.story": "Geschichte",
@@ -137,12 +158,18 @@
       "hero.tagline":
         "Ich lüge nicht,<br><em>Glaube</em> meinen Worten!",
       "hero.pitch":
-        "Bewusstsein formt die Zukunft, nicht künstliche Intelligenz. <em>ACE.await</em> ist ein philosophischer Thriller über verschachtelte Autoren, Figuren, die sich gegen ihren Autor auflehnen, und eine Person, die versucht, das ACE-Spiel in die Gesellschaft zu tragen.",
+        "Bewusstsein formt die Zukunft, nicht künstliche Intelligenz. <em>ACE.await</em> ist ein philosophischer Thriller über verschachtelte Autoren, Peer-to-Peer-Technologie, Figuren, die sich gegen ihren Autor auflehnen, und eine Person, die das ACE-Spiel — Agency, Connection, Exchange — in die Gesellschaft tragen will.",
       "hero.genre": "Literarische Belletristik",
+      "hero.topic1": "Philosophischer Thriller",
+      "hero.topic2": "KI & Bewusstsein",
+      "hero.topic3": "Metafiktion",
+      "hero.topic4": "Peer-to-Peer-Technologie",
+      "hero.topic5": "Persönliche & gesellschaftliche Harmonie",
+      "hero.topic6": "ACE-Spiel",
       "hero.buyBtn": "Vorbestellen / Kaufen",
       "hero.sampleBtn": "Kapitel 1 lesen",
       "hero.coverAlt":
-        "ACE.await Buchcover — Tuschesilhouette mit Figur in einer Figur",
+        "ACE.await Buchcover — philosophischer KI-Thriller über Bewusstsein und Metafiktion",
       "synopsis.label": "Die Geschichte",
       "synopsis.p1":
         "Etwas stimmt nicht mit Hedayats unvollendetem Roman: Seiten werden leer, Daten verschieben sich, und eine Figur im Buch fängt an, Unsinn zu reden und sich zu weigern, der Handlung zu folgen. Außerhalb des Romans ist Hedayat Teamleiter einer Softwarefirma in Köln und hilft beim Aufbau eines neuen Internets für Freiheit — gegen die Diktaturen des Informationszeitalters. Dann zieht ihn ein Fremder namens Anonymous in das ACE-Spiel — Agency, Connection, Exchange — ein persönliches und gesellschaftliches Modell für richtige Entscheidungen und eine neue Harmonie im Leben.",
@@ -259,7 +286,13 @@
 
     document.title = strings["meta.title"];
     setMeta("description", strings["meta.description"]);
+    setMeta("keywords", strings["meta.keywords"]);
+    setMeta("og:title", strings["meta.ogTitle"], "property");
     setMeta("og:description", strings["meta.ogDescription"], "property");
+    setMeta("twitter:title", strings["meta.ogTitle"]);
+    setMeta("twitter:description", strings["meta.twitterDescription"]);
+    setMeta("og:locale", lang === "de" ? "de_DE" : "en_US", "property");
+    updateStructuredData(lang, strings);
 
     document.querySelectorAll("[data-i18n]").forEach((el) => {
       const key = el.getAttribute("data-i18n");
@@ -297,6 +330,69 @@
         : `meta[name="${name}"]`;
     const el = document.querySelector(selector);
     if (el) el.setAttribute("content", content);
+  }
+
+  function updateStructuredData(lang, strings) {
+    const script = document.getElementById("structured-data");
+    if (!script) return;
+
+    const data = {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": `${SITE_URL}/#website`,
+          url: `${SITE_URL}/`,
+          name: "Ace Conscious Studio",
+          description: strings["meta.ogDescription"],
+          inLanguage: ["en", "de"],
+          publisher: { "@id": `${SITE_URL}/#organization` },
+        },
+        {
+          "@type": "Organization",
+          "@id": `${SITE_URL}/#organization`,
+          name: "Ace Conscious Studio",
+          url: `${SITE_URL}/`,
+          email: "hedayat@AceConscious.Studio",
+          logo: `${SITE_URL}/assets/logo-icon.png`,
+        },
+        {
+          "@type": "Book",
+          "@id": `${SITE_URL}/#book`,
+          name: "ACE.await",
+          alternateName: ["ACE await", "ACE. await"],
+          author: {
+            "@type": "Person",
+            name: "Hedayat Abedijoo",
+            alternateName: "Hedayat the second",
+          },
+          publisher: { "@id": `${SITE_URL}/#organization` },
+          url: `${SITE_URL}/`,
+          image: `${SITE_URL}/assets/cover.png`,
+          bookFormat: "https://schema.org/EBook",
+          inLanguage: lang,
+          datePublished: "2026",
+          genre: [
+            "Philosophical fiction",
+            "Thriller",
+            "Metafiction",
+            "Science fiction",
+            "Literary fiction",
+          ],
+          keywords: strings["meta.keywords"],
+          description: strings["meta.bookDescription"],
+          about: [
+            { "@type": "Thing", name: lang === "de" ? "Künstliche Intelligenz" : "Artificial intelligence" },
+            { "@type": "Thing", name: lang === "de" ? "Bewusstsein" : "Consciousness" },
+            { "@type": "Thing", name: lang === "de" ? "Peer-to-Peer-Technologie" : "Peer-to-peer technology" },
+            { "@type": "Thing", name: lang === "de" ? "Persönliche Harmonie" : "Personal harmony" },
+            { "@type": "Thing", name: lang === "de" ? "Gesellschaftliche Harmonie" : "Social harmony" },
+          ],
+        },
+      ],
+    };
+
+    script.textContent = JSON.stringify(data);
   }
 
   function initLanguage() {
