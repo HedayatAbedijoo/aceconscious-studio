@@ -9,16 +9,16 @@
     en: {
       "meta.title": "ACE.await — Philosophical AI Thriller Novel | Ace Conscious Studio",
       "meta.description":
-        "ACE.await — a philosophical AI thriller novel by Hedayat the second. Metafiction about consciousness, peer-to-peer technology, the ACE game (Agency, Connection, Exchange), and harmony in personal and social life. Read a free sample chapter.",
+        "ACE.await — a philosophical AI thriller novel by Hedayat the second. Metafiction about consciousness, the ACE game (Agency, Connection, Exchange), and harmony in personal and social life. Read a free sample chapter.",
       "meta.keywords":
-        "ACE.await, philosophical thriller, AI novel, consciousness, artificial intelligence, metafiction, peer-to-peer internet, free internet, harmony, Agency Connection Exchange, ACE game, literary fiction, Cologne novel, nested writers, social therapy, thriller novel",
+        "ACE.await, philosophical thriller, AI novel, consciousness, artificial intelligence, metafiction, free internet, harmony, Agency Connection Exchange, ACE game, literary fiction, Cologne novel, nested writers, social therapy, thriller novel",
       "meta.ogTitle": "ACE.await — Philosophical AI Thriller Novel",
       "meta.ogDescription":
-        "Consciousness shapes the future, not artificial intelligence. A philosophical thriller about nested writers, peer-to-peer technology, and the ACE game — Agency, Connection, Exchange.",
+        "Consciousness shapes the future, not artificial intelligence. A philosophical thriller about nested writers and the ACE game — Agency, Connection, Exchange.",
       "meta.twitterDescription":
-        "A metafictional thriller about consciousness, AI, peer-to-peer technology, and the ACE game. Free sample chapter available.",
+        "A metafictional thriller about consciousness, AI, and the ACE game. Free sample chapter available.",
       "meta.bookDescription":
-        "ACE.await is a philosophical thriller novel about nested writers, characters who rebel against their author, peer-to-peer technology, and one person who tries to bring the ACE game — Agency, Connection, Exchange — into society. Consciousness shapes the future, not artificial intelligence.",
+        "ACE.await is a philosophical thriller novel about nested writers, characters who rebel against their author, and one person who tries to bring the ACE game — Agency, Connection, Exchange — into society. Consciousness shapes the future, not artificial intelligence.",
       "skipLink": "Skip to content",
       "nav.openMenu": "Open menu",
       "nav.story": "Story",
@@ -31,14 +31,13 @@
       "hero.tagline":
         "I am not lying,<br><em>Believe</em> my words!",
       "hero.pitch":
-        "Consciousness shapes the future, not artificial intelligence. <em>ACE.await</em> is a philosophical thriller novel about nested writers, peer-to-peer technology, characters who rebel against their author, and one person who tries to bring the ACE game — Agency, Connection, Exchange — into society.",
+        "Consciousness shapes the future, not artificial intelligence. <em>ACE.await</em> is a philosophical thriller novel about nested writers, characters who rebel against their author, and one person who tries to bring the ACE game — Agency, Connection, Exchange — into society.",
       "hero.genre": "Literary Fiction",
       "hero.topic1": "Philosophical thriller",
       "hero.topic2": "AI & consciousness",
       "hero.topic3": "Metafiction",
-      "hero.topic4": "Peer-to-peer technology",
-      "hero.topic5": "Personal & social harmony",
-      "hero.topic6": "ACE game",
+      "hero.topic4": "Personal & social harmony",
+      "hero.topic5": "ACE game",
       "hero.buyBtn": "Pre-order / Buy",
       "hero.sampleBtn": "Read Chapter 1",
       "hero.coverAlt":
@@ -136,16 +135,16 @@
     de: {
       "meta.title": "ACE.await — Philosophischer KI-Thriller | Ace Conscious Studio",
       "meta.description":
-        "ACE.await — ein philosophischer KI-Thriller von Hedayat the second. Metafiktion über Bewusstsein, Peer-to-Peer-Technologie, das ACE-Spiel (Agency, Connection, Exchange) und Harmonie im persönlichen und gesellschaftlichen Leben. Leseprobe gratis.",
+        "ACE.await — ein philosophischer KI-Thriller von Hedayat the second. Metafiktion über Bewusstsein, das ACE-Spiel (Agency, Connection, Exchange) und Harmonie im persönlichen und gesellschaftlichen Leben. Leseprobe gratis.",
       "meta.keywords":
-        "ACE.await, philosophischer Thriller, KI-Roman, Bewusstsein, künstliche Intelligenz, Metafiktion, Peer-to-Peer-Internet, freies Internet, Harmonie, Agency Connection Exchange, ACE-Spiel, literarische Belletristik, Köln Roman, verschachtelte Autoren, soziale Therapie, Thriller Roman",
+        "ACE.await, philosophischer Thriller, KI-Roman, Bewusstsein, künstliche Intelligenz, Metafiktion, freies Internet, Harmonie, Agency Connection Exchange, ACE-Spiel, literarische Belletristik, Köln Roman, verschachtelte Autoren, soziale Therapie, Thriller Roman",
       "meta.ogTitle": "ACE.await — Philosophischer KI-Thriller",
       "meta.ogDescription":
-        "Bewusstsein formt die Zukunft, nicht künstliche Intelligenz. Ein philosophischer Thriller über verschachtelte Autoren, Peer-to-Peer-Technologie und das ACE-Spiel — Agency, Connection, Exchange.",
+        "Bewusstsein formt die Zukunft, nicht künstliche Intelligenz. Ein philosophischer Thriller über verschachtelte Autoren und das ACE-Spiel — Agency, Connection, Exchange.",
       "meta.twitterDescription":
-        "Ein metafiktionaler Thriller über Bewusstsein, KI, Peer-to-Peer-Technologie und das ACE-Spiel. Gratis Leseprobe verfügbar.",
+        "Ein metafiktionaler Thriller über Bewusstsein, KI und das ACE-Spiel. Gratis Leseprobe verfügbar.",
       "meta.bookDescription":
-        "ACE.await ist ein philosophischer Thriller über verschachtelte Autoren, Figuren, die sich gegen ihren Autor auflehnen, Peer-to-Peer-Technologie und eine Person, die das ACE-Spiel — Agency, Connection, Exchange — in die Gesellschaft tragen will. Bewusstsein formt die Zukunft, nicht künstliche Intelligenz.",
+        "ACE.await ist ein philosophischer Thriller über verschachtelte Autoren, Figuren, die sich gegen ihren Autor auflehnen, und eine Person, die das ACE-Spiel — Agency, Connection, Exchange — in die Gesellschaft tragen will. Bewusstsein formt die Zukunft, nicht künstliche Intelligenz.",
       "skipLink": "Zum Inhalt springen",
       "nav.openMenu": "Menü öffnen",
       "nav.story": "Geschichte",
@@ -158,14 +157,13 @@
       "hero.tagline":
         "Ich lüge nicht,<br><em>Glaube</em> meinen Worten!",
       "hero.pitch":
-        "Bewusstsein formt die Zukunft, nicht künstliche Intelligenz. <em>ACE.await</em> ist ein philosophischer Thriller über verschachtelte Autoren, Peer-to-Peer-Technologie, Figuren, die sich gegen ihren Autor auflehnen, und eine Person, die das ACE-Spiel — Agency, Connection, Exchange — in die Gesellschaft tragen will.",
+        "Bewusstsein formt die Zukunft, nicht künstliche Intelligenz. <em>ACE.await</em> ist ein philosophischer Thriller über verschachtelte Autoren, Figuren, die sich gegen ihren Autor auflehnen, und eine Person, die das ACE-Spiel — Agency, Connection, Exchange — in die Gesellschaft tragen will.",
       "hero.genre": "Literarische Belletristik",
       "hero.topic1": "Philosophischer Thriller",
       "hero.topic2": "KI & Bewusstsein",
       "hero.topic3": "Metafiktion",
-      "hero.topic4": "Peer-to-Peer-Technologie",
-      "hero.topic5": "Persönliche & gesellschaftliche Harmonie",
-      "hero.topic6": "ACE-Spiel",
+      "hero.topic4": "Persönliche & gesellschaftliche Harmonie",
+      "hero.topic5": "ACE-Spiel",
       "hero.buyBtn": "Vorbestellen / Kaufen",
       "hero.sampleBtn": "Kapitel 1 lesen",
       "hero.coverAlt":
@@ -384,7 +382,6 @@
           about: [
             { "@type": "Thing", name: lang === "de" ? "Künstliche Intelligenz" : "Artificial intelligence" },
             { "@type": "Thing", name: lang === "de" ? "Bewusstsein" : "Consciousness" },
-            { "@type": "Thing", name: lang === "de" ? "Peer-to-Peer-Technologie" : "Peer-to-peer technology" },
             { "@type": "Thing", name: lang === "de" ? "Persönliche Harmonie" : "Personal harmony" },
             { "@type": "Thing", name: lang === "de" ? "Gesellschaftliche Harmonie" : "Social harmony" },
           ],

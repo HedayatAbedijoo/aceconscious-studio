@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-# Deploy ACE.await site to GitHub Pages (HedayatAbedijoo/website)
+# Deploy ACE.await site to GitHub Pages (HedayatAbedijoo/aceconscious-studio)
 set -euo pipefail
 
-REPO="HedayatAbedijoo/website"
+REPO="HedayatAbedijoo/aceconscious-studio"
 REPO_SSH="git@github.com:${REPO}.git"
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 GIT_ONLY=false
@@ -23,7 +23,7 @@ ensure_remote() {
 
 if [ "$GIT_ONLY" = true ]; then
   echo "Git-only deploy (SSH push; configure Pages in GitHub UI)."
-  echo "Create empty repo first if needed: https://github.com/new (name: website, public, no README)"
+  echo "Create empty repo first if needed: https://github.com/new (name: aceconscious-studio, public, no README)"
   ensure_remote
   git push -u origin main
   echo ""
@@ -35,7 +35,7 @@ fi
 
 if gh auth status -h github.com >/dev/null 2>&1; then
   if ! git remote get-url origin >/dev/null 2>&1; then
-    gh repo create website \
+    gh repo create aceconscious-studio \
       --public \
       --description "ACE.await book launch site — Ace Conscious Studio" \
       --source=. \
@@ -61,7 +61,7 @@ else
   if ! git push -u origin main 2>/dev/null; then
     echo ""
     echo "Push failed. Create the repo manually:"
-    echo "  1. https://github.com/new → Repository name: website → Public → Create"
+    echo "  1. https://github.com/new → Repository name: aceconscious-studio → Public → Create"
     echo "  2. ./scripts/deploy-github-pages.sh --git-only"
     echo "  3. Enable Pages in repo Settings (see script output)"
     exit 1
