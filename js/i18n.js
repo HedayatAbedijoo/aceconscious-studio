@@ -4,6 +4,8 @@
   const STORAGE_KEY = "ace-lang";
   const DEFAULT_LANG = "en";
   const SITE_URL = "https://aceconscious.studio";
+  /** URL path codes for non-English pages. Add codes here when translations are ready. */
+  const PATH_LANGS = ["de", "fa", "sa"];
 
   const translations = {
     en: {
@@ -260,16 +262,55 @@
     },
   };
 
-  function getInitialLang() {
+  function availablePathLangs() {
+    return PATH_LANGS.filter((code) => translations[code]);
+  }
+
+  function langFromPath() {
+    const segments = window.location.pathname.split("/").filter(Boolean);
+    for (const code of PATH_LANGS) {
+      if (segments.includes(code) && translations[code]) return code;
+    }
+    return null;
+  }
+
+  function langPath(lang) {
+    return lang === DEFAULT_LANG ? "/" : `/${lang}`;
+  }
+
+  function isOnLangPath(lang) {
+    const current = langFromPath();
+    if (lang === DEFAULT_LANG) return current === null;
+    return current === lang;
+  }
+
+  function redirectLegacyLangParam() {
     const params = new URLSearchParams(window.location.search);
     const paramLang = params.get("lang");
-    if (paramLang === "en" || paramLang === "de") return paramLang;
+    if (!paramLang || !translations[paramLang]) return false;
 
-    const stored = localStorage.getItem(STORAGE_KEY);
-    if (stored === "en" || stored === "de") return stored;
+    const target = langPath(paramLang) + window.location.hash;
 
-    const browser = (navigator.language || "").toLowerCase();
-    if (browser.startsWith("de")) return "de";
+    if (!isOnLangPath(paramLang)) {
+      window.location.replace(target);
+      return true;
+    }
+
+    if (params.has("lang")) {
+      window.location.replace(target);
+      return true;
+    }
+
+    return false;
+  }
+
+  function getInitialLang() {
+    const pathLang = langFromPath();
+    if (pathLang) return pathLang;
+
+    const params = new URLSearchParams(window.location.search);
+    const paramLang = params.get("lang");
+    if (paramLang && translations[paramLang]) return paramLang;
 
     return DEFAULT_LANG;
   }
@@ -278,9 +319,16 @@
     return translations[lang]?.[key] ?? translations.en[key] ?? "";
   }
 
-  function applyLanguage(lang) {
+  function applyLanguage(lang, options = {}) {
+    const { skipUrlSync = false } = options;
     const strings = translations[lang] || translations.en;
     document.documentElement.lang = lang;
+
+    if (!skipUrlSync && !isOnLangPath(lang)) {
+      localStorage.setItem(STORAGE_KEY, lang);
+      window.location.assign(langPath(lang) + window.location.hash);
+      return;
+    }
 
     document.title = strings["meta.title"];
     setMeta("description", strings["meta.description"]);
@@ -290,6 +338,8 @@
     setMeta("twitter:title", strings["meta.ogTitle"]);
     setMeta("twitter:description", strings["meta.twitterDescription"]);
     setMeta("og:locale", lang === "de" ? "de_DE" : "en_US", "property");
+    setMeta("og:url", `${SITE_URL}${langPath(lang)}`, "property");
+    updateUrlMeta(lang);
     updateStructuredData(lang, strings);
 
     document.querySelectorAll("[data-i18n]").forEach((el) => {
@@ -321,6 +371,30 @@
     document.dispatchEvent(new CustomEvent("languagechange", { detail: { lang } }));
   }
 
+  function setLink(rel, href, hreflang) {
+    const selector = hreflang
+      ? `link[rel="${rel}"][hreflang="${hreflang}"]`
+      : `link[rel="${rel}"]`;
+    let el = document.querySelector(selector);
+    if (!el && hreflang) {
+      el = document.createElement("link");
+      el.setAttribute("rel", rel);
+      el.setAttribute("hreflang", hreflang);
+      document.head.appendChild(el);
+    }
+    if (el) el.setAttribute("href", href);
+  }
+
+  function updateUrlMeta(lang) {
+    const canonical = `${SITE_URL}${langPath(lang)}`;
+    setLink("canonical", canonical);
+    setLink("alternate", `${SITE_URL}/`, "en");
+    availablePathLangs().forEach((code) => {
+      setLink("alternate", `${SITE_URL}${langPath(code)}`, code);
+    });
+    setLink("alternate", `${SITE_URL}/`, "x-default");
+  }
+
   function setMeta(name, content, attr = "name") {
     const selector =
       attr === "property"
@@ -340,10 +414,10 @@
         {
           "@type": "WebSite",
           "@id": `${SITE_URL}/#website`,
-          url: `${SITE_URL}/`,
+          url: `${SITE_URL}${langPath(lang)}`,
           name: "Ace Conscious Studio",
           description: strings["meta.ogDescription"],
-          inLanguage: ["en", "de"],
+          inLanguage: Object.keys(translations),
           publisher: { "@id": `${SITE_URL}/#organization` },
         },
         {
@@ -365,7 +439,7 @@
             alternateName: "Hedayat the second",
           },
           publisher: { "@id": `${SITE_URL}/#organization` },
-          url: `${SITE_URL}/`,
+          url: `${SITE_URL}${langPath(lang)}`,
           image: `${SITE_URL}/assets/cover.png`,
           bookFormat: "https://schema.org/EBook",
           inLanguage: lang,
@@ -393,8 +467,10 @@
   }
 
   function initLanguage() {
+    if (redirectLegacyLangParam()) return;
+
     const lang = getInitialLang();
-    applyLanguage(lang);
+    applyLanguage(lang, { skipUrlSync: true });
 
     const switcher = document.getElementById("lang-switch");
     if (switcher) {
