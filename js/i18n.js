@@ -9,12 +9,12 @@
 
   const translations = {
     en: {
-      "meta.title": "ACE.await — Philosophical AI Thriller Novel | Ace Conscious Studio",
+      "meta.title": "ACE.await is a philosophical literary thriller | Ace Conscious Studio",
       "meta.description":
         "ACE.await — a philosophical AI thriller novel by Hedayat the second. Metafiction about consciousness, the ACE game (Agency, Connection, Exchange), and harmony in personal and social life. Read a free sample chapter.",
       "meta.keywords":
         "ACE.await, philosophical thriller, AI novel, consciousness, artificial intelligence, metafiction, free internet, harmony, Agency Connection Exchange, ACE game, literary fiction, Cologne novel, nested writers, social therapy, thriller novel",
-      "meta.ogTitle": "ACE.await — Philosophical AI Thriller Novel",
+      "meta.ogTitle": "ACE.await is a philosophical literary thriller",
       "meta.ogDescription":
         "Consciousness shapes the future, not artificial intelligence. A philosophical thriller about nested writers and the ACE game — Agency, Connection, Exchange.",
       "meta.twitterDescription":
@@ -138,12 +138,12 @@
       "footer.press": "Press kit",
     },
     de: {
-      "meta.title": "ACE.await — Philosophischer KI-Thriller | Ace Conscious Studio",
+      "meta.title": "ACE.await ist ein philosophischer literarischer Thriller | Ace Conscious Studio",
       "meta.description":
         "ACE.await — ein philosophischer KI-Thriller von Hedayat the second. Metafiktion über Bewusstsein, das ACE-Spiel (Agency, Connection, Exchange) und Harmonie im persönlichen und gesellschaftlichen Leben. Leseprobe gratis.",
       "meta.keywords":
         "ACE.await, philosophischer Thriller, KI-Roman, Bewusstsein, künstliche Intelligenz, Metafiktion, freies Internet, Harmonie, Agency Connection Exchange, ACE-Spiel, literarische Belletristik, Köln Roman, verschachtelte Autoren, soziale Therapie, Thriller Roman",
-      "meta.ogTitle": "ACE.await — Philosophischer KI-Thriller",
+      "meta.ogTitle": "ACE.await ist ein philosophischer literarischer Thriller",
       "meta.ogDescription":
         "Bewusstsein formt die Zukunft, nicht künstliche Intelligenz. Ein philosophischer Thriller über verschachtelte Autoren und das ACE-Spiel — Agency, Connection, Exchange.",
       "meta.twitterDescription":
