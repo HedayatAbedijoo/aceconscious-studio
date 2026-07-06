@@ -188,15 +188,46 @@
           </div>
         </div>
         <div class="hero__cover-wrap reveal">
-          <img
-            class="hero__cover"
-            src="assets/cover.png"
-            data-i18n-attr="alt:hero.coverAlt"
-            alt="ACE.await book cover — philosophical AI thriller novel about consciousness and metafiction"
-            width="683"
-            height="1024"
-            fetchpriority="high"
-          >
+          <div class="book-cover" id="book-cover">
+            <div class="book-cover__stage">
+              <div class="book-cover__card">
+                <div class="book-cover__face book-cover__face--front">
+                  <img
+                    class="hero__cover"
+                    src="assets/cover.png"
+                    data-i18n-attr="alt:hero.coverAlt"
+                    alt="ACE.await book cover — philosophical AI thriller novel about consciousness and metafiction"
+                    width="683"
+                    height="1024"
+                    fetchpriority="high"
+                  >
+                </div>
+                <div class="book-cover__face book-cover__face--back">
+                  <img
+                    class="hero__cover hero__cover--back"
+                    src="assets/cover-back.png"
+                    data-i18n-attr="alt:hero.coverBackAlt"
+                    alt="ACE.await back cover"
+                    width="683"
+                    height="1024"
+                    loading="lazy"
+                  >
+                </div>
+              </div>
+            </div>
+            <button
+              type="button"
+              class="book-cover__peek"
+              id="book-cover-peek"
+              data-i18n-attr="aria-label:hero.coverPeekAria"
+              aria-label="Turn the book to see the back cover"
+              aria-pressed="false"
+            >
+              <svg class="book-cover__peek-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M12 4V1L8 5l4 4V6c3.3 0 6 2.7 6 6 0 1-.3 2-.8 2.8l1.5 1.5A7.9 7.9 0 0 0 20 12c0-4.4-3.6-8-8-8zm-6 7.2l-1.5-1.5A7.9 7.9 0 0 0 4 12c0 4.4 3.6 8 8 8v3l4-4-4-4v3c-3.3 0-6-2.7-6-6 0-1 .3-2 .8-2.8z"/>
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
     </section>
@@ -599,6 +630,7 @@
   </footer>
 
   <script src="js/i18n.js" defer></script>
+  <script src="js/cover-flip.js" defer></script>
   <script src="js/main.js" defer></script>
 </body>
 </html>

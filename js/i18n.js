@@ -44,6 +44,9 @@
       "hero.sampleBtn": "Read Chapter 1",
       "hero.coverAlt":
         "ACE.await book cover — philosophical AI thriller novel about consciousness and metafiction",
+      "hero.coverBackAlt": "ACE.await back cover — a wager about love, belief, and the mirror between self and self",
+      "hero.coverPeekAria": "Turn the book to see the back cover",
+      "hero.coverPeekAriaBack": "Turn the book back to the front cover",
       "synopsis.label": "The Story",
       "synopsis.p1":
         "Something is wrong with Hedayat’s unfinished novel: pages go blank, dates shift, and a character inside the book begins talking nonsense, refusing to follow the storyline. Outside the novel, Hedayat is a software team lead in Cologne, helping build a new version of the internet for freedom against the dictatorships of the information age. Then a stranger called Anonymous pulls him into the ACE game — Agency, Connection, Exchange — a personal and social model for making proper decisions and finding a new harmony in life.",
@@ -170,6 +173,9 @@
       "hero.sampleBtn": "Kapitel 1 lesen",
       "hero.coverAlt":
         "ACE.await Buchcover — philosophischer KI-Thriller über Bewusstsein und Metafiktion",
+      "hero.coverBackAlt": "ACE.await Rückseite — eine Wette über Liebe, Glauben und den Spiegel zwischen Ich und Selbst",
+      "hero.coverPeekAria": "Buch umdrehen, um die Rückseite zu sehen",
+      "hero.coverPeekAriaBack": "Buch zurück zur Vorderseite drehen",
       "synopsis.label": "Die Geschichte",
       "synopsis.p1":
         "Etwas stimmt nicht mit Hedayats unvollendetem Roman: Seiten werden leer, Daten verschieben sich, und eine Figur im Buch fängt an, Unsinn zu reden und sich zu weigern, der Handlung zu folgen. Außerhalb des Romans ist Hedayat Teamleiter einer Softwarefirma in Köln und hilft beim Aufbau eines neuen Internets für Freiheit — gegen die Diktaturen des Informationszeitalters. Dann zieht ihn ein Fremder namens Anonymous in das ACE-Spiel — Agency, Connection, Exchange — ein persönliches und gesellschaftliches Modell für richtige Entscheidungen und eine neue Harmonie im Leben.",
@@ -488,5 +494,12 @@
     initLanguage();
   }
 
-  window.aceI18n = { applyLanguage, getLang: () => localStorage.getItem(STORAGE_KEY) || DEFAULT_LANG };
+  window.aceI18n = {
+    applyLanguage,
+    getLang: () => document.documentElement.lang || DEFAULT_LANG,
+    getString: (key) => {
+      const lang = document.documentElement.lang || DEFAULT_LANG;
+      return translations[lang]?.[key] ?? translations.en[key] ?? "";
+    },
+  };
 })();

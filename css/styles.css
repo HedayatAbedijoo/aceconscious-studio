@@ -271,9 +271,20 @@ section {
   position: relative;
   justify-self: center;
   max-width: 380px;
+  margin-bottom: 1.25rem;
 }
 
-.hero__cover-wrap::before {
+.book-cover {
+  position: relative;
+  z-index: 1;
+}
+
+.book-cover__stage {
+  perspective: 1400px;
+  position: relative;
+}
+
+.book-cover__stage::before {
   content: "";
   position: absolute;
   inset: -8% -12%;
@@ -284,11 +295,135 @@ section {
   opacity: 0.92;
 }
 
+.book-cover__card {
+  position: relative;
+  z-index: 1;
+  transform-style: preserve-3d;
+  transition: transform 0.75s cubic-bezier(0.33, 1, 0.38, 1);
+  will-change: transform;
+}
+
+.book-cover.is-flipped .book-cover__card {
+  transform: rotateY(-180deg);
+}
+
+.book-cover.is-dragging .book-cover__card {
+  transition: none;
+}
+
+.book-cover__face {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.book-cover__face--back {
+  position: absolute;
+  inset: 0;
+  transform: rotateY(180deg);
+}
+
+.book-cover__face img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+.book-cover__peek {
+  position: absolute;
+  left: 50%;
+  bottom: -1.35rem;
+  transform: translateX(-50%);
+  z-index: 3;
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: rgba(232, 220, 200, 0.88);
+  color: var(--ink);
+  box-shadow: 0 2px 12px rgba(26, 22, 18, 0.14);
+  cursor: pointer;
+  touch-action: none;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+.book-cover__peek:hover {
+  background: rgba(245, 237, 224, 0.95);
+  box-shadow: 0 4px 16px rgba(26, 22, 18, 0.18);
+}
+
+.book-cover__peek:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+}
+
+.book-cover.is-flipped .book-cover__peek {
+  left: 50%;
+  right: auto;
+  transform: translateX(-50%);
+}
+
+.book-cover.is-dragging .book-cover__peek-icon {
+  animation: none;
+}
+
+.book-cover__peek-icon {
+  width: 1.35rem;
+  height: 1.35rem;
+  fill: currentColor;
+  pointer-events: none;
+  animation: cover-peek-heartbeat 2.4s ease-in-out infinite;
+}
+
+.book-cover.is-flipped .book-cover__peek-icon {
+  animation: none;
+}
+
+@keyframes cover-peek-heartbeat {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  12% {
+    transform: scale(1.05);
+    opacity: 0.92;
+  }
+  24% {
+    transform: scale(1.01);
+    opacity: 0.84;
+  }
+  36% {
+    transform: scale(1.06);
+    opacity: 0.96;
+  }
+  52%, 100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+}
+
 .hero__cover {
   position: relative;
   z-index: 1;
   border-radius: 4px;
   box-shadow: var(--shadow-ink);
+}
+
+.hero__cover--back {
+  box-shadow: var(--shadow-ink);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .book-cover__card {
+    transition-duration: 0.01ms;
+  }
+
+  .book-cover__peek-icon {
+    animation: none;
+  }
 }
 
 .hero__tagline-hand {
