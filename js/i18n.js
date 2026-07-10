@@ -431,7 +431,7 @@
           "@id": `${SITE_URL}/#organization`,
           name: "Ace Conscious Studio",
           url: `${SITE_URL}/`,
-          email: "hedayat@AceConscious.Studio",
+          email: "h.abedijoo@gmail.com",
           logo: `${SITE_URL}/assets/logo-icon.png`,
         },
         {
