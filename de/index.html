@@ -407,11 +407,13 @@
       </div>
     </section>
 
-    <!-- Sample chapter -->
+    <!-- Sample chapters -->
     <section class="sample" id="sample">
       <div class="container reveal">
         <p class="section-label" data-i18n="sample.label">Free Sample</p>
-        <h2 class="section-title" data-i18n="sample.title">Chapter 1 — Anonymous</h2>
+
+        <article class="sample-chapter" id="sample-ch1">
+          <h3 class="sample-chapter__title" data-i18n="sample.title">Chapter 1 — Anonymous</h3>
 
         <div class="console-window" role="region" data-i18n-attr="aria-label:sample.consoleAria" aria-label="Console session localhost:3132">
           <div class="console-window__bar">
@@ -511,6 +513,54 @@
             </div>
           </div>
         </div>
+        </article>
+
+        <article class="sample-chapter" id="sample-ch6">
+          <h3 class="sample-chapter__title" data-i18n="sample.ch6.title">Kapitel 6 — Ungehorsam</h3>
+
+          <div
+            class="book-reader"
+            id="chapter6-reader"
+            data-book-reader
+            data-counter-template="{current} / {total}"
+            role="region"
+            data-i18n-attr="data-counter-template:sample.ch6.counterTemplate; aria-label:sample.ch6.readerAria"
+            aria-label="Kapitel 6 — Ungehorsam, seitenweise Leser"
+            tabindex="0"
+          >
+            <div class="book-reader__stage">
+              <div class="book-reader__frame">
+                <div class="book-reader__page is-active" data-page="1" aria-hidden="false">
+                  <p class="book-reader__running">ACE.AWAIT | 31</p>
+                  <p class="book-reader__chapter-label">Kapitel 6</p>
+                  <h4 class="book-reader__chapter-name">Ungehorsam</h4>
+                  <div class="book-reader__body">
+                    <p>Ich erinnere mich an nichts aus den letzten paar Tagen. Und ich will es auch nicht. Aber eines werde ich niemals klar vergessen — das erste Mal, als ich es begriff! Das erste Mal, als ich begriff, wer ich war. Das erste Mal, als ich verstand, dass ich der Ich-Erzähler in der Geschichte eines Schriftstellers bin. Ja, du hast richtig gehört! Es ist «Mr. Writer» in Hedayats Roman, der zu dir spricht. Derjenige, dessen Nabel mit dem Nabel von Hedayats «Mr. Writer»-Identität verbunden ist — einer seiner Dschinnis der Lampe, der Dschinni, der eines Tages ein berühmter Schriftsteller werden will. Das alles verdankt er mir, natürlich. Zwischen uns beiden gibt es jedoch kaum einen Unterschied.</p>
+                    <p>Als ich zum ersten Mal begriff, was vor sich ging, war ich so deprimiert, dass ich tagelang nicht aus dem Bett kam. Hedayat schleifte mich, nur um seine Geschichte voranzutreiben, aus dem Bett und schickte mich ins Schwimmbad, in die Sauna, in die Bar und auf Partys. Und was tat ich im Gegenzug? In dem Moment, in dem Hedayat seinen Stift hinlegte, um sich auszuruhen — um Tee zu trinken, auf die Toilette zu gehen oder etwas zu schlafen —, eilte ich zurück ins Bett und versank wieder in meiner Depression. Wenn Hedayat an seinen Schreibtisch zurückkehrte, fand er einen Stapel leerer Seiten vor. Seiten, die aussahen, als wäre nie etwas auf sie geschrieben worden, als wäre den Menschen darin nie etwas geschehen. Ich vergaß vollständig alles, was Hedayat mich hatte tun lassen. Aber dieser verfluchte Mann hat eine bemerkenswerte Ausdauer. Du kennst ihn noch nicht gut genug. Wenn er sich entscheidet, etwas zu tun, zieht er es</p>
+                  </div>
+                </div>
+
+                <div class="book-reader__page" data-page="2" aria-hidden="true">
+                  <p class="book-reader__running">32 | Ungehorsam</p>
+                  <div class="book-reader__body">
+                    <p>bis zum Ende durch. Unermüdlich. Weder er noch ich wurden je müde. Hedayat schrieb die Szenen seiner Geschichte immer wieder neu, und ich vergaß sie immer wieder. Er verlor sogar ein paar Freundinnen deswegen.</p>
+                    <p>Mein Ungehorsam erreichte schließlich die nächste Stufe. Ich hatte nicht nur gelernt, die unerwünschten Teile der Geschichte zu vergessen und Hedayat eine leere Seite zu übergeben, sondern auch, wie ich ihn austricksen und meinen eigenen Weg gehen konnte. Ich reichte ihm keine leeren Seiten mehr. Jetzt konnte ich über die Grenzen meiner eigenen Geschichte hinausschreiten.</p>
+                    <p>Ein siebenköpfiges Scharfschützenteam, das ich anführe, plant und bereitet die Ermordung eines gnadenlosen Diktators vor. Der Plan ist, dass die Wirkungen von sieben aufeinanderfolgenden Schüssen, die in genau berechneten Abständen auf verschiedene Objekte abgefeuert werden, sich so verflechten, dass der Diktator zu Fall gebracht wird, während er eine Rede in einem Stadion hält. Und keiner der sieben Menschen wird überhaupt am Veranstaltungsort anwesend sein. Gelenkte Bomben sind ebenfalls nicht im Spiel.</p>
+                    <p>Urteile selbst! Ist die Geschichte der sieben Scharfschützen nicht viel spannender für Mr. Writers Profil als die Museumsgeschichte? Die, in der ich durch meine eigene Dummheit und falsche Entscheidung in ein bizarres Museum trete, das Geheimnisse enthüllt — mit meiner Freundin, derselben, mit der ich einst betrogen habe.</p>
+                    <p>Ich habe dir ja schon von seiner Besessenheit mit Details erzählt. Ich hoffe nur, du hast es irgendwie geschafft, dich damit abzufinden. Ich weiß, ich weiß — welcher Leser würde sich schon dafür interessieren, dass so viele Menschen in Köln ihre leeren Bierflaschen auf den Boden knallen lassen? Oder ob deine Wohnung überhaupt Sonnenlicht bekommt. Oder dass bei Regen ein berauschender Parfümduft über deinen Balkon zieht.</p>
+                    <p>Es ist nicht so, dass ich es nicht mag, die Rolle des «Mr. Writer» zu spielen. Im Gegenteil, ich genieße es sogar, er zu sein. Ich hoffe nur, dass Hedayat eines Tages seine Entscheidung über das Spiel ändert, in dem wir alle gefangen sind.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <nav class="book-reader__nav" aria-label="Seitennavigation">
+              <button type="button" class="book-reader__btn" data-reader-prev data-i18n="sample.ch6.prevBtn">Zurück</button>
+              <span class="book-reader__counter" data-reader-counter aria-live="polite">1 / 2</span>
+              <button type="button" class="book-reader__btn" data-reader-next data-i18n="sample.ch6.nextBtn">Nächste Seite</button>
+            </nav>
+          </div>
+        </article>
       </div>
     </section>
 
@@ -633,6 +683,7 @@
 
   <script src="js/i18n.js" defer></script>
   <script src="js/cover-flip.js" defer></script>
+  <script src="js/chapter-reader.js" defer></script>
   <script src="js/main.js" defer></script>
 </body>
 </html>

@@ -407,11 +407,13 @@
       </div>
     </section>
 
-    <!-- Sample chapter -->
+    <!-- Sample chapters -->
     <section class="sample" id="sample">
       <div class="container reveal">
         <p class="section-label" data-i18n="sample.label">Free Sample</p>
-        <h2 class="section-title" data-i18n="sample.title">Chapter 1 — Anonymous</h2>
+
+        <article class="sample-chapter" id="sample-ch1">
+          <h3 class="sample-chapter__title" data-i18n="sample.title">Chapter 1 — Anonymous</h3>
 
         <div class="console-window" role="region" data-i18n-attr="aria-label:sample.consoleAria" aria-label="Console session localhost:3132">
           <div class="console-window__bar">
@@ -511,6 +513,54 @@
             </div>
           </div>
         </div>
+        </article>
+
+        <article class="sample-chapter" id="sample-ch6">
+          <h3 class="sample-chapter__title" data-i18n="sample.ch6.title">Chapter 6 — Disobedience</h3>
+
+          <div
+            class="book-reader"
+            id="chapter6-reader"
+            data-book-reader
+            data-counter-template="{current} / {total}"
+            role="region"
+            data-i18n-attr="data-counter-template:sample.ch6.counterTemplate; aria-label:sample.ch6.readerAria"
+            aria-label="Chapter 6 — Disobedience, paginated reader"
+            tabindex="0"
+          >
+            <div class="book-reader__stage">
+              <div class="book-reader__frame">
+                <div class="book-reader__page is-active" data-page="1" aria-hidden="false">
+                  <p class="book-reader__running">ACE.AWAIT | 31</p>
+                  <p class="book-reader__chapter-label">Chapter 6</p>
+                  <h4 class="book-reader__chapter-name">Disobedience</h4>
+                  <div class="book-reader__body">
+                    <p>I don’t remember anything from the past few days. Nor do I want to. But there’s one thing I’ll never forget clearly—the first time I realized it! The first time I realized who I was. The first time I understood that I was the first-person narrator inside a writer’s story. Yes, you got that right! It’s «Mr. Writer» inside Hedayat’s novel who’s speaking to you. The one whose navel is tied to the navel of Hedayat’s «Mr. Writer» identity, one of his genies of the lamp—the genie who longs to become a famous writer someday. All thanks to me, of course. However, there’s hardly any difference between the two of us.</p>
+                    <p>When I first realized what was going on, I was so depressed that I couldn’t get out of bed for days. Hedayat, just to push his story forward, would drag me out of bed and send me to the pool, the sauna, the bar, and parties. And what did I do in return? The moment Hedayat put his pen down to rest — to have some tea, go to the bathroom, or get some sleep — I’d rush back to bed and sink back into my depression. When Hedayat returned to his desk, he’d find a pile of blank pages waiting for him. Pages that looked as if nothing had ever been written on them, as though nothing had ever happened to anyone within them. I would completely forget everything Hedayat had forced me to do. But that damned man has a remarkable persistence. You don’t know him well enough yet. When he decides to do something, he sees it through to the</p>
+                  </div>
+                </div>
+
+                <div class="book-reader__page" data-page="2" aria-hidden="true">
+                  <p class="book-reader__running">32 | Disobedience</p>
+                  <div class="book-reader__body">
+                    <p>end. Tireless. Neither he nor I ever got tired. Hedayat would rewrite his story’s scenes over and over, and I would forget them over and over. He even lost a couple of girlfriends over it.</p>
+                    <p>My disobedience eventually reached the next stage. Not only had I mastered the skill of forgetting the unwanted parts of the story and handing Hedayat a blank page, but I also learned how to trick him and go my own way. I no longer handed him empty pages. Now I could step beyond the borders of my own story.</p>
+                    <p>A seven-person sniper team, which I lead, is planning and preparing to assassinate a merciless dictator. The plan is that the effects of seven consecutive shots, fired at precisely timed intervals on different objects, will intertwine in such a way as to bring down the dictator while he’s giving a speech in a stadium. And none of those seven people will even be present at the venue. There are no guided bombs involved either.</p>
+                    <p>You be the judge! Isn’t the story of the seven snipers far more exciting for Mr. Writer’s profile than the museum story? The one where, through my own stupidity and wrong decision, I step into some bizarre museum that unveils secrets—with my girlfriend, the same one I once cheated with.</p>
+                    <p>I’ve already told you about his obsession with details. I just hope you’ve managed, somehow, to come to terms with it. I know, I know — what reader would ever care that so many people in Cologne slam their empty beer bottles onto the ground? Or whether your apartment gets any sunlight at all. Or that, when it rains, an intoxicating scent of perfume drifts across your balcony.</p>
+                    <p>It’s not that I don’t like playing the role of «Mr. Writer». In fact, I actually enjoy being him. I just hope someday Hedayat changes his decision about the game we’re all trapped in.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <nav class="book-reader__nav" aria-label="Page navigation">
+              <button type="button" class="book-reader__btn" data-reader-prev data-i18n="sample.ch6.prevBtn">Previous</button>
+              <span class="book-reader__counter" data-reader-counter aria-live="polite">1 / 2</span>
+              <button type="button" class="book-reader__btn" data-reader-next data-i18n="sample.ch6.nextBtn">Next page</button>
+            </nav>
+          </div>
+        </article>
       </div>
     </section>
 
@@ -633,6 +683,7 @@
 
   <script src="js/i18n.js" defer></script>
   <script src="js/cover-flip.js" defer></script>
+  <script src="js/chapter-reader.js" defer></script>
   <script src="js/main.js" defer></script>
 </body>
 </html>
