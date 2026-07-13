@@ -48,10 +48,19 @@
       "hero.coverPeekAria": "Turn the book to see the back cover",
       "hero.coverPeekAriaBack": "Turn the book back to the front cover",
       "synopsis.label": "The Story",
-      "synopsis.p1":
-        "Something is wrong with Hedayat’s unfinished novel: pages go blank, dates shift, and a character inside the book begins talking nonsense, refusing to follow the storyline. Outside the novel, Hedayat is a software team lead in Cologne, helping build a new version of the internet for freedom against the dictatorships of the information age. Then a stranger called Anonymous pulls him into the ACE game — Agency, Connection, Exchange — a personal and social model for making proper decisions and finding a new harmony in life.",
+      "synopsis.lead":
+        "<span class=\"synopsis__lead\">Something is wrong with Hedayat’s unfinished novel.</span> Pages go blank. A character inside the book begins speaking directly to the reader, rewriting scenes and refusing to obey the story.",
       "synopsis.p2":
-        "Strange things begin to happen around him. Blackouts spread across Germany. His company’s data center is hacked. His digital children return, and so does an old friend from his childhood. As Hedayat struggles with fatherhood, love, responsibility, and the fate of his unfinished novel, he must find a way to deal with the mistakes his digital children have made — and with the infinite loop of authors inside his own story. Did Hedayat finally understand who the real author of the novel was?",
+        "Outside the novel, Hedayat is a software team lead in Cologne, helping build a new version of the internet—one intended to resist the dictatorships of the information age. Yet he is exhausted by the bad decisions he keeps making in one situation after another. Then a stranger called <strong>Anonymous</strong> draws him into the <strong>ACE game: Agency, Connection, Exchange</strong>—a personal and social model for making <strong>proper decisions</strong> and finding another kind of harmony.",
+      "synopsis.p4":
+        "Soon, the <strong>boundaries</strong> between code, memory, fiction, and responsibility begin to collapse.",
+      "synopsis.beatsAria": "Escalating events",
+      "synopsis.beat1": "Blackouts spread across Germany.",
+      "synopsis.beat2": "His company’s data center is hacked.",
+      "synopsis.beat3": "His digital children return.",
+      "synopsis.beat4": "So does an old friend from childhood.",
+      "synopsis.p5":
+        "As Hedayat struggles with love, fatherhood, and the fate of his unfinished novel, he must confront the <strong>mistakes made by his digital children</strong>—and the infinite loop of authors nested inside his own story. But one question remains: <strong>who is the real author of this story?</strong>",
       "synopsis.pillA": "<span>A</span> Agency",
       "synopsis.pillC": "<span>C</span> Connection",
       "synopsis.pillE": "<span>E</span> Exchange",
@@ -184,10 +193,19 @@
       "hero.coverPeekAria": "Buch umdrehen, um die Rückseite zu sehen",
       "hero.coverPeekAriaBack": "Buch zurück zur Vorderseite drehen",
       "synopsis.label": "Die Geschichte",
-      "synopsis.p1":
-        "Etwas stimmt nicht mit Hedayats unvollendetem Roman: Seiten werden leer, Daten verschieben sich, und eine Figur im Buch fängt an, Unsinn zu reden und sich zu weigern, der Handlung zu folgen. Außerhalb des Romans ist Hedayat Teamleiter einer Softwarefirma in Köln und hilft beim Aufbau eines neuen Internets für Freiheit — gegen die Diktaturen des Informationszeitalters. Dann zieht ihn ein Fremder namens Anonymous in das ACE-Spiel — Agency, Connection, Exchange — ein persönliches und gesellschaftliches Modell für richtige Entscheidungen und eine neue Harmonie im Leben.",
+      "synopsis.lead":
+        "<span class=\"synopsis__lead\">Etwas stimmt nicht mit Hedayats unvollendetem Roman.</span> Seiten werden leer. Eine Figur im Buch beginnt, direkt zum Leser zu sprechen, Szenen umzuschreiben und sich zu weigern, der Geschichte zu gehorchen.",
       "synopsis.p2":
-        "Seltsame Dinge beginnen um ihn herum zu geschehen. Blackouts breiten sich in Deutschland aus. Das Rechenzentrum seiner Firma wird gehackt. Seine digitalen Kinder kehren zurück, und auch ein alter Freund aus seiner Kindheit. Während Hedayat mit Vaterschaft, Liebe, Verantwortung und dem Schicksal seines unvollendeten Romans ringt, muss er einen Weg finden, mit den Fehlern seiner digitalen Kinder umzugehen — und mit der unendlichen Schleife der Autoren in seiner eigenen Geschichte. Hat Hedayat endlich verstanden, wer der wahre Autor des Romans war?",
+        "Außerhalb des Romans ist Hedayat Teamleiter einer Softwarefirma in Köln und hilft beim Aufbau eines neuen Internets — eines, das den Diktaturen des Informationszeitalters widerstehen soll. Doch er ist erschöpft von den schlechten Entscheidungen, die er in einer Situation nach der anderen trifft. Dann zieht ihn ein Fremder namens <strong>Anonymous</strong> in das <strong>ACE-Spiel: Agency, Connection, Exchange</strong> — ein persönliches und gesellschaftliches Modell, um <strong>richtige Entscheidungen</strong> zu treffen und eine andere Art von Harmonie zu finden.",
+      "synopsis.p4":
+        "Bald beginnen die <strong>Grenzen</strong> zwischen Code, Erinnerung, Fiktion und Verantwortung zu verschwimmen.",
+      "synopsis.beatsAria": "Eskalierende Ereignisse",
+      "synopsis.beat1": "Blackouts breiten sich in Deutschland aus.",
+      "synopsis.beat2": "Das Rechenzentrum seiner Firma wird gehackt.",
+      "synopsis.beat3": "Seine digitalen Kinder kehren zurück.",
+      "synopsis.beat4": "Ebenso ein alter Freund aus seiner Kindheit.",
+      "synopsis.p5":
+        "Während Hedayat mit Liebe, Vaterschaft und dem Schicksal seines unvollendeten Romans ringt, muss er die <strong>Fehler seiner digitalen Kinder</strong> konfrontieren — und die unendliche Schleife der Autoren, die in seiner eigenen Geschichte verschachtelt sind. Aber eine Frage bleibt: <strong>Wer ist der wahre Autor dieser Geschichte?</strong>",
       "synopsis.pillA": "<span>A</span> Agency",
       "synopsis.pillC": "<span>C</span> Connection",
       "synopsis.pillE": "<span>E</span> Exchange",

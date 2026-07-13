@@ -599,6 +599,37 @@ section {
   box-shadow: 0 4px 40px rgba(13, 13, 13, 0.06);
 }
 
+.synopsis__card > p {
+  margin: 0 0 0.75rem;
+  line-height: 1.65;
+}
+
+.synopsis__lead {
+  font-size: clamp(1.2rem, 2.2vw, 1.45rem);
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.synopsis__beats {
+  list-style: none;
+  margin: 0 0 0.85rem;
+  padding: 0.15rem 0 0.15rem 1.25rem;
+  border-left: 2px solid rgba(13, 13, 13, 0.12);
+}
+
+.synopsis__beats li {
+  margin-bottom: 0.3rem;
+  line-height: 1.55;
+}
+
+.synopsis__beats li:last-child {
+  margin-bottom: 0;
+}
+
+.synopsis__card strong {
+  font-weight: 600;
+}
+
 .synopsis__quote {
   font-size: clamp(1.25rem, 2.5vw, 1.5rem);
   font-style: italic;
