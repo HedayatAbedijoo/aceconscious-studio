@@ -122,6 +122,8 @@
       "buy.comingSoon": "Coming Soon",
       "buy.comingLater": "Coming Later",
       "buy.kindle": "Kindle & paperback",
+      "buy.preorder": "Pre-order",
+      "buy.kindleEbook": "eBook (Kindle / EPUB)",
       "buy.direct": "Direct EPUB / PDF",
       "author.label": "The Author",
       "author.verse":
@@ -256,6 +258,8 @@
       "buy.comingSoon": "Demnächst",
       "buy.comingLater": "Später",
       "buy.kindle": "Kindle & Taschenbuch",
+      "buy.preorder": "Vorbestellen",
+      "buy.kindleEbook": "E‑Book (Kindle / EPUB)",
       "buy.direct": "Direkt EPUB / PDF",
       "author.label": "Der Autor",
       "author.verse":
