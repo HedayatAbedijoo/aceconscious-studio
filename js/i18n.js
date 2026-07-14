@@ -28,6 +28,7 @@
       "nav.read": "Read",
       "nav.buy": "Get the Book",
       "nav.author": "Author",
+      "nav.contact": "Contact",
       "nav.langLabel": "DE",
       "nav.langAria": "Switch to German",
       "hero.tagline":
@@ -146,10 +147,26 @@
       "author.p4":
         "When the novel was ready, I began to think I might publish another version of ACE someday—or perhaps write the next part of the story. That is why I founded Ace Conscious Studio: a home for my writing ideas, with <em>ACE.await</em> as its first work.",
       "author.p5":
-        "Welcome to my world of ideas. If even a single word of my writing moves you, write to me—I will probably die of joy.",
+        "Welcome to my world of ideas. If even a single word of my writing moves you, <a href=\"#contact\">write to me</a> — I will probably die of joy.",
+      "contact.label": "Contact",
+      "contact.title": "Write to me",
+      "contact.emailLabel": "Email",
+      "contact.emailPlaceholder": "your@email.com",
+      "contact.messageLabel": "Message",
+      "contact.messagePlaceholder":
+        "I'd be delighted to hear from you — whether it's a book review, a question about the story, or anything else you'd like to share.",
+      "contact.submit": "Send message",
+      "contact.sending": "Sending…",
+      "contact.success": "Thank you — your message is on its way.",
+      "contact.error": "Something went wrong. Please try again in a moment.",
+      "contact.notConfigured":
+        "The contact form is not set up yet. Please try again later.",
+      "contact.deployError":
+        "The form backend needs redeploying. In Google Apps Script, set access to Anyone and create a new deployment.",
       "footer.legal":
         "Excerpt from <em>ACE.await</em> © 2026 Hedayat Abedijoo. All rights reserved. Reproduced with permission of Ace Conscious Studio.",
       "footer.top": "Back to top",
+      "footer.contact": "Contact",
       "footer.privacy": "Privacy",
       "footer.press": "Press kit",
     },
@@ -173,6 +190,7 @@
       "nav.read": "Lesen",
       "nav.buy": "Buch kaufen",
       "nav.author": "Autor",
+      "nav.contact": "Kontakt",
       "nav.langLabel": "EN",
       "nav.langAria": "Zu Englisch wechseln",
       "hero.tagline":
@@ -291,10 +309,26 @@
       "author.p4":
         "Als der Roman fertig war, begann ich zu denken, dass ich vielleicht eines Tages eine andere Version von ACE veröffentlichen — oder den nächsten Teil der Geschichte schreiben würde. Deshalb gründete ich Ace Conscious Studio: ein Zuhause für meine Schreibideen, mit <em>ACE.await</em> als erstem Werk.",
       "author.p5":
-        "Willkommen in meiner Welt der Ideen. Wenn auch nur ein einziges Wort meines Schreibens dich berührt, schreib mir — ich werde wahrscheinlich vor Freude sterben.",
+        "Willkommen in meiner Welt der Ideen. Wenn auch nur ein einziges Wort meines Schreibens dich berührt, <a href=\"#contact\">schreib mir</a> — ich werde wahrscheinlich vor Freude sterben.",
+      "contact.label": "Kontakt",
+      "contact.title": "Schreib mir",
+      "contact.emailLabel": "E-Mail",
+      "contact.emailPlaceholder": "deine@email.de",
+      "contact.messageLabel": "Nachricht",
+      "contact.messagePlaceholder":
+        "Ich freue mich über jede Nachricht — ob Buchrezension, Frage zur Geschichte oder einfach ein freundliches Wort.",
+      "contact.submit": "Nachricht senden",
+      "contact.sending": "Wird gesendet…",
+      "contact.success": "Danke — deine Nachricht ist unterwegs.",
+      "contact.error": "Etwas ist schiefgelaufen. Bitte versuche es gleich noch einmal.",
+      "contact.notConfigured":
+        "Das Kontaktformular ist noch nicht eingerichtet. Bitte versuche es später erneut.",
+      "contact.deployError":
+        "Das Formular-Backend muss neu bereitgestellt werden. In Google Apps Script Zugriff auf „Anyone“ setzen und eine neue Bereitstellung erstellen.",
       "footer.legal":
         "Auszug aus <em>ACE.await</em> © 2026 Hedayat Abedijoo. Alle Rechte vorbehalten. Wiedergabe mit Genehmigung von Ace Conscious Studio.",
       "footer.top": "Nach oben",
+      "footer.contact": "Kontakt",
       "footer.privacy": "Datenschutz",
       "footer.press": "Pressemappe",
     },
@@ -463,7 +497,11 @@
           "@id": `${SITE_URL}/#organization`,
           name: "Ace Conscious Studio",
           url: `${SITE_URL}/`,
-          email: "h.abedijoo@gmail.com",
+          contactPoint: {
+            "@type": "ContactPoint",
+            contactType: "customer support",
+            url: `${SITE_URL}/#contact`,
+          },
           logo: `${SITE_URL}/assets/logo-icon.png`,
         },
         {
