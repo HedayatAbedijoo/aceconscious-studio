@@ -129,7 +129,7 @@
       "char.god.role": "Not in the Cast",
       "char.god.name": "God",
       "char.god.p1":
-        "I have no role in this story, though my name does come up from time to time. I only wanted to say one thing, very briefly: I am not the designer of a game I would refuse to play myself.",
+        "I have no role in this story, though my name does come up from time to time. I only wanted to say one thing, very briefly: I am not a game designer who doesn't play his own game.",
       "sample.label": "Sample Chapters",
       "sample.title": "Chapter 1 — Anonymous",
       "sample.consoleAria": "Console session localhost:3132",
@@ -287,7 +287,7 @@
       "char.god.role": "Nicht Teil der Besetzung",
       "char.god.name": "Gott",
       "char.god.p1":
-        "Ich spiele in dieser Geschichte keine Rolle, auch wenn mein Name hin und wieder fällt. Ich wollte nur ganz kurz eines sagen: Ich bin nicht der Designer eines Spiels, das ich selbst nicht zu spielen bereit wäre.",
+        "Ich spiele in dieser Geschichte keine Rolle, auch wenn mein Name hin und wieder fällt. Ich wollte nur ganz kurz eines sagen: Ich bin kein Spieledesigner, der sein eigenes Spiel nicht spielt.",
       "sample.label": "Beispielkapitel",
       "sample.title": "Kapitel 1 — Anonymous",
       "sample.consoleAria": "Konsolensitzung localhost:3132",
