@@ -46,6 +46,7 @@
   --font-mono: "JetBrains Mono", "Consolas", monospace;
   --font-hand: "Permanent Marker", cursive;
   --font-brush: "Caveat Brush", cursive;
+  --font-brush-fa: "Aref Ruqaa", "Vazirmatn", Tahoma, sans-serif;
   --radius: 12px;
   --radius-lg: 20px;
   --shadow-ink: 0 24px 80px rgba(13, 13, 13, 0.35);
@@ -110,20 +111,24 @@ html[dir="rtl"] .book-reader__chapter-label {
 }
 
 html[dir="rtl"] .hero__tagline-hand {
-  font-family: var(--font-serif-fa);
-  font-size: clamp(1.85rem, 5vw, 3.35rem);
-  font-weight: 600;
-  line-height: 1.35;
+  font-family: var(--font-brush-fa);
+  font-size: clamp(1.5rem, 3.2vw, 2rem);
+  font-weight: 400;
+  line-height: 1.28;
   letter-spacing: 0;
-  transform: none;
-  max-width: none;
-  margin-bottom: 1.25rem;
+  transform: rotate(1deg);
+  max-width: 14rem;
+  margin: 0 0 1.15rem;
+  margin-inline-start: auto;
+  text-align: end;
   color: var(--ink);
 }
 
 html[dir="rtl"] .hero__tagline-hand em {
+  font-family: inherit;
   font-weight: 700;
-  font-size: 1.08em;
+  font-size: 1.12em;
+  font-style: normal;
   display: block;
   margin-top: 0;
 }
@@ -1513,6 +1518,11 @@ html.js .reveal.visible {
   .hero__meta {
     margin-left: auto;
     margin-right: auto;
+  }
+
+  html[dir="rtl"] .hero__tagline-hand {
+    margin-inline: auto;
+    text-align: center;
   }
 
   html[dir="rtl"] .hero__book-title-block {
