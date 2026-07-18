@@ -1505,40 +1505,45 @@ html.js .reveal.visible {
 @media (max-width: 900px) {
   .hero__grid {
     grid-template-columns: 1fr;
-    text-align: center;
+    text-align: start;
   }
 
   .hero__cover-wrap {
     order: -1;
     max-width: 280px;
+    justify-self: center;
   }
 
   .hero__tagline-hand,
   .hero__pitch,
   .hero__meta {
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: 0;
+    margin-right: 0;
   }
 
   html[dir="rtl"] .hero__tagline-hand {
-    margin-inline: auto;
-    text-align: center;
-  }
-
-  html[dir="rtl"] .hero__book-title-block {
-    align-items: center;
-  }
-
-  html[dir="rtl"] .hero__book-title-block .hero__author {
-    text-align: center;
+    margin-inline: 0;
+    text-align: end;
   }
 
   .hero__book-title-block {
-    align-items: center;
+    align-items: flex-start;
+  }
+
+  html[dir="rtl"] .hero__book-title-block {
+    align-items: flex-end;
+  }
+
+  html[dir="rtl"] .hero__book-title-block .hero__author {
+    text-align: end;
   }
 
   .hero__actions {
-    justify-content: center;
+    justify-content: flex-start;
+  }
+
+  html[dir="rtl"] .hero__actions {
+    justify-content: flex-end;
   }
 
   .author__grid {
