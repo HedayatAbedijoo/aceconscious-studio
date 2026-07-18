@@ -172,15 +172,14 @@
       "author.verse":
         "I'm neck-deep in debt.<br>To my past,<br>I owe regret.<br>To my future,<br>I owe fear.<br>I pay off my debt,<br>with distractions.",
       "author.p1":
-        "Years ago, I set out to write a novel of <strong>nested writers</strong>—each author inventing the next, who invents the next again, until a <strong>loving relationship</strong> at last breaks the infinite loop. The manuscript stayed unfinished, left to gather dust.",
+        "Years ago, I set out to write a novel about writers nested within writers—each author creating the next, who in turn creates another, until, at last, love breaks the infinite loop. But the manuscript and my notes remained unfinished, gathering dust in a corner.",
       "author.p2":
-        "Some years later, <strong>ACE</strong> (Agency, Connection, Exchange) came to me: a personal pattern of living that might serve as <strong>social therapy</strong>—a way for human agency and economic agency to meet, and to shape a new <strong>harmony</strong>.",
+        "Some years later, <strong>ACE</strong>—Agency, Connection, and Exchange—came to me: a personal model for making better decisions and living more consciously. A model that might even serve as a kind of <strong>social therapy</strong>—a way to bring together the agency of individuals and businesses, and shape a new harmony.",
       "author.p3":
-        "In time, that <strong>metafiction</strong> and the ACE idea found their way into my novel, <em>ACE.await</em>.",
-      "author.p4":
-        "When the novel was ready, I began to think I might publish another version of ACE someday—or perhaps write the next part of the story. That is why I founded Ace Conscious Studio: a home for my writing ideas, with <em>ACE.await</em> as its first work.",
+        "Over time, that metafictional idea and ACE became intertwined, and my novel <em>ACE.await</em> took shape. Once the novel was finished, I began to wonder whether I might someday publish another version of ACE—or perhaps write the next part of the story. That is why I founded Ace Conscious Studio: a home for my ideas and writing, with <em>ACE.await</em> as its first work.",
+      "author.p4": "",
       "author.p5":
-        "Welcome to my world of ideas. If even a single word of my writing moves you, <a href=\"#contact\">write to me</a> — I will probably die of joy.",
+        "Welcome to my world of ideas. If even a single word of my writing moves you, <a href=\"#contact\">please write to me</a>—I will probably die of joy when I see your message.",
       "contact.label": "Contact",
       "contact.emailLabel": "Email",
       "contact.emailPlaceholder": "your@email.com",
@@ -331,15 +330,13 @@
       "author.verse":
         "Bis zum Hals in Schulden.<br>Meiner Vergangenheit<br>schulde ich Reue.<br>Meiner Zukunft<br>schulde ich Angst.<br>Meine Schulden tilge ich<br>mit Ablenkung.",
       "author.p1":
-        "Vor Jahren begann ich, einen Roman über <strong>verschachtelte Autoren</strong> zu schreiben — jeder erfindet den nächsten, der wieder den nächsten erfindet, bis eine <strong>liebende Beziehung</strong> endlich die Endlosschleife durchbricht. Das Manuskript blieb unvollendet und lag Staub an.",
+        "Vor Jahren nahm ich mir vor, einen Roman über ineinander verschachtelte Schriftsteller zu schreiben – jeder Autor erschafft den nächsten, der wiederum einen weiteren erschafft, bis schließlich die Liebe diese Endlosschleife durchbricht. Doch das Manuskript und meine Notizen blieben unvollendet und verstaubten in einer Ecke. Einige Jahre später kam mir die Idee zu <strong>ACE</strong> – Agency, Connection und Exchange: ein persönliches Modell, um bessere Entscheidungen zu treffen und bewusster zu leben. Ein Modell, das vielleicht sogar als eine Art <strong>gesellschaftliche Therapie</strong> dienen könnte – ein Weg, die Handlungsfähigkeit von Menschen und Unternehmen miteinander zu verbinden und eine neue Harmonie entstehen zu lassen.",
       "author.p2":
-        "Einige Jahre später kam <strong>ACE</strong> (Agency, Connection, Exchange) zu mir: ein persönliches Lebensmuster, das als <strong>soziale Therapie</strong> dienen könnte — ein Weg, menschliche Handlungsfähigkeit und wirtschaftliche Handlungsfähigkeit zusammenzubringen und eine neue <strong>Harmonie</strong> zu formen.",
+        "Mit der Zeit verflochten sich diese metafiktionale Idee und ACE miteinander, und mein Roman <em>ACE.await</em> nahm Gestalt an. Als der Roman fertig war, fragte ich mich, ob ich eines Tages vielleicht eine weitere Version von ACE veröffentlichen – oder den nächsten Teil der Geschichte schreiben würde. Deshalb gründete ich das Ace Conscious Studio: ein Zuhause für meine Ideen und Texte, mit <em>ACE.await</em> als seinem ersten Werk.",
       "author.p3":
-        "Mit der Zeit fanden jene <strong>Metafiktion</strong> und die ACE-Idee den Weg in meinen Roman <em>ACE.await</em>.",
-      "author.p4":
-        "Als der Roman fertig war, begann ich zu denken, dass ich vielleicht eines Tages eine andere Version von ACE veröffentlichen — oder den nächsten Teil der Geschichte schreiben würde. Deshalb gründete ich Ace Conscious Studio: ein Zuhause für meine Schreibideen, mit <em>ACE.await</em> als erstem Werk.",
-      "author.p5":
-        "Willkommen in meiner Welt der Ideen. Wenn auch nur ein einziges Wort meines Schreibens dich berührt, <a href=\"#contact\">schreib mir</a> — ich werde wahrscheinlich vor Freude sterben.",
+        "Willkommen in der Welt meiner Ideen. Wenn auch nur ein einziges Wort aus meinen Texten Sie berührt, <a href=\"#contact\">schreiben Sie mir bitte</a> – ich werde vermutlich vor Freude sterben, wenn ich Ihre Nachricht sehe.",
+      "author.p4": "",
+      "author.p5": "",
       "contact.label": "Kontakt",
       "contact.emailLabel": "E-Mail",
       "contact.emailPlaceholder": "deine@email.de",
