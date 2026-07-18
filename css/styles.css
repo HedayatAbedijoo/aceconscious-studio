@@ -125,7 +125,7 @@ html[dir="rtl"] .hero__tagline-hand em {
   font-weight: 700;
   font-size: 1.08em;
   display: block;
-  margin-top: 0.15em;
+  margin-top: 0;
 }
 
 html[dir="rtl"] .hero__book-title-block {
