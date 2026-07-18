@@ -1,7 +1,7 @@
 /** Bump ASSET_VERSION whenever cover/art assets change so mobile caches refresh. */
 (function () {
   "use strict";
-  window.ACE_ASSET_VERSION = "20260718e";
+  window.ACE_ASSET_VERSION = "20260718f";
 
   window.aceAssetUrl = function aceAssetUrl(path) {
     if (!path) return path;

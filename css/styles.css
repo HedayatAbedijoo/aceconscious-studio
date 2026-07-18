@@ -3,7 +3,7 @@
 
 @font-face {
   font-family: "Vazirmatn";
-  src: url("../assets/fonts/Vazirmatn-Regular.woff2?v=20260718e") format("woff2");
+  src: url("../assets/fonts/Vazirmatn-Regular.woff2?v=20260718f") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -11,7 +11,7 @@
 
 @font-face {
   font-family: "Vazirmatn";
-  src: url("../assets/fonts/Vazirmatn-Medium.woff2?v=20260718e") format("woff2");
+  src: url("../assets/fonts/Vazirmatn-Medium.woff2?v=20260718f") format("woff2");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
@@ -19,7 +19,7 @@
 
 @font-face {
   font-family: "Vazirmatn";
-  src: url("../assets/fonts/Vazirmatn-SemiBold.woff2?v=20260718e") format("woff2");
+  src: url("../assets/fonts/Vazirmatn-SemiBold.woff2?v=20260718f") format("woff2");
   font-weight: 600;
   font-style: normal;
   font-display: swap;
@@ -772,6 +772,7 @@ section {
   border-radius: var(--radius-lg);
   padding: clamp(2rem, 4vw, 3rem);
   box-shadow: 0 4px 40px rgba(13, 13, 13, 0.06);
+  font-size: 1.0625rem;
 }
 
 .synopsis__card > p {
@@ -780,7 +781,7 @@ section {
 }
 
 .synopsis__lead {
-  font-size: clamp(1.2rem, 2.2vw, 1.45rem);
+  font-size: inherit;
   font-weight: 600;
   color: var(--ink);
 }
@@ -806,7 +807,7 @@ section {
 }
 
 .synopsis__quote {
-  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+  font-size: inherit;
   font-style: italic;
   color: var(--ink);
   border-left: 3px solid var(--ink);
