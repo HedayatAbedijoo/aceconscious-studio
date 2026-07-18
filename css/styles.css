@@ -1,6 +1,30 @@
 /* ACE.await — book launch site
    Palette derived from cover: parchment, ink, silhouette */
 
+@font-face {
+  font-family: "Vazirmatn";
+  src: url("../assets/fonts/Vazirmatn-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Vazirmatn";
+  src: url("../assets/fonts/Vazirmatn-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Vazirmatn";
+  src: url("../assets/fonts/Vazirmatn-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --parchment: #e8dcc8;
   --parchment-deep: #d4c4a8;
@@ -18,6 +42,7 @@
   --console-reply: #a8d4a0;
   --font-display: "Bebas Neue", "Arial Narrow", sans-serif;
   --font-serif: "Literata", "Georgia", serif;
+  --font-serif-fa: "Vazirmatn", Tahoma, sans-serif;
   --font-mono: "JetBrains Mono", "Consolas", monospace;
   --font-hand: "Permanent Marker", cursive;
   --font-brush: "Caveat Brush", cursive;
@@ -48,6 +73,115 @@ body {
   color: var(--ink-soft);
   background: var(--parchment);
   overflow-x: hidden;
+}
+
+html[dir="rtl"] body {
+  font-family: var(--font-serif-fa);
+  font-size: 1.25rem;
+  line-height: 1.9;
+}
+
+/* Keep Latin brand titles from mirroring (ACE.await → .ACE await) */
+html[dir="rtl"] .hero__title,
+html[dir="rtl"] .book-reader__running {
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+
+html[dir="rtl"] .book-reader__page {
+  font-family: var(--font-serif-fa);
+  font-size: clamp(1.0625rem, 0.4vw + 0.95rem, 1.3125rem);
+  line-height: 1.9;
+}
+
+html[dir="rtl"] .book-reader__chapter-name {
+  font-family: var(--font-serif-fa);
+  font-size: clamp(1.85rem, 2.8vw, 2.85rem);
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 1.3;
+}
+
+html[dir="rtl"] .book-reader__chapter-label {
+  font-family: var(--font-serif-fa);
+  letter-spacing: 0.06em;
+  text-transform: none;
+}
+
+html[dir="rtl"] .hero__tagline-hand {
+  font-family: var(--font-serif-fa);
+  font-size: clamp(1.85rem, 5vw, 3.35rem);
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: 0;
+  transform: none;
+  max-width: none;
+  margin-bottom: 1.25rem;
+  color: var(--ink);
+}
+
+html[dir="rtl"] .hero__tagline-hand em {
+  font-weight: 700;
+  font-size: 1.08em;
+  display: block;
+  margin-top: 0.15em;
+}
+
+html[dir="rtl"] .hero__book-title-block {
+  align-items: flex-end;
+  width: 100%;
+}
+
+html[dir="rtl"] .hero__book-title-block .hero__author {
+  text-align: end;
+  width: 100%;
+}
+
+html[dir="rtl"] .hero__author {
+  font-family: var(--font-serif-fa);
+  text-transform: none;
+  letter-spacing: 0.02em;
+}
+
+html[dir="rtl"] .synopsis__quote {
+  border-left: none;
+  border-right: 3px solid var(--ink);
+  padding-left: 0;
+  padding-right: 1.5rem;
+}
+
+html[dir="rtl"] .ace-pill span {
+  margin-right: 0;
+  margin-left: 0.35rem;
+}
+
+html[dir="rtl"] .console-line--reply {
+  padding-left: 0;
+  padding-right: 1.5rem;
+}
+
+html[dir="rtl"] .section-label,
+html[dir="rtl"] .section-title,
+html[dir="rtl"] .sample-chapter__title,
+html[dir="rtl"] .btn,
+html[dir="rtl"] .contact-form__label,
+html[dir="rtl"] .contact-form__input,
+html[dir="rtl"] .contact-form__textarea,
+html[dir="rtl"] .contact-form__status {
+  font-family: var(--font-serif-fa);
+}
+
+html[dir="rtl"] .section-label,
+html[dir="rtl"] .contact-form__label {
+  letter-spacing: 0.04em;
+  text-transform: none;
+}
+
+html[dir="rtl"] .section-title,
+html[dir="rtl"] .sample-chapter__title {
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 1.25;
 }
 
 body::before {
@@ -196,25 +330,35 @@ a:hover {
   color: var(--white) !important;
 }
 
+.site-nav__langs {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.15rem;
+  direction: ltr;
+}
+
 .site-nav__lang {
   text-decoration: none;
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
   font-weight: 600;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--ink-muted);
-  min-width: 2rem;
-  text-align: center;
   font-family: var(--font-mono);
-  border: 1px solid rgba(13, 13, 13, 0.15);
+  border: 1px solid transparent;
   border-radius: 6px;
-  padding: 0.35rem 0.55rem;
+  padding: 0.3rem 0.45rem;
   line-height: 1;
 }
 
 .site-nav__lang:hover {
-  border-color: var(--ink);
   color: var(--ink);
+}
+
+.site-nav__lang.is-active {
+  color: var(--ink);
+  border-color: rgba(13, 13, 13, 0.2);
+  background: rgba(13, 13, 13, 0.04);
 }
 
 .nav-toggle {
@@ -248,8 +392,8 @@ section {
 
 .section-label {
   font-family: var(--font-mono);
-  font-size: 1rem;
-  letter-spacing: 0.2em;
+  font-size: 1.1875rem;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--accent);
   margin: 0 0 0.75rem;
@@ -465,6 +609,22 @@ section {
   font-style: normal;
   font-size: 1.15em;
   display: block;
+}
+
+.hero__book-title-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.4rem;
+  margin: 0 0 1.25rem;
+}
+
+.hero__book-title-block .hero__title {
+  margin-bottom: 0;
+}
+
+.hero__book-title-block .hero__author {
+  margin-bottom: 0;
 }
 
 .hero__title {
@@ -804,18 +964,19 @@ section {
 
 .sample-chapter__title {
   font-family: var(--font-display);
-  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-size: clamp(1.25rem, 2.2vw, 1.65rem);
   font-weight: 400;
   letter-spacing: 0.02em;
-  line-height: 1.05;
+  line-height: 1.2;
   color: var(--ink);
-  margin: 0 0 1.5rem;
+  margin: 0 0 1.25rem;
 }
 
 /* ── Book page reader (Chapter 6) ── */
 .book-reader {
-  max-width: 420px;
-  margin: 0 auto;
+  width: 100%;
+  max-width: none;
+  margin: 0;
 }
 
 .book-reader__stage {
@@ -825,10 +986,11 @@ section {
 
 .book-reader__frame {
   position: relative;
-  border-radius: 4px;
+  border-radius: var(--radius-lg);
   box-shadow: var(--shadow-ink);
   background: var(--white);
   overflow: hidden;
+  border: 1px solid rgba(13, 13, 13, 0.06);
 }
 
 .book-reader__frame::before {
@@ -844,10 +1006,10 @@ section {
 .book-reader__page {
   display: none;
   flex-direction: column;
-  padding: 1.35rem 1.3rem 1.4rem;
+  padding: clamp(1.35rem, 3vw, 2.75rem) clamp(1.3rem, 4vw, 3.25rem);
   font-family: var(--font-serif);
-  font-size: 0.875rem;
-  line-height: 1.6;
+  font-size: clamp(0.875rem, 0.35vw + 0.8rem, 1.1875rem);
+  line-height: 1.75;
   color: var(--ink-soft);
 }
 
@@ -867,7 +1029,7 @@ section {
 
 .book-reader__running {
   font-family: var(--font-mono);
-  font-size: 0.625rem;
+  font-size: clamp(0.625rem, 0.2vw + 0.55rem, 0.75rem);
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--ink-muted);
@@ -876,7 +1038,7 @@ section {
 
 .book-reader__chapter-label {
   font-family: var(--font-mono);
-  font-size: 0.625rem;
+  font-size: clamp(0.625rem, 0.2vw + 0.55rem, 0.75rem);
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--ink-muted);
@@ -885,15 +1047,15 @@ section {
 
 .book-reader__chapter-name {
   font-family: var(--font-display);
-  font-size: 1.5rem;
+  font-size: clamp(1.5rem, 2.5vw, 2.75rem);
   letter-spacing: 0.04em;
   color: var(--ink);
-  margin: 0 0 1rem;
+  margin: 0 0 1.25rem;
   line-height: 1;
 }
 
 .book-reader__body p {
-  margin: 0 0 0.85rem;
+  margin: 0 0 0.95rem;
   text-align: justify;
   hyphens: auto;
 }
@@ -996,16 +1158,17 @@ section {
 
 .character-card__role {
   font-family: var(--font-mono);
-  font-size: 0.6875rem;
+  font-size: 0.9375rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  opacity: 0.55;
+  color: var(--parchment);
+  opacity: 0.9;
   margin: 0.25rem 0 0;
 }
 
 .character-card__body {
   padding: 1.25rem 1.5rem 1.5rem;
-  font-size: 0.9375rem;
+  font-size: 1rem;
   color: var(--ink-soft);
 }
 
@@ -1323,6 +1486,18 @@ section {
     margin-right: auto;
   }
 
+  html[dir="rtl"] .hero__book-title-block {
+    align-items: center;
+  }
+
+  html[dir="rtl"] .hero__book-title-block .hero__author {
+    text-align: center;
+  }
+
+  .hero__book-title-block {
+    align-items: center;
+  }
+
   .hero__actions {
     justify-content: center;
   }
@@ -1373,10 +1548,9 @@ section {
   }
 
   .site-nav__lang {
-    padding: 0.25rem 0.4rem;
+    padding: 0.25rem 0.35rem;
     font-size: 0.7rem;
-    min-width: 0;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.05em;
   }
 
   .site-nav__links {

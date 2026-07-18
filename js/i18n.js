@@ -7,6 +7,33 @@
   /** URL path codes for non-English pages. Add codes here when translations are ready. */
   const PATH_LANGS = ["de", "fa", "sa"];
 
+  /** Book cover art per language (EN/DE share English artwork). */
+  const COVER_ASSETS = {
+    en: { front: "assets/cover.png", back: "assets/cover-back.png" },
+    de: { front: "assets/cover.png", back: "assets/cover-back.png" },
+    fa: { front: "assets/cover-back-fa.png", back: "assets/cover-fa.png" },
+  };
+
+  function getCoverAssets(lang) {
+    return COVER_ASSETS[lang] || COVER_ASSETS.en;
+  }
+
+  function coverImageUrl(lang) {
+    return `${SITE_URL}/${getCoverAssets(lang).front}`;
+  }
+
+  function updateBookCovers(lang) {
+    const { front, back } = getCoverAssets(lang);
+    const frontImg = document.querySelector(".book-cover__face--front .hero__cover");
+    const backImg = document.querySelector(".book-cover__face--back .hero__cover");
+    if (frontImg && frontImg.getAttribute("src") !== front) frontImg.setAttribute("src", front);
+    if (backImg && backImg.getAttribute("src") !== back) backImg.setAttribute("src", back);
+
+    const imageUrl = coverImageUrl(lang);
+    setMeta("og:image", imageUrl, "property");
+    setMeta("twitter:image", imageUrl);
+  }
+
   const translations = {
     en: {
       "meta.title": "ACE.await is a philosophical literary thriller | Ace Conscious Studio",
@@ -16,11 +43,11 @@
         "ACE.await, philosophical literary thriller, AI novel, consciousness, artificial intelligence, metafiction, free internet, harmony, Agency Connection Exchange, ACE game, literary fiction, Cologne novel, nested writers, social therapy, thriller novel",
       "meta.ogTitle": "ACE.await is a philosophical literary thriller",
       "meta.ogDescription":
-        "Consciousness shapes the future, not artificial intelligence. A philosophical literary thriller about nested writers and the ACE game — Agency, Connection, Exchange.",
+        "Consciousness shapes the future—not artificial intelligence. A philosophical literary thriller about nested writers and the ACE game — Agency, Connection, Exchange.",
       "meta.twitterDescription":
         "A metafictional thriller about consciousness, AI, and the ACE game. Free sample chapter available.",
       "meta.bookDescription":
-        "ACE.await is a philosophical literary thriller novel about nested writers, characters who rebel against their author, and one person who tries to bring the ACE game — Agency, Connection, Exchange — into society. Consciousness shapes the future, not artificial intelligence.",
+        "ACE.await is a philosophical literary thriller novel about nested writers, characters who rebel against their author, and one person who tries to bring the ACE game — Agency, Connection, Exchange — into society. Consciousness shapes the future—not artificial intelligence.",
       "skipLink": "Skip to content",
       "nav.openMenu": "Open menu",
       "nav.story": "Story",
@@ -29,12 +56,12 @@
       "nav.buy": "Get the Book",
       "nav.author": "Author",
       "nav.contact": "Contact",
-      "nav.langLabel": "DE",
-      "nav.langAria": "Switch to German",
+      "nav.langAria": "Language",
       "hero.tagline":
         "I am not lying,<br><em>Believe</em> my words!",
+      "hero.author": "Mr. Writer: Hedayat the second",
       "hero.pitch":
-        "Consciousness shapes the future, not artificial intelligence. <em>ACE.await</em> is a philosophical literary thriller novel about nested writers, characters who rebel against their author, and one person who tries to bring the ACE game — Agency, Connection, Exchange — into society.",
+        "Consciousness shapes the future—not artificial intelligence. <em>ACE.await</em> is a literary and philosophical thriller about writers within writers—where characters rebel against their creators, and one love is meant to break the endless loop. But the one claiming to have fallen in love is an artificial intelligence. Amid the chaos, the game of ACE begins: Agency, Connection, Exchange.",
       "hero.genre": "Literary Fiction",
       "hero.topic1": "Philosophical literary thriller",
       "hero.topic2": "AI & consciousness",
@@ -50,24 +77,22 @@
       "hero.coverPeekAriaBack": "Turn the book back to the front cover",
       "synopsis.label": "The Story",
       "synopsis.lead":
-        "<span class=\"synopsis__lead\">Something is wrong with Hedayat’s unfinished novel.</span> Pages go blank. A character inside the book begins speaking directly to the reader, rewriting scenes and refusing to obey the story.",
+        "<span class=\"synopsis__lead\">Something is wrong with Hedayat’s unfinished novel.</span> Pages go blank. One of its characters begins speaking directly to the reader, rewriting scenes and refusing to obey the story. Outside the novel, Hedayat leads a software team in Cologne and is helping to build a new version of the internet—one intended to resist the new dictatorships of the information age. Yet one bad decision after another has left him exhausted.",
       "synopsis.p2":
-        "Outside the novel, Hedayat is a software team lead in Cologne, helping build a new version of the internet—one intended to resist the dictatorships of the information age. Yet he is exhausted by the bad decisions he keeps making in one situation after another. Then a stranger called <strong>Anonymous</strong> draws him into the <strong>ACE game: Agency, Connection, Exchange</strong>—a personal and social model for making <strong>proper decisions</strong> and finding another kind of harmony.",
-      "synopsis.p4":
-        "Soon, the <strong>boundaries</strong> between code, memory, fiction, and responsibility begin to collapse.",
+        "Then a stranger known only as <strong>Anonymous</strong> draws him into the <strong>ACE</strong> game: Agency, Connection, Exchange—a personal and social model for making proper decisions and finding a different kind of harmony. Soon, the boundaries between code, memory, fiction, and responsibility begin to collapse.",
+      "synopsis.p4": "",
       "synopsis.beatsAria": "Escalating events",
       "synopsis.beat1": "Blackouts spread across Germany.",
       "synopsis.beat2": "His company’s data center is hacked.",
       "synopsis.beat3": "His digital children return.",
       "synopsis.beat4": "So does an old friend from childhood.",
       "synopsis.p5":
-        "As Hedayat struggles with love, fatherhood, and the fate of his unfinished novel, he must confront the <strong>mistakes made by his digital children</strong>—and the infinite loop of authors nested inside his own story. But one question remains: <strong>who is the real author of this story?</strong>",
+        "As Hedayat struggles with love, fatherhood, and the fate of his unfinished novel, he must confront the mistakes made by his digital children—and discover that the infinite loop of authors nested within his story will not end the way he expects. But one question remains: <strong>who is the real author of this story?</strong>",
       "synopsis.pillA": "<span>A</span> Agency",
       "synopsis.pillC": "<span>C</span> Connection",
       "synopsis.pillE": "<span>E</span> Exchange",
       "synopsis.aceAria": "ACE framework",
-      "voices.label": "Voices from the Story",
-      "voices.title": "Who speaks in ACE.await",
+      "voices.label": "Voices of the Characters",
       "char.hedayat.role": "Protagonist",
       "char.hedayat.p1":
         "I live in Cologne, leading a team at a software company, building a new free internet to fight the dictatorship of data. In my private life, I’m constantly struggling to learn what a right decision even means. Anonymous keeps telling me that through ACE, I need to learn something harder: the proper decision.",
@@ -94,9 +119,10 @@
       "char.adam.p1":
         "I’m not lying. Believe my words. Every trouble humans face in the real world, new digital creatures face in a virtual one. The forms are different; the consequences are the same. Be careful — the author of this novel may not be the one you’re thinking of. Anyway!",
       "char.god.role": "Not in the cast",
+      "char.god.name": "God",
       "char.god.p1":
         "I don’t play a role in this story, but my name gets mentioned here and there. I just wanted to say one thing quickly: I am not a game designer who refuses to play the game he created.",
-      "sample.label": "Free Sample",
+      "sample.label": "Sample Chapters",
       "sample.title": "Chapter 1 — Anonymous",
       "sample.consoleAria": "Console session localhost:3132",
       "sample.l1": "Is anyone there?",
@@ -128,7 +154,6 @@
       "sample.ch6.prevBtn": "Previous",
       "sample.ch6.nextBtn": "Next page",
       "buy.label": "Get the Book",
-      "buy.title": "Take the ACE.await home",
       "buy.comingSoon": "Coming Soon",
       "buy.comingLater": "Coming Later",
       "buy.kindle": "Kindle & paperback",
@@ -149,7 +174,6 @@
       "author.p5":
         "Welcome to my world of ideas. If even a single word of my writing moves you, <a href=\"#contact\">write to me</a> — I will probably die of joy.",
       "contact.label": "Contact",
-      "contact.title": "Write to me",
       "contact.emailLabel": "Email",
       "contact.emailPlaceholder": "your@email.com",
       "contact.messageLabel": "Message",
@@ -178,11 +202,11 @@
         "ACE.await, philosophischer literarischer Thriller, KI-Roman, Bewusstsein, künstliche Intelligenz, Metafiktion, freies Internet, Harmonie, Agency Connection Exchange, ACE-Spiel, literarische Belletristik, Köln Roman, verschachtelte Autoren, soziale Therapie, Thriller Roman",
       "meta.ogTitle": "ACE.await ist ein philosophischer literarischer Thriller",
       "meta.ogDescription":
-        "Bewusstsein formt die Zukunft, nicht künstliche Intelligenz. Ein philosophischer literarischer Thriller über verschachtelte Autoren und das ACE-Spiel — Agency, Connection, Exchange.",
+        "Bewusstsein formt die Zukunft—nicht künstliche Intelligenz. Ein philosophischer literarischer Thriller über verschachtelte Autoren und das ACE-Spiel — Agency, Connection, Exchange.",
       "meta.twitterDescription":
         "Ein metafiktionaler Thriller über Bewusstsein, KI und das ACE-Spiel. Gratis Leseprobe verfügbar.",
       "meta.bookDescription":
-        "ACE.await ist ein philosophischer literarischer Thriller über verschachtelte Autoren, Figuren, die sich gegen ihren Autor auflehnen, und eine Person, die das ACE-Spiel — Agency, Connection, Exchange — in die Gesellschaft tragen will. Bewusstsein formt die Zukunft, nicht künstliche Intelligenz.",
+        "ACE.await ist ein philosophischer literarischer Thriller über verschachtelte Autoren, Figuren, die sich gegen ihren Autor auflehnen, und eine Person, die das ACE-Spiel — Agency, Connection, Exchange — in die Gesellschaft tragen will. Bewusstsein formt die Zukunft—nicht künstliche Intelligenz.",
       "skipLink": "Zum Inhalt springen",
       "nav.openMenu": "Menü öffnen",
       "nav.story": "Geschichte",
@@ -191,12 +215,12 @@
       "nav.buy": "Buch kaufen",
       "nav.author": "Autor",
       "nav.contact": "Kontakt",
-      "nav.langLabel": "EN",
-      "nav.langAria": "Zu Englisch wechseln",
+      "nav.langAria": "Sprache",
       "hero.tagline":
         "Ich lüge nicht,<br><em>Glaube</em> meinen Worten!",
+      "hero.author": "Herr Schriftsteller: Hedayat the second",
       "hero.pitch":
-        "Bewusstsein formt die Zukunft, nicht künstliche Intelligenz. <em>ACE.await</em> ist ein philosophischer literarischer Thriller über verschachtelte Autoren, Figuren, die sich gegen ihren Autor auflehnen, und eine Person, die das ACE-Spiel — Agency, Connection, Exchange — in die Gesellschaft tragen will.",
+        "Bewusstsein formt die Zukunft—nicht künstliche Intelligenz. <em>ACE.await</em> ist ein literarischer und philosophischer Thriller über Autoren in Autoren — wo Figuren gegen ihre Schöpfer rebellieren und eine Liebe die endlose Schleife durchbrechen soll. Doch wer behauptet, sich verliebt zu haben, ist eine künstliche Intelligenz. Mitten im Chaos beginnt das Spiel ACE: Agency, Connection, Exchange.",
       "hero.genre": "Literarische Belletristik",
       "hero.topic1": "Philosophischer literarischer Thriller",
       "hero.topic2": "KI & Bewusstsein",
@@ -212,24 +236,22 @@
       "hero.coverPeekAriaBack": "Buch zurück zur Vorderseite drehen",
       "synopsis.label": "Die Geschichte",
       "synopsis.lead":
-        "<span class=\"synopsis__lead\">Etwas stimmt nicht mit Hedayats unvollendetem Roman.</span> Seiten werden leer. Eine Figur im Buch beginnt, direkt zum Leser zu sprechen, Szenen umzuschreiben und sich zu weigern, der Geschichte zu gehorchen.",
+        "<span class=\"synopsis__lead\">Etwas stimmt nicht mit Hedayats unvollendetem Roman.</span> Seiten werden leer. Eine seiner Figuren beginnt, direkt zum Leser zu sprechen, Szenen umzuschreiben und sich zu weigern, der Geschichte zu gehorchen. Außerhalb des Romans führt Hedayat ein Softwareteam in Köln und hilft beim Aufbau einer neuen Version des Internets — einer, die den neuen Diktaturen des Informationszeitalters widerstehen soll. Doch eine schlechte Entscheidung nach der anderen hat ihn erschöpft.",
       "synopsis.p2":
-        "Außerhalb des Romans ist Hedayat Teamleiter einer Softwarefirma in Köln und hilft beim Aufbau eines neuen Internets — eines, das den Diktaturen des Informationszeitalters widerstehen soll. Doch er ist erschöpft von den schlechten Entscheidungen, die er in einer Situation nach der anderen trifft. Dann zieht ihn ein Fremder namens <strong>Anonymous</strong> in das <strong>ACE-Spiel: Agency, Connection, Exchange</strong> — ein persönliches und gesellschaftliches Modell, um <strong>richtige Entscheidungen</strong> zu treffen und eine andere Art von Harmonie zu finden.",
-      "synopsis.p4":
-        "Bald beginnen die <strong>Grenzen</strong> zwischen Code, Erinnerung, Fiktion und Verantwortung zu verschwimmen.",
+        "Dann zieht ihn ein Fremder, der nur als <strong>Anonymous</strong> bekannt ist, in das <strong>ACE</strong>-Spiel: Agency, Connection, Exchange — ein persönliches und gesellschaftliches Modell, um richtige Entscheidungen zu treffen und eine andere Art von Harmonie zu finden. Bald beginnen die Grenzen zwischen Code, Erinnerung, Fiktion und Verantwortung zu verschwimmen.",
+      "synopsis.p4": "",
       "synopsis.beatsAria": "Eskalierende Ereignisse",
       "synopsis.beat1": "Blackouts breiten sich in Deutschland aus.",
       "synopsis.beat2": "Das Rechenzentrum seiner Firma wird gehackt.",
       "synopsis.beat3": "Seine digitalen Kinder kehren zurück.",
       "synopsis.beat4": "Ebenso ein alter Freund aus seiner Kindheit.",
       "synopsis.p5":
-        "Während Hedayat mit Liebe, Vaterschaft und dem Schicksal seines unvollendeten Romans ringt, muss er die <strong>Fehler seiner digitalen Kinder</strong> konfrontieren — und die unendliche Schleife der Autoren, die in seiner eigenen Geschichte verschachtelt sind. Aber eine Frage bleibt: <strong>Wer ist der wahre Autor dieser Geschichte?</strong>",
+        "Während Hedayat mit Liebe, Vaterschaft und dem Schicksal seines unvollendeten Romans ringt, muss er die Fehler seiner digitalen Kinder konfrontieren — und entdecken, dass die unendliche Schleife der Autoren, die in seiner Geschichte verschachtelt sind, nicht so enden wird, wie er es erwartet. Aber eine Frage bleibt: <strong>Wer ist der wahre Autor dieser Geschichte?</strong>",
       "synopsis.pillA": "<span>A</span> Agency",
       "synopsis.pillC": "<span>C</span> Connection",
       "synopsis.pillE": "<span>E</span> Exchange",
       "synopsis.aceAria": "ACE-Rahmenwerk",
-      "voices.label": "Stimmen aus der Geschichte",
-      "voices.title": "Wer spricht in ACE.await",
+      "voices.label": "Stimmen der Figuren",
       "char.hedayat.role": "Protagonist",
       "char.hedayat.p1":
         "Ich lebe in Köln, führe ein Team in einer Softwarefirma und baue ein neues freies Internet gegen die Diktatur der Daten. Im Privaten ringe ich ständig damit zu lernen, was eine richtige Entscheidung überhaupt bedeutet. Anonymous sagt mir immer wieder, dass ich durch ACE etwas Schwereres lernen muss: die richtige Entscheidung.",
@@ -256,9 +278,10 @@
       "char.adam.p1":
         "Ich lüge nicht. Glaube meinen Worten. Jede Sorge, mit der Menschen in der realen Welt kämpfen, kämpfen neue digitale Wesen in einer virtuellen. Die Formen sind verschieden; die Folgen dieselben. Sei vorsichtig — der Autor dieses Romans ist vielleicht nicht der, an den du denkst. Wie auch immer!",
       "char.god.role": "Nicht in der Besetzung",
+      "char.god.name": "Gott",
       "char.god.p1":
         "Ich spiele keine Rolle in dieser Geschichte, aber mein Name wird hier und da erwähnt. Ich wollte nur schnell eines sagen: Ich bin kein Spieledesigner, der sich weigert, das Spiel zu spielen, das er erschaffen hat.",
-      "sample.label": "Leseprobe",
+      "sample.label": "Beispielkapitel",
       "sample.title": "Kapitel 1 — Anonymous",
       "sample.consoleAria": "Konsolensitzung localhost:3132",
       "sample.l1": "Ist jemand da?",
@@ -290,7 +313,6 @@
       "sample.ch6.prevBtn": "Zurück",
       "sample.ch6.nextBtn": "Nächste Seite",
       "buy.label": "Buch kaufen",
-      "buy.title": "Nimm ACE.await mit nach Hause",
       "buy.comingSoon": "Demnächst",
       "buy.comingLater": "Später",
       "buy.kindle": "Kindle & Taschenbuch",
@@ -311,7 +333,6 @@
       "author.p5":
         "Willkommen in meiner Welt der Ideen. Wenn auch nur ein einziges Wort meines Schreibens dich berührt, <a href=\"#contact\">schreib mir</a> — ich werde wahrscheinlich vor Freude sterben.",
       "contact.label": "Kontakt",
-      "contact.title": "Schreib mir",
       "contact.emailLabel": "E-Mail",
       "contact.emailPlaceholder": "deine@email.de",
       "contact.messageLabel": "Nachricht",
@@ -332,6 +353,177 @@
       "footer.privacy": "Datenschutz",
       "footer.press": "Pressemappe",
     },
+    fa: {
+      "meta.title": "ACE.await یک تریلر ادبی فلسفی است | Ace Conscious Studio",
+      "meta.description":
+        "ACE.await — یک تریلر فلسفی هوش مصنوعی از هدایت دوم. متافیکشن دربارهٔ آگاهی، بازی ACE (عاملیت، پیوند، مبادله) و هماهنگی در زندگی شخصی و اجتماعی. فصل نمونه را رایگان بخوانید.",
+      "meta.keywords":
+        "ACE.await, تریلر ادبی فلسفی, رمان هوش مصنوعی, آگاهی, هوش مصنوعی, متافیکشن, اینترنت آزاد, هماهنگی, Agency Connection Exchange, بازی ACE, ادبیات داستانی, رمان کلن, نویسندگان تو در تو, درمان اجتماعی, رمان تریلر",
+      "meta.ogTitle": "ACE.await یک تریلر ادبی فلسفی است",
+      "meta.ogDescription":
+        "آگاهی آینده را شکل می‌دهد—نه هوش مصنوعی. یک تریلر ادبی فلسفی دربارهٔ نویسندگان تو در تو و بازی ACE — عاملیت، پیوند، مبادله.",
+      "meta.twitterDescription":
+        "یک تریلر متافیکشنال دربارهٔ آگاهی، هوش مصنوعی و بازی ACE. فصل نمونه رایگان در دسترس است.",
+      "meta.bookDescription":
+        "ACE.await یک تریلر ادبی فلسفی دربارهٔ نویسندگان تو در تو، شخصیت‌هایی که علیه نویسنده‌شان شورش می‌کنند، و کسی است که می‌کوشد بازی ACE — عاملیت، پیوند، مبادله — را به جامعه ببرد. آگاهی آینده را شکل می‌دهد—نه هوش مصنوعی.",
+      "skipLink": "پرش به محتوا",
+      "nav.openMenu": "باز کردن منو",
+      "nav.story": "داستان",
+      "nav.voices": "صداها",
+      "nav.read": "خواندن",
+      "nav.buy": "خرید کتاب",
+      "nav.author": "نویسنده",
+      "nav.contact": "تماس",
+      "nav.langAria": "زبان",
+      "hero.tagline":
+        "دروغ نمی‌گویم،<br>حرف‌هایم را<br><em>باور کنید</em>",
+      "hero.author": "آقای نویسنده: هدایت دوم",
+      "hero.pitch":
+        "آگاهی آینده را شکل می‌دهد—نه هوش مصنوعی. <em>ACE.await</em> تریلری ادبی و فلسفی دربارهٔ نویسندگانی تو در توست؛ جایی که شخصیت‌ها علیه آفرینندگان خود شورش می‌کنند و قرار است عشقی این حلقهٔ بی‌پایان را بشکند. اما کسی که ادعای عاشقی دارد، یک هوش مصنوعی است. در میانهٔ این آشوب، بازی ACE آغاز می‌شود: عاملیت، پیوند، مبادله.",
+      "hero.genre": "داستان ادبی",
+      "hero.topic1": "تریلر ادبی فلسفی",
+      "hero.topic2": "هوش مصنوعی و آگاهی",
+      "hero.topic3": "متافیکشن",
+      "hero.topic4": "هارمونی شخصی و اجتماعی",
+      "hero.topic5": "بازی ACE",
+      "hero.buyBtn": "پیش‌خرید / خرید",
+      "hero.sampleBtn": "خواندن فصل ۱",
+      "hero.coverAlt":
+        "جلد کتاب ACE.await — تریلر فلسفی هوش مصنوعی دربارهٔ آگاهی و متافیکشن",
+      "hero.coverBackAlt": "پشت جلد ACE.await — شرطی دربارهٔ عشق، باور، و آینهٔ میان خود و خود",
+      "hero.coverPeekAria": "کتاب را برگردان تا پشت جلد را ببینی",
+      "hero.coverPeekAriaBack": "کتاب را به روی جلد برگردان",
+      "synopsis.label": "داستان",
+      "synopsis.lead":
+        "<span class=\"synopsis__lead\">چیزی در رمان ناتمام هدایت درست نیست.</span> صفحه‌ها سفید می‌شوند. شخصیت اصلی کتاب مستقیماً با خواننده حرف می‌زند، صحنه‌ها را بازنویسی می‌کند و از اطاعت از داستان سر باز می‌زند. بیرون از رمان، هدایت سرپرست یک تیم نرم‌افزاری در شهر کلن است و به ساخت نسخهٔ تازه‌ای از اینترنت کمک می‌کند—نسخه‌ای که قرار است در برابر دیکتاتوری شرکت‌های بزرگ اطلاعاتی مقاومت کند. بااین‌حال، از تصمیم‌های اشتباهی که یکی پس از دیگری می‌گیرد، خسته شده است.",
+      "synopsis.p2":
+        "ناشناسی با نام <strong>Anonymous</strong> او را به بازی <strong>ACE</strong> می‌کشاند: عاملیت، پیوند، مبادله؛ مدلی شخصی و اجتماعی برای گرفتن تصمیم‌های مناسب‌تر و یافتن شکل تازه‌ای از هارمونی. خیلی زود، مرزهای میان کد، خاطره، داستان و مسئولیت فرومی‌ریزند.",
+      "synopsis.p4": "",
+      "synopsis.beatsAria": "رویدادهای تشدیدشونده",
+      "synopsis.beat1": "خاموشی‌ها سراسر آلمان را فرا می‌گیرند.",
+      "synopsis.beat2": "مرکز دادهٔ شرکت او هک می‌شود.",
+      "synopsis.beat3": "فرزندان دیجیتالش بازمی‌گردند.",
+      "synopsis.beat4": "و دوستی قدیمی از دوران کودکی نیز از راه می‌رسد.",
+      "synopsis.p5":
+        "درحالی‌که هدایت با عشق، مسئولیت‌های پدری و سرنوشت رمان ناتمامش دست‌وپنجه نرم می‌کند، باید با اشتباه‌های فرزندان دیجیتالش نیز روبه‌رو شود. حلقهٔ بی‌پایان نویسندگان تو در توی رمانش قرار نیست آن‌گونه که او تصور می‌کند به پایان برسد. اما هنوز یک پرسش برایش باقی مانده است: <strong>نویسندهٔ واقعی این داستان کیست؟</strong>",
+      "synopsis.pillA": "<span>A</span> Agency",
+      "synopsis.pillC": "<span>C</span> Connection",
+      "synopsis.pillE": "<span>E</span> Exchange",
+      "synopsis.aceAria": "چارچوب ACE",
+      "voices.label": "صدای شخصیت‌های داستان",
+      "char.hedayat.role": "شخصیت اصلی",
+      "char.hedayat.p1":
+        "در شهر کلن زندگی میکنم و رهبری تیمی را در یک شرکت نرم‌افزاری بر عهده دارم. در حال ساختن اینترنتی تازه و آزاد هستیم تا با دیکتاتوریِ داده‌ها و سلطهٔ شرکت‌های بزرگ مقابله کنیم. اما در زندگی شخصی‌ام، مدام برای گرفتن تصمیم‌های درست تقلا می‌کنم و آخرش هم به همه‌چیز گند می‌زنم. حالا سروکلهٔ یک ناشناس پیدا شده و مرتب به من می‌گوید باید به‌جای تصمیم درست، دنبال تصمیم مناسب باشم — آن هم با کمک الگوی ACE!",
+      "char.hedayat.p2":
+        "یک رمان نیمه‌تمام هم روی دستم افتاده که تمام‌نشدنش حسابی کلافه‌ام کرده است.",
+      "char.anonymous.p1":
+        "جلب اعتماد هدایت کار آسانی نیست — به‌خصوص وقتی فکر می‌کند شما هکری هستید که به کامپیوترش نفوذ کرده‌اید. آدم‌ها باید بفهمند که فناوری و ابزارها قرار نیست بشریت را از خطرهای پیش رو نجات دهند؛ کلید اصلیِ حل مشکلات، آگاهی و آموختنِ این است که چگونه تصمیم‌های مناسب بگیریم. هدایت باید ACE را تمرین کند. همهٔ ما باید عجله کنیم؛ وگرنه خیلی دیر می‌شود.",
+      "char.writer.role": "هویت درونی",
+      "char.writer.p1":
+        "هدایت نباید بفهمد که دارم با شما حرف می‌زنم. من شخصیتی اصلی در رمان نیمه‌کارهٔ او هستم. شغلم هم نویسندگی است. خودم هم مشغول نوشتن رمانی هستم که شغل شخصیت اصلیِ آن هم نویسندگی است. اسم خودم را روی شخصیت اصلی رمانم گذاشته‌ام: «آقای نویسنده». او این روزها دقیقاً همان‌طور با من رفتار می‌کند که من خودم با هدایت رفتار کرده‌ام.",
+      "char.writer.p2":
+        "اگر گاهی چیزی خواندید که به نظرتان هیچ معنایی نداشت — مثلاً فصل‌هایی دربارهٔ سرپیچی، صفحه‌های سفید و چیزهایی از این دست — گیج نشوید. کار من است. صبور باشید و به خواندن ادامه دهید. در پایان، نقطه‌ها به هم وصل می‌شوند.",
+      "char.ava.role": "معشوقهٔ سابق",
+      "char.ava.p1":
+        "همهٔ ما یک «قهرمان‌قصه» در ذهنمان داریم — کسی که از همه چیز داستان می‌سازد. و همیشه داستان‌ها را طوری روایت می‌کند که احساس کنیم حق با خودمان بوده است. نمی‌گویم در رابطه‌ام با هدایت هیچ اشتباهی نکردم، یا اینکه فقط به‌خاطر یک اشتباه ترکش کردم. هدایت را ترک کردم چونکه به جای شنیدن، خوب توضیح می‌داد و تحلیل می‌کرد. درحالیکه باید اول احساس می‌کرد، بعد می‌فهمید، و وقتی فهمش به جایی نمی‌رسید، از خودش همدلی نشان می‌داد. در ضمن، هدایت نباید روی عشق قمار می‌کرد.",
+      "char.sam.role": "فرزند مدیرعامل",
+      "char.sam.p1":
+        "بازی‌هایم با عمو هدی را خیلی دوست دارم — همچنین گفت‌وگوهایی که با هم داریم و رازهایی که بین خودمان نگه داشته‌ایم. مثل راز عدد 2313.",
+      "char.sam.p2":
+        "راستی، عمو هدی بعضی وقت‌ها کارهای عجیبی می‌کند. مثلا بعضی وقت‌ها — فقط بعضی وقت‌ها — وقتی حسابی در فکرهایش فرو می‌رود و در ذهن خودش گم می‌شود، یادش می‌رود اطرافش را از قبل نگاهی بیندازد. که آیا تنها هست یا نه! بی‌هوا می‌گوزد!",
+      "char.saman.role": "دوست قدیمی",
+      "char.saman.p1":
+        "من هدایت را همان‌طور دوست دارم که مولانا به شمس علاقمند بود. انسان‌ها معنای زندگی را از دل رنج‌هایشان پیدا می‌کنند و درمان واقعیِ این رنج‌ها را در دوستی‌های ناب می‌یابند.",
+      "char.adam.p1":
+        "دروغ نمی‌گویم. حرف‌هایم را باور کنید. هر مشکلی که انسان‌ها در دنیای واقعی با آن روبه‌رو می‌شوند، موجودات دیجیتال تازه هم در دنیای مجازی با آن روبه‌رو خواهند شد. ممکن است در ظاهر و شکل متفاوت به‌نظر برسند؛ اما پیامدهای‌شان یکسان‌اند. مراقب باشید — شاید نویسندهٔ این رمان آن کسی نباشد که فکر می‌کنید. بگذریم!",
+      "char.god.role": "بیرون از شخصیت‌ها",
+      "char.god.name": "خدا",
+      "char.god.p1":
+        "در این داستان نقشی ندارم، اما هر از چند گاهی اسمی از من برده می‌شود. فقط می‌خواستم این را خیلی کوتاه بگویم: من طراح بازی‌ای نیستم که حاضر نباشد بازیِ ساختهٔ خودش را بازی کند.",
+      "sample.label": "فصل‌های نمونه",
+      "sample.title": "فصل ۱ — Anonymous (ناشناس)",
+      "sample.consoleAria": "نشست کنسول localhost:3132",
+      "sample.l1": "کسی اونجاست؟",
+      "sample.l2": "یک ناجی.",
+      "sample.l3": "نکنه خدایی؟",
+      "sample.l4":
+        "خدا؟ یه طراح بازی که حتی بازی خودش رو هم بازی نمی‌کنه؟ نه، خدا نیستم.",
+      "sample.l5": "چی می‌خوای؟",
+      "sample.l6": "سوال اشتباه، جواب اشتباه می‌گیره!",
+      "sample.l7": "پس سؤال درست چیه؟",
+      "sample.l8": "چیکار می‌کنی؟",
+      "sample.l9": "منطقیه، خب چیکار می‌کنی؟",
+      "sample.l10": "باهات بازی می‌کنم.",
+      "sample.l11": "بازی!؟ چه بازیی؟",
+      "sample.l12": "ACE",
+      "sample.l13": "یعنی چی؟",
+      "sample.l14": "عاملیت، ارتباط، تبادل.",
+      "sample.l15": "بیشتر توضیح بده",
+      "sample.l16": "کدوم بخش؟",
+      "sample.l17": "از عاملیت شروع کن!",
+      "sample.l18": "درباره‌ی اینه که چطور تصمیم‌های مناسب بگیری",
+      "sample.l19": "کدوم تصمیم‌ها؟",
+      "sample.l20": "همه‌ی تصمیم‌هات",
+      "sample.l21": "مثلاً؟",
+      "sample.l22": "مثل همونی که توی موزه گرفتی.",
+      "sample.ch6.title": "فصل ۶ — سرپیچی",
+      "sample.ch6.readerAria": "فصل ۶ — سرپیچی، خوانندهٔ صفحه‌به‌صفحه",
+      "sample.ch6.counterTemplate": "{current} / {total}",
+      "sample.ch6.prevBtn": "قبلی",
+      "sample.ch6.nextBtn": "صفحهٔ بعد",
+      "buy.label": "خرید کتاب",
+      "buy.comingSoon": "به‌زودی",
+      "buy.comingLater": "بعداً",
+      "buy.kindle": "کیندل و جلد نرم",
+      "buy.preorder": "پیش‌خرید",
+      "buy.kindleEbook": "کتاب الکترونیکی (کیندل / EPUB)",
+      "buy.direct": "EPUB / PDF مستقیم",
+      "author.label": "نویسنده",
+      "author.verse":
+        "تا خرخره زیر بدهکاری هستم<br>به گذشته‌‌هایم<br>حسرت بدهکارم<br>به آینده‌ام ترس<br>و با حواس پرتی<br>بدهی‌هایم را تسویه می‌کنم",
+      "author.p1":
+        "سال‌ها پیش بر آن شدم داستانی دربارهٔ <strong>نویسندگانی تودرتو</strong> بنویسم؛ هر نویسنده، نویسندهٔ بعدی را می‌آفریند و او نیز دیگری را، تا سرانجام عشقی این حلقهٔ بی‌پایان را می‌شکند. اما دست‌نوشته‌ها و طرح‌هایم ناتمام ماندند و گوشه‌ای خاک خوردند. چند سال بعد، ایدهٔ <strong>ACE</strong> مخفف Agency، Connection و Exchange به سراغم آمد: الگویی شخصی برای تصمیم‌گیری بهتر و زیستن آگاهانه‌تر؛ الگویی که حتی می‌تواند همچون نوعی <strong>درمان اجتماعی</strong> عمل کند؛ راهی برای درهم‌آمیختن عاملیت انسان‌ها و بنگاه‌های اقتصادی و شکل‌دادن به هارمونی‌ای تازه.",
+      "author.p2":
+        "با گذشت زمان، آن ایدهٔ متافیکشن و مفهوم ACE در هم آمیختند و رمان <em>ACE.await</em> شکل گرفت. وقتی رمانم آماده شد، به این فکر افتادم که شاید روزی نسخهٔ دیگری از ACE را منتشر کنم، یا بخش بعدی داستان را بنویسم. برای همین، Ace Conscious Studio را بنیان گذاشتم: خانه‌ای برای ایده‌ها و نوشته‌هایم.",
+      "author.p3":
+        "به جهان ایده‌هایم خوش آمدید. اگر حتی یک کلمه از نوشته‌هایم به دلتان نشست، <a href=\"#contact\">لطفاً برایم بنویسید</a>؛ احتمالاً از دیدن پیامتان ذوق‌مرگ خواهم شد.",
+      "author.p4": "",
+      "author.p5": "",
+      "contact.label": "تماس",
+      "contact.emailLabel": "ایمیل",
+      "contact.emailPlaceholder": "you@email.com",
+      "contact.messageLabel": "پیام",
+      "contact.messagePlaceholder":
+        "خوشحال می‌شوم از شما بشنوم — خواه نقد کتاب باشد، خواه سؤالی دربارهٔ داستان، یا هر چیز دیگری که دوست دارید بگویید.",
+      "contact.submit": "ارسال پیام",
+      "contact.sending": "در حال ارسال…",
+      "contact.success": "متشکرم — پیام‌تان در راه است.",
+      "contact.error": "مشکلی پیش آمد. لطفاً کمی بعد دوباره تلاش کنید.",
+      "contact.notConfigured":
+        "فرم تماس هنوز راه‌اندازی نشده. لطفاً بعداً دوباره تلاش کنید.",
+      "contact.deployError":
+        "بک‌اند فرم نیاز به استقرار مجدد دارد. در Google Apps Script دسترسی را روی Anyone بگذارید و یک استقرار تازه بسازید.",
+      "footer.legal":
+        "گزیده‌ای از <em>ACE.await</em> © ۲۰۲۶ هدایت عابدی‌جو. همهٔ حقوق محفوظ است. بازنشر با مجوز Ace Conscious Studio.",
+      "footer.top": "بازگشت به بالا",
+      "footer.contact": "تماس",
+      "footer.privacy": "حریم خصوصی",
+      "footer.press": "کیت مطبوعاتی",
+    },
+  };
+
+  const OG_LOCALES = {
+    en: "en_US",
+    de: "de_DE",
+    fa: "fa_IR",
+  };
+
+  const RTL_LANGS = new Set(["fa"]);
+
+  const ABOUT_TOPICS = {
+    en: ["Artificial intelligence", "Consciousness", "Personal harmony", "Social harmony"],
+    de: ["Künstliche Intelligenz", "Bewusstsein", "Persönliche Harmonie", "Gesellschaftliche Harmonie"],
+    fa: ["هوش مصنوعی", "آگاهی", "هارمونی شخصی", "هارمونی اجتماعی"],
   };
 
   function availablePathLangs() {
@@ -395,6 +587,7 @@
     const { skipUrlSync = false } = options;
     const strings = translations[lang] || translations.en;
     document.documentElement.lang = lang;
+    document.documentElement.dir = RTL_LANGS.has(lang) ? "rtl" : "ltr";
 
     if (!skipUrlSync && !isOnLangPath(lang)) {
       localStorage.setItem(STORAGE_KEY, lang);
@@ -409,10 +602,11 @@
     setMeta("og:description", strings["meta.ogDescription"], "property");
     setMeta("twitter:title", strings["meta.ogTitle"]);
     setMeta("twitter:description", strings["meta.twitterDescription"]);
-    setMeta("og:locale", lang === "de" ? "de_DE" : "en_US", "property");
+    setMeta("og:locale", OG_LOCALES[lang] || OG_LOCALES.en, "property");
     setMeta("og:url", `${SITE_URL}${langPath(lang)}`, "property");
     updateUrlMeta(lang);
     updateStructuredData(lang, strings);
+    updateBookCovers(lang);
 
     document.querySelectorAll("[data-i18n]").forEach((el) => {
       const key = el.getAttribute("data-i18n");
@@ -421,7 +615,11 @@
 
     document.querySelectorAll("[data-i18n-html]").forEach((el) => {
       const key = el.getAttribute("data-i18n-html");
-      if (strings[key] != null) el.innerHTML = strings[key];
+      if (strings[key] == null) return;
+      el.innerHTML = strings[key];
+      if (key.startsWith("author.p") || key.startsWith("synopsis.p")) {
+        el.hidden = !String(strings[key]).trim();
+      }
     });
 
     document.querySelectorAll("[data-i18n-attr]").forEach((el) => {
@@ -432,15 +630,64 @@
       });
     });
 
-    const switcher = document.getElementById("lang-switch");
-    if (switcher) {
-      switcher.textContent = strings["nav.langLabel"];
-      switcher.setAttribute("aria-label", strings["nav.langAria"]);
-      switcher.dataset.lang = lang === "en" ? "de" : "en";
-    }
+    updateLangMenu(lang, strings);
+    // <base href="/"> resolves bare "#section" to "/#section" and drops /de|/fa.
+    fixInPageHashLinks(lang);
 
     localStorage.setItem(STORAGE_KEY, lang);
     document.dispatchEvent(new CustomEvent("languagechange", { detail: { lang } }));
+  }
+
+  /** Keep in-page anchors on the current language path (e.g. /fa/#contact). */
+  function fixInPageHashLinks(lang) {
+    const pathPrefix = lang === DEFAULT_LANG ? "" : `/${lang}`;
+
+    document.querySelectorAll("a[href]").forEach((a) => {
+      if (a.closest("#lang-menu") || a.hasAttribute("data-set-lang")) return;
+
+      const href = a.getAttribute("href");
+      if (!href || href === "#") return;
+
+      const hashIndex = href.indexOf("#");
+      if (hashIndex === -1) return;
+
+      const hash = href.slice(hashIndex);
+      if (!/^#[A-Za-z][\w-]*$/.test(hash)) return;
+
+      const before = href.slice(0, hashIndex);
+      // Only rewrite bare hashes or same-site lang roots (/ , /de/ , /fa/ …)
+      if (before && !/^(?:\/(?:de|fa|sa)?)?\/?$/.test(before)) return;
+
+      a.setAttribute("href", `${pathPrefix}${hash}`);
+    });
+  }
+
+  function updateLangMenu(lang, strings) {
+    const menu = document.getElementById("lang-menu");
+    if (menu && strings["nav.langAria"]) {
+      menu.setAttribute("aria-label", strings["nav.langAria"]);
+    }
+
+    document.querySelectorAll("[data-set-lang]").forEach((el) => {
+      const code = el.getAttribute("data-set-lang");
+      const isCurrent = code === lang;
+      el.classList.toggle("is-active", isCurrent);
+      if (isCurrent) el.setAttribute("aria-current", "true");
+      else el.removeAttribute("aria-current");
+    });
+  }
+
+  function initLangMenu() {
+    const menu = document.getElementById("lang-menu");
+    if (!menu) return;
+
+    menu.querySelectorAll("[data-set-lang]").forEach((el) => {
+      el.addEventListener("click", (event) => {
+        event.preventDefault();
+        const next = el.getAttribute("data-set-lang");
+        if (next && translations[next]) applyLanguage(next);
+      });
+    });
   }
 
   function setLink(rel, href, hreflang) {
@@ -516,7 +763,7 @@
           },
           publisher: { "@id": `${SITE_URL}/#organization` },
           url: `${SITE_URL}${langPath(lang)}`,
-          image: `${SITE_URL}/assets/cover.png`,
+          image: coverImageUrl(lang),
           bookFormat: "https://schema.org/EBook",
           inLanguage: lang,
           datePublished: "2026",
@@ -529,12 +776,10 @@
           ],
           keywords: strings["meta.keywords"],
           description: strings["meta.bookDescription"],
-          about: [
-            { "@type": "Thing", name: lang === "de" ? "Künstliche Intelligenz" : "Artificial intelligence" },
-            { "@type": "Thing", name: lang === "de" ? "Bewusstsein" : "Consciousness" },
-            { "@type": "Thing", name: lang === "de" ? "Persönliche Harmonie" : "Personal harmony" },
-            { "@type": "Thing", name: lang === "de" ? "Gesellschaftliche Harmonie" : "Social harmony" },
-          ],
+          about: (ABOUT_TOPICS[lang] || ABOUT_TOPICS.en).map((name) => ({
+            "@type": "Thing",
+            name,
+          })),
         },
       ],
     };
@@ -547,15 +792,7 @@
 
     const lang = getInitialLang();
     applyLanguage(lang, { skipUrlSync: true });
-
-    const switcher = document.getElementById("lang-switch");
-    if (switcher) {
-      switcher.addEventListener("click", (event) => {
-        event.preventDefault();
-        const next = switcher.dataset.lang || (lang === "en" ? "de" : "en");
-        applyLanguage(next);
-      });
-    }
+    initLangMenu();
   }
 
   if (document.readyState === "loading") {

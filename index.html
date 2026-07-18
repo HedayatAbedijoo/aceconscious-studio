@@ -29,16 +29,18 @@
   <link rel="canonical" href="https://aceconscious.studio/">
   <link rel="alternate" hreflang="en" href="https://aceconscious.studio/">
   <link rel="alternate" hreflang="de" href="https://aceconscious.studio/de">
+  <link rel="alternate" hreflang="fa" href="https://aceconscious.studio/fa">
   <link rel="alternate" hreflang="x-default" href="https://aceconscious.studio/">
   <meta property="og:site_name" content="Ace Conscious Studio">
   <meta property="og:title" content="ACE.await is a philosophical literary thriller">
-  <meta property="og:description" content="Consciousness shapes the future, not artificial intelligence. A philosophical literary thriller about nested writers and the ACE game — Agency, Connection, Exchange.">
+  <meta property="og:description" content="Consciousness shapes the future—not artificial intelligence. A philosophical literary thriller about nested writers and the ACE game — Agency, Connection, Exchange.">
   <meta property="og:url" content="https://aceconscious.studio/">
   <meta property="og:image" content="https://aceconscious.studio/assets/cover.png">
   <meta property="og:image:alt" content="ACE.await book cover — philosophical literary thriller novel">
   <meta property="og:type" content="book">
   <meta property="og:locale" content="en_US">
   <meta property="og:locale:alternate" content="de_DE">
+  <meta property="og:locale:alternate" content="fa_IR">
   <meta property="book:author" content="Hedayat Abedijoo">
   <meta property="book:tag" content="Philosophical thriller">
   <meta property="book:tag" content="AI novel">
@@ -97,7 +99,7 @@
           "Literary fiction"
         ],
         "keywords": "philosophical literary thriller, AI novel, consciousness, artificial intelligence, metafiction, harmony, ACE game, Agency Connection Exchange, nested writers, free internet, Cologne",
-        "description": "ACE.await is a philosophical literary thriller novel about nested writers, characters who rebel against their author, and one person who tries to bring the ACE game — Agency, Connection, Exchange — into society. Consciousness shapes the future, not artificial intelligence.",
+        "description": "ACE.await is a philosophical literary thriller novel about nested writers, characters who rebel against their author, and one person who tries to bring the ACE game — Agency, Connection, Exchange — into society. Consciousness shapes the future—not artificial intelligence.",
         "about": [
           { "@type": "Thing", "name": "Artificial intelligence" },
           { "@type": "Thing", "name": "Consciousness" },
@@ -111,6 +113,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Caveat+Brush&family=JetBrains+Mono:wght@400;500&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link rel="preload" href="/assets/fonts/Vazirmatn-Regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="css/styles.css">
   <link rel="icon" href="assets/favicon.png" type="image/png">
 </head>
@@ -140,7 +143,11 @@
         <span class="site-nav__logo-text">Ace Conscious <span>Studio</span></span>
       </a>
       <div class="site-nav__actions">
-        <a href="#" class="site-nav__lang" id="lang-switch" data-lang="de" data-i18n="nav.langLabel">DE</a>
+        <nav class="site-nav__langs" id="lang-menu" aria-label="Language">
+          <a href="/" class="site-nav__lang is-active" data-set-lang="en" lang="en" hreflang="en" aria-current="true">EN</a>
+          <a href="/de" class="site-nav__lang" data-set-lang="de" lang="de" hreflang="de">DE</a>
+          <a href="/fa" class="site-nav__lang" data-set-lang="fa" lang="fa" hreflang="fa">FA</a>
+        </nav>
         <button class="nav-toggle" type="button" data-i18n-attr="aria-label:nav.openMenu" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu">
           <span></span><span></span><span></span>
         </button>
@@ -167,13 +174,16 @@
             <em>Believe</em>
             my words!
           </p>
-          <h1 class="hero__title">ACE.<span class="await">await</span></h1>
-          <p class="hero__author">Hedayat the second</p>
+          <div class="hero__book-title-block">
+            <h1 class="hero__title">ACE.<span class="await">await</span></h1>
+            <p class="hero__author" data-i18n="hero.author">Mr. Writer: Hedayat the second</p>
+          </div>
           <p class="hero__pitch" data-i18n-html="hero.pitch">
-            Consciousness shapes the future, not artificial intelligence.
-            <em>ACE.await</em> is a philosophical literary thriller novel about nested writers,
-            characters who rebel against their author, and one person who tries to bring the ACE game —
-            Agency, Connection, Exchange — into society.
+            Consciousness shapes the future—not artificial intelligence.
+            <em>ACE.await</em> is a literary and philosophical thriller about writers within writers—where
+            characters rebel against their creators, and one love is meant to break the endless loop.
+            But the one claiming to have fallen in love is an artificial intelligence. Amid the chaos,
+            the game of ACE begins: Agency, Connection, Exchange.
           </p>
           <div class="hero__meta">
             <span>Ace Conscious Studio</span>
@@ -285,8 +295,7 @@
     <!-- Characters -->
     <section class="characters" id="voices">
       <div class="container reveal">
-        <p class="section-label" data-i18n="voices.label">Voices from the Story</p>
-        <h2 class="section-title" data-i18n="voices.title">Who speaks in ACE.await</h2>
+        <p class="section-label" data-i18n="voices.label">Voices of the Characters</p>
 
         <div class="characters-grid">
 
@@ -408,7 +417,7 @@
 
           <article class="character-card">
             <header class="character-card__head">
-              <h3 class="character-card__name">God</h3>
+              <h3 class="character-card__name" data-i18n="char.god.name">God</h3>
               <p class="character-card__role" data-i18n="char.god.role">Not in the cast</p>
             </header>
             <div class="character-card__body">
@@ -427,7 +436,7 @@
     <!-- Sample chapters -->
     <section class="sample" id="sample">
       <div class="container reveal">
-        <p class="section-label" data-i18n="sample.label">Free Sample</p>
+        <p class="section-label" data-i18n="sample.label">Sample Chapters</p>
 
         <article class="sample-chapter" id="sample-ch1">
           <h3 class="sample-chapter__title" data-i18n="sample.title">Chapter 1 — Anonymous</h3>
@@ -585,7 +594,6 @@
     <section class="buy" id="buy">
       <div class="container reveal">
         <p class="section-label" data-i18n="buy.label">Get the Book</p>
-        <h2 class="section-title" data-i18n="buy.title">Take the ACE.await home</h2>
 
         <div class="buy-grid">
           <a class="buy-card" href="https://www.amazon.com/dp/B0H8MDM6Q5" target="_blank" rel="noopener noreferrer" id="buy-amazon" data-store="amazon">
@@ -682,7 +690,6 @@
     <section class="contact" id="contact">
       <div class="container reveal">
         <p class="section-label" data-i18n="contact.label">Contact</p>
-        <h2 class="section-title" data-i18n="contact.title">Write to me</h2>
 
         <form class="contact-form" id="contact-form" novalidate>
           <input
