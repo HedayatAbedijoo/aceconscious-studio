@@ -15,11 +15,19 @@
   };
 
   function getCoverAssets(lang) {
-    return COVER_ASSETS[lang] || COVER_ASSETS.en;
+    const assets = COVER_ASSETS[lang] || COVER_ASSETS.en;
+    const versioned = (path) =>
+      typeof window.aceAssetUrl === "function" ? window.aceAssetUrl(path) : `/${path.replace(/^\//, "")}`;
+    return {
+      front: versioned(assets.front),
+      back: versioned(assets.back),
+    };
   }
 
   function coverImageUrl(lang) {
-    return `${SITE_URL}/${getCoverAssets(lang).front}`;
+    const front = getCoverAssets(lang).front;
+    if (/^https?:/i.test(front)) return front;
+    return `${SITE_URL}${front.startsWith("/") ? front : `/${front}`}`;
   }
 
   function updateBookCovers(lang) {
@@ -539,7 +547,7 @@
   }
 
   function langPath(lang) {
-    return lang === DEFAULT_LANG ? "/" : `/${lang}`;
+    return lang === DEFAULT_LANG ? "/" : `/${lang}/`;
   }
 
   function isOnLangPath(lang) {
@@ -640,8 +648,6 @@
 
   /** Keep in-page anchors on the current language path (e.g. /fa/#contact). */
   function fixInPageHashLinks(lang) {
-    const pathPrefix = lang === DEFAULT_LANG ? "" : `/${lang}`;
-
     document.querySelectorAll("a[href]").forEach((a) => {
       if (a.closest("#lang-menu") || a.hasAttribute("data-set-lang")) return;
 
@@ -658,7 +664,7 @@
       // Only rewrite bare hashes or same-site lang roots (/ , /de/ , /fa/ …)
       if (before && !/^(?:\/(?:de|fa|sa)?)?\/?$/.test(before)) return;
 
-      a.setAttribute("href", `${pathPrefix}${hash}`);
+      a.setAttribute("href", lang === DEFAULT_LANG ? hash : `/${lang}/${hash}`);
     });
   }
 

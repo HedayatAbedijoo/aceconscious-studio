@@ -19,21 +19,30 @@
   }
 
   const revealEls = document.querySelectorAll(".reveal");
+  const showReveal = (el) => el.classList.add("visible");
+
   if (revealEls.length && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
+            showReveal(entry.target);
             observer.unobserve(entry.target);
           }
         });
       },
-      { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
+      { threshold: 0.08, rootMargin: "0px 0px -10% 0px" }
     );
     revealEls.forEach((el) => observer.observe(el));
+
+    // Failsafe: never leave the page blank if IO never fires (common on some mobile browsers).
+    window.setTimeout(() => {
+      revealEls.forEach((el) => {
+        if (!el.classList.contains("visible")) showReveal(el);
+      });
+    }, 900);
   } else {
-    revealEls.forEach((el) => el.classList.add("visible"));
+    revealEls.forEach(showReveal);
   }
 
   const yearEl = document.getElementById("year");

@@ -3,7 +3,7 @@
 
 @font-face {
   font-family: "Vazirmatn";
-  src: url("../assets/fonts/Vazirmatn-Regular.woff2") format("woff2");
+  src: url("../assets/fonts/Vazirmatn-Regular.woff2?v=20260718c") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -11,7 +11,7 @@
 
 @font-face {
   font-family: "Vazirmatn";
-  src: url("../assets/fonts/Vazirmatn-Medium.woff2") format("woff2");
+  src: url("../assets/fonts/Vazirmatn-Medium.woff2?v=20260718c") format("woff2");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
@@ -19,7 +19,7 @@
 
 @font-face {
   font-family: "Vazirmatn";
-  src: url("../assets/fonts/Vazirmatn-SemiBold.woff2") format("woff2");
+  src: url("../assets/fonts/Vazirmatn-SemiBold.woff2?v=20260718c") format("woff2");
   font-weight: 600;
   font-style: normal;
   font-display: swap;
@@ -167,7 +167,9 @@ html[dir="rtl"] .btn,
 html[dir="rtl"] .contact-form__label,
 html[dir="rtl"] .contact-form__input,
 html[dir="rtl"] .contact-form__textarea,
-html[dir="rtl"] .contact-form__status {
+html[dir="rtl"] .contact-form__status,
+html[dir="rtl"] .character-card__name,
+html[dir="rtl"] .character-card__role {
   font-family: var(--font-serif-fa);
 }
 
@@ -1150,17 +1152,19 @@ section {
 }
 
 .character-card__name {
-  font-family: var(--font-display);
-  font-size: 1.75rem;
-  letter-spacing: 0.04em;
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-transform: none;
   margin: 0;
 }
 
 .character-card__role {
   font-family: var(--font-mono);
   font-size: 0.9375rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  text-transform: none;
   color: var(--parchment);
   opacity: 0.9;
   margin: 0.25rem 0 0;
@@ -1457,12 +1461,16 @@ section {
 
 /* ── Reveal animation ── */
 .reveal {
-  opacity: 0;
-  transform: translateY(24px);
   transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
 }
 
-.reveal.visible {
+/* Only hide content when JS is active — otherwise a failed script would leave a blank page */
+html.js .reveal:not(.visible) {
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+html.js .reveal.visible {
   opacity: 1;
   transform: none;
 }
@@ -1593,7 +1601,8 @@ section {
     scroll-behavior: auto;
   }
 
-  .reveal {
+  html.js .reveal:not(.visible),
+  html.js .reveal {
     opacity: 1;
     transform: none;
     transition: none;
