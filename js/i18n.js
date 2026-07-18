@@ -77,7 +77,7 @@
       "hero.topic4": "Personal & social harmony",
       "hero.topic5": "ACE game",
       "hero.buyBtn": "Pre-order / Buy",
-      "hero.sampleBtn": "Read Chapter 1",
+      "hero.sampleBtn": "Sample Chapters",
       "hero.coverAlt":
         "ACE.await book cover — philosophical AI thriller novel about consciousness and metafiction",
       "hero.coverBackAlt": "ACE.await back cover — a wager about love, belief, and the mirror between self and self",
@@ -235,7 +235,7 @@
       "hero.topic4": "Persönliche & gesellschaftliche Harmonie",
       "hero.topic5": "ACE-Spiel",
       "hero.buyBtn": "Vorbestellen / Kaufen",
-      "hero.sampleBtn": "Kapitel 1 lesen",
+      "hero.sampleBtn": "Beispielkapitel",
       "hero.coverAlt":
         "ACE.await Buchcover — philosophischer KI-Thriller über Bewusstsein und Metafiktion",
       "hero.coverBackAlt": "ACE.await Rückseite — eine Wette über Liebe, Glauben und den Spiegel zwischen Ich und Selbst",
@@ -392,7 +392,7 @@
       "hero.topic4": "هارمونی شخصی و اجتماعی",
       "hero.topic5": "بازی ACE",
       "hero.buyBtn": "پیش‌خرید / خرید",
-      "hero.sampleBtn": "خواندن فصل ۱",
+      "hero.sampleBtn": "فصل‌های نمونه",
       "hero.coverAlt":
         "جلد کتاب ACE.await — تریلر فلسفی هوش مصنوعی دربارهٔ آگاهی و متافیکشن",
       "hero.coverBackAlt": "پشت جلد ACE.await — شرطی دربارهٔ عشق، باور، و آینهٔ میان خود و خود",
