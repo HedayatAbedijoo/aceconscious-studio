@@ -103,33 +103,33 @@
       "voices.label": "Voices of the Characters",
       "char.hedayat.role": "Protagonist",
       "char.hedayat.p1":
-        "I live in Cologne, leading a team at a software company, building a new free internet to fight the dictatorship of data. In my private life, I’m constantly struggling to learn what a right decision even means. Anonymous keeps telling me that through ACE, I need to learn something harder: the proper decision.",
+        "I live in Cologne, where I lead a team at a software company. We are building a new and free internet—one meant to resist the dictatorship of data and the dominance of big corporations. In my private life, however, I keep struggling to make the right decisions, only to screw everything up in the end. Now a stranger has appeared and keeps telling me that instead of searching for the right decision, I should learn how to make the proper one—with the help of something called ACE.",
       "char.hedayat.p2":
-        "For ten years I couldn’t finish my novel, and I blamed myself. It was painful — but finally I understood it wasn’t my fault. It wasn’t me writing the story the whole time.",
+        "I also have an unfinished novel on my hands, and its stubborn refusal to end is driving me mad.",
       "char.anonymous.p1":
-        "It isn’t easy to earn Hedayat’s trust — especially when he thinks you’re a hacker. He still needs to understand: it isn’t technology or tools that will save humanity or the future. It’s consciousness — and learning how to make a proper decision. Hedayat has to practice ACE. We need to hurry. Otherwise it’s getting too late.",
-      "char.writer.role": "Inner identity",
+        "Earning Hedayat’s trust is not easy—especially when he thinks you are a hacker who has broken into his computer. People must understand that technology and tools will not save humanity from the dangers ahead. The real key lies in awareness—and in learning how to make proper decisions. Hedayat must practice ACE. We must all hurry, or it will be too late.",
+      "char.writer.role": "Inner Identity",
       "char.writer.p1":
-        "Hedayat must not find out I’m talking to you. I’m the character inside his unfinished novel — and I’m an author too. In his novel I’m writing a novel, and inside my novel I created a character who is also writing another. I gave him my name: Mr. Writer. He treats me exactly the way I’ve been treating Hedayat.",
+        "Hedayat must not find out that I am talking to you. I am one of the main characters in his unfinished novel—and a writer by profession. I am writing a novel of my own, whose main character is also a writer. I gave him my own name: «Mr. Writer». These days, he treats me exactly the way I have been treating Hedayat.",
       "char.writer.p2":
-        "If, from time to time, you read something that makes no sense — some chapters about disobedience, blank pages and etc — don’t get confused. That’s me. Be patient. Keep reading. The dots connect at the end.",
-      "char.ava.role": "Ex-girlfriend",
+        "If, from time to time, you come across something that seems to make no sense—chapters about disobedience, blank pages, and things of that sort—do not be confused. That is my doing. Be patient. Keep reading. In the end, the dots will connect.",
+      "char.ava.role": "Former Lover",
       "char.ava.p1":
-        "We all carry a «Story's Hero» in our heads — always telling the story in a way that makes us feel we were right. I’m not saying I made no mistakes in my relationship with Hedayat, or that I left him over a single mistake. I left because he kept turning love into the problems he could solve later. He was always ready to explain and analyze when he should have listened — to feel first, understand second, and when understanding wasn’t enough, simply show empathy.",
-      "char.sam.role": "CEO's Kid",
+        "We all carry a «Story’s Hero» in our minds—someone who makes a story out of everything and always tells it in a way that makes us feel we were right all along. I am not saying I made no mistakes in my relationship with Hedayat, or that I left him over a single mistake. I left because, instead of listening, he treated love like something to explain and analyze—as though it were a problem he could solve. He needed to feel first, understand second—and when understanding failed him, simply show empathy. Besides, Hedayat should never have gambled on love.",
+      "char.sam.role": "The CEO’s Kid",
       "char.sam.p1":
-        "I love the games I play with Uncle-Hedi — the talk we share and the secrets between us. Like the secret of the number 2313.",
+        "I love the games I play with Uncle Hedi—and the conversations we have, and the secrets we keep between us. Like the secret of the number 2313.",
       "char.sam.p2":
-        "By the way, Uncle-Hedi has this funny habit. Sometimes — only sometimes — when he’s deep in thought and completely lost in his head, he forgets to look around and check where he is not alone, and suddenly, he farts!",
+        "By the way, Uncle Hedi sometimes does strange things. Sometimes—only sometimes—when he sinks deep into his thoughts and gets completely lost inside his own head, he forgets to look around first. To check whether he is alone! And then, out of nowhere, he farts!",
       "char.saman.role": "Old Friend",
       "char.saman.p1":
-        "I love Hedayat the way Rumi loved Shams. A person understands the meaning of life through suffering, and true healing comes through pure friendship.",
+        "I love Hedayat the way Rumi loved Shams. Human beings find the meaning of life through their suffering—and discover true healing in the purest of friendships.",
       "char.adam.p1":
-        "I’m not lying. Believe my words. Every trouble humans face in the real world, new digital creatures face in a virtual one. The forms are different; the consequences are the same. Be careful — the author of this novel may not be the one you’re thinking of. Anyway!",
-      "char.god.role": "Not in the cast",
+        "I am not lying. Believe my words. Every problem human beings face in the real world, new digital beings will face in the virtual one. Their form and appearance may be different, but the consequences will be the same. Be careful—the author of this novel may not be who you think. Anyway!",
+      "char.god.role": "Not in the Cast",
       "char.god.name": "God",
       "char.god.p1":
-        "I don’t play a role in this story, but my name gets mentioned here and there. I just wanted to say one thing quickly: I am not a game designer who refuses to play the game he created.",
+        "I have no role in this story, though my name does come up from time to time. I only wanted to say one thing, very briefly: I am not the designer of a game I would refuse to play myself.",
       "sample.label": "Sample Chapters",
       "sample.title": "Chapter 1 — Anonymous",
       "sample.consoleAria": "Console session localhost:3132",
@@ -261,33 +261,33 @@
       "voices.label": "Stimmen der Figuren",
       "char.hedayat.role": "Protagonist",
       "char.hedayat.p1":
-        "Ich lebe in Köln, führe ein Team in einer Softwarefirma und baue ein neues freies Internet gegen die Diktatur der Daten. Im Privaten ringe ich ständig damit zu lernen, was eine richtige Entscheidung überhaupt bedeutet. Anonymous sagt mir immer wieder, dass ich durch ACE etwas Schwereres lernen muss: die richtige Entscheidung.",
+        "Ich lebe in Köln und leite ein Team in einem Softwareunternehmen. Wir bauen ein neues, freies Internet – eines, das sich der Diktatur der Daten und der Macht großer Konzerne entgegenstellen soll. In meinem Privatleben ringe ich allerdings ständig darum, die richtigen Entscheidungen zu treffen, nur um am Ende doch wieder alles zu versauen. Jetzt ist auch noch ein Unbekannter aufgetaucht, der mir ständig erzählt, ich solle nicht länger nach der richtigen Entscheidung suchen, sondern lernen, die angemessene zu treffen – mithilfe von etwas, das sich ACE nennt.",
       "char.hedayat.p2":
-        "Zehn Jahre lang konnte ich meinen Roman nicht beenden und gab mir die Schuld. Es tat weh — aber schließlich verstand ich, dass es nicht meine Schuld war. Nicht ich habe die ganze Zeit die Geschichte geschrieben.",
+        "Außerdem habe ich da noch einen unfertigen Roman am Hals, und seine hartnäckige Weigerung, zu einem Ende zu kommen, treibt mich langsam in den Wahnsinn.",
       "char.anonymous.p1":
-        "Es ist nicht leicht, Hedayats Vertrauen zu gewinnen — besonders wenn er denkt, du bist ein Hacker. Er muss noch verstehen: Nicht Technologie oder Werkzeuge werden die Menschheit oder die Zukunft retten. Es ist Bewusstsein — und zu lernen, wie man eine richtige Entscheidung trifft. Hedayat muss ACE üben. Wir müssen uns beeilen. Sonst wird es zu spät.",
+        "Hedayats Vertrauen zu gewinnen, ist nicht leicht – erst recht nicht, wenn er einen für einen Hacker hält, der sich in seinen Computer gehackt hat. Die Menschen müssen begreifen, dass weder Technologie noch irgendwelche Werkzeuge die Menschheit vor den Gefahren retten werden, die vor uns liegen. Der eigentliche Schlüssel liegt im Bewusstsein – und darin, zu lernen, wie man angemessene Entscheidungen trifft. Hedayat muss ACE üben. Wir alle müssen uns beeilen, sonst ist es zu spät.",
       "char.writer.role": "Innere Identität",
       "char.writer.p1":
-        "Hedayat darf nicht erfahren, dass ich mit dir rede. Ich bin die Figur in seinem unvollendeten Roman — und selbst Autor. In seinem Roman schreibe ich einen Roman, und in meinem Roman habe ich eine Figur erschaffen, die wiederum einen anderen schreibt. Ich gab ihm meinen Namen: Mr. Writer. Er behandelt mich genau so, wie ich Hedayat behandelt habe.",
+        "Hedayat darf nicht herausfinden, dass ich mit Ihnen spreche. Ich bin eine der Hauptfiguren in seinem unfertigen Roman – und von Beruf Schriftsteller. Ich selbst schreibe an einem Roman, dessen Hauptfigur ebenfalls Schriftsteller ist. Ich habe ihm meinen eigenen Namen gegeben: «Mr. Writer». Inzwischen behandelt er mich genauso, wie ich Hedayat behandelt habe.",
       "char.writer.p2":
-        "Wenn du ab und zu etwas liest, das keinen Sinn ergibt — Kapitel über Ungehorsam, leere Seiten und so weiter — verwirre dich nicht. Das bin ich. Hab Geduld. Lies weiter. Am Ende verbinden sich die Punkte.",
-      "char.ava.role": "Ex-Freundin",
+        "Falls Ihnen hin und wieder etwas begegnet, das scheinbar überhaupt keinen Sinn ergibt – Kapitel über Ungehorsam, leere Seiten und dergleichen –, lassen Sie sich nicht verwirren. Das ist mein Werk. Seien Sie geduldig. Lesen Sie weiter. Am Ende werden sich die einzelnen Punkte zu einem Ganzen verbinden.",
+      "char.ava.role": "Ehemalige Geliebte",
       "char.ava.p1":
-        "Wir alle tragen einen «Story's Hero» in unserem Kopf — und erzählen die Geschichte immer so, dass wir im Recht waren. Ich sage nicht, dass ich in meiner Beziehung mit Hedayat keine Fehler gemacht habe, oder dass ich ihn wegen eines einzigen Fehlers verlassen habe. Ich ging, weil er die Liebe immer in Probleme verwandelte, die er später lösen wollte. Er war immer bereit zu erklären und zu analysieren, wenn er zuhören sollte — erst fühlen, dann verstehen, und wenn Verstehen nicht reichte, einfach Empathie zeigen.",
+        "In uns allen lebt ein «Geschichtenheld» – jemand, der aus allem eine Geschichte macht und sie stets so erzählt, dass wir am Ende glauben, wir hätten von Anfang an recht gehabt. Ich behaupte nicht, dass ich in meiner Beziehung mit Hedayat keine Fehler gemacht hätte oder dass ich ihn wegen eines einzigen Fehlers verlassen hätte. Ich verließ ihn, weil er nicht zuhörte, sondern die Liebe wie etwas behandelte, das sich erklären und analysieren ließ – als wäre sie ein Problem, das er lösen könnte. Er hätte zuerst fühlen und erst danach verstehen müssen – und wenn sein Verstehen nicht weiterführte, einfach Mitgefühl zeigen. Außerdem hätte Hedayat niemals auf die Liebe wetten dürfen.",
       "char.sam.role": "Kind des CEOs",
       "char.sam.p1":
-        "Ich liebe die Spiele, die ich mit Onkel-Hedi spiele — das Gespräch zwischen uns und die Geheimnisse. Wie das Geheimnis der Zahl 2313.",
+        "Ich liebe es, mit Onkel Hedi zu spielen – und ich mag unsere Gespräche und die Geheimnisse, die wir miteinander teilen. Zum Beispiel das Geheimnis der Zahl 2313.",
       "char.sam.p2":
-        "Übrigens hat Onkel-Hedi diese lustige Angewohnheit. Manchmal — nur manchmal — wenn er tief in Gedanken ist und ganz in seinem Kopf verschwindet, vergisst er, sich umzusehen und zu prüfen, ob er nicht allein ist, und plötzlich furzt er!",
+        "Übrigens macht Onkel Hedi manchmal komische Sachen. Manchmal – aber wirklich nur manchmal – versinkt er so tief in seinen Gedanken und verirrt sich so sehr in seinem eigenen Kopf, dass er vergisst, sich vorher umzusehen. Um zu prüfen, ob er auch wirklich allein ist! Und dann – einfach so – pupst er!",
       "char.saman.role": "Alter Freund",
       "char.saman.p1":
-        "Ich liebe Hedayat, so wie Rumi Shams liebte. Ein Mensch versteht den Sinn des Lebens durch Leiden, und wahre Heilung kommt durch reine Freundschaft.",
+        "Ich liebe Hedayat so, wie Rumi Shams liebte. Im Leiden finden Menschen den Sinn des Lebens – und in den reinsten Freundschaften wahre Heilung.",
       "char.adam.p1":
-        "Ich lüge nicht. Glaube meinen Worten. Jede Sorge, mit der Menschen in der realen Welt kämpfen, kämpfen neue digitale Wesen in einer virtuellen. Die Formen sind verschieden; die Folgen dieselben. Sei vorsichtig — der Autor dieses Romans ist vielleicht nicht der, an den du denkst. Wie auch immer!",
-      "char.god.role": "Nicht in der Besetzung",
+        "Ich lüge nicht. Glauben Sie meinen Worten. Mit jedem Problem, dem Menschen in der realen Welt begegnen, werden auch die neuen digitalen Wesen in der virtuellen Welt konfrontiert sein. Ihre Form und ihr Erscheinungsbild mögen anders sein, doch die Folgen werden dieselben sein. Seien Sie vorsichtig – vielleicht ist der Autor dieses Romans nicht der, für den Sie ihn halten. Anyway!",
+      "char.god.role": "Nicht Teil der Besetzung",
       "char.god.name": "Gott",
       "char.god.p1":
-        "Ich spiele keine Rolle in dieser Geschichte, aber mein Name wird hier und da erwähnt. Ich wollte nur schnell eines sagen: Ich bin kein Spieledesigner, der sich weigert, das Spiel zu spielen, das er erschaffen hat.",
+        "Ich spiele in dieser Geschichte keine Rolle, auch wenn mein Name hin und wieder fällt. Ich wollte nur ganz kurz eines sagen: Ich bin nicht der Designer eines Spiels, das ich selbst nicht zu spielen bereit wäre.",
       "sample.label": "Beispielkapitel",
       "sample.title": "Kapitel 1 — Anonymous",
       "sample.consoleAria": "Konsolensitzung localhost:3132",
