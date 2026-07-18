@@ -3,7 +3,7 @@
 
 @font-face {
   font-family: "Vazirmatn";
-  src: url("../assets/fonts/Vazirmatn-Regular.woff2?v=20260718c") format("woff2");
+  src: url("../assets/fonts/Vazirmatn-Regular.woff2?v=20260718d") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -11,7 +11,7 @@
 
 @font-face {
   font-family: "Vazirmatn";
-  src: url("../assets/fonts/Vazirmatn-Medium.woff2?v=20260718c") format("woff2");
+  src: url("../assets/fonts/Vazirmatn-Medium.woff2?v=20260718d") format("woff2");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
@@ -19,7 +19,7 @@
 
 @font-face {
   font-family: "Vazirmatn";
-  src: url("../assets/fonts/Vazirmatn-SemiBold.woff2?v=20260718c") format("woff2");
+  src: url("../assets/fonts/Vazirmatn-SemiBold.woff2?v=20260718d") format("woff2");
   font-weight: 600;
   font-style: normal;
   font-display: swap;
@@ -484,12 +484,21 @@ section {
 .book-cover__face {
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+
+/* Firefox ignores backface-visibility unless the face has an explicit 3D transform */
+.book-cover__face--front {
+  position: relative;
+  transform: rotateY(0deg);
+  z-index: 2;
 }
 
 .book-cover__face--back {
   position: absolute;
   inset: 0;
   transform: rotateY(180deg);
+  z-index: 1;
 }
 
 .book-cover__face img {
@@ -497,6 +506,9 @@ section {
   width: 100%;
   height: auto;
   border-radius: 4px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0);
 }
 
 .book-cover__peek {
