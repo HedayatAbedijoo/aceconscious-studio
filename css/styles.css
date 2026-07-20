@@ -1307,12 +1307,80 @@ section {
   background: var(--ink);
 }
 
-.author__photo img {
+.author__photo-stage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.author__photo-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center center;
   display: block;
+  animation: author-color-spectra 10s linear infinite;
+  will-change: filter;
+}
+
+/*
+  Soft hue walk: original (3s) → 7 linked spectrum stops → fade to original (3s hold).
+  Same filter functions on every keyframe so CSS interpolates smoothly (no hard jumps).
+*/
+@keyframes author-color-spectra {
+  0%,
+  11.5% {
+    filter: hue-rotate(0deg) saturate(1) contrast(1) brightness(1);
+  }
+
+  /* 1 — warm amber */
+  18% {
+    filter: hue-rotate(18deg) saturate(1.1) contrast(1.04) brightness(1.02);
+  }
+
+  /* 2 — coral / rose */
+  27% {
+    filter: hue-rotate(48deg) saturate(1.1) contrast(1.04) brightness(1.02);
+  }
+
+  /* 3 — magenta */
+  36% {
+    filter: hue-rotate(95deg) saturate(1.08) contrast(1.03) brightness(1.02);
+  }
+
+  /* 4 — violet */
+  45% {
+    filter: hue-rotate(145deg) saturate(1.08) contrast(1.03) brightness(1.01);
+  }
+
+  /* 5 — blue */
+  54% {
+    filter: hue-rotate(195deg) saturate(1.1) contrast(1.04) brightness(1.02);
+  }
+
+  /* 6 — teal */
+  63% {
+    filter: hue-rotate(245deg) saturate(1.08) contrast(1.03) brightness(1.02);
+  }
+
+  /* 7 — soft green → continue toward full circle */
+  72% {
+    filter: hue-rotate(295deg) saturate(1.08) contrast(1.03) brightness(1.02);
+  }
+
+  /* Fade home via 360deg (= original), then hold ~3s */
+  85%,
+  88.5%,
+  100% {
+    filter: hue-rotate(360deg) saturate(1) contrast(1) brightness(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .author__photo-img {
+    animation: none !important;
+    filter: none !important;
+  }
 }
 
 .author__verse {
