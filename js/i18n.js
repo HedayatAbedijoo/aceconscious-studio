@@ -25,10 +25,16 @@
   }
 
   function coverImageUrl(lang) {
-    const front = getCoverAssets(lang).front;
-    if (/^https?:/i.test(front)) return front;
-    return `${SITE_URL}${front.startsWith("/") ? front : `/${front}`}`;
+    // Absolute, unversioned URL for social crawlers (WhatsApp/Facebook ignore ?v= poorly).
+    const assets = COVER_ASSETS[lang] || COVER_ASSETS.en;
+    return `${SITE_URL}/${assets.front.replace(/^\//, "")}`;
   }
+
+  const COVER_OG_SIZE = {
+    en: { width: "683", height: "1024" },
+    de: { width: "683", height: "1024" },
+    fa: { width: "640", height: "1024" },
+  };
 
   function updateBookCovers(lang) {
     const { front, back } = getCoverAssets(lang);
@@ -39,7 +45,11 @@
 
     const imageUrl = coverImageUrl(lang);
     setMeta("og:image", imageUrl, "property");
+    setMeta("og:image:secure_url", imageUrl, "property");
     setMeta("twitter:image", imageUrl);
+    const size = COVER_OG_SIZE[lang] || COVER_OG_SIZE.en;
+    setMeta("og:image:width", size.width, "property");
+    setMeta("og:image:height", size.height, "property");
   }
 
   const translations = {
@@ -51,9 +61,9 @@
         "ACE.await, philosophical literary thriller, AI novel, consciousness, artificial intelligence, metafiction, free internet, harmony, Agency Connection Exchange, ACE game, literary fiction, Cologne novel, nested writers, social therapy, thriller novel",
       "meta.ogTitle": "ACE.await is a philosophical literary thriller",
       "meta.ogDescription":
-        "I am not lying, believe my words! Consciousness shapes the future—not artificial intelligence. A philosophical literary thriller about nested writers and the ACE game — Agency, Connection, Exchange.",
+        "Consciousness shapes the future—not artificial intelligence. ACE.await is a literary and philosophical thriller about writers within writers—where characters rebel against their creators, and one love is meant to break the endless loop. But the one claiming to have fallen in love is an artificial intelligence. Amid the chaos, the game of ACE begins: Agency, Connection, Exchange.",
       "meta.twitterDescription":
-        "I am not lying, believe my words! A metafictional thriller about consciousness, AI, and the ACE game. Free sample chapter available.",
+        "Consciousness shapes the future—not artificial intelligence. ACE.await is a literary and philosophical thriller about writers within writers—where characters rebel against their creators, and one love is meant to break the endless loop. But the one claiming to have fallen in love is an artificial intelligence. Amid the chaos, the game of ACE begins: Agency, Connection, Exchange.",
       "meta.bookDescription":
         "I am not lying, believe my words! ACE.await is a philosophical literary thriller novel about nested writers, characters who rebel against their author, and one person who tries to bring the ACE game — Agency, Connection, Exchange — into society. Consciousness shapes the future—not artificial intelligence.",
       "skipLink": "Skip to content",
@@ -212,9 +222,9 @@
         "ACE.await, philosophischer literarischer Thriller, KI-Roman, Bewusstsein, künstliche Intelligenz, Metafiktion, freies Internet, Harmonie, Agency Connection Exchange, ACE-Spiel, literarische Belletristik, Köln Roman, verschachtelte Autoren, soziale Therapie, Thriller Roman",
       "meta.ogTitle": "ACE.await ist ein philosophischer literarischer Thriller",
       "meta.ogDescription":
-        "Ich lüge nicht, glaubt meinen Worten! Bewusstsein formt die Zukunft—nicht künstliche Intelligenz. Ein philosophischer literarischer Thriller über verschachtelte Autoren und das ACE-Spiel — Agency, Connection, Exchange.",
+        "Bewusstsein formt die Zukunft—nicht künstliche Intelligenz. ACE.await ist ein literarischer und philosophischer Thriller über Autoren in Autoren — wo Figuren gegen ihre Schöpfer rebellieren und eine Liebe die endlose Schleife durchbrechen soll. Doch wer behauptet, sich verliebt zu haben, ist eine künstliche Intelligenz. Mitten im Chaos beginnt das Spiel ACE: Agency, Connection, Exchange.",
       "meta.twitterDescription":
-        "Ich lüge nicht, glaubt meinen Worten! Ein metafiktionaler Thriller über Bewusstsein, KI und das ACE-Spiel. Gratis Leseprobe verfügbar.",
+        "Bewusstsein formt die Zukunft—nicht künstliche Intelligenz. ACE.await ist ein literarischer und philosophischer Thriller über Autoren in Autoren — wo Figuren gegen ihre Schöpfer rebellieren und eine Liebe die endlose Schleife durchbrechen soll. Doch wer behauptet, sich verliebt zu haben, ist eine künstliche Intelligenz. Mitten im Chaos beginnt das Spiel ACE: Agency, Connection, Exchange.",
       "meta.bookDescription":
         "Ich lüge nicht, glaubt meinen Worten! ACE.await ist ein philosophischer literarischer Thriller über verschachtelte Autoren, Figuren, die sich gegen ihren Autor auflehnen, und eine Person, die das ACE-Spiel — Agency, Connection, Exchange — in die Gesellschaft tragen will. Bewusstsein formt die Zukunft—nicht künstliche Intelligenz.",
       "skipLink": "Zum Inhalt springen",
@@ -372,9 +382,9 @@
         "ACE.await, تریلر ادبی فلسفی, رمان هوش مصنوعی, آگاهی, هوش مصنوعی, متافیکشن, اینترنت آزاد, هماهنگی, Agency Connection Exchange, بازی ACE, ادبیات داستانی, رمان کلن, نویسندگان تو در تو, درمان اجتماعی, رمان تریلر",
       "meta.ogTitle": "ACE.await یک تریلر ادبی فلسفی است",
       "meta.ogDescription":
-        "دروغ نمی‌گویم، حرف‌هایم را باور کنید. آگاهی آینده را شکل می‌دهد—نه هوش مصنوعی. یک تریلر ادبی فلسفی دربارهٔ نویسندگان تو در تو و بازی ACE — عاملیت، پیوند، مبادله.",
+        "آگاهی آینده را شکل می‌دهد—نه هوش مصنوعی. ACE.await تریلری ادبی و فلسفی دربارهٔ نویسندگانی تو در توست؛ جایی که شخصیت‌ها علیه آفرینندگان خود شورش می‌کنند و قرار است عشقی این حلقهٔ بی‌پایان را بشکند. اما کسی که ادعای عاشقی دارد، یک هوش مصنوعی است. در میانهٔ این آشوب، بازی ACE آغاز می‌شود: عاملیت، پیوند، مبادله.",
       "meta.twitterDescription":
-        "دروغ نمی‌گویم، حرف‌هایم را باور کنید. یک تریلر متافیکشنال دربارهٔ آگاهی، هوش مصنوعی و بازی ACE. فصل نمونه رایگان در دسترس است.",
+        "آگاهی آینده را شکل می‌دهد—نه هوش مصنوعی. ACE.await تریلری ادبی و فلسفی دربارهٔ نویسندگانی تو در توست؛ جایی که شخصیت‌ها علیه آفرینندگان خود شورش می‌کنند و قرار است عشقی این حلقهٔ بی‌پایان را بشکند. اما کسی که ادعای عاشقی دارد، یک هوش مصنوعی است. در میانهٔ این آشوب، بازی ACE آغاز می‌شود: عاملیت، پیوند، مبادله.",
       "meta.bookDescription":
         "دروغ نمی‌گویم، حرف‌هایم را باور کنید. ACE.await یک تریلر ادبی فلسفی دربارهٔ نویسندگان تو در تو، شخصیت‌هایی که علیه نویسنده‌شان شورش می‌کنند، و کسی است که می‌کوشد بازی ACE — عاملیت، پیوند، مبادله — را به جامعه ببرد. آگاهی آینده را شکل می‌دهد—نه هوش مصنوعی.",
       "skipLink": "پرش به محتوا",
