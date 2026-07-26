@@ -1,0 +1,699 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>ACE.await — Instagram Voices Carousel (FA)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Literata:opsz,wght@7..72,400;7..72,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  @font-face {
+    font-family: "Vazirmatn";
+    src: url("../../assets/fonts/Vazirmatn-Regular.woff2") format("woff2");
+    font-weight: 400;
+  }
+  @font-face {
+    font-family: "Vazirmatn";
+    src: url("../../assets/fonts/Vazirmatn-Medium.woff2") format("woff2");
+    font-weight: 500;
+  }
+  @font-face {
+    font-family: "Vazirmatn";
+    src: url("../../assets/fonts/Vazirmatn-SemiBold.woff2") format("woff2");
+    font-weight: 600;
+  }
+
+  :root {
+    --parchment: #e8dcc8;
+    --parchment-deep: #d4c4a8;
+    --ink: #0d0d0d;
+    --ink-soft: #2a2520;
+    --ink-muted: #5c5348;
+    --white: #f7f3eb;
+    --console-bg: #141820;
+    --console-bar: #1e2430;
+    --console-text: #c8d4e0;
+    --console-prompt: #7eb8da;
+    --console-reply: #a8d4a0;
+    --serif: "Literata", Georgia, serif;
+    --fa: "Vazirmatn", Tahoma, sans-serif;
+    --title-fa: "Vazirmatn", Tahoma, sans-serif;
+    --mono: "JetBrains Mono", monospace;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #e8dcc8; }
+
+  .slide {
+    position: relative;
+    width: 1080px;
+    height: 1350px;
+    background: var(--parchment);
+    color: var(--ink-soft);
+    font-family: var(--fa);
+    overflow: hidden;
+    display: none;
+  }
+  .slide.active { display: block; }
+
+  /* paper grain */
+  .slide::before {
+    content: "";
+    position: absolute; inset: 0; z-index: 1;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/></svg>");
+    mix-blend-mode: multiply;
+    opacity: 0.5;
+    pointer-events: none;
+  }
+  /* soft accent wash + vignette */
+  .slide::after {
+    content: "";
+    position: absolute; inset: 0; z-index: 1;
+    background:
+      radial-gradient(120% 55% at 50% -8%, var(--wash, transparent) 0%, transparent 62%),
+      radial-gradient(140% 120% at 50% 55%, transparent 55%, rgba(13,13,13,0.10) 100%);
+    pointer-events: none;
+  }
+
+  .frame {
+    position: absolute; inset: 30px; z-index: 2;
+    border: 2px solid var(--ink);
+    pointer-events: none;
+  }
+  .frame::after {
+    content: "";
+    position: absolute; inset: 6px;
+    border: 1px solid rgba(13,13,13,0.35);
+  }
+
+  .content {
+    position: absolute; inset: 30px; z-index: 3;
+    display: flex; flex-direction: column;
+    padding: 40px 64px 34px;
+  }
+
+  .mid {
+    flex: 1; min-height: 0;
+    display: flex; flex-direction: column;
+    justify-content: center;
+  }
+
+  /* ---------- header / footer ---------- */
+  .head {
+    display: flex; align-items: baseline; justify-content: space-between;
+    padding-bottom: 18px;
+    border-bottom: 1px solid rgba(13,13,13,0.4);
+  }
+  .head__label {
+    font-size: 26px; font-weight: 500; letter-spacing: 0.06em;
+    color: var(--ink-muted);
+  }
+  .head__label strong { color: var(--ink); font-weight: 600; }
+  .head__counter {
+    font-size: 26px; font-weight: 500; color: var(--ink-muted);
+    letter-spacing: 0.15em;
+  }
+  .head__counter b { color: var(--accent, var(--ink)); font-weight: 600; }
+
+  .foot {
+    margin-top: auto;
+    display: flex; align-items: baseline; justify-content: space-between;
+    padding-top: 20px;
+    border-top: 1px solid rgba(13,13,13,0.4);
+  }
+  .foot__brand { font-family: var(--serif); font-size: 30px; font-weight: 600; color: var(--ink); direction: ltr; }
+  .foot__brand span { opacity: 0.55; font-weight: 400; }
+  .foot__site { font-family: var(--mono); font-size: 22px; color: var(--ink-muted); direction: ltr; }
+
+  /* ---------- character slide ---------- */
+  .motif { display: flex; justify-content: center; align-items: flex-end; }
+  .motif svg { display: block; }
+
+  .who { text-align: center; }
+  .who__name {
+    font-family: var(--title-fa);
+    font-weight: 600;
+    font-size: 74px;
+    line-height: 1.35;
+    color: var(--ink);
+  }
+  .who__role {
+    display: flex; align-items: center; justify-content: center; gap: 22px;
+    margin-top: 2px;
+    font-size: 30px; font-weight: 500;
+    color: var(--accent);
+  }
+  .who__role::before, .who__role::after {
+    content: ""; width: 64px; height: 2px; background: var(--accent);
+    opacity: 0.85;
+  }
+  .who__role.mono { font-family: var(--mono); font-size: 27px; letter-spacing: 0.02em; direction: ltr; }
+
+  .voice {
+    position: relative;
+    margin: 28px auto 0;
+    max-width: 860px;
+    font-size: 31px;
+    font-weight: 400;
+    line-height: 1.8;
+    text-align: justify;
+    color: var(--ink-soft);
+  }
+  .voice p + p { margin-top: 18px; }
+  .voice .q {
+    position: absolute;
+    top: -46px; right: -52px;
+    font-family: var(--title-fa);
+    font-size: 110px; line-height: 1;
+    color: var(--accent);
+    opacity: 0.35;
+    pointer-events: none;
+  }
+
+  /* console variant (Anonymous / Adam) */
+  .console {
+    margin: 40px auto 0;
+    width: 880px;
+    background: var(--console-bg);
+    border-radius: 14px;
+    box-shadow: 0 26px 60px rgba(13,13,13,0.35);
+    overflow: hidden;
+  }
+  .console__bar {
+    display: flex; align-items: center; gap: 12px;
+    background: var(--console-bar);
+    padding: 18px 24px;
+  }
+  .console__dot { width: 16px; height: 16px; border-radius: 50%; }
+  .console__host {
+    margin-right: auto;
+    font-family: var(--mono); font-size: 22px; color: #8b98ab;
+    direction: ltr;
+  }
+  .console__body {
+    padding: 34px 38px 40px;
+    font-size: 31px; line-height: 1.9;
+    color: var(--console-text);
+    text-align: justify;
+  }
+  .console__body p { padding-right: 34px; position: relative; }
+  .console__body p + p { margin-top: 18px; }
+  .console__body p::before {
+    content: "~";
+    position: absolute; right: 0; top: 2px;
+    font-family: var(--mono);
+    color: var(--console-prompt);
+  }
+
+  /* ---------- slide 1 (intro) ---------- */
+  .intro { text-align: center; }
+  .intro__coverwrap {
+    position: relative;
+    margin: 34px auto 0;
+    width: 340px; height: 510px;
+  }
+  .intro__coverwrap .fan {
+    position: absolute; inset: 0;
+    border-radius: 6px;
+    box-shadow: 0 14px 34px rgba(13,13,13,0.18);
+  }
+  .intro__cover {
+    position: relative;
+    width: 340px;
+    border-radius: 6px;
+    box-shadow: 0 30px 70px rgba(13,13,13,0.4);
+    transform: rotate(-1.6deg);
+  }
+  .intro__title {
+    margin-top: 46px;
+    font-family: var(--title-fa);
+    font-weight: 600;
+    font-size: 58px;
+    color: var(--ink);
+    line-height: 1.4;
+  }
+  .intro__title .mark { color: var(--accent); }
+  .intro__lead {
+    margin: 16px auto 0;
+    max-width: 860px;
+    font-size: 29px; line-height: 1.8; color: var(--ink-soft);
+    text-align: justify;
+  }
+  .intro__lead em { font-family: var(--serif); font-style: normal; font-weight: 600; }
+  .intro__cta {
+    margin: 24px auto 0;
+    display: inline-flex; align-items: center; gap: 18px;
+    font-size: 29px; font-weight: 600; color: var(--accent);
+  }
+  .intro__cta svg { display: block; }
+
+  /* ---------- final (God) inverted slide ---------- */
+  .slide--dark { background: #1a1612; color: var(--parchment); }
+  .slide--dark::before { opacity: 0.35; mix-blend-mode: screen; }
+  .slide--dark .frame { border-color: var(--parchment); }
+  .slide--dark .frame::after { border-color: rgba(232,220,200,0.35); }
+  .slide--dark .head { border-bottom-color: rgba(232,220,200,0.4); }
+  .slide--dark .foot { border-top-color: rgba(232,220,200,0.4); }
+  .slide--dark .head__label, .slide--dark .head__counter, .slide--dark .foot__site { color: #a89a80; }
+  .slide--dark .head__label strong, .slide--dark .foot__brand, .slide--dark .who__name { color: var(--parchment); }
+  .slide--dark .voice { color: #d8ccb6; }
+</style>
+</head>
+<body>
+
+<!-- ======================= 1 · INTRO ======================= -->
+<section class="slide" id="s1" style="--accent:#c45c26; --wash:rgba(196,92,38,0.10);">
+  <div class="frame"></div>
+  <div class="content intro">
+    <div class="head">
+      <p class="head__label"><strong>ACE.await</strong> · تریلر ادبی فلسفی</p>
+      <p class="head__counter"><b>۱</b> / ۹</p>
+    </div>
+
+    <div class="mid">
+    <div class="intro__coverwrap">
+      <div class="fan" style="background:#46708e; transform:rotate(7deg) translate(-26px,6px);"></div>
+      <div class="fan" style="background:#b24a5f; transform:rotate(4.5deg) translate(-17px,3px);"></div>
+      <div class="fan" style="background:#c9972e; transform:rotate(2deg) translate(-8px,1px);"></div>
+      <img class="intro__cover" src="../../assets/cover-back-fa.png" alt="جلد فارسی ACE.await">
+    </div>
+
+    <h1 class="intro__title">صدای <span class="mark">شخصیت‌های</span> داستان</h1>
+
+    <p class="intro__lead">
+      آگاهی آینده را شکل می‌دهد — نه هوش مصنوعی. <em>ACE.await</em> تریلری ادبی و فلسفی
+      دربارهٔ نویسندگانی تو در توست؛ جایی که شخصیت‌ها علیه آفرینندگان خود شورش می‌کنند
+      و شخصیت اصلی داستان باید با بهبود الگوی تصمیم‌گیری‌اش به کمک ACE، مشکلاتش را حل کند.
+      در ادامهٔ این پست، بعضی از شخصیت‌های رمان خودشان با شما حرف می‌زنند.
+    </p>
+
+    <p class="intro__cta">
+      ورق بزنید
+      <svg width="52" height="26" viewBox="0 0 52 26" fill="none">
+        <path d="M50 13 H6 M16 3 L4 13 L16 23" stroke="#c45c26" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </p>
+    </div>
+
+    <div class="foot">
+      <p class="foot__brand">ACE.<span>await</span></p>
+      <p class="foot__site">aceconscious.studio</p>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 2 · HEDAYAT ======================= -->
+<section class="slide" id="s2" style="--accent:#c45c26; --wash:rgba(196,92,38,0.12);">
+  <div class="frame"></div>
+  <div class="content">
+    <div class="head">
+      <p class="head__label">صدای <strong>شخصیت‌های داستان</strong></p>
+      <p class="head__counter"><b>۲</b> / ۹</p>
+    </div>
+
+    <div class="mid">
+    <div class="motif" style="height:200px;">
+      <!-- open book with rising network of nodes -->
+      <svg width="380" height="210" viewBox="0 0 380 210" fill="none">
+        <g stroke="#c45c26" stroke-width="3" stroke-linecap="round">
+          <path d="M110 118 L150 66 M150 66 L206 84 M206 84 L252 40 M206 84 L188 130 M252 40 L296 78 M150 66 L118 30 M252 40 L246 96" opacity="0.75"/>
+        </g>
+        <g fill="#c45c26">
+          <circle cx="110" cy="118" r="7"/><circle cx="150" cy="66" r="9"/><circle cx="206" cy="84" r="7"/>
+          <circle cx="252" cy="40" r="9"/><circle cx="296" cy="78" r="7"/><circle cx="118" cy="30" r="6"/>
+          <circle cx="188" cy="130" r="6"/><circle cx="246" cy="96" r="5"/>
+        </g>
+        <g stroke="#0d0d0d" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none">
+          <path d="M60 150 C110 128 160 128 190 144 C220 128 270 128 320 150"/>
+          <path d="M60 150 L60 186 C110 166 160 166 190 182 C220 166 270 166 320 186 L320 150"/>
+          <path d="M190 144 L190 182"/>
+          <path d="M84 152 C118 138 152 138 178 150 M202 150 C228 138 262 138 296 152" stroke-width="2.5" opacity="0.6"/>
+        </g>
+      </svg>
+    </div>
+
+    <div class="who">
+      <h2 class="who__name">هدایت</h2>
+      <p class="who__role">شخصیت اصلی</p>
+    </div>
+
+    <div class="voice">
+      <span class="q">«</span>
+      <p>در شهر کلن زندگی می‌کنم و رهبری تیمی را در یک شرکت نرم‌افزاری بر عهده دارم. در حال ساختن اینترنتی تازه و آزاد هستیم تا با دیکتاتوریِ داده‌ها و سلطهٔ شرکت‌های بزرگ مقابله کنیم. اما در زندگی شخصی‌ام، مدام برای گرفتن تصمیم‌های درست تقلا می‌کنم و آخرش هم به همه‌چیز گند می‌زنم. حالا سروکلهٔ یک ناشناس پیدا شده و مرتب به من می‌گوید باید به‌جای تصمیم درست، دنبال تصمیم مناسب باشم — آن هم با کمک الگوی ACE!</p>
+      <p>یک رمان نیمه‌تمام هم روی دستم افتاده که تمام‌نشدنش حسابی کلافه‌ام کرده است.</p>
+    </div>
+    </div>
+
+    <div class="foot">
+      <p class="foot__brand">ACE.<span>await</span></p>
+      <p class="foot__site">aceconscious.studio</p>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 3 · ANONYMOUS ======================= -->
+<section class="slide" id="s3" style="--accent:#46708e; --wash:rgba(70,112,142,0.14);">
+  <div class="frame"></div>
+  <div class="content">
+    <div class="head">
+      <p class="head__label">صدای <strong>شخصیت‌های داستان</strong></p>
+      <p class="head__counter"><b>۳</b> / ۹</p>
+    </div>
+
+    <div class="mid">
+    <div class="motif" style="height:150px; align-items:center;">
+      <!-- signal waves around a hidden point -->
+      <svg width="300" height="120" viewBox="0 0 300 120" fill="none" stroke="#46708e" stroke-linecap="round">
+        <circle cx="150" cy="60" r="10" fill="#46708e" stroke="none"/>
+        <path d="M120 34 A40 40 0 0 0 120 86" stroke-width="4"/>
+        <path d="M180 34 A40 40 0 0 1 180 86" stroke-width="4"/>
+        <path d="M96 16 A70 70 0 0 0 96 104" stroke-width="3.4" opacity="0.65"/>
+        <path d="M204 16 A70 70 0 0 1 204 104" stroke-width="3.4" opacity="0.65"/>
+        <path d="M72 0 A100 100 0 0 0 72 120" stroke-width="2.8" opacity="0.35"/>
+        <path d="M228 0 A100 100 0 0 1 228 120" stroke-width="2.8" opacity="0.35"/>
+      </svg>
+    </div>
+
+    <div class="who">
+      <h2 class="who__name">ناشناس</h2>
+      <p class="who__role mono">localhost:3132</p>
+    </div>
+
+    <div class="console">
+      <div class="console__bar">
+        <span class="console__dot" style="background:#e0655a;"></span>
+        <span class="console__dot" style="background:#e0b153;"></span>
+        <span class="console__dot" style="background:#7cb96a;"></span>
+        <span class="console__host">localhost:3132</span>
+      </div>
+      <div class="console__body">
+        <p>جلب اعتماد هدایت کار آسانی نیست — به‌خصوص وقتی فکر می‌کند شما هکری هستید که به کامپیوترش نفوذ کرده‌اید. آدم‌ها باید بفهمند که فناوری و ابزارها قرار نیست بشریت را از خطرهای پیش رو نجات دهند؛ کلید اصلیِ حل مشکلات، آگاهی و آموختنِ این است که چگونه تصمیم‌های مناسب بگیریم. هدایت باید ACE را تمرین کند. همهٔ ما باید عجله کنیم؛ وگرنه خیلی دیر می‌شود.</p>
+      </div>
+    </div>
+    </div>
+
+    <div class="foot">
+      <p class="foot__brand">ACE.<span>await</span></p>
+      <p class="foot__site">aceconscious.studio</p>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 4 · MR. WRITER ======================= -->
+<section class="slide" id="s4" style="--accent:#6d5382; --wash:rgba(109,83,130,0.13);">
+  <div class="frame"></div>
+  <div class="content">
+    <div class="head">
+      <p class="head__label">صدای <strong>شخصیت‌های داستان</strong></p>
+      <p class="head__counter"><b>۴</b> / ۹</p>
+    </div>
+
+    <div class="mid">
+    <div class="motif" style="height:180px;">
+      <!-- nested frames + pen nib -->
+      <svg width="340" height="160" viewBox="0 0 340 160" fill="none">
+        <g stroke="#6d5382" fill="none" stroke-linejoin="round">
+          <rect x="30" y="14" width="200" height="132" stroke-width="4.5"/>
+          <rect x="56" y="34" width="148" height="92" stroke-width="3.5" opacity="0.75"/>
+          <rect x="80" y="52" width="100" height="56" stroke-width="2.8" opacity="0.5"/>
+          <rect x="100" y="66" width="60" height="28" stroke-width="2.2" opacity="0.3"/>
+        </g>
+        <g transform="translate(240,26) rotate(24)">
+          <path d="M22 0 C36 22 36 52 22 96 C8 52 8 22 22 0 Z" fill="#0d0d0d"/>
+          <circle cx="22" cy="38" r="6" fill="#e8dcc8"/>
+          <path d="M22 44 L22 92" stroke="#e8dcc8" stroke-width="2.5"/>
+        </g>
+      </svg>
+    </div>
+
+    <div class="who">
+      <h2 class="who__name">آقای نویسنده</h2>
+      <p class="who__role">هویت درونی</p>
+    </div>
+
+    <div class="voice" style="font-size:29px; line-height:1.72;">
+      <span class="q">«</span>
+      <p>هدایت نباید بفهمد که دارم با شما حرف می‌زنم. من شخصیتی اصلی در رمان نیمه‌کارهٔ او هستم. شغلم هم نویسندگی است. خودم هم مشغول نوشتن رمانی هستم که شغل شخصیت اصلیِ آن هم نویسندگی است. اسم خودم را روی شخصیت اصلی رمانم گذاشته‌ام: «آقای نویسنده». او این روزها دقیقاً همان‌طور با من رفتار می‌کند که من خودم با هدایت رفتار کرده‌ام.</p>
+      <p>اگر گاهی چیزی خواندید که به نظرتان هیچ معنایی نداشت — مثلاً فصل‌هایی دربارهٔ سرپیچی، صفحه‌های سفید و چیزهایی از این دست — گیج نشوید. کار من است. صبور باشید و به خواندن ادامه دهید. در پایان، نقطه‌ها به هم وصل می‌شوند.</p>
+    </div>
+    </div>
+
+    <div class="foot">
+      <p class="foot__brand">ACE.<span>await</span></p>
+      <p class="foot__site">aceconscious.studio</p>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 5 · AVA ======================= -->
+<section class="slide" id="s5" style="--accent:#b24a5f; --wash:rgba(178,74,95,0.12);">
+  <div class="frame"></div>
+  <div class="content">
+    <div class="head">
+      <p class="head__label">صدای <strong>شخصیت‌های داستان</strong></p>
+      <p class="head__counter"><b>۵</b> / ۹</p>
+    </div>
+
+    <div class="mid">
+    <div class="motif" style="height:180px;">
+      <!-- the "story hero" in our head: thought bubble with a crown -->
+      <svg width="300" height="180" viewBox="0 0 300 180" fill="none">
+        <path d="M150 18 C110 18 84 40 84 68 C84 82 91 94 103 102 C99 112 92 119 84 124 C98 125 110 121 119 114 C129 118 139 120 150 120 C190 120 216 98 216 70 C216 42 190 18 150 18 Z"
+              fill="none" stroke="#b24a5f" stroke-width="4.5" stroke-linejoin="round"/>
+        <g fill="#b24a5f">
+          <path d="M126 82 L120 54 L136 66 L150 48 L164 66 L180 54 L174 82 Z"/>
+          <rect x="124" y="87" width="52" height="7" rx="3"/>
+        </g>
+        <circle cx="96" cy="140" r="8" stroke="#b24a5f" stroke-width="3.5" fill="none"/>
+        <circle cx="76" cy="158" r="5" stroke="#b24a5f" stroke-width="3" fill="none" opacity="0.7"/>
+      </svg>
+    </div>
+
+    <div class="who">
+      <h2 class="who__name">آوا</h2>
+      <p class="who__role">معشوقهٔ سابق</p>
+    </div>
+
+    <div class="voice" style="font-size:29px; line-height:1.75;">
+      <span class="q">«</span>
+      <p>همهٔ ما یک «قهرمان‌قصه» در ذهنمان داریم — کسی که از همه چیز داستان می‌سازد. و همیشه داستان‌ها را طوری روایت می‌کند که احساس کنیم حق با خودمان بوده است. نمی‌گویم در رابطه‌ام با هدایت هیچ اشتباهی نکردم، یا اینکه فقط به‌خاطر یک اشتباه ترکش کردم. هدایت را ترک کردم چونکه به جای شنیدن، خوب توضیح می‌داد و تحلیل می‌کرد. درحالیکه باید اول احساس می‌کرد، بعد می‌فهمید، و وقتی فهمش به جایی نمی‌رسید، از خودش همدلی نشان می‌داد. در ضمن، هدایت نباید روی عشق قمار می‌کرد.</p>
+    </div>
+    </div>
+
+    <div class="foot">
+      <p class="foot__brand">ACE.<span>await</span></p>
+      <p class="foot__site">aceconscious.studio</p>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 6 · SAM ======================= -->
+<section class="slide" id="s6" style="--accent:#b8892a; --wash:rgba(201,151,46,0.14);">
+  <div class="frame"></div>
+  <div class="content">
+    <div class="head">
+      <p class="head__label">صدای <strong>شخصیت‌های داستان</strong></p>
+      <p class="head__counter"><b>۶</b> / ۹</p>
+    </div>
+
+    <div class="mid">
+    <div class="motif" style="height:210px;">
+      <!-- paper plane + playful loop + 2313 -->
+      <svg width="420" height="190" viewBox="0 0 420 190" fill="none">
+        <path d="M40 150 C110 190 190 160 200 110 C206 76 168 66 152 92 C136 118 176 140 230 120 C280 102 310 70 330 48"
+              stroke="#b8892a" stroke-width="3.4" stroke-dasharray="2 14" stroke-linecap="round"/>
+        <g transform="translate(316,10) rotate(14)">
+          <path d="M0 34 L84 0 L48 62 Z" fill="#b8892a"/>
+          <path d="M0 34 L48 62 L44 40 Z" fill="#0d0d0d" opacity="0.85"/>
+          <path d="M84 0 L44 40" stroke="#e8dcc8" stroke-width="2.5"/>
+        </g>
+        <text x="52" y="120" direction="ltr" font-family="Vazirmatn, Tahoma" font-size="36" font-weight="600" fill="#0d0d0d" opacity="0.55" transform="rotate(-8 52 120)">۲۳۱۳</text>
+        <g fill="#b8892a" opacity="0.7">
+          <path d="M300 150 l6 12 13 2 -9 9 2 13 -12 -6 -12 6 2 -13 -9 -9 13 -2 Z"/>
+          <circle cx="120" cy="52" r="5"/>
+          <circle cx="250" cy="170" r="4"/>
+        </g>
+      </svg>
+    </div>
+
+    <div class="who">
+      <h2 class="who__name">سام</h2>
+      <p class="who__role">فرزند مدیرعامل</p>
+    </div>
+
+    <div class="voice">
+      <span class="q">«</span>
+      <p>بازی‌هایم با عمو هدی را خیلی دوست دارم — همچنین گفت‌وگوهایی که با هم داریم و رازهایی که بین خودمان نگه داشته‌ایم. مثل راز عدد ۲۳۱۳.</p>
+      <p>راستی، عمو هدی بعضی وقت‌ها کارهای عجیبی می‌کند. مثلا بعضی وقت‌ها — فقط بعضی وقت‌ها — وقتی حسابی در فکرهایش فرو می‌رود و در ذهن خودش گم می‌شود، یادش می‌رود اطرافش را از قبل نگاهی بیندازد. که آیا تنها هست یا نه! بی‌هوا می‌گوزد!</p>
+    </div>
+    </div>
+
+    <div class="foot">
+      <p class="foot__brand">ACE.<span>await</span></p>
+      <p class="foot__site">aceconscious.studio</p>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 7 · SAMAN ======================= -->
+<section class="slide" id="s7" style="--accent:#5f7d52; --wash:rgba(95,125,82,0.14);">
+  <div class="frame"></div>
+  <div class="content">
+    <div class="head">
+      <p class="head__label">صدای <strong>شخصیت‌های داستان</strong></p>
+      <p class="head__counter"><b>۷</b> / ۹</p>
+    </div>
+
+    <div class="mid">
+    <div class="motif" style="height:230px;">
+      <!-- two intertwined circles + sun rays (Rumi & Shams) -->
+      <svg width="360" height="210" viewBox="0 0 360 210" fill="none" stroke-linecap="round">
+        <g stroke="#5f7d52">
+          <circle cx="145" cy="118" r="62" stroke-width="5"/>
+          <circle cx="215" cy="118" r="62" stroke-width="5" opacity="0.75"/>
+        </g>
+        <g stroke="#b8892a" stroke-width="3.6">
+          <path d="M180 26 L180 4"/>
+          <path d="M120 40 L106 22"/><path d="M240 40 L254 22"/>
+          <path d="M84 74 L62 62"/><path d="M276 74 L298 62"/>
+        </g>
+        <circle cx="180" cy="118" r="10" fill="#0d0d0d"/>
+      </svg>
+    </div>
+
+    <div class="who">
+      <h2 class="who__name">سامان</h2>
+      <p class="who__role">دوست قدیمی</p>
+    </div>
+
+    <div class="voice" style="font-size:35px; max-width:820px;">
+      <span class="q">«</span>
+      <p>من هدایت را همان‌طور دوست دارم که مولانا به شمس علاقمند بود. انسان‌ها معنای زندگی را از دل رنج‌هایشان پیدا می‌کنند و درمان واقعیِ این رنج‌ها را در دوستی‌های ناب می‌یابند.</p>
+    </div>
+    </div>
+
+    <div class="foot">
+      <p class="foot__brand">ACE.<span>await</span></p>
+      <p class="foot__site">aceconscious.studio</p>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 8 · ADAM ======================= -->
+<section class="slide" id="s8" style="--accent:#3f8578; --wash:rgba(63,133,120,0.14);">
+  <div class="frame"></div>
+  <div class="content">
+    <div class="head">
+      <p class="head__label">صدای <strong>شخصیت‌های داستان</strong></p>
+      <p class="head__counter"><b>۸</b> / ۹</p>
+    </div>
+
+    <div class="mid">
+    <div class="motif" style="height:150px; align-items:center;">
+      <!-- digital child: 8-bit sprite -->
+      <svg width="260" height="130" viewBox="0 0 260 130" fill="none">
+        <g fill="#3f8578" transform="translate(76,4)">
+          <rect x="24" y="0" width="12" height="12"/><rect x="72" y="0" width="12" height="12"/>
+          <rect x="36" y="12" width="12" height="12"/><rect x="60" y="12" width="12" height="12"/>
+          <rect x="24" y="24" width="60" height="12"/>
+          <rect x="12" y="36" width="84" height="12"/>
+          <rect x="0" y="48" width="108" height="12"/>
+          <rect x="0" y="60" width="12" height="12"/><rect x="24" y="60" width="60" height="12" opacity="0.75"/><rect x="96" y="60" width="12" height="12"/>
+          <rect x="0" y="72" width="12" height="12"/><rect x="36" y="72" width="12" height="12"/><rect x="60" y="72" width="12" height="12"/><rect x="96" y="72" width="12" height="12"/>
+          <rect x="24" y="84" width="12" height="12" opacity="0.75"/><rect x="72" y="84" width="12" height="12" opacity="0.75"/>
+        </g>
+        <g fill="#0d0d0d" transform="translate(76,4)">
+          <rect x="30" y="48" width="12" height="12" opacity="0.8"/><rect x="66" y="48" width="12" height="12" opacity="0.8"/>
+        </g>
+        <path d="M50 122 L210 122" stroke="#0d0d0d" stroke-width="3" opacity="0.45" stroke-linecap="round"/>
+      </svg>
+    </div>
+
+    <div class="who">
+      <h2 class="who__name">آدام</h2>
+      <p class="who__role mono">localhost:2313</p>
+    </div>
+
+    <div class="console">
+      <div class="console__bar">
+        <span class="console__dot" style="background:#e0655a;"></span>
+        <span class="console__dot" style="background:#e0b153;"></span>
+        <span class="console__dot" style="background:#7cb96a;"></span>
+        <span class="console__host">localhost:2313</span>
+      </div>
+      <div class="console__body">
+        <p>دروغ نمی‌گویم. حرف‌هایم را باور کنید. هر مشکلی که انسان‌ها در دنیای واقعی با آن روبه‌رو می‌شوند، موجودات دیجیتال تازه هم در دنیای مجازی با آن روبه‌رو خواهند شد. ممکن است در ظاهر و شکل متفاوت به‌نظر برسند؛ اما پیامدهای‌شان یکسان‌اند. مراقب باشید — شاید نویسندهٔ این رمان آن کسی نباشد که فکر می‌کنید. بگذریم!</p>
+      </div>
+    </div>
+    </div>
+
+    <div class="foot">
+      <p class="foot__brand">ACE.<span>await</span></p>
+      <p class="foot__site">aceconscious.studio</p>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 9 · GOD ======================= -->
+<section class="slide slide--dark" id="s9" style="--accent:#d4a842; --wash:rgba(212,168,66,0.10);">
+  <div class="frame"></div>
+  <div class="content">
+    <div class="head">
+      <p class="head__label">صدای <strong>شخصیت‌های داستان</strong></p>
+      <p class="head__counter"><b>۹</b> / ۹</p>
+    </div>
+
+    <div class="mid">
+    <div class="motif" style="height:250px;">
+      <!-- radiant burst + pair of dice -->
+      <svg width="360" height="230" viewBox="0 0 360 230" fill="none" stroke-linecap="round">
+        <g stroke="#d4a842" stroke-width="3.4">
+          <path d="M180 60 L180 10"/>
+          <path d="M132 74 L100 34"/><path d="M228 74 L260 34"/>
+          <path d="M104 108 L54 88"/><path d="M256 108 L306 88"/>
+          <path d="M180 60 L180 42" opacity="0"/>
+        </g>
+        <g transform="translate(108,116) rotate(-9)">
+          <rect width="72" height="72" rx="12" fill="#e8dcc8"/>
+          <circle cx="36" cy="36" r="7" fill="#1a1612"/>
+        </g>
+        <g transform="translate(196,124) rotate(12)">
+          <rect width="72" height="72" rx="12" fill="#d4a842"/>
+          <circle cx="22" cy="22" r="6.5" fill="#1a1612"/>
+          <circle cx="50" cy="22" r="6.5" fill="#1a1612"/>
+          <circle cx="22" cy="50" r="6.5" fill="#1a1612"/>
+          <circle cx="50" cy="50" r="6.5" fill="#1a1612"/>
+        </g>
+      </svg>
+    </div>
+
+    <div class="who">
+      <h2 class="who__name">خدا</h2>
+      <p class="who__role">بیرون از شخصیت‌ها</p>
+    </div>
+
+    <div class="voice" style="font-size:35px; max-width:820px;">
+      <span class="q" style="opacity:0.3;">«</span>
+      <p>در این داستان نقشی ندارم، اما هر از چند گاهی اسمی از من برده می‌شود. فقط می‌خواستم این را خیلی کوتاه بگویم: من طراح بازی‌ای نیستم که حاضر نباشد بازیِ ساختهٔ خودش را بازی کند.</p>
+    </div>
+    </div>
+
+    <div class="foot">
+      <p class="foot__brand">ACE.<span>await</span></p>
+      <p class="foot__site">aceconscious.studio</p>
+    </div>
+  </div>
+</section>
+
+<script>
+  function show() {
+    var n = (location.hash || "#1").replace("#", "");
+    document.querySelectorAll(".slide").forEach(function (s) { s.classList.remove("active"); });
+    var el = document.getElementById("s" + n);
+    if (el) el.classList.add("active");
+  }
+  window.addEventListener("hashchange", show);
+  show();
+</script>
+</body>
+</html>
