@@ -1,3 +1,6 @@
 .venv-docx/
 .~lock.*
 docs/
+campaigns/book-quotes/.render/
+campaigns/book-quotes/out/
+campaigns/book-quotes/.venv/

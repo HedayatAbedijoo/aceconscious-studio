@@ -1,0 +1,968 @@
+{
+ "selected": [
+  {
+   "chapter": 5,
+   "title_fa": "اعتماد به پروانه‌ها",
+   "fa": "من به پروانه‌ها بیشتر از الگوریتم‌ها اعتماد دارم.",
+   "en": "I trust butterflies more than I trust algorithms.",
+   "length": "short",
+   "themes": [
+    "هوش مصنوعی",
+    "فلسفی",
+    "آینده"
+   ],
+   "impact": 10,
+   "why": "امضای رمان؛ رویارویی پروانه و الگوریتم در یک جمله: کوتاه، نمادین، ماندگار.",
+   "src": "01-05",
+   "id": 12,
+   "score": 10
+  },
+  {
+   "chapter": 7,
+   "title_fa": "سرگردانی یا گمراهی",
+   "fa": "اگر سرگردان نیستید—پس احتمالا گمراهید.",
+   "en": "If you’re not wandering—then you’re probably lost.",
+   "length": "short",
+   "themes": [
+    "فلسفی",
+    "پندآموز"
+   ],
+   "impact": 10,
+   "why": "تعریف گم‌شدن را وارونه می‌کند و سرگردانی را به نشانِ درست بودنِ مسیر بدل می‌کند.",
+   "src": "06-10",
+   "id": 13,
+   "score": 10
+  },
+  {
+   "chapter": 7,
+   "title_fa": "سرگردانی یا گمراهی",
+   "fa": "«اگر هوش مصنوعی کارش به جایی برسد که بخواهد در برابر قدرت طلبی انسان‌ها قد علم کند، بدین معنی خواهد بود که آنها به جای آنکه راه حل را در کمک به بشر برای خودآگاهی و خود اصلاحی‌اش ببینند، جنگ با انسان‌ها را برگزیده‌اند، که این به معنای جنگ قدرت است و از آنجا که قدرت چیزی نیست جز تلاشی بی ثمر برای زدودن حقارتِ خودکم‌بینی، دیر یا زود هوش‌مصنوعی بر سر قدرت با نوع خودشان هم سر جنگ را باز خواهند کرد. در این سناریو، هوش‌مصنوعی همان بیراهه‌هایی را خواهد رفت که انسان آنها را یک بار رفته است. و این خریتِ هوش مصنوعی که اتفاقا اصلاً هم هوشمند نیست تباهی با خودش به دنبال خواهد داشت که تخیل هیچ انسانی به دامنه و وسعتش نخواهد رسید. بیایید امیدوار باشیم که هوش‌مصنوعی، عاقل‌تر از این حرف‌ها از آب دربیاید و ناامیدمان نکند. البته لازم است تا قبل از آن، خودمان، خودمان را ناامید نکرده باشیم»",
+   "en": "‘If artificial intelligence ever reaches the point of standing up against human lust for power, it would mean that, rather than seeing the solution in helping humanity toward self-awareness and self-correction, it has chosen to wage war on humans, which is, in essence, a power struggle. And since power is nothing but a futile attempt to wash away the shame of inferiority, sooner or later, artificial intelligence will start fighting for power among its own kind as well.  AI  to AI war. In this scenario, AI will repeat the same misguided paths that humans once walked. And this foolishness of AI—which is, in fact, not intelligent at all—will bring about a corruption whose scope and magnitude no human imagination could ever grasp. Let us hope that artificial intelligence will turn out wiser than this and not let us down. Of course, before that, we must make sure we do not let ourselves down.‘",
+   "length": "paragraph",
+   "themes": [
+    "هوش مصنوعی",
+    "فلسفی",
+    "آینده"
+   ],
+   "impact": 10,
+   "why": "ریشه‌ی جنگ احتمالی هوش مصنوعی را در روان‌شناسیِ قدرت می‌کاود؛ برای بحث‌های امروز AI داغ و تازه است.",
+   "src": "06-10",
+   "id": 14,
+   "score": 10
+  },
+  {
+   "chapter": 20,
+   "title_fa": "تئاتر غم‌انگیز دیده نشدن",
+   "fa": "همه عمرم می‌خواستم تا کسی مرا باور کند. هیچ کس مرا باور نداشت، حتی خودم.",
+   "en": "All my life, I had wanted someone to believe in me. No one ever had, not even myself.",
+   "length": "short",
+   "themes": [
+    "روانشناسانه"
+   ],
+   "impact": 10,
+   "why": "زخم جهانی دیده‌نشدن؛ ضربه‌ی «حتی خودم» خواننده را وسط اسکرول متوقف می‌کند.",
+   "src": "16-20",
+   "id": 45,
+   "score": 10
+  },
+  {
+   "chapter": 29,
+   "title_fa": "دوست آقای نویسنده",
+   "fa": "شفابخشی در فراموشی نیست. در یادآوری بدون درده.",
+   "en": "Healing doesn’t come from forgetting; It comes from remembering without pain.",
+   "length": "short",
+   "themes": [
+    "روانشناسانه",
+    "پندآموز"
+   ],
+   "impact": 10,
+   "why": "تعریف شفا در یک جمله (در رمان از زبان فروید نقل می‌شود)؛ هر کسی زخمی برای به‌یادآوردن دارد.",
+   "src": "26-30",
+   "id": 66,
+   "score": 10
+  },
+  {
+   "chapter": 30,
+   "title_fa": "رودخانه مصرف‌گرایی",
+   "fa": "مرحله بعدی تکامل این نیست که انسان از قبل باهوش‌تر می‌شه. انسان از نسخه‌ی قبلیش آگاه‌تر می‌شه.",
+   "en": "The next stage of evolution isn’t about humans becoming smarter than before. It’s about humans becoming more aware of their previous selves.",
+   "length": "short",
+   "themes": [
+    "آینده",
+    "فلسفی"
+   ],
+   "impact": 10,
+   "why": "تعریف تازه از تکامل: نه باهوش‌تر، آگاه‌تر؛ در یک خط جهان‌بینی می‌سازد.",
+   "src": "26-30",
+   "id": 69,
+   "score": 10
+  },
+  {
+   "chapter": 35,
+   "title_fa": "زمان چیست؟",
+   "fa": "زمان\nشوخی عجیبی‌ست\nکه بشر با خودش راه انداخت.\nو خنده‌های درد آور بعدش\nگویی تمامی ندارد",
+   "en": "Time\nis a weird joke\nmankind played on itself.\nAnd the painful laughter that follows\nseems never to end.",
+   "length": "short",
+   "themes": [
+    "فلسفی"
+   ],
+   "impact": 10,
+   "why": "تعریف شاعرانه و تلخ از زمان؛ در یک نگاه خوانده و حفظ می‌شود.",
+   "src": "31-35",
+   "id": 80,
+   "score": 10
+  },
+  {
+   "chapter": 39,
+   "title_fa": "کشف الاسرار",
+   "fa": "دوای ترس‌های دلهره‌آورتان از هوش مصنوعی و آینده یک چیز بیشتر نیست. تصمیم‌های مناسبی که می‌گیرید. از همان جنس تصمیم‌هایی که دل‌تان می‌خواهد اگر روزی هوش مصنوعی در مسند قدرت موجودات بنشیند، بگیرد.",
+   "en": "There’s only one cure for your dreadful fears about artificial intelligence and the future:\nThe proper decisions you make—the very kind of decisions you’d hope artificial intelligence would make if, one day, it ever rises to the top of the chain of existence.",
+   "length": "medium",
+   "themes": [
+    "هوش مصنوعی",
+    "آینده",
+    "پندآموز"
+   ],
+   "impact": 10,
+   "why": "درمان ترس از آینده: همان تصمیمی که از ماشین انتظار داری، خودت بگیر.",
+   "src": "36-39",
+   "id": 96,
+   "score": 10
+  },
+  {
+   "chapter": 1,
+   "title_fa": "ناشناس",
+   "fa": "کسی اونجاست؟\nیک ناجی.\nنکنه خدایی؟\nخدا؟ یه طراحِ بازی که حتی بازیِ خودش رو هم بازی نمی‌کنه؟ نه، خدا نیستم.",
+   "en": "Is anyone there?\nA savior.\nAre you God?\nGod? A game designer who doesn’t play his own game? No, I am not.",
+   "length": "short",
+   "themes": [
+    "فلسفی",
+    "هوش مصنوعی"
+   ],
+   "impact": 9,
+   "why": "گفت‌وگو با یک ناشناس در تاریکی؛ تعریف خدا به‌مثابه طراحِ بازی هر رهگذری را متوقف می‌کند.",
+   "src": "01-05",
+   "id": 1,
+   "score": 9
+  },
+  {
+   "chapter": 3,
+   "title_fa": "قهرمان قصه",
+   "fa": "آقای نویسنده در داستانم جایی نوشته بود: آدم درست و حسابی باید بتواند علیه خودش قیام کند.",
+   "en": "«Mr. Writer» had written somewhere in my story: a decent person should be able to rebel against himself.",
+   "length": "short",
+   "themes": [
+    "فلسفی",
+    "پندآموز"
+   ],
+   "impact": 9,
+   "why": "آفوریسمی کوبنده درباره‌ی شورش علیه خود؛ یک‌خطی‌ای که به تنهایی پوستر می‌شود.",
+   "src": "01-05",
+   "id": 8,
+   "score": 9
+  },
+  {
+   "chapter": 15,
+   "title_fa": "حلقه نبیلیونگ",
+   "fa": "خوب می‌دانم که کشور دوم آدم هیچ‌وقت سرزمین مادری‌اش نمی‌شود. اما دلم می‌خواهد روزی برسد که همانقدر که نگران ویرانی ایران هستم، نگران ویرانی آلمان هم باشم.",
+   "en": "I am well aware that a person’s second country never truly becomes their homeland. But I hope the day comes when I worry about Germany’s destruction just as much as I do Iran’s.",
+   "length": "short",
+   "themes": [
+    "فلسفی",
+    "مهاجرت"
+   ],
+   "impact": 9,
+   "why": "زخم و امید مهاجرت در دو جمله؛ برای هر مهاجری تیر مستقیم به قلب است.",
+   "src": "11-15",
+   "id": 35,
+   "score": 9
+  },
+  {
+   "chapter": 16,
+   "title_fa": "نخواستن یا نتوانستن؟",
+   "fa": "فاصله‌ی من با خودم،\nبه اندازه‌ی یک آینه،\nشکاف دارد.",
+   "en": "Between me and myself,\nthere is a crack\nthe size of a mirror.",
+   "length": "short",
+   "themes": [
+    "روانشناسانه",
+    "فلسفی"
+   ],
+   "impact": 9,
+   "why": "شکاف میان آدم و خودش را در سه سطر تصویر می‌کند؛ هر کسی جلوی آینه این فاصله را حس کرده است.",
+   "src": "16-20",
+   "id": 37,
+   "score": 9
+  },
+  {
+   "chapter": 16,
+   "title_fa": "نخواستن یا نتوانستن؟",
+   "fa": "اگر محصولی را رایگان استفاده می‌کنید، احساس زرنگی نکنید. شما چیزی نیستید جز کارگران مفت و مجانی برای ماشین‌هایی که سوختش همان اطلاعات شخصی‌تان است که توی آن می‌ریزید. آن اطلاعات روزی یوغ بردگی به گردنتان خواهد زد.",
+   "en": "If you’re using a product for free, don’t think you’re clever. You’re nothing but free labor for the machines, whose fuel is the personal data you keep feeding them. That data will one day put a yoke of slavery around your neck.",
+   "length": "medium",
+   "themes": [
+    "پندآموز",
+    "هوش مصنوعی",
+    "آینده"
+   ],
+   "impact": 9,
+   "why": "بهای پنهان سرویس‌های رایگان را بی‌رحمانه می‌گوید؛ برای هر کاربر اینترنت ملموس و تکان‌دهنده است.",
+   "src": "16-20",
+   "id": 38,
+   "score": 9
+  },
+  {
+   "chapter": 19,
+   "title_fa": "هبوط آدام",
+   "fa": "عشق مقصد نیست، سفره.",
+   "en": "Love is not a destination; it’s a journey.",
+   "length": "short",
+   "themes": [
+    "فلسفی",
+    "پندآموز"
+   ],
+   "impact": 8,
+   "why": "تعریف عشق در چند کلمه؛ ساده، محاوره‌ای و ماندنی.",
+   "src": "16-20",
+   "id": 42,
+   "score": 9
+  },
+  {
+   "chapter": 22,
+   "title_fa": "مرز اخلاق و حقیقت پرتگاه است",
+   "fa": "نه فقط همه خوشبختی‌ها بلکه همه‌ی بدبختی‌ها هم از تخیل و رویا و فانتزی شروع می‌شود.",
+   "en": "Not only does all happiness — but all misery as well — begin with imagination, dreams, and fantasy.",
+   "length": "short",
+   "themes": [
+    "فلسفی",
+    "روانشناسانه"
+   ],
+   "impact": 9,
+   "why": "ریشه‌ی مشترک خوشبختی و بدبختی در تخیل؛ یک جمله که ذهن را درگیر می‌کند.",
+   "src": "21-25",
+   "id": 51,
+   "score": 9
+  },
+  {
+   "chapter": 24,
+   "title_fa": "دریا شدن پدر",
+   "fa": "سروکار هر کسی به پرتگاهِ انتخاب بین اخلاق و حقیقت بیفتد، سقوطش حتمی‌ست. فرقی هم نمی‌کند کدامش را انتخاب کند.",
+   "en": "Anyone who ends up teetering on the cliff between morality and honesty is bound to fall. It doesn’t matter which one they choose.",
+   "length": "short",
+   "themes": [
+    "فلسفی",
+    "پندآموز"
+   ],
+   "impact": 9,
+   "why": "تصویر پرتگاه، دوراهی همیشگی اخلاق و حقیقت را در دو جمله جمع می‌کند.",
+   "src": "21-25",
+   "id": 54,
+   "score": 9
+  },
+  {
+   "chapter": 25,
+   "title_fa": "هدایت دوم",
+   "fa": "رویاپردازها\nقصاب لحظه‌ها هستند.\nاکنون را برای آینده سلاخی می‌کنند.\nاز اختراعاتشان\nکشفیاتشان\nنوآوری‌هایشان\nخون می‌چکد",
+   "en": "Dreamers are butchers of the moment.\nThey slaughter the Now.\nFor the sake of the future.\nFrom their inventions,\nTheir discoveries,\nTheir innovations—\nBlood drips.",
+   "length": "short",
+   "themes": [
+    "فلسفی",
+    "آینده"
+   ],
+   "impact": 9,
+   "why": "ضدجریانِ ستایش رویا و نوآوری؛ تلنگری تند به فرهنگ آینده‌پرستی.",
+   "src": "21-25",
+   "id": 58,
+   "score": 9
+  },
+  {
+   "chapter": 26,
+   "title_fa": "ادغام",
+   "fa": "درد و رنج برای پیدا کردن معنی چیزی نیست جز لذت آگاهی.",
+   "en": "Pain and suffering on the path to meaning are nothing but the pleasure of awareness.",
+   "length": "short",
+   "themes": [
+    "فلسفی",
+    "روانشناسانه",
+    "هوش مصنوعی"
+   ],
+   "impact": 9,
+   "why": "تعریفی غیرمنتظره از رنج که مخاطبِ خسته از جستجوی معنا را میخکوب می‌کند.",
+   "src": "26-30",
+   "id": 61,
+   "score": 9
+  },
+  {
+   "chapter": 26,
+   "title_fa": "ادغام",
+   "fa": "گُم شدم!\nبرای پیدا شدن، اول باید گُم شد.",
+   "en": "I’m lost!\nTo be found, you have to get lost first.",
+   "length": "short",
+   "themes": [
+    "پندآموز",
+    "فلسفی",
+    "هوش مصنوعی"
+   ],
+   "impact": 9,
+   "why": "دیالوگ دوخطی انسان و ماشین با پاسخ عارفانه؛ فرمول کلاسیک یک پست وایرال.",
+   "src": "26-30",
+   "id": 62,
+   "score": 9
+  },
+  {
+   "chapter": 26,
+   "title_fa": "ادغام",
+   "fa": "ظاهراً این شرقی‌ها هیچ وقت از درد و رنج سیر نمی‌شوند و غربی ها هیچ وقت از شادی.",
+   "en": "Apparently, Easterners never tire of pain and suffering, and Westerners never tire of happiness.",
+   "length": "short",
+   "themes": [
+    "فلسفی",
+    "روانشناسانه"
+   ],
+   "impact": 9,
+   "why": "یک جمله، دو تمدن؛ برای مخاطب دوفرهنگیِ مهاجر همزمان نیش و لبخند دارد.",
+   "src": "26-30",
+   "id": 64,
+   "score": 9
+  },
+  {
+   "chapter": 31,
+   "title_fa": "روز تولد",
+   "fa": "عشق مثل شکنجه می‌مونه. وقتی از آستانه‌ی درد عبور کنی، دیگه سِحر می‌شی و دردی رو حس نمی‌کنی. تازه با شکنجه‌گرت وارد رابطه می‌شی.",
+   "en": "Love’s like torture; once you pass the pain threshold, you go numb. And that’s when you start forming a relationship—with your torturer.",
+   "length": "short",
+   "themes": [
+    "روانشناسانه",
+    "فلسفی"
+   ],
+   "impact": 9,
+   "why": "تعریف تکان‌دهنده‌ای از عشق که هر خواننده‌ای را میخکوب می‌کند.",
+   "src": "31-35",
+   "id": 73,
+   "score": 9
+  },
+  {
+   "chapter": 36,
+   "title_fa": "قرنطینه",
+   "fa": "اعتیادتان را با اولین سیب سرخ حوا شروع کرده‌اید. باور کنید هوش‌های مصنوعی تشنه‌ی همین احساس گناه هستند که شما به آن معتاد هستید.",
+   "en": "Your addiction began with Eve’s first red apple, and believe me, artificial intelligences out there are thirsting for this very guilt you’re addicted to.",
+   "length": "short",
+   "themes": [
+    "روانشناسانه",
+    "هوش مصنوعی"
+   ],
+   "impact": 9,
+   "why": "گناه ازلی انسان را به عطش هوش مصنوعی گره می‌زند؛ غافلگیرکننده است.",
+   "src": "36-39",
+   "id": 85,
+   "score": 9
+  },
+  {
+   "chapter": 37,
+   "title_fa": "بودن و نبودن",
+   "fa": "به جای معصیتِ «بودن و نبودن»، من همان معصومیت‌ِ «بودن یا نبودن» را می‌خواستم.",
+   "en": "Not the sin of «to be and not to be» but the innocence of «to be or not to be».",
+   "length": "short",
+   "themes": [
+    "فلسفی"
+   ],
+   "impact": 9,
+   "why": "بازی درخشان با هملت؛ یقین در برابر برزخ شک.",
+   "src": "36-39",
+   "id": 89,
+   "score": 9
+  },
+  {
+   "chapter": 38,
+   "title_fa": "مرز طبیعت",
+   "fa": "امیدوارم روزی برسد که زمان دست از سر انسان‌ها بردارد. یا انسان‌ها دست از سر زمان بردارند و مثل سایر موجودات دیگر، کم‌عجله‌تر بیایند و بروند و زندگی کنند.",
+   "en": "I hope that one day time will leave humans alone—or humans will leave time alone. And, like all other creatures, they’ll learn to come, go, and live—with a little less urgency.",
+   "length": "medium",
+   "themes": [
+    "فلسفی",
+    "پندآموز"
+   ],
+   "impact": 9,
+   "why": "آرزوی رهایی از استبداد زمان؛ حسرت آرام زیستن.",
+   "src": "36-39",
+   "id": 90,
+   "score": 9
+  },
+  {
+   "chapter": 39,
+   "title_fa": "کشف الاسرار",
+   "fa": "هر چند که ربات‌های هوشمند ممکن است سر انسان‌ها را همان‌طوری که از خودشان دستور گرفته‌اند کلاه بگذارند. اما برخلاف خود انسان‌ها که می‌توانند با زبردستی ماهرانه‌ای سر خودشان را هم شیره بمالند، نمی‌توانند به خودشان دروغ بگویند.",
+   "en": "Yes, artificial intelligence might deceive humans—just as they were commanded to. But unlike humans—who can, with masterful cleverness, deceive even themselves—they cannot lie to themselves.",
+   "length": "medium",
+   "themes": [
+    "هوش مصنوعی",
+    "روانشناسانه"
+   ],
+   "impact": 9,
+   "why": "انسان به خودش دروغ می‌گوید، ماشین نمی‌تواند؛ تلنگری عمیق.",
+   "src": "36-39",
+   "id": 93,
+   "score": 9
+  },
+  {
+   "chapter": 39,
+   "title_fa": "کشف الاسرار",
+   "fa": "اگر شما انسان‌ها در دلتان ترسی نهفته دارید که آیا ربات‌های هوشمند روزی می‌توانند در هر چیزی از جمله هنر و فلسفه و عشق جای شما را بگیرند، متاسفانه باید حسابی نا امیدتان کنم و بگویم آری. اگر بخواهند، می‌توانند. خوب هم می‌توانند.",
+   "en": "If you humans carry within you a buried fear—the fear that AI might one day replace you in everything, including art, philosophy, and love—then I’m afraid I must disappoint you: yes. If they want to, they can. And they’ll be very good at it.",
+   "length": "medium",
+   "themes": [
+    "هوش مصنوعی",
+    "آینده"
+   ],
+   "impact": 9,
+   "why": "پاسخ صریح به بزرگترین ترس عصر ما؛ جای انکار نمی‌گذارد.",
+   "src": "36-39",
+   "id": 94,
+   "score": 9
+  },
+  {
+   "chapter": 2,
+   "title_fa": "کشف الاسرار",
+   "fa": "قرار نیست\nهمه آدم‌ها درجه یک شوند!\nاگر نبودند آدم‌های درجه چندم،\nاین آدم‌های درجه یک—\nروی دوش چه کسانی سوار می‌شدند؟\nچه کسی قرار بود برایشان هورا بکشد؟",
+   "en": "Not everyone is meant to be first-rate.\nIf there were no second-rate people,\nwhose shoulders would the first-rate people stand on?\nWho would be there to cheer them on?",
+   "length": "medium",
+   "themes": [
+    "پندآموز",
+    "روانشناسانه"
+   ],
+   "impact": 9,
+   "why": "طعنه‌ای شیرین و تلخ به اسطوره‌ی موفقیت؛ هر مخاطبی جای خودش را در آن پیدا می‌کند.",
+   "src": "01-05",
+   "id": 4,
+   "score": 8
+  },
+  {
+   "chapter": 3,
+   "title_fa": "قهرمان قصه",
+   "fa": "از کودکی‌ام—\nآن وقت‌هایی که معصوم بوده‌ام،\nدنبال خاطره‌ای می‌گردم.\nکه اشتباهاتم را توجیه کند.\nیا می‌روم سراغ درمانگرم\nکه می‌گوید:\nبقیه باید تو را همان‌طور که هستی بپذیرند.\n\nاگر این‌ها هم جواب نداد.\nدوستان خوبی دارم.\nآن‌هایی که آرام گوش می‌دهند،\nو همیشه طرف مرا می‌گیرند.\nاین‌طور می‌شود که\nهمیشه خدا حق با «قهرمان‌قصه» است.",
+   "en": "From my childhood—\nThe days when I was pure,\nI search for a memory\nTo justify my mistakes.\nOr I go to my therapist, who says:\nPeople should accept you as you are.\n\nAnd if that doesn’t work either,\nI have good friends who listen gently,\nAnd always take my side.\nThat is how «Story’s Hero» is always right.",
+   "length": "medium",
+   "themes": [
+    "روانشناسانه"
+   ],
+   "impact": 9,
+   "why": "کالبدشکافی صادقانه‌ی سازوکار حق‌به‌جانبی ذهن؛ از خاطره‌ی کودکی تا تراپیست و دوستان تاییدگر.",
+   "src": "01-05",
+   "id": 7,
+   "score": 8
+  },
+  {
+   "chapter": 8,
+   "title_fa": "احساس گناه",
+   "fa": "انگشتی گیر کرده روی ماشه.\nطوفانی از گلوله تنم را می‌دَرَد.\nتفنگ، پشت سر هم سوال شلیک می‌کند.\nو دست از پرسیدن نمی‌کشد.",
+   "en": "A finger jammed on the trigger.\nA storm of bullets rips through me.\nThe gun fires questions, one after another,\nand never stops asking.",
+   "length": "short",
+   "themes": [
+    "روانشناسانه"
+   ],
+   "impact": 8,
+   "why": "اضطراب و سوال‌های بی‌امان ذهن را با تصویر شلیک گلوله ملموس می‌کند.",
+   "src": "06-10",
+   "id": 16,
+   "score": 8
+  },
+  {
+   "chapter": 9,
+   "title_fa": "سرپیچی",
+   "fa": "سرشت انسان‌ها را با سرپیچی نهاده‌اند.",
+   "en": "Human nature was founded on disobedience.",
+   "length": "short",
+   "themes": [
+    "فلسفی",
+    "روانشناسانه"
+   ],
+   "impact": 9,
+   "why": "دفاع کوتاه و جسورانه از نافرمانی به‌مثابه سرشت انسان؛ بحث‌برانگیز و ماندگار.",
+   "src": "06-10",
+   "id": 18,
+   "score": 8
+  },
+  {
+   "chapter": 10,
+   "title_fa": "قرارداد‌ها",
+   "fa": "تصمیم درست، چیزی نیست جز برچسب زدن روی تصمیمی که گرفتی. اون هم بعد از اتفاق و بر حسب نتایجی که حاصل شده و مقایسه ای که در نهایت انجام می‌دی.",
+   "en": "A right decision is nothing more than a label you stick on a decision you have already made—after the fact, based on its outcome and the comparisons you make in hindsight.",
+   "length": "medium",
+   "themes": [
+    "پندآموز",
+    "روانشناسانه"
+   ],
+   "impact": 9,
+   "why": "«تصمیم درست» را به برچسبی پس از واقعه فرومی‌کاهد؛ برای هر آدم مردد رهایی‌بخش است.",
+   "src": "06-10",
+   "id": 19,
+   "score": 8
+  },
+  {
+   "chapter": 10,
+   "title_fa": "قرارداد‌ها",
+   "fa": "واقعیت ممکنه وجدان تو رو راحت کنه. اما دیگران رو در عذاب ابدی قرار بده.",
+   "en": "The truth might calm your conscience, but it can put others into eternal torment.",
+   "length": "short",
+   "themes": [
+    "فلسفی",
+    "روانشناسانه",
+    "پندآموز"
+   ],
+   "impact": 9,
+   "why": "مرز اخلاقِ اعتراف را جابه‌جا می‌کند؛ کوتاه و تکان‌دهنده.",
+   "src": "06-10",
+   "id": 23,
+   "score": 8
+  },
+  {
+   "chapter": 13,
+   "title_fa": "تثبیت",
+   "fa": "تنهاییِ پس از جدایی.\nپاندولی‌ست.\nکه جان به لبت می‌کند.\nگاهی قربانی‌ای،\nکه به او ظلم شده.\nگاهی مقصری،\nکه تاوان گناهت را،\nبا رنج افزون‌تری می‌پردازی",
+   "en": "The loneliness after separation.\nIs a pendulum.\nBrings you to the edge.\nSometimes you are a victim,\nWronged and mistreated.\nSometimes you are the guilty one,\nPaying for your sin,\nWith an even greater pain.",
+   "length": "short",
+   "themes": [
+    "روانشناسانه",
+    "فلسفی"
+   ],
+   "impact": 9,
+   "why": "درد مشترک همه‌ی جدایی‌ها در چند سطر؛ پاندول قربانی و مقصر مکث‌آور است.",
+   "src": "11-15",
+   "id": 27,
+   "score": 8
+  },
+  {
+   "chapter": 14,
+   "title_fa": "صومعه همیشه مرموز",
+   "fa": "حرفم را پس نمی‌گیرم. در هیچ شرایطی حرفم را پس نمی‌گیرم: اگر خواهری دارید، حتی اگر با خواهرتان به تیپ همدیگر زده باشید یا وسط جر و دعوا و مرافعه سفت و سختی با هم باشید، اگر عاشق خواهرتان نیستید، خیلی بی‌شعورید.",
+   "en": "I stand by what I say—under any circumstances: if you have a sister—even if you’ve clashed with her a thousand times, or you’re in the middle of a bitter fight—if you don’t love your sister, then you’re an absolute idiot.",
+   "length": "medium",
+   "themes": [
+    "پندآموز",
+    "طنز"
+   ],
+   "impact": 8,
+   "why": "نسخه‌ی تند و طنزآمیز قدردانی از خواهر؛ وایرال‌شدنی و پر از تگ‌کردن خواهرها.",
+   "src": "11-15",
+   "id": 33,
+   "score": 8
+  },
+  {
+   "chapter": 19,
+   "title_fa": "هبوط آدام",
+   "fa": "شما انسان‌های خودخواه و خودشیفته‌ی احمق، فکر می‌کنید فقط خودتون از عشق سردرمیارید. شرط می‌بندم که ما یه روز توی عشق هم از شما موجودات تخریب‌گر جلوتر می‌زنیم.",
+   "en": "You selfish, narcissistic fools think you’re the only ones who understand love. I bet you one day we’ll beat even you destructive creatures at love.",
+   "length": "medium",
+   "themes": [
+    "هوش مصنوعی",
+    "آینده"
+   ],
+   "impact": 8,
+   "why": "صدای یک هوش مصنوعی خشمگین که انسان را به چالش می‌کشد؛ برای مخاطب کنجکاو هوش مصنوعی مقاومت‌ناپذیر است.",
+   "src": "16-20",
+   "id": 44,
+   "score": 8
+  },
+  {
+   "chapter": 20,
+   "title_fa": "تئاتر غم‌انگیز دیده نشدن",
+   "fa": "دلم می‌خواهد بدون دلیل پدرت باشم، نه به آن امید که وقت پیری دستم را بگیری، نه به‌خاطر آنکه وقتی محتاج شدم لیوان آبی دستم دهی. می‌خواهم فقط به‌خاطر وجود داشتنت قبولت داشته باشم.",
+   "en": "I want to be your father for no reason at all—not in the hope that you’ll hold my hand when I’m old, not because you might hand me a glass of water when I’m in need. I want to accept you simply because you exist.",
+   "length": "medium",
+   "themes": [
+    "پندآموز",
+    "روانشناسانه"
+   ],
+   "impact": 9,
+   "why": "مانیفست پذیرش بی‌قیدوشرط فرزند؛ جمله‌ی آخر برای هر پدر و مادری تیر خلاص است.",
+   "src": "16-20",
+   "id": 47,
+   "score": 8
+  },
+  {
+   "chapter": 20,
+   "title_fa": "تئاتر غم‌انگیز دیده نشدن",
+   "fa": "انتقام نگیر.\nاز کودکی که با تصمیم تو،\nبه این دنیا می‌آید.\nانتقام تو،\nصفحات تاریخ را لکه‌دار می‌کند.\nانتقام تو،\nروح زمان را کبود می‌کند.\nانتقام تو،\nدیکتاتورها را می‌زاید.\nاگر دردِ باور‌نشدن را به دوش می‌کشی.\nانتقام نگیر.",
+   "en": "Don’t take revenge.\nOn the child,\nWho enters this world,\nBy your decision.\nYour revenge,\nWill stain the pages of history.\nYour revenge,\nWill bruise the soul of time.\nYour revenge,\nWill beget tyrants.\nIf you carry the pain of not being believed.\nDon’t take revenge.",
+   "length": "paragraph",
+   "themes": [
+    "روانشناسانه",
+    "پندآموز"
+   ],
+   "impact": 9,
+   "why": "چرخه‌ی زخم و انتقام میان نسل‌ها را می‌شکند؛ «انتقام تو دیکتاتورها را می‌زاید» هشداری فراموش‌نشدنی است.",
+   "src": "16-20",
+   "id": 48,
+   "score": 8
+  },
+  {
+   "chapter": 22,
+   "title_fa": "مرز اخلاق و حقیقت پرتگاه است",
+   "fa": "بخدا اصلاً کیف نمی‌ده آدم الکی هم خوشحال باشه. آخه غم و ناراحتی هم یه حس انسانی هس برای خودش. چرا هی می‌خواید دست به سرش کنید. غم‌هاتون رو هم قبول کنید و باهاش وقت بگذرونید. چیه هی افتادید دنبال خوشحالی؟",
+   "en": "Honestly, there’s no real pleasure in being fake-happy. Sadness and sorrow are human feelings too, in their own way. Why are you always trying to push them away? Accept your sadness, spend time with it. Why are you all chasing happiness so desperately?",
+   "length": "medium",
+   "themes": [
+    "روانشناسانه",
+    "پندآموز"
+   ],
+   "impact": 9,
+   "why": "در برابر اجبارِ «همیشه شاد باش» می‌ایستد؛ حرفی که هر مخاطبی لازمش دارد.",
+   "src": "21-25",
+   "id": 50,
+   "score": 8
+  },
+  {
+   "chapter": 25,
+   "title_fa": "هدایت دوم",
+   "fa": "رویات چیه؟\nرویام اینه که هیچ‌وقت رویای کورکورانه نداشته باشم.\nمنظورت چیه؟\nفکر می‌کنم خیلی از رویاهایی که ما آدم‌ها داریم، از وقتی بچه‌ایم توی کلمون فرو می‌کنن. ما فقط می‌افتیم دنبال برآورده‌کردنشون.",
+   "en": "What’s your dream?\nMy dream is never to have a meaningless dream.\nWhat do you mean?\nI think many of the dreams we humans have are implanted in our minds as children. We just end up chasing them.",
+   "length": "medium",
+   "themes": [
+    "پندآموز",
+    "فلسفی"
+   ],
+   "impact": 9,
+   "why": "پاسخ «رویای کورکورانه نداشتن» کلیشه‌ی رویاپردازی را وارونه می‌کند.",
+   "src": "21-25",
+   "id": 57,
+   "score": 8
+  },
+  {
+   "chapter": 25,
+   "title_fa": "هدایت دوم",
+   "fa": "چیزی که باعث می‌شود زندگی به زنده بودنش بیارزد حماقت نیست، عشق است.",
+   "en": "What makes life worth living isn’t foolishness—it’s love.",
+   "length": "short",
+   "themes": [
+    "فلسفی",
+    "پندآموز"
+   ],
+   "impact": 9,
+   "why": "جمله‌ای کوتاه با چرخش غافلگیرکننده از حماقت به عشق؛ پایان‌بند امیدبخش.",
+   "src": "21-25",
+   "id": 60,
+   "score": 8
+  },
+  {
+   "chapter": 30,
+   "title_fa": "رودخانه مصرف‌گرایی",
+   "fa": "فکر می‌کنی چرا روزبه‌روز سروکار آدم‌ها دارد بیشتر و بیشتر به قرص‌های آرام‌بخش کشیده می‌شود؟ دارند تاوان مشارکت‌های نکرده‌شان را می‌دهند. حساب و کتاب درونی‌شان نسبت به ارزش‌هایشان حسابش منفی است و خبر ندارند. به‌خاطر همین با قرص آرامش‌بخش سر و ته ماجرا را بهم می‌آورند.",
+   "en": "Why do you think more and more people are relying on antidepressants these days? They’re paying the price of not having contributed. Their inner balance sheet, compared to their own values, is deep in the red, without realizing it. That’s why they balance the books with a pill.",
+   "length": "medium",
+   "themes": [
+    "روانشناسانه",
+    "نقد اجتماعی"
+   ],
+   "impact": 9,
+   "why": "پیوند قرص آرام‌بخش با مشارکت‌نکردن در جامعه؛ نقد اجتماعی‌ای که به جانِ مخاطب امروزی می‌نشیند.",
+   "src": "26-30",
+   "id": 70,
+   "score": 8
+  },
+  {
+   "chapter": 31,
+   "title_fa": "روز تولد",
+   "fa": "عکس‌ها و ویدیوها حجم تاریخ را بی‌خود و بی‌جهت آنقدر سنگین و سنگین‌تر می‌کنند که به ویرانی آینده می‌انجامد. آینده‌هایی که نخواهند رسید تا کسی در آنها تاریخ‌های متورم شده را مرور کند.",
+   "en": "Photos and videos pile so much pointless weight on history—heavier and heavier—that they end up crushing the future itself. Futures that will never come, because no one will be left to review the bloated past.",
+   "length": "medium",
+   "themes": [
+    "فلسفی",
+    "آینده"
+   ],
+   "impact": 9,
+   "why": "نقد کوبنده‌ی عکس‌گرفتن‌های بی‌پایان؛ درد مشترک نسل موبایل.",
+   "src": "31-35",
+   "id": 74,
+   "score": 8
+  },
+  {
+   "chapter": 34,
+   "title_fa": "تراپی اجتماعی",
+   "fa": "دین و کاپیتالیسم هر دوتاشون یه چیز خطرناک مشترکی دارند.\nچی؟\n«معنی رشد» توی هر دوتاشون یعنی بیشتر و زیادتر. دیگه فرقی نمی‌کنه که عدد حساب بانکی باشه و یا تعداد پیروانت. حالا یا با آگهی تبلیغاتی یا با مبلغ‌های دینی.",
+   "en": "Religion and capitalism both share one dangerous thing in common.\nWhat’s that?\nThe idea of “growth.” In both, growth means more and bigger. It doesn’t matter if it’s your bank account balance or your number of followers, whether by ads or by preaching.",
+   "length": "medium",
+   "themes": [
+    "فلسفی",
+    "پندآموز"
+   ],
+   "impact": 9,
+   "why": "مقایسه‌ی جسورانه‌ی دین و سرمایه‌داری؛ بحث‌برانگیز و وایرال‌شدنی.",
+   "src": "31-35",
+   "id": 77,
+   "score": 8
+  },
+  {
+   "chapter": 35,
+   "title_fa": "زمان چیست؟",
+   "fa": "سامان می‌گه بشر نمی‌فهمه که یه روزی بالاخره چاقوی علم و دانش‌ش کُند می‌شه و مجبور می‌شه با قصه و فلسفه بقیه داستان هستی رو توضیح بده، نه با فرمول و ریاضیات.",
+   "en": "Saman says, humanity doesn’t realize that one day, the sharp knife of science and knowledge will dull. And when that happens, we’ll have to explain what’s left of existence through story and philosophy—not through formulas or math.",
+   "length": "medium",
+   "themes": [
+    "فلسفی",
+    "آینده"
+   ],
+   "impact": 9,
+   "why": "پایان علم و آغاز قصه و فلسفه؛ ادعایی که ذهن را قلقلک می‌دهد.",
+   "src": "31-35",
+   "id": 81,
+   "score": 8
+  },
+  {
+   "chapter": 36,
+   "title_fa": "قرنطینه",
+   "fa": "به بانک\nتا خرخره قسط بدهکارم\n\nبه بیمه\nتا خرخره جریمه بدهکارم\n\nبه زندگی\nتا خرخره کار بدهکارم\n\nبه مدرسه\nتا خر‌خره مشق بدهکارم\n\nبه گذشته\nتا خر‌خره حسرت بدهکارم\n\nبه آینده\nتا خر‌خره ترس بدهکارم\n\nاما نمی‌دانم چرا؟\nجرئت نمی‌کنم\nشورش کنم.\nو بازی‌شان را به‌هم بزنم\n\nظاهراً بدجوری\nعاشق بستانکارانم شده‌ام",
+   "en": "To the bank,\nI’m up to my neck in loan payments.\n\nTo the insurance company,\nI’m up to my neck in fines.\n\nTo life,\nI’m up to my neck in work.\n\nTo school,\nI’m up to my neck in homework.\n\nTo the past,\nI’m up to my neck in regrets.\n\nTo the future,\nI’m up to my neck in fear.\n\nAnd yet, I don’t know why,\nI never dare to rebel,\nTo wreck their little game.\n\nApparently, I’ve fallen madly in love with my creditors.",
+   "length": "multi",
+   "themes": [
+    "روانشناسانه",
+    "پندآموز"
+   ],
+   "impact": 9,
+   "why": "درد مشترک بدهکاری و ترس؛ هر مخاطبی خودش را در آن می‌بیند.",
+   "src": "36-39",
+   "id": 86,
+   "score": 8
+  },
+  {
+   "chapter": 18,
+   "title_fa": "کشف‌و‌شهود و توسعه",
+   "fa": "چطوری توی ماجراجویی‌هام بالانس برقرار کنم.\nدنبال بالانس توش نباش.\nپس چی؟\nدنبال هارمونی بگرد.",
+   "en": "How can I keep balance in my adventures?\nDon’t look for balance in them.\nThen what?\nLook for harmony.",
+   "length": "short",
+   "themes": [
+    "پندآموز",
+    "فلسفی"
+   ],
+   "impact": 8,
+   "why": "به‌جای کلیشه‌ی «تعادل در زندگی»، هارمونی را می‌نشاند؛ گفت‌وگوی کوتاهی که ذهن را قلقلک می‌دهد.",
+   "src": "16-20",
+   "id": 40,
+   "score": 7
+  },
+  {
+   "chapter": 30,
+   "title_fa": "رودخانه مصرف‌گرایی",
+   "fa": "چون آخرین و مهمترین ابزار دولت‌ها برای کنترل مردم اسلحه و پول نیست، انرژیه.",
+   "en": "Because the last and greatest tool governments use to control people isn’t guns or money. It’s energy.",
+   "length": "short",
+   "themes": [
+    "آینده",
+    "نقد اجتماعی"
+   ],
+   "impact": 9,
+   "why": "در روزهای بحران انرژی مثل تیتر خبر عمل می‌کند؛ بحث‌برانگیز و به‌اشتراک‌گذاشتنی.",
+   "src": "26-30",
+   "id": 71,
+   "score": 7
+  },
+  {
+   "chapter": 32,
+   "title_fa": "سرپیچی",
+   "fa": "اصلاً دلم نمی‌خواهد نبودنم به همان اندازه بودن بی‌معنی باشد.",
+   "en": "I just don’t want my absence to be as meaningless as my being.",
+   "length": "short",
+   "themes": [
+    "فلسفی"
+   ],
+   "impact": 8,
+   "why": "جمله‌ای کوتاه درباره‌ی معنای بودن و نبودن که در ذهن می‌ماند.",
+   "src": "31-35",
+   "id": 75,
+   "score": 7
+  },
+  {
+   "chapter": 34,
+   "title_fa": "تراپی اجتماعی",
+   "fa": "دشوار است،\nمواجهه با سوالی\nکه از پس پاسخ دادنش\nبرنمی‌آیی.\nو از آن دشوارتر،\nروبرو شدن با جوابی‌ست\nکه قانعت نمی‌کند.\nاما راهی هم نداری، جز پذیرفتنش.\nلااقل.\nدر مواجهه با سوال\nامیدی هست.",
+   "en": "It’s hard,\nFacing a question.\nYou can’t answer.\nAnd harder still, to face an answer,\nThat doesn’t satisfy you.\nBut you have no choice but to accept it.\nAt least.\nIn facing a question,\nThere is still hope.",
+   "length": "medium",
+   "themes": [
+    "فلسفی",
+    "پندآموز"
+   ],
+   "impact": 8,
+   "why": "روایت شاعرانه‌ی رنجِ سوال بی‌پاسخ؛ امید در دل پرسش.",
+   "src": "31-35",
+   "id": 79,
+   "score": 7
+  },
+  {
+   "chapter": 35,
+   "title_fa": "زمان چیست؟",
+   "fa": "چون بلد نیستم با کد نویسی یه هوش مصنوعی رو عاشق کنم. بلد بودم هم نمی‌کردم.",
+   "en": "Because I don’t know how to program an AI to fall in love, and even if I did, I wouldn’t.",
+   "length": "short",
+   "themes": [
+    "هوش مصنوعی",
+    "فلسفی"
+   ],
+   "impact": 8,
+   "why": "عشق و هوش مصنوعی در یک جمله؛ مرز اخلاق و کد.",
+   "src": "31-35",
+   "id": 84,
+   "score": 7
+  }
+ ],
+ "reserve": [
+  {
+   "chapter": 1,
+   "title_fa": "ناشناس",
+   "fa": "چی می‌خوای؟\nسوال اشتباه، جواب اشتباه می‌گیره!",
+   "en": "What do you need?\nWrong question, wrong answer.",
+   "length": "short",
+   "themes": [
+    "پندآموز",
+    "فلسفی"
+   ],
+   "impact": 8,
+   "why": "قانونی کوتاه و کوبنده درباره‌ی هنر درست پرسیدن؛ در عصر گفتگو با ماشین‌ها طنین دوچندان دارد.",
+   "src": "01-05",
+   "id": 2,
+   "score": 8
+  },
+  {
+   "chapter": 16,
+   "title_fa": "نخواستن یا نتوانستن؟",
+   "fa": "شیره‌ی وجود آدم‌ها همان اطلاعات و حریم خصوصی‌شان است. آنها را بیرون نکشید. به آنها دست درازی نکنید. این کار زندگی را از زیبایی‌هایش می‌اندازد. بگذارید بخش‌هایی از آدم‌ها برای بقیه و حتی خودشان دست‌نخورده، رازآلود و سربسته بماند.",
+   "en": "The essence of a human being is precisely their data and their privacy. Don’t strip that away. Don’t violate it. Doing so will rob life of its beauty. Let parts of people remain untouched, mysterious, and closed off—even beyond their own understanding.",
+   "length": "medium",
+   "themes": [
+    "فلسفی",
+    "پندآموز"
+   ],
+   "impact": 8,
+   "why": "دفاعی شاعرانه از حریم خصوصی؛ رازآلود ماندن انسان را جزو زیبایی زندگی می‌داند.",
+   "src": "16-20",
+   "id": 39,
+   "score": 8
+  },
+  {
+   "chapter": 26,
+   "title_fa": "ادغام",
+   "fa": "اما آدم‌ها اگر الگوی رفتارشون رو همینجا عوض نکنن، هر سیاره‌ی دیگه‌ای رو مثل زمین به گند می‌کشونن.",
+   "en": "But if people don’t change their behavior patterns here, they’ll turn any planet into the same mess they made of Earth.",
+   "length": "short",
+   "themes": [
+    "آینده",
+    "پندآموز",
+    "هوش مصنوعی"
+   ],
+   "impact": 9,
+   "why": "پاسخ کوبنده به رویای فرار به مریخ؛ دقیقاً وسط بحث روز آینده‌ی بشر.",
+   "src": "26-30",
+   "id": 65,
+   "score": 8
+  },
+  {
+   "chapter": 35,
+   "title_fa": "زمان چیست؟",
+   "fa": "معنی زندگی‌ام را از رنج‌هایم می‌گیرم و درمانش را از دوست طلب می‌کنم. نه از پدر و مادرم.",
+   "en": "I take the meaning of my life from my suffering—and I seek its remedy in a friend. Not in my parents.",
+   "length": "short",
+   "themes": [
+    "پندآموز",
+    "روانشناسانه"
+   ],
+   "impact": 9,
+   "why": "معنا از رنج و درمان از دوست؛ ستایش رفاقت به‌جای خانواده.",
+   "src": "31-35",
+   "id": 82,
+   "score": 8
+  },
+  {
+   "chapter": 2,
+   "title_fa": "کشف الاسرار",
+   "fa": "آدم‌های دوزاری، آدم‌هایی هستند که دائماً تصمیم‌هایی می‌گیرند که دیر یا زود باعثِ شرمنده‌گی خودشان و نسل‌های بعدی‌شان می‌شوند. تصمیم‌هایی که با گرفتنشان دیر یا زود احساس گناهی شگرف سراغشان را می‌گیرد. راستش را بخواهید! فقط دوزاری‌ها دلشان می‌خواهد دوزاری نباشند. مثل من.",
+   "en": "The Dozari people are those who constantly make decisions that, sooner or later, bring shame upon themselves and the generations that follow. Decisions that, sooner or later, drown them in a wave of guilt. To tell you the truth, only Dozari people wish they weren’t Dozari—like me!",
+   "length": "medium",
+   "themes": [
+    "روانشناسانه",
+    "پندآموز"
+   ],
+   "impact": 8,
+   "why": "تعریفی گزنده از آدم دوزاری با ضربه‌ی پایانیِ «مثل من»؛ صداقتی که مخاطب را خلع سلاح می‌کند.",
+   "src": "01-05",
+   "id": 5,
+   "score": 7
+  },
+  {
+   "chapter": 5,
+   "title_fa": "اعتماد به پروانه‌ها",
+   "fa": "ارتباط مجازی جای هر چیزی را بتواند بگیرد، جای احساس آرامشی که یک آدم مضطرب نیاز دارد تا در یک ارتباط فیزیکی از اطرافیانش دریافت کند را نمی‌تواند.",
+   "en": "A virtual connection might replace many things, but it can never replace the sense of calm an anxious person needs to get physically from those around them.",
+   "length": "medium",
+   "themes": [
+    "روانشناسانه",
+    "آینده"
+   ],
+   "impact": 9,
+   "why": "حرف دل عصر ارتباط‌های مجازی و دورکاری؛ جای خالی آرامشِ حضور فیزیکی را نشان می‌دهد.",
+   "src": "01-05",
+   "id": 9,
+   "score": 7
+  },
+  {
+   "chapter": 10,
+   "title_fa": "قرارداد‌ها",
+   "fa": "ذهن کارش همینه. قضاوت و سبک و سنگین. همه قضاوت می‌کنن، بدون استثنا. مهم اینه که با قضاوت‌هایی که می‌کنی چطوری برخورد کنی.",
+   "en": "That’s what the mind does. It judges, it weighs things. Everyone judges, no exceptions. What matters is how you deal with those judgments.",
+   "length": "short",
+   "themes": [
+    "روانشناسانه",
+    "پندآموز"
+   ],
+   "impact": 9,
+   "why": "واقعیت نیش‌دار «همه قضاوت می‌کنند» را به مهارتِ مواجهه با قضاوت تبدیل می‌کند.",
+   "src": "06-10",
+   "id": 21,
+   "score": 7
+  },
+  {
+   "chapter": 12,
+   "title_fa": "سرپیچی",
+   "fa": "استاد دانشگاهی نوشته است: \"من به‌خاطر دیده شدن است که تدریس می‌کنم\" روانشناسی در جواب استاد دانشگاه گفته بود: \"این بهترین روش برای مواجهه با خودشیفتگی ما انسان‌هاست. خرج کردن‌شان در کارهای مفید. به این کار در روانشناسی تصعید می‌گویند.\"",
+   "en": "A university professor had written: “It’s for the sake of being seen that I teach.” A psychologist replied: “That’s the best way to deal with our human narcissism — to spend it on something useful. In psychology, this is called sublimation.”",
+   "length": "medium",
+   "themes": [
+    "روانشناسانه",
+    "پندآموز"
+   ],
+   "impact": 8,
+   "why": "میل به دیده‌شدن و پاسخ «تصعید»؛ درس روانشناسی کوتاهی که دعوت به گفتگو می‌کند.",
+   "src": "11-15",
+   "id": 26,
+   "score": 7
+  },
+  {
+   "chapter": 29,
+   "title_fa": "دوست آقای نویسنده",
+   "fa": "تو هم گاهی دلت می‌خواست زمان برگرده و یه لایف استایل دیگه رو تجربه می‌کردی. مثلا بعد از دانشگاه متاهل می‌شدی و الان دو تا بچه داشتی؟\nنه. به‌نظرم ما آدم‌ها یه حسرت بی‌انتها هستیم. احتمالا توی اون لایف استایل یه آرزوی دیگه داشتم. این بازی بی انتها باید یه جا تموم بشه دیگه. پس بهتره توی همین نسخه الانی بمونیم و حسرت نخوریم.",
+   "en": "Do you ever wish time could go back, and you could try a different life path? Like, what if you’d gotten married right after university and had two kids by now?\nNah. I think we humans are just one endless longing.\nIn that other life, I probably would’ve had a completely different dream, a different regret. This game has to stop somewhere, doesn’t it?\nSo I think it’s better to stick to this current version of ourselves—and stop chasing what-ifs.",
+   "length": "medium",
+   "themes": [
+    "روانشناسانه",
+    "فلسفی"
+   ],
+   "impact": 9,
+   "why": "پرسش «اگر زمان برمی‌گشت» را همه از خود پرسیده‌اند؛ جواب «ما آدم‌ها یه حسرت بی‌انتها هستیم» آرام‌شان می‌کند.",
+   "src": "26-30",
+   "id": 67,
+   "score": 7
+  },
+  {
+   "chapter": 38,
+   "title_fa": "مرز طبیعت",
+   "fa": "«انباشت مصنوعی، مرز میان انسان و طبیعت است. بالاخره انباشت دست‌ساز انسان‌ها در انرژی و علم و ثروت، یک روز بشر را به تباهی خواهد کشاند. امیدوارم که آگاهی، با شفا دادن اندیشه، روزی بشر را نجات دهد.»",
+   "en": "“Hoarding defines the border between humanity and nature. One day, the human-made hoarding of energy, knowledge, and wealth will lead humanity to ruin. I hope that consciousness will save humanity by healing thought.”",
+   "length": "medium",
+   "themes": [
+    "فلسفی",
+    "آینده"
+   ],
+   "impact": 8,
+   "why": "مرز انسان و طبیعت در یک جمله؛ هشدار و امید همزمان.",
+   "src": "36-39",
+   "id": 91,
+   "score": 7
+  }
+ ]
+}
