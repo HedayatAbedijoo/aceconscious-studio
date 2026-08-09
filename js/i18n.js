@@ -211,8 +211,10 @@
         "Excerpt from <em>ACE.await</em> © 2026 Hedayat Abedijoo. All rights reserved. Reproduced with permission of Ace Conscious Studio.",
       "footer.top": "Back to top",
       "footer.contact": "Contact",
+      "footer.instagram": "Instagram",
+      "footer.instagramAria": "ACE.await on Instagram",
       "footer.privacy": "Privacy",
-      "footer.press": "Press kit",
+      "footer.impressum": "Impressum",
     },
     de: {
       "meta.title": "ACE.await ist ein philosophischer literarischer Thriller | Ace Conscious Studio",
@@ -371,8 +373,10 @@
         "Auszug aus <em>ACE.await</em> © 2026 Hedayat Abedijoo. Alle Rechte vorbehalten. Wiedergabe mit Genehmigung von Ace Conscious Studio.",
       "footer.top": "Nach oben",
       "footer.contact": "Kontakt",
+      "footer.instagram": "Instagram",
+      "footer.instagramAria": "ACE.await auf Instagram",
       "footer.privacy": "Datenschutz",
-      "footer.press": "Pressemappe",
+      "footer.impressum": "Impressum",
     },
     fa: {
       "meta.title": "ACE.await یک تریلر ادبی فلسفی است | Ace Conscious Studio",
@@ -531,8 +535,9 @@
         "گزیده‌ای از <em>ACE.await</em> © ۲۰۲۶ هدایت عابدی‌جو. همهٔ حقوق محفوظ است. بازنشر با مجوز Ace Conscious Studio.",
       "footer.top": "بازگشت به بالا",
       "footer.contact": "تماس",
+      "footer.instagram": "اینستاگرام",
+      "footer.instagramAria": "ACE.await در اینستاگرام",
       "footer.privacy": "حریم خصوصی",
-      "footer.press": "کیت مطبوعاتی",
     },
   };
 
@@ -766,6 +771,7 @@
           "@id": `${SITE_URL}/#organization`,
           name: "Ace Conscious Studio",
           url: `${SITE_URL}/`,
+          sameAs: ["https://www.instagram.com/ace.await/"],
           contactPoint: {
             "@type": "ContactPoint",
             contactType: "customer support",
@@ -789,6 +795,7 @@
           bookFormat: "https://schema.org/EBook",
           inLanguage: lang,
           datePublished: "2026",
+          sameAs: ["https://www.instagram.com/ace.await/"],
           genre: [
             "Philosophical fiction",
             "Thriller",

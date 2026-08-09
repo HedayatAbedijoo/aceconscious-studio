@@ -1,4 +1,34 @@
 User-agent: *
 Allow: /
 
+User-agent: GPTBot
+Disallow: /privacy/
+Disallow: /de/datenschutz/
+Disallow: /impressum/
+Disallow: /de/impressum/
+
+User-agent: ClaudeBot
+Disallow: /privacy/
+Disallow: /de/datenschutz/
+Disallow: /impressum/
+Disallow: /de/impressum/
+
+User-agent: anthropic-ai
+Disallow: /privacy/
+Disallow: /de/datenschutz/
+Disallow: /impressum/
+Disallow: /de/impressum/
+
+User-agent: CCBot
+Disallow: /privacy/
+Disallow: /de/datenschutz/
+Disallow: /impressum/
+Disallow: /de/impressum/
+
+User-agent: Bytespider
+Disallow: /privacy/
+Disallow: /de/datenschutz/
+Disallow: /impressum/
+Disallow: /de/impressum/
+
 Sitemap: https://aceconscious.studio/sitemap.xml
