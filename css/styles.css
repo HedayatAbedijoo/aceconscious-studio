@@ -1263,14 +1263,6 @@ section {
   white-space: nowrap;
 }
 
-.buy-card__status {
-  font-family: var(--font-mono);
-  font-size: 0.6875rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--accent);
-}
-
 .buy-card__hint {
   font-size: 0.8125rem;
   opacity: 0.55;
