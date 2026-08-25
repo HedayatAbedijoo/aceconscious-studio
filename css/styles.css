@@ -1224,22 +1224,38 @@ section {
 
 .buy-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: max-content;
   gap: 1rem;
 }
 
 .buy-card {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.5rem;
-  padding: 1.5rem;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem;
+  padding: 1.15rem 1.85rem 1rem;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--radius);
   text-decoration: none;
   color: var(--white);
   transition: all 0.3s var(--ease);
+}
+
+.buy-card__brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.buy-card__smile {
+  width: 8.25rem;
+  height: auto;
+  display: block;
+  color: #ff9900;
+  transition: color 0.3s var(--ease);
 }
 
 .buy-card:hover {
@@ -1249,6 +1265,10 @@ section {
   transform: translateY(-2px);
 }
 
+.buy-card:hover .buy-card__smile {
+  color: #ffb84d;
+}
+
 .buy-card--soon {
   opacity: 0.5;
   pointer-events: none;
@@ -1256,11 +1276,11 @@ section {
 
 .buy-card__platform {
   font-family: var(--font-serif);
-  font-size: 1.2rem;
+  font-size: 1.45rem;
   font-weight: 600;
   letter-spacing: 0.01em;
   text-transform: none;
-  white-space: nowrap;
+  line-height: 1;
 }
 
 .buy-card__hint {
@@ -1817,7 +1837,7 @@ html.js .reveal.visible {
   }
 
   .buy-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 
