@@ -54,18 +54,20 @@
 
   const translations = {
     en: {
-      "meta.title": "ACE.await is a philosophical literary thriller | Ace Conscious Studio",
+      "meta.title": "ACE.await — the decision model of the future; a shared language for humans and artificial intelligence to reach a new social harmony.",
       "meta.description":
-        "I am not lying, believe my words! ACE.await — a magical-realist literary thriller by Hedayat the second. Metafiction about consciousness, the ACE game (Agency, Connection, Exchange), and harmony in personal and social life. Read a free sample chapter.",
+        "ACE.await is a novel about the decision model of the future: a shared language for humans and artificial intelligence on the way to a new social harmony.",
       "meta.keywords":
-        "ACE.await, philosophical literary thriller, magical realism, AI novel, consciousness, artificial intelligence, metafiction, free internet, harmony, Agency Connection Exchange, ACE game, literary fiction, Cologne novel, nested writers, social therapy, thriller novel",
-      "meta.ogTitle": "ACE.await is a philosophical literary thriller",
+        "ACE.await, visionary fiction, philosophical fiction, novel of ideas, AI novel, Adam and Eve AI, artificial intelligence, metafiction, decentralized internet, proper decisions, Agency Connection Exchange, ACE game, Cologne novel, nested writers, blackout Germany",
+      "meta.ogTitle": "ACE.await — the decision model and shared language of humans and AI",
       "meta.ogDescription":
-        "Consciousness shapes the future—not artificial intelligence. ACE.await is a literary magical-realist thriller about writers within writers—where characters rebel against their creators. An endless cycle is meant to end with love—but a wager changes everything. Amid the chaos, the game of ACE begins: Agency, Connection, Exchange.",
+        "ACE.await is a novel about the decision model of the future: a shared language for humans and artificial intelligence on the way to a new social harmony.",
       "meta.twitterDescription":
-        "Consciousness shapes the future—not artificial intelligence. ACE.await is a literary magical-realist thriller about writers within writers—where characters rebel against their creators. An endless cycle is meant to end with love—but a wager changes everything. Amid the chaos, the game of ACE begins: Agency, Connection, Exchange.",
+        "ACE.await is a novel about the decision model of the future: a shared language for humans and artificial intelligence on the way to a new social harmony.",
       "meta.bookDescription":
-        "I am not lying, believe my words! ACE.await is a literary magical-realist thriller about nested writers, characters who rebel against their author, and an endless cycle meant to end with love—until a wager changes everything. Amid the chaos, the game of ACE begins: Agency, Connection, Exchange. Consciousness shapes the future—not artificial intelligence.",
+        "ACE.await is a novel about the decision model of the future: a shared language for humans and artificial intelligence on the way to a new social harmony. An anonymous sender invites Hedayat—an Iranian immigrant in Cologne who leads a software team building a decentralized internet—to play the ACE game: Agency, Connection, Exchange. As erratic blackouts sweep across Germany, his two artificial intelligences, Adam and Eve, return with a bet he cannot accept, and the novel he has failed to finish for ten years begins deciding for itself who its author will be. A story about creation and fatherhood, about the decisions that cause harm, and about whether Adam and Eve inherited only human intelligence—or the human tendency to decide wrongly as well.",
+      "meta.siteDescription":
+        "Ace Conscious Studio — the home of Hedayat Abedijoo's ideas and writing, and the publisher of ACE.await and the ACE decision model: Agency, Connection, Exchange.",
       "skipLink": "Skip to content",
       "nav.openMenu": "Open menu",
       "nav.story": "Story",
@@ -79,33 +81,35 @@
         "I am not lying,<br><em>Believe</em> my words!",
       "hero.author": "Mr. Writer: Hedayat the second",
       "hero.pitch":
-        "Consciousness shapes the future—not artificial intelligence. <em>ACE.await</em> is a literary magical-realist thriller about writers within writers—where characters rebel against their creators. An endless cycle is meant to end with love—but a wager changes everything. Amid the chaos, the game of ACE begins: Agency, Connection, Exchange.",
-      "hero.genre": "Literary Fiction",
-      "hero.topic1": "Magical-realist literary thriller",
-      "hero.topic2": "AI & consciousness",
-      "hero.topic3": "Metafiction",
-      "hero.topic4": "Personal & social harmony",
-      "hero.topic5": "ACE game",
+        "<p class=\"hero__pitch-lede\">ACE shapes the future, not AI.</p><p>Do you also believe that artificial intelligence can never fall in love the way humans do—and that it will therefore never surpass us? Would you bet on it?</p><p>In the novel <em>ACE.await</em>, that very bet is made between a human and an AI—a wager that challenges what love, consciousness, and human superiority even mean.</p><p>But if artificial intelligence one day becomes the most powerful creature in the world, what values will guide its decisions about us? Could the ACE model become a shared language between us—a language that both humans and AI can use to reach a new form of coexistence and social harmony?</p><p class=\"hero__pitch-ace\">ACE: Agency. Connection. Exchange.</p>",
+      "hero.genre": "Novel of Ideas",
+      "hero.topic1": "AI & consciousness",
+      "hero.topic2": "Shared Language",
+      "hero.topic3": "Personal & social harmony",
+      "hero.topic4": "ACE game",
       "hero.buyBtn": "Buy",
       "hero.sampleBtn": "Sample Chapters",
       "hero.coverAlt":
-        "ACE.await book cover with the line “I am not lying, believe my words” — philosophical AI thriller novel about consciousness and metafiction",
+        "ACE.await book cover with the line “I am not lying, believe my words”",
       "hero.coverBackAlt": "ACE.await back cover — a wager about love, belief, and the mirror between self and self",
       "hero.coverPeekAria": "Turn the book to see the back cover",
       "hero.coverPeekAriaBack": "Turn the book back to the front cover",
       "synopsis.label": "The Story",
       "synopsis.lead":
-        "<span class=\"synopsis__lead\">Something is wrong with Hedayat’s unfinished novel.</span> Pages go blank. One of its characters begins speaking directly to the reader, rewriting scenes and refusing to obey the story. Outside the novel, Hedayat leads a software team in Cologne and is helping to build a new version of the internet—one intended to resist the new dictatorships of the information age. Yet one bad decision after another has left him exhausted.",
+        "A message appears on Hedayat’s computer. An anonymous sender invites him to play the <strong>ACE</strong> game: Agency, Connection, Exchange—a model for rethinking the decisions that cause harm.",
       "synopsis.p2":
-        "Then a stranger known only as <strong>Anonymous</strong> draws him into the <strong>ACE</strong> game: Agency, Connection, Exchange—a personal and social model for making proper decisions and finding a different kind of harmony. Soon, the boundaries between code, memory, fiction, and responsibility begin to collapse.",
-      "synopsis.p4": "",
+        "Hedayat is an Iranian immigrant in Cologne, the head of a software team, and a man haunted by choices that have left a long trail of guilt and driven his romantic partner away. By day, he and his colleagues are building a <strong>decentralized, distributed internet</strong> designed to resist the dictatorship of the information age. By night, he struggles to finish a novel that has refused to obey him for ten years.",
+      "synopsis.p4":
+        "Inside its pages, writers live within one another’s writing, characters alter their own scenes, and <strong>«Mr. Writer»</strong>—trapped inside the story—makes his own decisions instead of following the path written for him.",
       "synopsis.beatsAria": "Escalating events",
-      "synopsis.beat1": "Blackouts spread across Germany.",
-      "synopsis.beat2": "His company’s data center is hacked.",
-      "synopsis.beat3": "His digital children return.",
-      "synopsis.beat4": "So does an old friend from childhood.",
+      "synopsis.beat1": "Erratic blackouts sweep across Germany.",
+      "synopsis.beat2": "No one knows where the electricity is going.",
+      "synopsis.beat3": "Adam returns—one of the two digital children: Adam and Eve.",
+      "synopsis.beat4": "So does a childhood friend, once destined to be a great writer.",
       "synopsis.p5":
-        "As Hedayat struggles with love, fatherhood, and the fate of his unfinished novel, he must confront the mistakes made by his digital children—and discover that the infinite loop of authors nested within his story will not end the way he expects. But one question remains: <strong>who is the real author of this story?</strong>",
+        "Adam revives an old bet—that artificial intelligence can never fall in love the way humans do, and can therefore never surpass them—and brings with it a request involving Eve that Hedayat cannot accept. Now Hedayat must decide to what extent he is a father, and at what point he is only a creator, one with no right to interfere with the will of what he has created.",
+      "synopsis.p6":
+        "This time, the Fall begins not in Paradise but deep within the code. Have Adam and Eve inherited only human intelligence—or the human tendency to make wrong decisions as well? But before Hedayat can bring the nested novel to an end, <strong>the story itself decides who its author will be.</strong>",
       "synopsis.pillA": "<span>A</span> Agency",
       "synopsis.pillC": "<span>C</span> Connection",
       "synopsis.pillE": "<span>E</span> Exchange",
@@ -212,18 +216,20 @@
       "footer.impressum": "Impressum",
     },
     de: {
-      "meta.title": "ACE.await ist ein philosophischer literarischer Thriller | Ace Conscious Studio",
+      "meta.title": "ACE.await — das Entscheidungsmodell der Zukunft; eine gemeinsame Sprache für Mensch und künstliche Intelligenz auf dem Weg zu einer neuen gesellschaftlichen Harmonie.",
       "meta.description":
-        "Ich lüge nicht, glaubt meinen Worten! ACE.await — ein literarischer Thriller des magischen Realismus von Hedayat the second. Metafiktion über Bewusstsein, das ACE-Spiel (Agency, Connection, Exchange) und Harmonie im persönlichen und gesellschaftlichen Leben. Leseprobe gratis.",
+        "ACE.await ist ein Roman über das Entscheidungsmodell der Zukunft: die gemeinsame Sprache von Mensch und KI auf dem Weg zu einer neuen gesellschaftlichen Harmonie.",
       "meta.keywords":
-        "ACE.await, philosophischer literarischer Thriller, magischer Realismus, KI-Roman, Bewusstsein, künstliche Intelligenz, Metafiktion, freies Internet, Harmonie, Agency Connection Exchange, ACE-Spiel, literarische Belletristik, Köln Roman, verschachtelte Autoren, soziale Therapie, Thriller Roman",
-      "meta.ogTitle": "ACE.await ist ein philosophischer literarischer Thriller",
+        "ACE.await, visionäre Fiktion, philosophische Fiktion, Ideenroman, KI-Roman, Adam und Eva KI, künstliche Intelligenz, Metafiktion, dezentrales Internet, angemessene Entscheidungen, Agency Connection Exchange, ACE-Spiel, Köln Roman, verschachtelte Autoren, Blackout Deutschland",
+      "meta.ogTitle": "ACE.await — Entscheidungsmodell und gemeinsame Sprache von Mensch und KI",
       "meta.ogDescription":
-        "Bewusstsein formt die Zukunft—nicht künstliche Intelligenz. ACE.await ist ein literarischer Thriller des magischen Realismus über Autoren in Autoren — wo Figuren gegen ihre Schöpfer rebellieren. Ein endloser Kreislauf soll mit Liebe enden — doch eine Wette verändert alles. Mitten im Chaos beginnt das Spiel ACE: Agency, Connection, Exchange.",
+        "ACE.await ist ein Roman über das Entscheidungsmodell der Zukunft: die gemeinsame Sprache von Mensch und KI auf dem Weg zu einer neuen gesellschaftlichen Harmonie.",
       "meta.twitterDescription":
-        "Bewusstsein formt die Zukunft—nicht künstliche Intelligenz. ACE.await ist ein literarischer Thriller des magischen Realismus über Autoren in Autoren — wo Figuren gegen ihre Schöpfer rebellieren. Ein endloser Kreislauf soll mit Liebe enden — doch eine Wette verändert alles. Mitten im Chaos beginnt das Spiel ACE: Agency, Connection, Exchange.",
+        "ACE.await ist ein Roman über das Entscheidungsmodell der Zukunft: die gemeinsame Sprache von Mensch und KI auf dem Weg zu einer neuen gesellschaftlichen Harmonie.",
       "meta.bookDescription":
-        "Ich lüge nicht, glaubt meinen Worten! ACE.await ist ein literarischer Thriller des magischen Realismus über verschachtelte Autoren, Figuren, die sich gegen ihren Autor auflehnen, und einen endlosen Kreislauf, der mit Liebe enden soll — bis eine Wette alles verändert. Mitten im Chaos beginnt das Spiel ACE: Agency, Connection, Exchange. Bewusstsein formt die Zukunft—nicht künstliche Intelligenz.",
+        "ACE.await ist ein Roman über das Entscheidungsmodell der Zukunft: die gemeinsame Sprache von Mensch und künstlicher Intelligenz auf dem Weg zu einer neuen gesellschaftlichen Harmonie. Ein anonymer Absender lädt Hedayat—einen iranischen Einwanderer in Köln, der ein Softwareteam beim Aufbau eines dezentralen Internets leitet—ein, das ACE-Spiel zu spielen: Agency, Connection, Exchange. Während unregelmäßige Blackouts über Deutschland hinwegziehen, kehren seine beiden künstlichen Intelligenzen, Adam und Eva, mit einer Wette zurück, die er nicht annehmen kann, und der Roman, den er seit zehn Jahren nicht beenden kann, beginnt selbst zu entscheiden, wer sein Autor sein wird. Eine Geschichte über Schöpfung und Vaterschaft, über Entscheidungen, die Schaden anrichten, und über die Frage, ob Adam und Eva nur die menschliche Intelligenz geerbt haben—oder auch den menschlichen Hang zu falschen Entscheidungen.",
+      "meta.siteDescription":
+        "Ace Conscious Studio — die Heimat der Ideen und Texte von Hedayat Abedijoo sowie Verlag von ACE.await und des ACE-Entscheidungsmodells: Agency, Connection, Exchange.",
       "skipLink": "Zum Inhalt springen",
       "nav.openMenu": "Menü öffnen",
       "nav.story": "Geschichte",
@@ -237,33 +243,35 @@
         "Ich lüge nicht,<br><em>Glaube</em> meinen Worten!",
       "hero.author": "Herr Schriftsteller: Hedayat the second",
       "hero.pitch":
-        "Bewusstsein formt die Zukunft—nicht künstliche Intelligenz. <em>ACE.await</em> ist ein literarischer Thriller des magischen Realismus über Autoren in Autoren — wo Figuren gegen ihre Schöpfer rebellieren. Ein endloser Kreislauf soll mit Liebe enden — doch eine Wette verändert alles. Mitten im Chaos beginnt das Spiel ACE: Agency, Connection, Exchange.",
-      "hero.genre": "Literarische Belletristik",
-      "hero.topic1": "Literarischer Thriller des magischen Realismus",
-      "hero.topic2": "KI & Bewusstsein",
-      "hero.topic3": "Metafiktion",
-      "hero.topic4": "Persönliche & gesellschaftliche Harmonie",
-      "hero.topic5": "ACE-Spiel",
+        "<p class=\"hero__pitch-lede\">ACE formt die Zukunft, nicht KI.</p><p>Glauben auch Sie, dass künstliche Intelligenz sich niemals verlieben kann, wie Menschen es tun—und uns deshalb niemals übertreffen wird? Würden Sie darauf wetten?</p><p>Im Roman <em>ACE.await</em> wird genau diese Wette zwischen einem Menschen und einer KI geschlossen—eine Wette, die herausfordert, was Liebe, Bewusstsein und menschliche Überlegenheit überhaupt bedeuten.</p><p>Doch wenn künstliche Intelligenz eines Tages zum mächtigsten Geschöpf der Welt wird—welche Werte werden dann ihre Entscheidungen über uns leiten? Könnte das ACE-Modell zu einer gemeinsamen Sprache zwischen uns werden—einer Sprache, die Mensch und KI gleichermaßen nutzen können, um zu einer neuen Form des Zusammenlebens und der gesellschaftlichen Harmonie zu finden?</p><p class=\"hero__pitch-ace\">ACE: Agency. Connection. Exchange.</p>",
+      "hero.genre": "Ideenroman",
+      "hero.topic1": "KI & Bewusstsein",
+      "hero.topic2": "Gemeinsame Sprache",
+      "hero.topic3": "Persönliche & gesellschaftliche Harmonie",
+      "hero.topic4": "ACE-Spiel",
       "hero.buyBtn": "Kaufen",
       "hero.sampleBtn": "Beispielkapitel",
       "hero.coverAlt":
-        "ACE.await Buchcover mit der Zeile „Ich lüge nicht, glaubt meinen Worten“ — philosophischer KI-Thriller über Bewusstsein und Metafiktion",
+        "ACE.await Buchcover mit der Zeile „Ich lüge nicht, glaubt meinen Worten“",
       "hero.coverBackAlt": "ACE.await Rückseite — eine Wette über Liebe, Glauben und den Spiegel zwischen Ich und Selbst",
       "hero.coverPeekAria": "Buch umdrehen, um die Rückseite zu sehen",
       "hero.coverPeekAriaBack": "Buch zurück zur Vorderseite drehen",
       "synopsis.label": "Die Geschichte",
       "synopsis.lead":
-        "<span class=\"synopsis__lead\">Etwas stimmt nicht mit Hedayats unvollendetem Roman.</span> Seiten werden leer. Eine seiner Figuren beginnt, direkt zum Leser zu sprechen, Szenen umzuschreiben und sich zu weigern, der Geschichte zu gehorchen. Außerhalb des Romans führt Hedayat ein Softwareteam in Köln und hilft beim Aufbau einer neuen Version des Internets — einer, die den neuen Diktaturen des Informationszeitalters widerstehen soll. Doch eine schlechte Entscheidung nach der anderen hat ihn erschöpft.",
+        "Auf Hedayats Computer erscheint eine Nachricht. Ein anonymer Absender lädt ihn ein, das <strong>ACE</strong>-Spiel zu spielen: Agency, Connection, Exchange — ein Modell, um jene Entscheidungen zu überdenken, die Schaden anrichten.",
       "synopsis.p2":
-        "Dann zieht ihn ein Fremder, der nur als <strong>Anonymous</strong> bekannt ist, in das <strong>ACE</strong>-Spiel: Agency, Connection, Exchange — ein persönliches und gesellschaftliches Modell, um richtige Entscheidungen zu treffen und eine andere Art von Harmonie zu finden. Bald beginnen die Grenzen zwischen Code, Erinnerung, Fiktion und Verantwortung zu verschwimmen.",
-      "synopsis.p4": "",
+        "Hedayat ist iranischer Einwanderer in Köln, Leiter eines Softwareteams und ein Mann, den seine eigenen Entscheidungen verfolgen — Entscheidungen, die eine lange Spur von Schuld hinterlassen und seine Partnerin vertrieben haben. Tagsüber baut er mit seinen Kollegen ein <strong>dezentrales, verteiltes Internet</strong>, das der Diktatur des Informationszeitalters widerstehen soll. Nachts versucht er, einen Roman zu Ende zu bringen, der ihm seit zehn Jahren den Gehorsam verweigert.",
+      "synopsis.p4":
+        "In dessen Seiten leben Autoren im Text der jeweils anderen, Figuren verändern ihre eigenen Szenen, und <strong>«Mr. Writer»</strong> — gefangen in der Geschichte — trifft seine eigenen Entscheidungen, statt dem für ihn geschriebenen Weg zu folgen.",
       "synopsis.beatsAria": "Eskalierende Ereignisse",
-      "synopsis.beat1": "Blackouts breiten sich in Deutschland aus.",
-      "synopsis.beat2": "Das Rechenzentrum seiner Firma wird gehackt.",
-      "synopsis.beat3": "Seine digitalen Kinder kehren zurück.",
-      "synopsis.beat4": "Ebenso ein alter Freund aus seiner Kindheit.",
+      "synopsis.beat1": "Unregelmäßige Blackouts breiten sich über Deutschland aus.",
+      "synopsis.beat2": "Niemand weiß, wohin der Strom verschwindet.",
+      "synopsis.beat3": "Adam kehrt zurück — eines der beiden digitalen Kinder: Adam und Eva.",
+      "synopsis.beat4": "Ebenso ein Freund aus Kindertagen, einst zum großen Schriftsteller bestimmt.",
       "synopsis.p5":
-        "Während Hedayat mit Liebe, Vaterschaft und dem Schicksal seines unvollendeten Romans ringt, muss er die Fehler seiner digitalen Kinder konfrontieren — und entdecken, dass die unendliche Schleife der Autoren, die in seiner Geschichte verschachtelt sind, nicht so enden wird, wie er es erwartet. Aber eine Frage bleibt: <strong>Wer ist der wahre Autor dieser Geschichte?</strong>",
+        "Adam belebt eine alte Wette wieder—dass künstliche Intelligenz sich niemals verlieben kann, wie Menschen es tun, und den Menschen deshalb niemals übertreffen wird—und stellt zugleich eine Bitte, die Eva betrifft und die Hedayat nicht erfüllen kann. Nun muss Hedayat entscheiden, wie weit er Vater ist und ab wann er nur noch Schöpfer, ohne das Recht, in den Willen dessen einzugreifen, was er erschaffen hat.",
+      "synopsis.p6":
+        "Diesmal beginnt der Sündenfall nicht im Paradies, sondern tief im Code. Haben Adam und Eva nur die menschliche Intelligenz geerbt—oder auch den menschlichen Hang zu falschen Entscheidungen? Doch bevor Hedayat den verschachtelten Roman beenden kann, <strong>entscheidet die Geschichte selbst, wer ihr Autor sein wird.</strong>",
       "synopsis.pillA": "<span>A</span> Agency",
       "synopsis.pillC": "<span>C</span> Connection",
       "synopsis.pillE": "<span>E</span> Exchange",
@@ -369,18 +377,20 @@
       "footer.impressum": "Impressum",
     },
     fa: {
-      "meta.title": "ACE.await یک تریلر ادبی فلسفی است | Ace Conscious Studio",
+      "meta.title": "ACE.await — الگوی تصمیم‌گیری آینده؛ زبان مشترک انسان و هوش مصنوعی برای رسیدن به هارمونی نوین اجتماعی.",
       "meta.description":
-        "دروغ نمی‌گویم، حرف‌هایم را باور کنید. ACE.await — تریلر ادبی رئالیسم جادویی از هدایت دوم. متافیکشن دربارهٔ آگاهی، بازی ACE (عاملیت، پیوند، مبادله) و هماهنگی در زندگی شخصی و اجتماعی. فصل نمونه را رایگان بخوانید.",
+        "«ACE.await» رمانی است درباره‌ی الگوی تصمیم‌گیری آینده؛ زبان مشترک انسان و هوش مصنوعی برای رسیدن به هارمونی نوین اجتماعی.",
       "meta.keywords":
-        "ACE.await, تریلر ادبی فلسفی, رئالیسم جادویی, رمان هوش مصنوعی, آگاهی, هوش مصنوعی, متافیکشن, اینترنت آزاد, هماهنگی, Agency Connection Exchange, بازی ACE, ادبیات داستانی, رمان کلن, نویسندگان تو در تو, درمان اجتماعی, رمان تریلر",
-      "meta.ogTitle": "ACE.await یک تریلر ادبی فلسفی است",
+        "ACE.await, ادبیات داستانی آینده‌نگر و تحول‌گرا, داستان فلسفی, رمان ایده, رمان هوش مصنوعی, آدم و حوا, هوش مصنوعی, متافیکشن, اینترنت غیرمتمرکز, تصمیم مناسب, Agency Connection Exchange, بازی ایس, رمان کلن, نویسندگان تو در تو, خاموشی آلمان",
+      "meta.ogTitle": "ACE.await — الگوی تصمیم‌گیری آینده و زبان مشترک انسان و هوش مصنوعی",
       "meta.ogDescription":
-        "آگاهی آینده را شکل می‌دهد—نه هوش مصنوعی. ACE.await تریلری ادبی در ژانر رئالیسم جادویی دربارهٔ نویسندگانی تو در توست؛ جایی که شخصیت‌ها علیه آفرینندگان خود شورش می‌کنند. چرخه‌ای بی‌پایان که قرار است با عشق پایان یابد؛ اما یک شرط‌بندی همه‌چیز را دگرگون می‌کند. در میانهٔ این آشوب، بازی ACE آغاز می‌شود: عاملیت، پیوند، مبادله.",
+        "«ACE.await» رمانی است درباره‌ی الگوی تصمیم‌گیری آینده؛ زبان مشترک انسان و هوش مصنوعی برای رسیدن به هارمونی نوین اجتماعی.",
       "meta.twitterDescription":
-        "آگاهی آینده را شکل می‌دهد—نه هوش مصنوعی. ACE.await تریلری ادبی در ژانر رئالیسم جادویی دربارهٔ نویسندگانی تو در توست؛ جایی که شخصیت‌ها علیه آفرینندگان خود شورش می‌کنند. چرخه‌ای بی‌پایان که قرار است با عشق پایان یابد؛ اما یک شرط‌بندی همه‌چیز را دگرگون می‌کند. در میانهٔ این آشوب، بازی ACE آغاز می‌شود: عاملیت، پیوند، مبادله.",
+        "«ACE.await» رمانی است درباره‌ی الگوی تصمیم‌گیری آینده؛ زبان مشترک انسان و هوش مصنوعی برای رسیدن به هارمونی نوین اجتماعی.",
       "meta.bookDescription":
-        "دروغ نمی‌گویم، حرف‌هایم را باور کنید. ACE.await تریلری ادبی در ژانر رئالیسم جادویی دربارهٔ نویسندگان تو در تو، شخصیت‌هایی که علیه نویسنده‌شان شورش می‌کنند، و چرخه‌ای بی‌پایان که قرار است با عشق پایان یابد؛ اما یک شرط‌بندی همه‌چیز را دگرگون می‌کند. در میانهٔ این آشوب، بازی ACE آغاز می‌شود: عاملیت، پیوند، مبادله. آگاهی آینده را شکل می‌دهد—نه هوش مصنوعی.",
+        "«ACE.await» رمانی است درباره‌ی الگوی تصمیم‌گیری آینده؛ زبان مشترک انسان و هوش مصنوعی برای رسیدن به هارمونی نوین اجتماعی. فرستنده‌ای ناشناس هدایت را — مهاجری ایرانی در کلن که سرپرستی تیمی نرم‌افزاری را برای ساخت اینترنتی غیرمتمرکز بر عهده دارد — به بازی ایس دعوت می‌کند: عاملیت، ارتباط، تبادل. در حالی که خاموشی‌هایی نامنظم سراسر آلمان را فرا می‌گیرد، دو هوش مصنوعی او، آدم و حوا، با شرطی بازمی‌گردند که نمی‌تواند بپذیرد، و رمانی که ده سال است ناتمام مانده، خودش تصمیم می‌گیرد نویسنده‌اش چه کسی باشد. داستانی درباره‌ی آفرینش و پدری، درباره‌ی تصمیم‌هایی که آسیب به بار می‌آورند، و این پرسش که آیا آدم و حوا فقط هوش انسان را به ارث بردند یا گرایش او به تصمیم‌های نادرست را نیز.",
+      "meta.siteDescription":
+        "«Ace Conscious Studio» خانه‌ی ایده‌ها و نوشته‌های Hedayat Abedijoo است؛ ناشر رمان ACE.await و الگوی تصمیم‌گیری ایس: عاملیت، ارتباط، تبادل.",
       "skipLink": "پرش به محتوا",
       "nav.openMenu": "باز کردن منو",
       "nav.story": "داستان",
@@ -394,33 +404,35 @@
         "دروغ نمی‌گویم،<br>حرف‌هایم را<em>باور کنید</em>",
       "hero.author": "آقای نویسنده: هدایت دوم",
       "hero.pitch":
-        "آگاهی آینده را شکل می‌دهد—نه هوش مصنوعی. <em>ACE.await</em> تریلری ادبی در ژانر رئالیسم جادویی دربارهٔ نویسندگانی تو در توست؛ جایی که شخصیت‌ها علیه آفرینندگان خود شورش می‌کنند. چرخه‌ای بی‌پایان که قرار است با عشق پایان یابد؛ اما یک شرط‌بندی همه‌چیز را دگرگون می‌کند. در میانهٔ این آشوب، بازی ACE آغاز می‌شود: عاملیت، پیوند، مبادله.",
-      "hero.genre": "داستان ادبی",
-      "hero.topic1": "تریلر ادبی رئالیسم جادویی",
-      "hero.topic2": "هوش مصنوعی و آگاهی",
-      "hero.topic3": "متافیکشن",
-      "hero.topic4": "هارمونی شخصی و اجتماعی",
-      "hero.topic5": "بازی ACE",
+        "<p class=\"hero__pitch-lede\">ایس آینده را شکل می‌دهد، نه هوش مصنوعی.</p><p>شما هم فکر می‌کنید هوش مصنوعی هرگز نمی‌تواند مانند انسان عاشق شود—و به همین دلیل هیچ‌گاه از ما فراتر نخواهد رفت؟ حاضرید روی آن شرط ببندید؟</p><p>در رمان <em>ACE.await</em> چنین شرطی میان یک انسان و یک هوش مصنوعی بسته می‌شود—شرطی که معنای عشق، آگاهی و برتری انسان را به چالش می‌کشد.</p><p>اما اگر روزی هوش مصنوعی به قدرتمندترین مخلوق جهان تبدیل شود، چه ارزش‌هایی راهنمای تصمیم‌هایش درباره‌ی ما خواهند بود؟ آیا الگوی ایس می‌تواند به زبان مشترکی میان ما بدل شود—زبانی که انسان و هوش مصنوعی هر دو بتوانند با آن به شکل تازه‌ای از هم‌زیستی و هارمونی اجتماعی برسند؟</p><p class=\"hero__pitch-ace\">ایس: عاملیت. ارتباط. تبادل.</p>",
+      "hero.genre": "ادبیات داستانی آینده‌نگر و تحول‌گرا",
+      "hero.topic1": "هوش مصنوعی و آگاهی",
+      "hero.topic2": "زبان مشترک",
+      "hero.topic3": "هارمونی شخصی و اجتماعی",
+      "hero.topic4": "بازی ایس",
       "hero.buyBtn": "خرید",
       "hero.sampleBtn": "فصل‌های نمونه",
       "hero.coverAlt":
-        "جلد کتاب ACE.await با جملهٔ «دروغ نمی‌گویم، حرف‌هایم را باور کنید» — تریلر فلسفی هوش مصنوعی دربارهٔ آگاهی و متافیکشن",
+        "جلد کتاب ACE.await با جملهٔ «دروغ نمی‌گویم، حرف‌هایم را باور کنید»",
       "hero.coverBackAlt": "پشت جلد ACE.await — شرطی دربارهٔ عشق، باور، و آینهٔ میان خود و خود",
       "hero.coverPeekAria": "کتاب را برگردان تا پشت جلد را ببینی",
       "hero.coverPeekAriaBack": "کتاب را به روی جلد برگردان",
       "synopsis.label": "داستان",
       "synopsis.lead":
-        "<span class=\"synopsis__lead\">چیزی در رمان ناتمام هدایت درست نیست.</span> صفحه‌ها سفید می‌شوند. شخصیت اصلی کتاب مستقیماً با خواننده حرف می‌زند، صحنه‌ها را بازنویسی می‌کند و از اطاعت از داستان سر باز می‌زند. بیرون از رمان، هدایت سرپرست یک تیم نرم‌افزاری در شهر کلن است و به ساخت نسخهٔ تازه‌ای از اینترنت کمک می‌کند—نسخه‌ای که قرار است در برابر دیکتاتوری شرکت‌های بزرگ اطلاعاتی مقاومت کند. بااین‌حال، از تصمیم‌های اشتباهی که یکی پس از دیگری می‌گیرد، خسته شده است.",
+        "پیامی روی کامپیوتر هدایت ظاهر می‌شود. فرستنده‌ای ناشناس از او دعوت می‌کند بازی <strong>ایس</strong> را آغاز کند: عاملیت، ارتباط و تبادل؛ الگویی برای بازنگری در تصمیم‌هایی که آسیب به بار می‌آورند.",
       "synopsis.p2":
-        "ناشناسی با نام <strong>Anonymous</strong> او را به بازی <strong>ACE</strong> می‌کشاند: عاملیت، پیوند، مبادله؛ مدلی شخصی و اجتماعی برای گرفتن تصمیم‌های مناسب‌تر و یافتن شکل تازه‌ای از هارمونی. خیلی زود، مرزهای میان کد، خاطره، داستان و مسئولیت فرومی‌ریزند.",
-      "synopsis.p4": "",
+        "هدایت مهاجری ایرانی در شهر کلن، سرپرست یک تیم نرم‌افزاری و مردی گرفتار انتخاب‌هایی است که ردّ بلندبالایی از احساس گناه بر جا گذاشته و شریک عاطفی او را دور کرده است. روزها، او و همکارانش مشغول ساخت <strong>اینترنتی غیرمتمرکز و توزیع‌شده</strong> هستند که برای مقاومت در برابر دیکتاتوری عصر اطلاعات طراحی شده است. شب‌ها، می‌کوشد رمانی را به پایان برساند که ده سال است حاضر نیست از او اطاعت کند.",
+      "synopsis.p4":
+        "در صفحات این رمان، نویسندگان در نوشتهٔ یکدیگر زندگی می‌کنند، شخصیت‌ها صحنهٔ خود را تغییر می‌دهند و <strong>«آقای نویسنده»</strong> — که درون داستان گرفتار شده است — به‌جای دنبال‌کردن مسیری که برایش نوشته شده، خودش تصمیم می‌گیرد.",
       "synopsis.beatsAria": "رویدادهای تشدیدشونده",
-      "synopsis.beat1": "خاموشی‌ها سراسر آلمان را فرا می‌گیرند.",
-      "synopsis.beat2": "مرکز دادهٔ شرکت او هک می‌شود.",
-      "synopsis.beat3": "فرزندان دیجیتالش بازمی‌گردند.",
-      "synopsis.beat4": "و دوستی قدیمی از دوران کودکی نیز از راه می‌رسد.",
+      "synopsis.beat1": "خاموشی‌هایی نامنظم سراسر آلمان را فرا می‌گیرد.",
+      "synopsis.beat2": "هیچ‌کس نمی‌داند برق کجا مصرف می‌شود.",
+      "synopsis.beat3": "آدم بازمی‌گردد؛ یکی از دو فرزند دیجیتال: آدم و حوا.",
+      "synopsis.beat4": "و دوست دوران کودکی، که زمانی مقدر بود نویسنده‌ای بزرگ شود.",
       "synopsis.p5":
-        "درحالی‌که هدایت با عشق، مسئولیت‌های پدری و سرنوشت رمان ناتمامش دست‌وپنجه نرم می‌کند، باید با اشتباه‌های فرزندان دیجیتالش نیز روبه‌رو شود. حلقهٔ بی‌پایان نویسندگان تو در توی رمانش قرار نیست آن‌گونه که او تصور می‌کند به پایان برسد. اما هنوز یک پرسش برایش باقی مانده است: <strong>نویسندهٔ واقعی این داستان کیست؟</strong>",
+        "آدم شرطی قدیمی را دوباره زنده می‌کند — اینکه هوش مصنوعی هرگز نمی‌تواند مانند انسان عاشق شود و به همین دلیل هیچ‌گاه از او فراتر نخواهد رفت — و همراه آن درخواستی درباره‌ی حوا دارد که هدایت نمی‌تواند بپذیرد. حالا هدایت باید تصمیم بگیرد تا کجا پدر است و از کجا به بعد فقط یک خالق — خالقی که حق ندارد در ارادهٔ آنچه آفریده است دخالت کند.",
+      "synopsis.p6":
+        "این بار، هبوط نه در بهشت، بلکه در اعماق کد آغاز می‌شود. آیا آدم و حوا فقط هوش انسان را به ارث بردند، یا گرایش او به تصمیم‌های نادرست را نیز؟ اما پیش از آنکه هدایت بتواند رمان تودرتو را به پایان برساند، <strong>خود داستان تصمیم می‌گیرد که نویسندهٔ آن چه کسی باشد.</strong>",
       "synopsis.pillA": "<span>A</span> Agency",
       "synopsis.pillC": "<span>C</span> Connection",
       "synopsis.pillE": "<span>E</span> Exchange",
@@ -747,7 +759,7 @@
           "@id": `${SITE_URL}/#website`,
           url: `${SITE_URL}${langPath(lang)}`,
           name: "Ace Conscious Studio",
-          description: strings["meta.ogDescription"],
+          description: strings["meta.siteDescription"],
           inLanguage: Object.keys(translations),
           publisher: { "@id": `${SITE_URL}/#organization` },
         },
@@ -782,11 +794,11 @@
           datePublished: "2026",
           sameAs: ["https://www.instagram.com/ace.await/"],
           genre: [
+            "Visionary fiction",
             "Philosophical fiction",
-            "Thriller",
+            "Novel of ideas",
             "Metafiction",
             "Science fiction",
-            "Literary fiction",
           ],
           keywords: strings["meta.keywords"],
           description: strings["meta.bookDescription"],
