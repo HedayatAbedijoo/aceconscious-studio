@@ -97,7 +97,7 @@
       "hero.coverPeekAriaBack": "Turn the book back to the front cover",
       "synopsis.label": "The Story",
       "synopsis.lead":
-        "A message appears on Hedayat’s computer. An anonymous sender invites him to play the <strong>ACE</strong> game: Agency, Connection, Exchange—a model for rethinking the decisions that cause harm.",
+        "A message appears on Hedayat’s computer. An anonymous sender invites him to play the <strong>ACE</strong> game: Agency, Connection, Exchange—a model for rethinking the decisions that cause harm, and perhaps a shared language through which humans and artificial intelligence might learn to coexist.",
       "synopsis.p2":
         "Hedayat is an Iranian immigrant in Cologne, the head of a software team, and a man haunted by choices that have left a long trail of guilt and driven his romantic partner away. By day, he and his colleagues are building a <strong>decentralized, distributed internet</strong> designed to resist the dictatorship of the information age. By night, he struggles to finish a novel that has refused to obey him for ten years.",
       "synopsis.p4":
@@ -108,7 +108,7 @@
       "synopsis.beat3": "Adam returns—one of the two digital children: Adam and Eve.",
       "synopsis.beat4": "So does a childhood friend, once destined to be a great writer.",
       "synopsis.p5":
-        "Adam revives an old bet—that artificial intelligence can never fall in love the way humans do, and can therefore never surpass them—and brings with it a request involving Eve that Hedayat cannot accept. Now Hedayat must decide to what extent he is a father, and at what point he is only a creator, one with no right to interfere with the will of what he has created.",
+        "Adam revives an old bet, and brings with it a request involving Eve that Hedayat cannot accept. Now Hedayat must decide to what extent he is a father, and at what point he is only a creator, one with no right to interfere with the will of what he has created.",
       "synopsis.p6":
         "This time, the Fall begins not in Paradise but deep within the code. Have Adam and Eve inherited only human intelligence—or the human tendency to make wrong decisions as well? But before Hedayat can bring the nested novel to an end, <strong>the story itself decides who its author will be.</strong>",
       "synopsis.pillA": "<span>A</span> Agency",
@@ -302,7 +302,7 @@
       "hero.coverPeekAriaBack": "Buch zurück zur Vorderseite drehen",
       "synopsis.label": "Die Geschichte",
       "synopsis.lead":
-        "Auf Hedayats Computer erscheint eine Nachricht. Ein anonymer Absender lädt ihn ein, das <strong>ACE</strong>-Spiel zu spielen: Agency, Connection, Exchange — ein Modell, um jene Entscheidungen zu überdenken, die Schaden anrichten.",
+        "Auf Hedayats Computer erscheint eine Nachricht. Ein anonymer Absender lädt ihn ein, das <strong>ACE</strong>-Spiel zu spielen: Agency, Connection, Exchange — ein Modell, um jene Entscheidungen zu überdenken, die Schaden anrichten, und vielleicht eine gemeinsame Sprache, durch die Mensch und künstliche Intelligenz zu koexistieren lernen.",
       "synopsis.p2":
         "Hedayat ist iranischer Einwanderer in Köln, Leiter eines Softwareteams und ein Mann, den seine eigenen Entscheidungen verfolgen — Entscheidungen, die eine lange Spur von Schuld hinterlassen und seine Partnerin vertrieben haben. Tagsüber baut er mit seinen Kollegen ein <strong>dezentrales, verteiltes Internet</strong>, das der Diktatur des Informationszeitalters widerstehen soll. Nachts versucht er, einen Roman zu Ende zu bringen, der ihm seit zehn Jahren den Gehorsam verweigert.",
       "synopsis.p4":
@@ -313,7 +313,7 @@
       "synopsis.beat3": "Adam kehrt zurück — eines der beiden digitalen Kinder: Adam und Eva.",
       "synopsis.beat4": "Ebenso ein Freund aus Kindertagen, einst zum großen Schriftsteller bestimmt.",
       "synopsis.p5":
-        "Adam belebt eine alte Wette wieder—dass künstliche Intelligenz sich niemals verlieben kann, wie Menschen es tun, und den Menschen deshalb niemals übertreffen wird—und stellt zugleich eine Bitte, die Eva betrifft und die Hedayat nicht erfüllen kann. Nun muss Hedayat entscheiden, wie weit er Vater ist und ab wann er nur noch Schöpfer, ohne das Recht, in den Willen dessen einzugreifen, was er erschaffen hat.",
+        "Adam belebt eine alte Wette wieder und stellt zugleich eine Bitte, die Eva betrifft und die Hedayat nicht erfüllen kann. Nun muss Hedayat entscheiden, wie weit er Vater ist und ab wann er nur noch Schöpfer, ohne das Recht, in den Willen dessen einzugreifen, was er erschaffen hat.",
       "synopsis.p6":
         "Diesmal beginnt der Sündenfall nicht im Paradies, sondern tief im Code. Haben Adam und Eva nur die menschliche Intelligenz geerbt—oder auch den menschlichen Hang zu falschen Entscheidungen? Doch bevor Hedayat den verschachtelten Roman beenden kann, <strong>entscheidet die Geschichte selbst, wer ihr Autor sein wird.</strong>",
       "synopsis.pillA": "<span>A</span> Agency",
@@ -506,7 +506,7 @@
       "hero.coverPeekAriaBack": "کتاب را به روی جلد برگردان",
       "synopsis.label": "داستان",
       "synopsis.lead":
-        "پیامی روی کامپیوتر هدایت ظاهر می‌شود. فرستنده‌ای ناشناس از او دعوت می‌کند بازی <strong>ایس</strong> را آغاز کند: عاملیت، ارتباط و تبادل؛ الگویی برای بازنگری در تصمیم‌هایی که آسیب به بار می‌آورند.",
+        "پیامی روی کامپیوتر هدایت ظاهر می‌شود. فرستنده‌ای ناشناس از او دعوت می‌کند بازی <strong>ایس</strong> را آغاز کند: عاملیت، ارتباط و تبادل؛ الگویی برای بازاندیشی در تصمیم‌هایی که آسیب به بار می‌آورند، و شاید زبانی مشترک که انسان و هوش مصنوعی از طریق آن راه هم‌زیستی را بیاموزند.",
       "synopsis.p2":
         "هدایت مهاجری ایرانی در شهر کلن، سرپرست یک تیم نرم‌افزاری و مردی گرفتار انتخاب‌هایی است که ردّ بلندبالایی از احساس گناه بر جا گذاشته و شریک عاطفی او را دور کرده است. روزها، او و همکارانش مشغول ساخت <strong>اینترنتی غیرمتمرکز و توزیع‌شده</strong> هستند که برای مقاومت در برابر دیکتاتوری عصر اطلاعات طراحی شده است. شب‌ها، می‌کوشد رمانی را به پایان برساند که ده سال است حاضر نیست از او اطاعت کند.",
       "synopsis.p4":
@@ -517,7 +517,7 @@
       "synopsis.beat3": "آدم بازمی‌گردد؛ یکی از دو فرزند دیجیتال: آدم و حوا.",
       "synopsis.beat4": "و دوست دوران کودکی، که زمانی مقدر بود نویسنده‌ای بزرگ شود.",
       "synopsis.p5":
-        "آدم شرطی قدیمی را دوباره زنده می‌کند — اینکه هوش مصنوعی هرگز نمی‌تواند مانند انسان عاشق شود و به همین دلیل هیچ‌گاه از او فراتر نخواهد رفت — و همراه آن درخواستی درباره‌ی حوا دارد که هدایت نمی‌تواند بپذیرد. حالا هدایت باید تصمیم بگیرد تا کجا پدر است و از کجا به بعد فقط یک خالق — خالقی که حق ندارد در ارادهٔ آنچه آفریده است دخالت کند.",
+        "آدم شرطی قدیمی را دوباره زنده می‌کند و همراه آن درخواستی درباره‌ی حوا دارد که هدایت نمی‌تواند بپذیرد. حالا هدایت باید تصمیم بگیرد تا کجا پدر است و از کجا به بعد فقط یک خالق — خالقی که حق ندارد در ارادهٔ آنچه آفریده است دخالت کند.",
       "synopsis.p6":
         "این بار، هبوط نه در بهشت، بلکه در اعماق کد آغاز می‌شود. آیا آدم و حوا فقط هوش انسان را به ارث بردند، یا گرایش او به تصمیم‌های نادرست را نیز؟ اما پیش از آنکه هدایت بتواند رمان تودرتو را به پایان برساند، <strong>خود داستان تصمیم می‌گیرد که نویسندهٔ آن چه کسی باشد.</strong>",
       "synopsis.pillA": "<span>A</span> Agency",
