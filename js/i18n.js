@@ -99,7 +99,7 @@
       "synopsis.lead":
         "A message appears on Hedayat’s computer. An anonymous sender invites him to play the <strong>ACE</strong> game: Agency, Connection, Exchange—a model for rethinking the decisions that cause harm, and perhaps a shared language through which humans and artificial intelligence might learn to coexist.",
       "synopsis.p2":
-        "Hedayat is an Iranian immigrant in Cologne, the head of a software team, and a man haunted by choices that have left a long trail of guilt and driven his romantic partner away. By day, he and his colleagues are building a <strong>decentralized, distributed internet</strong> designed to resist the dictatorship of the information age. By night, he struggles to finish a novel that has refused to obey him for ten years.",
+        "Hedayat, an Iranian immigrant and the head of a software team in Cologne, is wrestling with the consequences of his wrong decisions—above all the one that made his partner leave him. Now he has to learn how to make better decisions. By day, he and his colleagues are building a <strong>decentralized, distributed internet</strong> designed to resist the dictatorship of the information age. By night, he struggles to finish a novel that has refused to obey him for ten years.",
       "synopsis.p4":
         "Inside its pages, writers live within one another’s writing, characters alter their own scenes, and <strong>«Mr. Writer»</strong>—trapped inside the story—makes his own decisions instead of following the path written for him.",
       "synopsis.beatsAria": "Escalating events",
@@ -146,7 +146,6 @@
       "char.god.p1":
         "I have no role in this story, though my name does come up from time to time. I only wanted to say one thing, very briefly: I am not a game designer who doesn't play his own game.",
       "sample.label": "Sample Chapters",
-      "sample.flip.title": "Read the First Three Chapters",
       "sample.flip.url": "https://11.heyzine.com/flip-book/c82357ef13.html",
       "sample.flip.embedTitle": "ACE.await \u2014 first three chapters, flipbook preview",
       "sample.flip.openBtn": "Open full screen",
@@ -229,7 +228,7 @@
       "author.p1":
         "Years ago, I set out to write a novel about writers nested within writers—each author creating the next, who in turn creates another, until, at last, love breaks the infinite loop. But the manuscript and my notes remained unfinished, gathering dust in a corner.",
       "author.p2":
-        "Some years later, <strong>ACE</strong>—Agency, Connection, and Exchange—came to me: a personal model for making better decisions and living more consciously. A model that might even serve as a kind of <strong>social therapy</strong>—a way to bring together the agency of individuals and businesses, and shape a new harmony.",
+        "Some years later, <strong>ACE</strong>—Agency, Connection, and Exchange—came to me: a personal model for making better decisions and living more consciously. A model that might even serve as a kind of <strong>social therapy</strong>—a way to bring together the agency of individuals and businesses, and shape a new harmony. And perhaps ACE can reach further still: becoming a shared framework for decision-making between humans and artificial intelligence, and paving the way for a peaceful coexistence between them.",
       "author.p3":
         "Over time, that metafictional idea and ACE became intertwined, and my novel <em>ACE.await</em> took shape. Once the novel was finished, I began to wonder whether I might someday publish another version of ACE—or perhaps write the next part of the story. That is why I founded Ace Conscious Studio: a home for my ideas and writing, with <em>ACE.await</em> as its first work.",
       "author.p4": "",
@@ -304,7 +303,7 @@
       "synopsis.lead":
         "Auf Hedayats Computer erscheint eine Nachricht. Ein anonymer Absender lädt ihn ein, das <strong>ACE</strong>-Spiel zu spielen: Agency, Connection, Exchange — ein Modell, um jene Entscheidungen zu überdenken, die Schaden anrichten, und vielleicht eine gemeinsame Sprache, durch die Mensch und künstliche Intelligenz zu koexistieren lernen.",
       "synopsis.p2":
-        "Hedayat ist iranischer Einwanderer in Köln, Leiter eines Softwareteams und ein Mann, den seine eigenen Entscheidungen verfolgen — Entscheidungen, die eine lange Spur von Schuld hinterlassen und seine Partnerin vertrieben haben. Tagsüber baut er mit seinen Kollegen ein <strong>dezentrales, verteiltes Internet</strong>, das der Diktatur des Informationszeitalters widerstehen soll. Nachts versucht er, einen Roman zu Ende zu bringen, der ihm seit zehn Jahren den Gehorsam verweigert.",
+        "Hedayat, iranischer Einwanderer und Leiter eines Softwareteams in Köln, ringt mit den Folgen seiner falschen Entscheidungen — vor allem mit jener, die seine Partnerin dazu gebracht hat, ihn zu verlassen. Nun muss er lernen, bessere Entscheidungen zu treffen. Tagsüber baut er mit seinen Kollegen ein <strong>dezentrales, verteiltes Internet</strong>, das der Diktatur des Informationszeitalters widerstehen soll. Nachts versucht er, einen Roman zu Ende zu bringen, der ihm seit zehn Jahren den Gehorsam verweigert.",
       "synopsis.p4":
         "In dessen Seiten leben Autoren im Text der jeweils anderen, Figuren verändern ihre eigenen Szenen, und <strong>«Mr. Writer»</strong> — gefangen in der Geschichte — trifft seine eigenen Entscheidungen, statt dem für ihn geschriebenen Weg zu folgen.",
       "synopsis.beatsAria": "Eskalierende Ereignisse",
@@ -351,7 +350,6 @@
       "char.god.p1":
         "Ich spiele in dieser Geschichte keine Rolle, auch wenn mein Name hin und wieder fällt. Ich wollte nur ganz kurz eines sagen: Ich bin kein Spieledesigner, der sein eigenes Spiel nicht spielt.",
       "sample.label": "Beispielkapitel",
-      "sample.flip.title": "Die ersten drei Kapitel lesen",
       "sample.flip.url": "https://11.heyzine.com/flip-book/c82357ef13.html",
       "sample.flip.embedTitle": "ACE.await \u2014 erste drei Kapitel, Bl\u00e4tterkatalog",
       "sample.flip.openBtn": "Im Vollbild \u00f6ffnen",
@@ -432,7 +430,7 @@
       "author.verse":
         "Bis zum Hals in Schulden.<br>Meiner Vergangenheit<br>schulde ich Reue.<br>Meiner Zukunft<br>schulde ich Angst.<br>Meine Schulden tilge ich<br>mit Ablenkung.",
       "author.p1":
-        "Vor Jahren nahm ich mir vor, einen Roman über ineinander verschachtelte Schriftsteller zu schreiben – jeder Autor erschafft den nächsten, der wiederum einen weiteren erschafft, bis schließlich die Liebe diese Endlosschleife durchbricht. Doch das Manuskript und meine Notizen blieben unvollendet und verstaubten in einer Ecke. Einige Jahre später kam mir die Idee zu <strong>ACE</strong> – Agency, Connection und Exchange: ein persönliches Modell, um bessere Entscheidungen zu treffen und bewusster zu leben. Ein Modell, das vielleicht sogar als eine Art <strong>gesellschaftliche Therapie</strong> dienen könnte – ein Weg, die Handlungsfähigkeit von Menschen und Unternehmen miteinander zu verbinden und eine neue Harmonie entstehen zu lassen.",
+        "Vor Jahren nahm ich mir vor, einen Roman über ineinander verschachtelte Schriftsteller zu schreiben – jeder Autor erschafft den nächsten, der wiederum einen weiteren erschafft, bis schließlich die Liebe diese Endlosschleife durchbricht. Doch das Manuskript und meine Notizen blieben unvollendet und verstaubten in einer Ecke. Einige Jahre später kam mir die Idee zu <strong>ACE</strong> – Agency, Connection und Exchange: ein persönliches Modell, um bessere Entscheidungen zu treffen und bewusster zu leben. Ein Modell, das vielleicht sogar als eine Art <strong>gesellschaftliche Therapie</strong> dienen könnte – ein Weg, die Handlungsfähigkeit von Menschen und Unternehmen miteinander zu verbinden und eine neue Harmonie entstehen zu lassen. Und vielleicht kann ACE sogar noch weiter reichen: zu einem gemeinsamen Entscheidungsrahmen für Mensch und künstliche Intelligenz werden und den Weg für ein friedliches Zusammenleben zwischen ihnen ebnen.",
       "author.p2":
         "Mit der Zeit verflochten sich diese metafiktionale Idee und ACE miteinander, und mein Roman <em>ACE.await</em> nahm Gestalt an. Als der Roman fertig war, fragte ich mich, ob ich eines Tages vielleicht eine weitere Version von ACE veröffentlichen – oder den nächsten Teil der Geschichte schreiben würde. Deshalb gründete ich das Ace Conscious Studio: ein Zuhause für meine Ideen und Texte, mit <em>ACE.await</em> als seinem ersten Werk.",
       "author.p3":
@@ -508,7 +506,7 @@
       "synopsis.lead":
         "پیامی روی کامپیوتر هدایت ظاهر می‌شود. فرستنده‌ای ناشناس از او دعوت می‌کند بازی <strong>ایس</strong> را آغاز کند: عاملیت، ارتباط و تبادل؛ الگویی برای بازاندیشی در تصمیم‌هایی که آسیب به بار می‌آورند، و شاید زبانی مشترک که انسان و هوش مصنوعی از طریق آن راه هم‌زیستی را بیاموزند.",
       "synopsis.p2":
-        "هدایت مهاجری ایرانی در شهر کلن، سرپرست یک تیم نرم‌افزاری و مردی گرفتار انتخاب‌هایی است که ردّ بلندبالایی از احساس گناه بر جا گذاشته و شریک عاطفی او را دور کرده است. روزها، او و همکارانش مشغول ساخت <strong>اینترنتی غیرمتمرکز و توزیع‌شده</strong> هستند که برای مقاومت در برابر دیکتاتوری عصر اطلاعات طراحی شده است. شب‌ها، می‌کوشد رمانی را به پایان برساند که ده سال است حاضر نیست از او اطاعت کند.",
+        "هدایت، مهاجری ایرانی و سرپرست یک تیم نرم‌افزاری در شهر کلن، با پیامد تصمیم‌های اشتباهش دست‌وپنجه نرم می‌کند؛ به‌ویژه تصمیمی که باعث شده شریک عاطفی‌اش ترکش کند. حالا باید یاد بگیرد چگونه تصمیم‌های بهتری بگیرد. روزها، او و همکارانش مشغول ساخت <strong>اینترنتی غیرمتمرکز و توزیع‌شده</strong> هستند که برای مقاومت در برابر دیکتاتوری عصر اطلاعات طراحی شده است. شب‌ها، می‌کوشد رمانی را به پایان برساند که ده سال است حاضر نیست از او اطاعت کند.",
       "synopsis.p4":
         "در صفحات این رمان، نویسندگان در نوشتهٔ یکدیگر زندگی می‌کنند، شخصیت‌ها صحنهٔ خود را تغییر می‌دهند و <strong>«آقای نویسنده»</strong> — که درون داستان گرفتار شده است — به‌جای دنبال‌کردن مسیری که برایش نوشته شده، خودش تصمیم می‌گیرد.",
       "synopsis.beatsAria": "رویدادهای تشدیدشونده",
@@ -555,7 +553,6 @@
       "char.god.p1":
         "در این داستان نقشی ندارم، اما هر از چند گاهی اسمی از من برده می‌شود. فقط می‌خواستم این را خیلی کوتاه بگویم: من طراح بازی‌ای نیستم که حاضر نباشد بازیِ ساختهٔ خودش را بازی کند.",
       "sample.label": "فصل‌های نمونه",
-      "sample.flip.title": "سه فصل نخست را بخوانید",
       "sample.flip.url": "https://11.heyzine.com/flip-book/fb05072ba3.html",
       "sample.flip.embedTitle": "ACE.await — سه فصل نخست، کتاب ورق‌زن",
       "sample.flip.openBtn": "نمایش تمام‌صفحه",
@@ -636,7 +633,7 @@
       "author.verse":
         "تا خرخره بدهکارم<br>به گذشته‌‌هایم<br>حسرت بدهکارم<br>به آینده‌ام ترس<br>و با حواس پرتی<br>بدهی‌هایم را تسویه می‌کنم",
       "author.p1":
-        "سال‌ها پیش بر آن شدم داستانی دربارهٔ <strong>نویسندگانی تودرتو</strong> بنویسم؛ هر نویسنده، نویسندهٔ بعدی را می‌آفریند و او نیز دیگری را، تا سرانجام عشقی این حلقهٔ بی‌پایان را می‌شکند. اما دست‌نوشته‌ها و طرح‌هایم ناتمام ماندند و گوشه‌ای خاک خوردند. چند سال بعد، ایدهٔ <strong>ACE</strong> مخفف Agency، Connection و Exchange به سراغم آمد: الگویی شخصی برای تصمیم‌گیری بهتر و زیستن آگاهانه‌تر؛ الگویی که حتی می‌تواند همچون نوعی <strong>درمان اجتماعی</strong> عمل کند؛ راهی برای درهم‌آمیختن عاملیت انسان‌ها و بنگاه‌های اقتصادی و شکل‌دادن به هارمونی‌ای تازه.",
+        "سال‌ها پیش بر آن شدم داستانی دربارهٔ <strong>نویسندگانی تودرتو</strong> بنویسم؛ هر نویسنده، نویسندهٔ بعدی را می‌آفریند و او نیز دیگری را، تا سرانجام عشقی این حلقهٔ بی‌پایان را می‌شکند. اما دست‌نوشته‌ها و طرح‌هایم ناتمام ماندند و گوشه‌ای خاک خوردند. چند سال بعد، ایدهٔ <strong>ACE</strong>، مخفف Agency، Connection و Exchange، به سراغم آمد: الگویی شخصی برای تصمیم‌گیری بهتر و زیستن آگاهانه‌تر؛ الگویی که حتی می‌تواند همچون نوعی <strong>درمان اجتماعی</strong> عمل کند؛ راهی برای درهم‌آمیختن عاملیت انسان‌ها و بنگاه‌های اقتصادی و شکل‌دادن به هارمونی‌ای تازه. و شاید ایس بتواند از این هم فراتر رود: به چارچوبی مشترک برای تصمیم‌گیری انسان و هوش مصنوعی بدل شود و راه را برای هم‌زیستی مسالمت‌آمیز میان آن‌ها هموار کند.",
       "author.p2":
         "با گذشت زمان، آن ایدهٔ متافیکشن و مفهوم ACE در هم آمیختند و رمان <em>ACE.await</em> شکل گرفت. وقتی رمانم آماده شد، به این فکر افتادم که شاید روزی نسخهٔ دیگری از ACE را منتشر کنم، یا بخش بعدی داستان را بنویسم. برای همین، Ace Conscious Studio را بنیان گذاشتم: خانه‌ای برای ایده‌ها و نوشته‌هایم.",
       "author.p3":
