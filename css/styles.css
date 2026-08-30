@@ -848,26 +848,17 @@ section {
 /* ── Table of contents ── */
 .toc {
   padding: 4rem 0;
-  background: var(--parchment-dark);
-  color: var(--white);
-}
-
-.toc .section-label {
-  color: var(--accent);
-}
-
-.toc .section-title {
-  color: var(--white);
+  background: linear-gradient(180deg, var(--parchment) 0%, var(--parchment-deep) 100%);
 }
 
 .toc .section-lead {
-  color: rgba(247, 243, 235, 0.65);
+  margin-bottom: 2rem;
 }
 
+/* Multi-column so the list reads down each column, as in the printed book */
 .toc-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 0.5rem 1.5rem;
+  column-width: 280px;
+  column-gap: 2.5rem;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -876,30 +867,52 @@ section {
 
 .toc-grid li {
   counter-increment: chapter;
+  break-inside: avoid;
   display: flex;
   align-items: baseline;
-  gap: 0.75rem;
-  padding: 0.65rem 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-  font-size: 0.9375rem;
+  gap: 0.85rem;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid rgba(13, 13, 13, 0.09);
+  font-size: 1rem;
+  color: var(--ink-soft);
 }
 
 .toc-grid li::before {
   content: counter(chapter, decimal-leading-zero);
   font-family: var(--font-mono);
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
   color: var(--accent);
   min-width: 1.75rem;
+  flex-shrink: 0;
 }
 
-.toc-grid li.appendix::before {
+html[dir="rtl"] .toc-grid li::before {
+  content: counter(chapter, persian);
+  font-family: var(--font-serif-fa);
+  font-size: 0.875rem;
+}
+
+.toc-grid li.appendix::before,
+html[dir="rtl"] .toc-grid li.appendix::before {
   content: "—";
-  color: rgba(255, 255, 255, 0.3);
+  color: rgba(13, 13, 13, 0.3);
+}
+
+.toc-grid li.appendix {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 .toc-grid li.disobedience {
-  opacity: 0.55;
+  color: var(--ink-muted);
   font-style: italic;
+}
+
+html[dir="rtl"] .toc-grid li.disobedience {
+  font-style: normal;
+  opacity: 0.7;
 }
 
 /* ── Sample chapter ── */
@@ -1668,6 +1681,19 @@ html.js .reveal.visible {
 }
 
 /* ── Responsive ── */
+
+/* Seven nav links need a little more room before the mobile menu kicks in */
+@media (max-width: 1080px) and (min-width: 901px) {
+  .site-nav__links {
+    gap: 1rem;
+  }
+
+  .site-nav__links a {
+    font-size: 0.8125rem;
+    letter-spacing: 0.04em;
+  }
+}
+
 @media (max-width: 900px) {
   .hero__grid {
     grid-template-columns: 1fr;
