@@ -54,12 +54,12 @@
 
   const translations = {
     en: {
-      "meta.title": "ACE.await — the decision model of the future; a shared language for humans and artificial intelligence to reach a new social harmony.",
+      "meta.title": "ACE Conscious Studio - ACE is a decision model for humans, organizations and AI.",
       "meta.description":
         "ACE.await is a novel about the decision model of the future: a shared language for humans and artificial intelligence on the way to a new social harmony.",
       "meta.keywords":
         "ACE.await, visionary fiction, philosophical fiction, novel of ideas, AI novel, Adam and Eve AI, artificial intelligence, metafiction, decentralized internet, proper decisions, Agency Connection Exchange, ACE game, Cologne novel, nested writers, blackout Germany",
-      "meta.ogTitle": "ACE.await — the decision model and shared language of humans and AI",
+      "meta.ogTitle": "ACE Conscious Studio - ACE is a decision model for humans, organizations and AI.",
       "meta.ogDescription":
         "ACE.await is a novel about the decision model of the future: a shared language for humans and artificial intelligence on the way to a new social harmony.",
       "meta.twitterDescription":
