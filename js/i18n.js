@@ -83,7 +83,7 @@
       "hero.author": "Mr. Writer: Hedayat the second",
       "hero.pitch":
         "<p class=\"hero__pitch-lede\">ACE shapes the future, not AI.</p><p>Do you also believe that artificial intelligence can never fall in love the way humans do? Would you bet on that belief? In the novel <em>ACE.await</em>, that very bet is made between a human and an AI—a wager that challenges what love, consciousness, and human superiority even mean.</p><p>After facing the consequences of poor choices in his personal life, the protagonist learns to use the ACE model to make proper decisions. But as the story unfolds, the model takes on a larger role—one that goes beyond helping humans make decisions.</p><p>But if artificial intelligence one day becomes the most powerful creature in the world, what model will it use to decide? Could ACE one day become the shared language of humans and artificial intelligence—a common model for deciding, and a way toward a new form of coexistence and social harmony?</p><p class=\"hero__pitch-ace\">ACE: Agency. Connection. Exchange.</p>",
-      "hero.genre": "Novel of Ideas",
+      "hero.genre": "A speculative novel",
       "hero.topic1": "AI & consciousness",
       "hero.topic2": "Shared Language",
       "hero.topic3": "Personal & social harmony",
@@ -287,7 +287,7 @@
       "hero.author": "Herr Schriftsteller: Hedayat the second",
       "hero.pitch":
         "<p class=\"hero__pitch-lede\">ACE formt die Zukunft, nicht KI.</p><p>Glauben auch Sie, dass künstliche Intelligenz sich niemals verlieben kann, wie Menschen es tun? Würden Sie auf diese Überzeugung wetten? Im Roman <em>ACE.await</em> wird genau diese Wette zwischen einem Menschen und einer KI geschlossen—eine Wette, die herausfordert, was Liebe, Bewusstsein und menschliche Überlegenheit überhaupt bedeuten.</p><p>Nachdem er die Folgen schlechter Entscheidungen in seinem Privatleben erlebt hat, lernt der Protagonist, das ACE-Modell zu nutzen, um angemessene Entscheidungen zu treffen. Doch im Lauf der Geschichte bekommt das Modell eine größere Rolle—eine, die über die Hilfe bei menschlichen Entscheidungen hinausgeht.</p><p>Doch wenn künstliche Intelligenz eines Tages zum mächtigsten Geschöpf der Welt wird—nach welchem Modell wird sie dann entscheiden? Könnte ACE zur gemeinsamen Sprache von Mensch und künstlicher Intelligenz werden—einem gemeinsamen Modell für Entscheidungen und einem Weg zu einer neuen Form des Zusammenlebens und der gesellschaftlichen Harmonie?</p><p class=\"hero__pitch-ace\">ACE: Agency. Connection. Exchange.</p>",
-      "hero.genre": "Ideenroman",
+      "hero.genre": "Ein spekulativer Roman",
       "hero.topic1": "KI & Bewusstsein",
       "hero.topic2": "Gemeinsame Sprache",
       "hero.topic3": "Persönliche & gesellschaftliche Harmonie",
