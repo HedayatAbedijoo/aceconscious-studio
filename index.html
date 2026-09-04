@@ -123,7 +123,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Bebas+Neue&family=Caveat+Brush&family=JetBrains+Mono:wght@400;500&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=Permanent+Marker&display=swap" rel="stylesheet">
     <link rel="preload" href="/assets/fonts/Vazirmatn-Regular.woff2?v=20260718f" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/css/styles.css?v=20260830a">
+  <link rel="stylesheet" href="/css/styles.css?v=20260904a">
   <link rel="icon" href="/assets/favicon.png?v=20260718f" type="image/png">
 </head>
 <body>
@@ -164,9 +164,10 @@
       <ul class="site-nav__links" id="nav-menu">
         <li><a href="#synopsis" data-i18n="nav.story">Story</a></li>
         <li><a href="#voices" data-i18n="nav.voices">Voices</a></li>
-        <li><a href="#sample" data-i18n="nav.read">Read</a></li>
+        <li><a href="#sample" data-i18n="nav.read">Sample</a></li>
         <li><a href="#contents" data-i18n="nav.contents">Contents</a></li>
-        <li><a href="#buy" class="site-nav__cta" data-i18n="nav.buy">Get the Novel</a></li>
+        <li><a href="#ace" data-i18n="nav.ace">ACE</a></li>
+        <li><a href="#buy" class="site-nav__cta" data-i18n="nav.buy">Buy</a></li>
         <li><a href="#author" data-i18n="nav.author">Author</a></li>
         <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
       </ul>
@@ -556,6 +557,45 @@
       </div>
     </section>
 
+    <!-- What is ACE -->
+    <section class="ace-model" id="ace">
+      <div class="container reveal">
+        <p class="section-label" data-i18n="ace.label">What is ACE?</p>
+        <div class="ace-model__card">
+          <p class="ace-model__lead" data-i18n-html="ace.lead">
+            How does a modern human make decisions — amid a flood of information, time pressure, thousands of conflicting criteria, and the sheer complexity of circumstances? ACE — short for Agency, Connection, Exchange — is an attempt to answer that question.
+          </p>
+          <p data-i18n-html="ace.p1">
+            In ACE, an <strong>Agency</strong> is any agent that can grasp the complexity of its current state and its surroundings and, by making a decision that fits those conditions, play in a way that either maintains its current state or changes it. That Agency can be a person, an organization, or a business. One can even expect that, in the future, an artificial intelligence will make decisions with the same model.
+          </p>
+          <p data-i18n-html="ace.p2">
+            The decision-making process moves through a cycle of <strong>Preparation, Decision, Action, and Feedback (PDAF)</strong> and flows within one of the four phases of Agency: <strong>Exploration</strong>, for entering new possibilities and paths; <strong>Stabilization</strong>, for building security, skill, and stability; <strong>Expansion</strong>, for developing capacities through creativity; and <strong>Integration</strong>, for tying decisions to values, meaning, and others — and reaching <strong>long-term sustainability</strong>.
+          </p>
+          <ul class="ace-phases" data-i18n-attr="aria-label:ace.phasesAria" aria-label="The four phases of Agency">
+            <li data-i18n="ace.phase1">Exploration</li>
+            <li data-i18n="ace.phase2">Stabilization</li>
+            <li data-i18n="ace.phase3">Expansion</li>
+            <li data-i18n="ace.phase4">Integration</li>
+          </ul>
+          <p data-i18n-html="ace.p3">
+            No Agency exists in isolation. Every Agency’s survival depends on <strong>Connection</strong> — its relationship with other Agencies — and it is this connection that shapes its values and boundaries and gives direction to its decisions.
+          </p>
+          <p data-i18n-html="ace.p4">
+            Connection between Agencies leads to <strong>Exchange</strong>, which in ACE takes three forms: <strong>Gift, Commitment, and Currency</strong>.
+          </p>
+          <p data-i18n-html="ace.p5">
+            The key point is that this same model can be extended from the individual to <strong>organizations, including businesses</strong>. A company, too, is a legal Agency. If it experiences the four phases of Agency in balance, makes its values and boundaries transparent, and does not limit its exchange to money alone, then — instead of running endlessly after consumption and growth — it can <strong>provide economic security for itself and its members within an interdependent network; a network in which “your pain is my pain too.”</strong>
+          </p>
+          <p data-i18n-html="ace.p6">
+            And if Agency is not limited to humans, ACE can be extended to <strong>artificial intelligence</strong> as well. The model can become a step toward <strong>a shared language of decision-making between humans and AI</strong> — a language in which both learn to decide not just more intelligently, but <strong>more consciously</strong>.
+          </p>
+          <p class="ace-model__close" data-i18n-html="ace.close">
+            The only cure for our fear of the future of artificial intelligence is the proper decisions we ourselves make today; the same decisions we hope AI will one day make too, if it ever comes to stand among the most powerful decision-makers of all beings.
+          </p>
+        </div>
+      </div>
+    </section>
+
     <!-- Buy -->
     <section class="buy" id="buy">
       <div class="container reveal">
@@ -739,7 +779,7 @@
   </footer>
 
   <script src="/js/asset-version.js?v=20260719a"></script>
-  <script src="/js/i18n.js?v=20260903a" defer></script>
+  <script src="/js/i18n.js?v=20260904a" defer></script>
   <script src="/js/cover-flip.js?v=20260718f" defer></script>
   <script src="/js/contact-config.js?v=20260718f" defer></script>
   <script src="/js/contact.js?v=20260718f" defer></script>
