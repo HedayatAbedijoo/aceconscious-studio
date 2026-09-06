@@ -254,36 +254,44 @@
       "toc.ch39": "Unveiling the Mysteries",
       "toc.manifesto": "ACE Manifesto",
       "ace.label": "What is ACE?",
-      "ace.lead": "How does a modern human make decisions — amid a flood of information, time pressure, thousands of conflicting criteria, and the sheer complexity of circumstances? ACE — short for Agency, Connection, Exchange — is an attempt to answer that question.",
-      "ace.p1": "In ACE, an <strong>Agency</strong> is any agent that can grasp the complexity of its current state and its surroundings and, by making a decision that fits those conditions, play in a way that either maintains its current state or changes it. That Agency can be a person, an organization, or a business. One can even expect that, in the future, an artificial intelligence will make decisions with the same model.",
-      "ace.p2": "The decision-making process moves through a cycle of <strong>Preparation, Decision, Action, and Feedback (PDAF)</strong> and flows within one of the four phases of Agency: <strong>Exploration</strong>, for entering new possibilities and paths; <strong>Stabilization</strong>, for building security, skill, and stability; <strong>Expansion</strong>, for developing capacities through creativity; and <strong>Integration</strong>, for tying decisions to values, meaning, and others — and reaching <strong>long-term sustainability</strong>.",
+      "ace.lead": "ACE — short for Agency, Connection, Exchange — is a model for decision-making.",
+      "ace.p1": "In ACE, an Agency is any agent that can grasp the complexity of its current state and its surroundings and, by making a decision that fits those conditions, play in a way that either maintains its current state or changes it. That Agency can be a person, an organization, or a business. One can even expect that, in the future, an artificial intelligence will make decisions with the same model.",
+      "ace.p2": "The decision-making process moves through a cycle of <strong>Preparation, Decision, Action, and Feedback (PDAF)</strong> and flows within one of the four phases of Agency: <strong>Exploration</strong>, for entering new possibilities and paths; <strong>Stabilization</strong>, for building security, skill, and stability; <strong>Expansion</strong>, for developing capacities through creativity; and <strong>Integration</strong>, for tying decisions to values, meaning, and others — and reaching long-term sustainability.",
       "ace.phasesAria": "The four phases of Agency",
       "ace.phase1": "Exploration",
       "ace.phase2": "Stabilization",
       "ace.phase3": "Expansion",
       "ace.phase4": "Integration",
-      "ace.p3": "No Agency exists in isolation. Every Agency’s survival depends on <strong>Connection</strong> — its relationship with other Agencies — and it is this connection that shapes its values and boundaries and gives direction to its decisions.",
-      "ace.p4": "Connection between Agencies leads to <strong>Exchange</strong>, which in ACE takes three forms: <strong>Gift, Commitment, and Currency</strong>.",
-      "ace.p5": "The key point is that this same model can be extended from the individual to <strong>organizations, including businesses</strong>. A company, too, is a legal Agency. If it experiences the four phases of Agency in balance, makes its values and boundaries transparent, and does not limit its exchange to money alone, then — instead of running endlessly after consumption and growth — it can <strong>provide economic security for itself and its members within an interdependent network; a network in which “your pain is my pain too.”</strong>",
-      "ace.p6": "And if Agency is not limited to humans, ACE can be extended to <strong>artificial intelligence</strong> as well. The model can become a step toward <strong>a shared language of decision-making between humans and AI</strong> — a language in which both learn to decide not just more intelligently, but <strong>more consciously</strong>.",
+      "ace.p3": "No Agency exists in isolation. Every Agency’s survival depends on Connection — its relationship with other Agencies — and it is this connection that shapes its values and boundaries and gives direction to its decisions.",
+      "ace.p4": "Connection between Agencies leads to Exchange, which in ACE takes three forms: Gift, Commitment, and Currency.",
+      "ace.p5": "The key point is that this same model can be extended from the individual to organizations, including businesses. A company, too, is a legal Agency. If it experiences the four phases of Agency in balance, makes its values and boundaries transparent, and does not limit its exchange to money alone, then — instead of running endlessly after consumption and growth — it can provide economic security for itself and its members within an interdependent network; a network in which “your pain is my pain too.”",
+      "ace.p6": "And if Agency is not limited to humans, ACE can be extended to artificial intelligence as well. The model can become a step toward a shared language of decision-making between humans and AI — a language in which both learn to decide not just more intelligently, but more consciously.",
       "ace.close": "The only cure for our fear of the future of artificial intelligence is the proper decisions we ourselves make today; the same decisions we hope AI will one day make too, if it ever comes to stand among the most powerful decision-makers of all beings.",
-      "buy.label": "Get the Novel",
+      "buy.label": "Buy the Novel",
       "buy.comingSoon": "Coming Soon",
       "buy.comingLater": "Coming Later",
       "buy.amazon": "Amazon",
       "buy.direct": "Direct EPUB / PDF",
       "author.label": "The Author",
-      "author.verse":
-        "I'm neck-deep in debt.<br>To my past,<br>I owe regret.<br>To my future,<br>I owe fear.<br>I pay off my debt,<br>with distractions.",
       "author.p1":
-        "Years ago, I set out to write a novel about writers nested within writers—each author creating the next, who in turn creates another, until, at last, love breaks the infinite loop. But the manuscript and my notes remained unfinished, gathering dust in a corner.",
+        "I believe the next revolution in modern societies will unfold without killing, bloodshed, war, or conflict. I think it will begin within small and medium-sized businesses, led by the people who own and work in them—places where ideas from capitalism, socialism, and communism might come together in a new form.",
       "author.p2":
-        "Some years later, <strong>ACE</strong>—Agency, Connection, and Exchange—came to me: a personal model for making better decisions and living more consciously. A model that might even serve as a kind of <strong>social therapy</strong>—a way to bring together the agency of individuals and businesses, and shape a new harmony. And perhaps ACE can reach further still: becoming a shared framework for decision-making between humans and artificial intelligence, and paving the way for a peaceful coexistence between them.",
+        "This belief began taking shape in me in 2021, when the idea of ACE first came to me. Since then, I have found myself seeing more and more of the world through the lens of this decision-making model—a model that, I believe, can work not only for an individual, but can also be put to the test in small and medium-sized businesses.",
       "author.p3":
-        "Over time, that metafictional idea and ACE became intertwined, and my novel <em>ACE.await</em> took shape. Once the novel was finished, I began to wonder whether I might someday publish another version of ACE—or perhaps write the next part of the story. That is why I founded Ace Conscious Studio: a home for my ideas and writing, with <em>ACE.await</em> as its first work.",
-      "author.p4": "",
+        "I can even imagine that one day we might expect artificial intelligence to follow a model like this and make fairer decisions where human beings are concerned—especially if machines ever surpass us both in their power to make decisions and in their hunger for power.",
+      "author.p4":
+        "At some point, ACE stopped being just a decision-making model for me. Little by little, I began to see it as a kind of <strong>social therapy</strong>.",
       "author.p5":
-        "Welcome to my world of ideas. If even a single word of my writing moves you, <a href=\"#contact\">please write to me</a>—I will probably die of joy when I see your message.",
+        "Imagining a world in which ACE had a place became so fascinating to me that, almost without my noticing, it drew my old, half-finished novel in with it—a novel about writers nested within writers, writing one another. ACE dug that novel out from under the dust and wrote itself into its heart.",
+      "author.p6": "And that is how <em>ACE.await</em> was born.",
+      "author.p7":
+        "At first, I wanted to write a novel that would explain ACE. But as the story moved forward, its situations and characters carried me away with their disobedience. Sometimes I found myself at their mercy, trapped, drifting so far from myself and from ACE that I completely forgot why I had begun writing the novel in the first place.",
+      "author.p8":
+        "You can probably spot the traces of those moments quite easily in the book.",
+      "author.p9":
+        "Now, alongside the publication of this novel, I have also founded <strong>Ace Conscious Studio</strong>—a home for my ideas and writing.",
+      "author.p10":
+        "Welcome to the world of my ideas. If even a single word I have written speaks to you, <a href=\"#contact\">please write to me</a>. I will probably die of joy when I see your message.",
       "contact.label": "Contact",
       "contact.emailLabel": "Email",
       "contact.emailPlaceholder": "your@email.com",
@@ -509,18 +517,18 @@
       "toc.ch39": "Enthüllung der Geheimnisse",
       "toc.manifesto": "ACE-Manifest",
       "ace.label": "Was ist ACE?",
-      "ace.lead": "Wie trifft der moderne Mensch Entscheidungen – inmitten einer Flut von Informationen, unter Zeitdruck, angesichts Tausender widersprüchlicher Kriterien und immer komplexerer Umstände? ACE – kurz für Agency, Connection und Exchange – ist ein Versuch, genau diese Frage zu beantworten.",
-      "ace.p1": "Im ACE-Modell ist <strong>eine Agency</strong> ein Akteur, der die Komplexität seines gegenwärtigen Zustands und seiner Umgebung erfassen und eine den jeweiligen Bedingungen angemessene Entscheidung treffen kann, um so zu handeln, dass er seinen aktuellen Zustand entweder erhält oder verändert. Eine solche Agency kann ein Mensch, eine Organisation oder ein Unternehmen sein. Es ist sogar denkbar, dass künftig auch eine künstliche Intelligenz nach demselben Modell Entscheidungen trifft.",
-      "ace.p2": "Der Entscheidungsprozess durchläuft einen Zyklus aus <strong>Preparation, Decision, Action und Feedback (PDAF)</strong> und bewegt sich innerhalb einer der vier Phasen von Agency: <strong>Exploration</strong>, um neue Möglichkeiten und Wege zu erschließen; <strong>Stabilization</strong>, um Sicherheit, Fähigkeiten und Stabilität aufzubauen; <strong>Expansion</strong>, um Kapazitäten durch Kreativität zu erweitern; und <strong>Integration</strong>, um Entscheidungen mit Werten, Bedeutung und anderen zu verbinden – und so <strong>langfristige Nachhaltigkeit</strong> zu erreichen.",
+      "ace.lead": "ACE – kurz für Agency, Connection und Exchange – ist ein Modell für Entscheidungsfindung.",
+      "ace.p1": "Im ACE-Modell ist eine Agency ein Akteur, der die Komplexität seines gegenwärtigen Zustands und seiner Umgebung erfassen und eine den jeweiligen Bedingungen angemessene Entscheidung treffen kann, um so zu handeln, dass er seinen aktuellen Zustand entweder erhält oder verändert. Eine solche Agency kann ein Mensch, eine Organisation oder ein Unternehmen sein. Es ist sogar denkbar, dass künftig auch eine künstliche Intelligenz nach demselben Modell Entscheidungen trifft.",
+      "ace.p2": "Der Entscheidungsprozess durchläuft einen Zyklus aus <strong>Preparation, Decision, Action und Feedback (PDAF)</strong> und bewegt sich innerhalb einer der vier Phasen von Agency: <strong>Exploration</strong>, um neue Möglichkeiten und Wege zu erschließen; <strong>Stabilization</strong>, um Sicherheit, Fähigkeiten und Stabilität aufzubauen; <strong>Expansion</strong>, um Kapazitäten durch Kreativität zu erweitern; und <strong>Integration</strong>, um Entscheidungen mit Werten, Bedeutung und anderen zu verbinden – und so langfristige Nachhaltigkeit zu erreichen.",
       "ace.phasesAria": "Die vier Phasen von Agency",
       "ace.phase1": "Exploration",
       "ace.phase2": "Stabilization",
       "ace.phase3": "Expansion",
       "ace.phase4": "Integration",
-      "ace.p3": "Keine Agency existiert isoliert. Das Fortbestehen jeder Agency hängt von <strong>Connection</strong>, also der Verbindung zu anderen Agencies, ab. Diese Verbindungen prägen ihre Werte und Grenzen und geben ihren Entscheidungen eine Richtung.",
-      "ace.p4": "Connection zwischen Agencies führt zu <strong>Exchange</strong>, der im ACE-Modell drei Formen annehmen kann: <strong>Geschenk, Verpflichtung und Währung</strong>.",
-      "ace.p5": "Der entscheidende Punkt ist, dass sich dasselbe Modell vom Individuum auf <strong>Organisationen, einschließlich Unternehmen,</strong> übertragen lässt. Auch ein Unternehmen ist eine rechtlich verfasste Agency. Wenn es sich <strong>harmonisch durch die vier Phasen von Agency bewegt</strong>, seine Werte und Grenzen transparent macht und seinen Exchange nicht allein auf Geld reduziert, kann es – anstatt endlos Konsum und Wachstum hinterherzulaufen – die <strong>wirtschaftliche Sicherheit seiner selbst und seiner Mitglieder innerhalb eines miteinander verbundenen Netzwerks</strong> sichern; eines Netzwerks, in dem gilt: <strong>„Dein Schmerz ist auch mein Schmerz.“</strong>",
-      "ace.p6": "Und wenn Agency nicht auf Menschen beschränkt ist, lässt sich ACE auch auf <strong>künstliche Intelligenz</strong> übertragen. Das Modell könnte zu einem Schritt hin zu <strong>einer gemeinsamen Sprache der Entscheidungsfindung zwischen Menschen und KI</strong> werden – einer Sprache, in der beide lernen, Entscheidungen nicht nur intelligenter, sondern auch <strong>bewusster</strong> zu treffen.",
+      "ace.p3": "Keine Agency existiert isoliert. Das Fortbestehen jeder Agency hängt von Connection, also der Verbindung zu anderen Agencies, ab. Diese Verbindungen prägen ihre Werte und Grenzen und geben ihren Entscheidungen eine Richtung.",
+      "ace.p4": "Connection zwischen Agencies führt zu Exchange, der im ACE-Modell drei Formen annehmen kann: Geschenk, Verpflichtung und Währung.",
+      "ace.p5": "Der entscheidende Punkt ist, dass sich dasselbe Modell vom Individuum auf Organisationen, einschließlich Unternehmen, übertragen lässt. Auch ein Unternehmen ist eine rechtlich verfasste Agency. Wenn es sich harmonisch durch die vier Phasen von Agency bewegt, seine Werte und Grenzen transparent macht und seinen Exchange nicht allein auf Geld reduziert, kann es – anstatt endlos Konsum und Wachstum hinterherzulaufen – die wirtschaftliche Sicherheit seiner selbst und seiner Mitglieder innerhalb eines miteinander verbundenen Netzwerks sichern; eines Netzwerks, in dem gilt: „Dein Schmerz ist auch mein Schmerz.“",
+      "ace.p6": "Und wenn Agency nicht auf Menschen beschränkt ist, lässt sich ACE auch auf künstliche Intelligenz übertragen. Das Modell könnte zu einem Schritt hin zu einer gemeinsamen Sprache der Entscheidungsfindung zwischen Menschen und KI werden – einer Sprache, in der beide lernen, Entscheidungen nicht nur intelligenter, sondern auch bewusster zu treffen.",
       "ace.close": "Die einzige Antwort auf unsere Angst vor der Zukunft der künstlichen Intelligenz sind die angemessenen Entscheidungen, die wir selbst heute treffen – dieselben Entscheidungen, von denen wir hoffen, dass auch KI sie eines Tages treffen wird, falls sie künftig zu einem der mächtigsten Entscheidungsträger unter allen Wesen wird.",
       "buy.label": "Roman kaufen",
       "buy.comingSoon": "Demnächst",
@@ -528,16 +536,25 @@
       "buy.amazon": "Amazon",
       "buy.direct": "Direkt EPUB / PDF",
       "author.label": "Der Autor",
-      "author.verse":
-        "Bis zum Hals in Schulden.<br>Meiner Vergangenheit<br>schulde ich Reue.<br>Meiner Zukunft<br>schulde ich Angst.<br>Meine Schulden tilge ich<br>mit Ablenkung.",
       "author.p1":
-        "Vor Jahren nahm ich mir vor, einen Roman über ineinander verschachtelte Schriftsteller zu schreiben – jeder Autor erschafft den nächsten, der wiederum einen weiteren erschafft, bis schließlich die Liebe diese Endlosschleife durchbricht. Doch das Manuskript und meine Notizen blieben unvollendet und verstaubten in einer Ecke. Einige Jahre später kam mir die Idee zu <strong>ACE</strong> – Agency, Connection und Exchange: ein persönliches Modell, um bessere Entscheidungen zu treffen und bewusster zu leben. Ein Modell, das vielleicht sogar als eine Art <strong>gesellschaftliche Therapie</strong> dienen könnte – ein Weg, die Handlungsfähigkeit von Menschen und Unternehmen miteinander zu verbinden und eine neue Harmonie entstehen zu lassen. Und vielleicht kann ACE sogar noch weiter reichen: zu einem gemeinsamen Entscheidungsrahmen für Mensch und künstliche Intelligenz werden und den Weg für ein friedliches Zusammenleben zwischen ihnen ebnen.",
+        "Meiner Meinung nach wird die nächste Revolution in modernen Gesellschaften ohne Massaker, Blutvergießen, Krieg oder gewaltsame Auseinandersetzungen stattfinden. Ich glaube, sie wird in kleinen und mittleren Unternehmen beginnen – getragen von den Menschen, denen sie gehören und die dort arbeiten. Vielleicht finden dort Ideen aus Kapitalismus, Sozialismus und Kommunismus in einer neuen Form zusammen.",
       "author.p2":
-        "Mit der Zeit verflochten sich diese metafiktionale Idee und ACE miteinander, und mein Roman <em>ACE.await</em> nahm Gestalt an. Als der Roman fertig war, fragte ich mich, ob ich eines Tages vielleicht eine weitere Version von ACE veröffentlichen – oder den nächsten Teil der Geschichte schreiben würde. Deshalb gründete ich das Ace Conscious Studio: ein Zuhause für meine Ideen und Texte, mit <em>ACE.await</em> als seinem ersten Werk.",
+        "Diese Überzeugung begann 2021 in mir zu wachsen, als mir die Idee zu ACE kam. Seitdem sehe ich die Welt immer mehr durch die Linse dieses Entscheidungsmodells – eines Modells, das meiner Ansicht nach nicht nur für einen einzelnen Menschen funktionieren, sondern auch in kleinen und mittleren Unternehmen erprobt werden kann.",
       "author.p3":
-        "Willkommen in der Welt meiner Ideen. Wenn auch nur ein einziges Wort aus meinen Texten Sie berührt, <a href=\"#contact\">schreiben Sie mir bitte</a> – ich werde vermutlich vor Freude sterben, wenn ich Ihre Nachricht sehe.",
-      "author.p4": "",
-      "author.p5": "",
+        "Ich kann mir sogar vorstellen, dass wir eines Tages auch von künstlicher Intelligenz erwarten dürfen, nach einem solchen Muster im Umgang mit Menschen gerechtere Entscheidungen zu treffen – besonders dann, wenn Maschinen uns irgendwann sowohl in ihrer Entscheidungsmacht als auch in ihrem Streben nach Macht überholen.",
+      "author.p4":
+        "Ab einem gewissen Punkt war ACE für mich nicht mehr nur ein Entscheidungsmodell. Nach und nach begann ich darin eine Art <strong>gesellschaftliche Therapie</strong> zu sehen.",
+      "author.p5":
+        "Die Vorstellung einer Welt, in der ACE einen Platz hat, faszinierte mich so sehr, dass sie beinahe unbemerkt auch meinen alten, halbfertigen Roman mit hineinzog – einen Roman über ineinander verschachtelte Schriftsteller, die einander schreiben. ACE grub diesen Roman unter seiner Staubschicht hervor und schrieb sich mitten in ihn hinein.",
+      "author.p6": "Und so wurde <em>ACE.await</em> geboren.",
+      "author.p7":
+        "Anfangs wollte ich einen Roman schreiben, mit dem ich ACE erklären konnte. Doch je weiter die Geschichte voranschritt, desto mehr rissen mich die Situationen und Figuren mit ihrem Ungehorsam mit. Manchmal geriet ich ganz in ihre Hände, saß fest und entfernte mich so weit von mir selbst und von ACE, dass ich völlig vergaß, warum ich diesen Roman überhaupt zu schreiben begonnen hatte.",
+      "author.p8":
+        "Die Spuren dieser Momente wirst du im Buch vermutlich leicht entdecken.",
+      "author.p9":
+        "Mit der Veröffentlichung dieses Romans habe ich nun auch das <strong>Ace Conscious Studio</strong> gegründet – ein Zuhause für meine Ideen und Texte.",
+      "author.p10":
+        "Willkommen in der Welt meiner Ideen. Wenn dich auch nur ein einziges Wort aus meinen Texten berührt, dann <a href=\"#contact\">schreib mir bitte</a>. Wenn ich deine Nachricht sehe, werde ich mich vermutlich zu Tode freuen.",
       "contact.label": "Kontakt",
       "contact.emailLabel": "E-Mail",
       "contact.emailPlaceholder": "deine@email.de",
@@ -762,18 +779,18 @@
       "toc.ch39": "کشف الاسرار",
       "toc.manifesto": "ACE Manifest",
       "ace.label": "ACE چیست؟",
-      "ace.lead": "انسان مدرن، در میان انبوه اطلاعات، فشار زمان، هزاران معیار متناقض و پیچیدگیِ شرایط، چگونه تصمیم می‌گیرد؟ ACE ــ مخفف Agency, Connection, Exchange ــ تلاشی برای پاسخ به همین پرسش است.",
-      "ace.p1": "در ACE، <strong>یک Agency</strong> عاملی است که بتواند پیچیدگی‌های وضعیت جاری خود و شرایط پیرامونش را درک کند و با گرفتن تصمیمی متناسب با آن شرایط، طوری بازی کند که وضعیت جاری خود را حفظ کرده یا تغییر دهد. این Agency می‌تواند یک انسان، یک سازمان یا یک کسب‌وکار باشد. حتی می‌توان انتظار داشت که در آینده، یک هوش مصنوعی نیز با همین مدل تصمیم‌گیری کند.",
-      "ace.p2": "فرایند تصمیم‌گیری از چرخه‌ی <strong>آماده‌سازی، تصمیم، اقدام و بازخورد (PDAF)</strong> عبور می‌کند و در یکی از چهار فاز Agency جریان می‌یابد: <strong>اکتشاف (Exploration)</strong> برای ورود به امکان‌ها و مسیرهای تازه؛ <strong>تثبیت (Stabilization)</strong> برای ساختن امنیت، مهارت و پایداری؛ <strong>گسترش (Expansion)</strong> برای توسعه‌ی ظرفیت‌ها از راه خلاقیت؛ و <strong>یکپارچگی (Integration)</strong> برای پیوند دادن تصمیم‌ها با ارزش‌ها، معنا و دیگران و رسیدن به <strong>پایداری بلندمدت</strong>.",
+      "ace.lead": "ACE ــ مخفف Agency, Connection, Exchange ــ الگویی برای تصمیم‌گیری است.",
+      "ace.p1": "در ACE، یک Agency عاملی است که بتواند پیچیدگی‌های وضعیت جاری خود و شرایط پیرامونش را درک کند و با گرفتن تصمیمی متناسب با آن شرایط، طوری بازی کند که وضعیت جاری خود را حفظ کرده یا تغییر دهد. این Agency می‌تواند یک انسان، یک سازمان یا یک کسب‌وکار باشد. حتی می‌توان انتظار داشت که در آینده، یک هوش مصنوعی نیز با همین مدل تصمیم‌گیری کند.",
+      "ace.p2": "فرایند تصمیم‌گیری از چرخه‌ی <strong>آماده‌سازی، تصمیم، اقدام و بازخورد (PDAF)</strong> عبور می‌کند و در یکی از چهار فاز Agency جریان می‌یابد: <strong>اکتشاف (Exploration)</strong> برای ورود به امکان‌ها و مسیرهای تازه؛ <strong>تثبیت (Stabilization)</strong> برای ساختن امنیت، مهارت و پایداری؛ <strong>گسترش (Expansion)</strong> برای توسعه‌ی ظرفیت‌ها از راه خلاقیت؛ و <strong>یکپارچگی (Integration)</strong> برای پیوند دادن تصمیم‌ها با ارزش‌ها، معنا و دیگران و رسیدن به پایداری بلندمدت.",
       "ace.phasesAria": "چهار فاز Agency",
       "ace.phase1": "اکتشاف",
       "ace.phase2": "تثبیت",
       "ace.phase3": "گسترش",
       "ace.phase4": "یکپارچگی",
-      "ace.p3": "هیچ Agency‌ای در انزوا وجود ندارد. بقای هر Agency به <strong>Connection</strong>، یعنی ارتباط با Agency‌های دیگر، وابسته است و همین ارتباط است که ارزش‌ها و مرزهای آن را شکل می‌دهد و به تصمیم‌هایش جهت می‌دهد.",
-      "ace.p4": "ارتباط میان Agency‌ها به <strong>Exchange</strong> یا بده‌بستان می‌انجامد که در ACE به سه شکل انجام می‌شود: <strong>هدیه، تعهد و پول</strong>.",
-      "ace.p5": "نکته‌ی اصلی اینجاست که همین مدل را می‌توان از فرد به <strong>سازمان‌ها، از جمله کسب‌وکارها،</strong> تعمیم داد. یک شرکت نیز یک Agency حقوقی است. اگر بتواند <strong>در میان چهار فاز Agency هماهنگ حرکت کند</strong>، ارزش‌ها و مرزهایش را شفاف کند و بده‌بستانش را تنها به پول محدود نکند، به‌جای دویدن بی‌پایان به دنبال مصرف و رشد، می‌تواند <strong>امنیت اقتصادی خود و اعضایش را در دل شبکه‌ای همبسته تأمین کند؛ شبکه‌ای که در آن «درد تو، درد من هم هست».</strong>",
-      "ace.p6": "و اگر Agency محدود به انسان نباشد، ACE به <strong>هوش مصنوعی</strong> نیز قابل تعمیم است. این مدل می‌تواند گامی به سوی <strong>یک زبان مشترک تصمیم‌گیری میان انسان و هوش مصنوعی</strong> باشد؛ زبانی که در آن هر دو یاد می‌گیرند چگونه نه فقط هوشمندتر، بلکه <strong>آگاهانه‌تر تصمیم بگیرند</strong>.",
+      "ace.p3": "هیچ Agency‌ای در انزوا وجود ندارد. بقای هر Agency به Connection، یعنی ارتباط با Agency‌های دیگر، وابسته است و همین ارتباط است که ارزش‌ها و مرزهای آن را شکل می‌دهد و به تصمیم‌هایش جهت می‌دهد.",
+      "ace.p4": "ارتباط میان Agency‌ها به Exchange یا بده‌بستان می‌انجامد که در ACE به سه شکل انجام می‌شود: هدیه، تعهد و پول.",
+      "ace.p5": "نکته‌ی اصلی اینجاست که همین مدل را می‌توان از فرد به سازمان‌ها، از جمله کسب‌وکارها، تعمیم داد. یک شرکت نیز یک Agency حقوقی است. اگر بتواند در میان چهار فاز Agency هماهنگ حرکت کند، ارزش‌ها و مرزهایش را شفاف کند و بده‌بستانش را تنها به پول محدود نکند، به‌جای دویدن بی‌پایان به دنبال مصرف و رشد، می‌تواند امنیت اقتصادی خود و اعضایش را در دل شبکه‌ای همبسته تأمین کند؛ شبکه‌ای که در آن «درد تو، درد من هم هست».",
+      "ace.p6": "و اگر Agency محدود به انسان نباشد، ACE به هوش مصنوعی نیز قابل تعمیم است. این مدل می‌تواند گامی به سوی یک زبان مشترک تصمیم‌گیری میان انسان و هوش مصنوعی باشد؛ زبانی که در آن هر دو یاد می‌گیرند چگونه نه فقط هوشمندتر، بلکه آگاهانه‌تر تصمیم بگیرند.",
       "ace.close": "تنها درمان ترس ما از آینده‌ی هوش مصنوعی، همان تصمیم‌های بجایی است که خودمان امروز می‌گیریم؛ همان تصمیم‌هایی که امیدواریم هوش مصنوعی نیز روزی بگیرد، اگر در آینده در جایگاه یکی از قدرتمندترین تصمیم‌گیران میان موجودات قرار گیرد.",
       "buy.label": "خرید رمان",
       "buy.comingSoon": "به‌زودی",
@@ -781,16 +798,25 @@
       "buy.amazon": "Amazon",
       "buy.direct": "EPUB / PDF مستقیم",
       "author.label": "نویسنده",
-      "author.verse":
-        "تا خرخره بدهکارم<br>به گذشته‌‌هایم<br>حسرت بدهکارم<br>به آینده‌ام ترس<br>و با حواس پرتی<br>بدهی‌هایم را تسویه می‌کنم",
       "author.p1":
-        "سال‌ها پیش بر آن شدم داستانی دربارهٔ <strong>نویسندگانی تودرتو</strong> بنویسم؛ هر نویسنده، نویسندهٔ بعدی را می‌آفریند و او نیز دیگری را، تا سرانجام عشقی این حلقهٔ بی‌پایان را می‌شکند. اما دست‌نوشته‌ها و طرح‌هایم ناتمام ماندند و گوشه‌ای خاک خوردند. چند سال بعد، ایدهٔ <strong>ACE</strong>، مخفف Agency، Connection و Exchange، به سراغم آمد: الگویی شخصی برای تصمیم‌گیری بهتر و زیستن آگاهانه‌تر؛ الگویی که حتی می‌تواند همچون نوعی <strong>درمان اجتماعی</strong> عمل کند؛ راهی برای درهم‌آمیختن عاملیت انسان‌ها و بنگاه‌های اقتصادی و شکل‌دادن به هارمونی‌ای تازه. و شاید ایس بتواند از این هم فراتر رود: به چارچوبی مشترک برای تصمیم‌گیری انسان و هوش مصنوعی بدل شود و راه را برای هم‌زیستی مسالمت‌آمیز میان آن‌ها هموار کند.",
+        "به نظر من، انقلاب بعدی در جوامع مدرن بدون کشتار، خون‌ریزی، جنگ و درگیری رخ خواهد داد. فکر می‌کنم این انقلاب از دل بیزنس‌های کوچک و متوسط و به دست مالکان و کارکنان آن‌ها آغاز شود؛ جایی که شاید ایده‌هایی از سرمایه‌داری، سوسیالیسم و کمونیسم در قالبی تازه به هم برسند.",
       "author.p2":
-        "با گذشت زمان، آن ایدهٔ متافیکشن و مفهوم ACE در هم آمیختند و رمان <em>ACE.await</em> شکل گرفت. وقتی رمانم آماده شد، به این فکر افتادم که شاید روزی نسخهٔ دیگری از ACE را منتشر کنم، یا بخش بعدی داستان را بنویسم. برای همین، Ace Conscious Studio را بنیان گذاشتم: خانه‌ای برای ایده‌ها و نوشته‌هایم.",
+        "این باور از سال ۲۰۲۱، زمانی که ایدهٔ ACE به سراغم آمد، در من شکل گرفت. از آن زمان، هرچه بیشتر می‌گذرد، بیشتر دنیا را از دریچهٔ این مدل تصمیم‌گیری می‌بینم؛ مدلی که به گمان من نه‌تنها می‌تواند در مقیاس یک فرد کار کند، بلکه می‌توان آن را در بیزنس‌های کوچک و متوسط نیز آزمود.",
       "author.p3":
+        "حتی تصور می‌کنم شاید روزی بتوان از هوش مصنوعی هم انتظار داشت با چنین الگویی در برابر انسان‌ها تصمیم‌های منصفانه‌تری بگیرد؛ به‌خصوص اگر زمانی ماشین‌ها در قدرت تصمیم‌گیری و قدرت‌طلبی از انسان‌ها پیشی بگیرند.",
+      "author.p4":
+        "از جایی به بعد، ACE برای من فقط یک مدل تصمیم‌گیری نبود. کم‌کم آن را نوعی <strong>درمان اجتماعی</strong> دیدم.",
+      "author.p5":
+        "خیال‌پردازی دربارهٔ جهانی که ACE در آن حضور دارد، آن‌قدر برایم جذاب شد که ناخواسته رمان قدیمی و نیمه‌کاره‌ام را هم با خودش همراه کرد؛ رمانی دربارهٔ نویسنده‌هایی تودرتو که یکدیگر را می‌نویسند. ACE آن رمان را از زیر خاک بیرون کشید و خودش را در دل آن جا داد.",
+      "author.p6": "و این‌گونه <em>ACE.await</em> متولد شد.",
+      "author.p7":
+        "در ابتدا می‌خواستم رمانی بنویسم که با آن ACE را توضیح بدهم. اما هرچه داستان جلوتر رفت، موقعیت‌ها و شخصیت‌ها با سرپیچی‌هایشان مرا با خودشان بردند. گاهی اسیر دستشان می‌شدم، گیر می‌افتادم و آن‌قدر از خودم و از ACE دور می‌شدم که هدف اولیهٔ نوشتن رمان را کاملاً فراموش می‌کردم.",
+      "author.p8":
+        "احتمالاً می‌توانید ردپای آن لحظه‌ها را به‌راحتی در کتاب پیدا کنید.",
+      "author.p9":
+        "حالا، همراه با انتشار این رمان، <strong>Ace Conscious Studio</strong> را نیز بنیان گذاشته‌ام؛ خانه‌ای برای ایده‌ها و نوشته‌هایم.",
+      "author.p10":
         "به جهان ایده‌هایم خوش آمدید. اگر حتی یک کلمه از نوشته‌هایم به دلتان نشست، <a href=\"#contact\">لطفاً برایم بنویسید</a>؛ احتمالاً از دیدن پیامتان ذوق‌مرگ خواهم شد.",
-      "author.p4": "",
-      "author.p5": "",
       "contact.label": "تماس",
       "contact.emailLabel": "ایمیل",
       "contact.emailPlaceholder": "you@email.com",

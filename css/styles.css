@@ -856,7 +856,6 @@ html[dir="rtl"] .toc-grid li.disobedience {
 
 .ace-model__lead {
   font-size: 1.1875rem;
-  font-weight: 600;
   color: var(--ink);
   line-height: 1.55;
 }
@@ -865,7 +864,6 @@ html[dir="rtl"] .toc-grid li.disobedience {
   margin-top: 1.75rem;
   padding-top: 1.5rem;
   border-top: 1px solid rgba(13, 13, 13, 0.1);
-  font-weight: 600;
   color: var(--ink);
 }
 
@@ -1153,6 +1151,10 @@ html[dir="rtl"] .flipbook__btn svg {
 
 .character-card__body p:last-child {
   margin-bottom: 0;
+}
+
+.character-card__body strong {
+  font-weight: 400;
 }
 
 /* ── Buy ── */
