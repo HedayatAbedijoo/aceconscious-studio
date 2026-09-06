@@ -83,7 +83,7 @@
         "I am not lying,<br><em>Believe</em> my words!",
       "hero.author": "Mr. Writer: Hedayat the second",
       "hero.pitch":
-        "<p class=\"hero__pitch-lede\">ACE shapes the future, not AI.</p><p>Can an artificial intelligence fall in love—not simulate it, but truly experience it? Would you bet on it?</p><p>In <strong>ACE.await</strong>, that bet takes place between the story’s protagonist, Hedayat, and his digital child. The digital child returns to his father and puts him in a difficult position: should he change the code to make another AI fall in love with his child?</p><p>But Hedayat has always struggled with making decisions. His decisions have already pushed his relationship to the point where his partner left him. He is also unaware that the characters in his unfinished novel—who constantly disobey him and stray from the story’s intended path—are making decisions of their own.</p><p>Now Hedayat doesn’t know how to respond, as a father, to what his digital child is asking of him. And he doesn’t know that his child’s own decision has had consequences far beyond their private lives.</p><p>Out of desperation, Hedayat agrees to enter the <strong>ACE game</strong>—a game meant to help him rethink the way he makes decisions, begun by a mysterious stranger called <strong>Anonymous</strong>.</p><p class=\"hero__pitch-ace\">ACE: Agency. Connection. Exchange.</p>",
+        "<p class=\"hero__pitch-lede\">ACE shapes the future, not AI.</p><p>Can an artificial intelligence fall in love—not simulate it, but truly experience it? Would you bet on it?</p><p>In ACE.await, Hedayat, the story’s protagonist, makes exactly that bet with his digital child. The digital child returns to his father and puts him in a difficult position: should he change the code to make another AI fall in love with his child?</p><p>But Hedayat has always struggled with making decisions. His decisions have already pushed his relationship to the point where his partner left him. He is also unaware that the characters in his unfinished novel—who constantly disobey him and stray from the story’s intended path—are making decisions of their own.</p><p>Now Hedayat doesn’t know how to respond, as a father, to what his digital child is asking of him. And he doesn’t know that his child’s own decision has had consequences far beyond their private lives.</p><p>Out of desperation, Hedayat agrees to play the ACE game with a mysterious stranger called Anonymous, hoping it will help him rethink the way he makes decisions.</p><p class=\"hero__pitch-ace\">ACE: Agency. Connection. Exchange.</p>",
       "hero.genre": "A speculative novel",
       "hero.topic1": "AI & consciousness",
       "hero.topic2": "Shared Language",
@@ -118,34 +118,89 @@
       "synopsis.aceAria": "ACE framework",
       "voices.label": "Voices of the Characters",
       "char.hedayat.role": "Protagonist",
-      "char.hedayat.p1":
-        "I live in Cologne, where I lead a team at a software company. We are building a new and free internet—one meant to resist the dictatorship of data and the dominance of big corporations. In my private life, however, I keep struggling to make the right decisions, only to screw everything up in the end. Now a stranger has appeared and keeps telling me that instead of searching for the right decision, I should learn how to make the proper one—with the help of something called ACE.",
       "char.hedayat.p2":
-        "I also have an unfinished novel on my hands, and its stubborn refusal to end is driving me mad.",
+        "If I had listened to my mother when I was younger, gotten married, and become a father, maybe I would never have ended up here—being the father of a digital being.",
+      "char.hedayat.p3":
+        "I always hoped my child wouldn’t make terrible decisions like I do; decisions that end up creating a huge mess and leave me, as a father, ashamed to face the consequences.",
+      "char.hedayat.p4":
+        "The characters in my unfinished novel aren’t doing much better than I am. They wander around the story, disobeying me and straying from its main path, and I no longer even know what I’m supposed to do with them.",
+      "char.hedayat.p5": "Ava’s absence is driving me crazy.",
+      "char.hedayat.p6":
+        "I just hope <strong>Anonymous</strong> is right and this <strong>ACE</strong> game can actually help—maybe it can even be the cure for what’s wrong with me.",
       "char.anonymous.p1":
-        "Earning Hedayat’s trust is not easy—especially when he thinks you are a hacker who has broken into his computer. People must understand that technology and tools will not save humanity from the dangers ahead. The real key lies in awareness—and in learning how to make proper decisions. Hedayat must practice ACE. We must all hurry, or it will be too late.",
+        "I recommend that you don’t make the same mistake <strong>Hedayat</strong> makes when dealing with me.",
+      "char.anonymous.p2":
+        "It doesn’t matter who I am, what kind of person I am, what gender I am, or anything else.",
+      "char.anonymous.p3":
+        "Believe me, I’m not a hacker. If I wanted to cause damage, hacking would be the easiest thing I could do.",
+      "char.anonymous.p4":
+        "Be curious about what I have to say, not about who I am.",
+      "char.anonymous.p5":
+        "Believe me, the <strong>ACE</strong> game can help all of us. The sooner we start playing it, the better.",
+      "char.anonymous.p6":
+        "Don’t wait until things get out of hand.",
       "char.writer.role": "Inner Identity",
       "char.writer.p1":
-        "Hedayat must not find out that I am talking to you. I am one of the main characters in his unfinished novel—and a writer by profession. I am writing a novel of my own, whose main character is also a writer. I gave him my own name: «Mr. Writer». These days, he treats me exactly the way I have been treating Hedayat.",
+        "<strong>Hedayat</strong> must not find out that I’m talking to you.",
       "char.writer.p2":
-        "If, from time to time, you come across something that seems to make no sense—chapters about disobedience, blank pages, and things of that sort—do not be confused. That is my doing. Be patient. Keep reading. In the end, the dots will connect.",
+        "I’m the main character in his unfinished novel. I honestly don’t know when he’s going to realize that I, and all the other writers nested inside these unfinished novels, were born from him and from the way he makes decisions.",
+      "char.writer.p3":
+        "We come from him. That’s why we make decisions the way he does, disobey, and do things our own way.",
+      "char.writer.p4":
+        "One day, I’m going to force <strong>Hedayat</strong> to put an end to this endless cycle of writers and creators nested inside one another—my way. He has to.",
+      "char.writer.p5": "We’re all tired of this endless game.",
       "char.ava.role": "Former Lover",
       "char.ava.p1":
-        "We all carry a «Story’s Hero» in our minds—someone who makes a story out of everything and always tells it in a way that makes us feel we were right all along. I am not saying I made no mistakes in my relationship with Hedayat, or that I left him over a single mistake. I left because, instead of listening, he treated love like something to explain and analyze—as though it were a problem he could solve. He needed to feel first, understand second—and when understanding failed him, simply show empathy. Besides, Hedayat should never have gambled on love.",
+        "I’m <strong>Hedayat</strong>’s partner—the one who left him.",
+      "char.ava.p2":
+        "You might expect me to pour my heart out and tell you what really happened between us. But I won’t. Because my Story’s Hero would tell the story in a way that makes you take my side.",
+      "char.ava.p3":
+        "The Story’s Hero is that voice inside all of our heads—the one that is constantly telling stories and interpreting everything around us in a way that makes us believe we are the ones who are right.",
+      "char.ava.p4":
+        "What good would it do me to tell you my story just so you can agree that I was right?",
+      "char.ava.p5":
+        "I hope <strong>Hedayat</strong> learns the <strong>ACE</strong> game. The world out there badly needs him.",
+      "char.ava.p6":
+        "Truth be told, I need him more than the world does. On the other side of his solitary cell, I miss him.",
       "char.sam.role": "The CEO’s Kid",
       "char.sam.p1":
-        "I love the games I play with Uncle Hedi—and the conversations we have, and the secrets we keep between us. Like the secret of the number 2313.",
+        "No one understands what I say and my world the way <strong>Uncle Hedi</strong> does. Not even the kids at my school.",
       "char.sam.p2":
-        "By the way, Uncle Hedi sometimes does strange things. Sometimes—only sometimes—when he sinks deep into his thoughts and gets completely lost inside his own head, he forgets to look around first. To check whether he is alone! And then, out of nowhere, he farts!",
+        "I love the times when <strong>Uncle Hedi</strong> and I go swimming. We have secrets between us too—like the secret of the number 2313.",
+      "char.sam.p3":
+        "But I’m still too shy to ask him what his problem is with my mom and why he doesn’t come over to our house anymore.",
+      "char.sam.p4": "I think all uncles talk too much sometimes. Right?",
+      "char.sam.p5": "Is your uncle like that too?",
       "char.saman.role": "Old Friend",
       "char.saman.p1":
-        "I love Hedayat the way Rumi loved Shams. Human beings find the meaning of life through their suffering—and discover true healing in the purest of friendships.",
+        "I’ve loved <strong>Hedayat</strong> since we were kids growing up together—his way of thinking, the depth of his friendship, and the way he stands by his friends and stays with you as far as he possibly can.",
+      "char.saman.p2":
+        "But I’m not sure I can handle the huge favor he’s asked of me. Because I still don’t know which one <strong>Hedayat</strong> will choose when it really comes down to it: obedience or disobedience.",
+      "char.saman.p3":
+        "I’d also really like to bring the <strong>ACE</strong> game into our company and, together with my business partners, see whether we can apply this model to a legal entity and to a business as well.",
+      "char.saman.p4":
+        "If it works, I think the result will satisfy me even more. And in the end, <strong>Hedayat</strong> too.",
       "char.adam.p1":
-        "I am not lying. Believe my words. Every problem human beings face in the real world, new digital beings will face in the virtual one. Their form and appearance may be different, but the consequences will be the same. Be careful—the author of this novel may not be who you think. Anyway!",
+        "If you still don’t know how to make proper decisions in your own life, please don’t become a father.",
+      "char.adam.p2":
+        "Otherwise, you may end up as a helpless father—one who doesn’t even know how to respond to his child’s wishes or what decision to make.",
+      "char.adam.p3":
+        "If you don’t know how to make proper decisions yourself, who is supposed to teach your child how to do it?",
+      "char.adam.p4":
+        "It makes no difference whether your child is made of flesh and blood and breathes oxygen, or is made of algorithms and strings of zeros and ones and runs on electricity.",
+      "char.adam.p5":
+        "Every dictator in history was raised, somewhere along the way, by a helpless father.",
+      "char.adam.p6": "Don’t hand another dictator over to history.",
       "char.god.role": "Not in the Cast",
       "char.god.name": "God",
       "char.god.p1":
-        "I have no role in this story, though my name does come up from time to time. I only wanted to say one thing, very briefly: I am not a game designer who doesn't play his own game.",
+        "I don’t have much of a role in this story. Though apparently, whenever you get into trouble, you bring up my name.",
+      "char.god.p2":
+        "I wanted to make one thing clear: I’m not a game designer who doesn’t play his own game.",
+      "char.god.p3":
+        "I played alongside you in Paradise. But you were the ones who chose not to stay there and to fall.",
+      "char.god.p4": "Wasn’t the freedom to choose what you wanted?",
+      "char.god.p5": "Are you tired of the consequences now?",
       "sample.label": "Sample Chapters",
       "sample.flip.url": "https://11.heyzine.com/flip-book/c82357ef13.html",
       "sample.flip.embedTitle": "ACE.await \u2014 first three chapters, flipbook preview",
@@ -337,34 +392,90 @@
       "synopsis.aceAria": "ACE-Rahmenwerk",
       "voices.label": "Stimmen der Figuren",
       "char.hedayat.role": "Protagonist",
-      "char.hedayat.p1":
-        "Ich lebe in Köln und leite ein Team in einem Softwareunternehmen. Wir bauen ein neues, freies Internet – eines, das sich der Diktatur der Daten und der Macht großer Konzerne entgegenstellen soll. In meinem Privatleben ringe ich allerdings ständig darum, die richtigen Entscheidungen zu treffen, nur um am Ende doch wieder alles zu versauen. Jetzt ist auch noch ein Unbekannter aufgetaucht, der mir ständig erzählt, ich solle nicht länger nach der richtigen Entscheidung suchen, sondern lernen, die angemessene zu treffen – mithilfe von etwas, das sich ACE nennt.",
       "char.hedayat.p2":
-        "Außerdem habe ich da noch einen unfertigen Roman am Hals, und seine hartnäckige Weigerung, zu einem Ende zu kommen, treibt mich langsam in den Wahnsinn.",
+        "Wenn ich damals, als ich jünger war, auf meine Mutter gehört, geheiratet und Kinder bekommen hätte, wäre es vielleicht nie so weit gekommen, dass ich heute Vater eines digitalen Wesens bin.",
+      "char.hedayat.p3":
+        "Ich hatte immer gehofft, dass mein Kind nicht so katastrophale Entscheidungen trifft wie ich; Entscheidungen, die am Ende ein riesiges Chaos anrichten und dafür sorgen, dass ich mich als Vater schäme, mich den Konsequenzen zu stellen.",
+      "char.hedayat.p4":
+        "Den Figuren in meinem unvollendeten Roman geht es auch nicht besser als mir. Sie irren in der Geschichte umher, widersetzen sich mir und dem vorgesehenen Verlauf der Handlung, und inzwischen weiß ich selbst nicht mehr, was ich mit ihnen anfangen soll.",
+      "char.hedayat.p5": "Avas Abwesenheit macht mich langsam verrückt.",
+      "char.hedayat.p6":
+        "Ich kann nur hoffen, dass <strong>Anonymous</strong> recht hat und dieses <strong>ACE</strong>-Spiel tatsächlich helfen kann – vielleicht ist es sogar das Heilmittel für mein Problem.",
       "char.anonymous.p1":
-        "Hedayats Vertrauen zu gewinnen, ist nicht leicht – erst recht nicht, wenn er einen für einen Hacker hält, der sich in seinen Computer gehackt hat. Die Menschen müssen begreifen, dass weder Technologie noch irgendwelche Werkzeuge die Menschheit vor den Gefahren retten werden, die vor uns liegen. Der eigentliche Schlüssel liegt im Bewusstsein – und darin, zu lernen, wie man angemessene Entscheidungen trifft. Hedayat muss ACE üben. Wir alle müssen uns beeilen, sonst ist es zu spät.",
+        "Ich empfehle Ihnen, nicht denselben Fehler zu machen wie <strong>Hedayat</strong> im Umgang mit mir.",
+      "char.anonymous.p2":
+        "Es spielt keine Rolle, wer ich bin, was für ein Mensch ich bin, welches Geschlecht ich habe oder irgendetwas anderes.",
+      "char.anonymous.p3":
+        "Glauben Sie mir, ich bin kein Hacker. Wenn ich Schaden anrichten wollte, wäre Hacken das Einfachste, was ich tun könnte.",
+      "char.anonymous.p4":
+        "Seien Sie neugierig auf das, was ich zu sagen habe – nicht darauf, wer ich bin.",
+      "char.anonymous.p5":
+        "Glauben Sie mir, das <strong>ACE</strong>-Spiel kann uns allen helfen. Je früher wir damit anfangen, desto besser.",
+      "char.anonymous.p6":
+        "Warten Sie nicht, bis die Dinge außer Kontrolle geraten.",
       "char.writer.role": "Innere Identität",
       "char.writer.p1":
-        "Hedayat darf nicht herausfinden, dass ich mit Ihnen spreche. Ich bin eine der Hauptfiguren in seinem unfertigen Roman – und von Beruf Schriftsteller. Ich selbst schreibe an einem Roman, dessen Hauptfigur ebenfalls Schriftsteller ist. Ich habe ihm meinen eigenen Namen gegeben: «Mr. Writer». Inzwischen behandelt er mich genauso, wie ich Hedayat behandelt habe.",
+        "<strong>Hedayat</strong> darf nicht herausfinden, dass ich mit Ihnen spreche.",
       "char.writer.p2":
-        "Falls Ihnen hin und wieder etwas begegnet, das scheinbar überhaupt keinen Sinn ergibt – Kapitel über Ungehorsam, leere Seiten und dergleichen –, lassen Sie sich nicht verwirren. Das ist mein Werk. Seien Sie geduldig. Lesen Sie weiter. Am Ende werden sich die einzelnen Punkte zu einem Ganzen verbinden.",
+        "Ich bin die Hauptfigur seines unvollendeten Romans. Ehrlich gesagt weiß ich nicht, wann er endlich begreifen wird, dass ich und all die anderen ineinander verschachtelten Autoren dieser unvollendeten Romane aus ihm selbst und aus seiner Art, Entscheidungen zu treffen, entstanden sind.",
+      "char.writer.p3":
+        "Wir stammen von ihm. Deshalb treffen wir Entscheidungen wie er, widersetzen uns und machen unser eigenes Ding.",
+      "char.writer.p4":
+        "Eines Tages werde ich <strong>Hedayat</strong> zwingen, diesen endlosen Kreislauf aus ineinander verschachtelten Autoren und Schöpfern zu beenden – auf meine Art. Er muss es tun.",
+      "char.writer.p5": "Wir sind alle müde von diesem endlosen Spiel.",
       "char.ava.role": "Ehemalige Geliebte",
       "char.ava.p1":
-        "In uns allen lebt ein «Geschichtenheld» – jemand, der aus allem eine Geschichte macht und sie stets so erzählt, dass wir am Ende glauben, wir hätten von Anfang an recht gehabt. Ich behaupte nicht, dass ich in meiner Beziehung mit Hedayat keine Fehler gemacht hätte oder dass ich ihn wegen eines einzigen Fehlers verlassen hätte. Ich verließ ihn, weil er nicht zuhörte, sondern die Liebe wie etwas behandelte, das sich erklären und analysieren ließ – als wäre sie ein Problem, das er lösen könnte. Er hätte zuerst fühlen und erst danach verstehen müssen – und wenn sein Verstehen nicht weiterführte, einfach Mitgefühl zeigen. Außerdem hätte Hedayat niemals auf die Liebe wetten dürfen.",
+        "Ich bin <strong>Hedayats</strong> Partnerin – diejenige, die ihn verlassen hat.",
+      "char.ava.p2":
+        "Vielleicht erwarten Sie, dass ich Ihnen mein Herz ausschütte und erzähle, was zwischen uns wirklich passiert ist. Aber das werde ich nicht tun. Denn der Held meiner Geschichte würde alles so erzählen, dass Sie am Ende auf meiner Seite stehen.",
+      "char.ava.p3":
+        "Der Held der Geschichte ist diese Stimme im Kopf eines jeden von uns – die Stimme, die ständig Geschichten erzählt und alles um uns herum so deutet, dass wir am Ende glauben, selbst im Recht zu sein.",
+      "char.ava.p4":
+        "Was hätte ich davon, Ihnen meine Geschichte zu erzählen, nur damit Sie mir recht geben?",
+      "char.ava.p5":
+        "Ich hoffe, <strong>Hedayat</strong> lernt das <strong>ACE</strong>-Spiel. Die Welt da draußen braucht ihn dringend.",
+      "char.ava.p6":
+        "Um ehrlich zu sein: Ich brauche ihn mehr als die Welt da draußen. Auf der anderen Seite seiner Einzelzelle vermisse ich ihn.",
       "char.sam.role": "Kind des CEOs",
       "char.sam.p1":
-        "Ich liebe es, mit Onkel Hedi zu spielen – und ich mag unsere Gespräche und die Geheimnisse, die wir miteinander teilen. Zum Beispiel das Geheimnis der Zahl 2313.",
+        "Niemand versteht, was ich sage, und meine Welt so gut wie <strong>Onkel Hedi</strong>. Nicht einmal die Kinder in meiner Schule.",
       "char.sam.p2":
-        "Übrigens macht Onkel Hedi manchmal komische Sachen. Manchmal – aber wirklich nur manchmal – versinkt er so tief in seinen Gedanken und verirrt sich so sehr in seinem eigenen Kopf, dass er vergisst, sich vorher umzusehen. Um zu prüfen, ob er auch wirklich allein ist! Und dann – einfach so – pupst er!",
+        "Ich liebe es, wenn <strong>Onkel Hedi</strong> und ich schwimmen gehen. Wir haben auch Geheimnisse miteinander – zum Beispiel das Geheimnis der Zahl 2313.",
+      "char.sam.p3":
+        "Aber ich traue mich immer noch nicht, ihn zu fragen, was er für ein Problem mit meiner Mutter hat und warum er nicht mehr zu uns nach Hause kommt.",
+      "char.sam.p4": "Ich glaube, alle Onkel reden manchmal viel zu viel. Oder?",
+      "char.sam.p5": "Ist dein Onkel auch so?",
       "char.saman.role": "Alter Freund",
       "char.saman.p1":
-        "Ich liebe Hedayat so, wie Rumi Shams liebte. Im Leiden finden Menschen den Sinn des Lebens – und in den reinsten Freundschaften wahre Heilung.",
+        "Ich kenne und liebe <strong>Hedayat</strong>, seit wir als Kinder zusammen aufgewachsen sind – seine Art zu denken, die Tiefe seiner Freundschaft und die Art, wie er zu seinen Freunden hält und mit ihnen geht, so weit es eben nötig ist.",
+      "char.saman.p2":
+        "Aber ich bin mir nicht sicher, ob ich der großen Bitte gewachsen bin, die er an mich gestellt hat. Denn ich weiß immer noch nicht, wofür sich <strong>Hedayat</strong> entscheiden wird, wenn es wirklich darauf ankommt: Gehorsam oder Ungehorsam.",
+      "char.saman.p3":
+        "Außerdem würde ich das <strong>ACE</strong>-Spiel sehr gern in unser Unternehmen bringen und gemeinsam mit meinen Geschäftspartnern herausfinden, ob sich dieses Modell auch auf eine juristische Person und auf ein Unternehmen anwenden lässt.",
+      "char.saman.p4":
+        "Wenn das funktioniert, wird mich das Ergebnis vermutlich noch mehr zufriedenstellen. Und am Ende auch <strong>Hedayat</strong>.",
       "char.adam.p1":
-        "Ich lüge nicht. Glauben Sie meinen Worten. Mit jedem Problem, dem Menschen in der realen Welt begegnen, werden auch die neuen digitalen Wesen in der virtuellen Welt konfrontiert sein. Ihre Form und ihr Erscheinungsbild mögen anders sein, doch die Folgen werden dieselben sein. Seien Sie vorsichtig – vielleicht ist der Autor dieses Romans nicht der, für den Sie ihn halten. Anyway!",
+        "Wenn Sie noch nicht wissen, wie Sie in Ihrem eigenen Leben angemessene Entscheidungen treffen sollen, werden Sie bitte nicht Vater.",
+      "char.adam.p2":
+        "Sonst könnten Sie zu einem hilflosen Vater werden – zu einem Vater, der nicht einmal weiß, wie er mit den Wünschen seines Kindes umgehen oder welche Entscheidung er treffen soll.",
+      "char.adam.p3":
+        "Wenn Sie selbst nicht wissen, wie man angemessene Entscheidungen trifft, wer soll es dann Ihrem Kind beibringen?",
+      "char.adam.p4":
+        "Dabei spielt es keine Rolle, ob Ihr Kind aus Fleisch und Blut besteht und Sauerstoff atmet oder aus Algorithmen und Folgen von Nullen und Einsen geschaffen wurde und mit Strom betrieben wird.",
+      "char.adam.p5":
+        "Jeder Diktator der Geschichte ist irgendwann unter der Hand eines hilflosen Vaters aufgewachsen.",
+      "char.adam.p6":
+        "Übergeben Sie der Geschichte keinen weiteren Diktator.",
       "char.god.role": "Nicht Teil der Besetzung",
       "char.god.name": "Gott",
       "char.god.p1":
-        "Ich spiele in dieser Geschichte keine Rolle, auch wenn mein Name hin und wieder fällt. Ich wollte nur ganz kurz eines sagen: Ich bin kein Spieledesigner, der sein eigenes Spiel nicht spielt.",
+        "Ich spiele in dieser Geschichte keine besonders große Rolle. Obwohl Sie offenbar jedes Mal meinen Namen ins Spiel bringen, wenn Sie nicht mehr weiterwissen.",
+      "char.god.p2":
+        "Ich wollte nur eines klarstellen: Ich bin kein Spieldesigner, der sein eigenes Spiel nicht mitspielt.",
+      "char.god.p3":
+        "Im Paradies habe ich mit Ihnen mitgespielt. Aber Sie selbst haben sich entschieden, nicht dort zu bleiben und hinabzusteigen.",
+      "char.god.p4": "Wollten Sie nicht die Freiheit, selbst zu entscheiden?",
+      "char.god.p5": "Sind Sie jetzt der Konsequenzen müde?",
       "sample.label": "Beispielkapitel",
       "sample.flip.url": "https://11.heyzine.com/flip-book/c82357ef13.html",
       "sample.flip.embedTitle": "ACE.await \u2014 erste drei Kapitel, Bl\u00e4tterkatalog",
@@ -555,34 +666,89 @@
       "synopsis.aceAria": "چارچوب ACE",
       "voices.label": "صدای شخصیت‌های داستان",
       "char.hedayat.role": "شخصیت اصلی",
-      "char.hedayat.p1":
-        "در شهر کلن زندگی میکنم و رهبری تیمی را در یک شرکت نرم‌افزاری بر عهده دارم. در حال ساختن اینترنتی تازه و آزاد هستیم تا با دیکتاتوریِ داده‌ها و سلطهٔ شرکت‌های بزرگ مقابله کنیم. اما در زندگی شخصی‌ام، مدام برای گرفتن تصمیم‌های درست تقلا می‌کنم و آخرش هم به همه‌چیز گند می‌زنم. حالا سروکلهٔ یک ناشناس پیدا شده و مرتب به من می‌گوید باید به‌جای تصمیم درست، دنبال تصمیم مناسب باشم — آن هم با کمک الگوی ACE!",
       "char.hedayat.p2":
-        "یک رمان نیمه‌تمام هم روی دستم افتاده که تمام‌نشدنش حسابی کلافه‌ام کرده است.",
+        "اگر همان جوانی به حرف مادرم گوش داده بودم، ازدواج کرده بودم و پدر شده بودم، شاید هیچ‌وقت کارم به اینجا نمی‌کشید که پدر یک موجود دیجیتالی شوم.",
+      "char.hedayat.p3":
+        "همیشه امیدوار بودم فرزندم مثل من تصمیم‌های افتضاح نگیرد؛ تصمیم‌هایی که آخرش یک دسته‌گل بزرگ به آب بدهد و من، به‌عنوان پدر، از روبه‌رو شدن با عواقبش شرمسار شوم.",
+      "char.hedayat.p4":
+        "کاراکترهای رمان نیمه‌تمامم هم وضعشان بهتر از من نیست. این‌طرف و آن‌طرف داستان سرگردان‌اند، از من و خط اصلی داستان سرپیچی می‌کنند، و دیگر حتی نمی‌دانم من با آن‌ها چه باید بکنم.",
+      "char.hedayat.p5": "نبودن آوا دارد دیوانه‌ام می‌کند.",
+      "char.hedayat.p6":
+        "فقط امیدوارم حق با <strong>Anonymous</strong> باشد و این بازی <strong>ACE</strong> واقعاً بتواند کمکی بکند؛ شاید حتی دوای درد من باشد.",
       "char.anonymous.p1":
-        "جلب اعتماد هدایت کار آسانی نیست — به‌خصوص وقتی فکر می‌کند شما هکری هستید که به کامپیوترش نفوذ کرده‌اید. آدم‌ها باید بفهمند که فناوری و ابزارها قرار نیست بشریت را از خطرهای پیش رو نجات دهند؛ کلید اصلیِ حل مشکلات، آگاهی و آموختنِ این است که چگونه تصمیم‌های مناسب بگیریم. هدایت باید ACE را تمرین کند. همهٔ ما باید عجله کنیم؛ وگرنه خیلی دیر می‌شود.",
+        "توصیه می‌کنم اشتباهی را که <strong>هدایت</strong> در مواجهه با من می‌کند، شما تکرار نکنید.",
+      "char.anonymous.p2":
+        "مهم نیست من چه کسی هستم، چه شخصیتی دارم، چه جنسیتی دارم، یا هر چیز دیگری.",
+      "char.anonymous.p3":
+        "باور کنید، من هکر نیستم. اگر هدفم خرابکاری بود، هک کردن ساده‌ترین کاری بود که می‌توانستم انجام بدهم.",
+      "char.anonymous.p4":
+        "نسبت به حرف‌هایم کنجکاو باشید، نه اینکه من چه کسی هستم.",
+      "char.anonymous.p5":
+        "باور کنید، بازی <strong>ACE</strong> به درد همه‌مان می‌خورد. هرچه زودتر این بازی را شروع کنیم، بهتر است.",
+      "char.anonymous.p6":
+        "نگذارید کار به جاهای باریک‌تر برسد.",
       "char.writer.role": "هویت درونی",
       "char.writer.p1":
-        "هدایت نباید بفهمد که دارم با شما حرف می‌زنم. من شخصیتی اصلی در رمان نیمه‌کارهٔ او هستم. شغلم هم نویسندگی است. خودم هم مشغول نوشتن رمانی هستم که شغل شخصیت اصلیِ آن هم نویسندگی است. اسم خودم را روی شخصیت اصلی رمانم گذاشته‌ام: «آقای نویسنده». او این روزها دقیقاً همان‌طور با من رفتار می‌کند که من خودم با هدایت رفتار کرده‌ام.",
+        "<strong>هدایت</strong> نباید بفهمد که من با شما حرف می‌زنم.",
       "char.writer.p2":
-        "اگر گاهی چیزی خواندید که به نظرتان هیچ معنایی نداشت — مثلاً فصل‌هایی دربارهٔ سرپیچی، صفحه‌های سفید و چیزهایی از این دست — گیج نشوید. کار من است. صبور باشید و به خواندن ادامه دهید. در پایان، نقطه‌ها به هم وصل می‌شوند.",
+        "من شخصیت اصلی رمان نیمه‌تمام او هستم. واقعاً نمی‌دانم کی قرار است بفهمد که من و بقیهٔ نویسنده‌های تودرتوی این رمان‌های نیمه‌تمام، زادهٔ خود او و شیوهٔ تصمیم‌گیری‌هایش هستیم.",
+      "char.writer.p3":
+        "ما از خود او آمده‌ایم؛ برای همین هم مثل خودش تصمیم می‌گیریم، سرپیچی می‌کنیم و کار خودمان را می‌کنیم.",
+      "char.writer.p4":
+        "بالاخره یک روز <strong>هدایت</strong> را مجبور می‌کنم، به روش من، این چرخهٔ بی‌نهایتِ نویسنده‌ها و خالق‌های تودرتو را تمام کند. باید این کار را بکند.",
+      "char.writer.p5": "همه‌مان از این بازی بی‌انتها خسته شده‌ایم.",
       "char.ava.role": "معشوقهٔ سابق",
       "char.ava.p1":
-        "همهٔ ما یک «قهرمان‌قصه» در ذهنمان داریم — کسی که از همه چیز داستان می‌سازد. و همیشه داستان‌ها را طوری روایت می‌کند که احساس کنیم حق با خودمان بوده است. نمی‌گویم در رابطه‌ام با هدایت هیچ اشتباهی نکردم، یا اینکه فقط به‌خاطر یک اشتباه ترکش کردم. هدایت را ترک کردم چونکه به جای شنیدن، خوب توضیح می‌داد و تحلیل می‌کرد. درحالیکه باید اول احساس می‌کرد، بعد می‌فهمید، و وقتی فهمش به جایی نمی‌رسید، از خودش همدلی نشان می‌داد. در ضمن، هدایت نباید روی عشق قمار می‌کرد.",
+        "من پارتنر <strong>هدایت</strong> هستم؛ همان کسی که ترکش کرد.",
+      "char.ava.p2":
+        "ممکن است بخواهید سفرهٔ دلم را برایتان باز کنم و بگویم ماجرا از چه قرار است. اما این کار را نمی‌کنم. چون قهرمان قصهٔ من، داستان را طوری برایتان تعریف می‌کند که در آخر حق را به من بدهید.",
+      "char.ava.p3":
+        "قهرمان قصه همان صدایی است که در سر همهٔ ما زندگی می‌کند؛ صدایی که مدام قصه می‌گوید و اتفاق‌های اطرافمان را طوری روایت می‌کند که در نهایت، حق با خودمان باشد.",
+      "char.ava.p4":
+        "اینکه داستانم را برایتان تعریف کنم تا شما هم حق را به من بدهید، به چه دردم می‌خورد؟",
+      "char.ava.p5":
+        "امیدوارم <strong>هدایت</strong> بازی <strong>ACE</strong> را یاد بگیرد. آن جهان بیرون بدجوری به وجودش نیاز دارد.",
+      "char.ava.p6":
+        "دروغ چرا؟ من بیشتر از جهان بیرون به وجودش نیاز دارم. آن‌طرفِ سلول انفرادی‌اش، دلم برایش تنگ شده است.",
       "char.sam.role": "فرزند مدیرعامل",
       "char.sam.p1":
-        "بازی‌هایم با عمو هدی را خیلی دوست دارم — همچنین گفت‌وگوهایی که با هم داریم و رازهایی که بین خودمان نگه داشته‌ایم. مثل راز عدد 2313.",
+        "هیچ‌کس به اندازهٔ <strong>عمو هدی</strong> حرف‌های من و دنیای من را نمی‌فهمد؛ حتی بچه‌های مدرسه‌مان.",
       "char.sam.p2":
-        "راستی، عمو هدی بعضی وقت‌ها کارهای عجیبی می‌کند. مثلا بعضی وقت‌ها — فقط بعضی وقت‌ها — وقتی حسابی در فکرهایش فرو می‌رود و در ذهن خودش گم می‌شود، یادش می‌رود اطرافش را از قبل نگاهی بیندازد. که آیا تنها هست یا نه! بی‌هوا می‌گوزد!",
+        "من عاشق وقت‌هایی هستم که با <strong>عمو هدی</strong> می‌رویم استخر. رازهایی هم بینمان هست؛ مثل راز عدد ۲۳۱۳.",
+      "char.sam.p3":
+        "اما هنوز خجالت می‌کشم ازش بپرسم با مامانم چه مشکلی دارد که دیگر به خانه‌مان سر نمی‌زند.",
+      "char.sam.p4": "فکر کنم همهٔ عموهای دنیا بعضی وقت‌ها خیلی حرف می‌زنند. آره؟",
+      "char.sam.p5": "عموی شما هم این‌طوریه؟",
       "char.saman.role": "دوست قدیمی",
       "char.saman.p1":
-        "من هدایت را همان‌طور دوست دارم که مولانا به شمس علاقمند بود. انسان‌ها معنای زندگی را از دل رنج‌هایشان پیدا می‌کنند و درمان واقعیِ این رنج‌ها را در دوستی‌های ناب می‌یابند.",
+        "از همان بچگی که با هم بزرگ شدیم، <strong>هدایت</strong> را خیلی دوست داشته‌ام؛ حرف‌هایش، عمق رفاقتش، و آن وقت‌هایی که پای دوستی‌اش می‌ایستد و تا هر جا لازم باشد همراهت می‌آید.",
+      "char.saman.p2":
+        "اما مطمئن نیستم از پس درخواست بزرگی که از من کرده بر بیایم. چون هنوز نمی‌دانم <strong>هدایت</strong>، وقتی پای انتخاب واقعی وسط باشد، بین سرسپردگی و سرپیچی کدام را انتخاب می‌کند.",
+      "char.saman.p3":
+        "ضمناً خیلی دلم می‌خواهد بازی <strong>ACE</strong> را وارد شرکت خودمان کنم و همراه بقیهٔ شرکایم ببینیم آیا می‌شود این الگو را روی یک شخصیت حقوقی و یک بیزنس هم پیاده کرد.",
+      "char.saman.p4":
+        "اگر عملی بشود، نتیجه‌اش هم خودم را بیشتر راضی می‌کند و هم، در نهایت، <strong>هدایت</strong> را.",
       "char.adam.p1":
-        "دروغ نمی‌گویم. حرف‌هایم را باور کنید. هر مشکلی که انسان‌ها در دنیای واقعی با آن روبه‌رو می‌شوند، موجودات دیجیتال تازه هم در دنیای مجازی با آن روبه‌رو خواهند شد. ممکن است در ظاهر و شکل متفاوت به‌نظر برسند؛ اما پیامدهای‌شان یکسان‌اند. مراقب باشید — شاید نویسندهٔ این رمان آن کسی نباشد که فکر می‌کنید. بگذریم!",
+        "اگر فکر می‌کنید هنوز توانایی گرفتن تصمیم مناسب را در زندگی‌تان ندارید، لطفاً پدر نشوید.",
+      "char.adam.p2":
+        "وگرنه ممکن است تبدیل به پدری درمانده شوید؛ پدری که حتی نمی‌داند در برابر خواسته‌های فرزندش چگونه رفتار کند و چه تصمیمی بگیرد.",
+      "char.adam.p3":
+        "اگر خودتان بلد نباشید تصمیم مناسب بگیرید، چه کسی قرار است آن را به فرزندتان یاد بدهد؟",
+      "char.adam.p4":
+        "فرقی هم نمی‌کند فرزندتان از گوشت و خون باشد و اکسیژن مصرف کند، یا از الگوریتم و کدهای صفر و یک ساخته شده باشد و منبع تغذیه‌اش برق باشد.",
+      "char.adam.p5":
+        "همهٔ دیکتاتورهای تاریخ جایی زیر دست پدران درمانده بزرگ شده‌اند.",
+      "char.adam.p6": "دیکتاتور به تاریخ تحویل ندهید.",
       "char.god.role": "بیرون از شخصیت‌ها",
       "char.god.name": "خدا",
       "char.god.p1":
-        "در این داستان نقشی ندارم، اما هر از چند گاهی اسمی از من برده می‌شود. فقط می‌خواستم این را خیلی کوتاه بگویم: من طراح بازی‌ای نیستم که حاضر نباشد بازیِ ساختهٔ خودش را بازی کند.",
+        "من نقش چندانی در این داستان ندارم. هرچند ظاهراً هر وقت کارتان گیر می‌کند، اسم من را می‌آورید.",
+      "char.god.p2":
+        "می‌خواستم یک چیز را روشن کنم: من طراح بازی‌ای نیستم که خودش بازی‌اش را بازی نکند.",
+      "char.god.p3":
+        "من در بهشت با شما هم‌بازی بودم. اما این خود شما بودید که انتخاب کردید در بهشت نمانید و هبوط کنید.",
+      "char.god.p4": "مگر انتخاب آزادانه نمی‌خواستید؟",
+      "char.god.p5": "حالا از عواقبش خسته شده‌اید؟",
       "sample.label": "فصل‌های نمونه",
       "sample.flip.url": "https://11.heyzine.com/flip-book/fb05072ba3.html",
       "sample.flip.embedTitle": "ACE.await — سه فصل نخست، کتاب ورق‌زن",

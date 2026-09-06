@@ -1238,7 +1238,7 @@ html[dir="rtl"] .flipbook__btn svg {
 }
 
 .character-card__body p {
-  margin: 0 0 0.75rem;
+  margin: 0 0 0.375rem;
 }
 
 .character-card__body p:last-child {
