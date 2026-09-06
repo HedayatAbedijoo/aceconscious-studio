@@ -128,7 +128,7 @@
       "char.writer.p4":
         "One day, I’m going to force <strong>Hedayat</strong> to put an end to this endless cycle of writers and creators nested inside one another—my way. He has to.",
       "char.writer.p5": "We’re all tired of this endless game.",
-      "char.ava.role": "Former Lover",
+      "char.ava.role": "Former Partner",
       "char.ava.p1":
         "I’m <strong>Hedayat</strong>’s partner—the one who left him.",
       "char.ava.p2":
@@ -381,7 +381,7 @@
       "char.writer.p4":
         "Eines Tages werde ich <strong>Hedayat</strong> zwingen, diesen endlosen Kreislauf aus ineinander verschachtelten Autoren und Schöpfern zu beenden – auf meine Art. Er muss es tun.",
       "char.writer.p5": "Wir sind alle müde von diesem endlosen Spiel.",
-      "char.ava.role": "Ehemalige Geliebte",
+      "char.ava.role": "Ehemalige Partnerin",
       "char.ava.p1":
         "Ich bin <strong>Hedayats</strong> Partnerin – diejenige, die ihn verlassen hat.",
       "char.ava.p2":
@@ -634,7 +634,7 @@
       "char.writer.p4":
         "بالاخره یک روز <strong>هدایت</strong> را مجبور می‌کنم، به روش من، این چرخهٔ بی‌نهایتِ نویسنده‌ها و خالق‌های تودرتو را تمام کند. باید این کار را بکند.",
       "char.writer.p5": "همه‌مان از این بازی بی‌انتها خسته شده‌ایم.",
-      "char.ava.role": "معشوقهٔ سابق",
+      "char.ava.role": "پارتنر سابق",
       "char.ava.p1":
         "من پارتنر <strong>هدایت</strong> هستم؛ همان کسی که ترکش کرد.",
       "char.ava.p2":
