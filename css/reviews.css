@@ -23,9 +23,7 @@
 }
 .reviews__label {
   margin: 0;
-  font: 500 .875rem/1.5 var(--font-mono);
-  letter-spacing: .2em;
-  text-transform: uppercase;
+  font-weight: 400;
 }
 .reviews__controls { display: flex; align-items: center; gap: .5rem; order: 1; }
 .reviews__counter { margin-inline-end: .5rem; font: .8125rem/1.5 var(--font-mono); white-space: nowrap; }
@@ -133,7 +131,6 @@
 .reviews--masthead .review__footer { grid-column: 1 / -1; grid-row: 4; justify-content: center; gap: 1.25rem 3rem; border-top: 0; padding-top: .25rem; }
 .reviews--masthead .review:not(:has(.review__overall)) .review__quotes { grid-row: 1; padding-top: 0; border-top: 0; }
 
-html[dir="rtl"] .reviews__label { font-family: var(--font-serif-fa); letter-spacing: 0; }
 html[dir="rtl"] .review__headline, html[dir="rtl"] .review__tagline { font-family: var(--font-serif-fa); letter-spacing: 0; }
 html[dir="rtl"] .review__headline { line-height: 1.4; font-size: clamp(2.5rem, 4.6vw, 4rem); }
 html[dir="rtl"] .review__tagline { line-height: 1.65; }
@@ -197,7 +194,6 @@ html[dir="rtl"] .review__excerpt { font-size: 1.0625rem; line-height: 1.95; }
 }
 @media (max-width: 380px) {
   .reviews__header { gap: .5rem; }
-  .reviews__label { font-size: .8125rem; letter-spacing: .12em; }
   .reviews__controls { gap: .3rem; }
   .reviews__counter { margin-inline-end: .2rem; font-size: .75rem; }
   .review__overall { padding-inline: 1rem; }
