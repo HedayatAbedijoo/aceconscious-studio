@@ -1,0 +1,26 @@
+{
+  "en": {
+    "source": "Layout test — not a published review",
+    "short": "One line. No score. Still a complete review.",
+    "shortText": "This preview checks a future review with one tagline and no numerical rating. It is sample content for comparing layouts, not a quotation from a critic.",
+    "long": "A longer headline for checking how the next review fits into the same space",
+    "tagline": "A second line with enough words to wrap naturally on a small screen",
+    "longText": "This is a layout test, not a published review. A future critic may write a longer excerpt, use a different rating scale, or provide no numerical score at all. The review should remain easy to read without cutting off the text or hiding its source. On a small phone, the headline can use several lines while the supporting paragraph grows naturally. The previous and next buttons remain in the same header, and a reader using a keyboard or a screen reader should always know which review is selected. This deliberately longer paragraph also checks that the source credit stays below the text instead of overlapping it."
+  },
+  "de": {
+    "source": "Layout-Test — keine veröffentlichte Rezension",
+    "short": "Ein Zitat. Keine Punktzahl. Eine vollständige Rezension.",
+    "shortText": "Diese Vorschau zeigt eine zukünftige Rezension mit einem einzigen Zitat und ohne numerische Bewertung. Der Text dient ausschließlich dem Layoutvergleich und stammt nicht von einem Kritiker.",
+    "long": "Eine längere Überschrift, um die Darstellung der nächsten Rezension im gleichen Bereich zu überprüfen",
+    "tagline": "Ein zweites Zitat mit genügend Wörtern für einen natürlichen Zeilenumbruch auf kleinen Bildschirmen",
+    "longText": "Dies ist ein Layout-Test und keine veröffentlichte Rezension. Eine zukünftige Besprechung könnte einen längeren Auszug enthalten, eine andere Bewertungsskala verwenden oder ganz auf eine Punktzahl verzichten. Die Rezension soll lesbar bleiben, ohne Text abzuschneiden oder die Quellenangabe zu verstecken. Auf einem kleinen Smartphone darf die Überschrift mehrere Zeilen benötigen, während sich die Höhe des Absatzes an seinen Inhalt anpasst. Die Schaltflächen zum Blättern bleiben oberhalb der Rezension sichtbar. Auch mit Tastatur und Screenreader soll jederzeit erkennbar sein, welche Rezension ausgewählt ist. Dieser bewusst längere Absatz prüft außerdem, ob die Quellenangabe unterhalb des Textes bleibt, statt sich mit ihm zu überlagern."
+  },
+  "fa": {
+    "source": "آزمایش چیدمان — نقد منتشرشده نیست",
+    "short": "یک جمله، بدون امتیاز؛ همچنان یک نقد کامل.",
+    "shortText": "این پیش‌نمایش، نقدی با یک جملهٔ برجسته و بدون امتیاز عددی را آزمایش می‌کند. این متن فقط برای مقایسهٔ چیدمان است و نقل‌قولی از یک منتقد نیست.",
+    "long": "عنوانی بلندتر برای بررسی اینکه نقد بعدی چگونه در همین فضا نمایش داده می‌شود",
+    "tagline": "جملهٔ دومی با تعداد واژه‌های کافی برای شکستن طبیعی سطرها در صفحه‌نمایش کوچک",
+    "longText": "این متن برای آزمایش چیدمان است و نقد منتشرشده نیست. ممکن است منتقدی در آینده گزیده‌ای طولانی‌تر بنویسد، از مقیاس امتیازدهی دیگری استفاده کند یا هیچ امتیاز عددی ندهد. نقد باید بدون بریده‌شدن متن یا پنهان‌شدن منبع، خوانا بماند. در یک تلفن کوچک، عنوان می‌تواند چند سطر را اشغال کند و ارتفاع بند توضیحی به‌طور طبیعی با متن آن سازگار شود. دکمه‌های نقد قبلی و بعدی در بالای بخش باقی می‌مانند و خواننده‌ای که از صفحه‌کلید یا صفحه‌خوان استفاده می‌کند باید همیشه بداند کدام نقد انتخاب شده است. این بند عمداً طولانی‌تر است تا مطمئن شویم نام منبع زیر متن می‌ماند و با آن هم‌پوشانی پیدا نمی‌کند."
+  }
+}
