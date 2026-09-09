@@ -120,6 +120,7 @@
     <link rel="preload" href="/assets/fonts/Vazirmatn-Regular.woff2?v=20260718f" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/css/styles.css?v=20260907b">
   <link rel="icon" href="/assets/favicon.png?v=20260718f" type="image/png">
+  <link rel="stylesheet" href="/css/reviews.css?v=3e8fb17925">
 </head>
 <body>
 
@@ -159,6 +160,7 @@
       <ul class="site-nav__links" id="nav-menu">
         <li><a href="#voices" data-i18n="nav.voices">Voices</a></li>
         <li><a href="#sample" data-i18n="nav.read">Sample</a></li>
+        <li><a href="#reviews" data-i18n="nav.reviews">Reviews</a></li>
         <li><a href="#contents" data-i18n="nav.contents">Contents</a></li>
         <li><a href="#ace" data-i18n="nav.ace">ACE</a></li>
         <li><a href="#buy" class="site-nav__cta" data-i18n="nav.buy">Buy</a></li>
@@ -599,6 +601,64 @@
       </div>
     </section>
 
+    <!-- Reviews:start -->
+<section class="reviews reviews--split" id="reviews" aria-labelledby="reviews-heading">
+  <div class="container">
+    <header class="reviews__header">
+      <h2 class="reviews__label" id="reviews-heading" data-i18n="reviews.heading">Reviews</h2>
+      <div class="reviews__controls">
+        <span class="reviews__counter" aria-hidden="true">1 of 1</span>
+        <button class="reviews__arrow" type="button" data-review-prev aria-label="Previous review" data-i18n-attr="aria-label:reviews.previous" aria-controls="review-slides" disabled>
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 12H5m6-6-6 6 6 6"/></svg>
+        </button>
+        <button class="reviews__arrow" type="button" data-review-next aria-label="Next review" data-i18n-attr="aria-label:reviews.next" aria-controls="review-slides" disabled>
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
+        </button>
+      </div>
+    </header>
+    <div class="reviews__slides" id="review-slides">
+      <article class="review" data-review-id="booklife-2026" aria-labelledby="booklife-quote">
+        <div class="review__copy">
+        <div class="review__quotes">
+          <blockquote class="review__headline" id="booklife-quote"><p data-i18n="reviews.booklife.headline">“A highly distinctive identity”</p></blockquote>
+          <blockquote class="review__tagline"><p data-i18n="reviews.booklife.tagline">“An inventive approach to AI and consciousness”</p></blockquote>
+        </div>
+        <blockquote class="review__excerpt" cite="https://booklife.com/project/ace-await-110051"><p data-i18n="reviews.booklife.excerpt">“ACE.await takes an inventive approach to AI and consciousness by linking artificial creations with fictional characters who become aware of—and resist—their creators. Its nested structure of writers creating writers mirrors Hedayat’s relationship with the digital beings Adam and Eve, turning authorship and programming into parallel questions about free will and control. The abundance of philosophical concepts can make the premise feel crowded, but the interplay between storytelling, technology, and consciousness gives the work a highly distinctive identity.”</p></blockquote>
+        <footer class="review__footer">
+          <div class="review__credit">
+            <p class="review__translation" data-i18n="reviews.translation"></p>
+          </div>
+          <a class="review__link" href="https://booklife.com/project/ace-await-110051" target="_blank" rel="noopener noreferrer">
+            <span data-i18n="reviews.full">Read the full review</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
+            <span class="reviews__sr-only" data-i18n="reviews.newTab">(opens in a new tab)</span>
+          </a>
+        </footer>
+        </div>
+        <div class="review__score-panel">
+          <div class="review__score-paper" aria-hidden="true"></div>
+          <div class="review__overall">
+            <cite class="review__source review__score-source"><bdi lang="en" dir="ltr">The BookLife Prize</bdi></cite>
+            <span class="reviews__sr-only" data-i18n="reviews.overall">Overall score</span>
+            <div class="review__rating"><bdi dir="ltr"><strong>7.5</strong><span> / 10</span></bdi></div>
+          </div>
+          <div class="review__categories">
+            <p class="review__scale" data-i18n="reviews.scale">Category scores / 10</p>
+            <dl class="review__scores">
+              <div><dt data-i18n="reviews.originality">Originality</dt><dd><bdi dir="ltr">8</bdi></dd></div>
+              <div><dt data-i18n="reviews.character">Character / Execution</dt><dd><bdi dir="ltr">8</bdi></dd></div>
+              <div><dt data-i18n="reviews.plot">Plot / Idea</dt><dd><bdi dir="ltr">7</bdi></dd></div>
+              <div><dt data-i18n="reviews.prose">Prose</dt><dd><bdi dir="ltr">7</bdi></dd></div>
+            </dl>
+          </div>
+        </div>
+      </article>
+    </div>
+    <p class="reviews__sr-only reviews__status" role="status" aria-live="polite" aria-atomic="true">Review 1 of 1</p>
+  </div>
+</section>
+    <!-- Reviews:end -->
+
     <!-- Buy -->
     <section class="buy" id="buy">
       <div class="container reveal">
@@ -733,9 +793,10 @@
   </footer>
 
   <script src="/js/asset-version.js?v=20260719a"></script>
-  <script src="/js/i18n.js?v=20260907e" defer></script>
+  <script src="/js/i18n.js?v=0c44ee822f" defer></script>
   <script src="/js/cover-flip.js?v=20260718f" defer></script>
   <script src="/js/main.js?v=20260718f" defer></script>
+  <script src="/js/reviews.js?v=dcb6608510" defer></script>
   <script src="/js/analytics-config.js?v=20260905a" defer></script>
   <script src="/js/analytics.js?v=20260905a" defer></script>
 </body>

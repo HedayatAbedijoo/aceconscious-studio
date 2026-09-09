@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Reviews — compare two designs · ACE.await</title>
+  <link rel="stylesheet" href="/previews/reviews/compare.css">
+  <script src="/previews/reviews/compare.js" defer></script>
+</head>
+<body>
+  <header class="compare">
+    <div class="compare__title"><strong>ACE.await</strong><span>Reviews · design comparison</span></div>
+    <div class="compare__controls">
+      <fieldset><legend>Design</legend><div class="compare__segments">
+        <button type="button" data-layout="split" aria-pressed="true">A · Editorial split</button>
+        <button type="button" data-layout="masthead" aria-pressed="false">B · Wide masthead</button>
+      </div></fieldset>
+      <fieldset><legend>Language</legend><div class="compare__segments">
+        <button type="button" data-language="en" aria-pressed="true" lang="en">EN</button>
+        <button type="button" data-language="de" aria-pressed="false" lang="de">DE</button>
+        <button type="button" data-language="fa" aria-pressed="false" lang="fa">FA</button>
+      </div></fieldset>
+      <label class="compare__field">Preview width<select id="preview-width"><option value="window">Window</option><option value="390">Phone · 390px</option><option value="320">Small phone · 320px</option><option value="768">Tablet · 768px</option></select></label>
+      <label class="compare__field">Content<select id="preview-content"><option value="booklife">BookLife review</option><option value="examples">Carousel test examples</option></select></label>
+    </div>
+    <p class="compare__note"><span id="preview-description">A · Quotes beside a compact score card.</span><a id="open-preview" href="/previews/reviews/view/en/index.html#reviews" target="_blank" rel="noopener">Open full page ↗</a></p>
+  </header>
+  <main class="compare__stage">
+    <iframe id="preview-frame" title="ACE.await review design A, English" src="/previews/reviews/view/en/index.html#reviews"></iframe>
+  </main>
+  <noscript><p class="compare__noscript">Open <a href="/previews/reviews/view/en/index.html#reviews">Design A</a> or <a href="/previews/reviews/view/en/masthead.html#reviews">Design B</a>. JavaScript enables the comparison controls.</p></noscript>
+</body>
+</html>
