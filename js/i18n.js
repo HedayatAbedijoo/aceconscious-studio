@@ -294,6 +294,8 @@
       "buy.amazon": "Amazon",
       "buy.direct": "Direct EPUB / PDF",
       "author.label": "The Author",
+      "author.verse":
+        "I'm neck-deep in debt.<br>To my past,<br>I owe regret.<br>To my future,<br>I owe fear.<br>I pay off my debt,<br>with distractions.",
       "author.p1":
         "I believe the next revolution in modern societies will unfold without killing, bloodshed, war, or conflict. I think it will begin within small and medium-sized businesses, led by the people who own and work in them—places where ideas from capitalism, socialism, and communism might come together in a new form.",
       "author.p2":
@@ -578,6 +580,8 @@
       "buy.amazon": "Amazon",
       "buy.direct": "Direkt EPUB / PDF",
       "author.label": "Der Autor",
+      "author.verse":
+        "Bis zum Hals in Schulden.<br>Meiner Vergangenheit<br>schulde ich Reue.<br>Meiner Zukunft<br>schulde ich Angst.<br>Meine Schulden tilge ich<br>mit Ablenkung.",
       "author.p1":
         "Meiner Meinung nach wird die nächste Revolution in modernen Gesellschaften ohne Massaker, Blutvergießen, Krieg oder gewaltsame Auseinandersetzungen stattfinden. Ich glaube, sie wird in kleinen und mittleren Unternehmen beginnen – getragen von den Menschen, denen sie gehören und die dort arbeiten. Vielleicht finden dort Ideen aus Kapitalismus, Sozialismus und Kommunismus in einer neuen Form zusammen.",
       "author.p2":
@@ -861,6 +865,8 @@
       "buy.amazon": "Amazon",
       "buy.direct": "EPUB / PDF مستقیم",
       "author.label": "نویسنده",
+      "author.verse":
+        "تا خرخره بدهکارم<br>به گذشته‌‌هایم<br>حسرت بدهکارم<br>به آینده‌ام ترس<br>و با حواس پرتی<br>بدهی‌هایم را تسویه می‌کنم",
       "author.p1":
         "به نظر من، انقلاب بعدی در جوامع مدرن بدون کشتار، خون‌ریزی، جنگ و درگیری رخ خواهد داد. فکر می‌کنم این انقلاب از دل بیزنس‌های کوچک و متوسط و به دست مالکان و کارکنان آن‌ها آغاز شود؛ جایی که شاید ایده‌هایی از سرمایه‌داری، سوسیالیسم و کمونیسم در قالبی تازه به هم برسند.",
       "author.p2":
