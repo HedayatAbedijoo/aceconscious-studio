@@ -1,6 +1,6 @@
 # Adding a book review
 
-The website uses the final Design A. `reviews.html` is the shared source for all homepages; `js/reviews.js` counts the articles and enables navigation automatically. The first review displays **1 of 1** with disabled arrows. Additional reviews enable the arrows, keyboard navigation, and swiping without any controller changes.
+The website uses the final Design A immediately before **Voices of the Characters**. `reviews.html` is the shared source for all homepages; `js/reviews.js` counts the articles and enables navigation automatically. The first review displays **1 of 1** with disabled arrows. Additional reviews enable the arrows, keyboard navigation, and swiping without any controller changes.
 
 1. Copy an `<article class="review">…</article>` block inside `reviews.html` and place it in the desired review order.
 2. Give the article a unique `data-review-id`, heading `id`, and matching `aria-labelledby`. Replace its quotes, short excerpt, source name, full-review URL, and scores. Keep the quotes, excerpt, and footer inside `review__copy` and the rating inside `review__score-panel`; these let the desktop text flow without gaps caused by the score card. Keep the source beside the rating. If the review has no rating, omit the whole score panel and put its source in the footer. The second tagline is optional.

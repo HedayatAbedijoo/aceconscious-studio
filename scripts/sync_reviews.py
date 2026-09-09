@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Copy the shared Reviews section into the site's static homepages.
+"""Place the shared Reviews section before Voices on the static homepages.
 
 Edit content/reviews.html and its js/i18n.js translations, then run:
   python3 scripts/sync_reviews.py
@@ -35,21 +35,23 @@ def load_section():
 
 
 def replace_section(page, section):
-    block = f"{START}\n{section}\n    {END}"
+    block = f"    {START}\n{section}\n    {END}\n\n"
     if START in page:
         if END not in page:
             raise ValueError("The existing Reviews section is missing its end marker.")
-        return re.sub(re.escape(START) + r".*?" + re.escape(END), lambda _: block, page, count=1, flags=re.S)
-    sample = re.search(r'<section\b[^>]*\bid="sample"[^>]*>.*?</section>', page, re.S)
-    if not sample:
-        raise ValueError("Cannot find the Sample section.")
-    return page[:sample.end()] + "\n\n    " + block + page[sample.end():]
+        page = re.sub(r'^[ \t]*' + re.escape(START) + r'.*?' + re.escape(END) + r'\n{0,2}', '', page, count=1, flags=re.S | re.M)
+    voices = re.search(r'^[ \t]*(?:<!-- Characters -->\n[ \t]*)?<section\b[^>]*\bid="voices"[^>]*>', page, re.M)
+    if not voices:
+        raise ValueError("Cannot find the Voices section.")
+    return page[:voices.start()] + block + page[voices.start():]
 
 
 def update_page(page, section):
     page = replace_section(page, section)
-    if 'data-i18n="nav.reviews"' not in page:
-        page = re.sub(r'(<li><a href="#sample"[^>]*>.*?</a></li>)', r'\1\n        <li><a href="#reviews" data-i18n="nav.reviews">Reviews</a></li>', page, count=1)
+    review_link = re.search(r'<li><a href="#reviews"[^>]*>.*?</a></li>', page)
+    review_link = review_link.group() if review_link else '<li><a href="#reviews" data-i18n="nav.reviews">Reviews</a></li>'
+    page = re.sub(r'^[ \t]*<li><a href="#reviews"[^>]*>.*?</a></li>\n?', '', page, count=1, flags=re.M)
+    page = re.sub(r'<li><a href="#voices"[^>]*>.*?</a></li>', lambda m: review_link + '\n        ' + m.group(), page, count=1)
     stylesheet = f'<link rel="stylesheet" href="{asset_url("css/reviews.css")}">'
     if re.search(r'<link\b[^>]*href="/css/reviews\.css(?:\?[^"]*)?"[^>]*>', page):
         page = re.sub(r'<link\b[^>]*href="/css/reviews\.css(?:\?[^"]*)?"[^>]*>', stylesheet, page)

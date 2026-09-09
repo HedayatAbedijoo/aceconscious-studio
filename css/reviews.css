@@ -5,7 +5,7 @@
   background: linear-gradient(160deg, rgba(247, 243, 235, .42), transparent 70%);
 }
 .reviews.reviews--split { padding-bottom: 2rem; }
-.reviews--split + .toc { padding-top: 2rem; }
+.reviews--split + .characters { padding-top: 2rem; }
 .reviews [hidden] { display: none !important; }
 .reviews__header {
   display: flex;

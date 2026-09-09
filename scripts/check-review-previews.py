@@ -101,8 +101,8 @@ with sync_playwright() as p:
                 if width <= 900:
                     order = ["quote", "overall", "categories", "excerpt", "footer"] if layout == "split" else ["overall", "quote", "categories", "excerpt", "footer"]
                     check(all(geometry[a]["bottom"] <= geometry[b]["top"] + 1 for a, b in zip(order, order[1:])), f"Correct mobile order: {language}/{layout}/{width}")
-                check(page.evaluate("document.querySelector('#sample').compareDocumentPosition(document.querySelector('#reviews')) & Node.DOCUMENT_POSITION_FOLLOWING"), "Reviews after Sample")
-                check(page.evaluate("document.querySelector('#reviews').compareDocumentPosition(document.querySelector('#contents')) & Node.DOCUMENT_POSITION_FOLLOWING"), "Reviews before Contents")
+                check(section.evaluate("el => el.nextElementSibling?.id === 'voices'"), "Reviews immediately before Voices")
+                check(page.locator('.site-nav__links a').evaluate_all("links => links.slice(0, 3).map(link => link.hash)") == ["#reviews", "#voices", "#sample"], "Navigation follows section order")
                 if args.website:
                     check(page.locator('script[src*="/previews/"]').count() == 0, "No preview scripts on homepage")
                     if width > 900:

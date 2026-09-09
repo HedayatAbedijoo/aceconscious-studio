@@ -16,7 +16,7 @@ Alternatively, build the pages and start a local static server in one command:
 python3 scripts/preview-reviews.py
 ```
 
-Open **http://127.0.0.1:8765/previews/reviews/**. Select A or B, English/German/Persian, and a viewport width. “Open full page” opens the selected design in the original homepage context; scroll up to Sample or down to Contents.
+Open **http://127.0.0.1:8765/previews/reviews/**. Select A or B, English/German/Persian, and a viewport width. “Open full page” opens the selected design in the original homepage context; Reviews appears immediately before Voices of the Characters, followed by Sample and Contents.
 
 The preview generator replaces the Reviews section in copies of the existing locale homepages. Each language has static pages for A, B, and their carousel examples. Running this preview generator does not change or publish production homepages. `css/reviews.css` and `js/reviews.js` are shared by both designs, and translations use the existing `js/i18n.js` dictionary. The comparison and generated pages are marked `noindex`.
 
