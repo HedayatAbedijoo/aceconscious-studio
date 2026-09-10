@@ -202,3 +202,54 @@ html[dir="rtl"] .review__excerpt { font-size: 1.0625rem; line-height: 1.95; }
 @media (prefers-reduced-motion: reduce) {
   .reviews *, .reviews *::after { animation: none !important; transition: none !important; }
 }
+
+/* Unscored media review: selected publisher-card layout. */
+.review.media-review { display: grid; gap: 1.8rem 3.5rem; grid-template-columns: minmax(0, 1fr); }
+.media-review a { color: inherit; text-underline-offset: .22em; }
+.media-review__publisher { display: flex; align-items: center; gap: 1.25rem; min-width: 0; }
+.media-review__logo { display: block; width: 82px; height: auto; aspect-ratio: 1643 / 1602; object-fit: contain; flex-shrink: 0; }
+.media-review__identity { min-width: 0; }
+.media-review__name { font: 600 1.2rem/1.35 var(--font-serif); text-decoration: none; }
+.media-review__name:hover { text-decoration: underline; }
+.media-review__domain { font: .8125rem/1.6 var(--font-mono); color: var(--ink-muted); margin-top: .4rem !important; }
+.media-review__publication { font-size: .875rem; line-height: 1.6; color: var(--ink-muted); }
+.media-review__eyebrow { color: var(--ink-muted); font-size: .875rem; margin-bottom: 1.2rem !important; }
+.media-review__quote { font: 600 clamp(2.5rem, 4.25vw, 4.1rem)/1.12 var(--font-serif); letter-spacing: -.052em; text-wrap: balance; }
+.media-review__note { color: var(--ink-muted); font-size: .8125rem; margin-top: 1.3rem !important; }
+.media-review__secondary-quote { max-width: 42rem; font: 400 clamp(1.3rem, 2.2vw, 1.8rem)/1.6 var(--font-serif); color: var(--ink-soft); text-wrap: pretty; }
+.media-review__footer { border-top: 1px solid rgba(13,13,13,.23); padding-top: .75rem; }
+.media-review__footer .review__link { font-size: .9375rem; }
+
+/* A: the publisher occupies the same space as BookLife's score card. */
+.review.media-review--a { grid-template-columns: minmax(0, 2.1fr) minmax(0, 1fr); }
+.media-review--a .media-review__feature { grid-column: 1; grid-row: 1; }
+.media-review--a .media-review__publisher { grid-column: 2; grid-row: 1 / 4; align-self: start; flex-direction: column; align-items: flex-start; padding: 2rem; background: rgba(247,243,235,.72); border: 1px solid rgba(92,83,72,.25); box-shadow: 0 14px 26px -22px rgba(42,37,32,.5); }
+.media-review--a .media-review__logo { width: 116px; margin-bottom: .5rem; }
+.media-review--a .media-review__name { font-size: 1.55rem; }
+.media-review--a .media-review__publication { margin-top: 1rem; padding-top: 1.25rem; border-top: 1px solid rgba(13,13,13,.2); width: 100%; }
+.media-review--a .media-review__body { grid-column: 1; grid-row: 2; }
+.media-review--a .media-review__body::before { content: ""; display: block; width: 4rem; height: 3px; background: var(--ink); margin-bottom: 1.5rem; }
+.media-review--a .media-review__footer { grid-column: 1; grid-row: 3; }
+
+
+.media-review .media-review__excerpt { margin-top: 1.75rem; max-width: 46rem; font-size: 1rem; line-height: 1.85; color: var(--ink-soft); }
+.media-review__excerpt strong { font-weight: 600; color: var(--ink); }
+html[dir="rtl"] .media-review__quote { font-family: var(--font-serif-fa); letter-spacing: 0; line-height: 1.5; }
+html[dir="rtl"] .media-review__secondary-quote { font-family: var(--font-serif-fa); line-height: 1.8; }
+html[dir="rtl"] .media-review__excerpt { font-size: 1.0625rem; line-height: 2; }
+
+@media (max-width: 900px) {
+  .review.media-review--a { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }
+  .media-review--a .media-review__publisher { grid-column: 1; grid-row: 1; flex-direction: row; align-items: center; flex-wrap: wrap; padding: 1.25rem; }
+  .media-review--a .media-review__logo { width: 72px; margin: 0; }
+  .media-review--a .media-review__name { font-size: 1.25rem; }
+  .media-review--a .media-review__publication { margin: 0; padding-top: .75rem; display: flex; flex-wrap: wrap; justify-content: space-between; gap: .5rem; }
+  .media-review--a .media-review__feature { grid-row: 2; }
+  .media-review--a .media-review__body { grid-row: 3; }
+  .media-review--a .media-review__footer { grid-row: 4; }
+}
+@media (max-width: 600px) {
+  .media-review__publisher { flex-wrap: wrap; gap: .9rem; }
+  .media-review__logo { width: 64px; }
+  .media-review__identity { flex: 1 1 9rem; }
+}

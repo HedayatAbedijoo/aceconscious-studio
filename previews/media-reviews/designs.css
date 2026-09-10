@@ -1,0 +1,33 @@
+/* Unselected reference compositions only. Design A is in /css/reviews.css. */
+/* B: a journal masthead, generous central quote, two text columns. */
+.media-review--b { border-top: 3px solid var(--ink); }
+.media-review--b .media-review__publisher { border-bottom: 1px solid rgba(13,13,13,.3); padding-block: 1.15rem; }
+.media-review--b .media-review__publication { margin-inline-start: auto; text-align: end; }
+.media-review--b .media-review__feature { text-align: center; padding: .75rem 2rem 1.25rem; }
+.media-review--b .media-review__eyebrow { display: none; }
+.media-review--b .media-review__quote { max-width: 54rem; margin-inline: auto; font-size: clamp(2.5rem, 4.9vw, 4.8rem); }
+.media-review--b .media-review__body { border-top: 1px solid rgba(13,13,13,.25); padding-top: 1.5rem; }
+.media-review--b .media-review__footer { text-align: end; }
+
+/* C: an ink panel gives the quotation the visual weight of a book jacket. */
+.review.media-review--c { grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); column-gap: 2.75rem; row-gap: 0; }
+.media-review--c .media-review__feature { grid-column: 1; grid-row: 1 / 4; padding: clamp(1.75rem, 3vw, 3rem); background: var(--parchment-dark); color: var(--white); display: flex; flex-direction: column; justify-content: center; border-top: 5px solid var(--accent); }
+.media-review--c .media-review__eyebrow, .media-review--c .media-review__note { color: #d4c4a8; }
+.media-review--c .media-review__quote { font-size: clamp(2.6rem, 4vw, 3.8rem); }
+.media-review--c .media-review__publisher { grid-column: 2; grid-row: 1; flex-wrap: wrap; border-bottom: 1px solid rgba(13,13,13,.23); padding-bottom: 1.4rem; margin-bottom: 1.4rem; }
+.media-review--c .media-review__logo { width: 68px; }
+.media-review--c .media-review__publication { width: 100%; display: flex; flex-wrap: wrap; justify-content: space-between; gap: .5rem; }
+.media-review--c .media-review__body { grid-column: 2; grid-row: 2; }
+.media-review--c .media-review__footer { grid-column: 2; grid-row: 3; margin-top: 1.4rem; }
+
+@media (max-width: 900px) {
+  .review.media-review--c { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }
+  .media-review--c .media-review__feature { grid-column: 1; grid-row: 1; min-height: 350px; }
+  .media-review--c .media-review__publisher { grid-column: 1; grid-row: 2; margin: 0; }
+  .media-review--c .media-review__body { grid-column: 1; grid-row: 3; }
+  .media-review--c .media-review__footer { grid-column: 1; grid-row: 4; margin: 0; }
+}
+@media (max-width: 600px) {
+  .media-review--b .media-review__publication { width: 100%; text-align: start; display: flex; flex-wrap: wrap; justify-content: space-between; gap: .5rem; }
+  .media-review--b .media-review__feature { padding: .5rem 0; }
+}
