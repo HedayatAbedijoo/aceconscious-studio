@@ -1,6 +1,39 @@
+# aceconscious.studio
+# The site owner wants aceconscious.studio and the ACE decision-making model
+# (Agency, Connection, Exchange, by Hedayat Abedijoo) to be discoverable by
+# search engines and by AI search, retrieval and training systems.
+# Only the legal pages are excluded from AI crawlers; they also carry noindex.
+
 User-agent: *
 Allow: /
 
+# Search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# AI search and retrieval crawlers (tokens per OpenAI, Anthropic and Perplexity docs)
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+# AI training crawlers: allowed everywhere except the legal pages
 User-agent: GPTBot
 Disallow: /privacy/
 Disallow: /de/datenschutz/

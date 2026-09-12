@@ -4,60 +4,60 @@
   <url>
     <loc>https://aceconscious.studio/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://aceconscious.studio/"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://aceconscious.studio/de"/>
-    <xhtml:link rel="alternate" hreflang="fa" href="https://aceconscious.studio/fa"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://aceconscious.studio/de/"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://aceconscious.studio/fa/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://aceconscious.studio/"/>
-    <lastmod>2026-08-30</lastmod>
+    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://aceconscious.studio/de</loc>
+    <loc>https://aceconscious.studio/de/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://aceconscious.studio/"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://aceconscious.studio/de"/>
-    <xhtml:link rel="alternate" hreflang="fa" href="https://aceconscious.studio/fa"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://aceconscious.studio/de/"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://aceconscious.studio/fa/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://aceconscious.studio/"/>
-    <lastmod>2026-08-30</lastmod>
+    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://aceconscious.studio/fa</loc>
+    <loc>https://aceconscious.studio/fa/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://aceconscious.studio/"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://aceconscious.studio/de"/>
-    <xhtml:link rel="alternate" hreflang="fa" href="https://aceconscious.studio/fa"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://aceconscious.studio/de/"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://aceconscious.studio/fa/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://aceconscious.studio/"/>
-    <lastmod>2026-08-30</lastmod>
+    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://aceconscious.studio/ace</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://aceconscious.studio/ace"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://aceconscious.studio/ace-de"/>
-    <xhtml:link rel="alternate" hreflang="fa" href="https://aceconscious.studio/ace-fa"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://aceconscious.studio/ace"/>
-    <lastmod>2026-09-12</lastmod>
+    <loc>https://aceconscious.studio/ace/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aceconscious.studio/ace/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://aceconscious.studio/ace-de/"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://aceconscious.studio/ace-fa/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aceconscious.studio/ace/"/>
+    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://aceconscious.studio/ace-de</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://aceconscious.studio/ace"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://aceconscious.studio/ace-de"/>
-    <xhtml:link rel="alternate" hreflang="fa" href="https://aceconscious.studio/ace-fa"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://aceconscious.studio/ace"/>
-    <lastmod>2026-09-12</lastmod>
+    <loc>https://aceconscious.studio/ace-de/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aceconscious.studio/ace/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://aceconscious.studio/ace-de/"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://aceconscious.studio/ace-fa/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aceconscious.studio/ace/"/>
+    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://aceconscious.studio/ace-fa</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://aceconscious.studio/ace"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://aceconscious.studio/ace-de"/>
-    <xhtml:link rel="alternate" hreflang="fa" href="https://aceconscious.studio/ace-fa"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://aceconscious.studio/ace"/>
-    <lastmod>2026-09-12</lastmod>
+    <loc>https://aceconscious.studio/ace-fa/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aceconscious.studio/ace/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://aceconscious.studio/ace-de/"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://aceconscious.studio/ace-fa/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aceconscious.studio/ace/"/>
+    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>

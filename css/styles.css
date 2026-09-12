@@ -279,6 +279,17 @@ a:hover {
   flex-shrink: 0;
 }
 
+/* The menu is a <nav> wrapping a <ul>; the list inherits the flex layout of its wrapper. */
+.site-nav__links > ul {
+  display: flex;
+  flex-direction: inherit;
+  align-items: center;
+  gap: inherit;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
 .site-nav__links a {
   text-decoration: none;
   font-size: 0.875rem;
@@ -666,6 +677,18 @@ section {
   margin-top: 0.95rem;
   font-weight: 600;
   color: var(--ink);
+}
+
+.hero__pitch p.hero__pitch-ace a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+  text-decoration-color: rgba(13, 13, 13, 0.35);
+}
+
+.hero__pitch p.hero__pitch-ace a:hover {
+  text-decoration-color: currentColor;
 }
 
 .hero__meta {

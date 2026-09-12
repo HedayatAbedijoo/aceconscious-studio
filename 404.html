@@ -25,14 +25,14 @@
   <meta name="description" content="ACE.await is a novel about the decision model of the future: a shared language for humans and artificial intelligence on the way to a new social harmony.">
   <meta name="keywords" content="ACE.await, visionary fiction, philosophical fiction, novel of ideas, AI novel, Adam and Eve AI, artificial intelligence, metafiction, decentralized internet, proper decisions, Agency Connection Exchange, ACE game, Cologne novel, nested writers, blackout Germany">
   <meta name="author" content="Hedayat Abedijoo">
-  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="robots" content="noindex, follow">
   <meta name="theme-color" content="#e8dcc8">
   <link rel="canonical" href="https://aceconscious.studio/">
   <link rel="alternate" hreflang="en" href="https://aceconscious.studio/">
-  <link rel="alternate" hreflang="de" href="https://aceconscious.studio/de">
-  <link rel="alternate" hreflang="fa" href="https://aceconscious.studio/fa">
+  <link rel="alternate" hreflang="de" href="https://aceconscious.studio/de/">
+  <link rel="alternate" hreflang="fa" href="https://aceconscious.studio/fa/">
   <link rel="alternate" hreflang="x-default" href="https://aceconscious.studio/">
-  <meta property="og:site_name" content="Ace Conscious Studio">
+  <meta property="og:site_name" content="ACE Conscious Studio">
   <meta property="og:title" content="ACE Conscious Studio - ACE is a decision model for humans, organizations and AI.">
   <meta property="og:description" content="ACE.await is a novel about the decision model of the future: a shared language for humans and artificial intelligence on the way to a new social harmony.">
   <meta property="og:url" content="https://aceconscious.studio/">
@@ -57,21 +57,54 @@
     "@context": "https://schema.org",
     "@graph": [
       {
+        "@type": "WebPage",
+        "@id": "https://aceconscious.studio/#webpage",
+        "url": "https://aceconscious.studio/",
+        "name": "ACE Conscious Studio - ACE is a decision model for humans, organizations and AI.",
+        "description": "ACE.await is a novel about the decision model of the future: a shared language for humans and artificial intelligence on the way to a new social harmony.",
+        "inLanguage": "en",
+        "isPartOf": {
+          "@id": "https://aceconscious.studio/#website"
+        },
+        "about": {
+          "@id": "https://aceconscious.studio/#ace-await"
+        },
+        "mainEntity": {
+          "@id": "https://aceconscious.studio/#ace-await"
+        },
+        "publisher": {
+          "@id": "https://aceconscious.studio/#organization"
+        }
+      },
+      {
         "@type": "WebSite",
         "@id": "https://aceconscious.studio/#website",
         "url": "https://aceconscious.studio/",
-        "name": "Ace Conscious Studio",
+        "name": "ACE Conscious Studio",
+        "alternateName": "Ace Conscious Studio",
         "description": "Ace Conscious Studio — the home of Hedayat Abedijoo's ideas and writing, and the publisher of ACE.await and the ACE decision model: Agency, Connection, Exchange.",
-        "inLanguage": ["en", "de"],
-        "publisher": { "@id": "https://aceconscious.studio/#organization" }
+        "inLanguage": [
+          "en",
+          "de",
+          "fa"
+        ],
+        "publisher": {
+          "@id": "https://aceconscious.studio/#organization"
+        }
       },
       {
         "@type": "Organization",
         "@id": "https://aceconscious.studio/#organization",
-        "name": "Ace Conscious Studio",
+        "name": "ACE Conscious Studio",
+        "alternateName": "Ace Conscious Studio",
         "url": "https://aceconscious.studio/",
         "logo": "https://aceconscious.studio/assets/logo-icon.png",
-        "sameAs": ["https://www.instagram.com/ace.await/"],
+        "founder": {
+          "@id": "https://aceconscious.studio/#hedayat-abedijoo"
+        },
+        "sameAs": [
+          "https://www.instagram.com/ace.await/"
+        ],
         "contactPoint": {
           "@type": "ContactPoint",
           "contactType": "customer support",
@@ -79,22 +112,49 @@
         }
       },
       {
-        "@type": "Book",
-        "@id": "https://aceconscious.studio/#book",
-        "name": "ACE.await",
-        "alternateName": ["ACE await", "ACE. await"],
-        "author": {
-          "@type": "Person",
-          "name": "Hedayat Abedijoo",
-          "alternateName": "Hedayat the second"
+        "@type": "Person",
+        "@id": "https://aceconscious.studio/#hedayat-abedijoo",
+        "name": "Hedayat Abedijoo",
+        "alternateName": "Hedayat the second",
+        "url": "https://aceconscious.studio/#author",
+        "image": "https://aceconscious.studio/assets/author.png"
+      },
+      {
+        "@type": "CreativeWork",
+        "@id": "https://aceconscious.studio/ace/#ace-model",
+        "name": "ACE",
+        "alternateName": "Agency, Connection, Exchange",
+        "description": "ACE uses four Agency phases: Exploration, Stabilization, Expansion and Integration. A decision-making model by Hedayat Abedijoo for individuals, organizations and AI.",
+        "url": "https://aceconscious.studio/ace/",
+        "creator": {
+          "@id": "https://aceconscious.studio/#hedayat-abedijoo"
         },
-        "publisher": { "@id": "https://aceconscious.studio/#organization" },
+        "isPartOf": {
+          "@id": "https://aceconscious.studio/#ace-await"
+        }
+      },
+      {
+        "@type": "Book",
+        "@id": "https://aceconscious.studio/#ace-await",
+        "name": "ACE.await",
+        "alternateName": [
+          "ACE await",
+          "ACE. await"
+        ],
+        "author": {
+          "@id": "https://aceconscious.studio/#hedayat-abedijoo"
+        },
+        "publisher": {
+          "@id": "https://aceconscious.studio/#organization"
+        },
         "url": "https://aceconscious.studio/",
         "image": "https://aceconscious.studio/assets/cover.png",
         "bookFormat": "https://schema.org/EBook",
         "inLanguage": "en",
         "datePublished": "2026",
-        "sameAs": ["https://www.instagram.com/ace.await/"],
+        "sameAs": [
+          "https://www.instagram.com/ace.await/"
+        ],
         "genre": [
           "Visionary fiction",
           "Philosophical fiction",
@@ -105,10 +165,25 @@
         "keywords": "ACE.await, visionary fiction, philosophical fiction, novel of ideas, AI novel, Adam and Eve AI, artificial intelligence, metafiction, decentralized internet, proper decisions, Agency Connection Exchange, ACE game, Cologne novel, nested writers, blackout Germany",
         "description": "ACE.await is a novel about the decision model of the future: a shared language for humans and artificial intelligence on the way to a new social harmony. An anonymous sender invites Hedayat—an Iranian immigrant in Cologne who leads a software team building a decentralized internet—to play the ACE game: Agency, Connection, Exchange. As erratic blackouts sweep across Germany, his two artificial intelligences, Adam and Eve, return with a bet he cannot accept, and the novel he has failed to finish for ten years begins deciding for itself who its author will be. A story about creation and fatherhood, about the decisions that cause harm, and about whether Adam and Eve inherited only human intelligence—or the human tendency to decide wrongly as well.",
         "about": [
-          { "@type": "Thing", "name": "Artificial intelligence" },
-          { "@type": "Thing", "name": "Consciousness" },
-          { "@type": "Thing", "name": "Personal harmony" },
-          { "@type": "Thing", "name": "Social harmony" }
+          {
+            "@id": "https://aceconscious.studio/ace/#ace-model"
+          },
+          {
+            "@type": "Thing",
+            "name": "Artificial intelligence"
+          },
+          {
+            "@type": "Thing",
+            "name": "Consciousness"
+          },
+          {
+            "@type": "Thing",
+            "name": "Personal harmony"
+          },
+          {
+            "@type": "Thing",
+            "name": "Social harmony"
+          }
         ]
       }
     ]
@@ -118,7 +193,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Bebas+Neue&family=Caveat+Brush&family=JetBrains+Mono:wght@400;500&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=Permanent+Marker&display=swap" rel="stylesheet">
     <link rel="preload" href="/assets/fonts/Vazirmatn-Regular.woff2?v=20260718f" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/css/styles.css?v=6af82bb5ab">
+  <link rel="stylesheet" href="/css/styles.css?v=261968ab4a">
   <link rel="icon" href="/assets/favicon.png?v=20260718f" type="image/png">
   <link rel="stylesheet" href="/css/reviews.css?v=07e7564b9f">
 </head>
@@ -139,7 +214,7 @@
       <a class="site-nav__logo" href="#top">
         <img
           class="site-nav__logo-icon"
-          src="/assets/logo-icon.png?v=20260718f"
+          src="/assets/logo-icon-120.png?v=20260912a"
           alt=""
           width="40"
           height="40"
@@ -150,22 +225,24 @@
       <div class="site-nav__actions">
         <nav class="site-nav__langs" id="lang-menu" aria-label="Language">
           <a href="/" class="site-nav__lang is-active" data-set-lang="en" lang="en" hreflang="en" aria-current="true">EN</a>
-          <a href="/de" class="site-nav__lang" data-set-lang="de" lang="de" hreflang="de">DE</a>
-          <a href="/fa" class="site-nav__lang" data-set-lang="fa" lang="fa" hreflang="fa">FA</a>
+          <a href="/de/" class="site-nav__lang" data-set-lang="de" lang="de" hreflang="de">DE</a>
+          <a href="/fa/" class="site-nav__lang" data-set-lang="fa" lang="fa" hreflang="fa">FA</a>
         </nav>
         <button class="nav-toggle" type="button" data-i18n-attr="aria-label:nav.openMenu" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu">
           <span></span><span></span><span></span>
         </button>
       </div>
-      <ul class="site-nav__links" id="nav-menu">
-        <li><a href="#reviews" data-i18n="nav.reviews">Reviews</a></li>
-        <li><a href="#voices" data-i18n="nav.voices">Voices</a></li>
-        <li><a href="#sample" data-i18n="nav.read">Sample</a></li>
-        <li><a href="#contents" data-i18n="nav.contents">Contents</a></li>
-        <li><a href="/ace" data-i18n="nav.ace">ACE</a></li>
-        <li><a href="#buy" class="site-nav__cta" data-i18n="nav.buy">Buy</a></li>
-        <li><a href="#author" data-i18n="nav.author">Author</a></li>
-      </ul>
+      <nav class="site-nav__links" id="nav-menu" aria-label="Main navigation" data-i18n-attr="aria-label:nav.mainAria">
+        <ul>
+          <li><a href="#reviews" data-i18n="nav.reviews">Reviews</a></li>
+          <li><a href="#voices" data-i18n="nav.voices">Voices</a></li>
+          <li><a href="#sample" data-i18n="nav.read">Sample</a></li>
+          <li><a href="#contents" data-i18n="nav.contents">Contents</a></li>
+          <li><a href="/ace/" data-i18n="nav.ace">ACE</a></li>
+          <li><a href="#buy" class="site-nav__cta" data-i18n="nav.buy">Buy</a></li>
+          <li><a href="#author" data-i18n="nav.author">Author</a></li>
+        </ul>
+      </nav>
     </div>
   </header>
 
@@ -202,7 +279,7 @@
               a way to rethink how proper decisions are made, and perhaps, one day, a shared language
               for coexistence between humans and machines.
             </p>
-            <p class="hero__pitch-ace">ACE: Agency. Connection. Exchange.</p>
+            <p class="hero__pitch-ace"><a href="/ace/">ACE: Agency. Connection. Exchange.</a></p>
           </div>
           <div class="hero__meta">
             <span>Ace Conscious Studio</span>
@@ -822,7 +899,7 @@
   </footer>
 
   <script src="/js/asset-version.js?v=20260719a"></script>
-  <script src="/js/i18n.js?v=b2f6d2e085" defer></script>
+  <script src="/js/i18n.js?v=00392e7002" defer></script>
   <script src="/js/cover-flip.js?v=20260718f" defer></script>
   <script src="/js/main.js?v=20260718f" defer></script>
   <script src="/js/reviews.js?v=dcb6608510" defer></script>

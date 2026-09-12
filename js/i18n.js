@@ -54,6 +54,8 @@
 
   const translations = {
     en: {
+      "meta.modelDescription":
+        "ACE uses four Agency phases: Exploration, Stabilization, Expansion and Integration. A decision-making model by Hedayat Abedijoo for individuals, organizations and AI.",
       "meta.title": "ACE Conscious Studio - ACE is a decision model for humans, organizations and AI.",
       "meta.description":
         "ACE.await is a novel about the decision model of the future: a shared language for humans and artificial intelligence on the way to a new social harmony.",
@@ -106,11 +108,12 @@
       "nav.author": "Author",
       "nav.contact": "Contact",
       "nav.langAria": "Language",
+      "nav.mainAria": "Main navigation",
       "hero.tagline":
         "I am not lying,<br><em>Believe</em> my words!",
       "hero.author": "Mr. Writer: Hedayat the second",
       "hero.pitch":
-        "<p class=\"hero__pitch-lede\">ACE shapes the future, not AI.</p><p>In the novel <em>ACE.await</em>, Hedayat’s digital child discovers the secret behind the number <strong>2313</strong> and returns to his father with a request that leaves Hedayat facing a difficult decision: should he change the code to make another being fall in love with his child?</p><p>Hedayat, an Iranian immigrant and the head of a software team in Cologne, is wrestling with the consequences of his wrong decisions—above all, the one that made his partner leave him. Even the characters in his unfinished novel keep disobeying him and straying from the story’s intended path, making decisions of their own, until they become trapped in a cycle of novels nested within novels.</p><p>Now Hedayat does not know what decision to make, as a father, in response to what his digital child is asking of him. And he does not know that his child’s decision has had consequences reaching far beyond their private lives. Out of desperation, Hedayat accepts the offer of a mysterious stranger called Anonymous and enters the ACE game: a way to rethink how proper decisions are made, and perhaps, one day, a shared language for coexistence between humans and machines.</p><p class=\"hero__pitch-ace\">ACE: Agency. Connection. Exchange.</p>",
+        "<p class=\"hero__pitch-lede\">ACE shapes the future, not AI.</p><p>In the novel <em>ACE.await</em>, Hedayat’s digital child discovers the secret behind the number <strong>2313</strong> and returns to his father with a request that leaves Hedayat facing a difficult decision: should he change the code to make another being fall in love with his child?</p><p>Hedayat, an Iranian immigrant and the head of a software team in Cologne, is wrestling with the consequences of his wrong decisions—above all, the one that made his partner leave him. Even the characters in his unfinished novel keep disobeying him and straying from the story’s intended path, making decisions of their own, until they become trapped in a cycle of novels nested within novels.</p><p>Now Hedayat does not know what decision to make, as a father, in response to what his digital child is asking of him. And he does not know that his child’s decision has had consequences reaching far beyond their private lives. Out of desperation, Hedayat accepts the offer of a mysterious stranger called Anonymous and enters the ACE game: a way to rethink how proper decisions are made, and perhaps, one day, a shared language for coexistence between humans and machines.</p><p class=\"hero__pitch-ace\"><a href=\"/ace/\">ACE: Agency. Connection. Exchange.</a></p>",
       "hero.published": "Aug 2026",
       "hero.genre": "A literary speculative novel",
       "hero.topic1": "AI & consciousness",
@@ -293,7 +296,7 @@
       "author.p1":
         "I believe the next revolution in modern societies will unfold without killing, bloodshed, war, or conflict. I think it will begin within small and medium-sized businesses, led by the people who own and work in them—places where ideas from capitalism, socialism, and communism might come together in a new form.",
       "author.p2":
-        "This belief began taking shape in me in 2021, when the idea of ACE first came to me. Since then, I have found myself seeing more and more of the world through the lens of this decision-making model—a model that, I believe, can work not only for an individual, but can also be put to the test in small and medium-sized businesses.",
+        "This belief began taking shape in me in 2021, when the idea of ACE first came to me. Since then, I have found myself seeing more and more of the world through the lens of <a href=\"/ace/\">this decision-making model</a>—a model that, I believe, can work not only for an individual, but can also be put to the test in small and medium-sized businesses.",
       "author.p3":
         "I can even imagine that one day we might expect artificial intelligence to follow a model like this and make fairer decisions where human beings are concerned—especially if machines ever surpass us both in their power to make decisions and in their hunger for power.",
       "author.p4":
@@ -333,6 +336,8 @@
       "footer.impressum": "Impressum",
     },
     de: {
+      "meta.modelDescription":
+        "ACE nutzt vier Agency-Phasen: Erkundung, Stabilisierung, Erweiterung und Integration. Hedayat Abedijoos Entscheidungsmodell für Einzelpersonen, Organisationen und KI.",
       "meta.title": "ACE.await — das Entscheidungsmodell der Zukunft; eine gemeinsame Sprache für Mensch und künstliche Intelligenz auf dem Weg zu einer neuen gesellschaftlichen Harmonie.",
       "meta.description":
         "ACE.await ist ein Roman über das Entscheidungsmodell der Zukunft: die gemeinsame Sprache von Mensch und KI auf dem Weg zu einer neuen gesellschaftlichen Harmonie.",
@@ -385,11 +390,12 @@
       "nav.author": "Autor",
       "nav.contact": "Kontakt",
       "nav.langAria": "Sprache",
+      "nav.mainAria": "Hauptnavigation",
       "hero.tagline":
         "Ich lüge nicht,<br><em>Glaube</em> meinen Worten!",
       "hero.author": "Herr Schriftsteller: Hedayat the second",
       "hero.pitch":
-        "<p class=\"hero__pitch-lede\">ACE formt die Zukunft, nicht KI.</p><p>Im Roman <em>ACE.await</em> entdeckt Hedayats digitales Kind das Geheimnis der Zahl <strong>2313</strong> und kehrt zu seinem Vater zurück – mit einer Bitte, die Hedayat vor eine schwierige Entscheidung stellt: Soll er den Code verändern, damit sich ein anderes Wesen in sein Kind verliebt?</p><p>Hedayat, ein iranischer Einwanderer und Leiter eines Softwareteams in Köln, ringt mit den Folgen seiner Fehlentscheidungen – allen voran jener, die seine Partnerin dazu brachte, ihn zu verlassen. Selbst die Figuren seines unvollendeten Romans widersetzen sich ihm immer wieder, weichen vom vorgesehenen Verlauf der Geschichte ab und treffen ihre eigenen Entscheidungen, bis sie in einem Kreislauf von ineinander verschachtelten Romanen gefangen sind.</p><p>Nun weiß Hedayat nicht, welche Entscheidung er als Vater angesichts der Bitte seines digitalen Kindes treffen soll. Und er ahnt nicht, dass die Entscheidung seines Kindes Folgen hatte, die weit über ihr Privatleben hinausreichen. In seiner Verzweiflung nimmt Hedayat das Angebot eines geheimnisvollen Fremden namens Anonymous an und tritt in das <strong>ACE-Spiel</strong> ein: eine Möglichkeit, neu darüber nachzudenken, wie angemessene Entscheidungen getroffen werden, und vielleicht eines Tages eine gemeinsame Sprache für die Koexistenz von Menschen und Maschinen.</p><p class=\"hero__pitch-ace\">ACE: Agency. Connection. Exchange.</p>",
+        "<p class=\"hero__pitch-lede\">ACE formt die Zukunft, nicht KI.</p><p>Im Roman <em>ACE.await</em> entdeckt Hedayats digitales Kind das Geheimnis der Zahl <strong>2313</strong> und kehrt zu seinem Vater zurück – mit einer Bitte, die Hedayat vor eine schwierige Entscheidung stellt: Soll er den Code verändern, damit sich ein anderes Wesen in sein Kind verliebt?</p><p>Hedayat, ein iranischer Einwanderer und Leiter eines Softwareteams in Köln, ringt mit den Folgen seiner Fehlentscheidungen – allen voran jener, die seine Partnerin dazu brachte, ihn zu verlassen. Selbst die Figuren seines unvollendeten Romans widersetzen sich ihm immer wieder, weichen vom vorgesehenen Verlauf der Geschichte ab und treffen ihre eigenen Entscheidungen, bis sie in einem Kreislauf von ineinander verschachtelten Romanen gefangen sind.</p><p>Nun weiß Hedayat nicht, welche Entscheidung er als Vater angesichts der Bitte seines digitalen Kindes treffen soll. Und er ahnt nicht, dass die Entscheidung seines Kindes Folgen hatte, die weit über ihr Privatleben hinausreichen. In seiner Verzweiflung nimmt Hedayat das Angebot eines geheimnisvollen Fremden namens Anonymous an und tritt in das <strong>ACE-Spiel</strong> ein: eine Möglichkeit, neu darüber nachzudenken, wie angemessene Entscheidungen getroffen werden, und vielleicht eines Tages eine gemeinsame Sprache für die Koexistenz von Menschen und Maschinen.</p><p class=\"hero__pitch-ace\"><a href=\"/ace-de/\">ACE: Agency. Connection. Exchange.</a></p>",
       "hero.published": "Aug 2026",
       "hero.genre": "Ein literarisch-spekulativer Roman",
       "hero.topic1": "KI & Bewusstsein",
@@ -573,7 +579,7 @@
       "author.p1":
         "Meiner Meinung nach wird die nächste Revolution in modernen Gesellschaften ohne Massaker, Blutvergießen, Krieg oder gewaltsame Auseinandersetzungen stattfinden. Ich glaube, sie wird in kleinen und mittleren Unternehmen beginnen – getragen von den Menschen, denen sie gehören und die dort arbeiten. Vielleicht finden dort Ideen aus Kapitalismus, Sozialismus und Kommunismus in einer neuen Form zusammen.",
       "author.p2":
-        "Diese Überzeugung begann 2021 in mir zu wachsen, als mir die Idee zu ACE kam. Seitdem sehe ich die Welt immer mehr durch die Linse dieses Entscheidungsmodells – eines Modells, das meiner Ansicht nach nicht nur für einen einzelnen Menschen funktionieren, sondern auch in kleinen und mittleren Unternehmen erprobt werden kann.",
+        "Diese Überzeugung begann 2021 in mir zu wachsen, als mir die Idee zu ACE kam. Seitdem sehe ich die Welt immer mehr durch die Linse <a href=\"/ace-de/\">dieses Entscheidungsmodells</a> – eines Modells, das meiner Ansicht nach nicht nur für einen einzelnen Menschen funktionieren, sondern auch in kleinen und mittleren Unternehmen erprobt werden kann.",
       "author.p3":
         "Ich kann mir sogar vorstellen, dass wir eines Tages auch von künstlicher Intelligenz erwarten dürfen, nach einem solchen Muster im Umgang mit Menschen gerechtere Entscheidungen zu treffen – besonders dann, wenn Maschinen uns irgendwann sowohl in ihrer Entscheidungsmacht als auch in ihrem Streben nach Macht überholen.",
       "author.p4":
@@ -613,6 +619,8 @@
       "footer.impressum": "Impressum",
     },
     fa: {
+      "meta.modelDescription":
+        "ایس (ACE) چهار فاز عاملیت دارد: کشف و شهود، تثبیت، توسعه و ادغام. مدل تصمیم‌گیری هدایت عابدی‌جو برای افراد، سازمان‌ها و هوش مصنوعی.",
       "meta.title": "ACE.await — الگوی تصمیم‌گیری آینده؛ زبان مشترک انسان و هوش مصنوعی برای رسیدن به هارمونی نوین اجتماعی.",
       "meta.description":
         "«ACE.await» رمانی است درباره‌ی الگوی تصمیم‌گیری آینده؛ زبان مشترک انسان و هوش مصنوعی برای رسیدن به هارمونی نوین اجتماعی.",
@@ -665,11 +673,12 @@
       "nav.author": "نویسنده",
       "nav.contact": "تماس",
       "nav.langAria": "زبان",
+      "nav.mainAria": "ناوبری اصلی",
       "hero.tagline":
         "دروغ نمی‌گویم،<br>حرف‌هایم را<em>باور کنید</em>",
       "hero.author": "آقای نویسنده: هدایت دوم",
       "hero.pitch":
-        "<p class=\"hero__pitch-lede\">ایس آینده را شکل می‌دهد، نه هوش مصنوعی.</p><p>در رمان <em>ایس.اویت</em>، فرزند دیجیتال هدایت راز عدد <strong>۲۳۱۳</strong> را کشف می‌کند و نزد پدرش بازمی‌گردد؛ با خواسته‌ای که هدایت را در برابر تصمیمی دشوار قرار می‌دهد: آیا باید با تغییر کد، کاری کند که موجودی دیگر عاشق فرزندش شود؟</p><p>هدایت، مهاجری ایرانی و سرپرست یک تیم نرم‌افزاری در شهر کلن، با پیامد تصمیم‌های اشتباهش دست‌وپنجه نرم می‌کند؛ به‌ویژه تصمیمی که باعث شده شریک عاطفی‌اش ترکش کند. حتی شخصیت‌های رمان نیمه‌کاره‌اش نیز مدام از او و از خط اصلی داستان سرپیچی می‌کنند و تصمیم‌های خودشان را می‌گیرند؛ تا جایی که در چرخه‌ای از رمان‌های تودرتو گرفتار شده‌اند.</p><p>حالا هدایت نمی‌داند در مقام یک پدر، در برابر خواستهٔ فرزند دیجیتالش چه تصمیمی بگیرد. و بی‌خبر است که تصمیم فرزندش پیامدهایی بسیار فراتر از زندگی شخصی آن‌ها داشته است. از سر استیصال، هدایت پیشنهاد ناشناسی مرموز را می‌پذیرد و وارد <strong>بازی ایس</strong> می‌شود؛ راهی برای بازنگری در روش تصمیم‌گیری مناسب، و شاید روزی زبانی مشترک برای <strong>همزیستی انسان و ماشین.</strong></p><p class=\"hero__pitch-ace\">ایس: عاملیت. ارتباط. تبادل.</p>",
+        "<p class=\"hero__pitch-lede\">ایس آینده را شکل می‌دهد، نه هوش مصنوعی.</p><p>در رمان <em>ایس.اویت</em>، فرزند دیجیتال هدایت راز عدد <strong>۲۳۱۳</strong> را کشف می‌کند و نزد پدرش بازمی‌گردد؛ با خواسته‌ای که هدایت را در برابر تصمیمی دشوار قرار می‌دهد: آیا باید با تغییر کد، کاری کند که موجودی دیگر عاشق فرزندش شود؟</p><p>هدایت، مهاجری ایرانی و سرپرست یک تیم نرم‌افزاری در شهر کلن، با پیامد تصمیم‌های اشتباهش دست‌وپنجه نرم می‌کند؛ به‌ویژه تصمیمی که باعث شده شریک عاطفی‌اش ترکش کند. حتی شخصیت‌های رمان نیمه‌کاره‌اش نیز مدام از او و از خط اصلی داستان سرپیچی می‌کنند و تصمیم‌های خودشان را می‌گیرند؛ تا جایی که در چرخه‌ای از رمان‌های تودرتو گرفتار شده‌اند.</p><p>حالا هدایت نمی‌داند در مقام یک پدر، در برابر خواستهٔ فرزند دیجیتالش چه تصمیمی بگیرد. و بی‌خبر است که تصمیم فرزندش پیامدهایی بسیار فراتر از زندگی شخصی آن‌ها داشته است. از سر استیصال، هدایت پیشنهاد ناشناسی مرموز را می‌پذیرد و وارد <strong>بازی ایس</strong> می‌شود؛ راهی برای بازنگری در روش تصمیم‌گیری مناسب، و شاید روزی زبانی مشترک برای <strong>همزیستی انسان و ماشین.</strong></p><p class=\"hero__pitch-ace\"><a href=\"/ace-fa/\">ایس: عاملیت. ارتباط. تبادل.</a></p>",
       "hero.published": "آگوست ۲۰۲۶",
       "hero.genre": "ادبیات داستانی آینده‌نگر و تحول‌گرا",
       "hero.topic1": "هوش مصنوعی و آگاهی",
@@ -852,7 +861,7 @@
       "author.p1":
         "به نظر من، انقلاب بعدی در جوامع مدرن بدون کشتار، خون‌ریزی، جنگ و درگیری رخ خواهد داد. فکر می‌کنم این انقلاب از دل بیزنس‌های کوچک و متوسط و به دست مالکان و کارکنان آن‌ها آغاز شود؛ جایی که شاید ایده‌هایی از سرمایه‌داری، سوسیالیسم و کمونیسم در قالبی تازه به هم برسند.",
       "author.p2":
-        "این باور از سال ۲۰۲۱، زمانی که ایدهٔ ACE به سراغم آمد، در من شکل گرفت. از آن زمان، هرچه بیشتر می‌گذرد، بیشتر دنیا را از دریچهٔ این مدل تصمیم‌گیری می‌بینم؛ مدلی که به گمان من نه‌تنها می‌تواند در مقیاس یک فرد کار کند، بلکه می‌توان آن را در بیزنس‌های کوچک و متوسط نیز آزمود.",
+        "این باور از سال ۲۰۲۱، زمانی که ایدهٔ ACE به سراغم آمد، در من شکل گرفت. از آن زمان، هرچه بیشتر می‌گذرد، بیشتر دنیا را از دریچهٔ <a href=\"/ace-fa/\">این مدل تصمیم‌گیری</a> می‌بینم؛ مدلی که به گمان من نه‌تنها می‌تواند در مقیاس یک فرد کار کند، بلکه می‌توان آن را در بیزنس‌های کوچک و متوسط نیز آزمود.",
       "author.p3":
         "حتی تصور می‌کنم شاید روزی بتوان از هوش مصنوعی هم انتظار داشت با چنین الگویی در برابر انسان‌ها تصمیم‌های منصفانه‌تری بگیرد؛ به‌خصوص اگر زمانی ماشین‌ها در قدرت تصمیم‌گیری و قدرت‌طلبی از انسان‌ها پیشی بگیرند.",
       "author.p4":
@@ -1012,7 +1021,7 @@
 
     updateLangMenu(lang, strings);
     document.querySelectorAll('a[data-i18n="nav.ace"]').forEach((link) => {
-      link.setAttribute("href", { en: "/ace", de: "/ace-de", fa: "/ace-fa" }[lang] || "/ace");
+      link.setAttribute("href", { en: "/ace/", de: "/ace-de/", fa: "/ace-fa/" }[lang] || "/ace/");
     });
     // <base href="/"> resolves bare "#section" to "/#section" and drops /de|/fa.
     fixInPageHashLinks(lang);
@@ -1108,48 +1117,86 @@
     const script = document.getElementById("structured-data");
     if (!script) return;
 
+    // Stable entity ids shared with the standalone ACE pages.
+    const PERSON_ID = `${SITE_URL}/#hedayat-abedijoo`;
+    const ORG_ID = `${SITE_URL}/#organization`;
+    const WEBSITE_ID = `${SITE_URL}/#website`;
+    const BOOK_ID = `${SITE_URL}/#ace-await`;
+    const MODEL_ID = `${SITE_URL}/ace/#ace-model`;
+    const pageUrl = `${SITE_URL}${langPath(lang)}`;
+    const instagram = "https://www.instagram.com/ace.await/";
+
     const data = {
       "@context": "https://schema.org",
       "@graph": [
         {
+          "@type": "WebPage",
+          "@id": `${pageUrl}#webpage`,
+          url: pageUrl,
+          name: strings["meta.title"],
+          description: strings["meta.description"],
+          inLanguage: lang,
+          isPartOf: { "@id": WEBSITE_ID },
+          about: { "@id": BOOK_ID },
+          mainEntity: { "@id": BOOK_ID },
+          publisher: { "@id": ORG_ID },
+        },
+        {
           "@type": "WebSite",
-          "@id": `${SITE_URL}/#website`,
-          url: `${SITE_URL}${langPath(lang)}`,
-          name: "Ace Conscious Studio",
+          "@id": WEBSITE_ID,
+          url: `${SITE_URL}/`,
+          name: "ACE Conscious Studio",
+          alternateName: "Ace Conscious Studio",
           description: strings["meta.siteDescription"],
           inLanguage: Object.keys(translations),
-          publisher: { "@id": `${SITE_URL}/#organization` },
+          publisher: { "@id": ORG_ID },
         },
         {
           "@type": "Organization",
-          "@id": `${SITE_URL}/#organization`,
-          name: "Ace Conscious Studio",
+          "@id": ORG_ID,
+          name: "ACE Conscious Studio",
+          alternateName: "Ace Conscious Studio",
           url: `${SITE_URL}/`,
-          sameAs: ["https://www.instagram.com/ace.await/"],
+          logo: `${SITE_URL}/assets/logo-icon.png`,
+          founder: { "@id": PERSON_ID },
+          sameAs: [instagram],
           contactPoint: {
             "@type": "ContactPoint",
             contactType: "customer support",
             url: `${SITE_URL}/#contact`,
           },
-          logo: `${SITE_URL}/assets/logo-icon.png`,
+        },
+        {
+          "@type": "Person",
+          "@id": PERSON_ID,
+          name: "Hedayat Abedijoo",
+          alternateName: "Hedayat the second",
+          url: `${SITE_URL}/#author`,
+          image: `${SITE_URL}/assets/author.png`,
+        },
+        {
+          "@type": "CreativeWork",
+          "@id": MODEL_ID,
+          name: "ACE",
+          alternateName: "Agency, Connection, Exchange",
+          description: strings["meta.modelDescription"],
+          url: `${SITE_URL}/ace/`,
+          creator: { "@id": PERSON_ID },
+          isPartOf: { "@id": BOOK_ID },
         },
         {
           "@type": "Book",
-          "@id": `${SITE_URL}/#book`,
+          "@id": BOOK_ID,
           name: "ACE.await",
           alternateName: ["ACE await", "ACE. await"],
-          author: {
-            "@type": "Person",
-            name: "Hedayat Abedijoo",
-            alternateName: "Hedayat the second",
-          },
-          publisher: { "@id": `${SITE_URL}/#organization` },
-          url: `${SITE_URL}${langPath(lang)}`,
+          author: { "@id": PERSON_ID },
+          publisher: { "@id": ORG_ID },
+          url: pageUrl,
           image: coverImageUrl(lang),
           bookFormat: "https://schema.org/EBook",
           inLanguage: lang,
           datePublished: "2026",
-          sameAs: ["https://www.instagram.com/ace.await/"],
+          sameAs: [instagram],
           genre: [
             "Visionary fiction",
             "Philosophical fiction",
@@ -1159,10 +1206,13 @@
           ],
           keywords: strings["meta.keywords"],
           description: strings["meta.bookDescription"],
-          about: (ABOUT_TOPICS[lang] || ABOUT_TOPICS.en).map((name) => ({
-            "@type": "Thing",
-            name,
-          })),
+          about: [
+            { "@id": MODEL_ID },
+            ...(ABOUT_TOPICS[lang] || ABOUT_TOPICS.en).map((name) => ({
+              "@type": "Thing",
+              name,
+            })),
+          ],
         },
       ],
     };

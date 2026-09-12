@@ -96,6 +96,23 @@
 .ace-map__item:focus-visible { outline-color: #dfc7a5; }
 .ace-introduction { display: grid; grid-template-columns: 15rem minmax(0,1fr); gap: clamp(2rem, 5vw, 5rem); margin-top: clamp(3rem, 6vw, 5rem); padding: 2.5rem 0; border-top: 1px solid var(--ace-line); border-bottom: 1px solid var(--ace-line); }
 .ace-introduction .ace-eyebrow { padding-top: .35rem; }
+/* "ACE at a glance": compact fact block that mirrors the introduction grid. */
+.ace-glance { display: grid; grid-template-columns: 15rem minmax(0,1fr); gap: clamp(2rem, 5vw, 5rem); padding: 1.75rem 0 2.25rem; border-bottom: 1px solid var(--ace-line); }
+.ace-glance .ace-eyebrow { padding-top: .2rem; }
+.ace-glance__list { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: .55rem 2.5rem; margin: 0; font: 400 .9375rem/1.6 var(--ace-sans); }
+.ace-glance__list > div { display: grid; grid-template-columns: 9.5rem minmax(0,1fr); gap: .75rem; min-width: 0; padding: .35rem 0; border-top: 1px solid var(--ace-line); }
+.ace-glance__list dt { margin: 0; color: var(--ace-muted); font-size: .8125rem; letter-spacing: .02em; }
+.ace-glance__list dd { margin: 0; color: var(--ace-ink); }
+.ace-glance__list a { color: var(--ace-accent); }
+/* "How to cite ACE": reference block at the end of the article. */
+.ace-cite { margin: 1.5rem 0 2rem; padding: 1.5rem 1.75rem; background: var(--ace-surface); border-left: 3px solid var(--ace-accent); font-size: 1rem; }
+.ace-cite > div { display: grid; grid-template-columns: 11rem minmax(0,1fr); gap: .75rem; padding: .45rem 0; }
+.ace-cite > div + div { border-top: 1px solid var(--ace-line); }
+.ace-cite dt { margin: 0; font: 500 .8125rem/1.6 var(--ace-sans); color: var(--ace-muted); letter-spacing: .02em; }
+.ace-cite dd { margin: 0; color: var(--ace-ink); overflow-wrap: anywhere; }
+.ace-cite__label { margin: 1.75rem 0 .5rem; font: 500 .75rem/1.6 var(--ace-sans); letter-spacing: .13em; text-transform: uppercase; color: var(--ace-muted); }
+.ace-cite__string { padding: 1rem 1.25rem; border: 1px solid var(--ace-line); font: 400 .9375rem/1.7 var(--font-mono); color: var(--ace-ink); overflow-wrap: anywhere; direction: ltr; unicode-bidi: isolate; text-align: left; }
+.ace-cite__string cite { font-style: italic; }
 .ace-answer { columns: 2; column-gap: 2.5rem; font-size: 1rem; }
 .ace-answer p { break-inside: avoid; margin-bottom: 0; }
 .ace-layout { display: grid; grid-template-columns: 15rem minmax(0,1fr); gap: clamp(2rem, 5vw, 5rem); align-items: start; padding-block: 3.5rem 5rem; }
@@ -222,6 +239,8 @@
 }
 @media (max-width: 1023px) {
   .ace-introduction { grid-template-columns: 10rem minmax(0,1fr); gap: 2rem; }
+  .ace-glance { grid-template-columns: 10rem minmax(0,1fr); gap: 2rem; }
+  .ace-glance__list { grid-template-columns: minmax(0,1fr); gap: 0; }
   .ace-layout { display: block; padding-top: 0; }
   .ace-article { max-width: 48rem; margin-inline: auto; }
   .ace-tocbar { position: sticky; top: var(--ace-header-height, var(--nav-h)); display: flex; justify-content: space-between; align-items: center; gap: 1rem; z-index: 40; background: var(--ace-paper); border-bottom: 1px solid var(--ace-line); margin: 0 0 2.5rem; min-height: 62px; }
@@ -260,6 +279,10 @@
   .ace-map__letter { font-size: 2.8rem; }
   .ace-map__item small { font-size: .875rem; }
   .ace-introduction { display: block; margin-top: 2.5rem; padding: 1.75rem 0; }
+  .ace-glance { display: block; padding: 1.5rem 0 1.75rem; }
+  .ace-glance .ace-eyebrow { margin-bottom: .75rem; }
+  .ace-glance__list > div,.ace-cite > div { grid-template-columns: minmax(0,1fr); gap: .15rem; }
+  .ace-cite { padding: 1.25rem; }
   .ace-answer { font-size: 1rem; }
   .ace-section { padding-bottom: 2.5rem; }
   .ace-section + .ace-section { padding-top: 2.5rem; }
@@ -309,6 +332,7 @@ html[dir="rtl"] .ace-toc .ace-toc__top { border: 0; }
 html[dir="rtl"] .ace-section :is(ul,ol.ace-list) { padding-left: 0; padding-right: 1.25rem; }
 html[dir="rtl"] .ace-section .ace-capitals { padding: 0; }
 html[dir="rtl"] :is(.ace-def,.ace-note,.ace-quote) { border-left: 0; border-right: 2px solid var(--ace-accent); }
+html[dir="rtl"] .ace-cite { border-left: 0; border-right: 3px solid var(--ace-accent); }
 html[dir="rtl"] .ace-quote { padding-left: 0; padding-right: 1.75rem; }
 html[dir="rtl"] .ace-details > summary { padding-left: 2.5rem; padding-right: 0; }
 html[dir="rtl"] .ace-details > summary::after { right: auto; left: .2rem; }
@@ -354,4 +378,5 @@ html[dir="rtl"] .ace-map__item:hover .ace-map__arrow { transform: translate(-2px
   .ace-table-wrap { overflow: visible; }
   .ace-table { min-width: 0; }
   .ace-book-cover { max-width: 7rem; }
+  .ace-glance__list,.ace-cite { break-inside: avoid; }
 }
