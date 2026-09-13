@@ -11,7 +11,7 @@
   const COVER_ASSETS = {
     en: { front: "assets/cover.jpg", back: "assets/cover-back.jpg" },
     de: { front: "assets/cover.jpg", back: "assets/cover-back.jpg" },
-    fa: { front: "assets/cover-back-fa.png", back: "assets/cover-fa.png" },
+    fa: { front: "assets/cover-fa.jpg", back: "assets/cover-back-fa.jpg" },
   };
 
   function getCoverAssets(lang) {
@@ -33,7 +33,7 @@
   const COVER_OG_SIZE = {
     en: { width: "1600", height: "2560" },
     de: { width: "1600", height: "2560" },
-    fa: { width: "640", height: "1024" },
+    fa: { width: "1600", height: "2560" },
   };
 
   function updateBookCovers(lang) {
