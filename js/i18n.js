@@ -9,8 +9,8 @@
 
   /** Book cover art per language (EN/DE share English artwork). */
   const COVER_ASSETS = {
-    en: { front: "assets/cover.png", back: "assets/cover-back.png" },
-    de: { front: "assets/cover.png", back: "assets/cover-back.png" },
+    en: { front: "assets/cover.jpg", back: "assets/cover-back.jpg" },
+    de: { front: "assets/cover.jpg", back: "assets/cover-back.jpg" },
     fa: { front: "assets/cover-back-fa.png", back: "assets/cover-fa.png" },
   };
 
@@ -31,8 +31,8 @@
   }
 
   const COVER_OG_SIZE = {
-    en: { width: "683", height: "1024" },
-    de: { width: "683", height: "1024" },
+    en: { width: "1600", height: "2560" },
+    de: { width: "1600", height: "2560" },
     fa: { width: "640", height: "1024" },
   };
 
@@ -46,6 +46,7 @@
     const imageUrl = coverImageUrl(lang);
     setMeta("og:image", imageUrl, "property");
     setMeta("og:image:secure_url", imageUrl, "property");
+    setMeta("og:image:type", imageUrl.endsWith(".jpg") ? "image/jpeg" : "image/png", "property");
     setMeta("twitter:image", imageUrl);
     const size = COVER_OG_SIZE[lang] || COVER_OG_SIZE.en;
     setMeta("og:image:width", size.width, "property");
