@@ -56,12 +56,12 @@
     en: {
       "meta.modelDescription":
         "ACE uses four Agency phases: Exploration, Stabilization, Expansion and Integration. A decision-making model by Hedayat Abedijoo for individuals, organizations and AI.",
-      "meta.title": "ACE Conscious Studio - ACE is a decision model for humans, organizations and AI.",
+      "meta.title": "ACE Conscious Studio | Decision Model & Stories",
       "meta.description":
         "ACE.await is a novel about the decision model of the future: a shared language for humans and artificial intelligence on the way to a new social harmony.",
       "meta.keywords":
         "ACE.await, visionary fiction, philosophical fiction, novel of ideas, AI novel, Adam and Eve AI, artificial intelligence, metafiction, decentralized internet, proper decisions, Agency Connection Exchange, ACE game, Cologne novel, nested writers, blackout Germany",
-      "meta.ogTitle": "ACE Conscious Studio - ACE is a decision model for humans, organizations and AI.",
+      "meta.ogTitle": "ACE Conscious Studio | Decision Model & Stories",
       "meta.ogDescription":
         "ACE.await is a novel about the decision model of the future: a shared language for humans and artificial intelligence on the way to a new social harmony.",
       "meta.twitterDescription":
@@ -338,12 +338,12 @@
     de: {
       "meta.modelDescription":
         "ACE nutzt vier Agency-Phasen: Erkundung, Stabilisierung, Erweiterung und Integration. Hedayat Abedijoos Entscheidungsmodell für Einzelpersonen, Organisationen und KI.",
-      "meta.title": "ACE.await — das Entscheidungsmodell der Zukunft; eine gemeinsame Sprache für Mensch und künstliche Intelligenz auf dem Weg zu einer neuen gesellschaftlichen Harmonie.",
+      "meta.title": "ACE Conscious Studio | Entscheidungsmodell & Geschichten",
       "meta.description":
         "ACE.await ist ein Roman über das Entscheidungsmodell der Zukunft: die gemeinsame Sprache von Mensch und KI auf dem Weg zu einer neuen gesellschaftlichen Harmonie.",
       "meta.keywords":
         "ACE.await, visionäre Fiktion, philosophische Fiktion, Ideenroman, KI-Roman, Adam und Eva KI, künstliche Intelligenz, Metafiktion, dezentrales Internet, angemessene Entscheidungen, Agency Connection Exchange, ACE-Spiel, Köln Roman, verschachtelte Autoren, Blackout Deutschland",
-      "meta.ogTitle": "ACE.await — Entscheidungsmodell und gemeinsame Sprache von Mensch und KI",
+      "meta.ogTitle": "ACE Conscious Studio | Entscheidungsmodell & Geschichten",
       "meta.ogDescription":
         "ACE.await ist ein Roman über das Entscheidungsmodell der Zukunft: die gemeinsame Sprache von Mensch und KI auf dem Weg zu einer neuen gesellschaftlichen Harmonie.",
       "meta.twitterDescription":
@@ -621,12 +621,12 @@
     fa: {
       "meta.modelDescription":
         "ایس (ACE) چهار فاز عاملیت دارد: کشف و شهود، تثبیت، توسعه و ادغام. مدل تصمیم‌گیری هدایت عابدی‌جو برای افراد، سازمان‌ها و هوش مصنوعی.",
-      "meta.title": "ACE.await — الگوی تصمیم‌گیری آینده؛ زبان مشترک انسان و هوش مصنوعی برای رسیدن به هارمونی نوین اجتماعی.",
+      "meta.title": "ACE Conscious Studio | مدل تصمیم‌گیری و داستان‌ها",
       "meta.description":
         "«ACE.await» رمانی است درباره‌ی الگوی تصمیم‌گیری آینده؛ زبان مشترک انسان و هوش مصنوعی برای رسیدن به هارمونی نوین اجتماعی.",
       "meta.keywords":
         "ACE.await, ادبیات داستانی آینده‌نگر و تحول‌گرا, داستان فلسفی, رمان ایده, رمان هوش مصنوعی, آدم و حوا, هوش مصنوعی, متافیکشن, اینترنت غیرمتمرکز, تصمیم مناسب, Agency Connection Exchange, بازی ایس, رمان کلن, نویسندگان تو در تو, خاموشی آلمان",
-      "meta.ogTitle": "ACE.await — الگوی تصمیم‌گیری آینده و زبان مشترک انسان و هوش مصنوعی",
+      "meta.ogTitle": "ACE Conscious Studio | مدل تصمیم‌گیری و داستان‌ها",
       "meta.ogDescription":
         "«ACE.await» رمانی است درباره‌ی الگوی تصمیم‌گیری آینده؛ زبان مشترک انسان و هوش مصنوعی برای رسیدن به هارمونی نوین اجتماعی.",
       "meta.twitterDescription":

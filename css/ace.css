@@ -144,8 +144,8 @@
 .ace-def blockquote + .ace-src { margin-top: .6rem; }
 .ace-def p:last-child { margin-bottom: 0; }
 .ace-definition { margin: 1.75rem 0 2.25rem; }
-.ace-definition blockquote { margin: 0; padding: 0; color: var(--ace-ink); font-size: 1.125rem; line-height: 1.7; }
-.ace-definition blockquote + p { margin-top: .35rem; }
+.ace-definition blockquote { margin: 0; padding: .1rem 0 .1rem 1.5rem; border-left: 2px solid #949983; color: var(--ace-ink); font-size: 1.125rem; line-height: 1.7; }
+.ace-definition blockquote + p { margin-top: 1.2rem; }
 .ace-definition blockquote:not(:first-child) { margin-top: 1.75rem; }
 .ace-definition > p:last-child { margin-bottom: 0; }
 .ace-page dfn { font-style: normal; font-weight: 600; color: var(--ace-ink); }
@@ -293,6 +293,7 @@
   .ace-def blockquote { font-size: 1.125rem; }
   .ace-note { padding: 1rem 1.25rem; }
   .ace-quote { font-size: 1.2rem; padding-left: 1.25rem; }
+  .ace-definition blockquote { padding-left: 1.1rem; }
   .ace-compare,.ace-cards { grid-template-columns: minmax(0,1fr); }
   .ace-compare__col { padding: 1.25rem; }
   .ace-light { padding: 1.1rem; }
@@ -332,6 +333,7 @@ html[dir="rtl"] .ace-toc .ace-toc__top { border: 0; }
 html[dir="rtl"] .ace-section :is(ul,ol.ace-list) { padding-left: 0; padding-right: 1.25rem; }
 html[dir="rtl"] .ace-section .ace-capitals { padding: 0; }
 html[dir="rtl"] :is(.ace-def,.ace-note,.ace-quote) { border-left: 0; border-right: 2px solid var(--ace-accent); }
+html[dir="rtl"] .ace-definition blockquote { border-left: 0; border-right: 2px solid #949983; padding-left: 0; padding-right: 1.5rem; }
 html[dir="rtl"] .ace-cite { border-left: 0; border-right: 3px solid var(--ace-accent); }
 html[dir="rtl"] .ace-quote { padding-left: 0; padding-right: 1.75rem; }
 html[dir="rtl"] .ace-details > summary { padding-left: 2.5rem; padding-right: 0; }
@@ -356,6 +358,7 @@ html[dir="rtl"] .ace-map__item:hover .ace-map__arrow { transform: translate(-2px
 @media (max-width: 420px) {
   .ace-nav .ace-languages a { padding-inline: .55rem; }
   html[dir="rtl"] .ace-quote { padding-right: 1.25rem; }
+  html[dir="rtl"] .ace-definition blockquote { padding-left: 0; padding-right: 1.1rem; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

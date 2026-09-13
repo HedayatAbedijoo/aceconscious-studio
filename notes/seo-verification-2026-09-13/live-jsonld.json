@@ -1,0 +1,876 @@
+{
+  "fetched_at_utc": "2026-09-12T22:59:56.073443+00:00",
+  "pages": [
+    {
+      "url": "https://aceconscious.studio/",
+      "sha256": "966688fd7a2b170421e676bf968e58d4e8bfcca4a25acb2adf0b10f799cd830e",
+      "jsonld": {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebPage",
+            "@id": "https://aceconscious.studio/#webpage",
+            "url": "https://aceconscious.studio/",
+            "name": "ACE Conscious Studio - ACE is a decision model for humans, organizations and AI.",
+            "description": "ACE.await is a novel about the decision model of the future: a shared language for humans and artificial intelligence on the way to a new social harmony.",
+            "inLanguage": "en",
+            "isPartOf": {
+              "@id": "https://aceconscious.studio/#website"
+            },
+            "about": {
+              "@id": "https://aceconscious.studio/#ace-await"
+            },
+            "mainEntity": {
+              "@id": "https://aceconscious.studio/#ace-await"
+            },
+            "publisher": {
+              "@id": "https://aceconscious.studio/#organization"
+            }
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://aceconscious.studio/#website",
+            "url": "https://aceconscious.studio/",
+            "name": "ACE Conscious Studio",
+            "alternateName": "Ace Conscious Studio",
+            "description": "Ace Conscious Studio — the home of Hedayat Abedijoo's ideas and writing, and the publisher of ACE.await and the ACE decision model: Agency, Connection, Exchange.",
+            "inLanguage": [
+              "en",
+              "de",
+              "fa"
+            ],
+            "publisher": {
+              "@id": "https://aceconscious.studio/#organization"
+            }
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://aceconscious.studio/#organization",
+            "name": "ACE Conscious Studio",
+            "alternateName": "Ace Conscious Studio",
+            "url": "https://aceconscious.studio/",
+            "logo": "https://aceconscious.studio/assets/logo-icon.png",
+            "founder": {
+              "@id": "https://aceconscious.studio/#hedayat-abedijoo"
+            },
+            "sameAs": [
+              "https://www.instagram.com/ace.await/"
+            ],
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "contactType": "customer support",
+              "url": "https://aceconscious.studio/#contact"
+            }
+          },
+          {
+            "@type": "Person",
+            "@id": "https://aceconscious.studio/#hedayat-abedijoo",
+            "name": "Hedayat Abedijoo",
+            "alternateName": "Hedayat the second",
+            "url": "https://aceconscious.studio/#author",
+            "image": "https://aceconscious.studio/assets/author.png"
+          },
+          {
+            "@type": "CreativeWork",
+            "@id": "https://aceconscious.studio/ace/#ace-model",
+            "name": "ACE",
+            "alternateName": "Agency, Connection, Exchange",
+            "description": "ACE uses four Agency phases: Exploration, Stabilization, Expansion and Integration. A decision-making model by Hedayat Abedijoo for individuals, organizations and AI.",
+            "url": "https://aceconscious.studio/ace/",
+            "creator": {
+              "@id": "https://aceconscious.studio/#hedayat-abedijoo"
+            },
+            "isPartOf": {
+              "@id": "https://aceconscious.studio/#ace-await"
+            }
+          },
+          {
+            "@type": "Book",
+            "@id": "https://aceconscious.studio/#ace-await",
+            "name": "ACE.await",
+            "alternateName": [
+              "ACE await",
+              "ACE. await"
+            ],
+            "author": {
+              "@id": "https://aceconscious.studio/#hedayat-abedijoo"
+            },
+            "publisher": {
+              "@id": "https://aceconscious.studio/#organization"
+            },
+            "url": "https://aceconscious.studio/",
+            "image": "https://aceconscious.studio/assets/cover.png",
+            "bookFormat": "https://schema.org/EBook",
+            "inLanguage": "en",
+            "datePublished": "2026",
+            "sameAs": [
+              "https://www.instagram.com/ace.await/"
+            ],
+            "genre": [
+              "Visionary fiction",
+              "Philosophical fiction",
+              "Novel of ideas",
+              "Metafiction",
+              "Science fiction"
+            ],
+            "keywords": "ACE.await, visionary fiction, philosophical fiction, novel of ideas, AI novel, Adam and Eve AI, artificial intelligence, metafiction, decentralized internet, proper decisions, Agency Connection Exchange, ACE game, Cologne novel, nested writers, blackout Germany",
+            "description": "ACE.await is a novel about the decision model of the future: a shared language for humans and artificial intelligence on the way to a new social harmony. An anonymous sender invites Hedayat—an Iranian immigrant in Cologne who leads a software team building a decentralized internet—to play the ACE game: Agency, Connection, Exchange. As erratic blackouts sweep across Germany, his two artificial intelligences, Adam and Eve, return with a bet he cannot accept, and the novel he has failed to finish for ten years begins deciding for itself who its author will be. A story about creation and fatherhood, about the decisions that cause harm, and about whether Adam and Eve inherited only human intelligence—or the human tendency to decide wrongly as well.",
+            "about": [
+              {
+                "@id": "https://aceconscious.studio/ace/#ace-model"
+              },
+              {
+                "@type": "Thing",
+                "name": "Artificial intelligence"
+              },
+              {
+                "@type": "Thing",
+                "name": "Consciousness"
+              },
+              {
+                "@type": "Thing",
+                "name": "Personal harmony"
+              },
+              {
+                "@type": "Thing",
+                "name": "Social harmony"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "url": "https://aceconscious.studio/de/",
+      "sha256": "911e0d3a5c814989769d1347ee2b6ff94c29c28f091f93fd502345585f9bb653",
+      "jsonld": {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebPage",
+            "@id": "https://aceconscious.studio/de/#webpage",
+            "url": "https://aceconscious.studio/de/",
+            "name": "ACE.await — das Entscheidungsmodell der Zukunft; eine gemeinsame Sprache für Mensch und künstliche Intelligenz auf dem Weg zu einer neuen gesellschaftlichen Harmonie.",
+            "description": "ACE.await ist ein Roman über das Entscheidungsmodell der Zukunft: die gemeinsame Sprache von Mensch und KI auf dem Weg zu einer neuen gesellschaftlichen Harmonie.",
+            "inLanguage": "de",
+            "isPartOf": {
+              "@id": "https://aceconscious.studio/#website"
+            },
+            "about": {
+              "@id": "https://aceconscious.studio/#ace-await"
+            },
+            "mainEntity": {
+              "@id": "https://aceconscious.studio/#ace-await"
+            },
+            "publisher": {
+              "@id": "https://aceconscious.studio/#organization"
+            }
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://aceconscious.studio/#website",
+            "url": "https://aceconscious.studio/",
+            "name": "ACE Conscious Studio",
+            "alternateName": "Ace Conscious Studio",
+            "description": "Ace Conscious Studio — die Heimat der Ideen und Texte von Hedayat Abedijoo sowie Verlag von ACE.await und des ACE-Entscheidungsmodells: Agency, Connection, Exchange.",
+            "inLanguage": [
+              "en",
+              "de",
+              "fa"
+            ],
+            "publisher": {
+              "@id": "https://aceconscious.studio/#organization"
+            }
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://aceconscious.studio/#organization",
+            "name": "ACE Conscious Studio",
+            "alternateName": "Ace Conscious Studio",
+            "url": "https://aceconscious.studio/",
+            "logo": "https://aceconscious.studio/assets/logo-icon.png",
+            "founder": {
+              "@id": "https://aceconscious.studio/#hedayat-abedijoo"
+            },
+            "sameAs": [
+              "https://www.instagram.com/ace.await/"
+            ],
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "contactType": "customer support",
+              "url": "https://aceconscious.studio/#contact"
+            }
+          },
+          {
+            "@type": "Person",
+            "@id": "https://aceconscious.studio/#hedayat-abedijoo",
+            "name": "Hedayat Abedijoo",
+            "alternateName": "Hedayat the second",
+            "url": "https://aceconscious.studio/#author",
+            "image": "https://aceconscious.studio/assets/author.png"
+          },
+          {
+            "@type": "CreativeWork",
+            "@id": "https://aceconscious.studio/ace/#ace-model",
+            "name": "ACE",
+            "alternateName": "Agency, Connection, Exchange",
+            "description": "ACE nutzt vier Agency-Phasen: Erkundung, Stabilisierung, Erweiterung und Integration. Hedayat Abedijoos Entscheidungsmodell für Einzelpersonen, Organisationen und KI.",
+            "url": "https://aceconscious.studio/ace/",
+            "creator": {
+              "@id": "https://aceconscious.studio/#hedayat-abedijoo"
+            },
+            "isPartOf": {
+              "@id": "https://aceconscious.studio/#ace-await"
+            }
+          },
+          {
+            "@type": "Book",
+            "@id": "https://aceconscious.studio/#ace-await",
+            "name": "ACE.await",
+            "alternateName": [
+              "ACE await",
+              "ACE. await"
+            ],
+            "author": {
+              "@id": "https://aceconscious.studio/#hedayat-abedijoo"
+            },
+            "publisher": {
+              "@id": "https://aceconscious.studio/#organization"
+            },
+            "url": "https://aceconscious.studio/de/",
+            "image": "https://aceconscious.studio/assets/cover.png",
+            "bookFormat": "https://schema.org/EBook",
+            "inLanguage": "de",
+            "datePublished": "2026",
+            "sameAs": [
+              "https://www.instagram.com/ace.await/"
+            ],
+            "genre": [
+              "Visionary fiction",
+              "Philosophical fiction",
+              "Novel of ideas",
+              "Metafiction",
+              "Science fiction"
+            ],
+            "keywords": "ACE.await, visionäre Fiktion, philosophische Fiktion, Ideenroman, KI-Roman, Adam und Eva KI, künstliche Intelligenz, Metafiktion, dezentrales Internet, angemessene Entscheidungen, Agency Connection Exchange, ACE-Spiel, Köln Roman, verschachtelte Autoren, Blackout Deutschland",
+            "description": "ACE.await ist ein Roman über das Entscheidungsmodell der Zukunft: die gemeinsame Sprache von Mensch und künstlicher Intelligenz auf dem Weg zu einer neuen gesellschaftlichen Harmonie. Ein anonymer Absender lädt Hedayat—einen iranischen Einwanderer in Köln, der ein Softwareteam beim Aufbau eines dezentralen Internets leitet—ein, das ACE-Spiel zu spielen: Agency, Connection, Exchange. Während unregelmäßige Blackouts über Deutschland hinwegziehen, kehren seine beiden künstlichen Intelligenzen, Adam und Eva, mit einer Wette zurück, die er nicht annehmen kann, und der Roman, den er seit zehn Jahren nicht beenden kann, beginnt selbst zu entscheiden, wer sein Autor sein wird. Eine Geschichte über Schöpfung und Vaterschaft, über Entscheidungen, die Schaden anrichten, und über die Frage, ob Adam und Eva nur die menschliche Intelligenz geerbt haben—oder auch den menschlichen Hang zu falschen Entscheidungen.",
+            "about": [
+              {
+                "@id": "https://aceconscious.studio/ace/#ace-model"
+              },
+              {
+                "@type": "Thing",
+                "name": "Artificial intelligence"
+              },
+              {
+                "@type": "Thing",
+                "name": "Consciousness"
+              },
+              {
+                "@type": "Thing",
+                "name": "Personal harmony"
+              },
+              {
+                "@type": "Thing",
+                "name": "Social harmony"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "url": "https://aceconscious.studio/fa/",
+      "sha256": "5621d26bb6cae32ac7becd44d56d11bcda996b26c6d8b106efe929952c2a1236",
+      "jsonld": {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebPage",
+            "@id": "https://aceconscious.studio/fa/#webpage",
+            "url": "https://aceconscious.studio/fa/",
+            "name": "ACE.await — الگوی تصمیم‌گیری آینده؛ زبان مشترک انسان و هوش مصنوعی برای رسیدن به هارمونی نوین اجتماعی.",
+            "description": "«ACE.await» رمانی است درباره‌ی الگوی تصمیم‌گیری آینده؛ زبان مشترک انسان و هوش مصنوعی برای رسیدن به هارمونی نوین اجتماعی.",
+            "inLanguage": "fa",
+            "isPartOf": {
+              "@id": "https://aceconscious.studio/#website"
+            },
+            "about": {
+              "@id": "https://aceconscious.studio/#ace-await"
+            },
+            "mainEntity": {
+              "@id": "https://aceconscious.studio/#ace-await"
+            },
+            "publisher": {
+              "@id": "https://aceconscious.studio/#organization"
+            }
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://aceconscious.studio/#website",
+            "url": "https://aceconscious.studio/",
+            "name": "ACE Conscious Studio",
+            "alternateName": "Ace Conscious Studio",
+            "description": "«Ace Conscious Studio» خانه‌ی ایده‌ها و نوشته‌های Hedayat Abedijoo است؛ ناشر رمان ACE.await و الگوی تصمیم‌گیری ایس: عاملیت، ارتباط، تبادل.",
+            "inLanguage": [
+              "en",
+              "de",
+              "fa"
+            ],
+            "publisher": {
+              "@id": "https://aceconscious.studio/#organization"
+            }
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://aceconscious.studio/#organization",
+            "name": "ACE Conscious Studio",
+            "alternateName": "Ace Conscious Studio",
+            "url": "https://aceconscious.studio/",
+            "logo": "https://aceconscious.studio/assets/logo-icon.png",
+            "founder": {
+              "@id": "https://aceconscious.studio/#hedayat-abedijoo"
+            },
+            "sameAs": [
+              "https://www.instagram.com/ace.await/"
+            ],
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "contactType": "customer support",
+              "url": "https://aceconscious.studio/#contact"
+            }
+          },
+          {
+            "@type": "Person",
+            "@id": "https://aceconscious.studio/#hedayat-abedijoo",
+            "name": "Hedayat Abedijoo",
+            "alternateName": "Hedayat the second",
+            "url": "https://aceconscious.studio/#author",
+            "image": "https://aceconscious.studio/assets/author.png"
+          },
+          {
+            "@type": "CreativeWork",
+            "@id": "https://aceconscious.studio/ace/#ace-model",
+            "name": "ACE",
+            "alternateName": "Agency, Connection, Exchange",
+            "description": "ایس (ACE) چهار فاز عاملیت دارد: کشف و شهود، تثبیت، توسعه و ادغام. مدل تصمیم‌گیری هدایت عابدی‌جو برای افراد، سازمان‌ها و هوش مصنوعی.",
+            "url": "https://aceconscious.studio/ace/",
+            "creator": {
+              "@id": "https://aceconscious.studio/#hedayat-abedijoo"
+            },
+            "isPartOf": {
+              "@id": "https://aceconscious.studio/#ace-await"
+            }
+          },
+          {
+            "@type": "Book",
+            "@id": "https://aceconscious.studio/#ace-await",
+            "name": "ACE.await",
+            "alternateName": [
+              "ACE await",
+              "ACE. await"
+            ],
+            "author": {
+              "@id": "https://aceconscious.studio/#hedayat-abedijoo"
+            },
+            "publisher": {
+              "@id": "https://aceconscious.studio/#organization"
+            },
+            "url": "https://aceconscious.studio/fa/",
+            "image": "https://aceconscious.studio/assets/cover-back-fa.png",
+            "bookFormat": "https://schema.org/EBook",
+            "inLanguage": "fa",
+            "datePublished": "2026",
+            "sameAs": [
+              "https://www.instagram.com/ace.await/"
+            ],
+            "genre": [
+              "Visionary fiction",
+              "Philosophical fiction",
+              "Novel of ideas",
+              "Metafiction",
+              "Science fiction"
+            ],
+            "keywords": "ACE.await, ادبیات داستانی آینده‌نگر و تحول‌گرا, داستان فلسفی, رمان ایده, رمان هوش مصنوعی, آدم و حوا, هوش مصنوعی, متافیکشن, اینترنت غیرمتمرکز, تصمیم مناسب, Agency Connection Exchange, بازی ایس, رمان کلن, نویسندگان تو در تو, خاموشی آلمان",
+            "description": "«ACE.await» رمانی است درباره‌ی الگوی تصمیم‌گیری آینده؛ زبان مشترک انسان و هوش مصنوعی برای رسیدن به هارمونی نوین اجتماعی. فرستنده‌ای ناشناس هدایت را — مهاجری ایرانی در کلن که سرپرستی تیمی نرم‌افزاری را برای ساخت اینترنتی غیرمتمرکز بر عهده دارد — به بازی ایس دعوت می‌کند: عاملیت، ارتباط، تبادل. در حالی که خاموشی‌هایی نامنظم سراسر آلمان را فرا می‌گیرد، دو هوش مصنوعی او، آدم و حوا، با شرطی بازمی‌گردند که نمی‌تواند بپذیرد، و رمانی که ده سال است ناتمام مانده، خودش تصمیم می‌گیرد نویسنده‌اش چه کسی باشد. داستانی درباره‌ی آفرینش و پدری، درباره‌ی تصمیم‌هایی که آسیب به بار می‌آورند، و این پرسش که آیا آدم و حوا فقط هوش انسان را به ارث بردند یا گرایش او به تصمیم‌های نادرست را نیز.",
+            "about": [
+              {
+                "@id": "https://aceconscious.studio/ace/#ace-model"
+              },
+              {
+                "@type": "Thing",
+                "name": "Artificial intelligence"
+              },
+              {
+                "@type": "Thing",
+                "name": "Consciousness"
+              },
+              {
+                "@type": "Thing",
+                "name": "Personal harmony"
+              },
+              {
+                "@type": "Thing",
+                "name": "Social harmony"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "url": "https://aceconscious.studio/ace/",
+      "sha256": "bb09680095d4976eee53db7902317bac72d6bf2ecee07ff08edfb42843fb3510",
+      "jsonld": {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebPage",
+            "@id": "https://aceconscious.studio/ace/#webpage",
+            "url": "https://aceconscious.studio/ace/",
+            "name": "ACE Decision-Making Model (Agency, Connection, Exchange) | Hedayat Abedijoo",
+            "description": "ACE uses four Agency phases: Exploration, Stabilization, Expansion and Integration. A decision-making model by Hedayat Abedijoo for individuals, organizations and AI.",
+            "inLanguage": "en",
+            "isPartOf": {
+              "@id": "https://aceconscious.studio/#website"
+            },
+            "about": {
+              "@id": "https://aceconscious.studio/ace/#ace-model"
+            },
+            "mainEntity": {
+              "@id": "https://aceconscious.studio/ace/#ace-model"
+            },
+            "author": {
+              "@id": "https://aceconscious.studio/#hedayat-abedijoo"
+            },
+            "publisher": {
+              "@id": "https://aceconscious.studio/#organization"
+            },
+            "primaryImageOfPage": {
+              "@id": "https://aceconscious.studio/ace/#primaryimage"
+            },
+            "workTranslation": [
+              {
+                "@id": "https://aceconscious.studio/ace-de/#webpage"
+              },
+              {
+                "@id": "https://aceconscious.studio/ace-fa/#webpage"
+              }
+            ]
+          },
+          {
+            "@type": "ImageObject",
+            "@id": "https://aceconscious.studio/ace/#primaryimage",
+            "url": "https://aceconscious.studio/assets/cover.png",
+            "contentUrl": "https://aceconscious.studio/assets/cover.png",
+            "width": 683,
+            "height": 1024,
+            "caption": "ACE.await book cover"
+          },
+          {
+            "@type": "CreativeWork",
+            "@id": "https://aceconscious.studio/ace/#ace-model",
+            "name": "ACE",
+            "alternateName": [
+              "Agency, Connection, Exchange",
+              "ACE decision-making model"
+            ],
+            "headline": "ACE Decision-Making Model",
+            "description": "ACE (Agency, Connection, Exchange) is a decision-making model developed by Hedayat Abedijoo for conscious decision-making across individuals, organizations and, as an open question, artificial intelligence. Agency follows the PDAF process (Preparation, Decision, Action, Feedback) through four phases (Exploration, Stabilization, Expansion, Integration); Connection joins Agencies; Exchange takes the GCC forms (Gift, Commitments, Currency).",
+            "url": "https://aceconscious.studio/ace/",
+            "mainEntityOfPage": {
+              "@id": "https://aceconscious.studio/ace/#webpage"
+            },
+            "creator": {
+              "@id": "https://aceconscious.studio/#hedayat-abedijoo"
+            },
+            "author": {
+              "@id": "https://aceconscious.studio/#hedayat-abedijoo"
+            },
+            "publisher": {
+              "@id": "https://aceconscious.studio/#organization"
+            },
+            "isPartOf": {
+              "@id": "https://aceconscious.studio/#ace-await"
+            },
+            "keywords": [
+              "ACE",
+              "Agency",
+              "Connection",
+              "Exchange",
+              "decision-making",
+              "decision-making model",
+              "proper decision",
+              "PDAF",
+              "Exploration",
+              "Stabilization",
+              "Expansion",
+              "Integration",
+              "GCC",
+              "Gift",
+              "Commitments",
+              "Currency",
+              "ACE Manifesto",
+              "AI decision-making",
+              "Hedayat Abedijoo"
+            ],
+            "inLanguage": "en"
+          },
+          {
+            "@type": "Person",
+            "@id": "https://aceconscious.studio/#hedayat-abedijoo",
+            "name": "Hedayat Abedijoo",
+            "alternateName": "Hedayat the second",
+            "url": "https://aceconscious.studio/#author",
+            "image": "https://aceconscious.studio/assets/author.png"
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://aceconscious.studio/#organization",
+            "name": "ACE Conscious Studio",
+            "alternateName": "Ace Conscious Studio",
+            "url": "https://aceconscious.studio/",
+            "logo": "https://aceconscious.studio/assets/logo-icon.png",
+            "founder": {
+              "@id": "https://aceconscious.studio/#hedayat-abedijoo"
+            },
+            "sameAs": [
+              "https://www.instagram.com/ace.await/"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://aceconscious.studio/#website",
+            "url": "https://aceconscious.studio/",
+            "name": "ACE Conscious Studio",
+            "alternateName": "Ace Conscious Studio",
+            "publisher": {
+              "@id": "https://aceconscious.studio/#organization"
+            },
+            "inLanguage": [
+              "en",
+              "de",
+              "fa"
+            ]
+          },
+          {
+            "@type": "Book",
+            "@id": "https://aceconscious.studio/#ace-await",
+            "name": "ACE.await",
+            "author": {
+              "@id": "https://aceconscious.studio/#hedayat-abedijoo"
+            },
+            "publisher": {
+              "@id": "https://aceconscious.studio/#organization"
+            },
+            "url": "https://aceconscious.studio/",
+            "image": "https://aceconscious.studio/assets/cover.png",
+            "about": {
+              "@id": "https://aceconscious.studio/ace/#ace-model"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "url": "https://aceconscious.studio/ace-de/",
+      "sha256": "c555da8bc2e69be0c41eb14f3cec33c8234a2b46d5d3ba9eb3f48d63bb44d99c",
+      "jsonld": {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebPage",
+            "@id": "https://aceconscious.studio/ace-de/#webpage",
+            "url": "https://aceconscious.studio/ace-de/",
+            "name": "ACE-Entscheidungsmodell (Agency, Verbindung, Austausch) | Hedayat Abedijoo",
+            "description": "ACE nutzt vier Agency-Phasen: Erkundung, Stabilisierung, Erweiterung und Integration. Hedayat Abedijoos Entscheidungsmodell für Einzelpersonen, Organisationen und KI.",
+            "inLanguage": "de",
+            "isPartOf": {
+              "@id": "https://aceconscious.studio/#website"
+            },
+            "about": {
+              "@id": "https://aceconscious.studio/ace/#ace-model"
+            },
+            "mainEntity": {
+              "@id": "https://aceconscious.studio/ace/#ace-model"
+            },
+            "author": {
+              "@id": "https://aceconscious.studio/#hedayat-abedijoo"
+            },
+            "publisher": {
+              "@id": "https://aceconscious.studio/#organization"
+            },
+            "primaryImageOfPage": {
+              "@id": "https://aceconscious.studio/ace/#primaryimage"
+            },
+            "translationOfWork": {
+              "@id": "https://aceconscious.studio/ace/#webpage"
+            }
+          },
+          {
+            "@type": "ImageObject",
+            "@id": "https://aceconscious.studio/ace/#primaryimage",
+            "url": "https://aceconscious.studio/assets/cover.png",
+            "contentUrl": "https://aceconscious.studio/assets/cover.png",
+            "width": 683,
+            "height": 1024,
+            "caption": "Buchcover von ACE.await"
+          },
+          {
+            "@type": "CreativeWork",
+            "@id": "https://aceconscious.studio/ace/#ace-model",
+            "name": "ACE",
+            "alternateName": [
+              "Agency, Verbindung, Austausch",
+              "Agency, Connection, Exchange",
+              "ACE-Entscheidungsmodell"
+            ],
+            "headline": "ACE-Entscheidungsmodell",
+            "description": "ACE (Agency, Verbindung, Austausch) ist ein von Hedayat Abedijoo entwickeltes Entscheidungsmodell für bewusste Entscheidungen von Einzelpersonen, Organisationen und – als offene Frage – künstlicher Intelligenz. Agency folgt dem PDAF-Prozess (Vorbereitung, Entscheidung, Handlung, Rückmeldung) in vier Phasen (Erkundung, Stabilisierung, Erweiterung, Integration); Verbindung verknüpft Agencies; Austausch nimmt die GCC-Formen an (Geschenk, Verpflichtungen, Währung).",
+            "url": "https://aceconscious.studio/ace/",
+            "mainEntityOfPage": {
+              "@id": "https://aceconscious.studio/ace/#webpage"
+            },
+            "creator": {
+              "@id": "https://aceconscious.studio/#hedayat-abedijoo"
+            },
+            "author": {
+              "@id": "https://aceconscious.studio/#hedayat-abedijoo"
+            },
+            "publisher": {
+              "@id": "https://aceconscious.studio/#organization"
+            },
+            "isPartOf": {
+              "@id": "https://aceconscious.studio/#ace-await"
+            },
+            "keywords": [
+              "ACE",
+              "Agency",
+              "Verbindung",
+              "Austausch",
+              "Entscheidungsmodell",
+              "angemessene Entscheidung",
+              "PDAF",
+              "Erkundung",
+              "Stabilisierung",
+              "Erweiterung",
+              "Integration",
+              "GCC",
+              "Geschenk",
+              "Verpflichtungen",
+              "Währung",
+              "ACE-Manifest",
+              "KI-Entscheidungen",
+              "Hedayat Abedijoo"
+            ],
+            "inLanguage": "de"
+          },
+          {
+            "@type": "Person",
+            "@id": "https://aceconscious.studio/#hedayat-abedijoo",
+            "name": "Hedayat Abedijoo",
+            "alternateName": "Hedayat the second",
+            "url": "https://aceconscious.studio/#author",
+            "image": "https://aceconscious.studio/assets/author.png"
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://aceconscious.studio/#organization",
+            "name": "ACE Conscious Studio",
+            "alternateName": "Ace Conscious Studio",
+            "url": "https://aceconscious.studio/",
+            "logo": "https://aceconscious.studio/assets/logo-icon.png",
+            "founder": {
+              "@id": "https://aceconscious.studio/#hedayat-abedijoo"
+            },
+            "sameAs": [
+              "https://www.instagram.com/ace.await/"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://aceconscious.studio/#website",
+            "url": "https://aceconscious.studio/",
+            "name": "ACE Conscious Studio",
+            "alternateName": "Ace Conscious Studio",
+            "publisher": {
+              "@id": "https://aceconscious.studio/#organization"
+            },
+            "inLanguage": [
+              "en",
+              "de",
+              "fa"
+            ]
+          },
+          {
+            "@type": "Book",
+            "@id": "https://aceconscious.studio/#ace-await",
+            "name": "ACE.await",
+            "author": {
+              "@id": "https://aceconscious.studio/#hedayat-abedijoo"
+            },
+            "publisher": {
+              "@id": "https://aceconscious.studio/#organization"
+            },
+            "url": "https://aceconscious.studio/",
+            "image": "https://aceconscious.studio/assets/cover.png",
+            "about": {
+              "@id": "https://aceconscious.studio/ace/#ace-model"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "url": "https://aceconscious.studio/ace-fa/",
+      "sha256": "c67777832b3470f1d2160560149a16028b500d10a33e430e3bed156537223b81",
+      "jsonld": {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebPage",
+            "@id": "https://aceconscious.studio/ace-fa/#webpage",
+            "url": "https://aceconscious.studio/ace-fa/",
+            "name": "مدل تصمیم‌گیری ACE (عاملیت، ارتباط، تبادل) | هدایت عابدی‌جو",
+            "description": "ایس (ACE) چهار فاز عاملیت دارد: کشف و شهود، تثبیت، توسعه و ادغام. مدل تصمیم‌گیری هدایت عابدی‌جو برای افراد، سازمان‌ها و هوش مصنوعی.",
+            "inLanguage": "fa",
+            "isPartOf": {
+              "@id": "https://aceconscious.studio/#website"
+            },
+            "about": {
+              "@id": "https://aceconscious.studio/ace/#ace-model"
+            },
+            "mainEntity": {
+              "@id": "https://aceconscious.studio/ace/#ace-model"
+            },
+            "author": {
+              "@id": "https://aceconscious.studio/#hedayat-abedijoo"
+            },
+            "publisher": {
+              "@id": "https://aceconscious.studio/#organization"
+            },
+            "primaryImageOfPage": {
+              "@id": "https://aceconscious.studio/ace/#primaryimage"
+            },
+            "translationOfWork": {
+              "@id": "https://aceconscious.studio/ace/#webpage"
+            }
+          },
+          {
+            "@type": "ImageObject",
+            "@id": "https://aceconscious.studio/ace/#primaryimage",
+            "url": "https://aceconscious.studio/assets/cover.png",
+            "contentUrl": "https://aceconscious.studio/assets/cover.png",
+            "width": 683,
+            "height": 1024,
+            "caption": "جلد رمان ACE.await"
+          },
+          {
+            "@type": "CreativeWork",
+            "@id": "https://aceconscious.studio/ace/#ace-model",
+            "name": "ACE",
+            "alternateName": [
+              "ایس",
+              "عاملیت، ارتباط، تبادل",
+              "Agency, Connection, Exchange",
+              "مدل تصمیم‌گیری ایس"
+            ],
+            "headline": "مدل تصمیم‌گیری ایس (ACE)",
+            "description": "ایس (ACE: عاملیت، ارتباط، تبادل) مدلی برای تصمیم‌گیری است که هدایت عابدی‌جو آن را برای تصمیم‌گیری آگاهانه‌ی افراد، سازمان‌ها و – به‌عنوان پرسشی باز – هوش مصنوعی توسعه داده است. عاملیت از فرایند PDAF (آماده‌سازی، تصمیم، عمل، بازخورد) در چهار فاز (کشف و شهود، تثبیت، توسعه، ادغام) پیروی می‌کند؛ ارتباط عاملیت‌ها را به هم می‌پیوندد؛ و تبادل به شکل‌های GCC (هدیه، تعهدات، ارز) انجام می‌شود.",
+            "url": "https://aceconscious.studio/ace/",
+            "mainEntityOfPage": {
+              "@id": "https://aceconscious.studio/ace/#webpage"
+            },
+            "creator": {
+              "@id": "https://aceconscious.studio/#hedayat-abedijoo"
+            },
+            "author": {
+              "@id": "https://aceconscious.studio/#hedayat-abedijoo"
+            },
+            "publisher": {
+              "@id": "https://aceconscious.studio/#organization"
+            },
+            "isPartOf": {
+              "@id": "https://aceconscious.studio/#ace-await"
+            },
+            "keywords": [
+              "ACE",
+              "ایس",
+              "عاملیت",
+              "ارتباط",
+              "تبادل",
+              "مدل تصمیم‌گیری",
+              "تصمیم مناسب",
+              "PDAF",
+              "کشف و شهود",
+              "تثبیت",
+              "توسعه",
+              "ادغام",
+              "GCC",
+              "هدیه",
+              "تعهدات",
+              "ارز",
+              "مانیفست ایس",
+              "تصمیم‌گیری هوش مصنوعی",
+              "هدایت عابدی‌جو"
+            ],
+            "inLanguage": "fa"
+          },
+          {
+            "@type": "Person",
+            "@id": "https://aceconscious.studio/#hedayat-abedijoo",
+            "name": "Hedayat Abedijoo",
+            "alternateName": "Hedayat the second",
+            "url": "https://aceconscious.studio/#author",
+            "image": "https://aceconscious.studio/assets/author.png"
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://aceconscious.studio/#organization",
+            "name": "ACE Conscious Studio",
+            "alternateName": "Ace Conscious Studio",
+            "url": "https://aceconscious.studio/",
+            "logo": "https://aceconscious.studio/assets/logo-icon.png",
+            "founder": {
+              "@id": "https://aceconscious.studio/#hedayat-abedijoo"
+            },
+            "sameAs": [
+              "https://www.instagram.com/ace.await/"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://aceconscious.studio/#website",
+            "url": "https://aceconscious.studio/",
+            "name": "ACE Conscious Studio",
+            "alternateName": "Ace Conscious Studio",
+            "publisher": {
+              "@id": "https://aceconscious.studio/#organization"
+            },
+            "inLanguage": [
+              "en",
+              "de",
+              "fa"
+            ]
+          },
+          {
+            "@type": "Book",
+            "@id": "https://aceconscious.studio/#ace-await",
+            "name": "ACE.await",
+            "author": {
+              "@id": "https://aceconscious.studio/#hedayat-abedijoo"
+            },
+            "publisher": {
+              "@id": "https://aceconscious.studio/#organization"
+            },
+            "url": "https://aceconscious.studio/",
+            "image": "https://aceconscious.studio/assets/cover.png",
+            "about": {
+              "@id": "https://aceconscious.studio/ace/#ace-model"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
