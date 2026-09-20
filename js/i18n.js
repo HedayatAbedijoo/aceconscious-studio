@@ -295,24 +295,19 @@
       "author.verse":
         "I'm neck-deep in debt.<br>To my past,<br>I owe regret.<br>To my future,<br>I owe fear.<br>I pay off my debt,<br>with distractions.",
       "author.p1":
-        "I believe the next revolution in modern societies will unfold without killing, bloodshed, war, or conflict. I think it will begin within small and medium-sized businesses, led by the people who own and work in them—places where ideas from capitalism, socialism, and communism might come together in a new form.",
+        "I believe the next revolution in modern societies will come without killing, bloodshed, war, or conflict. I think it will start in small and medium-sized businesses, with the people who own them and the people who work there. Perhaps that’s where ideas from capitalism, socialism, and communism will come together in a new form.",
       "author.p2":
-        "This belief began taking shape in me in 2021, when the idea of ACE first came to me. Since then, I have found myself seeing more and more of the world through the lens of <a href=\"/ace/\">this decision-making model</a>—a model that, I believe, can work not only for an individual, but can also be put to the test in small and medium-sized businesses.",
+        "I started to believe this in 2021, when the idea for ACE came to me. Before that, I’d thought a different economic system could completely change the way people live. But slowly, I came to see that we can’t change the economic model without also changing how each of us behaves and relates to other people. These changes have to happen together. To bring a new kind of harmony into human life, we need to make conscious decisions together and in step across three areas: Agency, the agent’s relationships and the communities they belong to, and the different forms of exchange they engage in. Since then, I’ve come to see more and more of the world through <a href=\"/ace/\">the ACE model</a>. I believe it can work for an individual, and that we can try it out in small and medium-sized businesses too.",
       "author.p3":
-        "I can even imagine that one day we might expect artificial intelligence to follow a model like this and make fairer decisions where human beings are concerned—especially if machines ever surpass us both in their power to make decisions and in their hunger for power.",
+        "I can even imagine a day when we might expect AI to follow a model like this and make fairer decisions in its dealings with us, especially if machines ever overtake us in both their power to make decisions and their hunger for power.",
       "author.p4":
-        "At some point, ACE stopped being just a decision-making model for me. Little by little, I began to see it as a kind of <strong>social therapy</strong>.",
+        "At some point, ACE became more than a decision-making model to me. I began to see it as a kind of <strong>social therapy</strong>. I got so caught up in imagining a world with ACE in it that, before I knew it, my old, half-finished novel had been drawn into that world too. It was a novel about writers within writers, each writing the others into existence. ACE dug that novel up and found a place at its heart.",
       "author.p5":
-        "Imagining a world in which ACE had a place became so fascinating to me that, almost without my noticing, it drew my old, half-finished novel in with it—a novel about writers nested within writers, writing one another. ACE dug that novel out from under the dust and wrote itself into its heart.",
-      "author.p6": "And that is how <em>ACE.await</em> was born.",
+        "And that’s how <em>ACE.await</em> was born.",
+      "author.p6":
+        "At first, I wanted to write a novel that would explain ACE. But as the story unfolded, I got swept up in its twists and in characters who wouldn’t do as they were told. Sometimes they had me trapped. I’d stray so far from myself and from ACE that I’d completely forget why I’d started writing the novel. You’ll probably have no trouble spotting those moments in the book. Now, as the novel comes out, I’ve also founded <strong>Ace Conscious Studio</strong>, a home for my ideas and writing.",
       "author.p7":
-        "At first, I wanted to write a novel that would explain ACE. But as the story moved forward, its situations and characters carried me away with their disobedience. Sometimes I found myself at their mercy, trapped, drifting so far from myself and from ACE that I completely forgot why I had begun writing the novel in the first place.",
-      "author.p8":
-        "You can probably spot the traces of those moments quite easily in the book.",
-      "author.p9":
-        "Now, alongside the publication of this novel, I have also founded <strong>Ace Conscious Studio</strong>—a home for my ideas and writing.",
-      "author.p10":
-        "Welcome to the world of my ideas. If even a single word I have written speaks to you, <a href=\"#contact\">please write to me</a>. I will probably die of joy when I see your message.",
+        "Welcome to the world of my ideas. If even a single word I’ve written touches you, <a href=\"#contact\">please write to me</a>. Hearing from you would probably make me ridiculously happy.",
       "contact.label": "Contact",
       "contact.emailLabel": "Email",
       "contact.emailPlaceholder": "your@email.com",
@@ -580,21 +575,16 @@
       "author.p1":
         "Meiner Meinung nach wird die nächste Revolution in modernen Gesellschaften ohne Massaker, Blutvergießen, Krieg oder gewaltsame Auseinandersetzungen stattfinden. Ich glaube, sie wird in kleinen und mittleren Unternehmen beginnen – getragen von den Menschen, denen sie gehören und die dort arbeiten. Vielleicht finden dort Ideen aus Kapitalismus, Sozialismus und Kommunismus in einer neuen Form zusammen.",
       "author.p2":
-        "Diese Überzeugung begann 2021 in mir zu wachsen, als mir die Idee zu ACE kam. Seitdem sehe ich die Welt immer mehr durch die Linse <a href=\"/ace-de/\">dieses Entscheidungsmodells</a> – eines Modells, das meiner Ansicht nach nicht nur für einen einzelnen Menschen funktionieren, sondern auch in kleinen und mittleren Unternehmen erprobt werden kann.",
+        "Diese Überzeugung begann 2021 in mir zu wachsen, als mir die Idee zu ACE kam. Bis dahin hatte ich geglaubt, eine alternative Wirtschaftsordnung könne die Lebensbedingungen der Menschen grundlegend verändern. Doch nach und nach wurde mir klar, dass sich das Wirtschaftsmodell nicht verändern lässt, ohne dass sich auch das Verhalten jedes einzelnen Menschen und seine Beziehungen verändern. Und diese Veränderungen müssen gemeinsam geschehen. Damit eine neue Harmonie im menschlichen Leben entstehen kann, müssen bewusste Entscheidungen gleichzeitig und aufeinander abgestimmt in drei Bereichen getroffen werden: Agency, die Beziehungen und Gemeinschaften, in denen der Akteur lebt und handelt, und die verschiedenen Formen des Austauschs, an denen er teilnimmt. Seitdem sehe ich die Welt immer mehr durch die Linse <a href=\"/ace-de/\">des ACE-Modells</a> – eines Modells, das meiner Ansicht nach nicht nur für einen einzelnen Menschen funktionieren, sondern auch in kleinen und mittleren Unternehmen erprobt werden kann.",
       "author.p3":
         "Ich kann mir sogar vorstellen, dass wir eines Tages auch von künstlicher Intelligenz erwarten dürfen, nach einem solchen Muster im Umgang mit Menschen gerechtere Entscheidungen zu treffen – besonders dann, wenn Maschinen uns irgendwann sowohl in ihrer Entscheidungsmacht als auch in ihrem Streben nach Macht überholen.",
       "author.p4":
-        "Ab einem gewissen Punkt war ACE für mich nicht mehr nur ein Entscheidungsmodell. Nach und nach begann ich darin eine Art <strong>gesellschaftliche Therapie</strong> zu sehen.",
+        "Ab einem gewissen Punkt war ACE für mich nicht mehr nur ein Entscheidungsmodell. Nach und nach begann ich darin eine Art <strong>gesellschaftliche Therapie</strong> zu sehen. Die Vorstellung einer Welt, in der ACE einen Platz hat, faszinierte mich so sehr, dass sie beinahe unbemerkt auch meinen alten, halbfertigen Roman mit hineinzog – einen Roman über ineinander verschachtelte Schriftsteller, die einander schreiben. ACE grub diesen Roman unter seiner Staubschicht hervor und schrieb sich mitten in ihn hinein.",
       "author.p5":
-        "Die Vorstellung einer Welt, in der ACE einen Platz hat, faszinierte mich so sehr, dass sie beinahe unbemerkt auch meinen alten, halbfertigen Roman mit hineinzog – einen Roman über ineinander verschachtelte Schriftsteller, die einander schreiben. ACE grub diesen Roman unter seiner Staubschicht hervor und schrieb sich mitten in ihn hinein.",
-      "author.p6": "Und so wurde <em>ACE.await</em> geboren.",
+        "Und so wurde <em>ACE.await</em> geboren.",
+      "author.p6":
+        "Anfangs wollte ich einen Roman schreiben, mit dem ich ACE erklären konnte. Doch je weiter die Geschichte voranschritt, desto mehr rissen mich die Situationen und Figuren mit ihrem Ungehorsam mit. Manchmal geriet ich ganz in ihre Hände, saß fest und entfernte mich so weit von mir selbst und von ACE, dass ich völlig vergaß, warum ich diesen Roman überhaupt zu schreiben begonnen hatte. Die Spuren dieser Momente wirst du im Buch vermutlich leicht entdecken. Mit der Veröffentlichung dieses Romans habe ich nun auch das <strong>Ace Conscious Studio</strong> gegründet – ein Zuhause für meine Ideen und Texte.",
       "author.p7":
-        "Anfangs wollte ich einen Roman schreiben, mit dem ich ACE erklären konnte. Doch je weiter die Geschichte voranschritt, desto mehr rissen mich die Situationen und Figuren mit ihrem Ungehorsam mit. Manchmal geriet ich ganz in ihre Hände, saß fest und entfernte mich so weit von mir selbst und von ACE, dass ich völlig vergaß, warum ich diesen Roman überhaupt zu schreiben begonnen hatte.",
-      "author.p8":
-        "Die Spuren dieser Momente wirst du im Buch vermutlich leicht entdecken.",
-      "author.p9":
-        "Mit der Veröffentlichung dieses Romans habe ich nun auch das <strong>Ace Conscious Studio</strong> gegründet – ein Zuhause für meine Ideen und Texte.",
-      "author.p10":
         "Willkommen in der Welt meiner Ideen. Wenn dich auch nur ein einziges Wort aus meinen Texten berührt, dann <a href=\"#contact\">schreib mir bitte</a>. Wenn ich deine Nachricht sehe, werde ich mich vermutlich zu Tode freuen.",
       "contact.label": "Kontakt",
       "contact.emailLabel": "E-Mail",
@@ -862,21 +852,16 @@
       "author.p1":
         "به نظر من، انقلاب بعدی در جوامع مدرن بدون کشتار، خون‌ریزی، جنگ و درگیری رخ خواهد داد. فکر می‌کنم این انقلاب از دل بیزنس‌های کوچک و متوسط و به دست مالکان و کارکنان آن‌ها آغاز شود؛ جایی که شاید ایده‌هایی از سرمایه‌داری، سوسیالیسم و کمونیسم در قالبی تازه به هم برسند.",
       "author.p2":
-        "این باور از سال ۲۰۲۱، زمانی که ایدهٔ ACE به سراغم آمد، در من شکل گرفت. از آن زمان، هرچه بیشتر می‌گذرد، بیشتر دنیا را از دریچهٔ <a href=\"/ace-fa/\">این مدل تصمیم‌گیری</a> می‌بینم؛ مدلی که به گمان من نه‌تنها می‌تواند در مقیاس یک فرد کار کند، بلکه می‌توان آن را در بیزنس‌های کوچک و متوسط نیز آزمود.",
+        "این باور از سال ۲۰۲۱، زمانی که ایدهٔ ACE به سراغم آمد، در من شکل گرفت. تا قبل از آنکه می‌اندیشیدم که یک اقتصاد جایگزین بتواند شرایط زندگی انسان‌ها را به کلی دگرگون کند. اما آرام آرام متوجه شدم تغییر مدل اقتصادی بدون تغییر در رفتار هر انسان و ارتباطهایش ممکن نیست. و این تغییرات باید با هم اتفاق بیافتد. تصمیمات آگاهانه باید هم‌زمان و هماهنگ در سه حوزه گرفته شوند: ایجنسی، ارتباطات و جوامعی که ایجنت‌ها در آن‌ها حضور دارند، و شیوه‌های مختلفی که از طریق آن‌ها بده‌بستان می‌کنند؛ تا هارمونی تازه‌ای در زندگی انسان شکل بگیرد.  از آن زمان، هرچه بیشتر می‌گذرد، بیشتر دنیا را از دریچهٔ <a href=\"/ace-fa/\">مدل ایس</a> می‌بینم؛ مدلی که به گمان من نه‌تنها می‌تواند در مقیاس یک فرد کار کند، بلکه می‌توان آن را در بیزنس‌های کوچک و متوسط نیز آزمود.",
       "author.p3":
         "حتی تصور می‌کنم شاید روزی بتوان از هوش مصنوعی هم انتظار داشت با چنین الگویی در برابر انسان‌ها تصمیم‌های منصفانه‌تری بگیرد؛ به‌خصوص اگر زمانی ماشین‌ها در قدرت تصمیم‌گیری و قدرت‌طلبی از انسان‌ها پیشی بگیرند.",
       "author.p4":
-        "از جایی به بعد، ACE برای من فقط یک مدل تصمیم‌گیری نبود. کم‌کم آن را نوعی <strong>درمان اجتماعی</strong> دیدم.",
+        "از جایی به بعد، ACE برای من فقط یک مدل تصمیم‌گیری نبود. کم‌کم آن را نوعی <strong>درمان اجتماعی</strong> دیدم. خیال‌پردازی دربارهٔ جهانی که ACE در آن حضور دارد، آن‌قدر برایم جذاب شد که ناخواسته رمان قدیمی و نیمه‌کاره‌ام را هم با خودش همراه کرد؛ رمانی دربارهٔ نویسنده‌هایی تودرتو که یکدیگر را می‌نویسند. ACE آن رمان را از زیر خاک بیرون کشید و خودش را در دل آن جا داد.",
       "author.p5":
-        "خیال‌پردازی دربارهٔ جهانی که ACE در آن حضور دارد، آن‌قدر برایم جذاب شد که ناخواسته رمان قدیمی و نیمه‌کاره‌ام را هم با خودش همراه کرد؛ رمانی دربارهٔ نویسنده‌هایی تودرتو که یکدیگر را می‌نویسند. ACE آن رمان را از زیر خاک بیرون کشید و خودش را در دل آن جا داد.",
-      "author.p6": "و این‌گونه <em>ACE.await</em> متولد شد.",
+        "و این‌گونه <em>ACE.await</em> متولد شد.",
+      "author.p6":
+        "در ابتدا می‌خواستم رمانی بنویسم که با آن ACE را توضیح بدهم. اما هرچه داستان جلوتر رفت، موقعیت‌ها و شخصیت‌ها با سرپیچی‌هایشان مرا با خودشان بردند. گاهی اسیر دستشان می‌شدم، گیر می‌افتادم و آن‌قدر از خودم و از ACE دور می‌شدم که هدف اولیهٔ نوشتن رمان را کاملاً فراموش می‌کردم. احتمالاً می‌توانید ردپای آن لحظه‌ها را به‌راحتی در کتاب پیدا کنید. حالا، همراه با انتشار این رمان، <strong>Ace Conscious Studio</strong> را نیز بنیان گذاشته‌ام؛ خانه‌ای برای ایده‌ها و نوشته‌هایم.",
       "author.p7":
-        "در ابتدا می‌خواستم رمانی بنویسم که با آن ACE را توضیح بدهم. اما هرچه داستان جلوتر رفت، موقعیت‌ها و شخصیت‌ها با سرپیچی‌هایشان مرا با خودشان بردند. گاهی اسیر دستشان می‌شدم، گیر می‌افتادم و آن‌قدر از خودم و از ACE دور می‌شدم که هدف اولیهٔ نوشتن رمان را کاملاً فراموش می‌کردم.",
-      "author.p8":
-        "احتمالاً می‌توانید ردپای آن لحظه‌ها را به‌راحتی در کتاب پیدا کنید.",
-      "author.p9":
-        "حالا، همراه با انتشار این رمان، <strong>Ace Conscious Studio</strong> را نیز بنیان گذاشته‌ام؛ خانه‌ای برای ایده‌ها و نوشته‌هایم.",
-      "author.p10":
         "به جهان ایده‌هایم خوش آمدید. اگر حتی یک کلمه از نوشته‌هایم به دلتان نشست، <a href=\"#contact\">لطفاً برایم بنویسید</a>؛ احتمالاً از دیدن پیامتان ذوق‌مرگ خواهم شد.",
       "contact.label": "تماس",
       "contact.emailLabel": "ایمیل",
