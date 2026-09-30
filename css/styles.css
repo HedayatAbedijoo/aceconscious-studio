@@ -675,11 +675,11 @@ section {
 
 .hero__pitch p.hero__pitch-ace {
   margin-top: 0.95rem;
-  font-weight: 600;
   color: var(--ink);
 }
 
 .hero__pitch p.hero__pitch-ace a {
+  font-weight: 600;
   color: inherit;
   text-decoration: underline;
   text-decoration-thickness: 1px;
