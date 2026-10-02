@@ -9,6 +9,11 @@
 - [مدل تصمیم‌گیری ACE (Persian)](https://aceconscious.studio/ace-fa/): Persian translation of the ACE reference page.
 - [ACE.await and the author](https://aceconscious.studio/): Official page for the novel ACE.await and its author, Hedayat Abedijoo. German: https://aceconscious.studio/de/ · Persian: https://aceconscious.studio/fa/
 
+## For industry professionals (English only)
+
+- [ACE.await — Publishing & Foreign Rights](https://aceconscious.studio/rights/): Rights summary for literary agents, publishers and foreign-rights partners: what the author is seeking, which rights are available, and how to request a review copy.
+- [ACE.await — Book to Screen](https://aceconscious.studio/screen/): Adaptation summary for producers and scouts (limited series and feature film). The adaptation exposés are available on request only.
+
 ## ACE identity
 
 ACE stands for Agency, Connection, Exchange.
