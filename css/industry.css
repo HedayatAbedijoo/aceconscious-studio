@@ -267,12 +267,36 @@
 }
 
 /* Screen hero */
+.ind-hero--screen {
+  padding-top: clamp(1.75rem, 3.5vw, 3rem);
+}
+
+.ind-hero--screen .ind-hero__title {
+  font-size: clamp(4.25rem, 8vw, 6rem);
+}
+
+.ind-hero--screen .ind-formats {
+  margin-bottom: 1rem;
+}
+
+.ind-hero--screen .ind-avail {
+  margin-bottom: 1.1rem;
+}
+
+.ind-tagline {
+  margin: 1.35rem 0 0;
+  font-size: clamp(1.375rem, 2.1vw, 1.75rem);
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--ink);
+}
+
 .ind-logline {
-  margin: 1.6rem 0 1.5rem;
+  margin: 1.1rem 0 1.25rem;
   padding-left: 1.15rem;
   border-left: 3px solid var(--accent);
-  font-size: clamp(1.3rem, 2vw, 1.6rem);
-  line-height: 1.38;
+  font-size: clamp(1.125rem, 1.45vw, 1.25rem);
+  line-height: 1.55;
   color: var(--ink);
 }
 
@@ -280,9 +304,12 @@
   display: block;
 }
 
-.ind-logline span + span {
-  margin-top: 0.3rem;
+.ind-logline span:first-child {
   font-weight: 600;
+}
+
+.ind-logline span + span {
+  margin-top: 0.4rem;
 }
 
 .ind-formats {
@@ -1128,9 +1155,43 @@
     font-size: 0.9375rem;
   }
 
+  .ind-hero--screen {
+    padding-top: 0.75rem;
+  }
+
+  .ind-tagline {
+    margin-top: 0.7rem;
+    font-size: 1.125rem;
+    line-height: 1.35;
+  }
+
+  .ind-hero--screen .ind-hero__body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ind-hero--screen .ind-avail {
+    margin-bottom: 0.85rem;
+  }
+
+  .ind-hero--screen .ind-actions {
+    order: 1;
+  }
+
+  .ind-hero--screen .ind-formats {
+    order: 2;
+    margin: 1.25rem 0 0;
+  }
+
   .ind-logline {
-    margin: 1.1rem 0 1.1rem;
-    font-size: 1.25rem;
+    margin: 0.7rem 0 0.8rem;
+    padding-left: 0.9rem;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .ind-logline span + span {
+    margin-top: 0.3rem;
   }
 
   .ind-formats {
@@ -1257,9 +1318,14 @@
     margin: 0 0.4rem;
   }
 
+  .ind-tagline {
+    margin-top: 0.6rem;
+    font-size: 1.0625rem;
+  }
+
   .ind-logline {
-    margin: 0.85rem 0 0.85rem;
-    font-size: 1.125rem;
+    margin: 0.6rem 0 0.75rem;
+    font-size: 1rem;
   }
 
   .ind-formats {
