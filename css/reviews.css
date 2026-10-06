@@ -70,7 +70,8 @@
   letter-spacing: -.065em;
   text-wrap: balance;
 }
-.review__headline::after {
+.review__headline::after,
+.media-review--a .media-review__body::before {
   content: "";
   display: block;
   width: 5.5rem;
@@ -137,7 +138,8 @@
 html[dir="rtl"] .review__headline, html[dir="rtl"] .review__tagline { font-family: var(--font-serif-fa); letter-spacing: 0; }
 html[dir="rtl"] .review__headline { line-height: 1.4; font-size: clamp(2.5rem, 4.6vw, 4rem); }
 html[dir="rtl"] .review__tagline { line-height: 1.65; }
-html[dir="rtl"] .review__headline::after { transform: rotate(1deg); }
+html[dir="rtl"] .review__headline::after,
+html[dir="rtl"] .media-review--a .media-review__body::before { transform: rotate(1deg); }
 html[dir="rtl"] .reviews__arrow svg, html[dir="rtl"] .review__link svg { scale: -1 1; }
 html[dir="rtl"] .review__scores dt { font-size: .9375rem; }
 html[dir="rtl"] .review__excerpt { font-size: 1.0625rem; line-height: 1.95; }
@@ -232,7 +234,7 @@ html[dir="rtl"] .review__excerpt { font-size: 1.0625rem; line-height: 1.95; }
 .media-review--a .media-review__name { font-size: 1.55rem; }
 .media-review--a .media-review__publication { margin-top: 1rem; padding-top: 1.25rem; border-top: 1px solid rgba(13,13,13,.2); width: 100%; }
 .media-review--a .media-review__body { grid-column: 1; grid-row: 2; }
-.media-review--a .media-review__body::before { content: ""; display: block; width: 4rem; height: 3px; background: var(--ink); margin-bottom: 1.5rem; }
+.media-review--a .media-review__body::before { margin-top: 0; }
 .media-review--a .media-review__footer { grid-column: 1; grid-row: 3; }
 
 /* Kirkus leads the carousel with its original publisher mark. */
@@ -245,10 +247,17 @@ html[dir="rtl"] .review__excerpt { font-size: 1.0625rem; line-height: 1.95; }
 .media-review--kirkus .media-review__quote { font-size: clamp(2.2rem, 3.6vw, 3.5rem); }
 
 .media-review .media-review__excerpt { margin-top: 1.75rem; max-width: 46rem; font-size: 1rem; line-height: 1.85; color: var(--ink-soft); }
-.media-review__excerpt strong { font-weight: 600; color: var(--ink); }
+.media-review__excerpt strong,
+.media-review__secondary-quote strong { font-weight: 600; color: var(--ink); }
+.media-review--kirkus .media-review__secondary-quote,
+.media-review--kirkus .media-review__excerpt { max-width: 42rem; font-family: inherit; font-size: 1.125rem; font-weight: 400; font-style: normal; line-height: 1.8; }
 html[dir="rtl"] .media-review__quote { font-family: var(--font-serif-fa); letter-spacing: 0; line-height: 1.5; }
 html[dir="rtl"] .media-review__secondary-quote { font-family: var(--font-serif-fa); line-height: 1.8; }
 html[dir="rtl"] .media-review__excerpt { font-size: 1.0625rem; line-height: 2; }
+html[dir="rtl"] .media-review--kirkus .media-review__secondary-quote,
+html[dir="rtl"] .media-review--kirkus .media-review__excerpt { font-size: 1.125rem; line-height: 1.95; }
+.review[data-review-id="booklife-2026"] .review__excerpt,
+.review[data-review-id="consciousness-2026"] .media-review__excerpt { font-size: 1.125rem; }
 
 @media (max-width: 900px) {
   .review.media-review--a { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }
