@@ -203,7 +203,7 @@
     <link rel="preload" href="/assets/fonts/Vazirmatn-Regular.woff2?v=20260718f" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/css/styles.css?v=c517848a7b">
   <link rel="icon" href="/assets/favicon.png?v=20260718f" type="image/png">
-  <link rel="stylesheet" href="/css/reviews.css?v=07e7564b9f">
+  <link rel="stylesheet" href="/css/reviews.css?v=f67c72bdfd">
 </head>
 <body>
 
@@ -368,7 +368,7 @@
     <header class="reviews__header">
       <h2 class="section-label reviews__label" id="reviews-heading" data-i18n="reviews.heading">Reviews</h2>
       <div class="reviews__controls">
-        <span class="reviews__counter" aria-hidden="true">1 of 2</span>
+        <span class="reviews__counter" aria-hidden="true">1 of 3</span>
         <button class="reviews__arrow" type="button" data-review-prev aria-label="Previous review" data-i18n-attr="aria-label:reviews.previous" aria-controls="review-slides" disabled>
           <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 12H5m6-6-6 6 6 6"/></svg>
         </button>
@@ -378,6 +378,35 @@
       </div>
     </header>
     <div class="reviews__slides" id="review-slides">
+      <article class="review media-review media-review--a media-review--kirkus" data-review-id="kirkus-2026" aria-labelledby="kirkus-quote">
+        <aside class="media-review__publisher" aria-label="Kirkus Reviews">
+          <img class="media-review__logo" src="/assets/reviews/kirkus-reviews.png" width="772" height="326" alt="Kirkus Reviews">
+          <div class="media-review__identity">
+            <a class="media-review__name" href="https://www.kirkusreviews.com/book-reviews/hedayat-second/aceawait/" target="_blank" rel="noopener noreferrer"><cite><bdi lang="en" dir="ltr">Kirkus Reviews</bdi></cite></a>
+            <p class="media-review__domain"><bdi dir="ltr">kirkusreviews.com</bdi></p>
+          </div>
+          <div class="media-review__publication">
+            <p data-i18n="reviews.kirkus.type">A review of ACE.await</p>
+            <p><bdi lang="en" dir="ltr">Kirkus Indie</bdi></p>
+          </div>
+        </aside>
+        <div class="media-review__feature">
+          <p class="media-review__eyebrow" data-i18n="reviews.kirkus.type">A review of ACE.await</p>
+          <blockquote class="media-review__quote" id="kirkus-quote" cite="https://www.kirkusreviews.com/book-reviews/hedayat-second/aceawait/"><p data-i18n="reviews.kirkus.headline">“A literary puzzle that will reward discerning readers with potentially life-changing insights.”</p></blockquote>
+        </div>
+        <div class="media-review__body">
+          <blockquote class="media-review__secondary-quote" cite="https://www.kirkusreviews.com/book-reviews/hedayat-second/aceawait/"><p data-i18n="reviews.kirkus.tagline">“Can humankind and AI not only coexist but thrive in a mutually beneficial relationship?”</p></blockquote>
+          <blockquote class="media-review__excerpt" cite="https://www.kirkusreviews.com/book-reviews/hedayat-second/aceawait/"><p data-i18n="reviews.kirkus.excerpt">“Equal parts SF, metafiction, and manifesto for living a deeply considered life, this wildly original work is a who-wrote-it mystery that will have readers debating who the true narrator is until the very end.”</p></blockquote>
+          <p class="media-review__note" data-i18n="reviews.kirkus.note">Selected quotations · original English</p>
+        </div>
+        <footer class="media-review__footer">
+          <a class="review__link" href="https://www.kirkusreviews.com/book-reviews/hedayat-second/aceawait/" target="_blank" rel="noopener noreferrer">
+            <span data-i18n="reviews.full">Read the full review</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
+            <span class="reviews__sr-only" data-i18n="reviews.newTab">(opens in a new tab)</span>
+          </a>
+        </footer>
+      </article>
       <article class="review" data-review-id="booklife-2026" aria-labelledby="booklife-quote">
         <div class="review__copy">
         <div class="review__quotes">
@@ -444,7 +473,7 @@
         </footer>
       </article>
     </div>
-    <p class="reviews__sr-only reviews__status" role="status" aria-live="polite" aria-atomic="true">Review 1 of 2</p>
+    <p class="reviews__sr-only reviews__status" role="status" aria-live="polite" aria-atomic="true">Review 1 of 3</p>
   </div>
 </section>
     <!-- Reviews:end -->
@@ -950,7 +979,7 @@
   </footer>
 
   <script src="/js/asset-version.js?v=20260914a"></script>
-  <script src="/js/i18n.js?v=3fe6d68ea0" defer></script>
+  <script src="/js/i18n.js?v=4b83091f42" defer></script>
   <script src="/js/cover-flip.js?v=20260718f" defer></script>
   <script src="/js/contact-config.js?v=20260718f" defer></script>
   <script src="/js/contact.js?v=5b719af425" defer></script>

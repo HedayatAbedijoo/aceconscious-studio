@@ -10,6 +10,7 @@ import argparse
 import json
 from pathlib import Path
 import shutil
+from urllib.parse import urlsplit
 from playwright.sync_api import sync_playwright
 
 parser = argparse.ArgumentParser(description=__doc__)
@@ -21,11 +22,71 @@ output = Path(args.output)
 output.mkdir(parents=True, exist_ok=True)
 results = []
 layouts = ("split",) if args.website else ("split", "masthead")
+base_url = urlsplit(args.base)
+allowed_origins = {
+    (base_url.scheme, base_url.netloc),
+    ("https", "fonts.googleapis.com"),
+    ("https", "fonts.gstatic.com"),
+}
 
 
 def check(condition, description):
     if not condition:
         raise AssertionError(description)
+
+
+def route_review_request(route):
+    url = urlsplit(route.request.url)
+    if (url.scheme, url.netloc) in allowed_origins:
+        route.continue_()
+    else:
+        route.abort()
+
+
+def check_review_fonts(page):
+    # fonts.ready also resolves when a stylesheet/font fails. Require matching,
+    # successfully loaded faces for the actual text and weights used by the card.
+    # Without deferred JavaScript, DOMContentLoaded can precede stylesheet loads.
+    page.wait_for_load_state("load")
+    fonts = page.evaluate("""async () => {
+      const selectors = ['.media-review__quote', '.media-review__secondary-quote',
+        '.media-review__excerpt', '.media-review__name cite', '.reviews__label', '.reviews__counter'];
+      return Promise.all(selectors.map(async selector => {
+        const el = document.querySelector(selector);
+        const style = getComputedStyle(el);
+        const family = style.fontFamily.split(',')[0].trim().replace(/^['"]|['"]$/g, '');
+        const request = `${style.fontStyle} ${style.fontWeight} ${style.fontSize} "${family}"`;
+        try {
+          const faces = await document.fonts.load(request, el.textContent);
+          return {selector, family, loaded: faces.length > 0 && faces.every(face => face.status === 'loaded')};
+        } catch (error) {
+          return {selector, family, loaded: false, error: String(error)};
+        }
+      }));
+    }""")
+    for font in fonts:
+        check(font["loaded"], f"Review font loads: {font['family']} at {font['selector']}: {font.get('error', 'no loaded matching face')}")
+    page.evaluate("document.fonts.ready")
+
+
+def check_review_logos(page):
+    check(page.locator("[data-review-id='kirkus-2026'] .media-review__logo").count() == 1, "Kirkus publisher logo is present")
+    logos = page.locator(".media-review__logo").evaluate_all("""async images => Promise.all(images.map(async img => {
+      try { await img.decode(); } catch (_) {}
+      return {review: img.closest('[data-review-id]').dataset.reviewId, src: img.getAttribute('src'),
+        loaded: img.complete && img.naturalWidth > 0 && img.naturalHeight > 0};
+    }))""")
+    for logo in logos:
+        check(logo["loaded"], f"Publisher logo loads: {logo['review']} ({logo['src']})")
+
+
+def check_review_reflow(page, description):
+    overflow = page.locator("#reviews").evaluate("""section => [...section.querySelectorAll('*')].filter(el => {
+      if (!el.getClientRects().length || el.classList.contains('reviews__sr-only')) return false;
+      const r = el.getBoundingClientRect();
+      return r.left < -1 || r.right > innerWidth + 1 || (!el.children.length && el.scrollWidth > el.clientWidth + 2);
+    }).map(el => el.className || el.tagName)""")
+    check(not overflow, f"{description}: {overflow}")
 
 
 def visit(page, language="en", layout="split", examples=False):
@@ -38,15 +99,16 @@ def visit(page, language="en", layout="split", examples=False):
         response = page.reload(wait_until="domcontentloaded")
     check(response.status == 200, "Preview HTML loads from a static route")
     page.wait_for_function("window.aceI18n && document.documentElement.lang === " + json.dumps(language))
-    page.evaluate("document.fonts.ready")
+    check_review_fonts(page)
+    check_review_logos(page)
     page.locator("#reviews").scroll_into_view_if_needed()
 
 
 with sync_playwright() as p:
     browser = p.chromium.launch(executable_path=shutil.which("google-chrome") or None)
     context = browser.new_context(device_scale_factor=1)
-    # The flipbook is unrelated to review rendering and can delay page loads.
-    context.route("**/*heyzine.com/**", lambda route: route.abort())
+    # Load the production typography while keeping analytics/embedded readers out.
+    context.route("**/*", route_review_request)
     page = context.new_page()
     errors = []
     local_failures = []
@@ -58,12 +120,7 @@ with sync_playwright() as p:
             page.set_viewport_size({"width": 320, "height": 1000})
             visit(page, language, layout, True)
             page.add_style_tag(content="html { font-size: 200%; }")
-            overflow = page.locator("#reviews").evaluate("""section => [...section.querySelectorAll('*')].filter(el => {
-              if (!el.getClientRects().length || el.classList.contains('reviews__sr-only')) return false;
-              const r = el.getBoundingClientRect();
-              return r.left < -1 || r.right > innerWidth + 1 || (!el.children.length && el.scrollWidth > el.clientWidth + 2);
-            }).map(el => el.className || el.tagName)""")
-            check(not overflow, f"200% text reflow: {language}/{layout}: {overflow}")
+            check_review_reflow(page, f"200% text reflow: {language}/{layout}")
             results.append(f"200% text: {language}/{layout}")
 
     for language in ("en", "de", "fa"):
@@ -74,9 +131,20 @@ with sync_playwright() as p:
                 section = page.locator("#reviews")
                 check(section.count() == 1, "One review section")
                 check(page.locator(".reviews__controls").is_visible(), "Single review shows the carousel count")
-                check(page.locator(".reviews__counter").inner_text() == {"en": "1 of 2", "de": "1 von 2", "fa": "1 از 2"}[language], "Localized 1 of 2 counter")
-                check(page.locator("[data-review-prev]").is_enabled() and page.locator("[data-review-next]").is_enabled(), "Two reviews enable navigation")
+                check(page.locator(".reviews__counter").inner_text() == {"en": "1 of 3", "de": "1 von 3", "fa": "1 از 3"}[language], "Localized 1 of 3 counter")
+                check(page.locator("[data-review-prev]").is_enabled() and page.locator("[data-review-next]").is_enabled(), "Three reviews enable navigation")
                 check(page.locator("[data-review-id]:visible").count() == 1, "Single review visible")
+                check(page.locator("[data-review-id='kirkus-2026']").is_visible(), "Kirkus is first")
+                kirkus = page.locator("[data-review-id='kirkus-2026']")
+                check(kirkus.locator("blockquote").count() == 3, "Kirkus has three selected quotations")
+                check(kirkus.locator(".media-review__secondary-quote p").inner_text() == page.evaluate("window.aceI18n.getString('reviews.kirkus.tagline')"), "Kirkus thematic question matches the selected language")
+                check(kirkus.locator(".review__rating, .review__scores").count() == 0, "Kirkus has no numerical rating")
+                check(kirkus.locator(".review__link").get_attribute("href") == "https://www.kirkusreviews.com/book-reviews/hedayat-second/aceawait/", "Kirkus links to its full review")
+                check_review_reflow(page, f"Kirkus layout: {language}/{layout}/{width}")
+                if width in (390, 1440):
+                    section.screenshot(path=str(output / f"kirkus-{layout}-{language}-{width}.png"))
+                page.locator("[data-review-next]").click()
+                check(page.locator("[data-review-id='booklife-2026']").is_visible(), "BookLife is second")
                 check(page.locator(".review__rating strong").inner_text() == "7.5", "Correct overall score")
                 check(page.locator(".review__scores dd").all_inner_texts() == ["8", "8", "7", "7"], "Correct category scores")
                 check(page.locator("[data-review-id=booklife-2026] .review__link").get_attribute("href") == "https://booklife.com/project/ace-await-110051", "Verified public source URL")
@@ -118,18 +186,18 @@ with sync_playwright() as p:
         for layout in layouts:
             page.set_viewport_size({"width": 390, "height": 1000})
             visit(page, language, layout, True)
-            check(page.locator("[data-review-id]").count() == 4, "Two reviews and two fixture slides")
+            check(page.locator("[data-review-id]").count() == 5, "Three reviews and two fixture slides")
             check(page.locator(".reviews__controls").is_visible(), "Multiple reviews expose controls")
             for selector in ("[data-review-prev]", "[data-review-next]"):
                 box = page.locator(selector).bounding_box()
                 check(box["width"] >= 44 and box["height"] >= 44, "44px touch targets")
             page.locator("[data-review-next]").click()
+            page.locator("[data-review-next]").click()
             media = page.locator("[data-review-id='consciousness-2026']")
-            check(media.is_visible(), "Media review occupies second position")
+            check(media.is_visible(), "The Consciousness AI occupies third position")
             check(media.locator("blockquote").count() == 3, "Both short quotes and the supplied paragraph are present")
             check(media.locator(".media-review__excerpt strong").count() == 1, "Ethical question keeps bold emphasis")
             check(media.locator(".review__rating, .review__scores").count() == 0, "Media review has no rating")
-            check(media.locator(".media-review__logo").evaluate("img => img.complete && img.naturalWidth > 0"), "Official publisher logo loads")
             check(media.locator(".media-review__excerpt p").inner_text() == page.evaluate("window.aceI18n.getString('reviews.consciousness.excerpt').replace(/<[^>]*>/g, '')"), "Excerpt matches the selected language")
             page.locator("[data-review-next]").click()
             check(page.locator("[data-review-id='preview-short']").is_visible(), "Next shows unscored fixture")
@@ -140,31 +208,32 @@ with sync_playwright() as p:
             check(page.locator("[data-review-id='preview-long']").is_visible(), "Localized arrow-key navigation")
             check(page.locator("[data-review-id='preview-long'] .review__excerpt").evaluate("el => el.scrollHeight <= el.clientHeight + 1"), "Long excerpt not clipped")
             page.locator("[data-review-next]").click()
-            check(page.locator("[data-review-id='booklife-2026']").is_visible(), "Next wraps to first")
+            check(page.locator("[data-review-id='kirkus-2026']").is_visible(), "Next wraps to first")
             page.locator("[data-review-prev]").click()
             check(page.locator("[data-review-id='preview-long']").is_visible(), "Previous wraps to last")
             page.keyboard.press("Home")
-            check(page.locator("[data-review-id='booklife-2026']").is_visible(), "Home selects first")
+            check(page.locator("[data-review-id='kirkus-2026']").is_visible(), "Home selects first")
             page.keyboard.press("End")
             check(page.locator("[data-review-id='preview-long']").is_visible(), "End selects last")
             page.keyboard.press("Home")
             # Actual touch input through Chromium, rather than calling the controller.
             client = context.new_cdp_session(page)
-            box = page.locator(".review__headline").first.bounding_box()
+            page.locator("[data-review-id='kirkus-2026'] .media-review__quote").scroll_into_view_if_needed()
+            box = page.locator("[data-review-id='kirkus-2026'] .media-review__quote").bounding_box()
             y = max(130, box["y"] + 30)
             start, end = (70, 300) if language == "fa" else (300, 70)
             client.send("Input.dispatchTouchEvent", {"type":"touchStart", "touchPoints":[{"x":start,"y":y}]})
             for i in range(1, 6):
                 client.send("Input.dispatchTouchEvent", {"type":"touchMove", "touchPoints":[{"x":start+(end-start)*i/5,"y":y}]})
             client.send("Input.dispatchTouchEvent", {"type":"touchEnd", "touchPoints":[]})
-            check(page.locator("[data-review-id='consciousness-2026']").is_visible(), "Real touch swipe navigates to the second review")
+            check(page.locator("[data-review-id='booklife-2026']").is_visible(), "Real touch swipe navigates to the second review")
             client.detach()
             results.append(f"Carousel, keyboard, touch: {language}/{layout}")
 
     page.emulate_media(reduced_motion="reduce")
     visit(page, examples=True)
     page.locator("[data-review-next]").click()
-    check(page.locator("[data-review-id='preview-short']").evaluate("el => el.getAnimations().length === 0"), "Reduced motion disables animation")
+    check(page.locator("[data-review-id='booklife-2026']").evaluate("el => el.getAnimations().length === 0"), "Reduced motion disables animation")
     results.append("Reduced motion")
 
     page.set_viewport_size({"width": 390, "height": 1000})
@@ -172,9 +241,11 @@ with sync_playwright() as p:
     page.locator("[data-layout='masthead']").click()
     page.locator("[data-language='fa']").click()
     frame = page.frame_locator("#preview-frame")
-    check(frame.locator(".reviews--masthead").count() == 1, "Comparison selects B")
     frame.locator("html[lang='fa']").wait_for()
+    frame.locator(".reviews--masthead").wait_for()
+    check(frame.locator(".reviews--masthead").count() == 1, "Comparison selects B")
     page.locator("#preview-content").select_option("examples")
+    frame.locator("[data-review-id='preview-short']").wait_for(state="attached")
     frame.locator(".reviews__controls").wait_for(state="visible")
     page.locator("#preview-width").select_option("320")
     check(page.locator("#preview-frame").bounding_box()["width"] == 320, "Phone width control")
@@ -195,20 +266,24 @@ with sync_playwright() as p:
             check(page.locator("html").get_attribute("lang") == language, "Language switch keeps Reviews anchor")
         page.goto(args.base + "/404.html#reviews", wait_until="domcontentloaded")
         check(page.locator("#reviews").count() == 1, "Fallback homepage includes Reviews")
-        check(page.locator(".reviews__counter").inner_text() == "1 of 2", "Fallback counter")
+        check(page.locator(".reviews__counter").inner_text() == "1 of 3", "Fallback counter")
         results.append("Website navigation, locale switching, fallback page")
 
     nojs = browser.new_context(java_script_enabled=False, viewport={"width":390,"height":1000})
-    nojs.route("**/*heyzine.com/**", lambda route: route.abort())
+    nojs.route("**/*", route_review_request)
     static = nojs.new_page()
     static.goto(args.base + "/previews/reviews/view/en/index-examples.html#reviews", wait_until="domcontentloaded")
-    check(static.locator("[data-review-id]:visible").count() == 4, "No-JS keeps all reviews visible")
+    check_review_fonts(static)
+    check_review_logos(static)
+    check(static.locator("[data-review-id]:visible").count() == 5, "No-JS keeps all reviews visible")
     check(static.locator("[data-review-prev]").is_disabled() and static.locator("[data-review-next]").is_disabled(), "No-JS keeps navigation disabled")
-    check(static.locator(".reviews__counter").inner_text() == "1 of 4", "No-JS fallback count matches articles")
+    check(static.locator(".reviews__counter").inner_text() == "1 of 5", "No-JS fallback count matches articles")
     if args.website:
         static.goto(args.base + "/#reviews", wait_until="domcontentloaded")
-        check(static.locator(".reviews__counter").inner_text() == "1 of 2", "No-JS website shows 1 of 2")
-        check(static.locator(".review__link").count() == 2 and static.locator("[data-review-id]:visible").count() == 2, "No-JS keeps both reviews readable")
+        check_review_fonts(static)
+        check_review_logos(static)
+        check(static.locator(".reviews__counter").inner_text() == "1 of 3", "No-JS website shows 1 of 3")
+        check(static.locator(".review__link").count() == 3 and static.locator("[data-review-id]:visible").count() == 3, "No-JS keeps all three reviews readable")
     results.append("No-JavaScript fallback")
     check(not errors, f"No browser errors: {errors}")
     check(not local_failures, f"No failed preview requests: {local_failures}")

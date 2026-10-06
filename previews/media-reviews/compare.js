@@ -7,7 +7,7 @@
   const width = document.getElementById('preview-width');
   const review = document.getElementById('preview-review');
   if (['390', '320', '768'].includes(params.get('width'))) width.value = params.get('width');
-  if (params.get('review') === '1') review.value = '1';
+  if (['1', '2', '3'].includes(params.get('review'))) review.value = params.get('review');
   function update(reload = true) {
     document.querySelectorAll('[data-language]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.language === language)));
     history.replaceState(null, '', '?' + new URLSearchParams({ design, language, width: width.value, review: review.value }));
@@ -26,7 +26,7 @@
       language = event.data.language;
       update();
     }
-    if (event.data?.type === 'media-preview-review' && ['1', '2'].includes(event.data.review)) {
+    if (event.data?.type === 'media-preview-review' && ['1', '2', '3'].includes(event.data.review)) {
       review.value = event.data.review;
       update(false);
     }

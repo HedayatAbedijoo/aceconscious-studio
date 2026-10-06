@@ -14,7 +14,7 @@ for language in ('en', 'de', 'fa'):
     source = ROOT / ('index.html' if language == 'en' else f'{language}/index.html')
     for design in ('a', 'b', 'c'):
         section = load_section()
-        section = section.replace('media-review--a', f'media-review--{design}', 1)
+        section = section.replace('media-review--a', f'media-review--{design}')
         section = set_review_count(section)
         page = replace_section(source.read_text(), section)
         page = page.replace('content="index, follow, max-image-preview:large"', 'content="noindex, nofollow"')

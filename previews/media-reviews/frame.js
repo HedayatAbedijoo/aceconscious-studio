@@ -23,9 +23,13 @@
   }, true);
   document.addEventListener('DOMContentLoaded', () => {
     const section = document.getElementById('reviews');
-    if (new URLSearchParams(location.search).get('review') === '2') section.querySelector('[data-review-next]').click();
+    const slides = [...section.querySelectorAll('[data-review-id]')];
+    const requested = Number(new URLSearchParams(location.search).get('review'));
+    if (Number.isInteger(requested) && requested > 1 && requested <= slides.length) {
+      for (let i = 1; i < requested; i++) section.querySelector('[data-review-next]').click();
+    }
     const sync = () => {
-      const review = section.querySelector('[data-review-id="consciousness-2026"]').hidden ? '1' : '2';
+      const review = String(slides.findIndex(slide => !slide.hidden) + 1);
       const params = new URLSearchParams(location.search);
       params.set('review', review);
       history.replaceState(null, '', location.pathname + '?' + params + location.hash);

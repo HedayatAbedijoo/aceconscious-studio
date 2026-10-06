@@ -23,6 +23,9 @@
 }
 .reviews__label {
   margin: 0;
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: anywhere;
   font-weight: 400;
 }
 .reviews__controls { display: flex; align-items: center; gap: .5rem; order: 1; }
@@ -231,6 +234,14 @@ html[dir="rtl"] .review__excerpt { font-size: 1.0625rem; line-height: 1.95; }
 .media-review--a .media-review__body::before { content: ""; display: block; width: 4rem; height: 3px; background: var(--ink); margin-bottom: 1.5rem; }
 .media-review--a .media-review__footer { grid-column: 1; grid-row: 3; }
 
+/* Kirkus leads the carousel with its original publisher mark. */
+.media-review--kirkus .media-review__publisher { background: #000; color: var(--white); border-color: #000; }
+.media-review--kirkus .media-review__logo { width: min(100%, 220px); aspect-ratio: 772 / 326; }
+.media-review--kirkus .media-review__name cite { font-style: italic; }
+.media-review--kirkus .media-review__domain,
+.media-review--kirkus .media-review__publication { color: rgba(255, 255, 255, .75); }
+.media-review--kirkus .media-review__publication { border-top-color: rgba(255, 255, 255, .25); }
+.media-review--kirkus .media-review__quote { font-size: clamp(2.2rem, 3.6vw, 3.5rem); }
 
 .media-review .media-review__excerpt { margin-top: 1.75rem; max-width: 46rem; font-size: 1rem; line-height: 1.85; color: var(--ink-soft); }
 .media-review__excerpt strong { font-weight: 600; color: var(--ink); }
@@ -242,6 +253,7 @@ html[dir="rtl"] .media-review__excerpt { font-size: 1.0625rem; line-height: 2; }
   .review.media-review--a { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }
   .media-review--a .media-review__publisher { grid-column: 1; grid-row: 1; flex-direction: row; align-items: center; flex-wrap: wrap; padding: 1.25rem; }
   .media-review--a .media-review__logo { width: 72px; margin: 0; }
+  .media-review--kirkus .media-review__logo { width: 116px; }
   .media-review--a .media-review__name { font-size: 1.25rem; }
   .media-review--a .media-review__publication { margin: 0; padding-top: .75rem; display: flex; flex-wrap: wrap; justify-content: space-between; gap: .5rem; }
   .media-review--a .media-review__feature { grid-row: 2; }
