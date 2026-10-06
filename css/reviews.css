@@ -219,6 +219,7 @@ html[dir="rtl"] .review__excerpt { font-size: 1.0625rem; line-height: 1.95; }
 .media-review__eyebrow { color: var(--ink-muted); font-size: .875rem; margin-bottom: 1.2rem !important; }
 .media-review__quote { font: 600 clamp(2.5rem, 4.25vw, 4.1rem)/1.12 var(--font-serif); letter-spacing: -.052em; text-wrap: balance; }
 .media-review__note { color: var(--ink-muted); font-size: .8125rem; margin-top: 1.3rem !important; }
+.media-review__note:empty { display: none; }
 .media-review__secondary-quote { max-width: 42rem; font: 400 clamp(1.3rem, 2.2vw, 1.8rem)/1.6 var(--font-serif); color: var(--ink-soft); text-wrap: pretty; }
 .media-review__footer { border-top: 1px solid rgba(13,13,13,.23); padding-top: .75rem; }
 .media-review__footer .review__link { font-size: .9375rem; }
