@@ -1,6 +1,6 @@
 # Adding a book review
 
-The website uses the final Design A immediately before **Voices of the Characters**. `reviews.html` is the shared source for all homepages; `js/reviews.js` counts the articles and enables navigation automatically. Kirkus Reviews is first, BookLife is second, and The Consciousness AI is third. The carousel starts at **1 of 3**, with arrows, keyboard navigation and swiping enabled.
+The website uses the final Design A immediately after the compact **ACE.await hero**, followed by **The Story** and **Voices of the Characters**. `reviews.html` is the shared source for all homepages; `js/reviews.js` counts the articles and enables navigation automatically. Kirkus Reviews is first, BookLife is second, and The Consciousness AI is third. The carousel starts at **1 of 3**, with arrows, keyboard navigation and swiping enabled.
 
 The Kirkus card quotes the supplied review PDF and links to its full review. Its logo is extracted unchanged from that PDF. The concluding verdict is the headline; the two smaller quotations cover the novel's originality and narrator mystery, then its footnotes and multilayered story. Their typeface and upright style match the BookLife excerpt, at 1.125rem (18px with the default root size). Both use `data-i18n-html` to retain the selected bold emphasis. Keep the *Kirkus Reviews* attribution italicized. The card has no numerical score, star, or inferred review date. Its German and Persian quotations are labeled as translations.
 

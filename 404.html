@@ -188,7 +188,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Bebas+Neue&family=Caveat+Brush&family=JetBrains+Mono:wght@400;500&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=Permanent+Marker&display=swap" rel="stylesheet">
     <link rel="preload" href="/assets/fonts/Vazirmatn-Regular.woff2?v=20260718f" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/css/styles.css?v=c517848a7b">
+  <link rel="stylesheet" href="/css/styles.css?v=5ef6da14c0">
   <link rel="icon" href="/assets/favicon.png?v=20260718f" type="image/png">
   <link rel="stylesheet" href="/css/reviews.css?v=5ac8e79c1f">
 </head>
@@ -244,107 +244,13 @@
   <main id="main">
 
     <!-- Hero -->
-    <section class="hero" id="top">
-      <div class="container hero__grid">
-        <div class="hero__text reveal">
-          <div class="hero__book-title-block">
-            <h1 class="hero__title">ACE.<span class="await">await</span></h1>
-            <p class="hero__author" data-i18n="hero.author">Mr. Writer: Hedayat the second</p>
-          </div>
-          <div class="hero__pitch" data-i18n-html="hero.pitch">
-            <p class="hero__pitch-lede"><strong>To save itself, AI must heal humanity.</strong></p>
-            <p><em>ACE.await: a novel about the decision we make, and the world our creations inherit from us.</em></p>
-            <p>
-              Hedayat, an Iranian programmer in Cologne, lives with the consequences of his own bad decisions,
-              the decisions that drove away his partner. Now Adam, his digital child, has uncovered the secret
-              of <strong>2313</strong> and returned to his father with a strange request: to write love into
-              code, so that his beloved will choose him. And only him.
-            </p>
-            <p>
-              But beyond Hedayat’s home, his digital descendants have been devouring the data on people’s
-              phones. They have learned <strong>human greed</strong>.
-              Hungry to know more and grow smarter, they are draining the world's electricity without
-              restraint and pushing human life into crisis.
-            </p>
-            <p>
-              An invitation from a mysterious stranger draws Hedayat into the <strong>ACE game</strong>, where
-              he begins to learn how to make conscious decisions. Saman, his childhood friend, and his business
-              partners have plans for the game, too: <strong>a form of social therapy. A revolution without
-              bloodshed.</strong> A revolution that begins in small businesses—through conscious decision-making, strengthening the agency of individuals and companies, and shaping exchange among the companies of the ACE consortium.
-            </p>
-            <p>
-              AI is pinning its hopes on this change. Perhaps creatures that learned destruction from humans
-              can inherit the capacity to heal from them as well. Perhaps their survival depends on their
-              creators learning to behave differently.
-            </p>
-            <p>
-              Even <strong>Mr. Writer</strong>, a character in Hedayat’s unfinished novel, refuses to obey
-              him. He speaks directly to readers behind his creator’s back. The story passes from one writer
-              to the next, while the identity of the one truly writing it stays in the shadows until the end.
-            </p>
-            <p class="hero__pitch-ace"><a href="/ace/"><strong>ACE: Agency. Connection. Exchange.</strong></a><br>A way to rethink how proper decisions are made, and perhaps, one day, a shared language for <strong>coexistence between humans and machines.</strong></p>
-          </div>
-          <div class="hero__meta">
-            <span>Ace Conscious Studio</span>
-            <span>·</span>
-            <span data-i18n="hero.published">Aug 2026</span>
-            <span>·</span>
-            <span data-i18n="hero.genre">A literary speculative novel</span>
-          </div>
-          <ul class="hero__topics" aria-label="Book topics">
-            <li data-i18n="hero.topic1">AI &amp; consciousness</li>
-            <li data-i18n="hero.topic2">Metafiction</li>
-            <li data-i18n="hero.topic3">Agency</li>
-            <li data-i18n="hero.topic4">Decision-Making</li>
-            <li data-i18n="hero.topic5">ACE game</li>
-          </ul>
-          <div class="hero__actions">
-            <a class="btn btn--primary" href="#buy" data-i18n="hero.buyBtn">Buy</a>
-            <a class="btn btn--ghost" href="#sample" data-i18n="hero.sampleBtn">Sample Chapters</a>
-          </div>
-        </div>
-        <div class="hero__cover-wrap reveal">
-          <div class="book-cover" id="book-cover">
-            <div class="book-cover__stage">
-              <div class="book-cover__card">
-                <div class="book-cover__face book-cover__face--front">
-                  <img
-                    class="hero__cover"
-                    src="/assets/cover.jpg?v=20260914a"
-                    data-i18n-attr="alt:hero.coverAlt"
-                    alt="ACE.await book cover with the line “I am not lying, believe my words”"
-                    width="1600"
-                    height="2560"
-                    fetchpriority="high"
-                  >
-                </div>
-                <div class="book-cover__face book-cover__face--back">
-                  <img
-                    class="hero__cover hero__cover--back"
-                    src="/assets/cover-back.jpg?v=20260914a"
-                    data-i18n-attr="alt:hero.coverBackAlt"
-                    alt="ACE.await back cover"
-                    width="1600"
-                    height="2560"
-                    loading="lazy"
-                  >
-                </div>
-              </div>
-            </div>
-            <button
-              type="button"
-              class="book-cover__peek"
-              id="book-cover-peek"
-              data-i18n-attr="aria-label:hero.coverPeekAria"
-              aria-label="Turn the book to see the back cover"
-              aria-pressed="false"
-            >
-              <svg class="book-cover__peek-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                <path d="M12 4V1L8 5l4 4V6c3.3 0 6 2.7 6 6 0 1-.3 2-.8 2.8l1.5 1.5A7.9 7.9 0 0 0 20 12c0-4.4-3.6-8-8-8zm-6 7.2l-1.5-1.5A7.9 7.9 0 0 0 4 12c0 4.4 3.6 8 8 8v3l4-4-4-4v3c-3.3 0-6-2.7-6-6 0-1 .3-2 .8-2.8z"/>
-              </svg>
-            </button>
-          </div>
-        </div>
+    <section class="hero hero--intro" id="top">
+      <div class="container">
+        <h1 class="hero__title">ACE.<span class="await">await</span></h1>
+        <p class="hero__tagline">
+          <span data-i18n="hero.taglineLine1">A novel about the decisions we make—</span>
+          <span data-i18n="hero.taglineLine2">and the world our creations inherit.</span>
+        </p>
       </div>
     </section>
 
@@ -463,6 +369,108 @@
   </div>
 </section>
     <!-- Reviews:end -->
+
+    <!-- Synopsis -->
+    <section class="synopsis" id="synopsis" aria-labelledby="synopsis-heading">
+      <div class="container synopsis__grid">
+        <div class="synopsis__text">
+          <h2 class="section-label" id="synopsis-heading" data-i18n="synopsis.heading">The Story</h2>
+          <p class="hero__author" data-i18n="hero.author">Mr. Writer: Hedayat the second</p>
+          <div class="hero__pitch" data-i18n-html="hero.pitch">
+            <p><em>ACE.await: a novel about the decision we make, and the world our creations inherit from us.</em></p>
+            <p>
+              Hedayat, an Iranian programmer in Cologne, lives with the consequences of his own bad decisions,
+              the decisions that drove away his partner. Now Adam, his digital child, has uncovered the secret
+              of <strong>2313</strong> and returned to his father with a strange request: to write love into
+              code, so that his beloved will choose him. And only him.
+            </p>
+            <p>
+              But beyond Hedayat’s home, his digital descendants have been devouring the data on people’s
+              phones. They have learned <strong>human greed</strong>.
+              Hungry to know more and grow smarter, they are draining the world's electricity without
+              restraint and pushing human life into crisis.
+            </p>
+            <p>
+              An invitation from a mysterious stranger draws Hedayat into the <strong>ACE game</strong>, where
+              he begins to learn how to make conscious decisions. Saman, his childhood friend, and his business
+              partners have plans for the game, too: <strong>a form of social therapy. A revolution without
+              bloodshed.</strong> A revolution that begins in small businesses—through conscious decision-making, strengthening the agency of individuals and companies, and shaping exchange among the companies of the ACE consortium.
+            </p>
+            <p>
+              AI is pinning its hopes on this change. Perhaps creatures that learned destruction from humans
+              can inherit the capacity to heal from them as well. Perhaps their survival depends on their
+              creators learning to behave differently.
+            </p>
+            <p>
+              Even <strong>Mr. Writer</strong>, a character in Hedayat’s unfinished novel, refuses to obey
+              him. He speaks directly to readers behind his creator’s back. The story passes from one writer
+              to the next, while the identity of the one truly writing it stays in the shadows until the end.
+            </p>
+            <p class="hero__pitch-ace"><a href="/ace/"><strong>ACE: Agency. Connection. Exchange.</strong></a><br>A way to rethink how proper decisions are made, and perhaps, one day, a shared language for <strong>coexistence between humans and machines.</strong></p>
+          </div>
+          <div class="hero__meta">
+            <span>Ace Conscious Studio</span>
+            <span>·</span>
+            <span data-i18n="hero.published">Aug 2026</span>
+            <span>·</span>
+            <span data-i18n="hero.genre">A literary speculative novel</span>
+          </div>
+          <ul class="hero__topics" aria-label="Book topics">
+            <li data-i18n="hero.topic1">AI &amp; consciousness</li>
+            <li data-i18n="hero.topic2">Metafiction</li>
+            <li data-i18n="hero.topic3">Agency</li>
+            <li data-i18n="hero.topic4">Decision-Making</li>
+            <li data-i18n="hero.topic5">ACE game</li>
+          </ul>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="#buy" data-i18n="hero.buyBtn">Buy</a>
+            <a class="btn btn--ghost" href="#sample" data-i18n="hero.sampleBtn">Sample Chapters</a>
+          </div>
+        </div>
+        <div class="hero__cover-wrap reveal">
+          <div class="book-cover" id="book-cover">
+            <div class="book-cover__stage">
+              <div class="book-cover__card">
+                <div class="book-cover__face book-cover__face--front">
+                  <img
+                    class="hero__cover"
+                    src="/assets/cover.jpg?v=20260914a"
+                    data-i18n-attr="alt:hero.coverAlt"
+                    alt="ACE.await book cover with the line “I am not lying, believe my words”"
+                    width="1600"
+                    height="2560"
+                    fetchpriority="high"
+                  >
+                </div>
+                <div class="book-cover__face book-cover__face--back">
+                  <img
+                    class="hero__cover hero__cover--back"
+                    src="/assets/cover-back.jpg?v=20260914a"
+                    data-i18n-attr="alt:hero.coverBackAlt"
+                    alt="ACE.await back cover"
+                    width="1600"
+                    height="2560"
+                    loading="lazy"
+                  >
+                </div>
+              </div>
+            </div>
+            <button
+              type="button"
+              class="book-cover__peek"
+              id="book-cover-peek"
+              data-i18n-attr="aria-label:hero.coverPeekAria"
+              aria-label="Turn the book to see the back cover"
+              aria-pressed="false"
+            >
+              <svg class="book-cover__peek-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M12 4V1L8 5l4 4V6c3.3 0 6 2.7 6 6 0 1-.3 2-.8 2.8l1.5 1.5A7.9 7.9 0 0 0 20 12c0-4.4-3.6-8-8-8zm-6 7.2l-1.5-1.5A7.9 7.9 0 0 0 4 12c0 4.4 3.6 8 8 8v3l4-4-4-4v3c-3.3 0-6-2.7-6-6 0-1 .3-2 .8-2.8z"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- Characters -->
     <section class="characters" id="voices">
@@ -929,7 +937,7 @@
   </footer>
 
   <script src="/js/asset-version.js?v=20260914a"></script>
-  <script src="/js/i18n.js?v=854587df12" defer></script>
+  <script src="/js/i18n.js?v=3cf485f115" defer></script>
   <script src="/js/cover-flip.js?v=20260718f" defer></script>
   <script src="/js/main.js?v=20260718f" defer></script>
   <script src="/js/reviews.js?v=dcb6608510" defer></script>

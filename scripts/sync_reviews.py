@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Place the shared Reviews section before Voices on the static homepages.
+"""Place shared Reviews after the hero, before Synopsis on the static homepages.
 
 Edit content/reviews.html and its js/i18n.js translations, then run:
   python3 scripts/sync_reviews.py
@@ -40,10 +40,13 @@ def replace_section(page, section):
         if END not in page:
             raise ValueError("The existing Reviews section is missing its end marker.")
         page = re.sub(r'^[ \t]*' + re.escape(START) + r'.*?' + re.escape(END) + r'\n{0,2}', '', page, count=1, flags=re.S | re.M)
-    voices = re.search(r'^[ \t]*(?:<!-- Characters -->\n[ \t]*)?<section\b[^>]*\bid="voices"[^>]*>', page, re.M)
-    if not voices:
-        raise ValueError("Cannot find the Voices section.")
-    return page[:voices.start()] + block + page[voices.start():]
+    following = re.search(r'^[ \t]*(?:<!-- Synopsis -->\n[ \t]*)?<section\b[^>]*\bid="synopsis"[^>]*>', page, re.M)
+    if not following:
+        # Older pages and review fixtures can still have the synopsis in the hero.
+        following = re.search(r'^[ \t]*(?:<!-- Characters -->\n[ \t]*)?<section\b[^>]*\bid="voices"[^>]*>', page, re.M)
+    if not following:
+        raise ValueError("Cannot find the Synopsis or Voices section.")
+    return page[:following.start()] + block + page[following.start():]
 
 
 def update_page(page, section):
