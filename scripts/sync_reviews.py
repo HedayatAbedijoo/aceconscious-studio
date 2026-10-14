@@ -3,6 +3,7 @@
 
 Edit content/reviews.html and its js/i18n.js translations, then run:
   python3 scripts/sync_reviews.py
+Shared stylesheet cache versions are also synchronized across the site's pages.
 No runtime fetch or server is needed by the website.
 """
 import argparse
@@ -12,6 +13,7 @@ import re
 
 ROOT = Path(__file__).resolve().parent.parent
 PAGES = ("index.html", "de/index.html", "fa/index.html", "404.html")
+SHARED_STYLESHEETS = ("css/styles.css", "css/ace.css", "css/industry.css")
 START = "<!-- Reviews:start -->"
 END = "<!-- Reviews:end -->"
 
@@ -19,6 +21,21 @@ END = "<!-- Reviews:end -->"
 def asset_url(path):
     version = sha256((ROOT / path).read_bytes()).hexdigest()[:10]
     return f"/{path}?v={version}"
+
+
+def site_pages():
+    for path in sorted(ROOT.rglob("*.html")):
+        parts = path.relative_to(ROOT).parts
+        if any(part in {"previews", "campaigns", "node_modules"} or part.startswith(".") for part in parts[:-1]):
+            continue
+        yield path
+
+
+def update_stylesheet_versions(page, urls):
+    for source, url in urls.items():
+        pattern = r"""(?<=href=["'])/""" + re.escape(source) + r"""(?:\?[^"']*)?(?=["'])"""
+        page = re.sub(pattern, url, page)
+    return page
 
 
 def set_review_count(section):
@@ -71,18 +88,23 @@ def update_page(page, section):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--check", action="store_true", help="Check that the homepages match the shared section without writing")
+    parser.add_argument("--check", action="store_true", help="Check shared reviews and site-wide stylesheet versions without writing")
     args = parser.parse_args()
+    missing = [name for name in PAGES if not (ROOT / name).is_file()]
+    if missing:
+        raise SystemExit("Missing required review pages: " + ", ".join(missing))
     section = load_section()
+    stylesheet_urls = {source: asset_url(source) for source in SHARED_STYLESHEETS}
     stale = []
-    for name in PAGES:
-        path = ROOT / name
+    for path in site_pages():
+        name = path.relative_to(ROOT).as_posix()
         before = path.read_text()
-        after = update_page(before, section)
+        after = update_page(before, section) if name in PAGES else before
+        after = update_stylesheet_versions(after, stylesheet_urls)
         if before != after:
             stale.append(name)
             if not args.check:
                 path.write_text(after)
     if args.check and stale:
         raise SystemExit("Run python3 scripts/sync_reviews.py to update: " + ", ".join(stale))
-    print("Review pages are up to date." if args.check else f"Updated {len(stale)} review pages.")
+    print("Reviews and shared stylesheet versions are up to date." if args.check else f"Updated {len(stale)} pages.")
