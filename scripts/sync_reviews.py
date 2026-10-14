@@ -54,7 +54,8 @@ def update_page(page, section):
     review_link = re.search(r'<li><a href="#reviews"[^>]*>.*?</a></li>', page)
     review_link = review_link.group() if review_link else '<li><a href="#reviews" data-i18n="nav.reviews">Reviews</a></li>'
     page = re.sub(r'^[ \t]*<li><a href="#reviews"[^>]*>.*?</a></li>\n?', '', page, count=1, flags=re.M)
-    page = re.sub(r'^([ \t]*)(<li><a href="#voices"[^>]*>.*?</a></li>)', lambda m: m[1] + review_link + '\n' + m[1] + m[2], page, count=1, flags=re.M)
+    following_link = "synopsis" if re.search(r'<li><a href="#synopsis"', page) else "voices"
+    page = re.sub(r'^([ \t]*)(<li><a href="#' + following_link + r'"[^>]*>.*?</a></li>)', lambda m: m[1] + review_link + '\n' + m[1] + m[2], page, count=1, flags=re.M)
     stylesheet = f'<link rel="stylesheet" href="{asset_url("css/reviews.css")}">'
     if re.search(r'<link\b[^>]*href="/css/reviews\.css(?:\?[^"]*)?"[^>]*>', page):
         page = re.sub(r'<link\b[^>]*href="/css/reviews\.css(?:\?[^"]*)?"[^>]*>', stylesheet, page)

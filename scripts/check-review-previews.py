@@ -137,9 +137,9 @@ with sync_playwright() as p:
                 check(page.locator("[data-review-id='kirkus-2026']").is_visible(), "Kirkus is first")
                 kirkus = page.locator("[data-review-id='kirkus-2026']")
                 check(kirkus.locator("blockquote").count() == 3, "Kirkus has three selected quotations")
-                check(kirkus.locator(".media-review__secondary-quote p").inner_text() == page.evaluate("window.aceI18n.getString('reviews.kirkus.tagline').replace(/<[^>]*>/g, '')"), "Kirkus narrator quotation matches the selected language")
-                check(kirkus.locator(".media-review__excerpt p").inner_text() == page.evaluate("window.aceI18n.getString('reviews.kirkus.excerpt').replace(/<[^>]*>/g, '')"), "Kirkus footnote quotation matches the selected language")
-                check(kirkus.locator(".media-review__body strong").count() == 4, "Kirkus quotations retain all four selected bold phrases")
+                check(kirkus.locator(".media-review__secondary-quote p").inner_text() == page.evaluate("window.aceI18n.getString('reviews.kirkus.excerpt').replace(/<[^>]*>/g, '')"), "Kirkus multilayered story quotation is second and matches the selected language")
+                check(kirkus.locator(".media-review__excerpt p").inner_text() == page.evaluate("window.aceI18n.getString('reviews.kirkus.tagline').replace(/<[^>]*>/g, '')"), "Kirkus narrator quotation is third and matches the selected language")
+                check(kirkus.locator(".media-review__body strong").count() == 3, "Kirkus quotations retain all three selected bold phrases")
                 check(kirkus.locator(".review__rating, .review__scores").count() == 0, "Kirkus has no numerical rating")
                 check(kirkus.locator(".review__link").get_attribute("href") == "https://www.kirkusreviews.com/book-reviews/hedayat-second/aceawait/", "Kirkus links to its full review")
                 check_review_reflow(page, f"Kirkus layout: {language}/{layout}/{width}")
@@ -171,8 +171,8 @@ with sync_playwright() as p:
                 if width <= 900:
                     order = ["quote", "overall", "categories", "excerpt", "footer"] if layout == "split" else ["overall", "quote", "categories", "excerpt", "footer"]
                     check(all(geometry[a]["bottom"] <= geometry[b]["top"] + 1 for a, b in zip(order, order[1:])), f"Correct mobile order: {language}/{layout}/{width}")
-                check(section.evaluate("el => el.nextElementSibling?.id === 'voices'"), "Reviews immediately before Voices")
-                check(page.locator('.site-nav__links a').evaluate_all("links => links.slice(0, 3).map(link => link.hash)") == ["#reviews", "#voices", "#sample"], "Navigation follows section order")
+                check(section.evaluate("el => el.nextElementSibling?.id === 'synopsis'"), "Reviews immediately before The Story")
+                check(page.locator('.site-nav__links a').evaluate_all("links => links.slice(0, 4).map(link => link.hash)") == ["#reviews", "#synopsis", "#voices", "#sample"], "Navigation follows section order")
                 if args.website:
                     check(page.locator('script[src*="/previews/"]').count() == 0, "No preview scripts on homepage")
                     if width > 900:
