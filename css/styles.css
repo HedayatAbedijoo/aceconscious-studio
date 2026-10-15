@@ -647,7 +647,7 @@ section {
 .hero__author {
   font-size: 1rem;
   letter-spacing: 0.12em;
-  text-transform: uppercase;
+  text-transform: none;
   color: var(--ink-muted);
   margin: 0 0 1.25rem;
 }
