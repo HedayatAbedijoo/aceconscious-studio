@@ -13,6 +13,10 @@ fi
 
 cd "$ROOT"
 
+# Never publish stale generated pages or broken locale links.
+python3 scripts/build_locales.py --check
+python3 scripts/check_locales.py
+
 ensure_remote() {
   if git remote get-url origin >/dev/null 2>&1; then
     git remote set-url origin "$REPO_SSH"

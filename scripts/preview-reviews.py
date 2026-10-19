@@ -11,6 +11,7 @@ from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 import json
 from pathlib import Path
 from sync_reviews import load_section, replace_section, set_review_count
+from build_locales import apply_strings, parse
 
 ROOT = Path(__file__).resolve().parent.parent
 
@@ -44,6 +45,15 @@ def render_preview(language, layout, examples=False):
     if examples:
         section = section.replace('      </article>\n    </div>', '      </article>\n' + render_fixtures(language) + '\n    </div>')
     section = set_review_count(section)
+    # Public pages are now pretranslated; preview fragments need the same step.
+    strings = json.loads((ROOT / f"content/locales/{language}.json").read_text())
+    fragment = parse(section)
+    apply_strings(fragment, strings)
+    total = len(fragment.select("[data-review-id]"))
+    position = strings["reviews.position"].replace("{current}", "1").replace("{total}", str(total))
+    fragment.select_one(".reviews__counter").string = position
+    fragment.select_one(".reviews__status").string = strings["reviews.announcement"].replace("{position}", position)
+    section = str(fragment)
     page = page.replace('content="index, follow, max-image-preview:large"', 'content="noindex, nofollow"')
     page = replace_section(page, section)
     # All presentation changes are preview-only. Existing locale scripts stay intact.

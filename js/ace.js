@@ -1,16 +1,6 @@
 /* Standalone ACE pages: contents, language links and collapsed passages. */
 (function () {
   "use strict";
-  // Keep the same section when switching between standalone translations.
-  const languageLinks = Array.from(document.querySelectorAll(".ace-languages a"), link => ({
-    link,
-    path: link.getAttribute("href")
-  }));
-  function updateLanguageLinks() {
-    languageLinks.forEach(({ link, path }) => link.setAttribute("href", path + location.hash));
-  }
-  updateLanguageLinks();
-  window.addEventListener("hashchange", updateLanguageLinks);
   const toc = document.getElementById("ace-toc");
   if (!toc) return;
   const links = Array.from(toc.querySelectorAll('ol a[href^="#"]'));

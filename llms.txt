@@ -6,13 +6,21 @@
 
 - [ACE — Agency, Connection, Exchange](https://aceconscious.studio/ace/): Canonical English reference for the ACE decision-making model, including the full ACE Manifesto and a "How to cite ACE" section.
 - [ACE-Entscheidungsmodell (German)](https://aceconscious.studio/ace-de/): German translation of the ACE reference page.
+- [Modèle ACE (French)](https://aceconscious.studio/fr/ace/): French translation of the ACE reference page.
+- [Modelo ACE (Spanish)](https://aceconscious.studio/es/ace/): Spanish translation of the ACE reference page.
+- [Модель ACE (Russian)](https://aceconscious.studio/ru/ace/): Russian translation of the ACE reference page.
+- [ACE 决策模型 (Simplified Chinese)](https://aceconscious.studio/zh/ace/): Simplified Chinese translation of the ACE reference page.
+- [ACE निर्णय मॉडल (Hindi)](https://aceconscious.studio/hi/ace/): Hindi translation of the ACE reference page.
+- [نموذج ACE (Arabic)](https://aceconscious.studio/ar/ace/): Modern Standard Arabic translation of the ACE reference page.
 - [مدل تصمیم‌گیری ACE (Persian)](https://aceconscious.studio/ace-fa/): Persian translation of the ACE reference page.
-- [ACE.await and the author](https://aceconscious.studio/): Official page for the novel ACE.await and its author, Hedayat Abedijoo. German: https://aceconscious.studio/de/ · Persian: https://aceconscious.studio/fa/
+- [ACE.await and the author](https://aceconscious.studio/): Official page for the novel ACE.await and its author, Hedayat Abedijoo. Available in English, German, French, Spanish, Russian, Simplified Chinese, Hindi, Modern Standard Arabic and Persian.
 
-## For industry professionals (English only)
+## For industry professionals
 
 - [ACE.await — Publishing & Foreign Rights](https://aceconscious.studio/rights/): Rights summary for literary agents, publishers and foreign-rights partners: what the author is seeking, which rights are available, and how to request a review copy.
 - [ACE.await — Book to Screen](https://aceconscious.studio/screen/): Adaptation summary for producers and scouts (limited series and feature film). The adaptation exposés are available on request only.
+
+Both industry pages are available in all nine website languages through the language menu. Published book editions and sample flipbooks remain English and Persian.
 
 ## ACE identity
 

@@ -1,0 +1,16 @@
+name: Check shared pages and translations
+on:
+  push:
+  pull_request:
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r scripts/requirements.txt
+      - run: python scripts/build_locales.py --check
+      - run: python scripts/check_locales.py
+      - run: node --check js/i18n.js && node --check js/contact.js && node --check js/ace.js

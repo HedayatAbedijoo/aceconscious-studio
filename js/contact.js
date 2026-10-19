@@ -8,7 +8,7 @@
   const statusEl = document.getElementById("contact-status");
   if (!form || !statusEl) return;
 
-  // English fallback for pages that do not load js/i18n.js (the /rights/ and /screen/ pages).
+  // All published pages provide localized messages; retain a defensive fallback.
   const FALLBACK = {
     "contact.sending": "Sending…",
     "contact.success": "Thank you — your message is on its way.",
@@ -27,6 +27,23 @@
     statusEl.classList.toggle("contact-form__status--error", type === "error");
   }
 
+  // Native validation text follows the browser's UI language. Use the selected
+  // website language for these fields, including required industry categories.
+  function validateField(field) {
+    field.setCustomValidity("");
+    if (field.name === "email" && (!field.value.trim() || field.validity.typeMismatch)) {
+      field.setCustomValidity(msg("contact.invalidEmail"));
+    } else if (field.name === "message" && !field.value.trim()) {
+      field.setCustomValidity(msg("contact.requiredMessage"));
+    } else if (field.name === "category" && !field.value) {
+      field.setCustomValidity(msg("contact.requiredCategory"));
+    }
+  }
+  form.querySelectorAll("[required]").forEach(field => {
+    field.addEventListener("input", () => validateField(field));
+    field.addEventListener("change", () => validateField(field));
+  });
+
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
 
@@ -35,8 +52,7 @@
       return;
     }
 
-    // The form is novalidate, so show the browser's own messages for missing or invalid
-    // fields (email, message, and the required category on the industry pages).
+    form.querySelectorAll("[required]").forEach(validateField);
     const email = form.email.value.trim();
     const message = form.message.value.trim();
     if (!form.checkValidity() || !email || !message) {

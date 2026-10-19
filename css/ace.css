@@ -371,3 +371,17 @@ html[dir="rtl"] .ace-map__item:hover .ace-map__arrow { transform: translate(-2px
   .ace-book-cover { max-width: 7rem; }
   .ace-cite { break-inside: avoid; }
 }
+
+/* The dropdown wrapper participates in the same responsive header grid. */
+.ace-nav .ace-languages .language-picker__list a { padding: .5rem .75rem; font: inherit; }
+.ace-nav .ace-languages { display: block; }
+html:is([lang="hi"], [lang="zh-Hans"]) .ace-site { --ace-sans: var(--font-serif); }
+html[dir="rtl"] .ace-hero h1 { direction: ltr; }
+html[dir="rtl"] .ace-hero h1 > span { direction: rtl; }
+@media (max-width: 850px) {
+  .ace-nav__inner { grid-template-columns: minmax(0, 1fr) auto; }
+  .ace-nav .ace-languages { justify-self: end; width: max-content; }
+}
+@media (max-width: 420px) {
+  .ace-brand > span { display: block; max-width: 7rem; }
+}

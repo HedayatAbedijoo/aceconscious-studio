@@ -1,5 +1,5 @@
 /* Industry pages: /rights/ (Publishing & Foreign Rights) and /screen/ (Book to Screen).
-   Builds on styles.css (header, footer, buttons, contact form); English only. */
+   Builds on styles.css (header, footer, buttons, contact form); shared by all locales. */
 .ind-site {
   --ind-accent-text: #9a3f1c;
   --ind-rule: rgba(13, 13, 13, 0.14);
@@ -53,6 +53,16 @@
 }
 
 /* ── Shared type ── */
+/* Translated headings and compact cards can contain words wider than a phone column. */
+.ind-h2,
+.ind-h3,
+.ind-motif,
+.ind-formats,
+.ind-rightsline {
+  overflow-wrap: anywhere;
+  hyphens: auto;
+}
+
 .ind-eyebrow {
   margin: 0 0 0.85rem;
   font: 500 0.9375rem/1.4 var(--font-mono);

@@ -1915,3 +1915,96 @@ html.js .reveal.visible {
     transition: none;
   }
 }
+
+/* The same language menu is shared by every page and locale. */
+.language-picker {
+  position: relative;
+  font: 500 .875rem/1.5 system-ui, "Vazirmatn", sans-serif;
+  color: var(--ink);
+  letter-spacing: 0;
+  text-transform: none;
+  flex-shrink: 0;
+}
+.language-picker > summary {
+  display: flex;
+  align-items: center;
+  gap: .55rem;
+  min-height: 44px;
+  padding: .45rem .7rem;
+  border: 1px solid rgba(13, 13, 13, .24);
+  border-radius: 6px;
+  cursor: pointer;
+  list-style: none;
+  background: transparent;
+}
+.language-picker > summary::-webkit-details-marker { display: none; }
+.language-picker > summary::after {
+  content: "";
+  width: .4rem;
+  height: .4rem;
+  border-inline-end: 1.5px solid currentColor;
+  border-block-end: 1.5px solid currentColor;
+  transform: translateY(-.1rem) rotate(45deg);
+}
+.language-picker[open] > summary::after { transform: translateY(.1rem) rotate(225deg); }
+.language-picker__list {
+  position: absolute;
+  inset-block-start: calc(100% + .4rem);
+  inset-inline-end: 0;
+  z-index: 120;
+  min-width: 11rem;
+  max-height: min(28rem, calc(100dvh - var(--nav-h) - 2rem));
+  overflow-y: auto;
+  padding: .4rem;
+  margin: 0;
+  list-style: none;
+  background: var(--white);
+  border: 1px solid rgba(13, 13, 13, .2);
+  border-radius: 8px;
+  box-shadow: 0 12px 28px rgba(13, 13, 13, .14);
+}
+.language-picker__list a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  min-height: 44px;
+  padding: .5rem .75rem;
+  border-radius: 4px;
+  color: var(--ink);
+  font: inherit;
+  text-decoration: none;
+  text-align: start;
+}
+.language-picker__list a:hover,
+.language-picker__list a:focus-visible { background: var(--parchment); }
+.language-picker__list a[aria-current="page"] { background: var(--parchment); font-weight: 700; }
+.language-picker__list a[aria-current="page"]::after { content: "✓"; }
+.language-picker :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+html[dir="rtl"] .language-picker__list { inset-inline-end: auto; inset-inline-start: 0; }
+html[dir="rtl"] .site-nav__actions { margin-left: 0; margin-inline-start: auto; }
+html[dir="rtl"] :is(.site-nav__logo, .ace-brand, .ind-hero__title, .site-footer__brand) { direction: ltr; unicode-bidi: isolate; }
+
+/* Native script fonts and line heights for the added writing systems. */
+html[lang="ru"] {
+  --font-display: "Oswald", "Arial Narrow", "DejaVu Sans Condensed", sans-serif;
+}
+html[lang="zh-Hans"] {
+  --font-serif: "Noto Serif CJK SC", "Songti SC", "SimSun", serif;
+  --font-display: "Noto Sans SC", "Noto Sans CJK SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+  --font-mono: "Noto Sans SC", "Noto Sans CJK SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+html[lang="hi"] {
+  --font-serif: "Noto Sans Devanagari", "Nirmala UI", "Mangal", sans-serif;
+  --font-display: "Noto Sans Devanagari", "Nirmala UI", "Mangal", sans-serif;
+  --font-mono: "Noto Sans Devanagari", "Nirmala UI", "Mangal", sans-serif;
+}
+html:is([lang="hi"], [lang="zh-Hans"]) :is(.section-label, .section-title, .character-card__name, .character-card__role, .btn) {
+  letter-spacing: 0;
+  line-height: 1.55;
+}
+html:is([lang="ru"], [lang="hi"], [lang="zh-Hans"]) :is(.hero__title, .ind-hero__title, .ace-hero h1, .site-nav__logo, .site-footer__brand) {
+  font-family: "Bebas Neue", "Arial Narrow", sans-serif;
+}
+html[dir="rtl"] .contact-form__select { font-family: var(--font-serif-fa); }
+html[dir="rtl"] :is(.ind-meta, .ind-avail, .ind-toc, .ind-rights, .ind-materials) { text-align: start; }

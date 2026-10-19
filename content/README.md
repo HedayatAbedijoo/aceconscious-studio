@@ -1,14 +1,86 @@
-# Adding a book review
+# Shared pages and translations
 
-The website uses the final Design A immediately after the compact **ACE.await hero**, followed by **The Story** and **Voices of the Characters**. `reviews.html` is the shared source for all homepages; `js/reviews.js` counts the articles and enables navigation automatically. Kirkus Reviews is first, BookLife is second, and The Consciousness AI is third. The carousel starts at **1 of 3**, with arrows, keyboard navigation and swiping enabled.
+The site has nine languages, in this order: English, Deutsch, Français, Español, Русский,
+中文 (Simplified Chinese), हिन्दी, العربية (Modern Standard Arabic), فارسی.
+`languages.json` is the ordered registry. The dropdown title is always lowercase
+`language`. `/` always opens English; no browser language or saved preference
+redirects it. Language links retain the current page, query parameters and section.
 
-The Kirkus card quotes the supplied review PDF and links to its full review. Its logo is extracted unchanged from that PDF. The concluding verdict is the headline; the second quotation is the short “...impressively multilayered story.” excerpt, with a leading ellipsis to mark omitted text. This uses the shared secondary-quotation serif style, matching The Consciousness AI's second quotation, with responsive sizing from 1.3rem to 1.8rem. The third quotation covers the novel's originality and narrator mystery; its typeface and upright style match the BookLife excerpt, at 1.125rem (18px with the default root size). Both use `data-i18n-html` to retain the selected bold emphasis. Keep the publisher attribution italicized. The Persian publisher name and heading use the approved spelling **کِرکِس ریویوز**, including both kasra marks; English and German keep **Kirkus Reviews**. The card has no numerical score, star, or inferred review date. Its German and Persian quotations are labeled as translations.
+All 54 public pages come from six shared templates in `content/templates/`:
+`home`, `ace`, `rights`, `screen`, `privacy`, and `impressum`. Layout/section changes
+belong in those templates and apply to every language in a single build. Do not
+edit generated public HTML directly. Shared styles and scripts also apply to all
+languages; the generator updates their cache hashes everywhere.
 
-1. Copy an `<article class="review">…</article>` block inside `reviews.html` and place it in the desired review order.
-2. Give the article a unique `data-review-id`, heading `id`, and matching `aria-labelledby`. Replace its quotes, short excerpt, source name, full-review URL, and scores. Keep the quotes, excerpt, and footer inside `review__copy` and the rating inside `review__score-panel`; these let the desktop text flow without gaps caused by the score card. Keep the source beside the rating. For an unscored media review, use the `media-review media-review--a` article: its publisher card holds the source logo, name, publication date and source link, with no score panel. The second tagline is optional.
-3. Give the new text unique `data-i18n` keys, such as `reviews.next.headline`, `reviews.next.tagline`, and `reviews.next.excerpt`. Add those keys to the English, German, and Persian dictionaries in `js/i18n.js`. Leave the source's proper name unchanged. Use the translation note for excerpts translated from English.
-   The Consciousness AI excerpt uses `data-i18n-html` to preserve the user-supplied `<strong>` emphasis. Keep all three quotes translated in German/Persian and retain the translated-quotation note.
-4. Run `python3 scripts/sync_reviews.py`. This updates the English, German, Persian, and fallback homepages, including the initial count and asset cache versions. It does not publish the website.
-5. Check the website through Live Server. To refresh the comparison fixtures as well, run `python3 scripts/preview-reviews.py --build-only`.
+Text belongs in `content/locales/<code>.json`. `en.json` is the English source.
+The text inside a template's `data-i18n` / `data-i18n-html` elements is illustrative;
+the catalog is authoritative. Use a descriptive key for new content and add its
+translation to every catalog. `data-i18n-attr="alt:key;aria-label:other.key"` also
+supports translated accessibility labels, metadata and placeholders. Keep HTML
+emphasis, links and interpolation placeholders such as `{current}` intact.
 
-`python3 scripts/sync_reviews.py --check` verifies that the homepages match the shared source. Keep layout-test fixtures confined to the preview directory; they are never added to the shared content file.
+The initial additions used machine-assisted translation, with manual revision of
+navigation, story introductions, names and core model terminology. Existing
+German/Persian translations were retained wherever they matched the shared
+content. Review quotations are identified as translations. Proper names, brand
+names, URLs, legal references, scores, and actual book edition availability remain
+accurate. The book itself, cover artwork and the third-party flipbook are separate
+assets: published previews remain English/Persian, with a localized notice. The
+new website languages do not imply new published editions of the book.
+
+## Build and check
+
+Install the small build dependency once:
+
+```sh
+python3 -m pip install -r scripts/requirements.txt
+```
+
+After a layout, CSS, JS, or translated wording change:
+
+```sh
+python3 scripts/build_locales.py
+python3 scripts/build_locales.py --check
+python3 scripts/check_locales.py
+```
+
+When English source text changes, first update **all translations**, then
+record that work and rebuild:
+
+```sh
+python3 scripts/build_locales.py --record-translations
+python3 scripts/check_locales.py
+```
+
+The source-hash record rejects unacknowledged English changes; missing/empty
+translations, damaged interpolation placeholders and unsafe HTML fail the build.
+The checker verifies all 54 page routes, language ordering, section consistency,
+metadata, local links, anchors and assets. CI and the deployment script run the
+checks. Builds are deterministic and use no translation service or network.
+
+Serve the repository with any static web server for browser QA. Check mobile and
+desktop, Arabic/Persian RTL, Cyrillic/Hindi/Chinese text, keyboard navigation, contact
+validation, and review controls. Do not submit real contact messages during tests.
+`scripts/check_locales_browser.py` automates these checks at desktop/mobile sizes,
+including switching without JavaScript. It requires Playwright and a running
+local server; use `--base`, `--executable` and `--output` as needed. The test blocks
+external requests and never submits a contact message.
+
+## Reviews
+
+`content/reviews.html` is the shared source immediately after the compact
+ACE.await hero, followed by the story and character voices. Kirkus Reviews is
+first, BookLife second, and The Consciousness AI third. `js/reviews.js` derives the
+count and enables arrows, keyboard navigation and swiping.
+
+To add a review, copy an article in the shared fragment, give it a unique
+`data-review-id`, heading ID and matching `aria-labelledby`, and add its text keys
+to **all** locale catalogs. Preserve source attribution, quotations, scores,
+links and the translated-quotation note. The Kirkus card has no inferred numerical
+score or review date. Its Persian publisher spelling is **کِرکِس ریویوز**. Preserve
+`<strong>` emphasis in HTML translations.
+
+Run `python3 scripts/sync_reviews.py` to rebuild every locale, or add `--check` to
+verify the generated files. This does not publish. Existing comparison fixtures
+can be regenerated with `python3 scripts/preview-reviews.py --build-only`; fixtures
+stay in `previews/` and never enter the shared content file.

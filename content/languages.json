@@ -1,0 +1,65 @@
+[
+  {
+    "code": "en",
+    "name": "English",
+    "htmlLang": "en",
+    "ogLocale": "en_US",
+    "dir": "ltr"
+  },
+  {
+    "code": "de",
+    "name": "Deutsch",
+    "htmlLang": "de",
+    "ogLocale": "de_DE",
+    "dir": "ltr"
+  },
+  {
+    "code": "fr",
+    "name": "Français",
+    "htmlLang": "fr",
+    "ogLocale": "fr_FR",
+    "dir": "ltr"
+  },
+  {
+    "code": "es",
+    "name": "Español",
+    "htmlLang": "es",
+    "ogLocale": "es_ES",
+    "dir": "ltr"
+  },
+  {
+    "code": "ru",
+    "name": "Русский",
+    "htmlLang": "ru",
+    "ogLocale": "ru_RU",
+    "dir": "ltr"
+  },
+  {
+    "code": "zh",
+    "name": "中文",
+    "htmlLang": "zh-Hans",
+    "ogLocale": "zh_CN",
+    "dir": "ltr"
+  },
+  {
+    "code": "hi",
+    "name": "हिन्दी",
+    "htmlLang": "hi",
+    "ogLocale": "hi_IN",
+    "dir": "ltr"
+  },
+  {
+    "code": "ar",
+    "name": "العربية",
+    "htmlLang": "ar",
+    "ogLocale": "ar_AR",
+    "dir": "rtl"
+  },
+  {
+    "code": "fa",
+    "name": "فارسی",
+    "htmlLang": "fa",
+    "ogLocale": "fa_IR",
+    "dir": "rtl"
+  }
+]

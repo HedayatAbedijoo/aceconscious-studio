@@ -73,16 +73,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--check", action="store_true", help="Check that the homepages match the shared section without writing")
     args = parser.parse_args()
-    section = load_section()
-    stale = []
-    for name in PAGES:
-        path = ROOT / name
-        before = path.read_text()
-        after = update_page(before, section)
-        if before != after:
-            stale.append(name)
-            if not args.check:
-                path.write_text(after)
-    if args.check and stale:
-        raise SystemExit("Run python3 scripts/sync_reviews.py to update: " + ", ".join(stale))
-    print("Review pages are up to date." if args.check else f"Updated {len(stale)} review pages.")
+    # The shared-page generator also applies all locale catalogs before writing.
+    # Keep the fragment helpers above for the existing review preview tooling.
+    from build_locales import build
+    build(args.check)

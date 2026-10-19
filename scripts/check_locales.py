@@ -1,0 +1,64 @@
+#!/usr/bin/env python3
+"""Check public locale pages, translated markup, routing and local assets."""
+import json
+from urllib.parse import urlsplit, unquote
+
+from build_locales import ROOT, SITE, LANGUAGES, PAGES, route, parse
+
+
+def check():
+    count = 0
+    cache = {}
+    for name in PAGES:
+        reference = None
+        for lang in LANGUAGES:
+            code = lang["code"]
+            path = route(name, code)
+            html = (ROOT / (path.lstrip("/") + "index.html")).read_text()
+            soup = parse(html)
+            cache[path] = soup
+            assert soup.html["lang"] == lang["htmlLang"], path
+            assert soup.html["dir"] == lang["dir"], path
+            assert soup.select_one("#lang-menu summary").get_text() == "language", path
+            items = soup.select("#lang-menu [data-set-lang]")
+            assert [a["data-set-lang"] for a in items] == [l["code"] for l in LANGUAGES], path
+            assert [a["href"] for a in items] == [route(name, l["code"]) for l in LANGUAGES], path
+            assert len(soup.select('#lang-menu [aria-current="page"]')) == 1, path
+            assert soup.select_one('link[rel="canonical"]')["href"] == SITE + path, path
+            alternates = soup.select('link[rel="alternate"][hreflang]')
+            assert len(alternates) == len(LANGUAGES) + 1, path
+            ids = [el["id"] for el in soup.select("[id]")]
+            assert len(ids) == len(set(ids)), f"Duplicate ID: {path}"
+            sections = [(el.name, el.get("id")) for el in soup.select("main section, main article")]
+            if reference is None:
+                reference = sections
+            assert sections == reference, f"Section drift: {path}"
+            for script in soup.select('script[type="application/ld+json"], script#locale-data'):
+                json.loads(script.string)
+            assert not soup.select("base"), f"Base URL breaks local anchors: {path}"
+            count += 1
+    errors = []
+    for page_path, soup in cache.items():
+        for el in soup.select("a[href], script[src], img[src], link[rel='stylesheet']"):
+            attr = "src" if el.name in ("script", "img") else "href"
+            value = el[attr]
+            url = urlsplit(value)
+            if url.netloc and url.netloc != "aceconscious.studio":
+                continue
+            if url.scheme and url.scheme not in ("http", "https"):
+                continue
+            target = url.path or page_path
+            if target.endswith("/"):
+                filename = target.lstrip("/") + "index.html"
+            else:
+                filename = target.lstrip("/")
+            if not (ROOT / filename).is_file():
+                errors.append(f"{page_path}: missing {value}")
+            if url.fragment and target in cache and not cache[target].find(id=unquote(url.fragment)):
+                errors.append(f"{page_path}: missing anchor {value}")
+    assert not errors, "\n".join(errors)
+    print(f"Passed locale, menu, section, metadata, anchor and asset checks for {count} pages.")
+
+
+if __name__ == "__main__":
+    check()
