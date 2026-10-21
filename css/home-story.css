@@ -1,0 +1,160 @@
+/* English Story draft. Keep these rules scoped to this section. */
+.synopsis.synopsis--redesign {
+  padding: 64px 0;
+  background: #f2ece2;
+  color: #5e544d;
+  font: 400 .9375rem/1.9 "DM Sans", Arial, sans-serif;
+}
+
+.story-heading {
+  margin: 0 0 28px;
+  color: #af4f20;
+}
+
+.story-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: start;
+  gap: clamp(32px, 4.2vw, 60px);
+}
+
+.story-layout > * {
+  min-width: 0;
+}
+
+.story-label {
+  margin: 0 0 16px;
+  color: #75604f;
+  font: 400 .75rem/1.7 "DM Mono", Consolas, monospace;
+  letter-spacing: .04em;
+  text-transform: none;
+  overflow-wrap: anywhere;
+}
+
+.story-copy {
+  overflow-wrap: anywhere;
+}
+
+.story-copy p {
+  margin: 0;
+}
+
+.story-copy p + p {
+  margin-top: 20px;
+}
+
+.story-copy strong {
+  color: #39302a;
+}
+
+.story-details {
+  margin-top: 12px;
+}
+
+.story-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  width: fit-content;
+  max-width: 100%;
+  min-height: 44px;
+  padding: 6px 0;
+  border-bottom: 1px solid #ab6148;
+  color: #8f4d39;
+  font: 400 .75rem/1.7 "DM Mono", Consolas, monospace;
+  list-style: none;
+  cursor: pointer;
+  overflow-wrap: anywhere;
+}
+
+.story-toggle::-webkit-details-marker {
+  display: none;
+}
+
+.story-toggle::marker {
+  content: "";
+}
+
+.story-toggle > span {
+  /* Keep touch focus on summary when the visible label changes (WebKit). */
+  pointer-events: none;
+}
+
+.story-toggle__symbol {
+  flex: none;
+  font-size: 1rem;
+}
+
+.story-toggle__open,
+.story-details[open] .story-toggle__closed {
+  display: none;
+}
+
+.story-details[open] .story-toggle__open {
+  display: inline;
+}
+
+.story-copy--extended {
+  padding-top: 20px;
+}
+
+.story-ace .story-label a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  max-width: 100%;
+  margin: -12px 0;
+  padding: 12px 0;
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: #b7a18c;
+  text-underline-offset: 5px;
+}
+
+.story-ace .story-label strong {
+  font-weight: inherit;
+}
+
+.story-ace__text {
+  margin: 0;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #ccbaa8;
+  color: #28211d;
+  font: 400 clamp(1.375rem, 1rem + 1vw, 1.75rem)/1.5 "Playfair Display", Georgia, serif;
+  overflow-wrap: anywhere;
+}
+
+.story-ace__text strong {
+  color: #995137;
+  font-weight: 400;
+}
+
+.synopsis--redesign :focus-visible {
+  outline: 2px solid #8f4d39;
+  outline-offset: 4px;
+}
+
+.story-toggle:hover,
+.story-ace a:hover {
+  color: #713b2b;
+}
+
+@media (max-width: 900px) {
+  .synopsis.synopsis--redesign {
+    padding: 40px 0;
+  }
+
+  .story-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 32px;
+  }
+
+  .story-heading {
+    margin-bottom: 24px;
+  }
+
+  .story-ace__text {
+    max-width: 32ch;
+  }
+}

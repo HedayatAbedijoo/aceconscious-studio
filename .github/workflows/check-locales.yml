@@ -13,4 +13,46 @@ jobs:
       - run: python -m pip install -r scripts/requirements.txt
       - run: python scripts/build_locales.py --check
       - run: python scripts/check_locales.py
+      - run: python scripts/test_home_redesign.py
       - run: node --check js/i18n.js && node --check js/contact.js && node --check js/ace.js
+      - run: for script in js/home-*.js; do node --check "$script"; done
+  browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        browser: [chromium, firefox, webkit]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r scripts/requirements-browser.txt
+      - run: python -m playwright install --with-deps ${{ matrix.browser }}
+      - name: Check English redesign in the browser
+        env:
+          QA_BROWSER: ${{ matrix.browser }}
+        run: |
+          python -m http.server 8765 --bind 127.0.0.1 > /tmp/ace-preview.log 2>&1 &
+          preview_pid=$!
+          trap 'kill "$preview_pid"' EXIT
+          python - <<'PY'
+          import time, urllib.request
+          for attempt in range(50):
+              try:
+                  urllib.request.urlopen('http://127.0.0.1:8765/', timeout=1).close()
+                  break
+              except OSError:
+                  time.sleep(0.1)
+          else:
+              raise SystemExit('Local preview did not start')
+          PY
+          for section in hero reviews buy story voices community author contents; do
+            python "scripts/check_home_${section}_browser.py" --browsers "$QA_BROWSER" --output "browser-results/$section"
+          done
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: browser-review-${{ matrix.browser }}
+          path: browser-results/

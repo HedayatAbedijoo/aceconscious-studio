@@ -1,0 +1,80 @@
+<!-- English-only edition selector. The direct checkout URL is a design placeholder. -->
+<section class="buy buy--redesign" id="buy" aria-labelledby="buy-heading">
+  <div class="container">
+    <h2 class="edition-heading" id="buy-heading" data-i18n="buy.label"></h2>
+  </div>
+  <div class="container edition-layout">
+    <div class="edition-card edition-card--direct">
+      <p class="edition-eyebrow"><span aria-hidden="true">★</span> <span data-i18n="buy.redesign.directEyebrow"></span></p>
+      <h3 class="edition-title" data-i18n="buy.redesign.directTitle"></h3>
+      <p class="edition-description" data-i18n="buy.redesign.directDescription"></p>
+      <ul class="edition-formats" aria-label="Included formats" data-i18n-attr="aria-label:buy.redesign.formatsLabel">
+        <li>EPUB</li>
+        <li>PDF</li>
+        <li data-i18n="buy.redesign.instantDelivery"></li>
+      </ul>
+      <a class="edition-checkout" id="buy-direct" href="https://payhip.com/" target="_blank" rel="noopener noreferrer">
+        <span data-i18n="buy.redesign.directAction"></span>
+        <span aria-hidden="true">↗</span>
+        <span class="edition-sr-only" data-i18n="reviews.newTab"></span>
+      </a>
+    </div>
+    <div class="edition-amazon" role="group" aria-label="Amazon editions" data-i18n-attr="aria-label:buy.redesign.amazonGroup">
+      <div class="edition-marketplace">
+        <label for="amazon-marketplace" data-i18n="buy.redesign.marketplaceLabel"></label>
+        <span class="edition-marketplace__default" data-marketplace-default data-i18n="buy.redesign.marketUS"></span>
+        <div class="edition-marketplace__control" data-marketplace-control hidden>
+          <span class="edition-marketplace__value" aria-hidden="true">
+            <span class="edition-marketplace__identity" data-marketplace-identity></span>
+            <span class="edition-marketplace__domain" data-marketplace-domain></span>
+          </span>
+          <select class="edition-marketplace__select" id="amazon-marketplace">
+            <option value="us" data-amazon-editions="kindle paperback" data-amazon-host="www.amazon.com" selected data-i18n="buy.redesign.marketUS"></option>
+            <option value="uk" data-amazon-editions="kindle paperback" data-amazon-host="www.amazon.co.uk" data-i18n="buy.redesign.marketUK"></option>
+            <option value="de" data-amazon-editions="kindle paperback" data-amazon-host="www.amazon.de" data-i18n="buy.redesign.marketDE"></option>
+            <option value="ca" data-amazon-editions="kindle paperback" data-amazon-host="www.amazon.ca" data-i18n="buy.redesign.marketCA"></option>
+            <option value="au" data-amazon-editions="kindle paperback" data-amazon-host="www.amazon.com.au" data-i18n="buy.redesign.marketAU"></option>
+            <option value="fr" data-amazon-editions="kindle paperback" data-amazon-host="www.amazon.fr" data-i18n="buy.redesign.marketFR"></option>
+            <option value="es" data-amazon-editions="kindle paperback" data-amazon-host="www.amazon.es" data-i18n="buy.redesign.marketES"></option>
+            <option value="it" data-amazon-editions="kindle paperback" data-amazon-host="www.amazon.it" data-i18n="buy.redesign.marketIT"></option>
+            <option value="nl" data-amazon-editions="kindle paperback" data-amazon-host="www.amazon.nl" data-i18n="buy.redesign.marketNL"></option>
+            <option value="pl" data-amazon-editions="paperback" data-amazon-host="www.amazon.pl" data-i18n="buy.redesign.marketPL"></option>
+            <option value="se" data-amazon-editions="paperback" data-amazon-host="www.amazon.se" data-i18n="buy.redesign.marketSE"></option>
+            <option value="be" data-amazon-editions="paperback" data-amazon-host="www.amazon.com.be" data-i18n="buy.redesign.marketBE"></option>
+            <option value="ie" data-amazon-editions="paperback" data-amazon-host="www.amazon.ie" data-i18n="buy.redesign.marketIE"></option>
+            <option value="jp" data-amazon-editions="kindle paperback" data-amazon-host="www.amazon.co.jp" data-i18n="buy.redesign.marketJP"></option>
+            <option value="in" data-amazon-editions="kindle" data-amazon-host="www.amazon.in" data-i18n="buy.redesign.marketIN"></option>
+            <option value="br" data-amazon-editions="kindle" data-amazon-host="www.amazon.com.br" data-i18n="buy.redesign.marketBR"></option>
+            <option value="mx" data-amazon-editions="kindle" data-amazon-host="www.amazon.com.mx" data-i18n="buy.redesign.marketMX"></option>
+          </select>
+        </div>
+      </div>
+      <div class="edition-card edition-card--amazon">
+        <p class="edition-eyebrow" data-i18n="buy.redesign.amazonEdition"></p>
+        <h3 class="edition-title" id="buy-kindle-title" data-i18n="buy.redesign.kindleTitle"></h3>
+        <p class="edition-description" data-i18n="buy.redesign.kindleDescription"></p>
+        <div class="edition-action">
+          <span class="edition-format-note" data-i18n="buy.redesign.kindleFormat"></span>
+          <a class="edition-amazon-link" id="buy-amazon" data-amazon-edition="kindle" data-unavailable-label="Not available here" data-i18n-attr="data-unavailable-label:buy.redesign.unavailableAction" href="https://www.amazon.com/dp/B0H8MDM6Q5" target="_blank" rel="noopener noreferrer" aria-labelledby="buy-kindle-title buy-kindle-action buy-kindle-newtab">
+            <span id="buy-kindle-action" data-amazon-action data-i18n="buy.redesign.amazonAction"></span>
+            <span aria-hidden="true">↗</span>
+            <span class="edition-sr-only" id="buy-kindle-newtab" data-i18n="reviews.newTab"></span>
+          </a>
+        </div>
+      </div>
+      <div class="edition-card edition-card--amazon">
+        <p class="edition-eyebrow" data-i18n="buy.redesign.amazonEdition"></p>
+        <h3 class="edition-title" id="buy-paperback-title" data-i18n="buy.redesign.paperbackTitle"></h3>
+        <p class="edition-description" data-i18n="buy.redesign.paperbackDescription"></p>
+        <div class="edition-action">
+          <span class="edition-format-note" data-i18n="buy.redesign.paperbackFormat"></span>
+          <a class="edition-amazon-link" id="buy-paperback" data-amazon-edition="paperback" data-unavailable-label="Not available here" data-i18n-attr="data-unavailable-label:buy.redesign.unavailableAction" href="https://www.amazon.com/dp/391300601X" target="_blank" rel="noopener noreferrer" aria-labelledby="buy-paperback-title buy-paperback-action buy-paperback-newtab">
+            <span id="buy-paperback-action" data-amazon-action data-i18n="buy.redesign.amazonAction"></span>
+            <span aria-hidden="true">↗</span>
+            <span class="edition-sr-only" id="buy-paperback-newtab" data-i18n="reviews.newTab"></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,25 @@
+<!-- English-only Story layout. The build inserts the existing hero.pitch copy. -->
+<section class="synopsis synopsis--redesign" id="synopsis" aria-labelledby="synopsis-heading">
+  <div class="container">
+    <h2 class="story-heading" id="synopsis-heading" data-i18n="story.redesign.heading"></h2>
+    <div class="story-layout">
+      <div class="story-synopsis">
+        <h3 class="story-label" data-i18n="story.redesign.synopsisLabel"></h3>
+        <div class="story-copy" data-story-intro></div>
+        <details class="story-details" id="story-details">
+          <summary class="story-toggle">
+            <span class="story-toggle__closed" data-i18n="story.redesign.readExtended"></span>
+            <span class="story-toggle__open" data-i18n="story.redesign.hideExtended"></span>
+            <span class="story-toggle__closed story-toggle__symbol" aria-hidden="true">+</span>
+            <span class="story-toggle__open story-toggle__symbol" aria-hidden="true">−</span>
+          </summary>
+          <div class="story-copy story-copy--extended" data-story-extended></div>
+        </details>
+      </div>
+      <aside class="story-ace" aria-labelledby="story-ace-heading">
+        <h3 class="story-label" id="story-ace-heading" data-story-ace-title></h3>
+        <div data-story-ace-copy></div>
+      </aside>
+    </div>
+  </div>
+</section>

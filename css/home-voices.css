@@ -1,0 +1,229 @@
+/* English-only Voices draft: prototype cards with the full original monologues. */
+.characters.characters--redesign {
+  padding: 64px 0;
+  background: #e8ddcd;
+  color: #4a3a31;
+}
+
+.voices-heading-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px 32px;
+  margin-bottom: 28px;
+}
+
+.voices-heading {
+  margin: 0;
+  color: #9b431f;
+}
+
+.voices-hint {
+  flex: none;
+  margin: 0;
+  color: #705c4b;
+  font: 400 .6875rem/1.8 "DM Mono", Consolas, monospace;
+  letter-spacing: .06em;
+}
+
+.voice-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: start;
+  gap: 14px;
+  margin-inline: auto;
+}
+
+.voice-entry {
+  min-width: 0;
+}
+
+.voice-card {
+  border: 1px solid #c8b59f;
+  background: #f3ebdf;
+  transition: border-color .2s, box-shadow .2s;
+}
+
+.voice-card[open] {
+  border-color: #946249;
+  background: #fbf7ef;
+  box-shadow: 0 9px 30px #6c4c3112;
+}
+
+.voice-card summary {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  list-style: none;
+  cursor: pointer;
+  overflow-wrap: anywhere;
+}
+
+.voice-card summary::before {
+  /* A square minimum, with room to grow when text is enlarged or wraps. */
+  content: "";
+  grid-area: 1 / 1;
+  aspect-ratio: 1;
+  pointer-events: none;
+}
+
+.voice-summary {
+  grid-area: 1 / 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 18px;
+  margin: 0;
+  font: inherit;
+}
+
+.voice-summary > * {
+  flex-shrink: 0;
+}
+
+.voice-card summary::-webkit-details-marker {
+  display: none;
+}
+
+.voice-card summary::marker {
+  content: "";
+}
+
+.voice-card summary > * {
+  /* Keep touch focus on the native control when its action label changes. */
+  pointer-events: none;
+}
+
+.voice-number {
+  color: #796655;
+  font: 400 .6875rem/1.6 "DM Mono", Consolas, monospace;
+  letter-spacing: .16em;
+}
+
+.voice-symbol {
+  display: flex;
+  flex: 1 0 80px;
+  align-items: center;
+  justify-content: center;
+  color: #b29078;
+  font: 400 3.5rem/1 "Playfair Display", Georgia, serif;
+  text-shadow: 1px 3px 1px #fff7ea;
+}
+
+.voice-symbol svg {
+  width: 44px;
+  height: 44px;
+}
+
+.voice-symbol .voice-symbol__pencil {
+  width: 38px;
+  height: 38px;
+}
+
+.voice-name {
+  margin: 2px 0;
+  color: #28211d;
+  font: 400 1.375rem/1.3 "Playfair Display", Georgia, serif;
+}
+
+.voice-role {
+  min-height: 18px;
+  color: #796655;
+  font: 400 .6875rem/1.6 "DM Mono", Consolas, monospace;
+}
+
+.voice-action {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 16px;
+  color: #8a492d;
+  font: 400 .6875rem/1.6 "DM Mono", Consolas, monospace;
+  letter-spacing: .025em;
+}
+
+.voice-action__symbol {
+  flex: none;
+  font: 400 1.25rem/1 Georgia, serif;
+}
+
+.voice-action__symbol::after {
+  content: "+";
+}
+
+.voice-card[open] .voice-action__symbol::after {
+  content: "−";
+}
+
+.voice-action__open,
+.voice-card[open] .voice-action__closed {
+  display: none;
+}
+
+.voice-card[open] .voice-action__open {
+  display: inline;
+}
+
+.voice-content {
+  padding: 22px 18px 24px;
+  border-top: 1px solid #dbc7b4;
+  color: #4a3a31;
+  font: 400 .9375rem/1.85 Georgia, serif;
+  overflow-wrap: anywhere;
+}
+
+.voice-content p {
+  margin: 0;
+}
+
+.voice-content p + p {
+  margin-top: 14px;
+}
+
+.voice-content strong {
+  color: #382a22;
+}
+
+.voice-card summary:focus-visible {
+  outline: 2px solid #8a492d;
+  outline-offset: 4px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .voice-card:hover {
+    border-color: #946249;
+    box-shadow: 0 10px 20px #71554214;
+  }
+}
+
+@media (max-width: 1100px) {
+  .voice-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-width: 654px;
+  }
+}
+
+@media (max-width: 900px) {
+  .characters.characters--redesign {
+    padding: 40px 0;
+  }
+
+  .voices-heading-row {
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 24px;
+  }
+}
+
+@media (max-width: 540px) {
+  .voice-grid {
+    grid-template-columns: minmax(0, 1fr);
+    max-width: 320px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .voice-card {
+    transition: none;
+  }
+}

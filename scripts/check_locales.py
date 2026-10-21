@@ -30,6 +30,30 @@ def check():
             ids = [el["id"] for el in soup.select("[id]")]
             assert len(ids) == len(set(ids)), f"Duplicate ID: {path}"
             sections = [(el.name, el.get("id")) for el in soup.select("main section, main article")]
+            if name == "home" and code == "en":
+                # Explicit English-first draft: three moved sections and the new
+                # Community section. Normalize only these approved differences.
+                assert soup.select_one("#reviews").find_next_sibling("section")["id"] == "buy", path
+                assert soup.select_one("#synopsis").find_next_sibling("section")["id"] == "sample", path
+                assert soup.select_one("#sample").find_next_sibling("section")["id"] == "voices", path
+                assert soup.select_one("#voices").find_next_sibling("section")["id"] == "community", path
+                assert soup.select_one("#community").find_next_sibling("section")["id"] == "author", path
+                assert soup.select_one("#author").find_next_sibling("section")["id"] == "contents", path
+                assert sections.count(("section", "community")) == 1, path
+                sections.remove(("section", "community"))
+                assert sections.count(("section", "author")) == 1, path
+                sections.remove(("section", "author"))
+                sections.insert(sections.index(("section", "contact")), ("section", "author"))
+                assert sections.count(("section", "buy")) == 1, path
+                sections.remove(("section", "buy"))
+                sections.insert(sections.index(("section", "author")), ("section", "buy"))
+                sample_block = [("section", "sample"), ("article", "sample-flipbook")]
+                assert all(sections.count(item) == 1 for item in sample_block), path
+                sample_start = sections.index(sample_block[0])
+                assert sections[sample_start:sample_start + len(sample_block)] == sample_block, path
+                del sections[sample_start:sample_start + len(sample_block)]
+                contents_start = sections.index(("section", "contents"))
+                sections[contents_start:contents_start] = sample_block
             if reference is None:
                 reference = sections
             assert sections == reference, f"Section drift: {path}"

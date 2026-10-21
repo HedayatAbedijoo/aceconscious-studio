@@ -1,0 +1,182 @@
+/* English homepage redesign. Loaded only while the English version is reviewed. */
+@font-face {
+  font-family: "Playfair Display";
+  src: url("../assets/fonts/PlayfairDisplay-Regular-latin.woff2?v=1fe9ad5d8b") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "DM Sans";
+  src: url("../assets/fonts/DMSans-Regular-latin.woff2?v=4ab51eb2cd") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "DM Mono";
+  src: url("../assets/fonts/DMMono-Regular-latin.woff2?v=e1896b13b2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+.hero.hero--redesign {
+  position: relative;
+  isolation: isolate;
+  min-height: 0;
+  padding: calc(var(--nav-h) + 5rem) 0 5rem;
+  color: #faf5eb;
+  text-align: start;
+  background:
+    radial-gradient(circle at 75% 12%, #3c3029 0, transparent 43%),
+    linear-gradient(115deg, #181817 32%, #29211e 100%);
+}
+
+.hero--redesign::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.12;
+  background-image: url("data:image/svg+xml,%3Csvg width='180' height='180' viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.25'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+}
+
+/* Keep this English homepage's navigation on the same gutters as .container. */
+html[data-locale="en"][data-page="home"] .site-nav__inner {
+  width: min(var(--max), 100% - 2rem);
+}
+
+.hero-redesign__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
+  align-items: center;
+  gap: clamp(2.5rem, 5vw, 4.125rem);
+}
+
+.hero-redesign__text {
+  min-width: 0;
+}
+
+.hero-redesign__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.8125rem;
+  margin: 0 0 1.625rem;
+  color: #d9b392;
+  font: 400 0.6875rem/1.7 "DM Mono", Consolas, monospace;
+  letter-spacing: 0.125rem;
+  text-transform: uppercase;
+}
+
+.hero-redesign__eyebrow::before {
+  content: "";
+  flex: 0 0 1.875rem;
+  height: 1px;
+  background: #b88d67;
+}
+
+.hero-redesign__title {
+  margin: 0 0 1.75rem;
+  color: #faf5eb;
+  font: 400 clamp(3.5rem, 1.5rem + 7vw, 7.25rem)/1.08 "Playfair Display", Georgia, serif;
+  letter-spacing: -0.045em;
+  overflow-wrap: anywhere;
+}
+
+.hero-redesign__dot {
+  color: #c19470;
+}
+
+.hero-redesign__tagline {
+  max-width: 34rem;
+  margin: 0 0 1.5rem;
+  color: #eaded0;
+  font: 400 clamp(1.375rem, 2.1vw, 1.6875rem)/1.4 "Playfair Display", Georgia, serif;
+}
+
+.hero-redesign__logline {
+  max-width: 32rem;
+  margin: 0;
+  color: #bdb1a3;
+  font: 400 0.9375rem/1.8 "DM Sans", Arial, sans-serif;
+}
+
+/* Preserve the site's cover artwork, ink frame and front/back interaction. */
+.hero--redesign .hero__cover-wrap {
+  order: 0;
+  width: min(80%, 294px);
+  max-width: none;
+  margin: 0;
+}
+
+.hero--redesign .book-cover__peek:focus-visible {
+  outline-color: #ebdbc5;
+}
+
+@media (min-width: 1280px) {
+  .hero-redesign__grid {
+    grid-template-columns: minmax(0, 40rem) minmax(0, 1fr);
+  }
+
+  .hero-redesign__logline {
+    max-width: 40rem;
+  }
+}
+
+@media (max-width: 900px) {
+  /* The longer English menu remains reachable on short landscape screens. */
+  html[data-locale="en"][data-page="home"] .site-nav__links {
+    max-height: calc(100dvh - var(--nav-h));
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+
+  html[data-locale="en"][data-page="home"] .site-nav__links > ul {
+    flex-shrink: 0;
+  }
+
+  html[data-locale="en"][data-page="home"] .site-nav__links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .hero.hero--redesign {
+    padding: calc(var(--nav-h) + 3.25rem) 0 4.5rem;
+  }
+
+  .hero-redesign__grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 3.75rem;
+  }
+
+  .hero-redesign__title {
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-redesign__tagline {
+    font-size: 1.375rem;
+  }
+
+  .hero--redesign .hero__cover-wrap {
+    width: min(62%, 245px);
+  }
+}
+
+@media (max-width: 360px) {
+  .hero-redesign__eyebrow {
+    gap: 0.625rem;
+    letter-spacing: 0.08rem;
+  }
+
+  .hero-redesign__eyebrow::before {
+    flex-basis: 1.25rem;
+  }
+}

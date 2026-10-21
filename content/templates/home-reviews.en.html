@@ -1,0 +1,69 @@
+<!-- English review-strip redesign; the shared review source retains other locales. -->
+<section class="reviews reviews--compact" id="reviews" aria-labelledby="reviews-heading">
+  <div class="container">
+    <h2 class="reviews__sr-only" id="reviews-heading" data-i18n="reviews.heading">Reviews</h2>
+    <div class="reviews__slides" id="review-slides">
+      <article class="review-strip" data-review-id="kirkus-2026" aria-labelledby="kirkus-quote">
+        <div class="review-strip__publisher">
+          <cite class="review-strip__name" translate="no" data-i18n="reviews.kirkus.name"></cite>
+          <p class="review-strip__type" data-i18n="reviews.kirkus.type"></p>
+        </div>
+        <blockquote class="review-strip__quote" id="kirkus-quote" data-review-citation>
+          <p>“<span data-i18n="reviews.redesign.kirkusQuote"></span>”</p>
+        </blockquote>
+        <div class="review-strip__reading">
+          <span class="review-strip__mark" aria-hidden="true">“</span>
+          <a class="review-strip__link" data-review-source target="_blank" rel="noopener noreferrer">
+            <span data-i18n="reviews.redesign.fullArticle"></span>
+            <span aria-hidden="true">↗</span>
+            <span class="reviews__sr-only" data-i18n="reviews.newTab"></span>
+          </a>
+        </div>
+      </article>
+      <article class="review-strip" data-review-id="booklife-2026" aria-labelledby="booklife-quote">
+        <div class="review-strip__publisher">
+          <cite class="review-strip__name" translate="no">BookLife</cite>
+          <p class="review-strip__type" translate="no">The BookLife Prize</p>
+        </div>
+        <blockquote class="review-strip__quote" id="booklife-quote" data-review-citation>
+          <p>“<span data-i18n="reviews.redesign.booklifeQuote"></span>”</p>
+        </blockquote>
+        <div class="review-strip__reading">
+          <span class="review-strip__mark" aria-hidden="true">“</span>
+          <a class="review-strip__link" data-review-source target="_blank" rel="noopener noreferrer">
+            <span data-i18n="reviews.redesign.fullArticle"></span>
+            <span aria-hidden="true">↗</span>
+            <span class="reviews__sr-only" data-i18n="reviews.newTab"></span>
+          </a>
+        </div>
+      </article>
+      <article class="review-strip" data-review-id="consciousness-2026" aria-labelledby="consciousness-quote">
+        <div class="review-strip__publisher">
+          <cite class="review-strip__name review-strip__name--long" translate="no">The Consciousness AI</cite>
+          <p class="review-strip__type" data-i18n="reviews.consciousness.type"></p>
+        </div>
+        <blockquote class="review-strip__quote" id="consciousness-quote" data-review-citation>
+          <p>“<span data-i18n="reviews.redesign.consciousnessQuote"></span>”</p>
+        </blockquote>
+        <div class="review-strip__reading">
+          <span class="review-strip__mark" aria-hidden="true">“</span>
+          <a class="review-strip__link" data-review-source target="_blank" rel="noopener noreferrer">
+            <span data-i18n="reviews.redesign.fullArticle"></span>
+            <span aria-hidden="true">↗</span>
+            <span class="reviews__sr-only" data-i18n="reviews.newTab"></span>
+          </a>
+        </div>
+      </article>
+    </div>
+    <div class="reviews__controls review-strip__controls" hidden>
+      <span class="reviews__counter" aria-hidden="true">1 of 3</span>
+      <button class="reviews__arrow" type="button" data-review-prev aria-label="Previous review" data-i18n-attr="aria-label:reviews.previous" aria-controls="review-slides" disabled>
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 12H5m6-6-6 6 6 6"/></svg>
+      </button>
+      <button class="reviews__arrow" type="button" data-review-next aria-label="Next review" data-i18n-attr="aria-label:reviews.next" aria-controls="review-slides" disabled>
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
+      </button>
+    </div>
+    <p class="reviews__sr-only reviews__status" role="status" aria-live="polite" aria-atomic="true"></p>
+  </div>
+</section>

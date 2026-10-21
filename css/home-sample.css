@@ -1,0 +1,34 @@
+/* English-only palette; preserve the existing flipbook layout and controls. */
+.sample.sample--redesign {
+  background: #24201d;
+  color: #f6efe5;
+}
+
+.sample--redesign .section-label {
+  color: #c19876;
+}
+
+.sample--redesign .flipbook__frame {
+  border-color: #726459;
+}
+
+.sample--redesign .flipbook__hint {
+  color: #a99d90;
+}
+
+.sample--redesign .flipbook__btn {
+  color: #fffaf2;
+  background: #af4f20;
+  border-color: #af4f20;
+}
+
+.sample--redesign .flipbook__btn:hover {
+  color: #dfb08d;
+  background: transparent;
+  border-color: #c19876;
+}
+
+.sample--redesign .flipbook__btn:focus-visible {
+  outline-color: #f6efe5;
+}
+

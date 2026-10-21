@@ -1,0 +1,210 @@
+/* English reader-community draft. Keep the existing contact section unchanged. */
+.community--redesign {
+  padding: 64px 0;
+  color: #49392c;
+  background: linear-gradient(110deg, #c8a88b, #e2ccb5 64%, #cab59a);
+  font: 400 .9375rem/1.75 "DM Sans", Arial, sans-serif;
+}
+
+.community-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(32px, 4.5vw, 65px);
+}
+
+.community-layout > * {
+  min-width: 0;
+}
+
+.community-heading {
+  margin: 0 0 24px;
+  color: #632c19;
+}
+
+.community-tagline {
+  max-width: 18ch;
+  margin: 0 0 24px;
+  color: #24201d;
+  font: 400 clamp(1.875rem, 1rem + 2.2vw, 2.75rem)/1.23 "Playfair Display", Georgia, serif;
+  overflow-wrap: anywhere;
+}
+
+.community-tagline > span {
+  display: block;
+}
+
+.community-description {
+  max-width: 420px;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.community-form {
+  position: relative;
+  padding: 36px;
+  background: #fbf7f0;
+  box-shadow: 0 20px 35px #7052381c;
+}
+
+.community-eyebrow {
+  margin: 0 0 14px;
+  color: #8a5136;
+  font: 400 .6875rem/1.8 "DM Mono", Consolas, monospace;
+  letter-spacing: .08em;
+  overflow-wrap: anywhere;
+}
+
+.community-form-heading {
+  margin: 0 0 7px;
+  color: #24201d;
+  font: 400 1.5625rem/1.35 "Playfair Display", Georgia, serif;
+  overflow-wrap: anywhere;
+}
+
+.community-form-description {
+  margin: 0;
+  color: #74624f;
+  font-size: .8125rem;
+  overflow-wrap: anywhere;
+}
+
+.community-fields {
+  min-inline-size: 0;
+  margin: 24px 0 0;
+  padding: 0;
+  border: 0;
+}
+
+.community-label {
+  display: block;
+  margin-bottom: 12px;
+  color: #493a2d;
+  font: 400 .6875rem/1.6 "DM Mono", Consolas, monospace;
+  letter-spacing: .06em;
+}
+
+.community-input {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  min-height: 56px;
+  margin: 0 0 10px;
+  padding: 14px 15px;
+  border: 1px solid #a88f79;
+  border-radius: 0;
+  background: #fff;
+  color: #2b211e;
+  font: 400 1rem/1.6 "DM Sans", Arial, sans-serif;
+}
+
+.community-input::placeholder {
+  color: #746452;
+  opacity: 1;
+}
+
+.community-submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  min-height: 50px;
+  padding: 15px 14px;
+  border: 1px solid #24201d;
+  border-radius: 0;
+  background: #24201d;
+  color: #fff3e1;
+  font: 400 .6875rem/1.7 "DM Mono", Consolas, monospace;
+  letter-spacing: .05em;
+  cursor: pointer;
+  overflow-wrap: anywhere;
+}
+
+.community-submit > span:first-child {
+  min-width: 0;
+}
+
+.community-submit > span:last-child {
+  flex: none;
+}
+
+.community-submit:hover:not(:disabled) {
+  background: #49352a;
+  border-color: #49352a;
+}
+
+.community-submit:disabled,
+.community-fields:disabled .community-submit {
+  cursor: default;
+  opacity: .65;
+}
+
+.community-input[readonly] {
+  background: #f3ece2;
+}
+
+.community-input[aria-invalid="true"] {
+  border-color: #9a3427;
+}
+
+.community-form :focus-visible {
+  outline: 2px solid #8a492d;
+  outline-offset: 4px;
+}
+
+.community-status {
+  margin: 16px 0 0;
+  color: #5c4939;
+  font-size: .8125rem;
+  overflow-wrap: anywhere;
+}
+
+.community-status[data-state="success"] {
+  color: #335b3e;
+}
+
+.community-status[data-state="error"] {
+  color: #9a3427;
+}
+
+.community-status[hidden] {
+  display: none;
+}
+
+.community-honeypot {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+@media (max-width: 900px) {
+  .community--redesign {
+    padding: 40px 0;
+  }
+
+  .community-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+  }
+
+  .community-heading {
+    margin-bottom: 20px;
+  }
+
+  .community-form {
+    padding: 26px;
+  }
+}
+
+@media (max-width: 400px) {
+  .community-form {
+    padding: 24px 20px;
+  }
+}

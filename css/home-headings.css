@@ -1,0 +1,15 @@
+/* Shared typography for the English homepage's section labels only.
+   Keep their existing wording, contextual colors and layout spacing. */
+.edition-heading,
+.story-heading,
+.sample--redesign .section-label,
+.voices-heading,
+.community-heading,
+.author-heading,
+.contents-heading,
+#contact .section-label {
+  font: 400 1.1875rem/1.65 var(--font-mono);
+  letter-spacing: .16em;
+  text-transform: none;
+  overflow-wrap: anywhere;
+}

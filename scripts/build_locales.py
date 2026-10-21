@@ -19,6 +19,12 @@ SITE = "https://aceconscious.studio"
 LANGUAGES = json.loads((ROOT / "content/languages.json").read_text())
 PAGES = ("home", "ace", "rights", "screen", "privacy", "impressum")
 CATALOGS = ROOT / "content/locales"
+HERO_FONTS = ("PlayfairDisplay-Regular-latin.woff2", "DMSans-Regular-latin.woff2",
+              "DMMono-Regular-latin.woff2")
+HOME_FONT_STYLESHEETS = {
+    "css/home-hero.css": HERO_FONTS,
+    "css/home-reviews.css": ("PlayfairDisplay-Bold-latin.woff2",),
+}
 
 
 def route(page, lang):
@@ -72,6 +78,97 @@ def apply_strings(soup, strings):
         for pair in el["data-i18n-attr"].split(";"):
             attribute, key = pair.strip().split(":", 1)
             el[attribute] = strings[key]
+
+
+def template_string_keys(fragment):
+    keys = {el.get("data-i18n") or el["data-i18n-html"]
+            for el in fragment.select("[data-i18n], [data-i18n-html]")}
+    for el in fragment.select("[data-i18n-attr]"):
+        keys.update(pair.strip().split(":", 1)[1] for pair in el["data-i18n-attr"].split(";"))
+    return keys
+
+
+def validate_home_draft(draft, required_keys):
+    """The English-only homepage draft is plain copy, not a translated catalog."""
+    if not isinstance(draft, dict):
+        raise ValueError("English homepage draft must be a JSON object")
+    missing = required_keys - set(draft)
+    unknown = set(draft) - required_keys
+    if missing or unknown:
+        raise ValueError(f"English homepage draft keys: missing {sorted(missing)}, unexpected {sorted(unknown)}")
+    for key, value in draft.items():
+        if not isinstance(value, str) or not value.strip():
+            raise ValueError(f"English homepage draft {key}: expected nonempty text")
+        if re.search(r"<[^>]*>|\{\w+\}|ZXQ\d|\[X\d", value):
+            raise ValueError(f"English homepage draft {key}: markup, placeholders and unfinished markers are not supported")
+
+
+def populate_home_story(story, pitch_html):
+    """Arrange the canonical synopsis without duplicating or rewriting its copy."""
+    pitch = parse(pitch_html)
+    paragraphs = pitch.find_all("p", recursive=False)
+    ace = pitch.select_one("p.hero__pitch-ace")
+    narrative = [paragraph for paragraph in paragraphs if paragraph is not ace]
+    if len(narrative) < 2 or ace is None:
+        raise ValueError("English Story needs an introduction, extended synopsis and ACE paragraph")
+    ace_link = ace.find("a", recursive=False)
+    line_break = ace.find("br", recursive=False)
+    if ace_link is None or line_break is None:
+        raise ValueError("English Story needs the existing ACE link and description")
+
+    story.select_one("[data-story-intro]").append(narrative[0].extract())
+    for paragraph in narrative[1:]:
+        story.select_one("[data-story-extended]").append(paragraph.extract())
+    story.select_one("[data-story-ace-title]").append(ace_link.extract())
+    line_break.extract()
+    ace["class"] = ["story-ace__text"]
+    story.select_one("[data-story-ace-copy]").replace_with(ace)
+
+
+def populate_home_voices(voices, original):
+    """Move every complete monologue into its matching English disclosure."""
+    originals = {
+        card.select_one(".character-card__name")["data-i18n"]: card
+        for card in original.select(".character-card")
+    }
+    cards = voices.select(".voice-card")
+    keys = [card.select_one(".voice-name")["data-i18n"] for card in cards]
+    if len(keys) != 8 or len(set(keys)) != 8 or set(keys) != set(originals):
+        raise ValueError("English Voices must retain all eight original characters")
+    for key, card in zip(keys, cards):
+        body = originals[key].select_one(".character-card__body").extract()
+        body["class"] = ["voice-content"]
+        card.select_one("[data-voice-copy]").replace_with(body)
+
+
+def populate_home_author(author, original):
+    """Keep the complete shared biography, poem, portrait and social links."""
+    bio = original.select_one(".author__bio")
+    paragraphs = bio.select(":scope > p[data-i18n-html]")
+    if [p["data-i18n-html"] for p in paragraphs] != [f"author.p{i}" for i in range(1, 8)]:
+        raise ValueError("English Author must retain all seven original biography paragraphs")
+    author.select_one("[data-author-photo]").replace_with(original.select_one(".author__photo").extract())
+    author.select_one("[data-author-verse]").replace_with(bio.select_one(".author__verse").extract())
+    author.select_one("[data-author-intro]").append(paragraphs[0].extract())
+    for paragraph in paragraphs[1:]:
+        author.select_one("[data-author-extended]").append(paragraph.extract())
+    for node in list(bio.contents):
+        author.select_one("[data-author-links]").append(node.extract())
+
+
+def home_font_urls():
+    """Require CSS font versions to match their bytes, including the preload."""
+    urls = {}
+    for stylesheet, names in HOME_FONT_STYLESHEETS.items():
+        css = (ROOT / stylesheet).read_text()
+        css_urls = set(re.findall(r"""url\(["']?([^)"']+)""", css))
+        for name in names:
+            path = f"/assets/fonts/{name}"
+            version = sha256((ROOT / path.lstrip("/")).read_bytes()).hexdigest()[:10]
+            urls[name] = f"{path}?v={version}"
+            if ".." + urls[name] not in css_urls:
+                raise ValueError(f"Update {stylesheet} font URL to ../assets/fonts/{name}?v={version}")
+    return urls
 
 
 def menu(page, current):
@@ -133,6 +230,72 @@ def render(page, lang, source, strings):
     if page == "home":
         section = parse((ROOT / "content/reviews.html").read_text()).select_one("#reviews")
         soup.select_one("#reviews").replace_with(section)
+        # English-first redesign, explicitly kept out of the translated source
+        # until review is complete. Other locales retain the shared homepage.
+        if code == "en":
+            navigation = parse((ROOT / "content/templates/home-navigation.en.html").read_text()).select_one("#nav-menu")
+            hero = parse((ROOT / "content/templates/home-hero.en.html").read_text()).select_one("#top")
+            reviews = parse((ROOT / "content/templates/home-reviews.en.html").read_text()).select_one("#reviews")
+            buy = parse((ROOT / "content/templates/home-buy.en.html").read_text()).select_one("#buy")
+            story = parse((ROOT / "content/templates/home-story.en.html").read_text()).select_one("#synopsis")
+            voices = parse((ROOT / "content/templates/home-voices.en.html").read_text()).select_one("#voices")
+            community = parse((ROOT / "content/templates/home-community.en.html").read_text()).select_one("#community")
+            author = parse((ROOT / "content/templates/home-author.en.html").read_text()).select_one("#author")
+            contents = parse((ROOT / "content/templates/home-contents.en.html").read_text()).select_one("#contents")
+            draft = json.loads((CATALOGS / "en-home-redesign.json").read_text())
+            required = set().union(*(template_string_keys(fragment) for fragment in (navigation, hero, reviews, buy, story, voices, community, author, contents))) - set(source)
+            validate_home_draft(draft, required)
+            strings = {**strings, **draft}
+            soup.select_one("#nav-menu").replace_with(navigation)
+            populate_home_story(story, strings["hero.pitch"])
+            populate_home_voices(voices, soup.select_one("#voices"))
+            soup.select_one("#voices").replace_with(voices)
+            voices.insert_after(community)
+            populate_home_author(author, soup.select_one("#author"))
+            soup.select_one("#author").decompose()
+            community.insert_after(author)
+            chapters = soup.select_one("#contents .toc-grid").extract()
+            chapters["class"] = ["contents-list"]
+            chapters["role"] = "list"
+            contents.select_one("[data-contents-list]").replace_with(chapters)
+            soup.select_one("#contents").replace_with(contents)
+            for review in reviews.select("[data-review-id]"):
+                original = section.select_one(f'[data-review-id="{review["data-review-id"]}"]')
+                url = original.select_one(".review__link")["href"]
+                review.select_one("[data-review-source]")["href"] = url
+                review.select_one("[data-review-citation]")["cite"] = url
+            soup.select_one("#reviews").replace_with(reviews)
+            soup.select_one("#buy").decompose()
+            reviews.insert_after(buy)
+            cover = soup.select_one("#book-cover").parent.extract()
+            cover["class"] = [name for name in cover["class"] if name != "reveal"]
+            hero.select_one("[data-hero-cover]").replace_with(cover)
+            soup.select_one("#top").replace_with(hero)
+            soup.select_one("#synopsis").replace_with(story)
+            sample = soup.select_one("#sample").extract()
+            sample["class"].append("sample--redesign")
+            story.insert_after(sample)
+            fonts = home_font_urls()
+            # Preload only fonts used in the hero. The review's bold face loads
+            # normally without competing with these initial-viewport resources.
+            for name in HERO_FONTS:
+                preload = soup.new_tag("link", rel="preload", href=fonts[name],
+                                       attrs={"as": "font", "type": "font/woff2", "crossorigin": ""})
+                soup.head.select_one('link[rel="stylesheet"]').insert_before(preload)
+            soup.head.append(soup.new_tag("link", rel="stylesheet", href="/css/home-hero.css"))
+            soup.head.append(soup.new_tag("link", rel="stylesheet", href="/css/home-reviews.css"))
+            soup.head.append(soup.new_tag("link", rel="stylesheet", href="/css/home-buy.css"))
+            soup.head.append(soup.new_tag("link", rel="stylesheet", href="/css/home-story.css"))
+            soup.head.append(soup.new_tag("link", rel="stylesheet", href="/css/home-sample.css"))
+            soup.head.append(soup.new_tag("link", rel="stylesheet", href="/css/home-voices.css"))
+            soup.head.append(soup.new_tag("link", rel="stylesheet", href="/css/home-community.css"))
+            soup.head.append(soup.new_tag("link", rel="stylesheet", href="/css/home-author.css"))
+            soup.head.append(soup.new_tag("link", rel="stylesheet", href="/css/home-contents.css"))
+            soup.head.append(soup.new_tag("link", rel="stylesheet", href="/css/home-headings.css"))
+            soup.select_one('script[src^="/js/reviews.js"]')["src"] = "/js/home-reviews.js"
+            soup.body.append(soup.new_tag("script", src="/js/home-buy.js", defer=""))
+            soup.body.append(soup.new_tag("script", src="/js/home-community.js", defer=""))
+            soup.body.append(soup.new_tag("script", src="/js/home-voices.js", defer=""))
     apply_strings(soup, strings)
     for holder in soup.select("[data-language-menu]"):
         set_html(holder, menu(page, code))

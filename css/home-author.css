@@ -1,0 +1,183 @@
+/* English Author draft. The shared portrait shape and color animation remain. */
+.author.author--redesign {
+  padding: 64px 0;
+  background: #f8f4ec;
+  color: #5e544d;
+  font: 400 .9375rem/1.85 "DM Sans", Arial, sans-serif;
+}
+
+.author-heading {
+  margin: 0 0 20px;
+  color: #af4f20;
+}
+
+.author-name {
+  margin: 0 0 28px;
+  color: #28211d;
+  font: 400 clamp(1.75rem, 1.3rem + 1vw, 2.125rem)/1.3 "Playfair Display", Georgia, serif;
+  overflow-wrap: anywhere;
+}
+
+.author-layout {
+  display: grid;
+  grid-template-columns: 224px minmax(0, 1fr);
+  grid-template-areas: "photo verse" "photo bio";
+  align-items: start;
+  gap: 20px clamp(32px, 4.2vw, 60px);
+}
+
+.author-layout > * {
+  min-width: 0;
+}
+
+.author--redesign .author__photo {
+  grid-area: photo;
+  width: 100%;
+  max-width: 224px;
+  margin: 0;
+}
+
+.author--redesign .author__verse {
+  grid-area: verse;
+  margin: 0;
+  color: #8f4d39;
+  font-size: 1.0625rem;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.author--redesign .author__bio {
+  grid-area: bio;
+  max-width: 76ch;
+  overflow-wrap: anywhere;
+}
+
+.author--redesign .author__bio p {
+  margin: 0;
+}
+
+.author--redesign .author__bio p + p {
+  margin-top: 20px;
+}
+
+.author--redesign .author__bio strong {
+  color: #39302a;
+}
+
+.author-details {
+  margin-top: 12px;
+}
+
+.author-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  width: fit-content;
+  max-width: 100%;
+  min-height: 44px;
+  padding: 6px 0;
+  border-bottom: 1px solid #ab6148;
+  color: #8f4d39;
+  font: 400 .75rem/1.7 "DM Mono", Consolas, monospace;
+  list-style: none;
+  cursor: pointer;
+  overflow-wrap: anywhere;
+}
+
+.author-toggle::-webkit-details-marker {
+  display: none;
+}
+
+.author-toggle::marker {
+  content: "";
+}
+
+.author-toggle > span {
+  /* Preserve summary touch focus when its visible label changes in WebKit. */
+  pointer-events: none;
+}
+
+.author-toggle__symbol {
+  flex: none;
+  font-size: 1rem;
+}
+
+.author-toggle__open,
+.author-details[open] .author-toggle__closed {
+  display: none;
+}
+
+.author-details[open] .author-toggle__open {
+  display: inline;
+}
+
+.author-extended {
+  padding-top: 20px;
+}
+
+.author-links {
+  margin-top: 20px;
+  font-size: .8125rem;
+}
+
+.author-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  max-width: 100%;
+}
+
+.author--redesign .author__bio a {
+  color: #8f4d39;
+  text-decoration: underline;
+  text-decoration-color: #b7a18c;
+  text-underline-offset: 4px;
+}
+
+.author-toggle:hover,
+.author--redesign .author__bio a:hover {
+  color: #713b2b;
+}
+
+.author--redesign :focus-visible {
+  outline: 2px solid #8f4d39;
+  outline-offset: 4px;
+}
+
+@media (max-width: 900px) {
+  .author.author--redesign {
+    padding: 40px 0;
+  }
+
+  .author-layout {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 28px;
+  }
+
+  .author--redesign .author__photo {
+    flex: 0 0 160px;
+    max-width: 160px;
+  }
+
+  .author--redesign .author__verse {
+    /* Wrap below the portrait when enlarged text needs more reading space. */
+    flex: 1 1 10.5em;
+  }
+
+  .author--redesign .author__bio {
+    flex: 1 0 100%;
+  }
+}
+
+@media (max-width: 540px) {
+  .author-layout {
+    gap: 24px 20px;
+  }
+
+  .author--redesign .author__photo {
+    flex-basis: clamp(112px, 32vw, 144px);
+    max-width: 144px;
+  }
+}

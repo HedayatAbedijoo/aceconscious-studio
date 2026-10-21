@@ -1,0 +1,186 @@
+/* The prototype's compact editorial strip, scoped to the English redesign. */
+@font-face {
+  font-family: "Playfair Display";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../assets/fonts/PlayfairDisplay-Bold-latin.woff2?v=28453852ea") format("woff2");
+}
+
+.hero--intro + .reviews.reviews--compact {
+  padding: 50px 0;
+  color: #191817;
+  background: #e8dfd2;
+  border-bottom: 1px solid #d6c8b8;
+}
+
+.review-strip {
+  display: grid;
+  grid-template-columns: 185px minmax(0, 1fr) 135px;
+  align-items: center;
+  column-gap: 40px;
+}
+
+.review-strip + .review-strip {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid #d6c8b8;
+}
+
+/* All slides contribute to the row height, so changing reviews never moves
+   the content below. Hidden slides remain inert and hidden to assistive tech. */
+.reviews--compact.is-enhanced .reviews__slides {
+  display: grid;
+}
+
+.reviews--compact.is-enhanced .review-strip {
+  grid-area: 1 / 1;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.reviews--compact.is-enhanced .review-strip[hidden] {
+  display: grid !important;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.review-strip > * {
+  min-width: 0;
+}
+
+.review-strip__publisher {
+  padding-inline-end: 26px;
+  border-inline-end: 1px solid #c9b8a3;
+}
+
+.review-strip__name {
+  display: block;
+  color: #a64d42;
+  font: 700 1.875rem/1.2 "Playfair Display", Georgia, serif;
+  font-style: normal;
+  overflow-wrap: anywhere;
+}
+
+.review-strip__name--long {
+  font-size: 1.3125rem;
+}
+
+.review-strip__type {
+  margin: 4px 0 0;
+  color: #696159;
+  font: 400 .6875rem/1.7 "DM Mono", Consolas, monospace;
+  letter-spacing: .04em;
+  text-transform: none;
+}
+
+.review-strip__quote {
+  margin: 0;
+  font: 400 clamp(1.1875rem, 2.5vw, 1.8125rem)/1.45 "Playfair Display", Georgia, serif;
+  overflow-wrap: anywhere;
+}
+
+.review-strip__quote p {
+  margin: 0;
+}
+
+.review-strip__reading {
+  color: #70665b;
+  text-align: end;
+}
+
+.review-strip__mark {
+  display: block;
+  color: #be9d7d;
+  font: 400 3.125rem/.9 "Playfair Display", Georgia, serif;
+}
+
+.review-strip__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px;
+  min-height: 44px;
+  max-width: 100%;
+  color: #6a6157;
+  font: 400 .6875rem/1.6 "DM Mono", Consolas, monospace;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.review-strip__link:hover {
+  color: #904338;
+}
+
+.review-strip__controls {
+  gap: .5rem;
+  margin: 12px 0 -16px;
+  margin-inline-start: 225px;
+}
+
+.review-strip__controls .reviews__counter {
+  font-family: "DM Mono", Consolas, monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+.review-strip__controls .reviews__arrow {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.reviews--compact :focus-visible {
+  outline: 2px solid #8f4d39;
+  outline-offset: 3px;
+}
+
+@media (max-width: 900px) {
+  .hero--intro + .reviews.reviews--compact {
+    padding: 35px 0;
+  }
+
+  .review-strip {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 135px);
+    gap: 18px 24px;
+  }
+
+  .review-strip__publisher {
+    grid-column: 1;
+    grid-row: 1;
+    padding: 0;
+    border: 0;
+  }
+
+  .review-strip__quote {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    font-size: 1.375rem;
+  }
+
+  .review-strip__reading {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .review-strip__controls {
+    margin-inline-start: 0;
+  }
+}
+
+@media (max-width: 400px) {
+  .review-strip {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 112px);
+    column-gap: 16px;
+  }
+
+  .review-strip__name {
+    font-size: 1.6875rem;
+  }
+
+  .review-strip__name--long {
+    font-size: 1.25rem;
+  }
+
+  .review-strip__quote {
+    font-size: 1.25rem;
+  }
+}
