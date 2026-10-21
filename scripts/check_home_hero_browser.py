@@ -139,7 +139,7 @@ with sync_playwright() as playwright:
             assert preload.get_attribute("crossorigin") is not None
             assert font_requests.count(base + preload.get_attribute("href")) == 1, font_requests
         assert page.locator('#nav-menu a[href^="#"]').evaluate_all("els => els.map(el => el.hash)") == [
-            "#reviews", "#buy", "#synopsis", "#sample", "#voices", "#community", "#author", "#contents", "#contact"]
+            "#reviews", "#buy", "#synopsis", "#sample", "#voices", "#author", "#contents", "#contact"]
         assert page.locator('#nav-menu a[href="#contents"]').text_content() == "Content"
         assert page.locator("#book-cover").count() == 1
         assert page.locator("#top a, #top .btn").count() == 0
@@ -207,8 +207,8 @@ with sync_playwright() as playwright:
                 return b.top >= document.querySelector('.site-nav').getBoundingClientRect().bottom
                     && b.bottom <= innerHeight + 1 && b.height >= 44;
             }"""), (name, width, height, "Last menu link is unreachable")
-            page.locator('#nav-menu a[href="#community"]').tap()
-            assert page.url.endswith("#community")
+            page.locator('#nav-menu a[href="#author"]').tap()
+            assert page.url.endswith("#author")
             assert page.locator(".nav-toggle").get_attribute("aria-expanded") == "false"
         page.set_viewport_size({"width": 390, "height": 844})
 

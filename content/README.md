@@ -108,7 +108,7 @@ For each English hero redesign iteration, run
 German/Arabic/Persian layout. It also checks container alignment, column count,
 title/cover size across breakpoints, the two-line wide-desktop logline, and
 reuse of each preloaded hero font without a second download. The English navigation
-follows the redesigned section order, includes Community, and uses “Content” to
+follows the redesigned section order and uses “Content” to
 match its section. Mobile navigation scrolls within the viewport so its last links
 remain reachable in landscape. Its gutters intentionally align with the English
 page containers; the override is scoped to the English homepage only.
@@ -173,7 +173,7 @@ heading uses a slightly darker copper for readable contrast on its light
 background. Preserve authored title/sentence case in headings, labels and buttons
 instead of forcing uppercase; keep real acronyms such as EPUB and PDF uppercase.
 `check_locales.py` allows the explicit English Buy and Sample section moves and
-the new Community section while still checking every other section.
+the Community dialog while still checking every other section.
 
 The direct button deliberately opens `https://payhip.com/` in a new tab as the
 user-requested design placeholder. Replace that URL with the final storefront
@@ -266,12 +266,25 @@ complete original copy and emphasis for all eight characters, 40 viewport sizes
 in both disclosure states, 200% text, keyboard/touch, unchanged RTL pages and
 JavaScript-disabled behavior across Chromium, WebKit and Firefox.
 
-## English Community section
+## English Community tab and dialog
 
-`home-community.en.html` adds “Join the Community” immediately after Voices.
-The heading follows the approved section typography; the warmer gradient and
-light form card draw from the prototype. The reader question and demo notice are
-omitted. At 900px and below, the introduction precedes the form in one column.
+`home-community.en.html` adds a fixed vertical “Community” tab on the physical
+left edge at every viewport size. Above 1024px it stays fully visible. On smaller
+screens it starts retracted to a 4px edge, slides out as soon as the page scrolls
+in either direction, and retracts 1 second after the last scroll event. Hovering
+over the collapsed edge reveals the tab and keeps it open until the pointer
+leaves; it then retracts after 1 second. Touching or clicking the edge reveals the
+tab and opens the dialog on activation. Its transparent hit area extends to 16px
+within the existing page gutter. Pressing the tab pauses retraction; keyboard
+focus also keeps it fully visible. The slide
+takes 240ms and is disabled for reduced-motion preferences. Without JavaScript
+the tab stays visible. It opens a native modal dialog with the existing
+introduction, warm gradient and light form card. A persistent top-right close
+button and Escape dismiss the dialog; focus returns to the tab without scrolling
+the page. The background is inert and cannot scroll while the dialog is open.
+The dialog scrolls internally on short screens. At 900px and below, its introduction
+precedes the form in one column. Community has no navigation link or in-flow
+section; Voices now leads directly into The Author.
 
 `home-community.js` adapts the existing contact form's JSON payload, `text/plain`
 POST and `ace-contact-form` response contract. It reads the same
@@ -286,17 +299,21 @@ subscription. Email validation, a honeypot, a duplicate-submit guard, a 20-secon
 timeout and retryable errors are included. Addresses are never put in URLs or
 browser storage. Without JavaScript, the fields stay disabled and a short
 instruction is shown, preventing a native submission to the static page.
-The existing Contact section, scripts and backend are unchanged.
+Native dialog commands also allow the tab and close button to work without
+JavaScript in browsers that support them. The existing Contact section, scripts
+and backend are unchanged.
 
 Run `scripts/check_home_community_browser.py` against the local preview for
-40 viewport sizes, 200% text, keyboard/touch, unchanged RTL pages and a disabled
-JavaScript fallback. It intercepts every submission to test validation, success,
+40 viewport sizes, scroll-triggered visibility and idle timing, fixed position
+while scrolling, modal focus and dismissal,
+200% text, keyboard/touch, unchanged RTL pages and a disabled JavaScript fallback.
+It intercepts every submission to test validation, success,
 server/network/timeout errors, retries, duplicate prevention, honeypot behavior
 and independence from the original Contact form. No real messages are sent.
 
 ## English Author section
 
-`home-author.en.html` places The Author immediately after Join the Community.
+`home-author.en.html` places The Author immediately after Voices.
 The build moves the original portrait, complete poem, all seven biography
 paragraphs and social links from the shared template. The poem comes first,
 followed by the first paragraph; the remaining six paragraphs are inside a

@@ -1,30 +1,40 @@
 <!-- English-only reader community. Uses the existing contact endpoint. -->
-<section class="community community--redesign" id="community" aria-labelledby="community-heading">
-  <div class="container community-layout">
-    <div class="community-copy">
-      <h2 class="community-heading" id="community-heading" data-i18n="community.redesign.heading"></h2>
-      <p class="community-tagline">
-        <span data-i18n="community.redesign.taglineFirst"></span>
-        <span data-i18n="community.redesign.taglineSecond"></span>
-      </p>
-      <p class="community-description" data-i18n="community.redesign.description"></p>
+<div class="community" id="community">
+  <button class="community-tab" type="button" commandfor="community-dialog" command="show-modal" aria-haspopup="dialog" aria-controls="community-dialog" data-i18n-attr="aria-label:community.redesign.heading">
+    <span data-i18n="community.redesign.tab"></span>
+  </button>
+  <dialog class="community-dialog community--redesign" id="community-dialog" aria-labelledby="community-heading">
+    <button class="community-close" type="button" commandfor="community-dialog" command="close" autofocus data-i18n-attr="aria-label:community.redesign.close">
+      <span aria-hidden="true">×</span>
+    </button>
+    <div class="community-dialog__content">
+      <div class="community-layout">
+        <div class="community-copy">
+          <h2 class="community-heading" id="community-heading" data-i18n="community.redesign.heading"></h2>
+          <p class="community-tagline">
+            <span data-i18n="community.redesign.taglineFirst"></span>
+            <span data-i18n="community.redesign.taglineSecond"></span>
+          </p>
+          <p class="community-description" data-i18n="community.redesign.description"></p>
+        </div>
+        <form class="community-form" id="community-form" method="post" novalidate aria-labelledby="community-form-heading"
+          data-i18n-attr="data-sending:community.redesign.sending; data-success:community.redesign.success; data-error:community.redesign.error; data-unavailable:community.redesign.unavailable; data-invalid-email:contact.invalidEmail; data-request-message:community.redesign.requestMessage">
+          <p class="community-eyebrow" data-i18n="community.redesign.formEyebrow"></p>
+          <h3 class="community-form-heading" id="community-form-heading" data-i18n="community.redesign.formHeading"></h3>
+          <p class="community-form-description" data-i18n="community.redesign.formDescription"></p>
+          <input class="community-honeypot" type="text" name="website" autocomplete="off" tabindex="-1" aria-hidden="true">
+          <fieldset class="community-fields" disabled>
+            <label class="community-label" for="community-email" data-i18n="community.redesign.emailLabel"></label>
+            <input class="community-input" id="community-email" name="email" type="email" autocomplete="email" inputmode="email" autocapitalize="none" spellcheck="false" maxlength="254" required data-i18n-attr="placeholder:community.redesign.emailPlaceholder">
+            <button class="community-submit" type="submit">
+              <span data-i18n="community.redesign.submit"></span>
+              <span aria-hidden="true">↗</span>
+            </button>
+          </fieldset>
+          <p class="community-status" id="community-status" role="status" aria-live="polite" aria-atomic="true" hidden></p>
+          <noscript><p class="community-status" data-i18n="community.redesign.noScript"></p></noscript>
+        </form>
+      </div>
     </div>
-    <form class="community-form" id="community-form" method="post" novalidate aria-labelledby="community-form-heading"
-      data-i18n-attr="data-sending:community.redesign.sending; data-success:community.redesign.success; data-error:community.redesign.error; data-unavailable:community.redesign.unavailable; data-invalid-email:contact.invalidEmail; data-request-message:community.redesign.requestMessage">
-      <p class="community-eyebrow" data-i18n="community.redesign.formEyebrow"></p>
-      <h3 class="community-form-heading" id="community-form-heading" data-i18n="community.redesign.formHeading"></h3>
-      <p class="community-form-description" data-i18n="community.redesign.formDescription"></p>
-      <input class="community-honeypot" type="text" name="website" autocomplete="off" tabindex="-1" aria-hidden="true">
-      <fieldset class="community-fields" disabled>
-        <label class="community-label" for="community-email" data-i18n="community.redesign.emailLabel"></label>
-        <input class="community-input" id="community-email" name="email" type="email" autocomplete="email" inputmode="email" autocapitalize="none" spellcheck="false" maxlength="254" required data-i18n-attr="placeholder:community.redesign.emailPlaceholder">
-        <button class="community-submit" type="submit">
-          <span data-i18n="community.redesign.submit"></span>
-          <span aria-hidden="true">↗</span>
-        </button>
-      </fieldset>
-      <p class="community-status" id="community-status" role="status" aria-live="polite" aria-atomic="true" hidden></p>
-      <noscript><p class="community-status" data-i18n="community.redesign.noScript"></p></noscript>
-    </form>
-  </div>
-</section>
+  </dialog>
+</div>

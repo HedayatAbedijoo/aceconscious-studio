@@ -90,7 +90,7 @@ def check_copy(page):
     assert len(actual.select("details [data-author-extended] > p")) == 6
     assert actual.select_one("#author-heading").get_text() == original.select_one(".section-label").get_text()
     assert actual.select_one(".author-name").get_text() == original.select_one(".section-title").get_text()
-    assert page.locator("#community + #author + #contents").count() == 1
+    assert page.locator("#voices + #author + #contents").count() == 1
     assert page.locator("#author .author-links a").count() == 2
 
 

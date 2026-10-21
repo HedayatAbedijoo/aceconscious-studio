@@ -164,7 +164,7 @@ with sync_playwright() as playwright:
         page.on("pageerror", lambda error: errors.append(f"{name}: {error}"))
         page.goto(base + "/", wait_until="networkidle")
         page.wait_for_function("document.fonts.status === 'loaded'")
-        assert page.locator("#sample + #voices + #community + #author + #contents").count() == 1
+        assert page.locator("#sample + #voices + #author + #contents").count() == 1
         check_copy(page)
         assert page.locator(".voice-card[open]").count() == 0
         assert not page.locator(".voice-content").first.is_visible()

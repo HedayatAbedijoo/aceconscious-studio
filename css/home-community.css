@@ -1,9 +1,128 @@
 /* English reader-community draft. Keep the existing contact section unchanged. */
+.community-tab {
+  position: fixed;
+  z-index: 90;
+  top: 50%;
+  left: 0;
+  display: grid;
+  place-items: center;
+  min-width: 44px;
+  padding: 20px 12px;
+  border: 1px solid #a86b4d;
+  border-left: 0;
+  border-radius: 0 6px 6px 0;
+  background: #632c19;
+  color: #fff3e1;
+  box-shadow: 3px 4px 14px #24201d26;
+  font: 400 .75rem/1.4 "DM Mono", Consolas, monospace;
+  letter-spacing: .08em;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.community-tab > span {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
+
+.community-tab:hover {
+  background: #7c3b24;
+}
+
+.community-tab:focus-visible {
+  outline: 2px solid #fff3e1;
+  outline-offset: -5px;
+}
+
+@media (max-width: 1024px) {
+  html.js .community-tab {
+    transition: transform 240ms ease-out, box-shadow 180ms ease-out;
+  }
+
+  html.js .community-tab:not([data-scroll-active]):not(:focus-visible:not([data-pointer-focus])) {
+    transform: translate(calc(-100% + 4px), -50%);
+    box-shadow: none;
+  }
+
+  /* Keep the same hit target during the slide, so quick edge taps are retained. */
+  html.js .community-tab::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    transition: right 240ms ease-out;
+  }
+
+  /* Extend the collapsed edge's hit area within the existing 16px page gutter. */
+  html.js .community-tab:not([data-scroll-active]):not(:focus-visible:not([data-pointer-focus]))::after {
+    right: -12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.js .community-tab,
+  html.js .community-tab::after {
+    transition: none;
+  }
+}
+
 .community--redesign {
-  padding: 64px 0;
   color: #49392c;
   background: linear-gradient(110deg, #c8a88b, #e2ccb5 64%, #cab59a);
   font: 400 .9375rem/1.75 "DM Sans", Arial, sans-serif;
+}
+
+.community-dialog {
+  width: min(960px, calc(100% - 32px));
+  max-width: none;
+  max-height: calc(100dvh - 32px);
+  margin: auto;
+  padding: 0;
+  border: 1px solid #b99a7e;
+  overflow: hidden;
+  box-shadow: 0 24px 80px #24201d59;
+}
+
+.community-dialog::backdrop {
+  background: #1a1612a6;
+}
+
+.community-dialog__content {
+  max-height: calc(100dvh - 34px);
+  padding: 64px 32px 32px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.community-close {
+  position: absolute;
+  z-index: 1;
+  top: 8px;
+  right: 8px;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid #9e7b60;
+  border-radius: 50%;
+  background: #fbf7f0;
+  color: #49392c;
+  font: 400 1.75rem/1 Arial, sans-serif;
+  cursor: pointer;
+}
+
+.community-close:hover {
+  background: #e9dccb;
+}
+
+.community-close:focus-visible {
+  outline: 2px solid #632c19;
+  outline-offset: 3px;
+}
+
+html:has(.community-dialog[open]),
+html:has(.community-dialog[open]) body {
+  overflow: hidden;
 }
 
 .community-layout {
@@ -185,8 +304,12 @@
 }
 
 @media (max-width: 900px) {
-  .community--redesign {
-    padding: 40px 0;
+  .community-dialog {
+    width: min(560px, calc(100% - 24px));
+  }
+
+  .community-dialog__content {
+    padding: 64px 24px 24px;
   }
 
   .community-layout {
@@ -204,6 +327,11 @@
 }
 
 @media (max-width: 400px) {
+  .community-dialog__content {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+
   .community-form {
     padding: 24px 20px;
   }

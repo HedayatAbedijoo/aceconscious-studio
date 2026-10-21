@@ -6,6 +6,97 @@
   const status = document.getElementById("community-status");
   if (!form || !status) return;
 
+  const dialog = document.getElementById("community-dialog");
+  const trigger = document.querySelector(".community-tab");
+  const closeButton = dialog.querySelector(".community-close");
+  const compactScreen = window.matchMedia("(max-width: 1024px)");
+  const COLLAPSE_DELAY_MS = 1000;
+  let collapseTimer;
+  let pointerHeld = false;
+  let pointerOver = false;
+  let pointerDismissal = false;
+  let lastScrollY = window.scrollY;
+
+  function scheduleCollapse() {
+    window.clearTimeout(collapseTimer);
+    if (!compactScreen.matches || dialog.open || pointerHeld || pointerOver) return;
+    collapseTimer = window.setTimeout(() => {
+      trigger.removeAttribute("data-scroll-active");
+    }, COLLAPSE_DELAY_MS);
+  }
+
+  function revealTab() {
+    if (!compactScreen.matches) return;
+    trigger.setAttribute("data-scroll-active", "");
+    scheduleCollapse();
+  }
+
+  // Scrolling inside the dialog must not affect the tab's idle timer.
+  window.addEventListener("scroll", () => {
+    const scrollY = window.scrollY;
+    if (scrollY === lastScrollY) return;
+    lastScrollY = scrollY;
+    if (!dialog.open) revealTab();
+  }, { passive: true });
+
+  trigger.addEventListener("pointerenter", event => {
+    if (event.pointerType === "touch" || dialog.open) return;
+    pointerOver = true;
+    revealTab();
+  });
+  trigger.addEventListener("pointerleave", () => {
+    pointerOver = false;
+    scheduleCollapse();
+  });
+
+  // Reveal the collapsed edge on contact and keep the tap on the moving button.
+  trigger.addEventListener("pointerdown", event => {
+    pointerHeld = true;
+    trigger.setAttribute("data-pointer-focus", "");
+    trigger.setPointerCapture(event.pointerId);
+    revealTab();
+  });
+  for (const eventName of ["blur", "keydown"]) {
+    trigger.addEventListener(eventName, () => trigger.removeAttribute("data-pointer-focus"));
+  }
+  function releasePointer() {
+    if (!pointerHeld) return;
+    pointerHeld = false;
+    scheduleCollapse();
+  }
+  window.addEventListener("pointerup", releasePointer);
+  window.addEventListener("pointercancel", releasePointer);
+
+  compactScreen.addEventListener("change", () => {
+    window.clearTimeout(collapseTimer);
+    trigger.removeAttribute("data-scroll-active");
+    lastScrollY = window.scrollY;
+  });
+
+  // Native modal behavior contains keyboard focus and makes the page behind it inert.
+  // Explicit handlers also support browsers without declarative dialog commands.
+  trigger.addEventListener("click", event => {
+    event.preventDefault();
+    pointerDismissal = event.detail > 0;
+    pointerOver = false;
+    revealTab();
+    window.clearTimeout(collapseTimer);
+    if (!dialog.open) dialog.showModal();
+  });
+  closeButton.addEventListener("click", event => {
+    event.preventDefault();
+    pointerDismissal = event.detail > 0;
+    dialog.close();
+  });
+  dialog.addEventListener("cancel", () => { pointerDismissal = false; });
+  dialog.addEventListener("close", () => {
+    trigger.focus({ preventScroll: true });
+    // WebKit can mark restored pointer focus as :focus-visible. Retain focus,
+    // but only keyboard dismissal should keep the tab expanded indefinitely.
+    trigger.toggleAttribute("data-pointer-focus", pointerDismissal);
+    revealTab();
+  });
+
   const endpoint = window.CONTACT_FORM_ENDPOINT || "";
   const emailField = form.elements.namedItem("email");
   const fields = form.querySelector("fieldset");

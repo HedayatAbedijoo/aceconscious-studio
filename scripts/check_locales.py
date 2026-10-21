@@ -32,15 +32,14 @@ def check():
             sections = [(el.name, el.get("id")) for el in soup.select("main section, main article")]
             if name == "home" and code == "en":
                 # Explicit English-first draft: three moved sections and the new
-                # Community section. Normalize only these approved differences.
+                # Community dialog. Normalize only these approved differences.
                 assert soup.select_one("#reviews").find_next_sibling("section")["id"] == "buy", path
                 assert soup.select_one("#synopsis").find_next_sibling("section")["id"] == "sample", path
                 assert soup.select_one("#sample").find_next_sibling("section")["id"] == "voices", path
-                assert soup.select_one("#voices").find_next_sibling("section")["id"] == "community", path
-                assert soup.select_one("#community").find_next_sibling("section")["id"] == "author", path
+                assert soup.select_one("#voices").find_next_sibling("section")["id"] == "author", path
                 assert soup.select_one("#author").find_next_sibling("section")["id"] == "contents", path
-                assert sections.count(("section", "community")) == 1, path
-                sections.remove(("section", "community"))
+                assert soup.select_one("body > #community dialog#community-dialog"), path
+                assert not soup.select("main #community, #nav-menu a[href='#community']"), path
                 assert sections.count(("section", "author")) == 1, path
                 sections.remove(("section", "author"))
                 sections.insert(sections.index(("section", "contact")), ("section", "author"))

@@ -250,10 +250,10 @@ def render(page, lang, source, strings):
             populate_home_story(story, strings["hero.pitch"])
             populate_home_voices(voices, soup.select_one("#voices"))
             soup.select_one("#voices").replace_with(voices)
-            voices.insert_after(community)
+            soup.body.append(community)
             populate_home_author(author, soup.select_one("#author"))
             soup.select_one("#author").decompose()
-            community.insert_after(author)
+            voices.insert_after(author)
             chapters = soup.select_one("#contents .toc-grid").extract()
             chapters["class"] = ["contents-list"]
             chapters["role"] = "list"
