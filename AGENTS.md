@@ -14,6 +14,13 @@
   prevent accidental publication with translations of an older English source.
 - Reviews share `content/reviews.html`. `scripts/sync_reviews.py` rebuilds all
   locales, including their translated reviews.
+- English `/` is the book edition: `content/templates/book.html` plus
+  `scripts/book.py`, which lays out the content of the shared English pages as
+  book pages. Its own wording lives in `content/book/`. Keep the other languages
+  on `home.html`; do not add a language picker inside the book. Store links come
+  from `content/book/editions.json` — never invent a URL, ASIN or format.
+  The sample chapters come from `assets/sample-en.pdf` through
+  `scripts/extract_sample_pdf.py`; keep them as real text in the printed layout.
 - Before completing changes, run `python3 scripts/build_locales.py --check` and
   `python3 scripts/check_locales.py`. For navigation/layout changes, also check
   keyboard, mobile and RTL behavior in a browser.

@@ -34,6 +34,8 @@ def route(page, lang):
 
 ROUTES = {route(page, lang["code"]): page for page in PAGES for lang in LANGUAGES}
 ROUTES.update({"/en/": "home", "/de/ace/": "ace", "/fa/ace/": "ace", "/de/privacy/": "privacy"})
+# Content the book edition cannot link yet; reported at the end of a build.
+MISSING = []
 
 
 def localize_url(value, lang):
@@ -120,9 +122,15 @@ def localize_structured_data(soup, source, strings, page, lang):
         script.string = json.dumps(visit(data), ensure_ascii=False, indent=2).replace("</", "<\\/")
 
 
-def render(page, lang, source, strings):
+def template_for(page, lang):
+    # English reads the home page as a book; every other language keeps home.html.
+    return "book" if page == "home" and lang == "en" else page
+
+
+def render(page, lang, source, strings, template=None):
     code = lang["code"]
-    soup = parse((ROOT / f"content/templates/{page}.html").read_text())
+    template = template or template_for(page, code)
+    soup = parse((ROOT / f"content/templates/{template}.html").read_text())
     soup.html["lang"] = lang["htmlLang"]
     soup.html["dir"] = lang["dir"]
     soup.html["data-locale"] = code
@@ -130,10 +138,13 @@ def render(page, lang, source, strings):
     # Every page has its own real path; hash links remain on that page.
     for base in soup.select("base"):
         base.decompose()
-    if page == "home":
+    if template == "home":
         section = parse((ROOT / "content/reviews.html").read_text()).select_one("#reviews")
         soup.select_one("#reviews").replace_with(section)
     apply_strings(soup, strings)
+    if template == "book":
+        import book
+        MISSING.extend(book.compose(soup, render, source, strings))
     for holder in soup.select("[data-language-menu]"):
         set_html(holder, menu(page, code))
     for holder in soup.select("[data-language-links]"):
@@ -145,12 +156,17 @@ def render(page, lang, source, strings):
     for a in soup.select("a[href]"):
         if not a.has_attr("data-set-lang"):
             a["href"] = localize_url(a["href"], code)
+    if code == "en" and template != "book":
+        # The English edition reads as a book and has no Voices section; its
+        # other pages drop that link instead of pointing at a missing anchor.
+        for link in soup.select('a[href="/#voices"]'):
+            (link.find_parent("li") or link).decompose()
     for input_el in soup.select('input[type="email"]'):
         input_el["dir"] = "ltr"
     for svg in soup.select("svg[viewbox]"):
         svg["viewBox"] = svg.attrs.pop("viewbox")
 
-    if page == "home":
+    if template == "home":
         total = len(soup.select("[data-review-id]"))
         position = strings["reviews.position"].replace("{current}", "1").replace("{total}", str(total))
         soup.select_one(".reviews__counter").string = position
@@ -282,6 +298,8 @@ def build(check=False, record_translations=False):
     if check and stale:
         raise ValueError("Generated pages are stale; run python3 scripts/build_locales.py: " + ", ".join(stale))
     print(f"Verified {len(files)} generated files across {len(LANGUAGES)} languages." if check else f"Updated {len(stale)} files across {len(LANGUAGES)} languages.")
+    for note in dict.fromkeys(MISSING):
+        print("Awaiting content: " + note)
 
 
 if __name__ == "__main__":

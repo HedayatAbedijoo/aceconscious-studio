@@ -1,0 +1,95 @@
+{
+  "_": "English wording for the book edition only. Shared page text still comes from content/locales/en.json; this file holds the words that exist only inside the book (bookmarks, page furniture, the headline, store labels and the reader circle). See content/README.md.",
+
+  "sections": {
+    "headline": "Headline",
+    "reviews": "Reviews",
+    "story": "Story",
+    "buy": "Buy",
+    "author": "Author",
+    "contact": "Contact",
+    "community": "Community",
+    "sample": "Sample",
+    "appendix": "Appendix",
+    "ace": "ACE"
+  },
+
+  "ui": {
+    "continued": "continued",
+    "page": "page",
+    "of": "of",
+    "openBook": "Open the book",
+    "closeBook": "Close the book",
+    "previousPage": "Previous page",
+    "nextPage": "Next page",
+    "zoomIn": "Enlarge this printed page",
+    "zoomOut": "Fit the printed page",
+    "bookSections": "Book sections",
+    "coverAlt": "ACE.await front cover",
+    "backCoverAlt": "ACE.await back cover"
+  },
+
+  "headline": {
+    "studio": "Ace Conscious Studio",
+    "placeAndYear": "Cologne · 2026",
+    "eyebrow": "A literary speculative novel",
+    "tagline": "A novel about the decisions we make — and the world our creations inherit.",
+    "logline": "An Iranian immigrant programmer is invited to the ACE game, where conscious decisions become social therapy—and a bloodless revolution could heal humanity and its creations."
+  },
+
+  "buy": {
+    "comingSoon": "Coming soon",
+    "marketplaceLabel": "Amazon marketplace",
+    "marketplaceNote": "Choosing a country only changes the Amazon links. It does not change the language of this book.",
+    "unavailable": "Not available here",
+    "formats": {
+      "kindle": "Amazon · Kindle eBook",
+      "paperback": "Amazon · Paperback"
+    }
+  },
+
+  "contact": {
+    "circleHeading": "Join the Community",
+    "circleTagline": "The story ends. The conversation doesn’t.",
+    "circleDescription": "Join the ACE Reader Community for occasional letters, new stories, meetings and next steps.",
+    "circleEyebrow": "Reader Circle · Email letters",
+    "circleFormHeading": "Stay close to the story.",
+    "circleFormDescription": "A quiet place for curious readers. No noise, no algorithm.",
+    "circleEmailLabel": "Email address",
+    "circleEmailPlaceholder": "you@example.com",
+    "circleSubmit": "Join the reader circle",
+    "circleSending": "Sending your request…",
+    "circleSuccess": "Thank you — your request to join has been sent.",
+    "circleError": "We couldn’t confirm your request. Please try again.",
+    "circleUnavailable": "Joining is unavailable right now. Please try again later.",
+    "circleRequestMessage": "Please add me to the ACE Reader Community for occasional letters, new stories, meetings and next steps.",
+    "writeHeading": "Write to Hedayat",
+    "emailDirect": "Or write directly:"
+  },
+
+  "links": {
+    "heading": "Links",
+    "instagram": "Instagram",
+    "website": "Ace Conscious Studio",
+    "email": "Email",
+    "press": "In the press"
+  },
+
+  "appendix": {
+    "heading": "Appendices",
+    "lead": "The reference pages of this edition. Each one opens inside the book.",
+    "back": "← Back to the appendices",
+    "items": {
+      "privacy": "Privacy",
+      "impressum": "Impressum",
+      "rights": "Rights & Representation",
+      "screen": "Book to Screen",
+      "contents": "Contents of the novel"
+    }
+  },
+
+  "backCover": {
+    "studio": "Ace Conscious Studio",
+    "legal": "Excerpt from ACE.await © 2026 Hedayat Abedijoo. All rights reserved. Reproduced with permission of Ace Conscious Studio."
+  }
+}

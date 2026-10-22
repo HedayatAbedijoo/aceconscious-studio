@@ -1,0 +1,45 @@
+{
+  "_": "Where ACE.await can actually be bought. The build only links an entry that has a url (or an Amazon edition identifier); an entry without one is reported as missing and rendered as an inactive Coming soon placeholder, never a guessed link.",
+  "_amazon": "Kindle ASIN and paperback ISBN/ASIN, and the marketplaces that list each format, come from the author's KDP pricing audit recorded on 2026-10-21 (branch new-design, commit bb7a21a, content/README.md). Selecting a country swaps only the Amazon host for the same identifier.",
+  "amazon": {
+    "editions": [
+      { "id": "kindle", "identifier": "B0H8MDM6Q5", "store": "Amazon Kindle", "format": "Kindle eBook" },
+      { "id": "paperback", "identifier": "391300601X", "store": "Amazon Paperback", "format": "Paperback" }
+    ],
+    "markets": [
+      { "code": "us", "label": "United States", "flag": "🇺🇸", "host": "www.amazon.com", "editions": ["kindle", "paperback"] },
+      { "code": "uk", "label": "United Kingdom", "flag": "🇬🇧", "host": "www.amazon.co.uk", "editions": ["kindle", "paperback"] },
+      { "code": "de", "label": "Germany", "flag": "🇩🇪", "host": "www.amazon.de", "editions": ["kindle", "paperback"] },
+      { "code": "ca", "label": "Canada", "flag": "🇨🇦", "host": "www.amazon.ca", "editions": ["kindle", "paperback"] },
+      { "code": "au", "label": "Australia", "flag": "🇦🇺", "host": "www.amazon.com.au", "editions": ["kindle", "paperback"] },
+      { "code": "fr", "label": "France", "flag": "🇫🇷", "host": "www.amazon.fr", "editions": ["kindle", "paperback"] },
+      { "code": "es", "label": "Spain", "flag": "🇪🇸", "host": "www.amazon.es", "editions": ["kindle", "paperback"] },
+      { "code": "it", "label": "Italy", "flag": "🇮🇹", "host": "www.amazon.it", "editions": ["kindle", "paperback"] },
+      { "code": "nl", "label": "Netherlands", "flag": "🇳🇱", "host": "www.amazon.nl", "editions": ["kindle", "paperback"] },
+      { "code": "pl", "label": "Poland", "flag": "🇵🇱", "host": "www.amazon.pl", "editions": ["paperback"] },
+      { "code": "se", "label": "Sweden", "flag": "🇸🇪", "host": "www.amazon.se", "editions": ["paperback"] },
+      { "code": "be", "label": "Belgium", "flag": "🇧🇪", "host": "www.amazon.com.be", "editions": ["paperback"] },
+      { "code": "ie", "label": "Ireland", "flag": "🇮🇪", "host": "www.amazon.ie", "editions": ["paperback"] },
+      { "code": "jp", "label": "Japan", "flag": "🇯🇵", "host": "www.amazon.co.jp", "editions": ["kindle", "paperback"] },
+      { "code": "in", "label": "India", "flag": "🇮🇳", "host": "www.amazon.in", "editions": ["kindle"] },
+      { "code": "br", "label": "Brazil", "flag": "🇧🇷", "host": "www.amazon.com.br", "editions": ["kindle"] },
+      { "code": "mx", "label": "Mexico", "flag": "🇲🇽", "host": "www.amazon.com.mx", "editions": ["kindle"] }
+    ]
+  },
+  "stores": [
+    {
+      "id": "ingram",
+      "store": "IngramSpark",
+      "format": null,
+      "url": null,
+      "missing": "No Ingram storefront URL or edition format exists anywhere in this repository. Supply the IngramSpark/Ingram product link and the format it sells (paperback, hardcover or ebook)."
+    },
+    {
+      "id": "payhip",
+      "store": "Payhip",
+      "format": null,
+      "url": null,
+      "missing": "Only the design placeholder https://payhip.com/ exists (branch new-design, commit bb7a21a), which is not a product page. Supply the final Payhip product URL and the formats it delivers."
+    }
+  ]
+}

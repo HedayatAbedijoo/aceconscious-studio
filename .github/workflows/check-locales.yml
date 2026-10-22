@@ -14,3 +14,4 @@ jobs:
       - run: python scripts/build_locales.py --check
       - run: python scripts/check_locales.py
       - run: node --check js/i18n.js && node --check js/contact.js && node --check js/ace.js
+      - run: node --check js/book.js && node --check js/book-buy.js && node --check js/community.js && node --check js/vendor/page-flip.js

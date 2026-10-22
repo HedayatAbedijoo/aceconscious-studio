@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 400">
+  <defs>
+    <filter id="soft-edge" x="-15%" y="-15%" width="130%" height="130%">
+      <feGaussianBlur stdDeviation="8"/>
+    </filter>
+  </defs>
+  <!-- An opaque centre and gently uneven, feathered edges on every side. -->
+  <path fill="white" filter="url(#soft-edge)" d="
+    M77 23
+    C101 12 112 28 135 19 C159 9 186 12 205 25
+    C225 16 249 31 251 53 C280 65 270 96 282 117
+    C294 140 279 157 283 179 C295 201 280 219 285 242
+    C284 270 266 282 273 308 C277 335 248 335 237 357
+    C218 377 194 367 173 380 C147 391 128 371 109 377
+    C82 381 78 356 56 350 C32 350 34 327 22 313
+    C11 289 28 272 17 249 C6 226 22 209 13 185
+    C2 160 24 144 16 121 C9 94 29 86 28 65
+    C29 41 52 43 59 29 C64 22 70 21 77 23 Z"/>
+</svg>

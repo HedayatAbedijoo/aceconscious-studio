@@ -2,21 +2,35 @@
 """Optional isolated browser QA. Requires playwright and a local preview server."""
 import sys,json,argparse
 from pathlib import Path
+from urllib.parse import urlsplit, unquote
 from playwright.sync_api import sync_playwright
-from build_locales import LANGUAGES,PAGES,route
+from build_locales import ROOT,LANGUAGES,PAGES,route,template_for
+from book import SECTIONS
 parser=argparse.ArgumentParser(description=__doc__)
 parser.add_argument('--base',default='http://127.0.0.1:8765')
 parser.add_argument('--executable',default=None)
 parser.add_argument('--output',default='/tmp/ace-language-qa')
+parser.add_argument('--local-files',action='store_true',help='Serve repository files through browser interception; no preview server needed')
 args=parser.parse_args()
 BASE=args.base.rstrip('/')
 OUT=Path(args.output);OUT.mkdir(parents=True,exist_ok=True)
 errors=[];notes=[]
+
+def local_request(request):
+ if request.request.method != 'GET' or not request.request.url.startswith(BASE + '/'):
+  return request.abort()
+ if not args.local_files:
+  return request.continue_()
+ path=unquote(urlsplit(request.request.url).path)
+ target=ROOT / path.lstrip('/')
+ if path.endswith('/'):target=target / 'index.html'
+ return request.fulfill(path=str(target)) if target.is_file() else request.abort()
+
 with sync_playwright() as p:
  browser=p.chromium.launch(executable_path=args.executable,headless=True,args=['--no-sandbox'])
- context=browser.new_context(viewport={'width':1440,'height':1000})
+ context=browser.new_context(viewport={'width':1440,'height':1000},reduced_motion='reduce')
  # This test never sends real forms, analytics, or external sample requests.
- context.route('**/*',lambda r:r.continue_() if r.request.url.startswith(BASE + '/') else r.abort())
+ context.route('**/*',local_request)
  page=context.new_page();page.on('pageerror',lambda e:errors.append(str(e)))
  for width in [1440,390]:
   page.set_viewport_size({'width':width,'height':1000 if width==1440 else 844})
@@ -25,6 +39,22 @@ with sync_playwright() as p:
     code=lang['code'];url=BASE+route(name,code)
     page.goto(url,wait_until='load')
     assert page.locator('html').get_attribute('lang')==lang['htmlLang'],url
+    if template_for(name,code)=='book':
+     page.wait_for_function('document.querySelector("#stage")?.dataset.page === "0"')
+     assert page.locator('#lang-menu').count()==0,url
+     assert page.locator('.bookmark').evaluate_all('(els)=>els.map(el=>el.dataset.section)')==list(SECTIONS),url
+     page.locator('#open').focus();page.keyboard.press('Enter')
+     page.wait_for_function('document.querySelector("#stage").dataset.section === "headline"')
+     page.locator('.bookmark[data-section="sample"]').focus();page.keyboard.press('Enter')
+     page.wait_for_function('document.querySelector("#stage").dataset.section === "sample"')
+     page.wait_for_timeout(150)
+     zoom=page.locator('.page[aria-hidden="false"] .sample-zoom')
+     zoom.click();assert zoom.get_attribute('aria-pressed')=='true'
+     page.keyboard.press('ArrowRight');page.keyboard.press('ArrowLeft')
+     assert zoom.get_attribute('aria-pressed')=='false'
+     page.screenshot(path=str(OUT/f'{code}-{width}.png'))
+     notes.append(f'{width} {url} book OK')
+     continue
     summary=page.locator('#lang-menu summary')
     summary.click()
     assert page.locator('#lang-menu').get_attribute('open') is not None,url
@@ -53,7 +83,13 @@ with sync_playwright() as p:
   print('Checked all pages at width',width,'errors so far:',errors,flush=True)
  # Field validation follows the page language, without sending any messages.
  for lang in LANGUAGES:
-  page.goto(BASE+route('home',lang['code']),wait_until='load')
+  page.goto(BASE+route('home',lang['code'])+('#contact' if lang['code']=='en' else ''),wait_until='load')
+  if lang['code']=='en':
+   page.wait_for_function('document.querySelector("#stage")?.dataset.section === "contact"')
+   target=page.locator('#contact-form').evaluate('(el)=>Array.from(document.querySelectorAll("#book .page")).indexOf(el.closest(".page"))')
+   while int(page.locator('#stage').get_attribute('data-page'))<target:
+    page.keyboard.press('ArrowRight')
+   page.wait_for_timeout(150)
   page.locator('#contact-email').fill('invalid')
   expected=page.evaluate('window.aceI18n.getString("contact.invalidEmail")')
   assert page.locator('#contact-email').evaluate('(el)=>el.validationMessage')==expected
@@ -85,13 +121,15 @@ with sync_playwright() as p:
  page.keyboard.press('Escape')
  # Content and native language switching also work without scripts.
  nojs=browser.new_context(java_script_enabled=False,viewport={'width':390,'height':844})
- nojs.route('**/*',lambda r:r.continue_() if r.request.url.startswith(BASE + '/') else r.abort())
+ nojs.route('**/*',local_request)
  nj=nojs.new_page();nj.goto(BASE+'/zh/')
  assert '试读' in nj.locator('body').inner_text()
  nj.locator('#lang-menu summary').click()
  nj.locator('#lang-menu [data-set-lang="ru"]').click()
  assert nj.url==BASE+'/ru/'
  assert 'Сюжет' in nj.locator('body').inner_text()
+ nj.goto(BASE+'/')
+ assert nj.locator('.sample-sheet').first.evaluate('(el)=>el.firstElementChild.getBoundingClientRect().width <= el.getBoundingClientRect().width + 1')
  browser.close()
 (OUT/'results.json').write_text(json.dumps({'checks':notes,'errors':errors},indent=2))
 print(json.dumps({'pages_and_viewports':len(notes),'errors':errors,'screenshots':str(OUT)},indent=2))
