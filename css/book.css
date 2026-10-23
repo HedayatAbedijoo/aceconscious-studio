@@ -162,6 +162,28 @@ a:hover {
   z-index: 6;
 }
 
+/* A closed book seen from behind: the binding and fore edge swap sides. */
+.is-back-cover .page-edges {
+  inset: 3px 3px -5px -8px;
+  border-radius: 4px 0 0 5px;
+  border-right: 0;
+  border-left: 1px solid #88795f;
+}
+
+.is-back-cover .book-shadow {
+  inset: 8px 7px -8px -7px;
+}
+
+.is-back-cover .book-shell {
+  border-radius: 4px 2px 2px 4px;
+  box-shadow: inset -1px 0 #fff3;
+}
+
+.is-back-cover .ribbon {
+  left: auto;
+  right: 25px;
+}
+
 .book {
   width: 100% !important;
   height: 100% !important;
@@ -233,27 +255,96 @@ a:hover {
   background: transparent;
 }
 
-.back-cover__imprint {
+.page.back-cover {
+  /* Extend only the artwork's blank bottom margin behind the live footer. */
+  background: #e5d9b9 url("/assets/cover-back.jpg") center bottom / 100% 1000%;
+}
+
+/* PageFlip owns the sheet's display property; lay out its contents separately. */
+.page.back-cover .back-cover__layout {
   position: absolute;
-  left: 9%;
-  right: 9%;
-  bottom: 8.5%;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 12px 0 58px;
+  gap: 8px;
+}
+
+.page.back-cover::before {
+  background: linear-gradient(270deg, #0004, #fff2 2%, #0003 3%, transparent 6%);
+}
+
+.page.back-cover::after {
+  inset: 0 0 0 auto;
+  background: linear-gradient(270deg, #2d211b29, #fff2 40%, transparent);
+}
+
+.page.back-cover .back-cover__artwork {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  container-type: size;
+  mask-image: linear-gradient(transparent, #000 3%, #000 97%, transparent);
+}
+
+.page.back-cover .cover-image {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  /* Fit the printed area (8%–78%) without cropping any words or distorting it.
+     The footer keeps its readable type size when the book gets smaller. */
+  width: min(100cqw, 89.2857cqh);
+  height: auto;
+  transform: translate(-50%, -43%);
+  mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+}
+
+.back-cover__imprint {
+  position: relative;
+  flex: none;
+  margin: 0 8%;
   z-index: 2;
   text-align: center;
   color: #3b332a;
 }
 
 .back-cover__studio {
-  margin: 0 0 8px;
-  font: 400 clamp(11px, calc(var(--book-w) * 0.031), 16px)/1.3 "EB Garamond", Georgia, serif;
-  letter-spacing: 2.4px;
+  margin: 0 0 6px;
+  font: 400 clamp(12px, calc(var(--book-w) * 0.031), 16px)/1.3 "EB Garamond", Georgia, serif;
+  letter-spacing: 1.5px;
   text-transform: uppercase;
 }
 
 .back-cover__legal {
   margin: 0;
-  font: 400 clamp(7px, calc(var(--book-w) * 0.0205), 11px)/1.5 "EB Garamond", Georgia, serif;
+  font: 400 clamp(10px, calc(var(--book-w) * 0.024), 12px)/1.4 "EB Garamond", Georgia, serif;
   color: #5b5042;
+}
+
+.back-cover__links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  column-gap: 12px;
+  margin: 9px 0 0;
+  padding: 7px 0 0;
+  border-top: 1px solid #84776066;
+  list-style: none;
+  font: 400 clamp(11px, calc(var(--book-w) * 0.028), 14px)/1.3 "EB Garamond", Georgia, serif;
+}
+
+.back-cover__links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  color: #5c392a;
+  text-decoration-color: #934d3955;
+  text-underline-offset: 3px;
+}
+
+.back-cover__links a:hover {
+  text-decoration-color: currentColor;
 }
 
 .running-head {
@@ -1470,6 +1561,12 @@ a:hover {
 .bookmark:nth-child(8) { --tab: #bda46e; --tilt: 0.8deg; }
 .bookmark:nth-child(9) { --tab: #ada28f; --tilt: -0.7deg; }
 .bookmark:nth-child(10) { --tab: #b6a2ad; --tilt: 1.1deg; }
+.bookmark[data-section="back-cover"] { --tab: #c9ba99; --tilt: -0.8deg; }
+
+.bookmark[data-section="back-cover"] {
+  padding-inline: 9px 4px;
+  line-height: 1.25;
+}
 
 .bookmark[data-section="community"] {
   padding-inline: 11px 5px;
@@ -1997,8 +2094,13 @@ html:not(.js) .sample-zoom {
   --tab-width: 50px;
 }
 
-.small-book .bookmarks { top: 28px; bottom: 43px; gap: 4px; }
-.small-book .bookmark { min-height: 22px; font-size: 8px; }
+.small-book .bookmarks { top: 22px; bottom: 30px; gap: 3px; }
+.small-book .bookmark { min-height: 0; font-size: 8px; }
+.small-book .page.back-cover .back-cover__layout { padding-top: 7px; padding-bottom: 53px; gap: 5px; }
+.small-book .back-cover__imprint { margin-inline: 7%; }
+.small-book .back-cover__studio { font-size: 11px; letter-spacing: 1px; margin-bottom: 4px; }
+.small-book .back-cover__legal { font-size: 9px; }
+.small-book .back-cover__links { font-size: 10px; column-gap: 8px; margin-top: 6px; padding-top: 4px; }
 .small-book .running-head { top: 17px; padding-bottom: 8px; font-size: 6px; letter-spacing: 0.7px; }
 .small-book .running-head .book-name { font-size: 10px; }
 .small-book .page-body { top: 54px; bottom: 51px; line-height: 1.48; }

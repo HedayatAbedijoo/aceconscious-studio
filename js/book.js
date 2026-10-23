@@ -483,6 +483,7 @@
     if (!page) return;
     const cover = index === 0;
     stage.classList.toggle("is-closed", cover);
+    stage.classList.toggle("is-back-cover", page.id === "back-cover");
     $("#open").hidden = !cover;
     $("#controls").hidden = cover;
     $("#close").hidden = cover;
@@ -492,7 +493,7 @@
     $("#next").style.visibility = index === pages.length - 1 ? "hidden" : "";
     const peers = pages.filter(item => item.section === page.section);
     const position = peers.indexOf(page) + 1;
-    $("#folio").textContent = page.section === "cover"
+    $("#folio").textContent = page.classes.includes("cover")
       ? "ACE.await"
       : `${number(position, true)}  /  ${number(peers.length, true)}`;
     if (!sectionTurn) {
@@ -570,6 +571,14 @@
     cancelAnimationFrame(navigationFrame);
     navigationFrame = 0;
     pendingPage = null;
+    if (pages[index].id === "back-cover") {
+      // Turn the whole book over immediately, even during an unfinished riffle.
+      stopSectionTurn();
+      pageFlip.cancelUserTouch();
+      pageFlip.turnToPage(index);
+      sync(index);
+      return;
+    }
     // The newest choice always wins, even mid-riffle.
     sectionTurn = { target: index, route: null, deadline: 0 };
     stage.classList.add("is-riffling");

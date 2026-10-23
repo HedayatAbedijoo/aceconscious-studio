@@ -11,7 +11,8 @@
     "community": "Community",
     "sample": "Sample",
     "appendix": "Appendix",
-    "ace": "ACE"
+    "ace": "ACE",
+    "back-cover": "Back cover"
   },
 
   "ui": {
@@ -86,10 +87,5 @@
       "screen": "Book to Screen",
       "contents": "Contents of the novel"
     }
-  },
-
-  "backCover": {
-    "studio": "Ace Conscious Studio",
-    "legal": "Excerpt from ACE.await © 2026 Hedayat Abedijoo. All rights reserved. Reproduced with permission of Ace Conscious Studio."
   }
 }

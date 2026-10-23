@@ -21,9 +21,9 @@ STRINGS = json.loads((ROOT / "content/book/strings.en.json").read_text())
 EDITIONS = json.loads((ROOT / "content/book/editions.json").read_text())
 SAMPLE = json.loads((ROOT / "content/book/sample-en.json").read_text())
 
-# Section order and bookmarks, after the cover and before the back cover.
+# Section order and bookmarks, after the front cover.
 SECTIONS = ("headline", "reviews", "story", "buy", "author",
-            "contact", "community", "sample", "appendix", "ace")
+            "contact", "community", "sample", "appendix", "ace", "back-cover")
 NUMERALS = {"reviews": "I", "story": "II", "buy": "III", "author": "IV", "contact": "V",
             "community": "VI", "sample": "VII", "appendix": "VIII", "ace": "IX"}
 
@@ -197,14 +197,24 @@ def page(id, section, title, body, classes="", **extra):
 
 # ----------------------------------------------------------------- sections
 
-def cover_pages(strings):
+def cover_pages(home, strings):
     front = page("cover", "cover", "ACE.await", [], "cover",
                  image="/assets/cover.jpg", alt=strings["hero.coverAlt"])
-    imprint = STRINGS["backCover"]
-    back = page("back-cover", "cover", imprint["studio"], [
-        '<div class="back-cover__imprint">'
-        f'<p class="back-cover__studio">{escape(imprint["studio"])}</p>'
-        f'<p class="back-cover__legal">{escape(imprint["legal"])}</p></div>',
+    footer = home.select_one(".site-footer")
+    links = []
+    for original in footer.select(".site-footer__links a"):
+        if original.get("href") == "#top":
+            # The source stays usable without JavaScript, too.
+            link = (f'<a href="#cover" data-jump="cover">'
+                    f'{escape(text(original))}</a>')
+        else:
+            link = str(clone(original))
+        links.append(f"<li>{link}</li>")
+    back = page("back-cover", "back-cover", STRINGS["sections"]["back-cover"], [
+        '<footer class="back-cover__imprint">'
+        f'<p class="back-cover__studio">{inner(footer.select_one(".site-footer__brand"))}</p>'
+        f'<p class="back-cover__legal">{inner(footer.select_one(".site-footer__legal"))}</p>'
+        '<ul class="back-cover__links">' + "".join(links) + '</ul></footer>',
     ], "cover back-cover", image="/assets/cover-back.jpg", alt=strings["hero.coverBackAlt"])
     return front, back
 
@@ -623,7 +633,7 @@ def compose(soup, render, source, strings):
                 for name in ("home", "ace", "rights", "screen", "privacy", "impressum")}
     home, ace = rendered["home"], rendered["ace"]
 
-    front, back = cover_pages(strings)
+    front, back = cover_pages(home, strings)
     buy, missing = buy_pages(strings)
     ordered = [front, headline_page(strings), *review_pages(home, strings),
                *story_pages(home, strings), *buy, *author_pages(home, strings),
@@ -644,8 +654,13 @@ def compose(soup, render, source, strings):
                               f'data-alt="{escape(item["alt"], quote=True)}"')
         body = "".join(item["blocks"])
         if item.get("image"):
-            body = (f'<img class="cover-image" src="{item["image"]}" '
-                    f'alt="{escape(item["alt"], quote=True)}" width="1600" height="2560">') + body
+            artwork = (f'<img class="cover-image" src="{item["image"]}" '
+                       f'alt="{escape(item["alt"], quote=True)}" width="1600" height="2560">')
+            if item["id"] == "back-cover":
+                artwork = f'<div class="back-cover__artwork">{artwork}</div>'
+            body = artwork + body
+            if item["id"] == "back-cover":
+                body = f'<div class="back-cover__layout">{body}</div>'
         html.append(f'<section {" ".join(attributes)}>{body}</section>')
 
     container = soup.select_one("#book-source")
