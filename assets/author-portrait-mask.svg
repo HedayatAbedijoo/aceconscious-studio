@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 375">
+  <defs>
+    <filter id="smoke" x="-20%" y="-20%" width="140%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="3" seed="8" result="grain"/>
+      <feDisplacementMap in="SourceGraphic" in2="grain" scale="15" xChannelSelector="R" yChannelSelector="G"/>
+      <feGaussianBlur stdDeviation="6"/>
+    </filter>
+  </defs>
+  <path fill="white" filter="url(#smoke)" d="M157 18 C192 10 231 23 248 48 C271 68 278 100 273 131 C284 157 269 185 275 210 C278 245 265 274 251 299 C239 323 226 341 203 346 C180 359 153 351 133 354 C106 354 88 339 69 326 C48 310 40 286 36 261 C25 235 33 209 28 186 C24 157 40 137 43 113 C48 87 62 68 80 55 C101 32 126 25 157 18 Z"/>
+</svg>
