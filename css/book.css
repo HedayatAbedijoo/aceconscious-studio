@@ -10,6 +10,8 @@
   --rule: #bdad8d;
   --book-w: 440px;
   --book-h: 704px;
+  --sample-header-top: calc((var(--book-h) - 918px * var(--sheet-scale, 1)) / 2 + 83px * var(--sheet-scale, 1) - 28px);
+  --sample-reading-top: calc(var(--sample-header-top) + 24px);
   --body-size: 19px;
   --margin: 44px;
   --tab-width: 72px;
@@ -1311,7 +1313,7 @@ a:hover {
 }
 
 /* The printed page is the whole sheet; it brings its own head and folio. */
-.sample-page .page-body {
+.page.sample-page .page-body {
   top: 0;
   right: 0;
   bottom: 0;
@@ -1325,21 +1327,34 @@ a:hover {
 
 .sample-sheet {
   position: absolute;
-  inset: 0;
+  inset: var(--sample-reading-top) 0 42px;
   z-index: 2;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
+  justify-content: flex-start;
+  overflow: hidden;
+}
+
+.sample-sheet__canvas {
+  position: relative;
+  flex: none;
+  width: calc(594px * var(--sheet-scale, 1) * var(--sheet-factor, 1));
+  height: calc(918px * var(--sheet-scale, 1) * var(--sheet-factor, 1));
+  /* Keep the original text coordinates at 100%. The empty upper margin is
+     outside the viewport, so scrolled text cannot run behind the zoom strip. */
+  margin: calc((var(--book-h) - 918px * var(--sheet-scale, 1)) / 2 - var(--sample-reading-top)) auto 0;
   overflow: hidden;
 }
 
 .sample-sheet__inner {
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 594px;
   height: 918px;
   flex: none;
-  transform: scale(var(--sheet-scale, 1));
-  transform-origin: center center;
+  transform: scale(calc(var(--sheet-scale, 1) * var(--sheet-factor, 1)));
+  transform-origin: top left;
   font-family: "Literata", Georgia, serif;
   color: #1a1a1a;
   font-size: 13px;
@@ -1365,9 +1380,37 @@ a:hover {
   justify-content: flex-end;
 }
 
+/* The running title sits above the fixed rule; only the sample body zooms. */
+.js .sample-sheet__inner > .sample-sheet__head {
+  display: none;
+}
+
+.sample-page__head {
+  top: calc(var(--sample-header-top) + 5px);
+  left: calc(79px * var(--sheet-scale, 1));
+  right: calc(79px * var(--sheet-scale, 1));
+  transform: translateY(-100%);
+  padding: 0;
+  border: 0;
+  color: #1a1a1a;
+  font: calc(15px * var(--sheet-scale, 1)) / calc(20px * var(--sheet-scale, 1)) "Literata", Georgia, serif;
+}
+
+.sample-page__head[lang="fa"] {
+  font-family: Vazirmatn, sans-serif;
+}
+
+html[dir="rtl"] .sample-page__head {
+  right: max(calc(79px * var(--sheet-scale, 1)), 50px);
+}
+
 .sample-sheet__divider {
   color: #777;
   padding: 0 2px;
+}
+
+.sample-page__head .sample-sheet__divider {
+  padding: 0 calc(2px * var(--sheet-scale, 1));
 }
 
 .sample-smallcaps {
@@ -1542,42 +1585,100 @@ a:hover {
 
 .sample-zoom {
   position: absolute;
-  left: 10px;
-  bottom: 56px;
+  left: 50%;
+  top: var(--sample-header-top);
   z-index: 8;
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-  background: #efe6d2cc;
-  border: 1px solid var(--rule);
+  transform: translateX(-50%);
+  height: 22px;
+  padding: 0;
+  background: transparent;
   color: #6c6049;
-  font: 15px/1 var(--book-ui);
-  display: flex;
+  font: 9px/1 var(--book-ui);
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
+  direction: ltr;
+  user-select: none;
+  touch-action: manipulation;
+  pointer-events: auto;
 }
 
-.sample-zoom:hover {
+.sample-zoom::before,
+.sample-zoom::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: calc((var(--book-w) - 158px * var(--sheet-scale, 1)) / 2 - 50% - 8px);
+  height: 1px;
+  background: #9998;
+  pointer-events: none;
+}
+
+.sample-zoom::before { right: calc(100% + 8px); }
+.sample-zoom::after { left: calc(100% + 8px); }
+
+.is-turning .sample-zoom,
+.is-riffling .sample-zoom {
+  pointer-events: none;
+}
+
+.sample-zoom[hidden] {
+  display: none;
+}
+
+.sample-zoom button {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  color: inherit;
+  font: 13px/1 Arial, sans-serif;
+  touch-action: manipulation;
+}
+
+.sample-zoom output {
+  min-width: 20px;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.sample-zoom button:hover:not(:disabled) {
   color: var(--rust);
   background: #f6eeda;
 }
 
-.sample-page.is-zoomed .sample-zoom {
-  z-index: 9;
+.sample-zoom button:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.sample-zoom button:focus-visible {
+  outline-offset: 0;
 }
 
 .sample-page.is-zoomed .sample-sheet {
   overflow: auto;
-  align-items: start;
-  justify-content: start;
   touch-action: pan-x pan-y;
-  cursor: grab;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: #b6a589 transparent;
 }
 
-.sample-page.is-zoomed .sample-sheet__inner {
-  transform: scale(var(--sheet-zoom));
-  transform-origin: top left;
-  margin: 0 calc(594px * (var(--sheet-zoom) - 1)) calc(918px * (var(--sheet-zoom) - 1)) 0;
+@media (any-hover: hover) and (any-pointer: fine) {
+  .sample-page.is-zoomed .sample-sheet {
+    cursor: grab;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  .sample-page.is-zoomed .sample-sheet.is-panning {
+    cursor: grabbing;
+  }
+}
+
+#book:has(.sample-page.is-zoomed),
+#book:has(.sample-page.is-zoomed) .stf__block,
+#book:has(.sample-page.is-zoomed) .stf__wrapper {
+  touch-action: pan-x pan-y pinch-zoom;
 }
 
 /* --------------------------------------------------------------- bookmarks */
@@ -1731,7 +1832,7 @@ a:hover {
   display: none;
 }
 
-.book-controls button {
+.book-controls > button {
   width: 48px;
   height: 44px;
   pointer-events: auto;
@@ -1743,7 +1844,7 @@ a:hover {
   position: relative;
 }
 
-.book-controls button:hover {
+.book-controls > button:hover {
   color: var(--rust);
 }
 
@@ -1924,6 +2025,10 @@ html:not(.js) .sample-sheet__inner {
   left: 0;
   transform: scale(calc(100cqi / 594px));
   transform-origin: top left;
+}
+
+html:not(.js) .sample-sheet__canvas {
+  display: contents;
 }
 
 /* Older engines without typed CSS division get readable, flowing text. */
@@ -2447,8 +2552,10 @@ html:not(.js) .book-language ul { top: 100%; bottom: auto; }
 html:not([lang="en"]) :is(.headline-byline,.headline-eyebrow) { white-space: normal; }
 html:not([lang="en"]) .headline-byline { font-family: var(--book-serif); }
 .is-turning .cover-entry, .is-riffling .cover-entry { visibility: hidden; pointer-events: none; }
-.sample-sheet[lang="fa"] .sample-sheet__head--recto { justify-content: flex-start; }
-.sample-sheet[lang="fa"] .sample-sheet__head--verso { justify-content: flex-end; }
+.sample-sheet[lang="fa"] .sample-sheet__head--recto,
+.sample-page__head[lang="fa"].sample-sheet__head--recto { justify-content: flex-start; }
+.sample-sheet[lang="fa"] .sample-sheet__head--verso,
+.sample-page__head[lang="fa"].sample-sheet__head--verso { justify-content: flex-end; }
 html[dir="rtl"] .running-head .book-name { margin-left: 0; margin-right: 18px; }
 /* An English original stays typographically English inside every locale. */
 .sample-sheet[lang="en"] {

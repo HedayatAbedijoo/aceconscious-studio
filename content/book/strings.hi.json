@@ -21,8 +21,9 @@
     "closeBook": "किताब बंद करें",
     "previousPage": "पिछला पृष्ठ",
     "nextPage": "अगला पृष्ठ",
-    "zoomIn": "इस मुद्रित पृष्ठ को बड़ा करें",
-    "zoomOut": "मुद्रित पृष्ठ को स्क्रीन में समायोजित करें",
+    "zoomLabel": "पृष्ठ ज़ूम",
+    "zoomIn": "ज़ूम १०% बढ़ाएँ",
+    "zoomOut": "ज़ूम १०% घटाएँ",
     "bookSections": "किताब के भाग",
     "coverAlt": "ACE.await का सामने का आवरण",
     "backCoverAlt": "ACE.await का पिछला आवरण"

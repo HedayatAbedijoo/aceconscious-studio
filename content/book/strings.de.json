@@ -21,8 +21,9 @@
     "closeBook": "Buch schließen",
     "previousPage": "Vorherige Seite",
     "nextPage": "Nächste Seite",
-    "zoomIn": "Diese Buchseite vergrößern",
-    "zoomOut": "Buchseite einpassen",
+    "zoomLabel": "Seitenzoom",
+    "zoomIn": "Um 10 % vergrößern",
+    "zoomOut": "Um 10 % verkleinern",
     "bookSections": "Abschnitte des Buches",
     "coverAlt": "Vorderseite von ACE.await",
     "backCoverAlt": "Rückseite von ACE.await"

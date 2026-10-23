@@ -21,8 +21,9 @@
     "closeBook": "合上书本",
     "previousPage": "上一页",
     "nextPage": "下一页",
-    "zoomIn": "放大此书页",
-    "zoomOut": "适应书页大小",
+    "zoomLabel": "页面缩放",
+    "zoomIn": "放大 10%",
+    "zoomOut": "缩小 10%",
     "bookSections": "书籍章节",
     "coverAlt": "ACE.await 封面",
     "backCoverAlt": "ACE.await 封底"

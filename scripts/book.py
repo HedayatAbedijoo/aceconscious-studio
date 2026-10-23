@@ -493,11 +493,10 @@ def sample_pages(sample=SAMPLE):
         head = (f'<div class="sample-sheet__head sample-sheet__head--{sheet["side"]}">'
                 f"<span>{reference}</span></div>")
         sheet_html = ('<div class="sample-sheet">'
+                      '<div class="sample-sheet__canvas">'
                       '<div class="sample-sheet__inner">'
                       f'{head}<div class="sample-sheet__body">{"".join(parts)}{notes}</div>'
-                      "</div></div>"
-                      f'<button class="sample-zoom" type="button" aria-pressed="false" '
-                      f'aria-label="{escape(STRINGS["ui"]["zoomIn"])}">+</button>')
+                      "</div></div></div>")
         pages.append(page(f"sample-{sheet['number']:02d}" if sheet["number"] > 1 else "sample",
                           "sample", f"ACE.await · {sheet['folio']}", [sheet_html],
                           "sample-page", fixed=True))
@@ -699,7 +698,10 @@ def compose(soup, render, source, strings):
 
     # Cover controls are outside the paper and never enter the paginated content.
     for selector, key in [("#open", "openBook"), ("#open-label", "openBook"),
-                          ("#close", "closeBook"), ("#previous", "previousPage"), ("#next", "nextPage")]:
+                          ("#close", "closeBook"), ("#previous", "previousPage"), ("#next", "nextPage"),
+                          ("#sample-zoom", "zoomLabel"),
+                          ('#sample-zoom [data-zoom-step="-10"]', "zoomOut"),
+                          ('#sample-zoom [data-zoom-step="10"]', "zoomIn")]:
         control = soup.select_one(selector)
         control["aria-label"] = STRINGS["ui"][key]
         if control.has_attr("title"):

@@ -23,8 +23,9 @@
     "closeBook": "Close the book",
     "previousPage": "Previous page",
     "nextPage": "Next page",
-    "zoomIn": "Enlarge this printed page",
-    "zoomOut": "Fit the printed page",
+    "zoomLabel": "Page zoom",
+    "zoomIn": "Zoom in by 10%",
+    "zoomOut": "Zoom out by 10%",
     "bookSections": "Book sections",
     "coverAlt": "ACE.await front cover",
     "backCoverAlt": "ACE.await back cover"

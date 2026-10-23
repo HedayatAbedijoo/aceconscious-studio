@@ -20,9 +20,10 @@
   const rtl = document.documentElement.dir === "rtl";
   const locale = document.documentElement.dataset.locale || "en";
   const languageMenu = $("#book-language");
+  const zoomControls = $("#sample-zoom");
   const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
   const normalFlipTime = 850;
-  const interactive = "a,button,input,textarea,select,form,label,.is-zoomed";
+  const interactive = "a,button,input,textarea,select,form,label,.sample-zoom,.is-zoomed";
 
   let logical = [];
   let pages = [];
@@ -466,27 +467,79 @@
 
   /* ------------------------------------------------------------ the sample */
 
+  const zoomFrames = new WeakMap();
+  const zoomNumber = new Intl.NumberFormat(locale, { style: "percent", maximumFractionDigits: 0 });
+  const mousePanAvailable = matchMedia("(any-hover: hover) and (any-pointer: fine)");
+  let samplePan = null;
+
+  function stopSamplePan() {
+    if (!samplePan) return;
+    const { sheet, pointerId } = samplePan;
+    samplePan = null;
+    sheet.classList.remove("is-panning");
+    if (sheet.hasPointerCapture(pointerId)) sheet.releasePointerCapture(pointerId);
+  }
+
+  function syncZoomControls(page) {
+    zoomControls.hidden = !page.classList.contains("sample-page");
+    if (zoomControls.hidden) return;
+    const percentage = Number(page.dataset.zoom || 100);
+    $("output", zoomControls).textContent = number(percentage);
+    $("output", zoomControls).setAttribute("aria-label", zoomNumber.format(percentage / 100));
+    $('[data-zoom-step="-10"]', zoomControls).disabled = percentage === 100;
+  }
+
   function fitSampleSheets() {
     const width = parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--book-w"));
     const height = parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--book-h"));
     const scale = Math.min(width / 594, height / 918);
     document.documentElement.style.setProperty("--sheet-scale", scale.toFixed(4));
-    document.documentElement.style.setProperty("--sheet-zoom", Math.max(1, scale * 2.2).toFixed(4));
   }
 
-  function setZoom(page, zoomed) {
-    page.classList.toggle("is-zoomed", zoomed);
-    const button = $(".sample-zoom", page);
-    if (button) {
-      button.setAttribute("aria-pressed", String(zoomed));
-      button.setAttribute("aria-label", zoomed ? strings.zoomOut : strings.zoomIn);
-      button.textContent = zoomed ? "−" : "+";
+  function setZoom(page, percentage, animate = false) {
+    cancelAnimationFrame(zoomFrames.get(page));
+    const sheet = $(".sample-sheet", page);
+    if (samplePan?.sheet === sheet) stopSamplePan();
+    const canvas = $(".sample-sheet__canvas", page);
+    const from = Number(sheet.style.getPropertyValue("--sheet-factor")) || 1;
+    percentage = Math.max(100, percentage);
+    const to = percentage / 100;
+    // Keep the same reading position through each small step, including the
+    // negative horizontal scroll coordinates of the original Persian sample.
+    const direction = getComputedStyle(sheet).direction === "rtl" ? -1 : 1;
+    const anchorX = (Math.abs(sheet.scrollLeft) + sheet.clientWidth / 2
+      - Math.max(0, (sheet.clientWidth - canvas.offsetWidth) / 2)) / from;
+    const anchorY = (sheet.scrollTop + sheet.clientHeight / 2
+      - canvas.offsetTop) / from;
+    page.dataset.zoom = String(percentage);
+    if (page === pages[current]?.el) syncZoomControls(page);
+    page.classList.toggle("is-zoomed", to > 1 || from > 1);
+
+    const render = factor => {
+      sheet.style.setProperty("--sheet-factor", factor.toFixed(6));
+      sheet.scrollLeft = direction * (anchorX * factor - sheet.clientWidth / 2
+        + Math.max(0, (sheet.clientWidth - canvas.offsetWidth) / 2));
+      sheet.scrollTop = anchorY * factor - sheet.clientHeight / 2
+        + canvas.offsetTop;
+    };
+    const finish = () => {
+      zoomFrames.delete(page);
+      page.classList.toggle("is-zoomed", to > 1);
+      if (to === 1) sheet.scrollTo(0, 0);
+    };
+    if (!animate || reducedMotion.matches) {
+      render(to);
+      finish();
+      return;
     }
-    if (!zoomed) $(".sample-sheet", page).scrollTo(0, 0);
-  }
-
-  function toggleZoom(page) {
-    setZoom(page, !page.classList.contains("is-zoomed"));
+    const start = performance.now();
+    const tick = now => {
+      const progress = Math.min(1, (now - start) / 180);
+      render(from + (to - from) * (1 - Math.pow(1 - progress, 3)));
+      if (progress < 1) zoomFrames.set(page, requestAnimationFrame(tick));
+      else finish();
+    };
+    zoomFrames.set(page, requestAnimationFrame(tick));
   }
 
   /* --------------------------------------------------------------- the book */
@@ -513,6 +566,7 @@
   }
 
   function sync(index) {
+    if (index !== current) stopSamplePan();
     current = index;
     const page = pages[index];
     if (!page) return;
@@ -545,8 +599,9 @@
     pages.forEach((item, position) => {
       item.el.inert = position !== index;
       item.el.setAttribute("aria-hidden", String(position !== index));
-      if (position !== index && item.el.classList.contains("is-zoomed")) setZoom(item.el, false);
+      if (page.section !== "sample" && item.el.classList.contains("is-zoomed")) setZoom(item.el, 100);
     });
+    syncZoomControls(page.el);
     [index, index + 1, index + 2].forEach(position => {
       const image = pages[position] && $("img", pages[position].el);
       if (image) image.loading = "eager";
@@ -663,6 +718,7 @@
 
   function build(keep) {
     stopHeldTurn();
+    stopSamplePan();
     rebuilding = true;
     busy = false;
     pendingPage = null;
@@ -671,7 +727,7 @@
     const size = sizeBook();
     if (pageFlip) {
       pages.filter(item => item.el.classList.contains("sample-page"))
-        .forEach(item => setZoom(item.el, false));
+        .forEach(item => setZoom(item.el, 100));
       pageFlip.getRender().finishAnimation();
       pageFlip.destroy();
       pageFlip = null;
@@ -680,6 +736,16 @@
     const book = $("#book");
     pages = paginate(logical);
     pages.forEach(item => {
+      const sample = $(".sample-sheet", item.el);
+      if (sample) {
+        // Keep the printed running title above the fixed header rule, outside
+        // the clipped reading area, while preserving its original text.
+        const head = $(".sample-sheet__head", sample).cloneNode(true);
+        head.classList.add("sample-page__head");
+        head.lang = sample.lang || "en";
+        head.dir = sample.dir || "ltr";
+        $(".page-body", item.el).prepend(head);
+      }
       if (rtl) {
         const face = document.createElement("div");
         face.className = "page-face";
@@ -687,6 +753,7 @@
         item.el.append(face);
       }
       book.append(item.el);
+      if (item.el.classList.contains("sample-page")) setZoom(item.el, 100);
     });
     pageFlip = new St.PageFlip(book, {
       ...size,
@@ -814,17 +881,28 @@
     });
   }
 
-  window.addEventListener("blur", stopHeldTurn);
-  window.addEventListener("pagehide", stopHeldTurn);
+  const stopPointerInteractions = () => {
+    stopHeldTurn();
+    stopSamplePan();
+  };
+  window.addEventListener("blur", stopPointerInteractions);
+  window.addEventListener("pagehide", stopPointerInteractions);
   document.addEventListener("visibilitychange", () => {
-    if (document.hidden) stopHeldTurn();
+    if (document.hidden) stopPointerInteractions();
   });
 
   document.addEventListener("click", event => {
-    const zoom = event.target.closest(".sample-zoom");
+    const zoom = event.target.closest(".sample-zoom button[data-zoom-step]");
     if (zoom) {
       event.preventDefault();
-      toggleZoom(zoom.closest(".page"));
+      const page = pages[current].el;
+      const percentage = Number(page.dataset.zoom || 100) + Number(zoom.dataset.zoomStep);
+      // Prepare every sample sheet at the chosen size before it is revealed
+      // by a page turn. Only leaving the sample section resets this zoom.
+      for (const item of pages.filter(item => item.section === "sample")) {
+        setZoom(item.el, percentage, item.el === page);
+        if (item.el !== page) $(".sample-sheet", item.el).scrollTo(0, 0);
+      }
       return;
     }
     const marker = event.target.closest(".bookmark");
@@ -845,6 +923,53 @@
       if (event.target.closest(interactive) || event.touches?.length > 1) event.stopPropagation();
     }, { capture: true });
   });
+
+  // A real mouse grabs the enlarged printed sheet. Touch keeps its native
+  // scrolling, and the browser's scrollbars remain available on desktop.
+  shell.addEventListener("pointerdown", event => {
+    if (event.pointerType !== "mouse" || !event.isPrimary || event.button !== 0
+      || !mousePanAvailable.matches || busy || rebuilding) return;
+    const sheet = event.target.closest(".sample-page.is-zoomed .sample-sheet");
+    if (!sheet || event.target.closest("a,button,input,textarea,select,label")) return;
+    const page = sheet.closest(".page");
+    if (page !== pages[current]?.el || Number(page.dataset.zoom) <= 100) return;
+    const bounds = sheet.getBoundingClientRect();
+    const x = event.clientX - bounds.left, y = event.clientY - bounds.top;
+    if (x < sheet.clientLeft || x >= sheet.clientLeft + sheet.clientWidth
+      || y < sheet.clientTop || y >= sheet.clientTop + sheet.clientHeight) return;
+    // Finish a pending 10% step before taking hold, so its animation cannot
+    // fight the mouse for the scroll position.
+    if (zoomFrames.has(page)) setZoom(page, Number(page.dataset.zoom));
+    stopSamplePan();
+    event.preventDefault();
+    event.stopPropagation();
+    samplePan = {
+      sheet, pointerId: event.pointerId, x: event.clientX, y: event.clientY,
+      left: sheet.scrollLeft, top: sheet.scrollTop,
+    };
+    sheet.classList.add("is-panning");
+    sheet.setPointerCapture(event.pointerId);
+  }, { capture: true });
+
+  shell.addEventListener("pointermove", event => {
+    if (!samplePan || event.pointerId !== samplePan.pointerId) return;
+    if (!(event.buttons & 1)) {
+      stopSamplePan();
+      return;
+    }
+    event.preventDefault();
+    event.stopPropagation();
+    const { sheet, x, y, left, top } = samplePan;
+    // Physical drag deltas work for both LTR and RTL's negative scrollLeft.
+    sheet.scrollLeft = left - (event.clientX - x);
+    sheet.scrollTop = top - (event.clientY - y);
+  }, { capture: true });
+
+  for (const type of ["pointerup", "pointercancel", "lostpointercapture"]) {
+    shell.addEventListener(type, event => {
+      if (event.pointerId === samplePan?.pointerId) stopSamplePan();
+    }, { capture: true });
+  }
 
   // StPageFlip delays touch handling by 250 ms. Handle quick taps ourselves,
   // leaving its corner drags and swipes intact and avoiding double turns.

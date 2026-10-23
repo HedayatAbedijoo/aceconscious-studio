@@ -21,8 +21,9 @@
     "closeBook": "Cerrar el libro",
     "previousPage": "Página anterior",
     "nextPage": "Página siguiente",
-    "zoomIn": "Ampliar esta página impresa",
-    "zoomOut": "Ajustar la página impresa",
+    "zoomLabel": "Zoom de la página",
+    "zoomIn": "Aumentar el zoom un 10 %",
+    "zoomOut": "Reducir el zoom un 10 %",
     "bookSections": "Secciones del libro",
     "coverAlt": "Portada de ACE.await",
     "backCoverAlt": "Contraportada de ACE.await"

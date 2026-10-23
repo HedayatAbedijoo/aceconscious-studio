@@ -21,8 +21,9 @@
     "closeBook": "Fermer le livre",
     "previousPage": "Page précédente",
     "nextPage": "Page suivante",
-    "zoomIn": "Agrandir cette page imprimée",
-    "zoomOut": "Ajuster la page imprimée",
+    "zoomLabel": "Zoom de la page",
+    "zoomIn": "Agrandir de 10 %",
+    "zoomOut": "Réduire de 10 %",
     "bookSections": "Sections du livre",
     "coverAlt": "Première de couverture d’ACE.await",
     "backCoverAlt": "Quatrième de couverture d’ACE.await"

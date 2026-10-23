@@ -76,20 +76,22 @@ const base = 'http://127.0.0.1:8765';
     assert.equal(await page.evaluate(() => Object.values(window.frameCounts).filter(n => n > 10).length), 1,
       'A resize left more than one renderer running');
   }
-  const zoom = page.locator('.page[aria-hidden="false"] .sample-zoom');
-  await zoom.click();
+  const zoom = page.locator('#sample-zoom');
+  const zoomIn = zoom.locator('[data-zoom-step="10"]');
+  const zoomOut = zoom.locator('[data-zoom-step="-10"]');
+  await zoomIn.click();
+  assert.equal(await zoom.locator('output').textContent(), '110');
   await page.keyboard.press('ArrowRight');
   await page.keyboard.press('ArrowLeft');
   await settled(page);
-  assert.equal(await zoom.textContent(), '+');
-  assert.equal(await zoom.getAttribute('aria-pressed'), 'false');
-  assert.equal(await zoom.getAttribute('aria-label'), 'Enlarge this printed page');
-  await zoom.click();
+  assert.equal(await zoom.locator('output').textContent(), '110');
+  assert.equal(await zoomOut.isDisabled(), false);
+  await zoomIn.click();
   await page.setViewportSize({ width: 400, height: 844 });
   await page.waitForTimeout(450);
-  assert.equal(await zoom.textContent(), '+', 'Resize must also reset zoom controls');
+  assert.equal(await zoom.locator('output').textContent(), '100', 'Resize must also reset zoom controls');
   await ctx.close();
-  console.log('PASS: one render loop across resizes; zoom resets on navigation and resize.');
+  console.log('PASS: one render loop across resizes; zoom persists between sample pages and resets on resize.');
 
   // Both a cancelled delayed touch and a cancelled active fold must recover.
   const touch = await context({ viewport: { width: 390, height: 844 }, hasTouch: true, isMobile: true });
@@ -191,7 +193,7 @@ const base = 'http://127.0.0.1:8765';
   const fallback = await nojs.newPage();
   await fallback.goto(base);
   assert.ok(await fallback.locator('.sample-sheet').first().evaluate(el =>
-    el.firstElementChild.getBoundingClientRect().width <= el.getBoundingClientRect().width + 1));
+    el.querySelector('.sample-sheet__inner').getBoundingClientRect().width <= el.getBoundingClientRect().width + 1));
   await nojs.close();
   assert.deepEqual(errors, []);
   await browser.close();
