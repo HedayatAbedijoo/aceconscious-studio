@@ -283,6 +283,11 @@ def build(check=False, record_translations=False):
     validate_catalogs(book_catalogs["en"], book_catalogs)
     signatures.update({"book:" + key: sha256(value.encode()).hexdigest()
                        for key, value in book_catalogs["en"].items()})
+    intro_catalogs = {lang["code"]: json.loads(
+        (ROOT / f'content/book/ace-intro.{lang["code"]}.json').read_text()) for lang in LANGUAGES}
+    validate_catalogs(intro_catalogs["en"], intro_catalogs)
+    signatures.update({"ace-intro:" + key: sha256(value.encode()).hexdigest()
+                       for key, value in intro_catalogs["en"].items()})
     source_record = ROOT / "content/translation-source-hashes.json"
     if record_translations:
         if check:

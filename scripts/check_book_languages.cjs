@@ -51,7 +51,7 @@ fs.mkdirSync(out, { recursive: true });
    await page.keyboard.press(rtl ? 'ArrowRight' : 'ArrowLeft');
    await settled();
    await page.screenshot({path: `${out}/${lang.code}-${width}-headline.png`});
-   for (const section of ['headline','reviews','story','author','buy','community','contact','sample','ace','back-cover']) {
+   for (const section of ['headline','reviews','story','ace','author','buy','community','contact','sample','back-cover']) {
     await page.locator(`.bookmark[data-section="${section}"]`).click();
     await settled();
     if (section === 'reviews') {
@@ -61,6 +61,14 @@ fs.mkdirSync(out, { recursive: true });
     const excess = await page.locator('#book .page[aria-hidden="false"]').evaluate(el => {
      const body = el.querySelector('.page-body');
      if (!body || el.classList.contains('sample-page')) return null;
+     if (el.classList.contains('ace-intro-page')) {
+      // Card text scrolls within its reading region; pagination stays outside.
+      const reading = body.querySelector('.ace-intro-reading');
+      const nav = body.querySelector('.ace-intro-nav').getBoundingClientRect();
+      const paper = body.getBoundingClientRect();
+      return reading.scrollWidth > reading.clientWidth + 1 || nav.bottom > paper.bottom + 1
+       ? { readingWidth: reading.clientWidth, contentWidth: reading.scrollWidth, footerBottom: nav.bottom, paperBottom: paper.bottom } : null;
+     }
      const r = document.createRange(); r.selectNodeContents(body);
      const b = body.getBoundingClientRect(), c = r.getBoundingClientRect();
      return c.bottom > b.bottom + 3 || c.left < b.left - 3 || c.right > b.right + 3 ? { b:{left:b.left,right:b.right,bottom:b.bottom}, c:{left:c.left,right:c.right,bottom:c.bottom} } : null;

@@ -21,8 +21,8 @@ pages. `content/templates/book.html` and `scripts/book.py` use the matching
 locale's shared home, ACE, rights, screen, privacy and imprint content. Shared
 catalog corrections therefore update both the book and standalone pages.
 
-Page order after the cover: Headline, Reviews (Kirkus first), Story, Author, Buy,
-Gift, Contact, Sample, ACE, reference pages, then the back cover. Ten bookmarks
+Page order after the cover: Headline, Reviews (Kirkus first), Story, ACE, Author, Buy,
+Gift, Contact, Sample, reference pages, then the back cover. Ten bookmarks
 follow that order, with no Appendix bookmark or index page. The back-cover footer
 links to Rights & Representation, Book to Screen, Privacy, Impressum and Contents
 of the novel directly, without riffling; these pages return to the back cover.
@@ -65,6 +65,26 @@ Translated story headings reserve a separate column for the decorative 2313.
   original English excerpt; the website translation is not a new published novel
   edition. Persian store cards link to the Persian Kindle and paperback editions
   in `amazon.localizedEditions.fa`; other locales retain the English editions.
+
+The ACE bookmark follows Story and precedes Author in every language. It uses
+four sheets: ACE, PDAF, Agency phases, and the play invitation. The structure is
+in `content/templates/ace-intro.html`, translated copy in
+`content/book/ace-intro.<code>.json`, and scoped assets in `css/ace-intro.css` and
+`js/ace-intro.js`. These catalogs participate in the normal key-parity and source
+hash checks. All labels, examples, navigation and accessibility text are translated;
+the ACE/PDAF letter symbols and the novel’s name stay unchanged. Arabic and Persian
+use RTL tab order, arrows and keyboard controls. The ordinary book pagination is
+the only previous-page control; the final Revisit ACE link returns to the start.
+The short examples are paraphrased scenes from Hedayat's story, with one sound-system
+incident followed across all four PDAF cards. `content/book/ace-intro.sources.json`
+records the supplied EPUB, chapters and scene context for future editorial checks;
+it is not rendered on the site.
+The play invitation temporarily links to the locale’s homepage. Change that target
+in the template when the game destination is ready. The full standalone `/ace/`
+article and its translations remain separate. Run `node scripts/check_ace_intro.cjs`
+for all locales, card navigation, book order, keyboard, mobile/touch, resize, bounds
+and the no-JavaScript fallback. Provide Playwright on `NODE_PATH` and optionally
+`CHROME_BIN`; `--fonts` loads the actual site fonts for visual QA.
 
 `js/book.js` reflows the static markup in `#book-source` onto paper sheets and
 hands them to StPageFlip (`js/vendor/page-flip.js`, MIT). Without JavaScript the

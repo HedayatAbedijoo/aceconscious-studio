@@ -1,0 +1,73 @@
+{
+  "source": "../ace-await-ebooks-format/outputs/english/digital/ACE.await.en.epub",
+  "sha256": "1f7235392b7258e03fc1f794b6e7c31ad06eac246ec5592905e9c145fcc9f6e7",
+  "note": "Editorial provenance only; not rendered. Examples paraphrase events from the supplied EPUB. Their assignment to ACE concepts is an explanatory reading, not a quotation. Preserve the distinction between the museum dream and waking events, and do not reveal the causes of the sound-system mystery or the outcome of the job decision.",
+  "examples": {
+    "agency.example": {
+      "chapter": 10,
+      "title": "Contracts",
+      "entry": "EPUB/text/ch013.xhtml",
+      "scene": "Fearing a hacker but curious about ACE, Hedayat unblocks port 3132 and resumes questioning Anonymous."
+    },
+    "connection.example": {
+      "chapter": 33,
+      "title": "Mr. Writer",
+      "entry": "EPUB/text/ch036.xhtml",
+      "scene": "Hedayat prevents Saman from reading the bedroom notes, promises him the first reading of the draft, and Saman accepts."
+    },
+    "exchange.example": {
+      "chapter": 33,
+      "title": "Mr. Writer",
+      "entry": "EPUB/text/ch036.xhtml",
+      "scene": "Saman gives Hedayat the River of Consumerism painting for his birthday. Later Hedayat hands Sebastian fifteen euros, gathered with Saman's help, and confirms to Saman that Sebastian repays his loans."
+    },
+    "preparation.example": {
+      "chapter": 15,
+      "title": "The Ring of the Nibelung",
+      "entry": "EPUB/text/ch018.xhtml",
+      "scene": "The audio system has disturbed Hedayat and his neighbors for two nights. He browses its settings, thinking about Bluetooth."
+    },
+    "decision.example": {
+      "chapter": 15,
+      "title": "The Ring of the Nibelung",
+      "entry": "EPUB/text/ch018.xhtml",
+      "scene": "Hedayat tries a firmware update and believes it will solve the nighttime disturbance. The card separates the intended remedy from carrying it out."
+    },
+    "action.example": {
+      "chapter": 15,
+      "title": "The Ring of the Nibelung",
+      "entry": "EPUB/text/ch018.xhtml",
+      "scene": "He uses the remote to start the update; the audio system restarts when the update completes."
+    },
+    "feedback.example": {
+      "chapter": 15,
+      "title": "The Ring of the Nibelung",
+      "entry": "EPUB/text/ch018.xhtml",
+      "scene": "At 3:03 a.m. loud music returns, contradicting his belief that the problem was solved. Unable to silence it with the remote, he pulls the power plug."
+    },
+    "exploration.example": {
+      "chapter": 2,
+      "title": "Unveiling the Mysteries",
+      "entry": "EPUB/text/ch005.xhtml",
+      "scene": "In the museum dream Hedayat enters the mysterious theater despite Ava's reluctance. Chapter 18 explicitly revisits this adventure as Exploration."
+    },
+    "stabilization.example": {
+      "chapter": 13,
+      "title": "Stabilization",
+      "entry": "EPUB/text/ch016.xhtml",
+      "scene": "Solar batteries sustain Hedayat's apartment during power outages; he disconnects them when city power returns because they drain too fast. Chapter 15 also shows him switching the battery into the circuit on arriving home during a blackout."
+    },
+    "expansion.example": {
+      "chapter": 18,
+      "title": "Exploration and Expansion",
+      "entry": "EPUB/text/ch021.xhtml",
+      "scene": "After the explanation of creativity in Expansion, Hedayat improvises on the setar while Yulia improvises her dance."
+    },
+    "integration.example": {
+      "chapter": 26,
+      "title": "Integration",
+      "entry": "EPUB/text/ch029.xhtml",
+      "scene": "While considering the better-paid Kabulis job, Hedayat examines loyalty to Simon and the team, their work for a free Internet, and what that goal means to him. The example withholds his eventual decision."
+    }
+  }
+}

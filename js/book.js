@@ -573,6 +573,9 @@
     current = index;
     const page = pages[index];
     if (!page) return;
+    // The ACE cards reach the paper's corner area. A hover preview would clone
+    // their live controls and cover the card just selected; explicit turns stay enabled.
+    pageFlip.getSettings().showPageCorners = !sectionTurn && !page.classes.includes("ace-intro-page");
     const cover = index === 0;
     stage.classList.toggle("is-closed", cover);
     stage.classList.toggle("is-back-cover", page.id === "back-cover");
@@ -633,7 +636,7 @@
     shell.removeAttribute("aria-busy");
     if (pageFlip) {
       pageFlip.getSettings().flippingTime = normalFlipTime;
-      pageFlip.getSettings().showPageCorners = true;
+      pageFlip.getSettings().showPageCorners = !pages[current]?.classes.includes("ace-intro-page");
     }
   }
 
@@ -644,6 +647,7 @@
     if (current === turn.target || reducedMotion.matches) {
       const target = turn.target;
       stopSectionTurn();
+      pageFlip.cancelUserTouch();
       if (current !== target) pageFlip.turnToPage(target);
       sync(target);
       return;
@@ -700,6 +704,9 @@
     pendingPage = null;
     if (index === current) return;
     if (reducedMotion.matches) {
+      // Clear any corner preview before an immediate turn; otherwise its
+      // clipped sheet can cover the live controls on the destination page.
+      pageFlip.cancelUserTouch();
       pageFlip.turnToPage(index);
       sync(index);
     } else {

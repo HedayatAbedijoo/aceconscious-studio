@@ -14,7 +14,7 @@ BOOK_ANCHORS = ("headline", "reviews", "synopsis", "buy", "author", "contact", "
 
 
 def check_book(soup, path, code):
-    """The English edition is one book: ordered pages instead of a scrolling page."""
+    """Each locale is one book: ordered pages instead of a scrolling page."""
     pages = soup.select("#book-source [data-page]")
     assert pages, f"No book pages: {path}"
     assert pages[0]["data-section"] == "cover" and pages[0]["id"] == "cover", path
@@ -44,15 +44,22 @@ def check_book(soup, path, code):
     assert soup.select_one('[data-page="contact"] #contact-form'), path
     assert soup.select_one('[data-page="community"] #community-form'), path
     assert soup.select_one("#amazon-marketplace option[selected]"), path
-    # Conversion must retain legal introductions and every wide-table value.
+    # Conversion must retain the legal introductions.
     for name in ("privacy", "impressum"):
         original = parse((ROOT / (route(name, code).lstrip("/") + "index.html")).read_text())
         intro = original.select_one(".legal-page__updated").get_text(" ", strip=True)
         assert intro in soup.select_one("#" + name).get_text(" ", strip=True), path
-    original = parse((ROOT / (route("ace", code).lstrip("/") + "index.html")).read_text())
-    exchange = soup.select_one("#ace-exchange").get_text(" ", strip=True)
-    for cell in original.select("#exchange table tbody th, #exchange table tbody td"):
-        assert cell.get_text(" ", strip=True) in exchange, f"Dropped comparison cell: {path}: {cell}"
+    intro = soup.select('#book-source [data-section="ace"]')
+    assert [p["id"] for p in intro] == ["ace", "ace-pdaf", "ace-phases", "ace-play"], path
+    assert all(p.has_attr("data-fixed") for p in intro), path
+    assert soup.select_one("#ace-play .ace-intro-play")["href"] == route("home", code), path
+    assert not soup.select('.ace-intro [data-i18n="back"], .ace-intro-back'), path
+    intro_copy = json.loads((ROOT / f"content/book/ace-intro.{code}.json").read_text())
+    for el in soup.select('.ace-intro [data-i18n]'):
+        assert el.get_text() == intro_copy[el["data-i18n"]], f"Intro translation mismatch: {path}: {el}"
+    assert order.index("story") + 1 == order.index("ace"), path
+    assert order.index("ace") + 1 == order.index("author"), path
+
 
 
 def check():

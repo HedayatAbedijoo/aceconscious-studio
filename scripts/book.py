@@ -23,8 +23,8 @@ SAMPLE = json.loads((ROOT / "content/book/sample-en.json").read_text())
 
 # Page-group order after the front cover. Reference pages have no bookmark;
 # their links live on the back cover.
-SECTIONS = ("headline", "reviews", "story", "author", "buy",
-            "community", "contact", "sample", "ace", "appendix", "back-cover")
+SECTIONS = ("headline", "reviews", "story", "ace", "author", "buy",
+            "community", "contact", "sample", "appendix", "back-cover")
 BOOKMARKS = tuple(section for section in SECTIONS if section != "appendix")
 BACK_COVER_LINKS = ("rights", "screen", "privacy", "impressum", "contents")
 
@@ -587,27 +587,16 @@ def appendix_pages(pages_html, home, strings):
     return result
 
 
-def ace_pages(ace, strings):
-    """The whole ACE page, in its own order, at the end of the book."""
-    introduction = ace.select_one(".ace-introduction")
-    body = opener("ACE", text(ace.select_one(".ace-hero__kicker")))
-    body.append('<div class="ace-letters" dir="ltr">'
-                f'<div><strong>A</strong><span>{escape(strings["hero.topic3"])}</span></div>'
-                f'<div><strong>C</strong><span>{escape(strings["ace.639a40e82b9a"])}</span></div>'
-                f'<div><strong>E</strong><span>{escape(strings["ace.d60a318dd8a0"])}</span></div></div>')
-    body.append(f'<h3>{escape(text(introduction.select_one(".ace-eyebrow")))}</h3>')
-    body += blocks(introduction.select_one(".ace-answer"))
-    result = [page("ace", "ace", "ACE", body)]
-    for section in ace.select(".ace-article > .ace-section"):
-        heading = text(section.select_one("h2"))
-        label = text(section.select_one(".section-label"))
-        part = []
-        if label and label != heading:
-            part.append(f'<p class="chapter-kicker">{escape(label)}</p>')
-        part.append(f"<h2>{escape(heading)}</h2>")
-        part += blocks(section, skip=("h2", ".section-label"))
-        result.append(page("ace-" + section["id"], "ace", heading, part))
-    return result
+def ace_pages():
+    """Four translated introduction sheets; the standalone article is separate."""
+    from build_locales import parse, apply_strings
+    intro = parse((ROOT / "content/templates/ace-intro.html").read_text())
+    copy = json.loads((ROOT / f"content/book/ace-intro.{LANGUAGE}.json").read_text())
+    apply_strings(intro, copy)
+    return [page(section["id"], "ace", text(section.select_one("h2")),
+                 [str(section.select_one(".ace-intro"))],
+                 "ace-intro-page", fixed=True)
+            for section in intro.select("section[data-intro-page]")]
 
 
 # ------------------------------------------------------------------ assembly
@@ -617,20 +606,23 @@ def compose(soup, render, source, strings):
     from build_locales import LANGUAGES, parse, route as build_route
     global STRINGS, LANGUAGE
     LANGUAGE = soup.html["data-locale"]
+    soup.head.append(soup.new_tag("link", rel="stylesheet", href="/css/ace-intro.css"))
+    # Initialize the live cards before book.js moves the source off-DOM.
+    soup.head.append(soup.new_tag("script", src="/js/ace-intro.js", defer=True))
     STRINGS = json.loads((ROOT / f"content/book/strings.{LANGUAGE}.json").read_text())
     language = next(item for item in LANGUAGES if item["code"] == LANGUAGE)
     # The book draws on the shared translated pages, including the scrolling
     # home template used as a content source.
     rendered = {name: parse(render(name, language, source, strings, template=name))
-                for name in ("home", "ace", "rights", "screen", "privacy", "impressum")}
-    home, ace = rendered["home"], rendered["ace"]
+                for name in ("home", "rights", "screen", "privacy", "impressum")}
+    home = rendered["home"]
 
     front, back = cover_pages(home, strings)
     buy, missing = buy_pages(strings)
     ordered = [front, headline_page(strings), *review_pages(home, strings),
-               *story_pages(home, strings), *author_pages(home, strings), *buy,
+               *story_pages(home, strings), *ace_pages(), *author_pages(home, strings), *buy,
                *contact_pages(strings), *localized_sample_pages(),
-               *ace_pages(ace, strings), *appendix_pages(rendered, home, strings), back]
+               *appendix_pages(rendered, home, strings), back]
 
     html = []
     for item in ordered:
@@ -706,7 +698,7 @@ def compose(soup, render, source, strings):
 
     data = soup.select_one("#book-strings")
     data.string = json.dumps({
-        "sections": STRINGS["sections"],
+        "sections": {section: STRINGS["sections"][section] for section in BOOKMARKS},
         **STRINGS["ui"],
     }, ensure_ascii=False).replace("<", "\\u003c")
     return missing
