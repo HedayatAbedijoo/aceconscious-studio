@@ -456,12 +456,6 @@ a:hover {
   margin-bottom: 20px !important;
 }
 
-.chapter-number {
-  font: italic 42px/1 "Cormorant Garamond", serif;
-  color: #b6a78b;
-  margin: 0 0 12px !important;
-}
-
 .small-rule {
   display: block;
   width: 34px;
@@ -620,7 +614,6 @@ a:hover {
 .review-entry + .review-entry {
   margin-top: clamp(20px, calc(var(--book-w) * 0.06), 28px);
   padding-top: clamp(18px, calc(var(--book-w) * 0.05), 24px);
-  border-top: 1px solid var(--rule);
 }
 
 .review-page .chapter-kicker {
@@ -1917,10 +1910,6 @@ html:not(.js) .sample-zoom {
     font-size: 34px;
   }
 
-  .chapter-number {
-    font-size: 32px;
-  }
-
   .chapter-kicker {
     font-size: 8px;
     margin-bottom: 15px !important;
@@ -2030,10 +2019,6 @@ html:not(.js) .sample-zoom {
     font-size: 44px;
   }
 
-  .chapter-number {
-    font-size: 25px;
-  }
-
   .page-body h2 {
     font-size: 31px;
   }
@@ -2107,7 +2092,6 @@ html:not(.js) .sample-zoom {
 .small-book .page-body h2 { font-size: 29px; }
 .small-book .page-body h3 { font-size: 22px; }
 .small-book .chapter-kicker { font-size: 7px; letter-spacing: 1.3px; margin-bottom: 12px !important; }
-.small-book .chapter-number { font-size: 26px; margin-bottom: 10px !important; }
 .small-book .headline-page .page-body { top: 48px; bottom: 34px; }
 .small-book .headline-imprint { font-size: 6.5px; line-height: 1.5; letter-spacing: 1.5px; margin-bottom: 6px !important; }
 .small-book .headline-title { font-size: 36px; letter-spacing: -2px; margin-bottom: 2px !important; }

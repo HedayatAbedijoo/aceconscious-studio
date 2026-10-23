@@ -24,8 +24,6 @@ SAMPLE = json.loads((ROOT / "content/book/sample-en.json").read_text())
 # Section order and bookmarks, after the front cover.
 SECTIONS = ("headline", "reviews", "story", "buy", "author",
             "contact", "community", "sample", "appendix", "ace", "back-cover")
-NUMERALS = {"reviews": "I", "story": "II", "buy": "III", "author": "IV", "contact": "V",
-            "community": "VI", "sample": "VII", "appendix": "VIII", "ace": "IX"}
 
 # Links that lead to a page of this book turn pages instead of loading a page.
 JUMP_TARGETS = {
@@ -40,7 +38,7 @@ BLOCK_TAGS = {"p", "h2", "h3", "h4", "ul", "ol", "blockquote", "figure", "table"
 CONTAINERS = {"div", "section", "article", "aside", "details", "header", "footer", "li", "figcaption"}
 KEEP_ATTRS = {"href", "src", "alt", "width", "height", "dir", "lang", "cite", "datetime",
               "class", "target", "rel", "loading", "data-jump", "colspan", "aria-hidden"}
-KEEP_CLASSES = {"lede", "aside", "quiet", "dropcap", "chapter-kicker", "chapter-number",
+KEEP_CLASSES = {"lede", "aside", "quiet", "dropcap", "chapter-kicker",
                 "pullquote", "review-brand", "review-link", "ornament", "poem", "author-image",
                 "author-signature", "small-rule", "text-link", "ink-button", "score-row",
                 "rating", "quote-mark", "contents-row", "section-index", "ace-letters",
@@ -180,10 +178,8 @@ def definition_rows(list_node):
     return rows
 
 
-def opener(section, heading, kicker=""):
+def opener(heading, kicker=""):
     parts = []
-    if NUMERALS.get(section):
-        parts.append(f'<p class="chapter-number">{NUMERALS[section]}</p>')
     if kicker:
         parts.append(f'<p class="chapter-kicker">{escape(kicker)}</p>')
     parts.append(f"<h2>{escape(heading)}</h2>")
@@ -379,7 +375,7 @@ def author_pages(home, strings):
     for href, label, mark in [
         (instagram["href"], text(instagram), INSTAGRAM_MARK),
         ("https://www.linkedin.com/in/abedijoo/", "LinkedIn", LINKEDIN_MARK),
-        ("https://x.com/aceawait", "X", X_MARK),
+        ("https://x.com/ACEawait", "@ACEawait", X_MARK),
     ]:
         social += (f'<a href="{escape(href)}" target="_blank" rel="noopener noreferrer">'
                    f'<span class="author-social__icon" aria-hidden="true">{mark}</span>'
@@ -394,16 +390,13 @@ def contact_pages(strings):
     circle = STRINGS["contact"]
     join = (
         '<form class="paper-form" id="community-form" method="post" novalidate '
-        'aria-labelledby="community-form-heading" data-live '
+        f'aria-label="{escape(circle["circleHeading"])}" data-live '
         f'data-sending="{escape(circle["circleSending"])}" '
         f'data-success="{escape(circle["circleSuccess"])}" '
         f'data-error="{escape(circle["circleError"])}" '
         f'data-unavailable="{escape(circle["circleUnavailable"])}" '
         f'data-invalid-email="{escape(strings["contact.invalidEmail"])}" '
         f'data-request-message="{escape(circle["circleRequestMessage"])}">'
-        f'<p class="chapter-kicker">{escape(circle["circleEyebrow"])}</p>'
-        f'<p class="lede" id="community-form-heading">{escape(circle["circleFormHeading"])}</p>'
-        f'<p class="aside">{escape(circle["circleFormDescription"])}</p>'
         '<input class="community-honeypot" type="text" name="website" autocomplete="off" '
         'tabindex="-1" aria-hidden="true">'
         '<fieldset class="community-fields" disabled>'
@@ -428,7 +421,7 @@ def contact_pages(strings):
         f'<button class="ink-button" type="submit">{escape(strings["contact.submit"])}</button>'
         '<p class="form-status" id="contact-status" role="status" aria-live="polite" hidden></p>'
         '</form>')
-    first = opener("community", circle["circleHeading"]) + [
+    first = opener(circle["circleHeading"]) + [
         f'<p class="lede">{escape(circle["circleTagline"])}</p>',
         f'<p>{escape(circle["circleDescription"])}</p>',
         join,
@@ -546,7 +539,7 @@ def links_pages(home, strings):
         name = text(article.select_one(".media-review__name, .review__score-source"))
         domain = text(article.select_one(".media-review__domain")) or urlsplit(link["href"]).netloc
         press.append(link_row(link["href"], name, domain, QUILL_MARK))
-    body = opener("links", STRINGS["links"]["heading"]) + [
+    body = opener(STRINGS["links"]["heading"]) + [
         f'<ul class="link-list">{"".join(rows)}</ul>',
         f'<p class="chapter-kicker">{escape(STRINGS["links"]["press"])}</p>',
         f'<ul class="link-list">{"".join(press)}</ul>']
@@ -601,7 +594,7 @@ def appendix_pages(pages_html, home, strings):
 def ace_pages(ace, strings):
     """The whole ACE page, in its own order, at the end of the book."""
     introduction = ace.select_one(".ace-introduction")
-    body = opener("ace", "ACE", text(ace.select_one(".ace-hero__kicker")))
+    body = opener("ACE", text(ace.select_one(".ace-hero__kicker")))
     body.append('<div class="ace-letters" dir="ltr">'
                 "<div><strong>A</strong><span>Agency</span></div>"
                 "<div><strong>C</strong><span>Connection</span></div>"
