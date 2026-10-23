@@ -163,6 +163,10 @@ a:hover {
 }
 
 /* A closed book seen from behind: the binding and fore edge swap sides. */
+.book-stage.is-back-cover {
+  transform: translateX(16px);
+}
+
 .is-back-cover .page-edges {
   inset: 3px 3px -5px -8px;
   border-radius: 4px 0 0 5px;
@@ -934,6 +938,75 @@ a:hover {
   margin-top: 22px !important;
 }
 
+/* Reference pages use a compact hierarchy, distinct from chapter openings. */
+.page.appendix-page .page-body {
+  font-size: clamp(15px, var(--body-size), 18px);
+  line-height: 1.5;
+}
+
+.page.appendix-page .page-body h2 {
+  font-size: 1.3em;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.2px;
+  margin: 0.9em 0 0.4em;
+}
+
+.page.appendix-page .page-body h2.appendix-title {
+  font-size: clamp(26px, calc(var(--book-w) * 0.07), 34px);
+  font-weight: 500;
+  line-height: 1.12;
+  letter-spacing: -0.5px;
+  margin: 0 0 0.65em;
+}
+
+.page.appendix-page .page-body h3,
+.page.appendix-page .page-body h4 {
+  font-family: "EB Garamond", Georgia, serif;
+  font-size: 1.06em;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: 0;
+  margin: 0.8em 0 0.35em;
+}
+
+.page.appendix-page .page-body p,
+.page.appendix-page .page-body ul,
+.page.appendix-page .page-body ol {
+  margin-bottom: 0.8em;
+}
+
+.page.appendix-page .page-body .legal-page__updated {
+  font-size: 0.85em;
+  color: var(--muted);
+}
+
+.page.appendix-page .chapter-kicker,
+.page.appendix-page .continued {
+  margin-bottom: 12px !important;
+}
+
+.page.appendix-page .page-body .lede {
+  font-size: 1em;
+}
+
+.page.appendix-page .page-body .contents-row {
+  margin-bottom: 0.3em;
+}
+
+.page.appendix-page .page-body .score-row {
+  gap: 16px;
+}
+
+.page.appendix-page .page-body :is(h2, h3, h4):first-child,
+.page.appendix-page .continued + :is(h2, h3, h4) {
+  margin-top: 0;
+}
+
+.page.appendix-page .page-body p:last-child {
+  margin-bottom: 0;
+}
+
 /* ------------------------------------------------------------------ the ACE */
 
 .ace-letters {
@@ -1511,6 +1584,7 @@ a:hover {
 /* --------------------------------------------------------------- bookmarks */
 
 .bookmarks {
+  --tab-direction: 1;
   position: absolute;
   top: 45px;
   bottom: 64px;
@@ -1540,15 +1614,15 @@ a:hover {
   letter-spacing: 0.3px;
   box-shadow: 2px 3px 3px #0003;
   transform-origin: left center;
-  transform: rotate(var(--tilt, 0deg));
+  transform: rotate(calc(var(--tilt, 0deg) * var(--tab-direction)));
   transition: transform 0.25s ease, filter 0.25s ease, opacity 0.25s ease, box-shadow 0.25s ease;
   text-align: center;
 }
 
 .bookmark:nth-child(2) { --tab: #c28f72; --tilt: 1.5deg; }
 .bookmark:nth-child(3) { --tab: #9aa693; --tilt: -1deg; }
-.bookmark:nth-child(4) { --tab: #bac0ad; --tilt: 0.6deg; }
-.bookmark:nth-child(5) { --tab: #c5b684; --tilt: -0.7deg; }
+.bookmark[data-section="buy"] { --tab: #bac0ad; --tilt: 0.6deg; }
+.bookmark[data-section="author"] { --tab: #c5b684; --tilt: -0.7deg; }
 .bookmark:nth-child(6) { --tab: #c2ada1; --tilt: 1deg; }
 .bookmark:nth-child(7) { --tab: #9eaeb1; --tilt: -1.2deg; }
 .bookmark:nth-child(8) { --tab: #bda46e; --tilt: 0.8deg; }
@@ -1575,20 +1649,20 @@ a:hover {
 
 .bookmarks[data-active-section]:not([data-active-section="cover"]) .bookmark[aria-current="false"] {
   opacity: 0.76;
-  transform: scale(0.93) rotate(var(--tilt, 0deg));
+  transform: scale(0.93) rotate(calc(var(--tilt, 0deg) * var(--tab-direction)));
   filter: saturate(0.6);
 }
 
 .bookmarks[data-active-section] .bookmark[aria-current="false"]:hover,
 .bookmarks[data-active-section] .bookmark[aria-current="false"]:focus-visible {
   opacity: 0.94;
-  transform: translateX(3px) scale(0.97) rotate(var(--tilt, 0deg));
+  transform: translateX(calc(3px * var(--tab-direction))) scale(0.97) rotate(calc(var(--tilt, 0deg) * var(--tab-direction)));
   filter: saturate(0.85);
 }
 
 .bookmark[aria-current="true"] {
   opacity: 1;
-  transform: translateX(7px) scale(1.04);
+  transform: translateX(calc(7px * var(--tab-direction))) scale(1.04);
   filter: brightness(1.12);
   font-weight: 600;
   box-shadow: 3px 4px 7px #0005, inset 0 1px #fff5;
@@ -1609,6 +1683,34 @@ a:hover {
   transform: translateX(-55px);
   opacity: 0;
   pointer-events: none;
+}
+
+/* Back-cover tabs attach to the left fore edge; their text stays upright. */
+.is-back-cover .bookmarks {
+  --tab-direction: -1;
+  right: auto;
+  left: calc(-1 * var(--tab-width) + 8px);
+}
+
+.is-back-cover .bookmark {
+  border-radius: 4px 0 0 4px;
+  padding-inline: 5px 11px;
+  background: linear-gradient(270deg, #0002, transparent 25%), var(--tab);
+  box-shadow: -2px 3px 3px #0003;
+  transform-origin: right center;
+}
+
+.is-back-cover .bookmark[data-section="back-cover"] {
+  padding-inline: 4px 9px;
+}
+
+.is-back-cover .bookmark[aria-current="true"] {
+  box-shadow: -3px 4px 7px #0005, inset 0 1px #fff5;
+}
+
+.is-back-cover .bookmark[aria-current="true"]::after {
+  right: auto;
+  left: 5px;
 }
 
 /* ---------------------------------------------------------------- controls */
@@ -1864,6 +1966,10 @@ html:not(.js) .sample-zoom {
     transform: translateX(-24px);
   }
 
+  .book-stage.is-back-cover {
+    transform: translateX(24px);
+  }
+
   .book-stage.is-closed {
     transform: translate(-3px, -18px) rotate(-1deg);
   }
@@ -1886,11 +1992,20 @@ html:not(.js) .sample-zoom {
   }
 
   .bookmark[aria-current="true"] {
-    transform: translateX(5px) scale(1.04);
+    transform: translateX(calc(5px * var(--tab-direction))) scale(1.04);
   }
 
   .bookmark[aria-current="true"]::after {
     right: 3px;
+  }
+
+  .is-back-cover .bookmark,
+  .is-back-cover .bookmark[data-section="community"] {
+    padding-inline: 4px 9px;
+  }
+
+  .is-back-cover .bookmark[aria-current="true"]::after {
+    left: 3px;
   }
 
   .running-head {

@@ -22,7 +22,7 @@ book pages. Nothing is retyped there, so editing a shared template or `en.json`
 still updates the book. `build_locales.template_for()` is the only switch: every
 other language keeps `home.html` and its existing design, routes and text.
 
-Page order after the cover: Headline, Reviews (Kirkus first), Story, Buy, Author,
+Page order after the cover: Headline, Reviews (Kirkus first), Story, Author, Buy,
 Contact, Community, Sample, Appendix, ACE, then the back cover. The eleven bookmarks match
 that order. The back cover reuses the shared home-page footer and places the binding
 on the right, with the page edges on the left. The English edition has no Voices section, so English pages link to

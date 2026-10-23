@@ -5,8 +5,8 @@
     "headline": "Headline",
     "reviews": "Reviews",
     "story": "Story",
-    "buy": "Buy",
     "author": "Author",
+    "buy": "Buy",
     "contact": "Contact",
     "community": "Community",
     "sample": "Sample",
@@ -74,9 +74,8 @@
   },
 
   "appendix": {
-    "heading": "Appendices",
-    "lead": "The reference pages of this edition. Each one opens inside the book.",
-    "back": "← Back to the appendices",
+    "heading": "Appendix",
+    "back": "← Back to the appendix",
     "items": {
       "privacy": "Privacy",
       "impressum": "Impressum",

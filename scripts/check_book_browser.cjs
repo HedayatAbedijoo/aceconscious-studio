@@ -158,6 +158,31 @@ const base = 'http://127.0.0.1:8765';
       }
     }
     assert.equal(await formPage.evaluate(() => window.mockRequests), 4);
+    // Compact reference typography must preserve every word through reflow,
+    // and leave each heading with the beginning of its following paragraph.
+    const appendix = await formPage.evaluate(html => {
+      const source = new DOMParser().parseFromString(html, 'text/html');
+      return Array.from(source.querySelectorAll('#book-source [data-section="appendix"]'), item => {
+        const sheets = Array.from(document.querySelectorAll('#book .appendix-page'))
+          .filter(sheet => sheet.getAttribute('aria-label') === item.dataset.title);
+        const bodies = sheets.map(sheet => sheet.querySelector('.page-body').cloneNode(true));
+        bodies.forEach(body => body.querySelectorAll('.continued').forEach(mark => mark.remove()));
+        const normalize = text => text.replace(/\s/g, '');
+        return {
+          id: item.id,
+          preserved: normalize(bodies.map(body => body.textContent).join('')) === normalize(item.textContent),
+          orphan: bodies.some(body => /^H[234]$/.test(body.lastElementChild?.tagName || '')),
+        };
+      });
+    }, fs.readFileSync(path.join(root, 'index.html'), 'utf8'));
+    assert.equal(appendix.length, 6);
+    // A break at a page boundary may disappear; reflow must never add breaks.
+    assert.ok(await formPage.locator('#book .appendix-page[aria-label="Impressum"] br').count() <= 7,
+      'Impressum must not acquire extra blank lines from invalid closing br tags');
+    for (const item of appendix) {
+      assert.ok(item.preserved, `${item.id} lost text at ${width}×${height}`);
+      assert.ok(!item.orphan, `${item.id} orphaned a heading at ${width}×${height}`);
+    }
     await forms.close();
   }
   console.log('PASS: mocked success/error responses stay visible at all four viewport sizes.');

@@ -22,7 +22,7 @@ EDITIONS = json.loads((ROOT / "content/book/editions.json").read_text())
 SAMPLE = json.loads((ROOT / "content/book/sample-en.json").read_text())
 
 # Section order and bookmarks, after the front cover.
-SECTIONS = ("headline", "reviews", "story", "buy", "author",
+SECTIONS = ("headline", "reviews", "story", "author", "buy",
             "contact", "community", "sample", "appendix", "ace", "back-cover")
 
 # Links that lead to a page of this book turn pages instead of loading a page.
@@ -39,6 +39,7 @@ CONTAINERS = {"div", "section", "article", "aside", "details", "header", "footer
 KEEP_ATTRS = {"href", "src", "alt", "width", "height", "dir", "lang", "cite", "datetime",
               "class", "target", "rel", "loading", "data-jump", "colspan", "aria-hidden"}
 KEEP_CLASSES = {"lede", "aside", "quiet", "dropcap", "chapter-kicker",
+                "legal-page__updated",
                 "pullquote", "review-brand", "review-link", "ornament", "poem", "author-image",
                 "author-signature", "small-rule", "text-link", "ink-button", "score-row",
                 "rating", "quote-mark", "contents-row", "section-index", "ace-letters",
@@ -565,7 +566,7 @@ def appendix_pages(pages_html, home, strings):
 
     screen = pages_html["screen"].select_one("#why-screen")
     entries.append(("screen", labels["screen"], labels["screen"],
-                    [f'<h3>{escape(text(screen.select_one("h2")))}</h3>',
+                    [f'<p class="lede">{escape(text(screen.select_one("h2")))}</p>',
                      *blocks(screen, skip=("h2",))]))
 
     contents = home.select_one("#contents .container")
@@ -578,16 +579,15 @@ def appendix_pages(pages_html, home, strings):
         f'<button type="button" data-jump="{identifier}"><span>{escape(label)}</span></button>'
         for identifier, label, heading, body in entries)
     result = [page("appendix", "appendix", STRINGS["appendix"]["heading"],
-                   [f'<h2>{escape(STRINGS["appendix"]["heading"])}</h2>',
-                       f'<p class="aside">{escape(STRINGS["appendix"]["lead"])}</p>',
-                       f'<div class="section-index">{index_links}</div>'])]
+                   [f'<h2 class="appendix-title">{escape(STRINGS["appendix"]["heading"])}</h2>',
+                       f'<div class="section-index">{index_links}</div>'], "appendix-page")]
     for identifier, label, heading, body in entries:
         result.append(page(identifier, "appendix", label, [
             f'<p class="chapter-kicker">{escape(STRINGS["appendix"]["heading"])}</p>',
-            f"<h2>{escape(heading)}</h2>", *body,
+            f'<h2 class="appendix-title">{escape(heading)}</h2>', *body,
             f'<p class="back-to-index"><button type="button" data-jump="appendix">'
             f'{escape(STRINGS["appendix"]["back"])}</button></p>'],
-            classes="screen-page" if identifier == "screen" else ""))
+            classes="appendix-page screen-page" if identifier == "screen" else "appendix-page"))
     return result
 
 
@@ -629,7 +629,7 @@ def compose(soup, render, source, strings):
     front, back = cover_pages(home, strings)
     buy, missing = buy_pages(strings)
     ordered = [front, headline_page(strings), *review_pages(home, strings),
-               *story_pages(home, strings), *buy, *author_pages(home, strings),
+               *story_pages(home, strings), *author_pages(home, strings), *buy,
                *contact_pages(strings), *sample_pages(),
                *appendix_pages(rendered, home, strings), *ace_pages(ace, strings), back]
 
@@ -658,7 +658,14 @@ def compose(soup, render, source, strings):
 
     container = soup.select_one("#book-source")
     container.clear()
-    for node in list(parse("".join(html)).contents):
+    book_markup = parse("".join(html))
+    # Parse references independently of earlier embedded artwork. Otherwise
+    # foreign-content parser state can nest <br> tags and emit extra </br>
+    # breaks after addresses when the browser reads the generated document.
+    for item, markup in zip(ordered, html):
+        if item["section"] == "appendix":
+            book_markup.find(id=item["id"]).replace_with(parse(markup).find(True))
+    for node in list(book_markup.contents):
         container.append(node)
 
     # The book shows no language picker, so the old ?lang= links redirect from

@@ -362,11 +362,37 @@
       sheets = 0;
       markerless = false;
       fit = 0;
-      for (const block of item.blocks) {
+      for (const [blockIndex, block] of item.blocks.entries()) {
         if (item.fixed) {
           probeBody.append(block.node);
           placed += 1;
           continue;
+        }
+        // Reference headings travel with the start of their text. Measure a
+        // short preview so long legal paragraphs can still flow across pages.
+        if (item.classes.includes("appendix-page") && placed
+          && /^H[234]$/.test(block.node.tagName)
+          && !block.node.classList.contains("appendix-title")) {
+          const preview = [];
+          let next = blockIndex;
+          while (next < item.blocks.length && /^H[234]$/.test(item.blocks[next].node.tagName)) {
+            preview.push(item.blocks[next++].node.cloneNode(true));
+          }
+          const following = item.blocks[next]?.node;
+          if (following) {
+            if (inlineOnly(following)) {
+              const words = paragraphWords(following);
+              preview.push(sliceParagraph(following, 0, Math.min(12, words.total)));
+            } else {
+              const first = following.cloneNode(false);
+              if (following.firstElementChild) first.append(following.firstElementChild.cloneNode(true));
+              preview.push(first);
+            }
+          }
+          probeBody.append(...preview);
+          const needsPage = overflows();
+          preview.forEach(node => node.remove());
+          if (needsPage) emit();
         }
         placeBlock(block.node, block.live || block.keepTogether);
       }
