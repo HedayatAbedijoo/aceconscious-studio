@@ -134,6 +134,10 @@ def render(page, lang, source, strings):
         section = parse((ROOT / "content/reviews.html").read_text()).select_one("#reviews")
         soup.select_one("#reviews").replace_with(section)
     apply_strings(soup, strings)
+    # Shared character reader uses each page's translated character content.
+    if page == "home":
+        soup.head.append(soup.new_tag("link", rel="stylesheet", href="/css/voices.css"))
+        soup.body.append(soup.new_tag("script", src="/js/voices.js", defer=True))
     for holder in soup.select("[data-language-menu]"):
         set_html(holder, menu(page, code))
     for holder in soup.select("[data-language-links]"):
@@ -193,7 +197,8 @@ def render(page, lang, source, strings):
     for el in soup.select("[lang='en'][data-i18n], [lang='en'][data-i18n-html]"):
         el["lang"] = lang["htmlLang"]
 
-    runtime_keys = [k for k in strings if k.startswith(("contact.", "reviews.", "hero.coverPeek"))]
+    runtime_keys = [k for k in strings if k.startswith(("contact.", "reviews.", "hero.coverPeek"))
+                    or (page == "home" and k.startswith("voices."))]
     data = soup.new_tag("script", id="locale-data", type="application/json")
     data.string = json.dumps({k: strings[k] for k in runtime_keys}, ensure_ascii=False).replace("<", "\\u003c")
     first_script = soup.body.find("script", src=True)

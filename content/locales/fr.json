@@ -787,5 +787,6 @@
   "name.sam": "Sam",
   "name.saman": "Saman",
   "name.adam": "Adam",
-  "name.author": "Hedayat Abedijoo"
+  "name.author": "Hedayat Abedijoo",
+  "voices.showFull": "Afficher le texte intégral"
 }

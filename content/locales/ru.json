@@ -787,5 +787,6 @@
   "name.ava": "Ава",
   "name.sam": "Сам",
   "name.saman": "Саман",
-  "name.adam": "Адам"
+  "name.adam": "Адам",
+  "voices.showFull": "Показать весь текст"
 }
