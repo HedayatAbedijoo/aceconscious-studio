@@ -6,10 +6,9 @@
     "story": "Histoire",
     "author": "Auteur",
     "buy": "Acheter",
+    "community": "Cadeau",
     "contact": "Contact",
-    "community": "Communauté",
     "sample": "Extrait",
-    "appendix": "Annexe",
     "ace": "ACE",
     "back-cover": "Quatrième de couverture"
   },
@@ -31,7 +30,7 @@
   "headline": {
     "studio": "Ace Conscious Studio",
     "placeAndYear": "Cologne · 2026",
-    "eyebrow": "Un roman de littérature spéculative",
+    "eyebrow": "Pour celles et ceux qui veulent faire des choix conscients",
     "tagline": "Un roman sur les décisions que nous prenons — et le monde dont héritent nos créations.",
     "logline": "Un programmeur immigré iranien est invité au jeu ACE, où les décisions conscientes deviennent une thérapie sociale — et où une révolution sans effusion de sang pourrait guérir l’humanité et ses créations."
   },
@@ -66,9 +65,10 @@
     }
   },
   "contact": {
+    "giftDescription": "Si vous souhaitez d’abord recevoir le livre en cadeau, puis donner votre avis après l’avoir lu ou l’acheter plus tard, contactez-moi via le formulaire de contact. Je vous enverrai un exemplaire gratuit.",
+    "giftContact": "Demander un exemplaire gratuit",
+    "circleFooter": "Rejoindre",
     "circleHeading": "Rejoignez la communauté",
-    "circleTagline": "L’histoire s’achève. La conversation continue.",
-    "circleDescription": "Rejoignez la communauté des lecteurs ACE pour recevoir occasionnellement des lettres, de nouvelles histoires et des nouvelles des rencontres et des prochaines étapes.",
     "circleEmailLabel": "Adresse e-mail",
     "circleEmailPlaceholder": "you@example.com",
     "circleSubmit": "Rejoindre le cercle de lecture",
@@ -89,7 +89,7 @@
   },
   "appendix": {
     "heading": "Annexe",
-    "back": "← Retour à l’annexe",
+    "back": "← Retour à la quatrième de couverture",
     "items": {
       "privacy": "Confidentialité",
       "impressum": "Mentions légales",

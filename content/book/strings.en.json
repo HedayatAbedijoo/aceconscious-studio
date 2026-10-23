@@ -7,10 +7,9 @@
     "story": "Story",
     "author": "Author",
     "buy": "Buy",
+    "community": "Gift",
     "contact": "Contact",
-    "community": "Community",
     "sample": "Sample",
-    "appendix": "Appendix",
     "ace": "ACE",
     "back-cover": "Back cover"
   },
@@ -34,7 +33,7 @@
   "headline": {
     "studio": "Ace Conscious Studio",
     "placeAndYear": "Cologne · 2026",
-    "eyebrow": "A literary speculative novel",
+    "eyebrow": "For those who want to make conscious choices",
     "tagline": "A novel about the decisions we make — and the world our creations inherit.",
     "logline": "An Iranian immigrant programmer is invited to the ACE game, where conscious decisions become social therapy—and a bloodless revolution could heal humanity and its creations."
   },
@@ -71,9 +70,10 @@
   },
 
   "contact": {
+    "giftDescription": "If you’d like to receive the book as a gift first, then write a review after reading it or buy a copy later, please contact me using the contact form. I’ll send you a free copy.",
+    "giftContact": "Request a gift copy",
+    "circleFooter": "Join",
     "circleHeading": "Join the Community",
-    "circleTagline": "The story ends. The conversation doesn’t.",
-    "circleDescription": "Join the ACE Reader Community for occasional letters, new stories, meetings and next steps.",
     "circleEmailLabel": "Email address",
     "circleEmailPlaceholder": "you@example.com",
     "circleSubmit": "Join the reader circle",
@@ -96,7 +96,7 @@
 
   "appendix": {
     "heading": "Appendix",
-    "back": "← Back to the appendix",
+    "back": "← Back to the back cover",
     "items": {
       "privacy": "Privacy",
       "impressum": "Impressum",

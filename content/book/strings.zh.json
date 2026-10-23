@@ -6,10 +6,9 @@
     "story": "故事",
     "author": "作者",
     "buy": "购买",
+    "community": "礼物",
     "contact": "联系",
-    "community": "社群",
     "sample": "试读",
-    "appendix": "附录",
     "ace": "ACE",
     "back-cover": "封底"
   },
@@ -31,7 +30,7 @@
   "headline": {
     "studio": "Ace Conscious Studio",
     "placeAndYear": "科隆 · 2026",
-    "eyebrow": "一部文学性思辨小说",
+    "eyebrow": "献给想要有意识地做出选择的人",
     "tagline": "一部关于我们所作的决定，以及我们的造物将继承怎样的世界的小说。",
     "logline": "一位伊朗移民程序员受邀参加 ACE 游戏。在这里，有意识的决定化为社会疗愈，而一场不流血的革命或许能治愈人类及其造物。"
   },
@@ -66,9 +65,10 @@
     }
   },
   "contact": {
+    "giftDescription": "如果您想先获赠这本书，读完后写下书评，或日后再购买，请通过联系表单与我联系。我会为您发送一份免费赠阅本。",
+    "giftContact": "申请赠阅本",
+    "circleFooter": "加入",
     "circleHeading": "加入读者社群",
-    "circleTagline": "故事落幕，对话继续。",
-    "circleDescription": "加入 ACE 读者社群，不定期接收来信、新故事、聚会信息及后续动态。",
     "circleEmailLabel": "电子邮箱",
     "circleEmailPlaceholder": "you@example.com",
     "circleSubmit": "加入读者圈",
@@ -89,7 +89,7 @@
   },
   "appendix": {
     "heading": "附录",
-    "back": "← 返回附录",
+    "back": "← 返回封底",
     "items": {
       "privacy": "隐私政策",
       "impressum": "法律声明",

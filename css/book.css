@@ -321,6 +321,9 @@ a:hover {
   text-transform: uppercase;
 }
 
+.back-cover__studio a { color: inherit; text-decoration: none; }
+.back-cover__studio a:hover { text-decoration: underline; }
+
 .back-cover__legal {
   margin: 0;
   font: 400 clamp(10px, calc(var(--book-w) * 0.024), 12px)/1.4 var(--book-serif);
@@ -342,7 +345,7 @@ a:hover {
 .back-cover__links a {
   display: inline-flex;
   align-items: center;
-  min-height: 24px;
+  min-height: 22px;
   color: #5c392a;
   text-decoration-color: #934d3955;
   text-underline-offset: 3px;
@@ -543,7 +546,7 @@ a:hover {
   color: #6f5944;
   margin: 0 !important;
   text-align: center;
-  white-space: nowrap;
+  white-space: normal;
 }
 
 .headline-title {
@@ -1164,6 +1167,36 @@ a:hover {
   min-width: 0;
 }
 
+/* The gift invitation and the existing reader form share one paper sheet. */
+.page.gift-page {
+  --locale-body: clamp(14px, calc(var(--book-w) * .038), 18px);
+  --locale-leading: 1.5;
+  --locale-heading: clamp(25px, calc(var(--book-w) * .075), 37px);
+}
+
+html .page.gift-page .page-body {
+  font-size: clamp(14px, calc(var(--book-w) * .038), 18px);
+  line-height: 1.5;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: #b6a589 transparent;
+  touch-action: pan-y pinch-zoom;
+}
+
+html .page.gift-page .page-body h2 { margin-bottom: .45em; }
+html .page.gift-page .gift-description { margin-bottom: .65em; }
+html .page.gift-page .gift-contact { margin-bottom: 1em; font-size: .88em; }
+html .page.gift-page .gift-contact .text-link { margin: 0; padding: 4px 0; font-size: inherit; }
+html[lang] .page.gift-page .page-body .gift-community-heading {
+  margin: 1.5em 0 .8em;
+  font-size: 1.35em;
+  line-height: 1.35;
+}
+
+html .page.gift-page .paper-form button { margin-top: 12px; }
+.gift-page .community-honeypot { left: 0; top: 0; pointer-events: none; }
+
 .paper-form label {
   display: block;
   font: 9px var(--book-ui);
@@ -1723,11 +1756,10 @@ html[dir="rtl"] .sample-page__head {
 .bookmark:nth-child(3) { --tab: #9aa693; --tilt: -1deg; }
 .bookmark[data-section="buy"] { --tab: #bac0ad; --tilt: 0.6deg; }
 .bookmark[data-section="author"] { --tab: #c5b684; --tilt: -0.7deg; }
-.bookmark:nth-child(6) { --tab: #c2ada1; --tilt: 1deg; }
-.bookmark:nth-child(7) { --tab: #9eaeb1; --tilt: -1.2deg; }
+.bookmark[data-section="contact"] { --tab: #c2ada1; --tilt: 1deg; }
+.bookmark[data-section="community"] { --tab: #9eaeb1; --tilt: -1.2deg; }
 .bookmark:nth-child(8) { --tab: #bda46e; --tilt: 0.8deg; }
-.bookmark:nth-child(9) { --tab: #ada28f; --tilt: -0.7deg; }
-.bookmark:nth-child(10) { --tab: #b6a2ad; --tilt: 1.1deg; }
+.bookmark[data-section="ace"] { --tab: #b6a2ad; --tilt: 1.1deg; }
 .bookmark[data-section="back-cover"] { --tab: #c9ba99; --tilt: -0.8deg; }
 
 .bookmark[data-section="back-cover"] {
@@ -2305,6 +2337,15 @@ html:not(.js) .sample-zoom {
 .small-book .back-cover__studio { font-size: 11px; letter-spacing: 1px; margin-bottom: 4px; }
 .small-book .back-cover__legal { font-size: 9px; }
 .small-book .back-cover__links { font-size: 10px; column-gap: 8px; margin-top: 6px; padding-top: 4px; }
+.small-book .back-cover__links a { min-height: 18px; }
+.small-book .back-cover__links {
+  max-height: calc(var(--book-h) * .25);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: #b6a589 transparent;
+  touch-action: pan-y pinch-zoom;
+}
 .small-book .running-head { top: 17px; padding-bottom: 8px; font-size: 6px; letter-spacing: 0.7px; }
 .small-book .running-head .book-name { font-size: 10px; }
 .small-book .page-body { top: 54px; bottom: 51px; line-height: 1.48; }

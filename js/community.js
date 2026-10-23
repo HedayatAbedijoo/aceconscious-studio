@@ -20,6 +20,7 @@
     status.textContent = message;
     status.hidden = !message;
     status.dataset.state = state;
+    if (message && form.closest(".gift-page")) status.scrollIntoView({ block: "nearest" });
   }
 
   emailField.addEventListener("input", () => {

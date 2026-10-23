@@ -4,12 +4,12 @@ import json
 from urllib.parse import urlsplit, unquote
 
 from build_locales import ROOT, SITE, LANGUAGES, PAGES, route, parse, template_for
-from book import SECTIONS
+from book import SECTIONS, BOOKMARKS, BACK_COVER_LINKS
 
 
 # Anchors that other pages, search results and shared links point at.
 BOOK_ANCHORS = ("headline", "reviews", "synopsis", "buy", "author", "contact", "sample",
-                "contents", "community", "appendix", "privacy", "impressum", "rights",
+                "contents", "community", "privacy", "impressum", "rights",
                 "screen", "ace")
 
 
@@ -36,7 +36,9 @@ def check_book(soup, path, code):
         assert a["href"] == route("home", target) + ("" if target in ("en", "fa") else "#headline"), path
     assert soup.select_one('[data-page="cover"]')["data-image"] == ("/assets/cover-fa.jpg" if code == "fa" else "/assets/cover.jpg"), path
     strings = json.loads(soup.select_one("#book-strings").string)
-    assert list(strings["sections"]) == list(SECTIONS), path
+    assert list(strings["sections"]) == list(BOOKMARKS), path
+    assert not soup.select('[data-page="appendix"]'), path
+    assert [a["data-jump"] for a in soup.select(".back-cover__links a")] == list(BACK_COVER_LINKS), path
     # Every bookmark needs pages, and the forms stay real forms.
     assert soup.select_one("#contact-form") and soup.select_one("#community-form"), path
     assert soup.select_one('[data-page="contact"] #contact-form'), path

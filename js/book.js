@@ -23,7 +23,7 @@
   const zoomControls = $("#sample-zoom");
   const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
   const normalFlipTime = 850;
-  const interactive = "a,button,input,textarea,select,form,label,.sample-zoom,.is-zoomed";
+  const interactive = "a,button,input,textarea,select,form,label,.sample-zoom,.is-zoomed,.gift-page .page-body,.back-cover__links";
 
   let logical = [];
   let pages = [];
@@ -86,6 +86,7 @@
     head.lastElementChild.textContent = item.title;
     const body = document.createElement("div");
     body.className = "page-body";
+    if (classes.includes("gift-page")) body.tabIndex = 0;
     el.append(head, body);
     return el;
   }
@@ -156,7 +157,9 @@
     const probeBody = $(".page-body", probe);
     // A few pixels of padding keep descenders off the foot of the page.
     probeBody.style.paddingBottom = "6px";
-    const overflows = () => probeBody.scrollHeight > probeBody.clientHeight + 1;
+    // Gift keeps its invitation and live form on one scrollable sheet.
+    const overflows = () => !probe.classList.contains("gift-page")
+      && probeBody.scrollHeight > probeBody.clientHeight + 1;
     const output = [];
 
     let item = null;
@@ -461,7 +464,7 @@
     return packed;
   }
 
-  const canonicalId = id => ({ "contact-write": "contact", links: "community" }[id] || id);
+  const canonicalId = id => ({ "contact-write": "contact", links: "back-cover", appendix: "back-cover" }[id] || id);
   const containsId = (page, id) => page.id === canonicalId(id) || page.reviewStarts?.includes(id);
 
 
@@ -667,8 +670,9 @@
     cancelAnimationFrame(navigationFrame);
     navigationFrame = 0;
     pendingPage = null;
-    if (pages[index].id === "back-cover") {
-      // Turn the whole book over immediately, even during an unfinished riffle.
+    if (pages[index].id === "back-cover"
+      || (pages[current].id === "back-cover" && pages[index].section === "appendix")) {
+      // The back cover and its reference links open directly, without riffling.
       stopSectionTurn();
       pageFlip.cancelUserTouch();
       pageFlip.turnToPage(index);
@@ -1088,7 +1092,7 @@
   tabs.innerHTML = "";
   const sections = [];
   for (const item of logical) {
-    if (item.section === "cover" || sections.includes(item.section)) continue;
+    if (!strings.sections[item.section] || sections.includes(item.section)) continue;
     sections.push(item.section);
     const button = document.createElement("button");
     button.className = "bookmark";

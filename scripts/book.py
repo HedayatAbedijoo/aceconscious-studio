@@ -21,9 +21,12 @@ LANGUAGE = "en"
 EDITIONS = json.loads((ROOT / "content/book/editions.json").read_text())
 SAMPLE = json.loads((ROOT / "content/book/sample-en.json").read_text())
 
-# Section order and bookmarks, after the front cover.
+# Page-group order after the front cover. Reference pages have no bookmark;
+# their links live on the back cover.
 SECTIONS = ("headline", "reviews", "story", "author", "buy",
-            "contact", "community", "sample", "appendix", "ace", "back-cover")
+            "community", "contact", "sample", "ace", "appendix", "back-cover")
+BOOKMARKS = tuple(section for section in SECTIONS if section != "appendix")
+BACK_COVER_LINKS = ("rights", "screen", "privacy", "impressum", "contents")
 
 # Links that lead to a page of this book turn pages instead of loading a page.
 JUMP_TARGETS = {
@@ -204,18 +207,14 @@ def cover_pages(home, strings):
     front = page("cover", "cover", "ACE.await", [], "cover",
                  image=EDITIONS["covers"].get(LANGUAGE, EDITIONS["covers"]["en"])["front"], alt=STRINGS["ui"]["coverAlt"])
     footer = home.select_one(".site-footer")
-    links = []
-    for original in footer.select(".site-footer__links a"):
-        if original.get("href") == "#top":
-            # The source stays usable without JavaScript, too.
-            link = (f'<a href="#cover" data-jump="cover">'
-                    f'{escape(text(original))}</a>')
-        else:
-            link = str(clone(original))
-        links.append(f"<li>{link}</li>")
+    links = [f'<li><a href="#{identifier}" data-jump="{identifier}">'
+             f'{escape(STRINGS["appendix"]["items"][identifier])}</a></li>'
+             for identifier in BACK_COVER_LINKS]
     back = page("back-cover", "back-cover", STRINGS["sections"]["back-cover"], [
         '<footer class="back-cover__imprint">'
-        f'<p class="back-cover__studio">{inner(footer.select_one(".site-footer__brand"))}</p>'
+        '<p class="back-cover__studio"><a href="https://aceconscious.studio/" '
+        'target="_blank" rel="noopener noreferrer">'
+        f'{inner(footer.select_one(".site-footer__brand"))}</a></p>'
         f'<p class="back-cover__legal">{inner(footer.select_one(".site-footer__legal"))}</p>'
         '<ul class="back-cover__links">' + "".join(links) + '</ul></footer>',
     ], "cover back-cover", image=EDITIONS["covers"].get(LANGUAGE, EDITIONS["covers"]["en"])["back"], alt=STRINGS["ui"]["backCoverAlt"])
@@ -410,9 +409,9 @@ def contact_pages(strings):
         '<input class="community-honeypot" type="text" name="website" autocomplete="off" '
         'tabindex="-1" aria-hidden="true">'
         '<fieldset class="community-fields" disabled>'
-        f'<label for="community-email">{escape(circle["circleEmailLabel"])}</label>'
         '<input id="community-email" name="email" type="email" autocomplete="email" '
         'inputmode="email" autocapitalize="none" spellcheck="false" maxlength="254" required '
+        f'aria-label="{escape(circle["circleEmailLabel"])}" '
         f'placeholder="{escape(circle["circleEmailPlaceholder"])}" dir="ltr">'
         f'<button class="ink-button" type="submit">{escape(circle["circleSubmit"])} ↗</button>'
         '</fieldset>'
@@ -423,17 +422,17 @@ def contact_pages(strings):
         '<input aria-hidden="true" autocomplete="off" class="contact-form__honeypot" '
         'name="website" tabindex="-1" type="text">'
         f'<label for="contact-email">{escape(strings["contact.emailLabel"])}</label>'
-        '<input autocomplete="email" id="contact-email" name="email" type="email" required '
-        f'placeholder="{escape(strings["contact.emailPlaceholder"])}" dir="ltr">'
+        '<input autocomplete="email" id="contact-email" name="email" type="email" required dir="ltr">'
         f'<label for="contact-message">{escape(strings["contact.messageLabel"])}</label>'
-        '<textarea id="contact-message" name="message" required rows="5" '
-        f'placeholder="{escape(strings["contact.messagePlaceholder"])}"></textarea>'
+        '<textarea id="contact-message" name="message" required rows="5"></textarea>'
         f'<button class="ink-button" type="submit">{escape(strings["contact.submit"])}</button>'
         '<p class="form-status" id="contact-status" role="status" aria-live="polite" hidden></p>'
         '</form>')
-    first = opener(circle["circleHeading"]) + [
-        f'<p class="lede">{escape(circle["circleTagline"])}</p>',
-        f'<p>{escape(circle["circleDescription"])}</p>',
+    first = opener(STRINGS["sections"]["community"]) + [
+        f'<p class="gift-description">{escape(circle["giftDescription"])}</p>',
+        '<p class="gift-contact"><a class="text-link" href="#contact" data-jump="contact">'
+        f'{escape(circle["giftContact"])}</a></p>',
+        f'<h3 class="gift-community-heading">{escape(circle["circleHeading"])}</h3>',
         join,
     ]
     second = [
@@ -444,8 +443,8 @@ def contact_pages(strings):
         '<a class="contact-email" href="mailto:ace.conscious.studio@gmail.com">'
         'ace.conscious.studio@gmail.com</a>',
     ]
-    return [page("contact", "contact", circle["writeHeading"], second),
-            page("community", "community", circle["circleHeading"], first)]
+    return [page("community", "community", STRINGS["sections"]["community"], first, "gift-page", fixed=True),
+            page("contact", "contact", circle["writeHeading"], second)]
 
 
 def sample_pages(sample=SAMPLE):
@@ -549,31 +548,8 @@ MAIL_MARK = ('<svg viewBox="0 0 24 24" role="img"><path d="M3 5h18a1 1 0 0 1 1 1
              ' 1-1-1V6a1 1 0 0 1 1-1zm1.6 2L12 12.3 19.4 7zM20 17V8.6l-7.4 5.3a1 1 0 0 1-1.2 0L4 8.6V17z"/></svg>')
 
 
-def links_pages(home, strings):
-    """Social, studio and press links, all of them already in the project."""
-    rows = [
-        link_row("https://www.instagram.com/ace.await/", STRINGS["links"]["instagram"],
-                 "@ace.await", INSTAGRAM_MARK),
-        link_row("https://aceconscious.studio/", STRINGS["links"]["website"],
-                 "aceconscious.studio", GLOBE_MARK),
-        link_row("mailto:ace.conscious.studio@gmail.com", STRINGS["links"]["email"],
-                 "ace.conscious.studio@gmail.com", MAIL_MARK),
-    ]
-    press = []
-    for article in home.select("[data-review-id]"):
-        link = article.select_one("a.review__link")
-        name = text(article.select_one(".media-review__name, .review__score-source"))
-        domain = text(article.select_one(".media-review__domain")) or urlsplit(link["href"]).netloc
-        press.append(link_row(link["href"], name, domain, QUILL_MARK))
-    body = opener(STRINGS["links"]["heading"]) + [
-        f'<ul class="link-list">{"".join(rows)}</ul>',
-        f'<p class="chapter-kicker">{escape(STRINGS["links"]["press"])}</p>',
-        f'<ul class="link-list">{"".join(press)}</ul>']
-    return [page("links", "links", STRINGS["links"]["heading"], body)]
-
-
 def appendix_pages(pages_html, home, strings):
-    """One index page, then the reference pages it turns to."""
+    """Reference pages reached from the back-cover footer."""
     labels = STRINGS["appendix"]["items"]
     entries = []
 
@@ -600,17 +576,12 @@ def appendix_pages(pages_html, home, strings):
     entries.append(("contents", labels["contents"], strings["toc.label"],
                     [f'<p class="lede">{escape(strings["toc.lead"])}</p>', *chapters]))
 
-    index_links = "".join(
-        f'<button type="button" data-jump="{identifier}"><span>{escape(label)}</span></button>'
-        for identifier, label, heading, body in entries)
-    result = [page("appendix", "appendix", STRINGS["appendix"]["heading"],
-                   [f'<h2 class="appendix-title">{escape(STRINGS["appendix"]["heading"])}</h2>',
-                       f'<div class="section-index">{index_links}</div>'], "appendix-page")]
+    result = []
     for identifier, label, heading, body in entries:
         result.append(page(identifier, "appendix", label, [
             f'<p class="chapter-kicker">{escape(STRINGS["appendix"]["heading"])}</p>',
             f'<h2 class="appendix-title">{escape(heading)}</h2>', *body,
-            f'<p class="back-to-index"><button type="button" data-jump="appendix">'
+            f'<p class="back-to-index"><button type="button" data-jump="back-cover">'
             f'{escape(STRINGS["appendix"]["back"])}</button></p>'],
             classes="appendix-page screen-page" if identifier == "screen" else "appendix-page"))
     return result
@@ -659,7 +630,7 @@ def compose(soup, render, source, strings):
     ordered = [front, headline_page(strings), *review_pages(home, strings),
                *story_pages(home, strings), *author_pages(home, strings), *buy,
                *contact_pages(strings), *localized_sample_pages(),
-               *appendix_pages(rendered, home, strings), *ace_pages(ace, strings), back]
+               *ace_pages(ace, strings), *appendix_pages(rendered, home, strings), back]
 
     html = []
     for item in ordered:

@@ -6,10 +6,9 @@
     "story": "Historia",
     "author": "Autor",
     "buy": "Comprar",
+    "community": "Regalo",
     "contact": "Contacto",
-    "community": "Comunidad",
     "sample": "Muestra",
-    "appendix": "Apéndice",
     "ace": "ACE",
     "back-cover": "Contraportada"
   },
@@ -31,7 +30,7 @@
   "headline": {
     "studio": "Ace Conscious Studio",
     "placeAndYear": "Colonia · 2026",
-    "eyebrow": "Una novela literaria de ficción especulativa",
+    "eyebrow": "Para quienes quieren tomar decisiones conscientes",
     "tagline": "Una novela sobre las decisiones que tomamos — y el mundo que heredan nuestras creaciones.",
     "logline": "Un programador inmigrante iraní es invitado al juego ACE, donde las decisiones conscientes se convierten en terapia social — y una revolución sin derramamiento de sangre podría sanar a la humanidad y a sus creaciones."
   },
@@ -66,9 +65,10 @@
     }
   },
   "contact": {
+    "giftDescription": "Si quieres recibir primero el libro como regalo y, después de leerlo, escribir una reseña o comprarlo más adelante, escríbeme a través del formulario de contacto. Te enviaré un ejemplar gratuito.",
+    "giftContact": "Pedir un ejemplar de regalo",
+    "circleFooter": "Unirse",
     "circleHeading": "Únete a la comunidad",
-    "circleTagline": "La historia termina. La conversación continúa.",
-    "circleDescription": "Únete a la comunidad de lectores de ACE para recibir de vez en cuando cartas, nuevas historias y noticias sobre encuentros y próximos pasos.",
     "circleEmailLabel": "Correo electrónico",
     "circleEmailPlaceholder": "you@example.com",
     "circleSubmit": "Unirme al círculo de lectores",
@@ -89,7 +89,7 @@
   },
   "appendix": {
     "heading": "Apéndice",
-    "back": "← Volver al apéndice",
+    "back": "← Volver a la contraportada",
     "items": {
       "privacy": "Privacidad",
       "impressum": "Aviso legal",

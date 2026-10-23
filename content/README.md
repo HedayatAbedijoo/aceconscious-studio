@@ -22,8 +22,11 @@ locale's shared home, ACE, rights, screen, privacy and imprint content. Shared
 catalog corrections therefore update both the book and standalone pages.
 
 Page order after the cover: Headline, Reviews (Kirkus first), Story, Author, Buy,
-Contact, Community, Sample, Appendix, ACE, then the back cover. Eleven bookmarks
-follow that order. Language selection exists only beside Open the book on the
+Gift, Contact, Sample, ACE, reference pages, then the back cover. Ten bookmarks
+follow that order, with no Appendix bookmark or index page. The back-cover footer
+links to Rights & Representation, Book to Screen, Privacy, Impressum and Contents
+of the novel directly, without riffling; these pages return to the back cover.
+Language selection exists only beside Open the book on the
 front cover. Closing with the ribbon or Escape returns there. The root always
 starts in English; browser language and saved preference do not redirect it.
 

@@ -177,7 +177,7 @@ const base = 'http://127.0.0.1:8765';
         };
       });
     }, fs.readFileSync(path.join(root, 'index.html'), 'utf8'));
-    assert.equal(appendix.length, 6);
+    assert.equal(appendix.length, 5);
     // A break at a page boundary may disappear; reflow must never add breaks.
     assert.ok(await formPage.locator('#book .appendix-page[aria-label="Impressum"] br').count() <= 7,
       'Impressum must not acquire extra blank lines from invalid closing br tags');

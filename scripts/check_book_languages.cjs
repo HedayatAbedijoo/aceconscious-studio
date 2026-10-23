@@ -51,7 +51,7 @@ fs.mkdirSync(out, { recursive: true });
    await page.keyboard.press(rtl ? 'ArrowRight' : 'ArrowLeft');
    await settled();
    await page.screenshot({path: `${out}/${lang.code}-${width}-headline.png`});
-   for (const section of ['headline','reviews','story','author','buy','contact','community','sample','appendix','ace','back-cover']) {
+   for (const section of ['headline','reviews','story','author','buy','community','contact','sample','ace','back-cover']) {
     await page.locator(`.bookmark[data-section="${section}"]`).click();
     await settled();
     if (section === 'reviews') {
