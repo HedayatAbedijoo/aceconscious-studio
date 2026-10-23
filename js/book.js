@@ -1,10 +1,10 @@
-/* ACE.await — the English edition reads as a book.
+/* ACE.await — each locale reads as a book.
  *
  * The page ships every section as ordinary HTML inside #book-source so the
  * content works without scripting and stays readable for crawlers. This script
  * reflows that markup into paper sheets, hands them to StPageFlip, and keeps
  * the real forms (contact, reader circle) alive by moving their nodes rather
- * than copying them. Only the English home page loads it.
+ * than copying them. Every localized home page loads it.
  */
 (function () {
   "use strict";
@@ -17,6 +17,9 @@
   if (!stage || !shell || !tabs || !source || typeof St === "undefined") return;
 
   const strings = JSON.parse($("#book-strings").textContent);
+  const rtl = document.documentElement.dir === "rtl";
+  const locale = document.documentElement.dataset.locale || "en";
+  const languageMenu = $("#book-language");
   const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
   const normalFlipTime = 850;
   const interactive = "a,button,input,textarea,select,form,label,.is-zoomed";
@@ -34,7 +37,7 @@
   let heldTurn = null;
   let suppressedClick = null;
 
-  const number = (value, pad = false) => (pad ? String(value).padStart(2, "0") : String(value));
+  const number = (value, pad = false) => new Intl.NumberFormat(locale, { useGrouping: false, minimumIntegerDigits: pad ? 2 : 1 }).format(value);
 
   /* ------------------------------------------------------------- the model */
 
@@ -105,13 +108,15 @@
         continue;
       }
       const text = walker.currentNode.nodeValue;
-      const words = text.match(/\S+/g) || [];
+      const characterMode = locale === "zh";
+      const words = characterMode ? Array.from(text) : (text.match(/\S+/g) || []);
       runs.push({
         node: walker.currentNode,
+        characterMode,
         words,
         start: total,
-        lead: /^\s/.test(text),
-        trail: /\s$/.test(text),
+        lead: !characterMode && /^\s/.test(text),
+        trail: !characterMode && /\s$/.test(text),
       });
       total += words.length;
     }
@@ -130,7 +135,7 @@
         return position >= from && position < to;
       });
       run.node.nodeValue = kept.length
-        ? (run.lead && run.start >= from ? " " : "") + kept.join(" ") + (run.trail ? " " : "")
+        ? (run.lead && run.start >= from ? " " : "") + kept.join(run.characterMode ? "" : " ") + (run.trail ? " " : "")
         : "";
     }
     for (const element of Array.from(clone.querySelectorAll("*"))) {
@@ -249,7 +254,11 @@
 
     const placeParagraph = (node) => {
       const info = paragraphWords(node);
-      if (info.total <= 8) return false;
+      // A few long translated words can already fill several quote lines.
+      // Keep that opening with its review title on a narrow sheet.
+      const minimumSlice = locale !== "en" && locale !== "zh"
+        && node.classList.contains("pullquote") ? 3 : 8;
+      if (info.total <= minimumSlice) return false;
       let from = 0;
       while (from < info.total) {
         let low = 1;
@@ -269,7 +278,7 @@
           }
         }
         if (!best && !placed) best = 1;             // never stall on an empty sheet
-        if (!best || (best < 8 && placed)) {
+        if (!best || (best < minimumSlice && placed)) {
           emit();
           continue;
         }
@@ -408,7 +417,7 @@
   // Measure the full pair, including their separator, at the current book size.
   // Never shrink text just to make two reviews share a page.
   function packReviews(sheets) {
-    const probe = pageElement({ title: "" }, "review-page shared-reviews measure");
+    const probe = pageElement({ title: "" }, "review-page short-review-page shared-reviews measure");
     const probeBody = $(".page-body", probe);
     probeBody.style.paddingBottom = "6px";
     document.body.append(probe);
@@ -431,7 +440,7 @@
 
       const previous = packed[packed.length - 1];
       const previousBody = previous?.section === "reviews" && $(".page-body", previous.el);
-      if (sheet.fixed && !sheet.continued && previousBody
+      if (sheet.fixed && previous?.fixed && !sheet.continued && previousBody
         && !body.classList.contains("is-fitted") && !previousBody.classList.contains("is-fitted")) {
         probeBody.replaceChildren(...Array.from(previousBody.children, node => node.cloneNode(true)),
           entry.cloneNode(true));
@@ -510,10 +519,16 @@
     const cover = index === 0;
     stage.classList.toggle("is-closed", cover);
     stage.classList.toggle("is-back-cover", page.id === "back-cover");
+    const focusFromCover = !cover && (document.activeElement === $("#open") || $("#cover-entry").contains(document.activeElement));
+    const focusFromClose = cover && document.activeElement === $("#close");
     $("#open").hidden = !cover;
+    $("#cover-entry").hidden = !cover || Boolean(sectionTurn);
+    if (!cover || sectionTurn) languageMenu.open = false;
     $("#controls").hidden = cover;
     $("#close").hidden = cover;
     tabs.inert = cover;
+    if (focusFromCover) $("#close").focus({ preventScroll: true });
+    if (focusFromClose) $("#open-label").focus({ preventScroll: true });
     $("#previous").disabled = Boolean(sectionTurn) || index === 0;
     $("#next").disabled = Boolean(sectionTurn) || index === pages.length - 1;
     $("#next").style.visibility = index === pages.length - 1 ? "hidden" : "";
@@ -664,7 +679,15 @@
     shell.innerHTML = '<div class="book" id="book"></div>';
     const book = $("#book");
     pages = paginate(logical);
-    pages.forEach(item => book.append(item.el));
+    pages.forEach(item => {
+      if (rtl) {
+        const face = document.createElement("div");
+        face.className = "page-face";
+        while (item.el.firstChild) face.append(item.el.firstChild);
+        item.el.append(face);
+      }
+      book.append(item.el);
+    });
     pageFlip = new St.PageFlip(book, {
       ...size,
       size: "fixed",
@@ -698,6 +721,15 @@
       }
     });
     pageFlip.loadFromHTML(pages.map(item => item.el));
+    // Mirror physical paper, then undo that mirror on each face. Map input
+    // into the engine's unchanged coordinate system (including its swipes).
+    if (rtl) {
+      const ui = pageFlip.getUI();
+      ui.getMousePos = (x, y) => {
+        const bounds = ui.getDistElement().getBoundingClientRect();
+        return { x: bounds.right - x, y: y - bounds.top };
+      };
+    }
     let index = 0;
     if (keep) {
       const first = pages.findIndex(item => containsId(item, keep.id));
@@ -842,10 +874,48 @@
     if (!touch || Math.hypot(touch.clientX - tap.x, touch.clientY - tap.y) > 10) return;
     if (event.cancelable) event.preventDefault();
     const bounds = shell.getBoundingClientRect();
-    go(current + ((touch.clientX - bounds.left) / bounds.width < 0.25 ? -1 : 1));
+    const fraction = (touch.clientX - bounds.left) / bounds.width;
+    go(current + ((rtl ? 1 - fraction : fraction) < 0.25 ? -1 : 1));
   }, { capture: true, passive: false });
 
   $("#open").addEventListener("click", () => go(1));
+  $("#open-label").addEventListener("click", () => go(1));
+  if (rtl) {
+    $("#previous").textContent = "→";
+    $("#next").firstChild.textContent = "←";
+  }
+  // Selecting a cover always starts at that cover; other editions reveal the
+  // translated headline immediately. Keep campaign parameters, never a stale page.
+  languageMenu.querySelectorAll("a").forEach(link => {
+    const target = new URL(link.href);
+    const params = new URLSearchParams(location.search);
+    params.delete("lang");
+    target.search = params.toString();
+    link.href = target.pathname + target.search + target.hash;
+  });
+  document.addEventListener("click", event => {
+    if (!languageMenu.contains(event.target)) languageMenu.open = false;
+  });
+  languageMenu.addEventListener("focusout", event => {
+    if (event.relatedTarget && !languageMenu.contains(event.relatedTarget)) languageMenu.open = false;
+  });
+  languageMenu.addEventListener("keydown", event => {
+    event.stopPropagation();
+    const links = [...languageMenu.querySelectorAll("a")];
+    const index = links.indexOf(document.activeElement);
+    if (event.key === "Escape") {
+      event.preventDefault();
+      languageMenu.open = false;
+      languageMenu.querySelector("summary").focus();
+    } else if (["ArrowUp", "ArrowDown", "Home", "End"].includes(event.key)) {
+      event.preventDefault();
+      languageMenu.open = true;
+      let next = event.key === "ArrowUp" ? (index < 0 ? links.length - 1 : (index - 1 + links.length) % links.length) : (index + 1) % links.length;
+      if (event.key === "Home") next = 0;
+      if (event.key === "End") next = links.length - 1;
+      links[next].focus();
+    }
+  });
   $("#close").addEventListener("click", () => go(0));
   bindPageControl($("#previous"), -1);
   bindPageControl($("#next"), 1);
@@ -856,8 +926,8 @@
     if (["ArrowRight", "ArrowLeft", "PageDown", "PageUp", "Home", "End", "Escape", " "].includes(event.key)) {
       event.preventDefault();
     }
-    if (["ArrowRight", "PageDown", " "].includes(event.key)) go(current + 1);
-    else if (["ArrowLeft", "PageUp"].includes(event.key)) go(current - 1);
+    if ([rtl ? "ArrowLeft" : "ArrowRight", "PageDown", " "].includes(event.key)) go(current + 1);
+    else if ([rtl ? "ArrowRight" : "ArrowLeft", "PageUp"].includes(event.key)) go(current - 1);
     else if (["Home", "Escape"].includes(event.key)) go(0);
     else if (event.key === "End") go(pages.length - 1);
   });
@@ -905,13 +975,20 @@
   }
 
   const faces = [
+    `400 1em ${getComputedStyle(document.body).fontFamily}`,
     "400 1em 'EB Garamond'", "italic 400 1em 'EB Garamond'", "500 1em 'EB Garamond'",
     "600 1em 'EB Garamond'", "400 1em 'Cormorant Garamond'", "500 1em 'Cormorant Garamond'",
     "600 1em 'Cormorant Garamond'", "italic 400 1em 'Cormorant Garamond'",
     "400 1em 'Literata'", "700 1em 'Literata'", "italic 400 1em 'Literata'",
     "400 1em 'JetBrains Mono'",
   ];
-  Promise.all(faces.map(face => document.fonts.load(face).catch(() => null)))
+  // Load the actual script and heading weights before measuring pages. A font
+  // request with the default space only loads Latin subsets of Unicode fonts.
+  const localeFamily = getComputedStyle(document.body).fontFamily;
+  const localeText = [...new Set(logical.flatMap(item => item.blocks.map(block => block.node.textContent)).join(""))].join("");
+  const localeFaces = locale === "en" ? [] : [400, 500, 600].map(weight =>
+    document.fonts.load(`${weight} 1em ${localeFamily}`, localeText).catch(() => null));
+  Promise.all([...faces.map(face => document.fonts.load(face).catch(() => null)), ...localeFaces])
     .then(() => document.fonts.ready)
     .then(() => {
       // A shared link opens the book straight at its page.

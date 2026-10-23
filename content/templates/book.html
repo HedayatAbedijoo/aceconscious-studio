@@ -199,10 +199,17 @@
 </div>
 <div class="book-controls" hidden="" id="controls">
 <button aria-label="Previous page" class="previous" id="previous" title="Previous page" type="button">←</button>
-<span class="folio" id="folio"></span>
+<span class="folio" dir="ltr" id="folio"></span>
 <button aria-label="Next page" class="next" id="next" title="Next page" type="button">→<span aria-hidden="true" class="curl"></span></button>
 </div>
-<button aria-label="Open the book" class="cover-open" id="open" type="button"><span class="cover-invitation"><span>Open the book</span><span aria-hidden="true">↗</span></span></button>
+<button aria-label="Open the book" class="cover-open" id="open" type="button"></button>
+<div class="cover-entry" id="cover-entry">
+<button class="cover-invitation" id="open-label" type="button"><span>Open the book</span><span aria-hidden="true">↗</span></button>
+<details class="book-language" id="book-language" dir="ltr">
+<summary aria-label="language"><span id="book-language-name">English</span><span class="language-chevron" aria-hidden="true">⌃</span></summary>
+<ul id="book-language-list" aria-label="language"></ul>
+</details>
+</div>
 <button aria-label="Close the book" class="ribbon" hidden="" id="close" title="Close the book" type="button"><span aria-hidden="true">A</span></button>
 </div>
 <span aria-live="polite" class="sr-only" id="announcement" role="status"></span>

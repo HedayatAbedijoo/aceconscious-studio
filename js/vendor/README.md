@@ -12,3 +12,10 @@
 
 Preserve or recheck these fixes when replacing the vendor build. The browser
 regressions in `scripts/check_book_browser.cjs` exercise both behaviors.
+
+The locale adapter in `js/book.js` mirrors the physical RTL book shell and
+counter-mirrors each `.page-face` so text and artwork stay upright. After each
+load/rebuild it adapts `getUI().getMousePos()` using `getDistElement()` bounds.
+This keeps the engine's fold and swipe calculations in its original coordinate
+system. Preserve these API hooks when updating the vendor; verify RTL taps,
+swipes and held corner drags with `scripts/check_book_languages.cjs`.

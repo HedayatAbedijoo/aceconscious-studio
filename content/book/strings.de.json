@@ -1,0 +1,100 @@
+{
+  "_": "de translation of strings.en.json. Shared page wording comes from content/locales/de.json.",
+  "sections": {
+    "headline": "Auftakt",
+    "reviews": "Rezensionen",
+    "story": "Geschichte",
+    "author": "Autor",
+    "buy": "Kaufen",
+    "contact": "Kontakt",
+    "community": "Gemeinschaft",
+    "sample": "Leseprobe",
+    "appendix": "Anhang",
+    "ace": "ACE",
+    "back-cover": "Rückseite"
+  },
+  "ui": {
+    "continued": "Fortsetzung",
+    "page": "Seite",
+    "of": "von",
+    "openBook": "Buch öffnen",
+    "closeBook": "Buch schließen",
+    "previousPage": "Vorherige Seite",
+    "nextPage": "Nächste Seite",
+    "zoomIn": "Diese Buchseite vergrößern",
+    "zoomOut": "Buchseite einpassen",
+    "bookSections": "Abschnitte des Buches",
+    "coverAlt": "Vorderseite von ACE.await",
+    "backCoverAlt": "Rückseite von ACE.await"
+  },
+  "headline": {
+    "studio": "Ace Conscious Studio",
+    "placeAndYear": "Köln · 2026",
+    "eyebrow": "Ein literarischer Roman der spekulativen Fiktion",
+    "tagline": "Ein Roman über die Entscheidungen, die wir treffen — und die Welt, die unsere Geschöpfe erben.",
+    "logline": "Ein iranischer Programmierer, der im Ausland lebt, wird zum ACE-Spiel eingeladen. Dort werden bewusste Entscheidungen zur Therapie für die Gesellschaft — und eine Revolution ohne Blutvergießen könnte die Menschheit und ihre Geschöpfe heilen."
+  },
+  "buy": {
+    "comingSoon": "Demnächst",
+    "marketplaceLabel": "Amazon-Marktplatz",
+    "marketplaceNote": "Die Länderauswahl ändert nur die Amazon-Links. Die Sprache dieses Buches bleibt unverändert.",
+    "unavailable": "Hier nicht verfügbar",
+    "formats": {
+      "kindle": "Amazon · Kindle-E-Book",
+      "paperback": "Amazon · Taschenbuch"
+    },
+    "editionNote": "Diese Shop-Links führen zur englischen Ausgabe des Romans.",
+    "markets": {
+      "us": "Vereinigte Staaten",
+      "uk": "Vereinigtes Königreich",
+      "de": "Deutschland",
+      "ca": "Kanada",
+      "au": "Australien",
+      "fr": "Frankreich",
+      "es": "Spanien",
+      "it": "Italien",
+      "nl": "Niederlande",
+      "pl": "Polen",
+      "se": "Schweden",
+      "be": "Belgien",
+      "ie": "Irland",
+      "jp": "Japan",
+      "in": "Indien",
+      "br": "Brasilien",
+      "mx": "Mexiko"
+    }
+  },
+  "contact": {
+    "circleHeading": "Werde Teil der Gemeinschaft",
+    "circleTagline": "Die Geschichte endet. Das Gespräch geht weiter.",
+    "circleDescription": "Werde Teil der ACE-Lesegemeinschaft und erhalte gelegentlich Briefe, neue Geschichten sowie Neuigkeiten zu Treffen und den nächsten Schritten.",
+    "circleEmailLabel": "E-Mail-Adresse",
+    "circleEmailPlaceholder": "you@example.com",
+    "circleSubmit": "Dem Leserkreis beitreten",
+    "circleSending": "Deine Anfrage wird gesendet…",
+    "circleSuccess": "Vielen Dank — deine Beitrittsanfrage wurde gesendet.",
+    "circleError": "Wir konnten deine Anfrage nicht bestätigen. Bitte versuche es erneut.",
+    "circleUnavailable": "Ein Beitritt ist derzeit nicht möglich. Bitte versuche es später erneut.",
+    "circleRequestMessage": "Bitte nehmt mich in die ACE-Lesegemeinschaft auf, damit ich gelegentlich Briefe, neue Geschichten sowie Neuigkeiten zu Treffen und den nächsten Schritten erhalte.",
+    "writeHeading": "Schreib an Hedayat",
+    "emailDirect": "Oder schreib direkt:"
+  },
+  "links": {
+    "heading": "Links",
+    "instagram": "Instagram",
+    "website": "Ace Conscious Studio",
+    "email": "E-Mail",
+    "press": "In der Presse"
+  },
+  "appendix": {
+    "heading": "Anhang",
+    "back": "← Zurück zum Anhang",
+    "items": {
+      "privacy": "Datenschutz",
+      "impressum": "Impressum",
+      "rights": "Rechte & Vertretung",
+      "screen": "Vom Buch zum Film",
+      "contents": "Inhaltsverzeichnis des Romans"
+    }
+  }
+}

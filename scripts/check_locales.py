@@ -13,7 +13,7 @@ BOOK_ANCHORS = ("headline", "reviews", "synopsis", "buy", "author", "contact", "
                 "screen", "ace")
 
 
-def check_book(soup, path):
+def check_book(soup, path, code):
     """The English edition is one book: ordered pages instead of a scrolling page."""
     pages = soup.select("#book-source [data-page]")
     assert pages, f"No book pages: {path}"
@@ -26,6 +26,15 @@ def check_book(soup, path):
         assert soup.find(id=anchor), f"Missing book anchor #{anchor}: {path}"
     assert not soup.select("#book-source iframe, #book-source script"), path
     assert not soup.select(".site-nav, .site-footer, #lang-menu"), f"Book has no site chrome: {path}"
+    chooser = soup.select_one("#cover-entry #book-language")
+    assert chooser and not soup.select("#book-source [data-set-lang]"), path
+    links = chooser.select("[data-set-lang]")
+    assert [a["data-set-lang"] for a in links] == [l["code"] for l in LANGUAGES], path
+    assert len(chooser.select('[aria-current="page"]')) == 1, path
+    for a in links:
+        target = a["data-set-lang"]
+        assert a["href"] == route("home", target) + ("" if target in ("en", "fa") else "#headline"), path
+    assert soup.select_one('[data-page="cover"]')["data-image"] == ("/assets/cover-fa.jpg" if code == "fa" else "/assets/cover.jpg"), path
     strings = json.loads(soup.select_one("#book-strings").string)
     assert list(strings["sections"]) == list(SECTIONS), path
     # Every bookmark needs pages, and the forms stay real forms.
@@ -35,10 +44,10 @@ def check_book(soup, path):
     assert soup.select_one("#amazon-marketplace option[selected]"), path
     # Conversion must retain legal introductions and every wide-table value.
     for name in ("privacy", "impressum"):
-        original = parse((ROOT / name / "index.html").read_text())
+        original = parse((ROOT / (route(name, code).lstrip("/") + "index.html")).read_text())
         intro = original.select_one(".legal-page__updated").get_text(" ", strip=True)
         assert intro in soup.select_one("#" + name).get_text(" ", strip=True), path
-    original = parse((ROOT / "ace/index.html").read_text())
+    original = parse((ROOT / (route("ace", code).lstrip("/") + "index.html")).read_text())
     exchange = soup.select_one("#ace-exchange").get_text(" ", strip=True)
     for cell in original.select("#exchange table tbody th, #exchange table tbody td"):
         assert cell.get_text(" ", strip=True) in exchange, f"Dropped comparison cell: {path}: {cell}"
@@ -68,7 +77,7 @@ def check():
             assert not soup.select("base"), f"Base URL breaks local anchors: {path}"
             count += 1
             if book:
-                check_book(soup, path)
+                check_book(soup, path, code)
                 continue
             assert soup.select_one("#lang-menu summary").get_text() == "language", path
             items = soup.select("#lang-menu [data-set-lang]")

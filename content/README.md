@@ -4,7 +4,9 @@ The site has nine languages, in this order: English, Deutsch, Français, Españo
 中文 (Simplified Chinese), हिन्दी, العربية (Modern Standard Arabic), فارسی.
 `languages.json` is the ordered registry. The dropdown title is always lowercase
 `language`. `/` always opens English; no browser language or saved preference
-redirects it. Language links retain the current page, query parameters and section.
+redirects it. Language links on standalone pages retain page, query and section. On a book cover,
+language links preserve the query but reset the reading position: English and
+Persian stay on the cover; other selections open at the translated headline.
 
 All 54 public pages come from shared templates in `content/templates/`:
 `home`, `ace`, `rights`, `screen`, `privacy`, and `impressum`. Layout/section changes
@@ -12,28 +14,41 @@ belong in those templates and apply to every language in a single build. Do not
 edit generated public HTML directly. Shared styles and scripts also apply to all
 languages; the generator updates their cache hashes everywhere.
 
-## The English book edition
+## The multilingual book edition
 
-English `/` is a different presentation of the same content: one book that opens
-at the cover and is read by turning pages. It is built from `content/templates/book.html`
-by `scripts/book.py`, which reads the rendered English `home`, `ace`, `rights`,
-`screen`, `privacy` and `impressum` pages and lays their content out as ordered
-book pages. Nothing is retyped there, so editing a shared template or `en.json`
-still updates the book. `build_locales.template_for()` is the only switch: every
-other language keeps `home.html` and its existing design, routes and text.
+Every localized home URL is a book that opens at its cover and is read by turning
+pages. `content/templates/book.html` and `scripts/book.py` use the matching
+locale's shared home, ACE, rights, screen, privacy and imprint content. Shared
+catalog corrections therefore update both the book and standalone pages.
 
 Page order after the cover: Headline, Reviews (Kirkus first), Story, Author, Buy,
-Contact, Community, Sample, Appendix, ACE, then the back cover. The eleven bookmarks match
-that order. The back cover reuses the shared home-page footer and places the binding
-on the right, with the page edges on the left. The English edition has no Voices section, so English pages link to
-`/#voices` no longer; the other languages keep theirs. There is no language picker
-inside the book; `hreflang` and the other languages' own URLs are unchanged.
+Contact, Community, Sample, Appendix, ACE, then the back cover. Eleven bookmarks
+follow that order. Language selection exists only beside Open the book on the
+front cover. Closing with the ribbon or Escape returns there. The root always
+starts in English; browser language and saved preference do not redirect it.
+
+`content/book/editions.json` maps available front/back covers. Persian uses its
+own artwork; all other locales currently use the English art. Languages without
+their own cover open at `#headline` when selected, making the translated content
+visible immediately. All ordinary locale URLs still start at the cover.
+
+Arabic and Persian use RTL typography, mirrored physical paper, tabs, controls,
+keyboard arrows and touch coordinates. Artwork and text stay upright. Other
+registered languages read LTR. Vazirmatn is bundled locally; Russian, Chinese
+and Hindi request their appropriate Noto Serif families. English retains its
+approved typography and paper effects.
+
+Localized type scales in `css/book.css` account for each script's visual size.
+Kirkus never shares a sheet with another review. The two short reviews use
+`short-review-page` spacing and share a sheet when their complete translated
+text fits; small screens retain readable type and can use separate sheets.
+Translated story headings reserve a separate column for the decorative 2313.
 
 `content/book/` holds what exists only in the book:
 
-- `strings.en.json` — bookmark names, page furniture, the headline, store and
-  reader-circle wording. English only on purpose: adding a key here does not force
-  a translation into the other eight catalogs. A future edition adds `strings.<code>.json`.
+- `strings.<code>.json` — translated bookmarks, page furniture, headline, store
+  and reader-circle wording in every locale. The builder checks key parity and
+  source hashes just like the shared catalogs.
 - `editions.json` — where the novel can actually be bought. The build links an
   entry only if it has a URL (or an Amazon identifier) and prints "Awaiting content"
   for the rest, so a storefront that is not published yet never appears as a live link.
@@ -41,6 +56,12 @@ inside the book; `hreflang` and the other languages' own URLs are unchanged.
   by `scripts/extract_sample_pdf.py`. Each printed page becomes one book page with
   its own running head, folio, indents, dialogue, verse, italics and footnotes, as
   real selectable text. Re-run that script (or `--check`) if the PDF changes.
+- `sample-fa.json` — nine published Persian sample pages, extracted by
+  `scripts/extract_sample_fa_pdf.py`. Every sample section opens directly on the
+  first printed page, without an introductory notice. Other locales use the
+  original English excerpt; the website translation is not a new published novel
+  edition. Persian store cards link to the Persian Kindle and paperback editions
+  in `amazon.localizedEditions.fa`; other locales retain the English editions.
 
 `js/book.js` reflows the static markup in `#book-source` onto paper sheets and
 hands them to StPageFlip (`js/vendor/page-flip.js`, MIT). Without JavaScript the
@@ -53,6 +74,14 @@ The bundled page-turn library has local lifecycle fixes documented in
 `node scripts/check_book_browser.cjs` (Playwright must be available to Node;
 `CHROME_BIN` optionally selects Chrome). The suite serves local files through
 interception and mocks all form requests. `--fonts` permits Google Fonts reads.
+Multilingual behavior is checked with `node scripts/check_book_languages.cjs`: all
+nine covers, language selection, auto-opening, keyboard direction, mobile layout
+and content bounds. Screenshots are local under `/tmp/book-language-qa`.
+`node scripts/check_book_typography.cjs` proofs every review sheet and the story
+heading in all nine languages at seven viewport sizes, using actual web fonts.
+It checks text preservation, Kirkus isolation, short-review packing, bounds and
+title/2313 collisions. Screenshots and a comparison gallery stay local under
+`/tmp/book-review-proof`; `--smoke` runs two representative viewport sizes.
 The shared Python browser suite also supports `--local-files` to run without a
 preview server. Static checks verify that legal introductions and ACE comparison
 values survive conversion into book pages.
@@ -70,7 +99,7 @@ German/Persian translations were retained wherever they matched the shared
 content. Review quotations are identified as translations. Proper names, brand
 names, URLs, legal references, scores, and actual book edition availability remain
 accurate. The book itself, cover artwork and the third-party flipbook are separate
-assets: published previews remain English/Persian, with a localized notice. The
+assets: published previews remain English/Persian and open directly. The
 new website languages do not imply new published editions of the book.
 
 ## Build and check

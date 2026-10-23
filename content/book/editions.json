@@ -3,27 +3,201 @@
   "_amazon": "Kindle ASIN and paperback ISBN/ASIN, and the marketplaces that list each format, come from the author's KDP pricing audit recorded on 2026-10-21 (branch new-design, commit bb7a21a, content/README.md). Selecting a country swaps only the Amazon host for the same identifier.",
   "amazon": {
     "editions": [
-      { "id": "kindle", "identifier": "B0H8MDM6Q5", "store": "Amazon Kindle", "format": "Kindle eBook" },
-      { "id": "paperback", "identifier": "391300601X", "store": "Amazon Paperback", "format": "Paperback" }
+      {
+        "id": "kindle",
+        "identifier": "B0H8MDM6Q5",
+        "store": "Amazon Kindle",
+        "format": "Kindle eBook"
+      },
+      {
+        "id": "paperback",
+        "identifier": "391300601X",
+        "store": "Amazon Paperback",
+        "format": "Paperback"
+      }
     ],
+    "localizedEditions": {
+      "fa": [
+        {
+          "id": "kindle",
+          "identifier": "B0H9JXNVCV",
+          "store": "Amazon Kindle",
+          "format": "Kindle eBook",
+          "source": "Persian edition product link supplied by the author: https://www.amazon.com/dp/B0H9JXNVCV"
+        },
+        {
+          "id": "paperback",
+          "identifier": "3913006044",
+          "store": "Amazon Paperback",
+          "format": "Paperback",
+          "source": "Persian edition product link supplied by the author: https://www.amazon.com/dp/3913006044"
+        }
+      ]
+    },
     "markets": [
-      { "code": "us", "label": "United States", "flag": "🇺🇸", "host": "www.amazon.com", "editions": ["kindle", "paperback"] },
-      { "code": "uk", "label": "United Kingdom", "flag": "🇬🇧", "host": "www.amazon.co.uk", "editions": ["kindle", "paperback"] },
-      { "code": "de", "label": "Germany", "flag": "🇩🇪", "host": "www.amazon.de", "editions": ["kindle", "paperback"] },
-      { "code": "ca", "label": "Canada", "flag": "🇨🇦", "host": "www.amazon.ca", "editions": ["kindle", "paperback"] },
-      { "code": "au", "label": "Australia", "flag": "🇦🇺", "host": "www.amazon.com.au", "editions": ["kindle", "paperback"] },
-      { "code": "fr", "label": "France", "flag": "🇫🇷", "host": "www.amazon.fr", "editions": ["kindle", "paperback"] },
-      { "code": "es", "label": "Spain", "flag": "🇪🇸", "host": "www.amazon.es", "editions": ["kindle", "paperback"] },
-      { "code": "it", "label": "Italy", "flag": "🇮🇹", "host": "www.amazon.it", "editions": ["kindle", "paperback"] },
-      { "code": "nl", "label": "Netherlands", "flag": "🇳🇱", "host": "www.amazon.nl", "editions": ["kindle", "paperback"] },
-      { "code": "pl", "label": "Poland", "flag": "🇵🇱", "host": "www.amazon.pl", "editions": ["paperback"] },
-      { "code": "se", "label": "Sweden", "flag": "🇸🇪", "host": "www.amazon.se", "editions": ["paperback"] },
-      { "code": "be", "label": "Belgium", "flag": "🇧🇪", "host": "www.amazon.com.be", "editions": ["paperback"] },
-      { "code": "ie", "label": "Ireland", "flag": "🇮🇪", "host": "www.amazon.ie", "editions": ["paperback"] },
-      { "code": "jp", "label": "Japan", "flag": "🇯🇵", "host": "www.amazon.co.jp", "editions": ["kindle", "paperback"] },
-      { "code": "in", "label": "India", "flag": "🇮🇳", "host": "www.amazon.in", "editions": ["kindle"] },
-      { "code": "br", "label": "Brazil", "flag": "🇧🇷", "host": "www.amazon.com.br", "editions": ["kindle"] },
-      { "code": "mx", "label": "Mexico", "flag": "🇲🇽", "host": "www.amazon.com.mx", "editions": ["kindle"] }
+      {
+        "code": "us",
+        "label": "United States",
+        "flag": "🇺🇸",
+        "host": "www.amazon.com",
+        "editions": [
+          "kindle",
+          "paperback"
+        ]
+      },
+      {
+        "code": "uk",
+        "label": "United Kingdom",
+        "flag": "🇬🇧",
+        "host": "www.amazon.co.uk",
+        "editions": [
+          "kindle",
+          "paperback"
+        ]
+      },
+      {
+        "code": "de",
+        "label": "Germany",
+        "flag": "🇩🇪",
+        "host": "www.amazon.de",
+        "editions": [
+          "kindle",
+          "paperback"
+        ]
+      },
+      {
+        "code": "ca",
+        "label": "Canada",
+        "flag": "🇨🇦",
+        "host": "www.amazon.ca",
+        "editions": [
+          "kindle",
+          "paperback"
+        ]
+      },
+      {
+        "code": "au",
+        "label": "Australia",
+        "flag": "🇦🇺",
+        "host": "www.amazon.com.au",
+        "editions": [
+          "kindle",
+          "paperback"
+        ]
+      },
+      {
+        "code": "fr",
+        "label": "France",
+        "flag": "🇫🇷",
+        "host": "www.amazon.fr",
+        "editions": [
+          "kindle",
+          "paperback"
+        ]
+      },
+      {
+        "code": "es",
+        "label": "Spain",
+        "flag": "🇪🇸",
+        "host": "www.amazon.es",
+        "editions": [
+          "kindle",
+          "paperback"
+        ]
+      },
+      {
+        "code": "it",
+        "label": "Italy",
+        "flag": "🇮🇹",
+        "host": "www.amazon.it",
+        "editions": [
+          "kindle",
+          "paperback"
+        ]
+      },
+      {
+        "code": "nl",
+        "label": "Netherlands",
+        "flag": "🇳🇱",
+        "host": "www.amazon.nl",
+        "editions": [
+          "kindle",
+          "paperback"
+        ]
+      },
+      {
+        "code": "pl",
+        "label": "Poland",
+        "flag": "🇵🇱",
+        "host": "www.amazon.pl",
+        "editions": [
+          "paperback"
+        ]
+      },
+      {
+        "code": "se",
+        "label": "Sweden",
+        "flag": "🇸🇪",
+        "host": "www.amazon.se",
+        "editions": [
+          "paperback"
+        ]
+      },
+      {
+        "code": "be",
+        "label": "Belgium",
+        "flag": "🇧🇪",
+        "host": "www.amazon.com.be",
+        "editions": [
+          "paperback"
+        ]
+      },
+      {
+        "code": "ie",
+        "label": "Ireland",
+        "flag": "🇮🇪",
+        "host": "www.amazon.ie",
+        "editions": [
+          "paperback"
+        ]
+      },
+      {
+        "code": "jp",
+        "label": "Japan",
+        "flag": "🇯🇵",
+        "host": "www.amazon.co.jp",
+        "editions": [
+          "kindle",
+          "paperback"
+        ]
+      },
+      {
+        "code": "in",
+        "label": "India",
+        "flag": "🇮🇳",
+        "host": "www.amazon.in",
+        "editions": [
+          "kindle"
+        ]
+      },
+      {
+        "code": "br",
+        "label": "Brazil",
+        "flag": "🇧🇷",
+        "host": "www.amazon.com.br",
+        "editions": [
+          "kindle"
+        ]
+      },
+      {
+        "code": "mx",
+        "label": "Mexico",
+        "flag": "🇲🇽",
+        "host": "www.amazon.com.mx",
+        "editions": [
+          "kindle"
+        ]
+      }
     ]
   },
   "stores": [
@@ -41,5 +215,15 @@
       "url": null,
       "missing": "Only the design placeholder https://payhip.com/ exists (branch new-design, commit bb7a21a), which is not a product page. Supply the final Payhip product URL and the formats it delivers."
     }
-  ]
+  ],
+  "covers": {
+    "en": {
+      "front": "/assets/cover.jpg",
+      "back": "/assets/cover-back.jpg"
+    },
+    "fa": {
+      "front": "/assets/cover-fa.jpg",
+      "back": "/assets/cover-back-fa.jpg"
+    }
+  }
 }

@@ -123,8 +123,8 @@ def localize_structured_data(soup, source, strings, page, lang):
 
 
 def template_for(page, lang):
-    # English reads the home page as a book; every other language keeps home.html.
-    return "book" if page == "home" and lang == "en" else page
+    # Every homepage is the same book, populated from its own locale.
+    return "book" if page == "home" else page
 
 
 def render(page, lang, source, strings, template=None):
@@ -156,10 +156,9 @@ def render(page, lang, source, strings, template=None):
     for a in soup.select("a[href]"):
         if not a.has_attr("data-set-lang"):
             a["href"] = localize_url(a["href"], code)
-    if code == "en" and template != "book":
-        # The English edition reads as a book and has no Voices section; its
-        # other pages drop that link instead of pointing at a missing anchor.
-        for link in soup.select('a[href="/#voices"]'):
+    if template != "book":
+        # Books have no Voices section; other pages must not link to that removed anchor.
+        for link in soup.select(f'a[href="{route("home", code)}#voices"]'):
             (link.find_parent("li") or link).decompose()
     for input_el in soup.select('input[type="email"]'):
         input_el["dir"] = "ltr"
@@ -195,7 +194,7 @@ def render(page, lang, source, strings, template=None):
         for el in soup.select('meta[property="og:image"], meta[property="og:image:secure_url"], meta[name="twitter:image"]'):
             el["content"] = SITE + "/assets/cover-fa.jpg"
     localize_structured_data(soup, source, strings, page, lang)
-    locale_fonts = {"hi": "Noto+Sans+Devanagari", "zh": "Noto+Sans+SC", "ru": "Oswald"}
+    locale_fonts = {"hi": "Noto+Serif+Devanagari", "zh": "Noto+Serif+SC", "ru": "Noto+Serif"}
     if code in locale_fonts:
         family = locale_fonts[code]
         soup.head.append(soup.new_tag("link", rel="stylesheet", href=f"https://fonts.googleapis.com/css2?family={family}:wght@400;500;600;700&display=swap"))
@@ -268,6 +267,22 @@ def build(check=False, record_translations=False):
     source = catalogs["en"]
     validate_catalogs(source, catalogs)
     signatures = {key: sha256(value.encode()).hexdigest() for key, value in source.items()}
+    def flatten(value, prefix=""):
+        result = {}
+        for key, item in value.items():
+            if key.startswith("_"):
+                continue
+            name = prefix + key
+            if isinstance(item, dict):
+                result.update(flatten(item, name + "."))
+            else:
+                result[name] = item
+        return result
+    book_catalogs = {lang["code"]: flatten(json.loads(
+        (ROOT / f'content/book/strings.{lang["code"]}.json').read_text())) for lang in LANGUAGES}
+    validate_catalogs(book_catalogs["en"], book_catalogs)
+    signatures.update({"book:" + key: sha256(value.encode()).hexdigest()
+                       for key, value in book_catalogs["en"].items()})
     source_record = ROOT / "content/translation-source-hashes.json"
     if record_translations:
         if check:

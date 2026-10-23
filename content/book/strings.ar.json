@@ -1,0 +1,100 @@
+{
+  "_": "ar translation of strings.en.json. Shared page wording comes from content/locales/ar.json.",
+  "sections": {
+    "headline": "افتتاحية",
+    "reviews": "المراجعات",
+    "story": "القصة",
+    "author": "المؤلف",
+    "buy": "الشراء",
+    "contact": "التواصل",
+    "community": "المجتمع",
+    "sample": "مقتطف",
+    "appendix": "الملحق",
+    "ace": "ACE",
+    "back-cover": "الغلاف الخلفي"
+  },
+  "ui": {
+    "continued": "تابع",
+    "page": "صفحة",
+    "of": "من",
+    "openBook": "افتح الكتاب",
+    "closeBook": "أغلق الكتاب",
+    "previousPage": "الصفحة السابقة",
+    "nextPage": "الصفحة التالية",
+    "zoomIn": "تكبير هذه الصفحة المطبوعة",
+    "zoomOut": "ملاءمة الصفحة المطبوعة للشاشة",
+    "bookSections": "أقسام الكتاب",
+    "coverAlt": "الغلاف الأمامي لرواية ACE.await",
+    "backCoverAlt": "الغلاف الخلفي لرواية ACE.await"
+  },
+  "headline": {
+    "studio": "Ace Conscious Studio",
+    "placeAndYear": "كولونيا · ٢٠٢٦",
+    "eyebrow": "رواية أدبية من الخيال التأملي",
+    "tagline": "رواية عن القرارات التي نتخذها — والعالم الذي ترثه مخلوقاتنا.",
+    "logline": "يُدعى مبرمج إيراني مهاجر إلى لعبة ACE، حيث تتحول القرارات الواعية إلى علاج اجتماعي، وحيث يمكن لثورة بلا إراقة دماء أن تداوي البشرية ومخلوقاتها."
+  },
+  "buy": {
+    "comingSoon": "قريبًا",
+    "marketplaceLabel": "متجر Amazon",
+    "marketplaceNote": "اختيار البلد يغيّر روابط Amazon فقط، ولا يغيّر لغة هذا الكتاب.",
+    "unavailable": "غير متاح هنا",
+    "formats": {
+      "kindle": "Amazon · كتاب Kindle إلكتروني",
+      "paperback": "Amazon · غلاف ورقي"
+    },
+    "editionNote": "روابط المتاجر هذه مخصّصة للنسخة الإنجليزية من الرواية.",
+    "markets": {
+      "us": "الولايات المتحدة",
+      "uk": "المملكة المتحدة",
+      "de": "ألمانيا",
+      "ca": "كندا",
+      "au": "أستراليا",
+      "fr": "فرنسا",
+      "es": "إسبانيا",
+      "it": "إيطاليا",
+      "nl": "هولندا",
+      "pl": "بولندا",
+      "se": "السويد",
+      "be": "بلجيكا",
+      "ie": "أيرلندا",
+      "jp": "اليابان",
+      "in": "الهند",
+      "br": "البرازيل",
+      "mx": "المكسيك"
+    }
+  },
+  "contact": {
+    "circleHeading": "انضم إلى المجتمع",
+    "circleTagline": "تنتهي القصة، لكن الحوار لا ينتهي.",
+    "circleDescription": "انضم إلى مجتمع قرّاء ACE لتصلك من حين إلى آخر رسائل وقصص جديدة وأخبار اللقاءات والخطوات المقبلة.",
+    "circleEmailLabel": "البريد الإلكتروني",
+    "circleEmailPlaceholder": "you@example.com",
+    "circleSubmit": "انضم إلى حلقة القرّاء",
+    "circleSending": "جارٍ إرسال طلبك…",
+    "circleSuccess": "شكرًا لك — أُرسل طلب انضمامك.",
+    "circleError": "لم نتمكن من تأكيد طلبك. يُرجى المحاولة مجددًا.",
+    "circleUnavailable": "الانضمام غير متاح حاليًا. يُرجى المحاولة لاحقًا.",
+    "circleRequestMessage": "يُرجى إضافتي إلى مجتمع قرّاء ACE لتصلني من حين إلى آخر رسائل وقصص جديدة وأخبار اللقاءات والخطوات المقبلة.",
+    "writeHeading": "اكتب إلى هدايت",
+    "emailDirect": "أو راسله مباشرةً:"
+  },
+  "links": {
+    "heading": "روابط",
+    "instagram": "Instagram",
+    "website": "Ace Conscious Studio",
+    "email": "البريد الإلكتروني",
+    "press": "في الصحافة"
+  },
+  "appendix": {
+    "heading": "الملحق",
+    "back": "→ العودة إلى الملحق",
+    "items": {
+      "privacy": "الخصوصية",
+      "impressum": "البيانات القانونية",
+      "rights": "الحقوق والتمثيل",
+      "screen": "من الكتاب إلى الشاشة",
+      "contents": "محتويات الرواية"
+    }
+  }
+}

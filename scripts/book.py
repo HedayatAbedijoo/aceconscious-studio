@@ -1,15 +1,14 @@
 #!/usr/bin/env python3
-"""Compose the English book edition of the home page.
+"""Compose the localized book edition of each home page.
 
 The book is a presentation of content the site already has: it reads the
-rendered English pages (home, ace, rights, screen, privacy, impressum), the
+rendered locale pages (home, ace, rights, screen, privacy, impressum), the
 printed sample chapters and the edition data, then lays them out as the ordered
 pages of one book. Nothing here invents text, quotations, scores or store links.
 
 Every page is written into the document as ordinary HTML inside #book-source,
 so the content is complete without JavaScript and for crawlers; js/book.js
-reflows that markup onto paper sheets. Only English uses this layout; the other
-languages keep content/templates/home.html.
+reflows that markup onto paper sheets. Every locale uses the same layout and its own translated source pages.
 """
 import json
 from html import escape
@@ -17,7 +16,8 @@ from pathlib import Path
 from urllib.parse import urlsplit
 
 ROOT = Path(__file__).resolve().parent.parent
-STRINGS = json.loads((ROOT / "content/book/strings.en.json").read_text())
+STRINGS = {}
+LANGUAGE = "en"
 EDITIONS = json.loads((ROOT / "content/book/editions.json").read_text())
 SAMPLE = json.loads((ROOT / "content/book/sample-en.json").read_text())
 
@@ -83,7 +83,13 @@ def sanitize(element):
     for node in [element, *element.find_all(True)]:
         if node.name == "a":
             href = node.get("href", "")
-            target = JUMP_TARGETS.get(href)
+            from build_locales import ROUTES
+            url = urlsplit(href)
+            canonical = ROUTES.get(url.path)
+            local = not url.netloc or url.netloc == "aceconscious.studio"
+            normalized = (("/" if canonical == "home" else f"/{canonical}/")
+                          + ("#" + url.fragment if url.fragment else "")) if canonical and local else href
+            target = JUMP_TARGETS.get(normalized)
             if target:
                 node["data-jump"] = target
             elif href.startswith("#"):
@@ -196,7 +202,7 @@ def page(id, section, title, body, classes="", **extra):
 
 def cover_pages(home, strings):
     front = page("cover", "cover", "ACE.await", [], "cover",
-                 image="/assets/cover.jpg", alt=strings["hero.coverAlt"])
+                 image=EDITIONS["covers"].get(LANGUAGE, EDITIONS["covers"]["en"])["front"], alt=STRINGS["ui"]["coverAlt"])
     footer = home.select_one(".site-footer")
     links = []
     for original in footer.select(".site-footer__links a"):
@@ -212,7 +218,7 @@ def cover_pages(home, strings):
         f'<p class="back-cover__studio">{inner(footer.select_one(".site-footer__brand"))}</p>'
         f'<p class="back-cover__legal">{inner(footer.select_one(".site-footer__legal"))}</p>'
         '<ul class="back-cover__links">' + "".join(links) + '</ul></footer>',
-    ], "cover back-cover", image="/assets/cover-back.jpg", alt=strings["hero.coverBackAlt"])
+    ], "cover back-cover", image=EDITIONS["covers"].get(LANGUAGE, EDITIONS["covers"]["en"])["back"], alt=STRINGS["ui"]["backCoverAlt"])
     return front, back
 
 
@@ -279,7 +285,8 @@ def review_pages(home, strings):
                 + "".join(body[closing_start:]) + "</div>"
             ]
         pages.append(page("reviews" if position == 1 else identifier, "reviews",
-                          brand or strings["reviews.heading"], body, "review-page",
+                          brand or strings["reviews.heading"], body,
+                          "review-page short-review-page" if compact else "review-page",
                           fixed=compact))
     return pages
 
@@ -315,9 +322,10 @@ def buy_pages(strings):
     markets = amazon["markets"]
     default = markets[0]
     cards, missing = [], []
-    for edition in amazon["editions"]:
+    editions = amazon.get("localizedEditions", {}).get(LANGUAGE, amazon["editions"])
+    for edition in editions:
         href = f'https://{default["host"]}/dp/{edition["identifier"]}'
-        cards.append(store_card(edition["store"], edition["format"], href,
+        cards.append(store_card(edition["store"], STRINGS["buy"]["formats"][edition["id"]].split(" · ")[-1], href,
                                 AMAZON_MARK, edition["id"]))
     for store in EDITIONS["stores"]:
         if store.get("url"):
@@ -330,7 +338,7 @@ def buy_pages(strings):
         f'<option value="{market["code"]}" data-host="{market["host"]}" '
         f'data-editions="{" ".join(market["editions"])}"'
         f'{" selected" if market is default else ""}>'
-        f'{market["flag"]} {escape(market["label"])} · {escape(market["host"].removeprefix("www."))}'
+        f'{market["flag"]} {escape(STRINGS["buy"]["markets"][market["code"]])} · {escape(market["host"].removeprefix("www."))}'
         "</option>" for market in markets)
     body = [
         f'<h2>{escape(strings["buy.label"])}</h2>',
@@ -339,6 +347,7 @@ def buy_pages(strings):
         f'<select id="amazon-marketplace" data-unavailable="{escape(STRINGS["buy"]["unavailable"])}">'
         f"{options}</select></div>",
         f'<div class="store-grid">{"".join(cards)}</div>',
+        *([] if LANGUAGE == "en" else [f'<p class="quiet">{escape(STRINGS["buy"]["editionNote"])}</p>']),
     ]
     return [page("buy", "buy", strings["buy.label"], body, "buy-page", fixed=True)], missing
 
@@ -439,10 +448,10 @@ def contact_pages(strings):
             page("community", "community", circle["circleHeading"], first)]
 
 
-def sample_pages():
+def sample_pages(sample=SAMPLE):
     """The printed chapters, one book page per printed page."""
     pages = []
-    for sheet in SAMPLE["pages"]:
+    for sheet in sample["pages"]:
         parts = []
         notes = ""
         for block in sheet["blocks"]:
@@ -492,6 +501,23 @@ def sample_pages():
         pages.append(page(f"sample-{sheet['number']:02d}" if sheet["number"] > 1 else "sample",
                           "sample", f"ACE.await · {sheet['folio']}", [sheet_html],
                           "sample-page", fixed=True))
+    return pages
+
+
+def localized_sample_pages():
+    """Published samples are original editions, never invented translations."""
+    if LANGUAGE == "en":
+        return sample_pages()
+    if LANGUAGE == "fa":
+        sample = json.loads((ROOT / "content/book/sample-fa.json").read_text())
+        pages = sample_pages(sample)
+        for item in pages:
+            item["blocks"] = [block.replace('class="sample-sheet"', 'class="sample-sheet" lang="fa" dir="rtl"') for block in item["blocks"]]
+        return pages
+    pages = sample_pages()
+    # Keep the original's language and direction within the localized book UI.
+    for item in pages:
+        item["blocks"] = [block.replace('class="sample-sheet"', 'class="sample-sheet" lang="en" dir="ltr"') for block in item["blocks"]]
     return pages
 
 
@@ -596,9 +622,9 @@ def ace_pages(ace, strings):
     introduction = ace.select_one(".ace-introduction")
     body = opener("ACE", text(ace.select_one(".ace-hero__kicker")))
     body.append('<div class="ace-letters" dir="ltr">'
-                "<div><strong>A</strong><span>Agency</span></div>"
-                "<div><strong>C</strong><span>Connection</span></div>"
-                "<div><strong>E</strong><span>Exchange</span></div></div>")
+                f'<div><strong>A</strong><span>{escape(strings["hero.topic3"])}</span></div>'
+                f'<div><strong>C</strong><span>{escape(strings["ace.639a40e82b9a"])}</span></div>'
+                f'<div><strong>E</strong><span>{escape(strings["ace.d60a318dd8a0"])}</span></div></div>')
     body.append(f'<h3>{escape(text(introduction.select_one(".ace-eyebrow")))}</h3>')
     body += blocks(introduction.select_one(".ace-answer"))
     result = [page("ace", "ace", "ACE", body)]
@@ -617,12 +643,15 @@ def ace_pages(ace, strings):
 # ------------------------------------------------------------------ assembly
 
 def compose(soup, render, source, strings):
-    """Fill #book-source with every page of the English edition, in order."""
+    """Fill #book-source with every page of this edition, in order."""
     from build_locales import LANGUAGES, parse, route as build_route
-    english = next(language for language in LANGUAGES if language["code"] == "en")
-    # The book draws on the shared English pages, including the website layout
-    # of the home page that the other languages keep.
-    rendered = {name: parse(render(name, english, source, strings, template=name))
+    global STRINGS, LANGUAGE
+    LANGUAGE = soup.html["data-locale"]
+    STRINGS = json.loads((ROOT / f"content/book/strings.{LANGUAGE}.json").read_text())
+    language = next(item for item in LANGUAGES if item["code"] == LANGUAGE)
+    # The book draws on the shared translated pages, including the scrolling
+    # home template used as a content source.
+    rendered = {name: parse(render(name, language, source, strings, template=name))
                 for name in ("home", "ace", "rights", "screen", "privacy", "impressum")}
     home, ace = rendered["home"], rendered["ace"]
 
@@ -630,7 +659,7 @@ def compose(soup, render, source, strings):
     buy, missing = buy_pages(strings)
     ordered = [front, headline_page(strings), *review_pages(home, strings),
                *story_pages(home, strings), *author_pages(home, strings), *buy,
-               *contact_pages(strings), *sample_pages(),
+               *contact_pages(strings), *localized_sample_pages(),
                *appendix_pages(rendered, home, strings), *ace_pages(ace, strings), back]
 
     html = []
@@ -668,8 +697,31 @@ def compose(soup, render, source, strings):
     for node in list(book_markup.contents):
         container.append(node)
 
-    # The book shows no language picker, so the old ?lang= links redirect from
-    # the head, before anything is painted.
+    # Cover controls are outside the paper and never enter the paginated content.
+    for selector, key in [("#open", "openBook"), ("#open-label", "openBook"),
+                          ("#close", "closeBook"), ("#previous", "previousPage"), ("#next", "nextPage")]:
+        control = soup.select_one(selector)
+        control["aria-label"] = STRINGS["ui"][key]
+        if control.has_attr("title"):
+            control["title"] = STRINGS["ui"][key]
+    soup.select_one("#open-label span").string = STRINGS["ui"]["openBook"]
+    soup.select_one("#bookmarks")["aria-label"] = STRINGS["ui"]["bookSections"]
+    soup.select_one("#book-language-name").string = language["name"]
+    soup.select_one('link[rel="preload"][as="image"]')["href"] = front["image"]
+    menu = soup.select_one("#book-language-list")
+    for item in LANGUAGES:
+        own_cover = item["code"] in EDITIONS["covers"]
+        href = build_route("home", item["code"]) + ("" if own_cover else "#headline")
+        link = soup.new_tag("a", href=href, lang=item["htmlLang"], dir=item["dir"])
+        link["data-set-lang"] = item["code"]
+        link["hreflang"] = item["htmlLang"]
+        if item["code"] == LANGUAGE:
+            link["aria-current"] = "page"
+        link.string = item["name"]
+        li = soup.new_tag("li")
+        li.append(link)
+        menu.append(li)
+    # Legacy ?lang= links continue to resolve before first paint.
     routes = {item["code"]: build_route("home", item["code"]) for item in LANGUAGES}
     redirect = soup.new_tag("script")
     redirect.string = (

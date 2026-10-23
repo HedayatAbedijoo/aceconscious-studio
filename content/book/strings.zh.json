@@ -1,0 +1,100 @@
+{
+  "_": "zh translation of strings.en.json. Shared page wording comes from content/locales/zh.json.",
+  "sections": {
+    "headline": "开篇",
+    "reviews": "书评",
+    "story": "故事",
+    "author": "作者",
+    "buy": "购买",
+    "contact": "联系",
+    "community": "社群",
+    "sample": "试读",
+    "appendix": "附录",
+    "ace": "ACE",
+    "back-cover": "封底"
+  },
+  "ui": {
+    "continued": "续",
+    "page": "页",
+    "of": "共",
+    "openBook": "打开书本",
+    "closeBook": "合上书本",
+    "previousPage": "上一页",
+    "nextPage": "下一页",
+    "zoomIn": "放大此书页",
+    "zoomOut": "适应书页大小",
+    "bookSections": "书籍章节",
+    "coverAlt": "ACE.await 封面",
+    "backCoverAlt": "ACE.await 封底"
+  },
+  "headline": {
+    "studio": "Ace Conscious Studio",
+    "placeAndYear": "科隆 · 2026",
+    "eyebrow": "一部文学性思辨小说",
+    "tagline": "一部关于我们所作的决定，以及我们的造物将继承怎样的世界的小说。",
+    "logline": "一位伊朗移民程序员受邀参加 ACE 游戏。在这里，有意识的决定化为社会疗愈，而一场不流血的革命或许能治愈人类及其造物。"
+  },
+  "buy": {
+    "comingSoon": "即将推出",
+    "marketplaceLabel": "Amazon 国家或地区站点",
+    "marketplaceNote": "选择国家只会更改 Amazon 链接，不会改变本书的语言。",
+    "unavailable": "此站点暂不提供",
+    "formats": {
+      "kindle": "Amazon · Kindle 电子书",
+      "paperback": "Amazon · 平装书"
+    },
+    "editionNote": "这些购买链接指向本小说的英文版。",
+    "markets": {
+      "us": "美国",
+      "uk": "英国",
+      "de": "德国",
+      "ca": "加拿大",
+      "au": "澳大利亚",
+      "fr": "法国",
+      "es": "西班牙",
+      "it": "意大利",
+      "nl": "荷兰",
+      "pl": "波兰",
+      "se": "瑞典",
+      "be": "比利时",
+      "ie": "爱尔兰",
+      "jp": "日本",
+      "in": "印度",
+      "br": "巴西",
+      "mx": "墨西哥"
+    }
+  },
+  "contact": {
+    "circleHeading": "加入读者社群",
+    "circleTagline": "故事落幕，对话继续。",
+    "circleDescription": "加入 ACE 读者社群，不定期接收来信、新故事、聚会信息及后续动态。",
+    "circleEmailLabel": "电子邮箱",
+    "circleEmailPlaceholder": "you@example.com",
+    "circleSubmit": "加入读者圈",
+    "circleSending": "正在发送申请…",
+    "circleSuccess": "谢谢，您的加入申请已发送。",
+    "circleError": "我们未能确认您的申请，请重试。",
+    "circleUnavailable": "目前暂时无法加入，请稍后重试。",
+    "circleRequestMessage": "请将我加入 ACE 读者社群，以便不定期接收来信、新故事、聚会信息及后续动态。",
+    "writeHeading": "写信给 Hedayat",
+    "emailDirect": "或直接写信至："
+  },
+  "links": {
+    "heading": "链接",
+    "instagram": "Instagram",
+    "website": "Ace Conscious Studio",
+    "email": "电子邮件",
+    "press": "媒体报道"
+  },
+  "appendix": {
+    "heading": "附录",
+    "back": "← 返回附录",
+    "items": {
+      "privacy": "隐私政策",
+      "impressum": "法律声明",
+      "rights": "版权与代理",
+      "screen": "影视改编",
+      "contents": "小说目录"
+    }
+  }
+}

@@ -46,6 +46,26 @@
     "formats": {
       "kindle": "Amazon · Kindle eBook",
       "paperback": "Amazon · Paperback"
+    },
+    "editionNote": "These store links are for the English edition of the novel.",
+    "markets": {
+      "us": "United States",
+      "uk": "United Kingdom",
+      "de": "Germany",
+      "ca": "Canada",
+      "au": "Australia",
+      "fr": "France",
+      "es": "Spain",
+      "it": "Italy",
+      "nl": "Netherlands",
+      "pl": "Poland",
+      "se": "Sweden",
+      "be": "Belgium",
+      "ie": "Ireland",
+      "jp": "Japan",
+      "in": "India",
+      "br": "Brazil",
+      "mx": "Mexico"
     }
   },
 

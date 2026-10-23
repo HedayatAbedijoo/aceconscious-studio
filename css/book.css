@@ -1,7 +1,6 @@
-/* ACE.await — the English edition as a book.
+/* ACE.await — localized book editions.
    Paper, type, bookmarks and page turns follow the approved prototype
-   (site-design/gpt/ace-await). Only the English home page uses this file;
-   every other language keeps css/styles.css unchanged. */
+   (site-design/gpt/ace-await), with matching locale typography and RTL paper. */
 
 :root {
   --paper: #f0e8d6;
@@ -32,7 +31,7 @@ body {
   overflow: hidden;
   background: #29251f;
   color: var(--ink);
-  font-family: "EB Garamond", Georgia, serif;
+  font-family: var(--book-serif);
   -webkit-font-smoothing: antialiased;
 }
 
@@ -315,14 +314,14 @@ a:hover {
 
 .back-cover__studio {
   margin: 0 0 6px;
-  font: 400 clamp(12px, calc(var(--book-w) * 0.031), 16px)/1.3 "EB Garamond", Georgia, serif;
+  font: 400 clamp(12px, calc(var(--book-w) * 0.031), 16px)/1.3 var(--book-serif);
   letter-spacing: 1.5px;
   text-transform: uppercase;
 }
 
 .back-cover__legal {
   margin: 0;
-  font: 400 clamp(10px, calc(var(--book-w) * 0.024), 12px)/1.4 "EB Garamond", Georgia, serif;
+  font: 400 clamp(10px, calc(var(--book-w) * 0.024), 12px)/1.4 var(--book-serif);
   color: #5b5042;
 }
 
@@ -335,7 +334,7 @@ a:hover {
   padding: 7px 0 0;
   border-top: 1px solid #84776066;
   list-style: none;
-  font: 400 clamp(11px, calc(var(--book-w) * 0.028), 14px)/1.3 "EB Garamond", Georgia, serif;
+  font: 400 clamp(11px, calc(var(--book-w) * 0.028), 14px)/1.3 var(--book-serif);
 }
 
 .back-cover__links a {
@@ -361,7 +360,7 @@ a:hover {
   align-items: center;
   border-bottom: 1px solid #b0a1836b;
   padding-bottom: 12px;
-  font-family: Arial, sans-serif;
+  font-family: var(--book-ui);
   font-size: 8px;
   text-transform: uppercase;
   letter-spacing: 1.9px;
@@ -371,7 +370,7 @@ a:hover {
 
 .running-head .book-name {
   margin-inline-start: 18px;
-  font-family: "EB Garamond", Georgia, serif;
+  font-family: var(--book-serif);
   font-size: 12px;
   letter-spacing: 1px;
 }
@@ -399,7 +398,7 @@ a:hover {
 
 .page-body h2,
 .page-body h3 {
-  font-family: "Cormorant Garamond", Georgia, serif;
+  font-family: var(--book-heading);
   font-weight: 400;
   margin: 0 0 0.65em;
   line-height: 1.05;
@@ -416,14 +415,14 @@ a:hover {
 }
 
 .page-body h4 {
-  font-family: "EB Garamond", Georgia, serif;
+  font-family: var(--book-serif);
   font-size: 1em;
   font-weight: 600;
   margin: 1em 0 0.35em;
 }
 
 .page.screen-page .page-body h3 {
-  font-family: "EB Garamond", Georgia, serif;
+  font-family: var(--book-serif);
   font-size: 1.12em;
   font-weight: 500;
   line-height: 1.25;
@@ -453,7 +452,7 @@ a:hover {
 }
 
 .chapter-kicker {
-  font: 9px/1.7 Arial, sans-serif;
+  font: 9px/1.7 var(--book-ui);
   letter-spacing: 2.1px;
   text-transform: uppercase;
   color: var(--rust);
@@ -481,7 +480,7 @@ a:hover {
 
 .page-body .dropcap::first-letter {
   float: left;
-  font-family: "Cormorant Garamond", Georgia, serif;
+  font-family: var(--book-heading);
   font-size: 3.6em;
   line-height: 0.9;
   margin: 0.04em 0.11em 0 0;
@@ -496,7 +495,7 @@ a:hover {
 
 .ornament {
   display: block;
-  font: 32px/1 "Cormorant Garamond", serif;
+  font: 32px/1 var(--book-heading);
   color: var(--rust);
   margin: 24px 0;
   text-align: center;
@@ -504,7 +503,7 @@ a:hover {
 
 .continued {
   color: var(--muted);
-  font: italic 12px "EB Garamond", serif;
+  font: italic 12px var(--book-serif);
   display: block;
   margin: 0 0 20px;
 }
@@ -528,7 +527,7 @@ a:hover {
 }
 
 .headline-imprint {
-  font: 9px/1.8 Arial, sans-serif;
+  font: 9px/1.8 var(--book-ui);
   letter-spacing: 3px;
   text-transform: uppercase;
   color: var(--muted);
@@ -536,7 +535,7 @@ a:hover {
 }
 
 .headline-eyebrow {
-  font: 10px/1.8 Arial, sans-serif;
+  font: 10px/1.8 var(--book-ui);
   letter-spacing: 1.6px;
   text-transform: uppercase;
   color: #6f5944;
@@ -546,7 +545,7 @@ a:hover {
 }
 
 .headline-title {
-  font: 500 clamp(40px, calc(var(--book-w) * 0.16), 80px)/1 "Cormorant Garamond", Georgia, serif;
+  font: 500 clamp(40px, calc(var(--book-w) * 0.16), 80px)/1 var(--book-heading);
   letter-spacing: -3.5px;
   margin: 0 0 10px !important;
   white-space: nowrap;
@@ -597,7 +596,7 @@ a:hover {
   position: absolute;
   top: 0;
   right: 0;
-  font: 600 clamp(72px, calc(var(--book-w) * 0.27), 132px)/0.85 "Cormorant Garamond", serif;
+  font: 600 clamp(72px, calc(var(--book-w) * 0.27), 132px)/0.85 var(--book-heading);
   letter-spacing: -0.04em;
   color: rgb(139 91 63 / 18%);
   pointer-events: none;
@@ -625,7 +624,7 @@ a:hover {
 }
 
 .review-brand {
-  font: 600 clamp(29px, calc(var(--book-w) * 0.085), 42px)/1 "Cormorant Garamond", serif;
+  font: 600 clamp(29px, calc(var(--book-w) * 0.085), 42px)/1 var(--book-heading);
   letter-spacing: -1.5px;
   border-bottom: 1px solid var(--rule);
   padding-bottom: 14px;
@@ -633,7 +632,7 @@ a:hover {
 }
 
 .review-brand small {
-  font: 8px Arial, sans-serif;
+  font: 8px var(--book-ui);
   letter-spacing: 3px;
   display: block;
   margin-top: 9px;
@@ -641,7 +640,7 @@ a:hover {
 }
 
 .quote-mark {
-  font: 74px/0.7 "Cormorant Garamond", serif;
+  font: 74px/0.7 var(--book-heading);
   color: #ad8b61;
   display: block;
   height: 28px;
@@ -649,7 +648,7 @@ a:hover {
 }
 
 .review-page .pullquote {
-  font: 400 clamp(20px, calc(var(--book-w) * 0.061), 30px)/1.28 "Cormorant Garamond", serif;
+  font: 400 clamp(20px, calc(var(--book-w) * 0.061), 30px)/1.28 var(--book-heading);
   margin: 0 0 18px !important;
   letter-spacing: -0.2px;
   border: 0;
@@ -674,7 +673,7 @@ a:hover {
 }
 
 .review-page .review-link {
-  font: 10px Arial, sans-serif;
+  font: 10px var(--book-ui);
   letter-spacing: 1px;
   text-transform: uppercase;
   margin-top: 12px;
@@ -712,7 +711,7 @@ a:hover {
   align-items: baseline;
   gap: 10px;
   margin: 15px 0;
-  font-family: "Cormorant Garamond", serif;
+  font-family: var(--book-heading);
 }
 
 .rating strong {
@@ -760,7 +759,7 @@ a:hover {
 }
 
 .contents-row span:first-child {
-  font: 11px Arial, sans-serif;
+  font: 11px var(--book-ui);
   color: var(--rust);
   width: 21px;
   flex-shrink: 0;
@@ -784,7 +783,7 @@ a:hover {
 }
 
 .author-signature {
-  font: italic 30px "Cormorant Garamond", serif;
+  font: italic 30px var(--book-heading);
   color: var(--rust);
   text-align: end;
 }
@@ -842,7 +841,7 @@ a:hover {
   gap: 12px 18px;
   padding-top: 14px;
   border-top: 1px solid var(--rule);
-  font: 12px/1.5 "EB Garamond", Georgia, serif;
+  font: 12px/1.5 var(--book-serif);
 }
 
 .author-social a {
@@ -881,7 +880,7 @@ a:hover {
   background: #534d3e;
   color: #f4ecdc;
   padding: 11px 22px;
-  font: 10px/1.5 Arial, sans-serif;
+  font: 10px/1.5 var(--book-ui);
   letter-spacing: 1px;
   text-transform: uppercase;
   text-decoration: none;
@@ -932,7 +931,7 @@ a:hover {
 }
 
 .back-to-index {
-  font: 10px Arial, sans-serif;
+  font: 10px var(--book-ui);
   letter-spacing: 1.4px;
   text-transform: uppercase;
   margin-top: 22px !important;
@@ -962,7 +961,7 @@ a:hover {
 
 .page.appendix-page .page-body h3,
 .page.appendix-page .page-body h4 {
-  font-family: "EB Garamond", Georgia, serif;
+  font-family: var(--book-serif);
   font-size: 1.06em;
   font-weight: 600;
   line-height: 1.3;
@@ -1020,13 +1019,13 @@ a:hover {
 }
 
 .ace-letters strong {
-  font: 400 45px "Cormorant Garamond", serif;
+  font: 400 45px var(--book-heading);
   display: block;
   color: var(--rust);
 }
 
 .ace-letters span {
-  font: 8px Arial, sans-serif;
+  font: 8px var(--book-ui);
   letter-spacing: 1px;
   text-transform: uppercase;
 }
@@ -1095,12 +1094,12 @@ a:hover {
 }
 
 .store-card__store {
-  font: 600 0.74em/1.2 "EB Garamond", Georgia, serif;
+  font: 600 0.74em/1.2 var(--book-serif);
   letter-spacing: 0.4px;
 }
 
 .store-card__format {
-  font: 8px/1.4 Arial, sans-serif;
+  font: 8px/1.4 var(--book-ui);
   letter-spacing: 1.3px;
   text-transform: uppercase;
   color: var(--muted);
@@ -1125,7 +1124,7 @@ a:hover {
 
 .marketplace label {
   display: block;
-  font: 9px Arial, sans-serif;
+  font: 9px var(--book-ui);
   letter-spacing: 1.4px;
   text-transform: uppercase;
   color: var(--muted);
@@ -1165,7 +1164,7 @@ a:hover {
 
 .paper-form label {
   display: block;
-  font: 9px Arial, sans-serif;
+  font: 9px var(--book-ui);
   letter-spacing: 1px;
   text-transform: uppercase;
   margin: 15px 0 7px;
@@ -1280,7 +1279,7 @@ a:hover {
 
 .link-list__handle {
   display: block;
-  font: 9px Arial, sans-serif;
+  font: 9px var(--book-ui);
   letter-spacing: 1px;
   color: var(--muted);
   overflow-wrap: anywhere;
@@ -1552,7 +1551,7 @@ a:hover {
   background: #efe6d2cc;
   border: 1px solid var(--rule);
   color: #6c6049;
-  font: 15px/1 Arial, sans-serif;
+  font: 15px/1 var(--book-ui);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1610,7 +1609,7 @@ a:hover {
   padding: 0 5px 0 11px;
   background: linear-gradient(90deg, #0002, transparent 25%), var(--tab);
   color: #3c3529;
-  font: 11px/1 Arial, sans-serif;
+  font: 11px/1 var(--book-ui);
   letter-spacing: 0.3px;
   box-shadow: 2px 3px 3px #0003;
   transform-origin: left center;
@@ -1749,7 +1748,7 @@ a:hover {
 }
 
 .folio {
-  font: 10px/1 Arial, sans-serif;
+  font: 10px/1 var(--book-ui);
   letter-spacing: 2px;
   color: #94856b;
 }
@@ -1833,7 +1832,7 @@ a:hover {
   align-items: center;
   justify-content: center;
   gap: 17px;
-  font: 10px/1.5 Arial, sans-serif;
+  font: 10px/1.5 var(--book-ui);
   letter-spacing: 2.1px;
   text-transform: uppercase;
   transform: rotate(1deg);
@@ -2297,5 +2296,400 @@ html:not(.js) .sample-zoom {
 
   .cover-invitation {
     transform: none !important;
+  }
+}
+
+/* Cover-only edition chooser: one quiet line, separate from the cover hit area. */
+.cover-entry {
+  position: absolute;
+  top: calc(100% + 15px);
+  left: 50%;
+  transform: translateX(-50%) rotate(1deg);
+  width: max-content;
+  max-width: calc(100vw - 24px);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  direction: ltr;
+  z-index: 20;
+  color: #e8dcc4;
+  font: 11px/1.5 var(--book-ui, Arial, sans-serif);
+}
+.cover-entry[hidden] { display: none; }
+.cover-entry .cover-invitation {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 44px;
+  padding: 0;
+  font: inherit;
+  font-size: 10px;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+}
+.book-language { position: relative; }
+.book-language summary {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 44px;
+  padding: 0 3px;
+  cursor: pointer;
+  list-style: none;
+}
+.book-language summary::-webkit-details-marker { display: none; }
+.language-chevron { opacity: .65; transition: transform .2s; }
+.book-language[open] .language-chevron { transform: rotate(180deg); }
+.book-language ul {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  right: 0;
+  width: 174px;
+  max-height: min(410px, calc(100dvh - 85px));
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  margin: 0;
+  padding: 7px;
+  list-style: none;
+  background: #eee5d3;
+  color: #302d26;
+  border: 1px solid #bdad8d;
+  border-radius: 4px;
+  box-shadow: 0 12px 36px #0006;
+}
+.book-language a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 40px;
+  padding: 6px 11px;
+  color: inherit;
+  text-decoration: none;
+  font: 13px/1.5 var(--book-ui, Arial, sans-serif);
+  border-radius: 2px;
+}
+.book-language a[lang="fa"], .book-language a[lang="ar"] { font-family: Vazirmatn, sans-serif; }
+.book-language a:hover, .book-language a:focus-visible { background: #ddcfb4; }
+.book-language a[aria-current]::after { content: "✓"; color: #934d39; }
+@media (pointer: coarse) { .book-language a { min-height: 44px; } }
+
+/* Typography follows the language; original sample typography stays independent. */
+@font-face { font-family: Vazirmatn; src: url('/assets/fonts/Vazirmatn-Regular.woff2') format('woff2'); font-weight: 400; font-display: swap; }
+@font-face { font-family: Vazirmatn; src: url('/assets/fonts/Vazirmatn-Medium.woff2') format('woff2'); font-weight: 500; font-display: swap; }
+@font-face { font-family: Vazirmatn; src: url('/assets/fonts/Vazirmatn-SemiBold.woff2') format('woff2'); font-weight: 600 900; font-display: swap; }
+:root { --book-serif: "EB Garamond", Georgia, serif; --book-heading: "Cormorant Garamond", Georgia, serif; --book-ui: Arial, sans-serif; }
+:root:lang(fa), :root:lang(ar) { --book-serif: Vazirmatn, sans-serif; --book-heading: Vazirmatn, sans-serif; --book-ui: Vazirmatn, sans-serif; }
+:root:lang(ru) { --book-serif: "Noto Serif", Georgia, serif; --book-heading: "Noto Serif", Georgia, serif; }
+:root:lang(zh) { --book-serif: "Noto Serif SC", serif; --book-heading: "Noto Serif SC", serif; --book-ui: "Noto Serif SC", serif; }
+:root:lang(hi) { --book-serif: "Noto Serif Devanagari", serif; --book-heading: "Noto Serif Devanagari", serif; --book-ui: "Noto Serif Devanagari", serif; }
+html:not([lang="en"]) .headline-summary { font-family: var(--book-serif); }
+html:not([lang="en"]) .page-body { overflow-wrap: break-word; }
+html:is([lang="fa"],[lang="ar"],[lang="hi"],[lang="zh"]) :is(.chapter-kicker,.running-head,.headline-eyebrow,.cover-invitation,.bookmark) { letter-spacing: 0; }
+.headline-title { font-family: "Cormorant Garamond", Georgia, serif; }
+
+/* The renderer's physical sheet and gestures are mirrored, never its text/art. */
+html[dir="rtl"] .book-shell { transform: scaleX(-1); direction: ltr; }
+.page-face { position: absolute; inset: 0; transform: scaleX(-1); direction: rtl; }
+html[dir="rtl"] .book-stage { transform: translateX(16px); }
+html[dir="rtl"] .book-stage.is-closed { transform: translate(3px, -18px) rotate(1deg); }
+html[dir="rtl"] .book-stage.is-back-cover { transform: translateX(-16px); }
+html[dir="rtl"] .cover-entry { transform: translateX(-50%) rotate(-1deg); }
+html[dir="rtl"] .page-edges { inset: 3px 3px -5px -8px; border-radius: 4px 0 0 5px; border-right: 0; border-left: 1px solid #88795f; }
+html[dir="rtl"] .is-back-cover .page-edges { inset: 3px -8px -5px 3px; border-left: 0; border-right: 1px solid #88795f; }
+html[dir="rtl"] .bookmarks { right: auto; left: calc(-1 * var(--tab-width) + 8px); --tab-direction: -1; }
+html[dir="rtl"] .bookmark { border-radius: 4px 0 0 4px; transform-origin: right center; padding: 0 11px 0 5px; }
+html[dir="rtl"] .is-back-cover .bookmarks { left: auto; right: calc(-1 * var(--tab-width) + 8px); --tab-direction: 1; }
+html[dir="rtl"] .is-back-cover .bookmark { border-radius: 0 4px 4px 0; transform-origin: left center; }
+html[dir="rtl"] .ribbon { left: auto; right: 25px; }
+html[dir="rtl"] .is-back-cover .ribbon { right: auto; left: 25px; }
+html[dir="rtl"] .book-controls { flex-direction: row; }
+html[dir="rtl"] .curl { right: auto; left: -15px; transform: scaleX(-1); }
+html[dir="rtl"] .page-body :is(ul,ol) { padding-left: 0; padding-right: 1.2em; }
+html[dir="rtl"] .page-body .dropcap::first-letter { float: none; font: inherit; margin: 0; }
+html[dir="rtl"] .story-heading .story-year { right: auto; left: 0; }
+html[dir="rtl"] .page-fit { transform-origin: top right; }
+html[dir="rtl"] .back-cover__layout { direction: rtl; }
+html[dir="rtl"] .sample-sheet[lang="en"] { text-align: left; }
+@media (max-width: 600px) {
+  html[dir="rtl"] .book-stage { transform: translateX(24px); }
+  html[dir="rtl"] .book-stage.is-back-cover { transform: translateX(-24px); }
+  html[dir="rtl"] .book-stage.is-closed { transform: translate(3px, -18px) rotate(1deg); }
+  .cover-entry { gap: 9px; }
+  .cover-entry .cover-invitation { letter-spacing: .8px; font-size: 9px; }
+}
+
+/* The Persian sample uses its published text in an upright RTL printed sheet. */
+.sample-sheet[lang="fa"] .sample-sheet__inner { font-family: Vazirmatn, sans-serif; line-height: 21.7px; }
+.sample-sheet[lang="fa"] .sample-chapter__title { font-family: Vazirmatn, sans-serif; font-size: 31px; line-height: 42px; }
+.sample-sheet[lang="fa"] .sample-chapter__kicker { letter-spacing: 0; }
+.sample-sheet[lang="fa"] .sample-console { font-family: Vazirmatn, sans-serif; }
+.sample-sheet[lang="fa"] .sample-console__lines { padding: 14px 12px; line-height: 20px; }
+.sample-sheet[lang="fa"] .sample-console__lines li.reply { padding-left: 0; padding-right: 26px; }
+.sample-sheet[lang="fa"] .sample-dialogue { padding: 0; margin: 8px 0; }
+.sample-sheet[lang="fa"] .sample-dialogue li { padding-left: 0; padding-right: 13px; margin-left: 0; margin-right: 20px; }
+.sample-sheet[lang="fa"] .sample-dialogue li.level-2 { margin-right: 37px; }
+.sample-sheet[lang="fa"] .sample-dialogue__mark { left: auto; right: 0; }
+.sample-sheet[lang="fa"] .sample-verse { margin-left: 0; margin-right: 49px; }
+html[dir="rtl"] .sample-sheet[lang="en"] :is(ul,ol) { padding-right: 0; }
+html[dir="rtl"] .sample-sheet[lang="en"] .sample-console__lines { padding: 14px 12px; }
+html[dir="rtl"] .is-closed .bookmarks { transform: translateX(55px); }
+html[dir="rtl"] .bookmark[aria-current="true"]::after { right: auto; left: 5px; }
+html[dir="rtl"] .is-back-cover .bookmark[aria-current="true"]::after { left: auto; right: 5px; }
+html:not(.js) .reading-room { display: block; height: auto; overflow: visible; }
+html:not(.js) .book-stage { width: auto; height: auto; transform: none !important; margin: 16px; }
+html:not(.js) .book-stage > :not(.cover-entry) { display: none; }
+html:not(.js) .cover-entry { position: relative; top: auto; left: auto; transform: none; margin: auto; color: var(--ink); }
+html:not(.js) .cover-invitation { display: none; }
+html:not(.js) .book-language ul { top: 100%; bottom: auto; }
+
+.bookmark { overflow-wrap: anywhere; hyphens: auto; line-height: 1.2; }
+.book-language summary:focus-visible { outline: 2px solid #d8b58b; outline-offset: 2px; }
+html:not([lang="en"]) :is(.headline-byline,.headline-eyebrow) { white-space: normal; }
+html:not([lang="en"]) .headline-byline { font-family: var(--book-serif); }
+.is-turning .cover-entry, .is-riffling .cover-entry { visibility: hidden; pointer-events: none; }
+.sample-sheet[lang="fa"] .sample-sheet__head--recto { justify-content: flex-start; }
+.sample-sheet[lang="fa"] .sample-sheet__head--verso { justify-content: flex-end; }
+html[dir="rtl"] .running-head .book-name { margin-left: 0; margin-right: 18px; }
+/* An English original stays typographically English inside every locale. */
+.sample-sheet[lang="en"] {
+  --book-serif: "EB Garamond", Georgia, serif;
+  --book-heading: "Cormorant Garamond", Georgia, serif;
+  --book-ui: Arial, sans-serif;
+}
+.sample-sheet[lang="en"] h2.sample-chapter__title { line-height: 29px; }
+
+/* Optical type scales: the English Garamond design is the reference, not a
+   shared pixel size. Dense scripts need smaller display type and calmer weight.
+   Printed samples have their own source typography and are excluded throughout. */
+html:not([lang="en"]) {
+  --locale-body: clamp(15px, calc(var(--book-w) * .053), 18.5px);
+  --locale-reference: clamp(14px, calc(var(--book-w) * .05), 17px);
+  --locale-heading: clamp(25px, calc(var(--book-w) * .09), 44px);
+  --locale-brand: clamp(22px, calc(var(--book-w) * .073), 36px);
+  --locale-quote: clamp(16px, calc(var(--book-w) * .05), 22px);
+  --locale-appendix: clamp(23px, calc(var(--book-w) * .066), 31px);
+  --locale-leading: 1.55;
+  --locale-heading-leading: 1.15;
+  --locale-quote-leading: 1.36;
+  --locale-title-weight: 500;
+  --locale-tracking: -.02em;
+  --locale-caption-tracking: .1em;
+  --locale-verse-style: italic;
+}
+html:lang(fa), html:lang(ar) {
+  --locale-body: clamp(14px, calc(var(--book-w) * .048), 17px);
+  --locale-reference: clamp(13.5px, calc(var(--book-w) * .046), 16px);
+  --locale-heading: clamp(22px, calc(var(--book-w) * .067), 30px);
+  --locale-brand: clamp(21px, calc(var(--book-w) * .063), 28px);
+  --locale-quote: clamp(15px, calc(var(--book-w) * .048), 19px);
+  --locale-appendix: clamp(20px, calc(var(--book-w) * .058), 27px);
+  --locale-leading: 1.75;
+  --locale-heading-leading: 1.45;
+  --locale-quote-leading: 1.65;
+  --locale-tracking: 0;
+  --locale-caption-tracking: 0;
+  --locale-verse-style: normal;
+}
+html:lang(ru) {
+  --locale-body: clamp(14px, calc(var(--book-w) * .048), 17px);
+  --locale-reference: clamp(13.5px, calc(var(--book-w) * .046), 16px);
+  --locale-heading: clamp(23px, calc(var(--book-w) * .072), 34px);
+  --locale-brand: clamp(21px, calc(var(--book-w) * .065), 30px);
+  --locale-quote: clamp(15.5px, calc(var(--book-w) * .05), 20px);
+  --locale-appendix: clamp(21px, calc(var(--book-w) * .06), 28px);
+  --locale-heading-leading: 1.25;
+  --locale-quote-leading: 1.45;
+  --locale-tracking: -.015em;
+}
+html:lang(zh), html:lang(hi) {
+  --locale-body: clamp(14px, calc(var(--book-w) * .047), 16.5px);
+  --locale-reference: clamp(13.5px, calc(var(--book-w) * .045), 15.5px);
+  --locale-heading: clamp(22px, calc(var(--book-w) * .067), 30px);
+  --locale-brand: clamp(21px, calc(var(--book-w) * .063), 28px);
+  --locale-quote: clamp(15px, calc(var(--book-w) * .048), 19px);
+  --locale-appendix: clamp(20px, calc(var(--book-w) * .058), 27px);
+  --locale-leading: 1.75;
+  --locale-heading-leading: 1.45;
+  --locale-quote-leading: 1.6;
+  --locale-tracking: 0;
+  --locale-caption-tracking: 0;
+  --locale-verse-style: normal;
+}
+html:lang(zh) { --locale-body: clamp(14px, calc(var(--book-w) * .047), 16px); }
+
+html:not([lang="en"]) .page:not(.sample-page) .page-body {
+  font-size: var(--locale-body);
+  line-height: var(--locale-leading);
+}
+html:not([lang="en"]) .page:not(.sample-page) .page-body h2 {
+  font-size: var(--locale-heading);
+  font-weight: var(--locale-title-weight);
+  line-height: var(--locale-heading-leading);
+  letter-spacing: var(--locale-tracking);
+}
+html:not([lang="en"]) .page:not(.sample-page) .page-body h3 {
+  font-size: 1.25em;
+  font-weight: 500;
+  line-height: var(--locale-heading-leading);
+  letter-spacing: var(--locale-tracking);
+}
+html:not([lang="en"]) .page:not(.sample-page) :is(strong,b) { font-weight: 600; }
+html:not([lang="en"]) .page:not(.sample-page) .review-brand {
+  font-size: var(--locale-brand);
+  font-weight: var(--locale-title-weight);
+  line-height: var(--locale-heading-leading);
+  letter-spacing: var(--locale-tracking);
+  padding-bottom: 12px;
+  margin-bottom: 14px !important;
+}
+html:not([lang="en"]) .page:not(.sample-page) .review-brand small {
+  font-size: clamp(8px, calc(var(--book-w) * .025), 10px);
+  line-height: 1.5;
+  letter-spacing: var(--locale-caption-tracking);
+  margin-top: 8px;
+}
+html:not([lang="en"]) .page:not(.sample-page) .pullquote {
+  font-size: var(--locale-quote);
+  font-weight: 400;
+  line-height: var(--locale-quote-leading);
+  letter-spacing: 0;
+  margin-bottom: 1em !important;
+}
+html:not([lang="en"]) .page:not(.sample-page) .review-excerpt {
+  font-size: .95em;
+  line-height: var(--locale-leading);
+}
+html:not([lang="en"]) .review-page .lede { font-size: 1.02em; line-height: var(--locale-leading); }
+html:not([lang="en"]) .review-page .quote-mark {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(48px, calc(var(--book-w) * .135), 64px);
+  height: clamp(20px, calc(var(--book-w) * .055), 26px);
+  margin-top: 8px;
+}
+html:not([lang="en"]) .page:not(.sample-page) :is(.chapter-kicker,.review-link,.marketplace label,.paper-form label,.store-card__format,.back-to-index,.ace-letters span) {
+  letter-spacing: var(--locale-caption-tracking);
+}
+html:not([lang="en"]) .page:not(.sample-page) .quiet { font-size: .78em; }
+html:not([lang="en"]) .page:not(.sample-page) .continued { font-size: .78em; line-height: 1.5; }
+html:not([lang="en"]) .headline-summary { font-size: var(--locale-body); }
+html:not([lang="en"]) .headline-tagline { font-size: 1.15em; line-height: var(--locale-quote-leading); }
+html:not([lang="en"]) .headline-logline { font-size: .86em; line-height: var(--locale-leading); }
+html:not([lang="en"]) .headline-byline { font-size: clamp(11px, calc(var(--book-w) * .04), 16px); line-height: 1.5; }
+html:not([lang="en"]) :is(.headline-eyebrow,.headline-imprint) { letter-spacing: var(--locale-caption-tracking); }
+html:not([lang="en"]) .author-intro .poem { font-size: .94em; line-height: var(--locale-leading); font-style: var(--locale-verse-style); }
+html:not([lang="en"]) .page.appendix-page .page-body { font-size: var(--locale-reference); }
+html:not([lang="en"]) .page.appendix-page .page-body h2 { font-size: 1.25em; }
+html:not([lang="en"]) .page.appendix-page .page-body h2.appendix-title { font-size: var(--locale-appendix); }
+html:not([lang="en"]) .page.appendix-page .page-body :is(h3,h4),
+html:not([lang="en"]) .page.screen-page .page-body h3 { font-size: 1.08em; font-weight: 500; line-height: var(--locale-heading-leading); }
+html:not([lang="en"]) .page:not(.sample-page) .ace-letters strong { font-family: "Cormorant Garamond", Georgia, serif; font-size: var(--locale-heading); font-weight: 400; }
+html:not([lang="en"]) .page:not(.sample-page) .store-card__store { font-size: .8em; }
+html:not([lang="en"]) .page:not(.sample-page) .paper-form .form-status { font-size: .8em; line-height: var(--locale-leading); }
+
+/* On short screens keep the same hierarchy instead of oversized fixed display
+   sizes. Form inputs and printed samples retain their independent sizing. */
+@media (max-height: 550px) {
+  html:not([lang="en"]) {
+    --locale-body: 14px;
+    --locale-reference: 13.5px;
+    --locale-heading: 23px;
+    --locale-brand: 21px;
+    --locale-quote: 15.5px;
+    --locale-appendix: 21px;
+  }
+  html:is(:lang(fa),:lang(ar),:lang(zh),:lang(hi)) {
+    --locale-body: 13.5px;
+    --locale-reference: 13px;
+    --locale-heading: 21px;
+    --locale-brand: 20px;
+    --locale-quote: 14.5px;
+    --locale-appendix: 20px;
+  }
+  html:not([lang="en"]) .headline-tagline { font-size: 1.08em; }
+  html:not([lang="en"]) .headline-logline { font-size: .86em; }
+}
+
+/* Translated short reviews share one sheet whenever the actual text fits.
+   Their quieter scale includes translation notes; the long Kirkus review
+   retains its independent layout and can continue on small screens. */
+html:not([lang="en"]) .page.short-review-page .page-body {
+  font-size: calc(var(--locale-body) * .94);
+  line-height: 1.5;
+}
+html:not([lang="en"]) .page.short-review-page .chapter-kicker { margin-bottom: 8px !important; }
+html:not([lang="en"]) .page.short-review-page .review-brand {
+  font-size: clamp(19px, calc(var(--book-w) * .055), 27px);
+  line-height: 1.15;
+  padding-bottom: 8px;
+  margin-bottom: 8px !important;
+}
+html:not([lang="en"]) .page.short-review-page .review-brand small {
+  font-size: .34em;
+  line-height: 1.45;
+  margin-top: 5px;
+}
+html:not([lang="en"]) .page.short-review-page .quote-mark {
+  font-size: 42px;
+  height: 16px;
+  margin-top: 4px;
+}
+html:not([lang="en"]) .page.short-review-page .pullquote {
+  font-size: 1.08em;
+  line-height: 1.5;
+  margin-bottom: 8px !important;
+}
+html:not([lang="en"]) .page.short-review-page .lede {
+  font-size: 1em;
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+html:not([lang="en"]) .page.short-review-page .quiet { font-size: .75em; margin-bottom: 8px; }
+html:not([lang="en"]) .page.short-review-page .review-link { font-size: 8px; line-height: 1.5; margin-top: 4px; }
+html:not([lang="en"]) .page.short-review-page .review-entry + .review-entry {
+  margin-top: clamp(14px, calc(var(--book-w) * .04), 20px);
+  padding-top: clamp(12px, calc(var(--book-w) * .03), 16px);
+}
+
+/* Reserve separate columns for translated story titles and the decorative
+   port number. A long title can wrap without colliding with 2313. */
+html:not([lang="en"]) .story-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: clamp(12px, calc(var(--book-w) * .035), 18px);
+}
+html:not([lang="en"]) .story-heading .story-year {
+  position: static;
+  grid-column: 2;
+  grid-row: 1;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(48px, calc(var(--book-w) * .17), 84px);
+  white-space: nowrap;
+  direction: ltr;
+}
+html:not([lang="en"]) .page.story-page .story-heading h2 {
+  grid-column: 1;
+  grid-row: 1;
+  font-size: min(var(--locale-heading), clamp(21px, calc(var(--book-w) * .064), 32px));
+  overflow-wrap: normal;
+  hyphens: auto;
+}
+
+/* English needs the same separation only on the shortest landscape sheets. */
+@media (max-height: 550px) {
+  html[lang="en"] .story-heading {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 12px;
+  }
+  html[lang="en"] .story-heading .story-year {
+    position: static;
+    grid-column: 2;
+    grid-row: 1;
+    font-size: 48px;
+  }
+  html[lang="en"] .page.story-page .story-heading h2 {
+    grid-column: 1;
+    grid-row: 1;
+    font-size: 21px;
   }
 }

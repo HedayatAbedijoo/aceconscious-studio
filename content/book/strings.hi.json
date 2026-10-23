@@ -1,0 +1,100 @@
+{
+  "_": "hi translation of strings.en.json. Shared page wording comes from content/locales/hi.json.",
+  "sections": {
+    "headline": "परिचय",
+    "reviews": "समीक्षाएँ",
+    "story": "कहानी",
+    "author": "लेखक",
+    "buy": "खरीदें",
+    "contact": "संपर्क",
+    "community": "समुदाय",
+    "sample": "पठन अंश",
+    "appendix": "परिशिष्ट",
+    "ace": "ACE",
+    "back-cover": "पिछला आवरण"
+  },
+  "ui": {
+    "continued": "जारी",
+    "page": "पृष्ठ",
+    "of": "में से",
+    "openBook": "किताब खोलें",
+    "closeBook": "किताब बंद करें",
+    "previousPage": "पिछला पृष्ठ",
+    "nextPage": "अगला पृष्ठ",
+    "zoomIn": "इस मुद्रित पृष्ठ को बड़ा करें",
+    "zoomOut": "मुद्रित पृष्ठ को स्क्रीन में समायोजित करें",
+    "bookSections": "किताब के भाग",
+    "coverAlt": "ACE.await का सामने का आवरण",
+    "backCoverAlt": "ACE.await का पिछला आवरण"
+  },
+  "headline": {
+    "studio": "Ace Conscious Studio",
+    "placeAndYear": "कोलोन · 2026",
+    "eyebrow": "एक साहित्यिक कल्पनाशील उपन्यास",
+    "tagline": "हमारे लिए गए निर्णयों और हमारी रचनाओं को विरासत में मिलने वाले संसार के बारे में एक उपन्यास।",
+    "logline": "एक ईरानी प्रवासी प्रोग्रामर को ACE खेल में आमंत्रित किया जाता है, जहाँ सचेत निर्णय सामाजिक उपचार बन जाते हैं — और एक रक्तहीन क्रांति मानवता और उसकी रचनाओं को चंगा कर सकती है।"
+  },
+  "buy": {
+    "comingSoon": "जल्द उपलब्ध",
+    "marketplaceLabel": "Amazon बाज़ार",
+    "marketplaceNote": "देश चुनने से केवल Amazon के लिंक बदलते हैं। इस किताब की भाषा नहीं बदलती।",
+    "unavailable": "यहाँ उपलब्ध नहीं",
+    "formats": {
+      "kindle": "Amazon · Kindle ई-पुस्तक",
+      "paperback": "Amazon · पेपरबैक"
+    },
+    "editionNote": "खरीदारी के ये लिंक उपन्यास के अंग्रेज़ी संस्करण के लिए हैं।",
+    "markets": {
+      "us": "संयुक्त राज्य अमेरिका",
+      "uk": "यूनाइटेड किंगडम",
+      "de": "जर्मनी",
+      "ca": "कनाडा",
+      "au": "ऑस्ट्रेलिया",
+      "fr": "फ़्रांस",
+      "es": "स्पेन",
+      "it": "इटली",
+      "nl": "नीदरलैंड",
+      "pl": "पोलैंड",
+      "se": "स्वीडन",
+      "be": "बेल्जियम",
+      "ie": "आयरलैंड",
+      "jp": "जापान",
+      "in": "भारत",
+      "br": "ब्राज़ील",
+      "mx": "मेक्सिको"
+    }
+  },
+  "contact": {
+    "circleHeading": "समुदाय से जुड़ें",
+    "circleTagline": "कहानी समाप्त होती है। बातचीत नहीं।",
+    "circleDescription": "कभी-कभार पत्र, नई कहानियाँ, मुलाकातों की जानकारी और आगे की योजनाएँ पाने के लिए ACE पाठक समुदाय से जुड़ें।",
+    "circleEmailLabel": "ईमेल पता",
+    "circleEmailPlaceholder": "you@example.com",
+    "circleSubmit": "पाठक मंडली से जुड़ें",
+    "circleSending": "आपका अनुरोध भेजा जा रहा है…",
+    "circleSuccess": "धन्यवाद — जुड़ने का आपका अनुरोध भेज दिया गया है।",
+    "circleError": "हम आपके अनुरोध की पुष्टि नहीं कर सके। कृपया दोबारा कोशिश करें।",
+    "circleUnavailable": "अभी समुदाय से जुड़ना संभव नहीं है। कृपया बाद में कोशिश करें।",
+    "circleRequestMessage": "कृपया मुझे ACE पाठक समुदाय में जोड़ें, ताकि मुझे कभी-कभार पत्र, नई कहानियाँ, मुलाकातों की जानकारी और आगे की योजनाएँ मिल सकें।",
+    "writeHeading": "हेदायत को लिखें",
+    "emailDirect": "या सीधे यहाँ लिखें:"
+  },
+  "links": {
+    "heading": "लिंक",
+    "instagram": "Instagram",
+    "website": "Ace Conscious Studio",
+    "email": "ईमेल",
+    "press": "प्रेस में"
+  },
+  "appendix": {
+    "heading": "परिशिष्ट",
+    "back": "← परिशिष्ट पर लौटें",
+    "items": {
+      "privacy": "गोपनीयता",
+      "impressum": "कानूनी जानकारी",
+      "rights": "अधिकार और प्रतिनिधित्व",
+      "screen": "किताब से पर्दे तक",
+      "contents": "उपन्यास की विषय-सूची"
+    }
+  }
+}
