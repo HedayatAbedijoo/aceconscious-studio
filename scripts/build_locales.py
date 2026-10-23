@@ -145,6 +145,11 @@ def render(page, lang, source, strings):
     for a in soup.select("a[href]"):
         if not a.has_attr("data-set-lang"):
             a["href"] = localize_url(a["href"], code)
+    if page == "home":
+        # Make the locale explicit in section navigation, including direct
+        # index.html visits and previews with a different document base URL.
+        for a in soup.select('.site-nav a[href^="#"]'):
+            a["href"] = route(page, code) + a["href"]
     for input_el in soup.select('input[type="email"]'):
         input_el["dir"] = "ltr"
     for svg in soup.select("svg[viewbox]"):

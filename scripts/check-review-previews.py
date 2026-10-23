@@ -262,6 +262,7 @@ with sync_playwright() as p:
         check(page.url.endswith("/#reviews"), "Reviews menu links to real section")
         check(page.locator(".nav-toggle").get_attribute("aria-expanded") == "false", "Mobile menu closes after navigation")
         for language in ("de", "fa", "en"):
+            page.locator('#lang-menu summary').click()
             page.locator(f'[data-set-lang="{language}"]').click()
             page.wait_for_url(args.base + ("/" if language == "en" else f"/{language}/") + "#reviews")
             page.locator(".reviews__controls").wait_for(state="visible")

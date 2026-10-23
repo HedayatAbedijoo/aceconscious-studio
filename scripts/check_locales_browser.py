@@ -51,6 +51,31 @@ with sync_playwright() as p:
      page.screenshot(path=str(OUT/f'ace-{code}-{width}.png'))
     notes.append(f'{width} {url} OK')
   print('Checked all pages at width',width,'errors so far:',errors,flush=True)
+ # Switch language first, then activate every home menu entry. Check actual
+ # destinations, not just translated labels or the language picker itself.
+ for width in [1440,390]:
+  page.set_viewport_size({'width':width,'height':1000})
+  page.emulate_media(reduced_motion='reduce')
+  for lang in LANGUAGES:
+   code=lang['code'];home=BASE+route('home',code)
+   page.goto(BASE+'/',wait_until='load')
+   page.locator('#lang-menu summary').click()
+   page.locator(f'#lang-menu [data-set-lang="{code}"]').click()
+   page.wait_for_url(home)
+   entries=page.locator('.site-nav__links a').evaluate_all('(els)=>els.map(a=>({key:a.dataset.i18n,hash:a.hash}))')
+   for entry in entries:
+    if width==390:page.locator('.nav-toggle').click()
+    link=page.locator(f'.site-nav__links [data-i18n="{entry["key"]}"]')
+    link.focus();link.press('Enter')
+    expected=home+entry['hash'] if entry['hash'] else BASE+route('ace',code)
+    page.wait_for_url(expected)
+    assert page.locator('html').get_attribute('lang')==lang['htmlLang'],expected
+    if entry['hash']:
+     assert page.locator(entry['hash']).count()==1,expected
+     if width==390:assert page.locator('.nav-toggle').get_attribute('aria-expanded')=='false'
+    else:page.goto(home,wait_until='load')
+   notes.append(f'Navigation retains {code} at {width}px')
+ print('Checked every home menu entry in all languages at desktop/mobile widths.',flush=True)
  # Field validation follows the page language, without sending any messages.
  for lang in LANGUAGES:
   page.goto(BASE+route('home',lang['code']),wait_until='load')
