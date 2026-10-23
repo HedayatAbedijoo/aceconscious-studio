@@ -133,6 +133,11 @@ def render(page, lang, source, strings):
     if page == "home":
         section = parse((ROOT / "content/reviews.html").read_text()).select_one("#reviews")
         soup.select_one("#reviews").replace_with(section)
+        soup.head.append(soup.new_tag("link", rel="stylesheet", href="/css/home-backgrounds.css"))
+        soup.head.append(soup.new_tag("link", rel="stylesheet", href="/css/buy.css"))
+        buy = parse((ROOT / "content/templates/buy.html").read_text()).select_one("#buy")
+        soup.select_one("#buy").replace_with(buy)
+        soup.body.append(soup.new_tag("script", src="/js/buy.js", defer=True))
     apply_strings(soup, strings)
     # Shared character reader uses each page's translated character content.
     if page == "home":
@@ -168,7 +173,9 @@ def render(page, lang, source, strings):
             for img in soup.select(".hero__cover"):
                 img["src"] = img["src"].replace("cover-back.jpg", "cover-back-fa.jpg").replace("cover.jpg", "cover-fa.jpg")
                 img.attrs.pop("srcset", None)
-            soup.select_one("#buy-amazon")["href"] = "https://www.amazon.com/dp/B0H9JXNVCV"
+            # Author-confirmed Persian products; all other locales sell English.
+            for edition, asin in {"kindle": "B0H9JXNVCV", "paperback": "3913006044"}.items():
+                soup.select_one(f'#buy [data-edition="{edition}"]')["href"] = f"https://www.amazon.com/dp/{asin}"
 
     # Canonicals, language alternates, and social metadata are rendered in HTML,
     # so crawlers and visitors without JavaScript see the same translations.
