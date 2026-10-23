@@ -138,6 +138,7 @@ def render(page, lang, source, strings):
         buy = parse((ROOT / "content/templates/buy.html").read_text()).select_one("#buy")
         soup.select_one("#buy").replace_with(buy)
         soup.body.append(soup.new_tag("script", src="/js/buy.js", defer=True))
+        soup.head.append(soup.new_tag("link", rel="stylesheet", href="/css/home-hero.css"))
     apply_strings(soup, strings)
     # Shared character reader uses each page's translated character content.
     if page == "home":
