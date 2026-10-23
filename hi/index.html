@@ -194,7 +194,7 @@
 <link href="/css/book.css?v=eed21e4252" rel="stylesheet"/>
 <link href="/assets/favicon.png?v=20260718f" rel="icon" type="image/png"/>
 <link as="image" fetchpriority="high" href="/assets/cover.jpg" rel="preload"/>
-<link href="/css/ace-intro.css?v=9641f54e59" rel="stylesheet"/><script defer="True" src="/js/ace-intro.js?v=70c31c62b6"></script><script>(function(){var routes={"en":"/","de":"/de/","fr":"/fr/","es":"/es/","ru":"/ru/","zh":"/zh/","hi":"/hi/","ar":"/ar/","fa":"/fa/"};var query=new URLSearchParams(location.search),lang=query.get('lang');if(!lang||!routes[lang])return;query.delete('lang');var rest=query.toString();location.replace(routes[lang]+(rest?'?'+rest:'')+location.hash);})();</script><link href="https://aceconscious.studio/" hreflang="en" rel="alternate"/><link href="https://aceconscious.studio/de/" hreflang="de" rel="alternate"/><link href="https://aceconscious.studio/fr/" hreflang="fr" rel="alternate"/><link href="https://aceconscious.studio/es/" hreflang="es" rel="alternate"/><link href="https://aceconscious.studio/ru/" hreflang="ru" rel="alternate"/><link href="https://aceconscious.studio/zh/" hreflang="zh-Hans" rel="alternate"/><link href="https://aceconscious.studio/hi/" hreflang="hi" rel="alternate"/><link href="https://aceconscious.studio/ar/" hreflang="ar" rel="alternate"/><link href="https://aceconscious.studio/fa/" hreflang="fa" rel="alternate"/><link href="https://aceconscious.studio/" hreflang="x-default" rel="alternate"/><link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/></head>
+<link href="/css/ace-intro.css?v=6d31ab49d1" rel="stylesheet"/><script defer="True" src="/js/ace-intro.js?v=e2e4c45009"></script><script>(function(){var routes={"en":"/","de":"/de/","fr":"/fr/","es":"/es/","ru":"/ru/","zh":"/zh/","hi":"/hi/","ar":"/ar/","fa":"/fa/"};var query=new URLSearchParams(location.search),lang=query.get('lang');if(!lang||!routes[lang])return;query.delete('lang');var rest=query.toString();location.replace(routes[lang]+(rest?'?'+rest:'')+location.hash);})();</script><link href="https://aceconscious.studio/" hreflang="en" rel="alternate"/><link href="https://aceconscious.studio/de/" hreflang="de" rel="alternate"/><link href="https://aceconscious.studio/fr/" hreflang="fr" rel="alternate"/><link href="https://aceconscious.studio/es/" hreflang="es" rel="alternate"/><link href="https://aceconscious.studio/ru/" hreflang="ru" rel="alternate"/><link href="https://aceconscious.studio/zh/" hreflang="zh-Hans" rel="alternate"/><link href="https://aceconscious.studio/hi/" hreflang="hi" rel="alternate"/><link href="https://aceconscious.studio/ar/" hreflang="ar" rel="alternate"/><link href="https://aceconscious.studio/fa/" hreflang="fa" rel="alternate"/><link href="https://aceconscious.studio/" hreflang="x-default" rel="alternate"/><link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/></head>
 <body>
 <main class="reading-room" id="main">
 <div aria-hidden="true" class="ambient"></div>
@@ -232,8 +232,8 @@
 <h2 data-i18n="concepts.title" tabindex="-1">ACE क्या है?</h2>
 <p class="ace-intro-lead" data-i18n="concepts.lead">एक निर्णय को देखने के तीन नज़रिए। किसी अक्षर पर टैप करें।</p>
 </header><div aria-label="ACE" class="ace-intro-tabs ace-intro-tabs--concepts" role="tablist">
-<button aria-controls="intro-panel-agency" aria-selected="true" data-i18n-attr="data-next-label:concepts.next.agency" data-next-label="जुड़ाव को जानें" id="intro-tab-agency" role="tab" tabindex="0" type="button"><b aria-hidden="true">A</b><span data-i18n="agency.name">कर्तृत्व</span></button>
-<button aria-controls="intro-panel-connection" aria-selected="false" data-i18n-attr="data-next-label:concepts.next.connection" data-next-label="आदान-प्रदान को जानें" id="intro-tab-connection" role="tab" tabindex="-1" type="button"><b aria-hidden="true">C</b><span data-i18n="connection.name">जुड़ाव</span></button>
+<button aria-controls="intro-panel-agency" aria-selected="true" id="intro-tab-agency" role="tab" tabindex="0" type="button"><b aria-hidden="true">A</b><span data-i18n="agency.name">कर्तृत्व</span></button>
+<button aria-controls="intro-panel-connection" aria-selected="false" id="intro-tab-connection" role="tab" tabindex="-1" type="button"><b aria-hidden="true">C</b><span data-i18n="connection.name">जुड़ाव</span></button>
 <button aria-controls="intro-panel-exchange" aria-selected="false" id="intro-tab-exchange" role="tab" tabindex="-1" type="button"><b aria-hidden="true">E</b><span data-i18n="exchange.name">आदान-प्रदान</span></button>
 </div><div class="ace-intro-panels">
 <div aria-labelledby="intro-tab-agency" class="ace-intro-panel" id="intro-panel-agency" role="tabpanel" tabindex="0">
@@ -254,19 +254,16 @@
 <p class="ace-intro-definition" data-i18n="exchange.body">समय, देखभाल, कौशल या पैसे का आदान-प्रदान हो सकता है। क्या यह उपहार है, बाद में कुछ लौटाने का वादा, या भुगतान? अपेक्षाएँ स्पष्ट करें।</p>
 <div class="ace-intro-example"><span class="ace-intro-example-label" data-i18n="example">हेदायत की कहानी से</span><p data-i18n="exchange.example">हेदायत को सामान से जन्मदिन पर एक पेंटिंग उपहार में मिलती है। लेकिन पड़ोसी सेबास्टियन को दिए पंद्रह यूरो उधार हैं, जिन्हें लौटाना है।</p></div>
 </div>
-</div><p class="ace-intro-note" data-i18n="concepts.note">कर्तृत्व से शुरू करें: कोई निर्णय काम में कैसे बदलता है?</p></div>
-<nav aria-label="ACE का परिचय" class="ace-intro-nav" data-i18n-attr="aria-label:nav.label">
-<span class="ace-intro-duration" data-i18n="duration">कुछ क्लिक। एक नया नज़रिया।</span>
-<a class="ace-intro-next" data-intro-next="" data-jump="ace-pdaf" href="#ace-pdaf"><span data-i18n="concepts.next">हम निर्णय कैसे लेते हैं?</span><span aria-hidden="true">→</span></a>
-</nav>
+</div><p class="ace-intro-note" data-i18n="concepts.note">कर्तृत्व से शुरू करें: कोई निर्णय काम में कैसे बदलता है?</p>
+<p class="ace-intro-duration" data-i18n="duration">कुछ क्लिक। एक नया नज़रिया।</p></div>
 </div></section><section data-class="ace-intro-page" data-fixed="" data-page="ace-pdaf" data-section="ace" data-title="एक ठहराव से काम तक।" id="ace-pdaf"><div class="ace-intro" data-intro-group="pdaf" data-live="" tabindex="-1"><div class="ace-intro-reading" tabindex="0"><header class="ace-intro-heading">
 <p class="ace-intro-kicker" data-i18n="pdaf.kicker">०२ / निर्णय का चक्र</p>
 <h2 data-i18n="pdaf.title" tabindex="-1">एक ठहराव से काम तक।</h2>
 <p class="ace-intro-lead" data-i18n="pdaf.lead">PDAF: निर्णय के चार चरण। चक्र में आगे बढ़ने के लिए टैप करें।</p>
 </header><div aria-label="PDAF" class="ace-intro-tabs ace-intro-tabs--pdaf" role="tablist">
-<button aria-controls="intro-panel-preparation" aria-selected="true" data-i18n-attr="data-next-label:pdaf.next.preparation" data-next-label="फिर, निर्णय" id="intro-tab-preparation" role="tab" tabindex="0" type="button"><b aria-hidden="true">P</b><span data-i18n="preparation.name">तैयारी</span></button>
-<button aria-controls="intro-panel-decision" aria-selected="false" data-i18n-attr="data-next-label:pdaf.next.decision" data-next-label="फिर, क्रिया" id="intro-tab-decision" role="tab" tabindex="-1" type="button"><b aria-hidden="true">D</b><span data-i18n="decision.name">निर्णय</span></button>
-<button aria-controls="intro-panel-action" aria-selected="false" data-i18n-attr="data-next-label:pdaf.next.action" data-next-label="फिर, प्रतिपुष्टि" id="intro-tab-action" role="tab" tabindex="-1" type="button"><b aria-hidden="true">A</b><span data-i18n="action.name">क्रिया</span></button>
+<button aria-controls="intro-panel-preparation" aria-selected="true" id="intro-tab-preparation" role="tab" tabindex="0" type="button"><b aria-hidden="true">P</b><span data-i18n="preparation.name">तैयारी</span></button>
+<button aria-controls="intro-panel-decision" aria-selected="false" id="intro-tab-decision" role="tab" tabindex="-1" type="button"><b aria-hidden="true">D</b><span data-i18n="decision.name">निर्णय</span></button>
+<button aria-controls="intro-panel-action" aria-selected="false" id="intro-tab-action" role="tab" tabindex="-1" type="button"><b aria-hidden="true">A</b><span data-i18n="action.name">क्रिया</span></button>
 <button aria-controls="intro-panel-feedback" aria-selected="false" id="intro-tab-feedback" role="tab" tabindex="-1" type="button"><b aria-hidden="true">F</b><span data-i18n="feedback.name">प्रतिपुष्टि</span></button>
 </div><div class="ace-intro-panels">
 <div aria-labelledby="intro-tab-preparation" class="ace-intro-panel" id="intro-panel-preparation" role="tabpanel" tabindex="0">
@@ -294,17 +291,14 @@
 <div class="ace-intro-example"><span class="ace-intro-example-label" data-i18n="example">हेदायत की कहानी से</span><p data-i18n="feedback.example">रात तीन बजकर तीन मिनट पर संगीत फिर तेज़ आवाज़ में बज उठता है। अपडेट से समस्या हल नहीं हुई; हेदायत प्लग निकाल देता है।</p></div>
 </div>
 </div><p class="ace-intro-note"><bdi dir="ltr">P → D → A → F → P</bdi> · <span data-i18n="pdaf.note">प्रतिपुष्टि आपको फिर तैयारी की ओर ले जाती है।</span></p></div>
-<nav aria-label="ACE का परिचय" class="ace-intro-nav" data-i18n-attr="aria-label:nav.label">
-<a class="ace-intro-next" data-intro-next="" data-jump="ace-phases" href="#ace-phases"><span data-i18n="pdaf.next">चार अवस्थाओं को जानें</span><span aria-hidden="true">→</span></a>
-</nav>
 </div></section><section data-class="ace-intro-page" data-fixed="" data-page="ace-phases" data-section="ace" data-title="यह किस तरह का चुनाव है?" id="ace-phases"><div class="ace-intro" data-intro-group="phases" data-live="" tabindex="-1"><div class="ace-intro-reading" tabindex="0"><header class="ace-intro-heading">
 <p class="ace-intro-kicker" data-i18n="phases.kicker">०३ / कर्तृत्व की चार अवस्थाएँ</p>
 <h2 data-i18n="phases.title" tabindex="-1">यह किस तरह का चुनाव है?</h2>
 <p class="ace-intro-lead" data-i18n="phases.lead">निर्णय लेने और काम करने की क्षमता इस्तेमाल करने के चार तरीके। किसी कार्ड पर टैप करें।</p>
 </header><div aria-label="कर्तृत्व की अवस्थाएँ" class="ace-intro-tabs ace-intro-tabs--phases" data-i18n-attr="aria-label:phases.label" role="tablist">
-<button aria-controls="intro-panel-exploration" aria-selected="true" data-i18n-attr="data-next-label:phases.next.exploration" data-next-label="स्थिरीकरण को जानें" id="intro-tab-exploration" role="tab" tabindex="0" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 60 60"><circle cx="30" cy="30" r="22" stroke-dasharray="2 5"></circle><path d="m22 38 5-15 15-5-5 15-15 5Z"></path><circle cx="32" cy="28" r="2"></circle></svg><span data-i18n="exploration.name">अन्वेषण</span></button>
-<button aria-controls="intro-panel-stabilization" aria-selected="false" data-i18n-attr="data-next-label:phases.next.stabilization" data-next-label="विस्तार को जानें" id="intro-tab-stabilization" role="tab" tabindex="-1" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 60 60"><path d="M9 48h42M15 38h30M21 28h18M26 18h8"></path><circle cx="30" cy="9" r="3"></circle></svg><span data-i18n="stabilization.name">स्थिरीकरण</span></button>
-<button aria-controls="intro-panel-expansion" aria-selected="false" data-i18n-attr="data-next-label:phases.next.expansion" data-next-label="एकीकरण को जानें" id="intro-tab-expansion" role="tab" tabindex="-1" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 60 60"><path d="M30 53V29M30 36C16 36 12 24 13 17c12 0 17 8 17 19ZM30 29C30 16 38 9 48 9c1 13-6 20-18 20ZM22 53h16"></path></svg><span data-i18n="expansion.name">विस्तार</span></button>
+<button aria-controls="intro-panel-exploration" aria-selected="true" id="intro-tab-exploration" role="tab" tabindex="0" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 60 60"><circle cx="30" cy="30" r="22" stroke-dasharray="2 5"></circle><path d="m22 38 5-15 15-5-5 15-15 5Z"></path><circle cx="32" cy="28" r="2"></circle></svg><span data-i18n="exploration.name">अन्वेषण</span></button>
+<button aria-controls="intro-panel-stabilization" aria-selected="false" id="intro-tab-stabilization" role="tab" tabindex="-1" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 60 60"><path d="M9 48h42M15 38h30M21 28h18M26 18h8"></path><circle cx="30" cy="9" r="3"></circle></svg><span data-i18n="stabilization.name">स्थिरीकरण</span></button>
+<button aria-controls="intro-panel-expansion" aria-selected="false" id="intro-tab-expansion" role="tab" tabindex="-1" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 60 60"><path d="M30 53V29M30 36C16 36 12 24 13 17c12 0 17 8 17 19ZM30 29C30 16 38 9 48 9c1 13-6 20-18 20ZM22 53h16"></path></svg><span data-i18n="expansion.name">विस्तार</span></button>
 <button aria-controls="intro-panel-integration" aria-selected="false" id="intro-tab-integration" role="tab" tabindex="-1" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 60 60"><circle cx="22" cy="30" r="16"></circle><circle cx="39" cy="30" r="16"></circle><circle cx="30.5" cy="30" r="3"></circle></svg><span data-i18n="integration.name">एकीकरण</span></button>
 </div><div class="ace-intro-panels">
 <div aria-labelledby="intro-tab-exploration" class="ace-intro-panel" id="intro-panel-exploration" role="tabpanel" tabindex="0">
@@ -332,9 +326,6 @@
 <div class="ace-intro-example"><span class="ace-intro-example-label" data-i18n="example">हेदायत की कहानी से</span><p data-i18n="integration.example">ज़्यादा वेतन वाली नौकरी हेदायत को लुभाती है। वह सोचता है कि टीम के प्रति निष्ठा और स्वतंत्र इंटरनेट के लिए काम करना उसके लिए क्या मायने रखते हैं।</p></div>
 </div>
 </div><p class="ace-intro-note" data-i18n="phases.note">इन अवस्थाओं का कोई तय क्रम नहीं है। आपकी स्थिति तय करती है कि आपको किनकी ज़रूरत है।</p></div>
-<nav aria-label="ACE का परिचय" class="ace-intro-nav" data-i18n-attr="aria-label:nav.label">
-<a class="ace-intro-next" data-intro-next="" data-jump="ace-play" href="#ace-play"><span data-i18n="phases.next">अब खेल की ओर</span><span aria-hidden="true">→</span></a>
-</nav>
 </div></section><section data-class="ace-intro-page" data-fixed="" data-page="ace-play" data-section="ace" data-title="क्या आप खेलना चाहेंगे?" id="ace-play"><div class="ace-intro ace-intro-invitation" data-live="" tabindex="-1"><div class="ace-intro-reading" tabindex="0"><header class="ace-intro-heading">
 <p class="ace-intro-kicker" data-i18n="play.kicker">०४ / आपकी अगली चाल</p>
 <h2 data-i18n="play.title" tabindex="-1">क्या आप खेलना चाहेंगे?</h2>

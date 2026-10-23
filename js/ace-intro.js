@@ -2,32 +2,7 @@
 (() => {
   const introPages = new Map(Array.from(document.querySelectorAll('.ace-intro'),
     intro => [intro.parentElement.id, intro]));
-  const groups = Array.from(document.querySelectorAll('[data-intro-group]'));
-  const navigation = new WeakMap();
-  for (const group of groups) {
-    const next = group.querySelector('[data-intro-next]');
-    navigation.set(group, {
-      destination: next.dataset.jump,
-      label: next.firstElementChild.textContent,
-    });
-    updateNext(group);
-  }
-
-  function updateNext(group) {
-    const tab = group.querySelector('[role="tab"][aria-selected="true"]');
-    const next = group.querySelector('[data-intro-next]');
-    const original = navigation.get(group);
-    next.firstElementChild.textContent = tab.dataset.nextLabel || original.label;
-    if (tab.dataset.nextLabel) {
-      next.removeAttribute('data-jump');
-      next.href = '#' + tab.nextElementSibling.getAttribute('aria-controls');
-    } else {
-      next.dataset.jump = original.destination;
-      next.href = '#' + original.destination;
-    }
-  }
-
-  function select(group, selected, focusPanel = false) {
+  function select(group, selected) {
     for (const tab of group.querySelectorAll('[role="tab"]')) {
       const active = tab === selected;
       tab.setAttribute('aria-selected', String(active));
@@ -35,9 +10,7 @@
       // Use the live group: the book moves these nodes when resizing.
       group.querySelector('#' + tab.getAttribute('aria-controls')).hidden = !active;
     }
-    updateNext(group);
     group.querySelector('.ace-intro-reading').scrollTop = 0;
-    if (focusPanel) group.querySelector('#' + selected.getAttribute('aria-controls')).focus({ preventScroll: true });
   }
 
   document.addEventListener('click', event => {
@@ -45,15 +18,6 @@
     if (!group || event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
     const tab = event.target.closest('[role="tab"]');
     if (tab) select(group, tab);
-    const next = event.target.closest('[data-intro-next]');
-    if (next && !next.hasAttribute('data-jump')) {
-      event.preventDefault();
-      // Selecting the final card adds data-jump to this same link. Keep this
-      // click from also reaching the book's page-navigation listener.
-      event.stopPropagation();
-      const current = group.querySelector('[role="tab"][aria-selected="true"]');
-      select(group, current.nextElementSibling, true);
-    }
   }, true);
 
   // Arrow/Home/End keys switch cards while focus is in a tablist; elsewhere

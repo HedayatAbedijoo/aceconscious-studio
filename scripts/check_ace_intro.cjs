@@ -54,6 +54,7 @@ const expectedOrder = ['headline', 'reviews', 'story', 'ace', 'author', 'buy', '
     await open(page, home + '#ace');
     assert.deepEqual(await page.locator('.bookmark').evaluateAll(tabs => tabs.map(tab => tab.dataset.section)), expectedOrder);
     assert.equal(await page.locator('.ace-intro [data-i18n="back"], .ace-intro-back').count(), 0);
+    assert.equal(await page.locator('[data-intro-next], [data-next-label], [data-intro-group] .ace-intro-nav').count(), 0);
     // The ordinary previous/next controls follow the same order as the tabs.
     await page.locator('#previous').click();
     await settled(page);
@@ -83,8 +84,10 @@ const expectedOrder = ['headline', 'reviews', 'story', 'ace', 'author', 'buy', '
     ]) {
       assert.equal(new URL(page.url()).hash, '#' + anchor);
       await page.screenshot({ path: `${output}/${code}-${width}-${anchor}.png` });
-      for (const [i, card] of cards.entries()) {
+      for (const card of cards) {
+        await sheet(page).locator('#intro-tab-' + card).click();
         assert.equal(await selected(page), 'intro-tab-' + card);
+        assert.equal(new URL(page.url()).hash, '#' + anchor, 'Selecting a card keeps the current book page');
         const panel = page.locator('#intro-panel-' + card);
         assert.equal(await sheet(page).locator('[role="tabpanel"]:visible').count(), 1);
         assert.equal(await panel.locator('.ace-intro-example p').textContent(), copy[card + '.example']);
@@ -101,15 +104,9 @@ const expectedOrder = ['headline', 'reviews', 'story', 'ace', 'author', 'buy', '
         assert.ok(bounds.content <= bounds.width + 1, `Horizontal clipping at ${width}, ${card}`);
         assert.ok(bounds.reachable);
         await panel.locator('.ace-intro-example').scrollIntoViewIfNeeded();
-        const next = sheet(page).locator('[data-intro-next]');
-        await next.click();
-        if (i < cards.length - 1) {
-          assert.equal(new URL(page.url()).hash, '#' + anchor, 'The final card must be read before turning the page');
-        } else {
-          await settled(page);
-          assert.equal(await page.evaluate(() => document.activeElement.tagName), 'H2');
-        }
       }
+      await page.locator('#next').click();
+      await settled(page);
     }
     assert.equal(new URL(page.url()).hash, '#ace-play');
     assert.equal(await sheet(page).locator('.ace-intro-play').getAttribute('href'), home);

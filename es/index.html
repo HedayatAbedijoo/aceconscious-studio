@@ -194,7 +194,7 @@
 <link href="/css/book.css?v=eed21e4252" rel="stylesheet"/>
 <link href="/assets/favicon.png?v=20260718f" rel="icon" type="image/png"/>
 <link as="image" fetchpriority="high" href="/assets/cover.jpg" rel="preload"/>
-<link href="/css/ace-intro.css?v=9641f54e59" rel="stylesheet"/><script defer="True" src="/js/ace-intro.js?v=70c31c62b6"></script><script>(function(){var routes={"en":"/","de":"/de/","fr":"/fr/","es":"/es/","ru":"/ru/","zh":"/zh/","hi":"/hi/","ar":"/ar/","fa":"/fa/"};var query=new URLSearchParams(location.search),lang=query.get('lang');if(!lang||!routes[lang])return;query.delete('lang');var rest=query.toString();location.replace(routes[lang]+(rest?'?'+rest:'')+location.hash);})();</script><link href="https://aceconscious.studio/" hreflang="en" rel="alternate"/><link href="https://aceconscious.studio/de/" hreflang="de" rel="alternate"/><link href="https://aceconscious.studio/fr/" hreflang="fr" rel="alternate"/><link href="https://aceconscious.studio/es/" hreflang="es" rel="alternate"/><link href="https://aceconscious.studio/ru/" hreflang="ru" rel="alternate"/><link href="https://aceconscious.studio/zh/" hreflang="zh-Hans" rel="alternate"/><link href="https://aceconscious.studio/hi/" hreflang="hi" rel="alternate"/><link href="https://aceconscious.studio/ar/" hreflang="ar" rel="alternate"/><link href="https://aceconscious.studio/fa/" hreflang="fa" rel="alternate"/><link href="https://aceconscious.studio/" hreflang="x-default" rel="alternate"/></head>
+<link href="/css/ace-intro.css?v=6d31ab49d1" rel="stylesheet"/><script defer="True" src="/js/ace-intro.js?v=e2e4c45009"></script><script>(function(){var routes={"en":"/","de":"/de/","fr":"/fr/","es":"/es/","ru":"/ru/","zh":"/zh/","hi":"/hi/","ar":"/ar/","fa":"/fa/"};var query=new URLSearchParams(location.search),lang=query.get('lang');if(!lang||!routes[lang])return;query.delete('lang');var rest=query.toString();location.replace(routes[lang]+(rest?'?'+rest:'')+location.hash);})();</script><link href="https://aceconscious.studio/" hreflang="en" rel="alternate"/><link href="https://aceconscious.studio/de/" hreflang="de" rel="alternate"/><link href="https://aceconscious.studio/fr/" hreflang="fr" rel="alternate"/><link href="https://aceconscious.studio/es/" hreflang="es" rel="alternate"/><link href="https://aceconscious.studio/ru/" hreflang="ru" rel="alternate"/><link href="https://aceconscious.studio/zh/" hreflang="zh-Hans" rel="alternate"/><link href="https://aceconscious.studio/hi/" hreflang="hi" rel="alternate"/><link href="https://aceconscious.studio/ar/" hreflang="ar" rel="alternate"/><link href="https://aceconscious.studio/fa/" hreflang="fa" rel="alternate"/><link href="https://aceconscious.studio/" hreflang="x-default" rel="alternate"/></head>
 <body>
 <main class="reading-room" id="main">
 <div aria-hidden="true" class="ambient"></div>
@@ -232,8 +232,8 @@
 <h2 data-i18n="concepts.title" tabindex="-1">¿Qué es ACE?</h2>
 <p class="ace-intro-lead" data-i18n="concepts.lead">Tres maneras de mirar una decisión. Toca una letra.</p>
 </header><div aria-label="ACE" class="ace-intro-tabs ace-intro-tabs--concepts" role="tablist">
-<button aria-controls="intro-panel-agency" aria-selected="true" data-i18n-attr="data-next-label:concepts.next.agency" data-next-label="Descubre la conexión" id="intro-tab-agency" role="tab" tabindex="0" type="button"><b aria-hidden="true">A</b><span data-i18n="agency.name">Capacidad de actuar</span></button>
-<button aria-controls="intro-panel-connection" aria-selected="false" data-i18n-attr="data-next-label:concepts.next.connection" data-next-label="Descubre el intercambio" id="intro-tab-connection" role="tab" tabindex="-1" type="button"><b aria-hidden="true">C</b><span data-i18n="connection.name">Conexión</span></button>
+<button aria-controls="intro-panel-agency" aria-selected="true" id="intro-tab-agency" role="tab" tabindex="0" type="button"><b aria-hidden="true">A</b><span data-i18n="agency.name">Capacidad de actuar</span></button>
+<button aria-controls="intro-panel-connection" aria-selected="false" id="intro-tab-connection" role="tab" tabindex="-1" type="button"><b aria-hidden="true">C</b><span data-i18n="connection.name">Conexión</span></button>
 <button aria-controls="intro-panel-exchange" aria-selected="false" id="intro-tab-exchange" role="tab" tabindex="-1" type="button"><b aria-hidden="true">E</b><span data-i18n="exchange.name">Intercambio</span></button>
 </div><div class="ace-intro-panels">
 <div aria-labelledby="intro-tab-agency" class="ace-intro-panel" id="intro-panel-agency" role="tabpanel" tabindex="0">
@@ -254,19 +254,16 @@
 <p class="ace-intro-definition" data-i18n="exchange.body">Se pueden intercambiar tiempo, cuidados, habilidades o dinero. ¿Es un regalo, un compromiso de devolver algo más adelante o un pago? Aclara las expectativas.</p>
 <div class="ace-intro-example"><span class="ace-intro-example-label" data-i18n="example">En la historia de Hedayat</span><p data-i18n="exchange.example">Hedayat recibe un cuadro de Saman como regalo de cumpleaños. En cambio, espera que su vecino Sebastian le devuelva los quince euros que le presta.</p></div>
 </div>
-</div><p class="ace-intro-note" data-i18n="concepts.note">Empecemos por la capacidad de actuar: ¿cómo se convierte una decisión en acción?</p></div>
-<nav aria-label="Introducción a ACE" class="ace-intro-nav" data-i18n-attr="aria-label:nav.label">
-<span class="ace-intro-duration" data-i18n="duration">Unos clics. Una mirada nueva.</span>
-<a class="ace-intro-next" data-intro-next="" data-jump="ace-pdaf" href="#ace-pdaf"><span data-i18n="concepts.next">¿Cómo decidimos?</span><span aria-hidden="true">→</span></a>
-</nav>
+</div><p class="ace-intro-note" data-i18n="concepts.note">Empecemos por la capacidad de actuar: ¿cómo se convierte una decisión en acción?</p>
+<p class="ace-intro-duration" data-i18n="duration">Unos clics. Una mirada nueva.</p></div>
 </div></section><section data-class="ace-intro-page" data-fixed="" data-page="ace-pdaf" data-section="ace" data-title="De una pausa a una acción." id="ace-pdaf"><div class="ace-intro" data-intro-group="pdaf" data-live="" tabindex="-1"><div class="ace-intro-reading" tabindex="0"><header class="ace-intro-heading">
 <p class="ace-intro-kicker" data-i18n="pdaf.kicker">02 / El ciclo de decisión</p>
 <h2 data-i18n="pdaf.title" tabindex="-1">De una pausa a una acción.</h2>
 <p class="ace-intro-lead" data-i18n="pdaf.lead">PDAF: cuatro momentos de una decisión. Toca para seguir el ciclo.</p>
 </header><div aria-label="PDAF" class="ace-intro-tabs ace-intro-tabs--pdaf" role="tablist">
-<button aria-controls="intro-panel-preparation" aria-selected="true" data-i18n-attr="data-next-label:pdaf.next.preparation" data-next-label="Después, la decisión" id="intro-tab-preparation" role="tab" tabindex="0" type="button"><b aria-hidden="true">P</b><span data-i18n="preparation.name">Preparación</span></button>
-<button aria-controls="intro-panel-decision" aria-selected="false" data-i18n-attr="data-next-label:pdaf.next.decision" data-next-label="Después, la acción" id="intro-tab-decision" role="tab" tabindex="-1" type="button"><b aria-hidden="true">D</b><span data-i18n="decision.name">Decisión</span></button>
-<button aria-controls="intro-panel-action" aria-selected="false" data-i18n-attr="data-next-label:pdaf.next.action" data-next-label="Después, la retroalimentación" id="intro-tab-action" role="tab" tabindex="-1" type="button"><b aria-hidden="true">A</b><span data-i18n="action.name">Acción</span></button>
+<button aria-controls="intro-panel-preparation" aria-selected="true" id="intro-tab-preparation" role="tab" tabindex="0" type="button"><b aria-hidden="true">P</b><span data-i18n="preparation.name">Preparación</span></button>
+<button aria-controls="intro-panel-decision" aria-selected="false" id="intro-tab-decision" role="tab" tabindex="-1" type="button"><b aria-hidden="true">D</b><span data-i18n="decision.name">Decisión</span></button>
+<button aria-controls="intro-panel-action" aria-selected="false" id="intro-tab-action" role="tab" tabindex="-1" type="button"><b aria-hidden="true">A</b><span data-i18n="action.name">Acción</span></button>
 <button aria-controls="intro-panel-feedback" aria-selected="false" id="intro-tab-feedback" role="tab" tabindex="-1" type="button"><b aria-hidden="true">F</b><span data-i18n="feedback.name">Retroalimentación</span></button>
 </div><div class="ace-intro-panels">
 <div aria-labelledby="intro-tab-preparation" class="ace-intro-panel" id="intro-panel-preparation" role="tabpanel" tabindex="0">
@@ -294,17 +291,14 @@
 <div class="ace-intro-example"><span class="ace-intro-example-label" data-i18n="example">En la historia de Hedayat</span><p data-i18n="feedback.example">A las 3:03 de la madrugada, la música vuelve a sonar a todo volumen. La actualización no ha resuelto el problema; Hedayat desenchufa el equipo.</p></div>
 </div>
 </div><p class="ace-intro-note"><bdi dir="ltr">P → D → A → F → P</bdi> · <span data-i18n="pdaf.note">La retroalimentación te devuelve a la preparación.</span></p></div>
-<nav aria-label="Introducción a ACE" class="ace-intro-nav" data-i18n-attr="aria-label:nav.label">
-<a class="ace-intro-next" data-intro-next="" data-jump="ace-phases" href="#ace-phases"><span data-i18n="pdaf.next">Conoce las cuatro fases</span><span aria-hidden="true">→</span></a>
-</nav>
 </div></section><section data-class="ace-intro-page" data-fixed="" data-page="ace-phases" data-section="ace" data-title="¿Qué tipo de elección es esta?" id="ace-phases"><div class="ace-intro" data-intro-group="phases" data-live="" tabindex="-1"><div class="ace-intro-reading" tabindex="0"><header class="ace-intro-heading">
 <p class="ace-intro-kicker" data-i18n="phases.kicker">03 / Cuatro fases de la capacidad de actuar</p>
 <h2 data-i18n="phases.title" tabindex="-1">¿Qué tipo de elección es esta?</h2>
 <p class="ace-intro-lead" data-i18n="phases.lead">Cuatro formas de usar tu capacidad de decidir y actuar. Toca una tarjeta.</p>
 </header><div aria-label="Fases de la capacidad de actuar" class="ace-intro-tabs ace-intro-tabs--phases" data-i18n-attr="aria-label:phases.label" role="tablist">
-<button aria-controls="intro-panel-exploration" aria-selected="true" data-i18n-attr="data-next-label:phases.next.exploration" data-next-label="Descubre la estabilización" id="intro-tab-exploration" role="tab" tabindex="0" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 60 60"><circle cx="30" cy="30" r="22" stroke-dasharray="2 5"></circle><path d="m22 38 5-15 15-5-5 15-15 5Z"></path><circle cx="32" cy="28" r="2"></circle></svg><span data-i18n="exploration.name">Exploración</span></button>
-<button aria-controls="intro-panel-stabilization" aria-selected="false" data-i18n-attr="data-next-label:phases.next.stabilization" data-next-label="Descubre la expansión" id="intro-tab-stabilization" role="tab" tabindex="-1" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 60 60"><path d="M9 48h42M15 38h30M21 28h18M26 18h8"></path><circle cx="30" cy="9" r="3"></circle></svg><span data-i18n="stabilization.name">Estabilización</span></button>
-<button aria-controls="intro-panel-expansion" aria-selected="false" data-i18n-attr="data-next-label:phases.next.expansion" data-next-label="Descubre la integración" id="intro-tab-expansion" role="tab" tabindex="-1" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 60 60"><path d="M30 53V29M30 36C16 36 12 24 13 17c12 0 17 8 17 19ZM30 29C30 16 38 9 48 9c1 13-6 20-18 20ZM22 53h16"></path></svg><span data-i18n="expansion.name">Expansión</span></button>
+<button aria-controls="intro-panel-exploration" aria-selected="true" id="intro-tab-exploration" role="tab" tabindex="0" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 60 60"><circle cx="30" cy="30" r="22" stroke-dasharray="2 5"></circle><path d="m22 38 5-15 15-5-5 15-15 5Z"></path><circle cx="32" cy="28" r="2"></circle></svg><span data-i18n="exploration.name">Exploración</span></button>
+<button aria-controls="intro-panel-stabilization" aria-selected="false" id="intro-tab-stabilization" role="tab" tabindex="-1" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 60 60"><path d="M9 48h42M15 38h30M21 28h18M26 18h8"></path><circle cx="30" cy="9" r="3"></circle></svg><span data-i18n="stabilization.name">Estabilización</span></button>
+<button aria-controls="intro-panel-expansion" aria-selected="false" id="intro-tab-expansion" role="tab" tabindex="-1" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 60 60"><path d="M30 53V29M30 36C16 36 12 24 13 17c12 0 17 8 17 19ZM30 29C30 16 38 9 48 9c1 13-6 20-18 20ZM22 53h16"></path></svg><span data-i18n="expansion.name">Expansión</span></button>
 <button aria-controls="intro-panel-integration" aria-selected="false" id="intro-tab-integration" role="tab" tabindex="-1" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 60 60"><circle cx="22" cy="30" r="16"></circle><circle cx="39" cy="30" r="16"></circle><circle cx="30.5" cy="30" r="3"></circle></svg><span data-i18n="integration.name">Integración</span></button>
 </div><div class="ace-intro-panels">
 <div aria-labelledby="intro-tab-exploration" class="ace-intro-panel" id="intro-panel-exploration" role="tabpanel" tabindex="0">
@@ -332,9 +326,6 @@
 <div class="ace-intro-example"><span class="ace-intro-example-label" data-i18n="example">En la historia de Hedayat</span><p data-i18n="integration.example">Un empleo mejor pagado tienta a Hedayat. Se pregunta qué significan para él la lealtad a su equipo y trabajar por un Internet libre.</p></div>
 </div>
 </div><p class="ace-intro-note" data-i18n="phases.note">Estas fases no siguen un orden fijo. Tu situación determina cuáles necesitas.</p></div>
-<nav aria-label="Introducción a ACE" class="ace-intro-nav" data-i18n-attr="aria-label:nav.label">
-<a class="ace-intro-next" data-intro-next="" data-jump="ace-play" href="#ace-play"><span data-i18n="phases.next">Pasemos al juego</span><span aria-hidden="true">→</span></a>
-</nav>
 </div></section><section data-class="ace-intro-page" data-fixed="" data-page="ace-play" data-section="ace" data-title="¿Te gustaría jugar?" id="ace-play"><div class="ace-intro ace-intro-invitation" data-live="" tabindex="-1"><div class="ace-intro-reading" tabindex="0"><header class="ace-intro-heading">
 <p class="ace-intro-kicker" data-i18n="play.kicker">04 / Tu siguiente jugada</p>
 <h2 data-i18n="play.title" tabindex="-1">¿Te gustaría jugar?</h2>
