@@ -22,6 +22,8 @@
   const languageMenu = $("#book-language");
   const zoomControls = $("#sample-zoom");
   const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
+  const compactScreen = matchMedia("(max-width: 1100px), (pointer: coarse) and (max-width: 1400px)");
+  const desktopScreen = matchMedia("(min-width: 900px) and (hover: hover) and (pointer: fine)");
   const normalFlipTime = 850;
   const interactive = "a,button,input,textarea,select,form,label,.sample-zoom,.is-zoomed,.gift-page .page-body,.back-cover__links";
 
@@ -37,6 +39,15 @@
   let resizeTimer = 0;
   let heldTurn = null;
   let suppressedClick = null;
+  let readingLayout = false;
+  let sizedForReading = false;
+  let layoutFrame = 0;
+  let bookmarkTimer = 0;
+  let bookmarksVisible = true;
+  let bookmarkHoverFrame = 0;
+  let bookmarkHoverY = null;
+  let bookmarkPaper = null;
+  const bookmarkTargets = "#bookmarks, .reader-edge";
 
   const number = (value, pad = false) => new Intl.NumberFormat(locale, { useGrouping: false, minimumIntegerDigits: pad ? 2 : 1 }).format(value);
 
@@ -547,18 +558,108 @@
 
   /* --------------------------------------------------------------- the book */
 
-  function sizeBook() {
+  function sizeBook(reading) {
     const width = window.innerWidth;
     const height = window.innerHeight;
-    // Both covers are 1600 x 2560. Keep that proportion on every screen.
+    const desktop = desktopScreen.matches || !compactScreen.matches;
+    readingLayout = !desktop && reading;
+    sizedForReading = reading;
+    document.documentElement.classList.toggle("immersive-reading", readingLayout);
+    document.documentElement.classList.toggle("desktop-book", desktop);
+    stage.dataset.layout = readingLayout ? "reading" : "cover";
+    // Desktop keeps the printed proportion at almost the full window height.
+    // The cover reserves its entry line; touch reading uses the safe-area box.
     const verticalSpace = height < 550 ? 68 : 110;
-    const bookWidth = Math.floor(Math.min(494, width - (width <= 600 ? 76 : 180), (height - verticalSpace) / 1.6));
-    const bookHeight = bookWidth * 1.6;
+    const room = getComputedStyle($(".reading-room"));
+    const desktopHeight = reading ? Math.min(height * .965, height - 20) : Math.min(height * .96, height - 56);
+    const bookWidth = desktop
+      ? Math.floor(Math.min(width - 320, desktopHeight / 1.6))
+      : readingLayout
+      ? Math.floor(width - parseFloat(room.paddingLeft) - parseFloat(room.paddingRight))
+      : Math.floor(Math.min(494, width - (width <= 600 ? 48 : 180), (height - verticalSpace) / 1.6));
+    const bookHeight = readingLayout
+      ? Math.floor(height - parseFloat(room.paddingTop) - parseFloat(room.paddingBottom))
+      : bookWidth * 1.6;
     document.documentElement.style.setProperty("--book-w", bookWidth + "px");
     document.documentElement.style.setProperty("--book-h", bookHeight + "px");
+    document.documentElement.style.setProperty("--desktop-type-scale", desktop ? Math.max(1, bookWidth / 494).toFixed(4) : "1");
     document.documentElement.classList.toggle("small-book", bookWidth < 290);
     fitSampleSheets();
     return { width: bookWidth, height: bookHeight };
+  }
+
+  function scheduleLayout() {
+    cancelAnimationFrame(layoutFrame);
+    if (rebuilding || busy || sectionTurn || sizedForReading === (current > 0)) return;
+    layoutFrame = requestAnimationFrame(() => {
+      if (busy || sectionTurn || rebuilding) return;
+      const page = pages[current];
+      build({ id: page.id, offset: current - pages.findIndex(item => item.id === page.id) });
+    });
+  }
+
+  function hideBookmarks() {
+    clearTimeout(bookmarkTimer);
+    if (!readingLayout) return;
+    // Keep the section tabs visible while keyboard users navigate them.
+    if (heldTurn || busy || sectionTurn
+      || (document.activeElement?.closest(bookmarkTargets) && document.activeElement.matches(":focus-visible"))) {
+      bookmarkTimer = setTimeout(hideBookmarks, 1000);
+      return;
+    }
+    bookmarksVisible = false;
+    clearBookmarkProximity();
+    stage.classList.add("is-reading-quiet");
+    bookmarkPaper?.setOpen(false);
+    stage.querySelectorAll(".reader-edge").forEach(edge => edge.setAttribute("aria-expanded", "false"));
+  }
+
+  function showBookmarks(delay = 4000) {
+    clearTimeout(bookmarkTimer);
+    bookmarksVisible = true;
+    stage.classList.remove("is-reading-quiet");
+    bookmarkPaper?.setOpen(true);
+    stage.querySelectorAll(".reader-edge").forEach(edge => edge.setAttribute("aria-expanded", "true"));
+    if (readingLayout) bookmarkTimer = setTimeout(hideBookmarks, delay);
+  }
+
+  function clearBookmarkProximity() {
+    cancelAnimationFrame(bookmarkHoverFrame);
+    bookmarkHoverFrame = 0;
+    bookmarkHoverY = null;
+    for (const tab of tabs.children) {
+      tab.style.removeProperty("--tab-grow");
+      tab.style.removeProperty("--tab-curl");
+    }
+    bookmarkPaper?.proximity();
+  }
+
+  function highlightBookmarks(y) {
+    if ((!readingLayout && !document.documentElement.classList.contains("desktop-book")) || !bookmarksVisible || reducedMotion.matches) return;
+    bookmarkHoverY = y;
+    if (bookmarkHoverFrame) return;
+    bookmarkHoverFrame = requestAnimationFrame(() => {
+      bookmarkHoverFrame = 0;
+      const top = tabs.getBoundingClientRect().top - tabs.scrollTop;
+      for (const tab of tabs.children) {
+        // Measure the stationary button, not its moving paper face.
+        const distance = Math.abs(bookmarkHoverY - (top + tab.offsetTop + tab.offsetHeight / 2));
+        const nearby = Math.max(0, 1 - distance / (tab.offsetHeight * 1.6));
+        tab.style.setProperty("--tab-grow", (.065 * nearby * nearby).toFixed(4));
+        tab.style.setProperty("--tab-curl", (5 * nearby).toFixed(2) + "deg");
+      }
+      bookmarkPaper?.proximity();
+    });
+  }
+
+  function tapPaper(x) {
+    const bounds = shell.getBoundingClientRect();
+    const edge = Math.max(32, Math.min(64, bounds.width * .12));
+    if (x <= bounds.left + edge || x >= bounds.right - edge) showBookmarks();
+    else if (bookmarksVisible) {
+      if (document.activeElement?.closest(bookmarkTargets)) document.activeElement.blur();
+      hideBookmarks();
+    }
   }
 
   function markSection(section) {
@@ -566,6 +667,7 @@
     tabs.querySelectorAll("button").forEach(el => {
       el.setAttribute("aria-current", String(el.dataset.section === section));
     });
+    bookmarkPaper?.refresh();
   }
 
   function sync(index) {
@@ -575,7 +677,7 @@
     if (!page) return;
     // The ACE cards reach the paper's corner area. A hover preview would clone
     // their live controls and cover the card just selected; explicit turns stay enabled.
-    pageFlip.getSettings().showPageCorners = !sectionTurn && !page.classes.includes("ace-intro-page");
+    pageFlip.getSettings().showPageCorners = !readingLayout && !sectionTurn && !page.classes.includes("ace-intro-page");
     const cover = index === 0;
     stage.classList.toggle("is-closed", cover);
     stage.classList.toggle("is-back-cover", page.id === "back-cover");
@@ -626,6 +728,7 @@
       history.replaceState(null, "",
         anchor === "cover" ? location.pathname + location.search : "#" + anchor);
     }
+    scheduleLayout();
   }
 
   function stopSectionTurn() {
@@ -636,7 +739,7 @@
     shell.removeAttribute("aria-busy");
     if (pageFlip) {
       pageFlip.getSettings().flippingTime = normalFlipTime;
-      pageFlip.getSettings().showPageCorners = !pages[current]?.classes.includes("ace-intro-page");
+      pageFlip.getSettings().showPageCorners = !readingLayout && !pages[current]?.classes.includes("ace-intro-page");
     }
   }
 
@@ -728,6 +831,10 @@
   }
 
   function build(keep) {
+    cancelAnimationFrame(layoutFrame);
+    clearBookmarkProximity();
+    const previousBounds = stage.getBoundingClientRect();
+    const wasReading = readingLayout;
     stopHeldTurn();
     stopSamplePan();
     rebuilding = true;
@@ -735,7 +842,7 @@
     pendingPage = null;
     stopSectionTurn();
     stage.classList.remove("is-turning");
-    const size = sizeBook();
+    const size = sizeBook(Boolean(keep && keep.id !== "cover"));
     if (pageFlip) {
       pages.filter(item => item.el.classList.contains("sample-page"))
         .forEach(item => setZoom(item.el, 100));
@@ -776,7 +883,7 @@
       maxShadowOpacity: 0.32,
       flippingTime: normalFlipTime,
       mobileScrollSupport: false,
-      showPageCorners: true,
+      showPageCorners: !readingLayout,
       disableFlipByClick: false,
       clickEventForward: true,
       swipeDistance: 25,
@@ -789,6 +896,7 @@
       busy = event.data === "flipping" || event.data === "user_fold";
       stage.classList.toggle("is-turning", busy);
       if (event.data !== "read") return;
+      scheduleLayout();
       cancelAnimationFrame(navigationFrame);
       if (sectionTurn) {
         navigationFrame = requestAnimationFrame(advanceSectionTurn);
@@ -819,9 +927,84 @@
     rebuilding = false;
     fitSampleSheets();
     sync(current);
+    if (wasReading !== readingLayout || !readingLayout) showBookmarks(2600);
+    if (wasReading !== readingLayout && !reducedMotion.matches) {
+      const bounds = stage.getBoundingClientRect();
+      stage.animate([
+        { transform: `translate(${previousBounds.x + previousBounds.width / 2 - bounds.x - bounds.width / 2}px, ${previousBounds.y + previousBounds.height / 2 - bounds.y - bounds.height / 2}px) scale(${previousBounds.width / bounds.width}, ${previousBounds.height / bounds.height})` },
+        { transform: getComputedStyle(stage).transform },
+      ], { duration: 420, easing: "cubic-bezier(.2,.7,.2,1)" });
+    }
   }
 
   /* ------------------------------------------------------------ interaction */
+
+  // Two slim paper-edge targets keep the original section tabs discoverable,
+  // including over a zoomed sample. Their labels use the translated nav name.
+  for (const side of ["left", "right"]) {
+    const edge = document.createElement("button");
+    edge.type = "button";
+    edge.className = "reader-edge reader-edge--" + side;
+    edge.setAttribute("aria-label", tabs.getAttribute("aria-label"));
+    edge.setAttribute("aria-controls", "bookmarks");
+    edge.setAttribute("aria-expanded", "true");
+    edge.addEventListener("click", () => showBookmarks());
+    edge.addEventListener("pointerenter", event => {
+      if (readingLayout && event.pointerType === "mouse" && mousePanAvailable.matches) showBookmarks();
+    });
+    edge.addEventListener("pointermove", event => {
+      if (readingLayout && event.pointerType === "mouse" && mousePanAvailable.matches) showBookmarks();
+    });
+    stage.append(edge);
+  }
+  for (const type of ["pointerdown", "pointermove"]) {
+    tabs.addEventListener(type, event => highlightBookmarks(event.clientY), { passive: true });
+  }
+  tabs.addEventListener("pointerleave", event => {
+    if (event.pointerType === "mouse") clearBookmarkProximity();
+  });
+  // Keep the gentle emphasis under a finger during native vertical scrolling;
+  // the browser still owns scrolling and cancels accidental tap activation.
+  tabs.addEventListener("touchmove", event => {
+    if (event.touches.length === 1) highlightBookmarks(event.touches[0].clientY);
+  }, { passive: true });
+  tabs.addEventListener("scroll", () => {
+    if (bookmarkHoverY !== null) highlightBookmarks(bookmarkHoverY);
+  }, { passive: true });
+  for (const type of ["touchend", "touchcancel"]) tabs.addEventListener(type, clearBookmarkProximity, { passive: true });
+  stage.addEventListener("focusin", event => {
+    if (event.target.closest(bookmarkTargets)) showBookmarks();
+  });
+  stage.addEventListener("focusout", event => {
+    if (readingLayout && bookmarksVisible && event.target.closest(bookmarkTargets)) {
+      clearTimeout(bookmarkTimer);
+      bookmarkTimer = setTimeout(hideBookmarks, 4000);
+    }
+  });
+  for (const type of ["pointerdown", "pointermove", "wheel"]) {
+    stage.addEventListener(type, event => {
+      if (readingLayout && event.target.closest(bookmarkTargets) && !event.target.closest(".reader-edge")) showBookmarks();
+    }, { passive: true });
+  }
+
+  // Mouse taps on compact layouts share the touch affordance. Movement still
+  // belongs to PageFlip, so dragging the actual paper remains a physical turn.
+  let mouseTap = null;
+  shell.addEventListener("pointerdown", event => {
+    mouseTap = readingLayout && event.pointerType === "mouse" && event.button === 0
+      && !busy && !event.target.closest("a,button,input,textarea,select,form,label")
+      ? { x: event.clientX, y: event.clientY } : null;
+  }, { capture: true });
+  shell.addEventListener("pointermove", event => {
+    if (mouseTap && Math.hypot(event.clientX - mouseTap.x, event.clientY - mouseTap.y) > 10) mouseTap = null;
+  }, { capture: true });
+  shell.addEventListener("pointercancel", () => { mouseTap = null; });
+  shell.addEventListener("pointerup", event => {
+    if (!mouseTap) return;
+    mouseTap = null;
+    pageFlip.cancelUserTouch();
+    tapPaper(event.clientX);
+  }, { capture: true });
 
   function stopHeldTurn() {
     const hold = heldTurn;
@@ -835,7 +1018,7 @@
     }
     if (pageFlip) {
       pageFlip.getSettings().flippingTime = normalFlipTime;
-      pageFlip.getSettings().showPageCorners = true;
+      pageFlip.getSettings().showPageCorners = !readingLayout && !pages[current]?.classes.includes("ace-intro-page");
     }
   }
 
@@ -895,6 +1078,7 @@
   const stopPointerInteractions = () => {
     stopHeldTurn();
     stopSamplePan();
+    clearBookmarkProximity();
   };
   window.addEventListener("blur", stopPointerInteractions);
   window.addEventListener("pagehide", stopPointerInteractions);
@@ -987,7 +1171,8 @@
   let paperTap = null;
   shell.addEventListener("touchstart", event => {
     paperTap = null;
-    if (event.touches.length !== 1 || event.target.closest(interactive) || busy) return;
+    if (event.touches.length !== 1 || event.target.closest(readingLayout
+      ? "a,button,input,textarea,select,form,label" : interactive) || busy) return;
     const touch = event.touches[0];
     paperTap = { id: touch.identifier, x: touch.clientX, y: touch.clientY, at: performance.now(), page: current };
   }, { capture: true, passive: true });
@@ -1004,10 +1189,21 @@
   shell.addEventListener("touchend", event => {
     const tap = paperTap;
     paperTap = null;
-    if (!tap || event.touches.length || busy || rebuilding || tap.page !== current
-      || performance.now() - tap.at >= 250) return;
+    if (!tap || event.touches.length || busy || rebuilding || tap.page !== current) return;
     const touch = Array.from(event.changedTouches).find(item => item.identifier === tap.id);
     if (!touch || Math.hypot(touch.clientX - tap.x, touch.clientY - tap.y) > 10) return;
+    if (readingLayout) {
+      // Cancel both the delayed vendor touch and its following synthetic click.
+      // Swipes have already cleared paperTap and continue through PageFlip.
+      const ui = pageFlip.getUI();
+      clearTimeout(ui.touchTimer);
+      ui.touchPoint = null;
+      pageFlip.cancelUserTouch();
+      if (event.cancelable) event.preventDefault();
+      if (performance.now() - tap.at < 700) tapPaper(touch.clientX);
+      return;
+    }
+    if (performance.now() - tap.at >= 250) return;
     if (event.cancelable) event.preventDefault();
     const bounds = shell.getBoundingClientRect();
     const fraction = (touch.clientX - bounds.left) / bounds.width;
@@ -1062,6 +1258,11 @@
     if (["ArrowRight", "ArrowLeft", "PageDown", "PageUp", "Home", "End", "Escape", " "].includes(event.key)) {
       event.preventDefault();
     }
+    if (event.key === "Escape" && readingLayout && bookmarksVisible) {
+      if (document.activeElement?.closest(bookmarkTargets)) document.activeElement.blur();
+      hideBookmarks();
+      return;
+    }
     if ([rtl ? "ArrowLeft" : "ArrowRight", "PageDown", " "].includes(event.key)) go(current + 1);
     else if ([rtl ? "ArrowRight" : "ArrowLeft", "PageUp"].includes(event.key)) go(current - 1);
     else if (["Home", "Escape"].includes(event.key)) go(0);
@@ -1106,9 +1307,17 @@
     button.type = "button";
     button.dataset.section = item.section;
     button.setAttribute("aria-current", "false");
-    button.textContent = strings.sections[item.section] || item.section;
+    button.style.setProperty("--tab-index", sections.length - 1);
+    const paper = document.createElement("span");
+    paper.className = "bookmark-paper";
+    const label = document.createElement("span");
+    label.className = "bookmark-label";
+    label.textContent = strings.sections[item.section] || item.section;
+    paper.append(label);
+    button.append(paper);
     tabs.append(button);
   }
+  bookmarkPaper = window.createBookmarkPaper?.({ nav: tabs, stage, reducedMotion }) || null;
 
   const faces = [
     `400 1em ${getComputedStyle(document.body).fontFamily}`,

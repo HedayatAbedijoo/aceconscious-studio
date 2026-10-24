@@ -2841,3 +2841,295 @@ html:not([lang="en"]) .page.story-page .story-heading h2 {
     font-size: 21px;
   }
 }
+
+/* Open paper fills a phone or tablet; the closed cover keeps its own scale.
+   The root class also styles pagination probes outside the visible book. */
+.reader-edge { display: none; }
+
+/* Desktop uses the window's height while keeping the printed aspect ratio.
+   Scale reading type with the larger paper, including each locale's optics. */
+html.desktop-book {
+  --body-size: calc(19px * var(--desktop-type-scale));
+  --margin: clamp(24px, calc(var(--book-w) * .089), calc(44px * var(--desktop-type-scale)));
+  --tab-width: min(clamp(160px, 19.5vh, 232px), calc((100vw - var(--book-w)) / 2 + 8px));
+}
+html.desktop-book .book-stage.is-closed { transform: translate(-3px, -14px) rotate(-1deg); }
+html.desktop-book[dir="rtl"] .book-stage.is-closed { transform: translate(3px, -14px) rotate(1deg); }
+.desktop-book .cover-entry { top: calc(100% + 6px); }
+.desktop-book .cover-entry :is(.cover-invitation, summary) { min-height: 28px; }
+html.desktop-book:not([lang="en"]) .page:not(.sample-page) .page-body,
+html.desktop-book:not([lang="en"]) .headline-summary {
+  font-size: calc(var(--locale-body) * var(--desktop-type-scale));
+}
+html.desktop-book:not([lang="en"]) .page.appendix-page .page-body {
+  font-size: calc(var(--locale-reference) * var(--desktop-type-scale));
+}
+.desktop-book .headline-title { font-size: clamp(40px, calc(var(--book-w) * .16), calc(80px * var(--desktop-type-scale))); }
+.desktop-book .headline-byline { font-size: clamp(12.5px, calc(var(--book-w) * .035), calc(17px * var(--desktop-type-scale))); }
+html.desktop-book:not([lang="en"]) .headline-byline { font-size: clamp(11px, calc(var(--book-w) * .04), calc(16px * var(--desktop-type-scale))); }
+
+/* Longer, softly uneven desktop slips stay outside the paper. They use the
+   same matte stock as the compact tabs, with less than half the sample's tilt. */
+.desktop-book .bookmarks {
+  top: clamp(50px, 8.5vh, 100px);
+  bottom: clamp(45px, 7vh, 88px);
+  padding: 8px 20px 16px 0;
+  gap: 9px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+.desktop-book .bookmarks::-webkit-scrollbar { display: none; }
+html.desktop-book[dir="rtl"] .bookmarks,
+.desktop-book .is-back-cover .bookmarks { padding: 8px 0 16px 20px; }
+html.desktop-book[dir="rtl"] .is-back-cover .bookmarks { padding: 8px 20px 16px 0; }
+html.desktop-book .bookmark {
+  --tab: #cbb991;
+  flex: 1 0 36px;
+  min-height: 36px;
+  max-height: clamp(48px, 6.8vh, 86px);
+  padding: 4px 12px;
+  font-size: clamp(12px, 1.5vh, 16px);
+  line-height: 1.35;
+  letter-spacing: 0;
+  background: var(--tab);
+}
+html.desktop-book .bookmark[aria-current="true"] { font-size: clamp(13px, 1.65vh, 17px); }
+html.desktop-book .paper-breeze[data-active-section] .bookmark[aria-current] {
+  opacity: 1;
+  transform: none;
+  filter: none;
+  background: none;
+  box-shadow: none;
+}
+.desktop-book .paper-breeze .bookmark::after { display: none; }
+.desktop-book .bookmark-paper { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
+
+html.immersive-reading {
+  --margin: clamp(22px, 6vw, 76px);
+  --body-size: clamp(19px, 2.5vw, 23px);
+  --tab-width: clamp(140px, 38vw, 164px);
+  --locale-body: clamp(17px, 2.3vw, 22px);
+  --locale-reference: clamp(16px, 2.1vw, 20px);
+}
+
+html.immersive-reading:is(:lang(fa), :lang(ar)) {
+  --locale-body: clamp(18px, 2.3vw, 21px);
+  --locale-reference: clamp(16px, 2.1vw, 19px);
+}
+
+.immersive-reading .reading-room {
+  padding: max(6px, env(safe-area-inset-top)) max(12px, env(safe-area-inset-right))
+    max(10px, env(safe-area-inset-bottom)) max(12px, env(safe-area-inset-left));
+}
+
+html.immersive-reading .book-stage,
+html.immersive-reading .book-stage.is-back-cover {
+  transform: none;
+}
+
+.immersive-reading .page-edges { inset: 2px -6px -4px 2px; }
+html.immersive-reading[dir="rtl"] .page-edges,
+html.immersive-reading .is-back-cover .page-edges { inset: 2px 2px -4px -6px; }
+html.immersive-reading[dir="rtl"] .is-back-cover .page-edges { inset: 2px -6px -4px 2px; }
+.immersive-reading .book-shadow { box-shadow: 0 8px 20px #0006, 1px 2px 3px #0008; }
+
+/* Stable, evenly spaced buttons keep native scrolling and keyboard access.
+   Paper Breeze supplies the curved surface; CSS is the no-canvas fallback. */
+.bookmark-paper { display: contents; }
+.bookmark-canvas { display: none; }
+html.immersive-reading .bookmarks {
+  --paper-origin: right center;
+  top: clamp(64px, 9vh, 82px);
+  bottom: 62px;
+  left: auto;
+  right: -6px;
+  z-index: 10;
+  justify-content: flex-start;
+  gap: 10px;
+  padding: 8px 0 16px 20px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+  touch-action: pan-y;
+  scrollbar-width: none;
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+.immersive-reading .bookmarks::-webkit-scrollbar { display: none; }
+html.immersive-reading[dir="rtl"] .bookmarks,
+html.immersive-reading .is-back-cover .bookmarks {
+  --paper-origin: left center;
+  right: auto;
+  left: -6px;
+  padding: 8px 20px 16px 0;
+}
+html.immersive-reading[dir="rtl"] .is-back-cover .bookmarks {
+  --paper-origin: right center;
+  left: auto;
+  right: -6px;
+  padding: 8px 0 16px 20px;
+}
+
+html.immersive-reading .bookmark {
+  --tab: #cbb991;
+  --paper-scale: .94;
+  --fold-angle: 0deg;
+  flex: 0 0 clamp(44px, 6vh, 52px);
+  min-height: 44px;
+  max-height: none;
+  padding: 0;
+  font-size: 11px;
+  font-family: Arial, Tahoma, var(--book-ui);
+  line-height: 1.35;
+  letter-spacing: 0;
+  perspective: 420px;
+  perspective-origin: var(--paper-origin);
+  background: none;
+  box-shadow: none;
+  border-radius: 0;
+}
+html:is(.immersive-reading, .desktop-book) .bookmark[data-section="reviews"] { --tab: #c2a394; }
+html:is(.immersive-reading, .desktop-book) .bookmark[data-section="story"] { --tab: #a5afa0; }
+html:is(.immersive-reading, .desktop-book) .bookmark[data-section="ace"] { --tab: #b6a9b5; }
+html:is(.immersive-reading, .desktop-book) .bookmark[data-section="author"] { --tab: #bdb997; }
+html:is(.immersive-reading, .desktop-book) .bookmark[data-section="buy"] { --tab: #bdc2b0; }
+html:is(.immersive-reading, .desktop-book) .bookmark[data-section="contact"] { --tab: #c3b08a; }
+html:is(.immersive-reading, .desktop-book) .bookmark[data-section="community"] { --tab: #a5b5b8; }
+html:is(.immersive-reading, .desktop-book) .bookmark[data-section="sample"] { --tab: #beb195; }
+html:is(.immersive-reading, .desktop-book) .bookmark[data-section="back-cover"] { --tab: #b8b09b; }
+/* Arial matches the prototype's Latin labels; retain the loaded script fonts
+   where system Arial would substitute tiny or incomplete glyphs. */
+html.immersive-reading:is(:lang(fa), :lang(ar), :lang(hi), :lang(zh)) .bookmark {
+  font-family: var(--book-ui);
+}
+html.immersive-reading .bookmarks[data-active-section] .bookmark[aria-current] {
+  opacity: 1;
+  transform: none;
+  filter: none;
+  box-shadow: none;
+}
+html.immersive-reading .bookmark::after { display: none; }
+html.immersive-reading .bookmark-paper {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 10px;
+  border-radius: 6px 2px 2px 6px / 11px 2px 2px 11px;
+  background: var(--tab);
+  box-shadow: calc(-2px * var(--tab-direction)) 3px 5px #30281925;
+  backface-visibility: hidden;
+  transform-origin: var(--paper-origin);
+  transform: rotateY(calc(var(--fold-angle) - var(--tab-curl, 0deg) * var(--tab-direction)))
+    scale(calc(var(--paper-scale) + var(--tab-grow, 0)));
+  filter: none;
+  transition: transform .64s cubic-bezier(.18,.85,.2,1.06), box-shadow .5s, filter .35s, border-radius .5s;
+  transition-delay: calc(var(--tab-index, 0) * 16ms);
+}
+html.immersive-reading[dir="rtl"] .bookmark-paper,
+html.immersive-reading .is-back-cover .bookmark-paper { border-radius: 2px 6px 6px 2px / 2px 11px 11px 2px; }
+html.immersive-reading[dir="rtl"] .is-back-cover .bookmark-paper { border-radius: 6px 2px 2px 6px / 11px 2px 2px 11px; }
+.immersive-reading .bookmark-label { position: relative; transition: opacity .2s .12s; }
+html.immersive-reading .bookmark[aria-current="true"] {
+  --paper-scale: 1.02;
+  flex-basis: clamp(46px, calc(6vh + 2px), 54px);
+  font-size: 12px;
+}
+html.immersive-reading .bookmark[aria-current="true"] .bookmark-paper {
+  box-shadow: calc(-2px * var(--tab-direction)) 4px 7px #30281930;
+}
+.immersive-reading .bookmark[aria-current="true"] .bookmark-paper::after {
+  content: "";
+  position: absolute;
+  inset-inline-start: 5px;
+  top: calc(50% - 1.5px);
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--rust);
+}
+html.immersive-reading .bookmark:focus-visible { outline-offset: -3px; }
+
+/* Only the paper faces fold away, leaving the real coloured edges visible.
+   The current section leaves a slightly wider bookmark in the closed stack. */
+html.immersive-reading .is-reading-quiet .bookmarks { pointer-events: none; }
+html.immersive-reading .is-reading-quiet .bookmark { --fold-angle: calc(86deg * var(--tab-direction)); }
+html.immersive-reading .is-reading-quiet .bookmark[aria-current="true"] { --fold-angle: calc(82deg * var(--tab-direction)); }
+html.immersive-reading .is-reading-quiet .bookmark-paper {
+  animation: none;
+  box-shadow: 0 1px 2px #30281930;
+  transition-timing-function: cubic-bezier(.45,0,.3,1);
+}
+.immersive-reading .is-reading-quiet .bookmark-label { opacity: 0; transition-delay: 0s; }
+
+/* The canvas includes a little room for the free lip and its diffuse shadow.
+   Mirrored geometry is drawn by the renderer, so RTL labels stay upright. */
+html:is(.immersive-reading, .desktop-book) .paper-breeze .bookmark { perspective: none; }
+html:is(.immersive-reading, .desktop-book) .paper-breeze .bookmark .bookmark-paper {
+  transform: none;
+  background: none;
+  box-shadow: none;
+  filter: none;
+  transition: none;
+}
+html:is(.immersive-reading, .desktop-book) .paper-breeze .bookmark-paper::after { display: none; }
+html:is(.immersive-reading, .desktop-book) .paper-breeze .bookmark-label { opacity: 0; transition: none; }
+html:is(.immersive-reading, .desktop-book) .paper-breeze .bookmark-canvas {
+  display: block;
+  position: absolute;
+  top: -12px;
+  right: 0;
+  left: auto;
+  width: calc(100% + 20px);
+  height: calc(100% + 24px);
+  pointer-events: none;
+}
+html.immersive-reading[dir="rtl"] .bookmark-canvas,
+html.immersive-reading .is-back-cover .bookmark-canvas { left: 0; right: auto; }
+html.immersive-reading[dir="rtl"] .is-back-cover .bookmark-canvas { right: 0; left: auto; }
+html.desktop-book .paper-breeze .bookmark-canvas { left: 0; right: auto; }
+html.desktop-book[dir="rtl"] .bookmark-canvas,
+html.desktop-book .is-back-cover .bookmark-canvas { right: 0; left: auto; }
+html.desktop-book[dir="rtl"] .is-back-cover .bookmark-canvas { left: 0; right: auto; }
+
+/* Page navigation, folio, zoom and the cover ribbon stay available while
+   reading. Only the section bookmarks retract. */
+.immersive-reading .book-controls { left: 8px; right: 8px; bottom: 6px; }
+/* Match the compact footer insets. Its 44px button extends 1.5px below
+   the 41px controls row, so the fold meets the paper at bottom: -4.5px. */
+.immersive-reading .curl { right: -8px; bottom: -4.5px; }
+html.immersive-reading[dir="rtl"] .curl {
+  right: auto;
+  left: -8px;
+  transform-origin: center;
+}
+.immersive-reading .ribbon { top: 0; }
+html.immersive-reading[dir="rtl"] .ribbon { right: 11px; left: auto; }
+html.immersive-reading[dir="rtl"] .is-back-cover .ribbon { right: auto; left: 11px; }
+.immersive-reading .sample-zoom button { width: 44px; height: 44px; }
+
+/* The same edge target remains on top during the fold. Hovering can open
+   the slips without redirecting an in-flight click to a newly revealed tab. */
+.immersive-reading .reader-edge {
+  display: block;
+  position: absolute;
+  top: 54px;
+  bottom: 62px;
+  width: 22px;
+  padding: 0;
+  z-index: 11;
+  touch-action: manipulation;
+}
+.reader-edge--left { left: -6px; }
+.reader-edge--right { right: -6px; }
+.immersive-reading .reader-edge:focus-visible { outline-offset: -4px; }
+
+@media (max-height: 550px) {
+  html.immersive-reading { --margin: clamp(24px, 6vw, 76px); --body-size: 18px; }
+  html.immersive-reading .bookmarks { top: 38px; bottom: 50px; }
+  html.immersive-reading .bookmark { flex-basis: 44px; }
+  .immersive-reading .reader-edge { top: 38px; bottom: 50px; }
+}

@@ -3,6 +3,7 @@
  * No form submissions or remote writes. Screenshots and a gallery stay in /tmp.
  */
 const { chromium } = require('playwright');
+const { revealBookControls } = require('./book_browser_helpers.cjs');
 const fs = require('node:fs');
 const path = require('node:path');
 const assert = require('node:assert/strict');
@@ -86,6 +87,7 @@ fs.mkdirSync(out, { recursive: true });
       }
       const book = await page.locator('#shell').boundingBox();
       if (book.width >= 400 && book.height >= 700) record(paired, `${label}: short reviews should share the full-size sheet`);
+      await revealBookControls(page);
       await page.locator('.bookmark[data-section="story"]').click();
       await settled();
       const titleClear = await active().locator('.story-heading').evaluate(el => {

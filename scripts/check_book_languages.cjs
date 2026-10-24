@@ -1,5 +1,6 @@
 /* Local-only multilingual book QA. No form submissions; only font hosts may load. */
 const { chromium } = require('playwright');
+const { revealBookControls } = require('./book_browser_helpers.cjs');
 const fs = require('node:fs');
 const path = require('node:path');
 const assert = require('node:assert/strict');
@@ -43,6 +44,7 @@ fs.mkdirSync(out, { recursive: true });
    await settled();
    assert.ok(await page.locator('#cover-entry').isHidden());
    assert.equal(await page.locator('#stage').getAttribute('data-section'), 'headline');
+   if (width <= 1100) await page.waitForFunction(() => document.documentElement.classList.contains('immersive-reading'));
    const rtl = lang.dir === 'rtl';
    const before = Number(await page.locator('#stage').getAttribute('data-page'));
    await page.keyboard.press(rtl ? 'ArrowLeft' : 'ArrowRight');
@@ -52,6 +54,7 @@ fs.mkdirSync(out, { recursive: true });
    await settled();
    await page.screenshot({path: `${out}/${lang.code}-${width}-headline.png`});
    for (const section of ['headline','reviews','story','ace','author','buy','community','contact','sample','back-cover']) {
+    await revealBookControls(page);
     await page.locator(`.bookmark[data-section="${section}"]`).click();
     await settled();
     if (section === 'reviews') {
@@ -64,7 +67,7 @@ fs.mkdirSync(out, { recursive: true });
      if (el.classList.contains('ace-intro-page')) {
       // Card text scrolls within its reading region; pagination stays outside.
       const reading = body.querySelector('.ace-intro-reading');
-      const nav = body.querySelector('.ace-intro-nav').getBoundingClientRect();
+      const nav = (body.querySelector('.ace-intro-nav') || body.querySelector('.ace-intro')).getBoundingClientRect();
       const paper = body.getBoundingClientRect();
       return reading.scrollWidth > reading.clientWidth + 1 || nav.bottom > paper.bottom + 1
        ? { readingWidth: reading.clientWidth, contentWidth: reading.scrollWidth, footerBottom: nav.bottom, paperBottom: paper.bottom } : null;
@@ -76,6 +79,7 @@ fs.mkdirSync(out, { recursive: true });
     if (excess) overflow.push({lang:lang.code,width,section,...excess});
     if (lang.code === 'fa' && section === 'sample') await page.screenshot({path:`${out}/fa-${width}-sample.png`});
    }
+   await revealBookControls(page);
    await page.locator('#close').click(); await settled();
    assert.ok(await page.locator('#cover-entry').isVisible());
    console.log(`PASS ${lang.code} ${width}: cover, menu, reading, keyboard, close`);
@@ -108,14 +112,19 @@ fs.mkdirSync(out, { recursive: true });
   await mobile.waitForTimeout(1000);
   const rtl = code !== 'en', box = await mobile.locator('#shell').boundingBox();
   const index = () => mobile.locator('#stage').getAttribute('data-page').then(Number);
+  await mobile.touchscreen.tap(box.x+box.width/2, box.y+box.height/2);
+  await mobile.waitForTimeout(600);
   let before = await index();
   await mobile.touchscreen.tap(rtl ? box.x+30 : box.x+box.width-30, box.y+box.height/2);
   await mobile.waitForTimeout(1200);
-  assert.equal(await index(),before+1,code+' forward tap');
+  assert.equal(await index(),before,code+' edge tap reveals tabs without turning');
+  assert.equal(await mobile.locator('#stage').evaluate(el => el.classList.contains('is-reading-quiet')), false);
+  await mobile.touchscreen.tap(box.x+box.width/2, box.y+box.height/2);
+  await mobile.waitForTimeout(600);
   const cdp = await touch.newCDPSession(mobile);
   for (const delay of [40,350]) {
    before = await index();
-   const x = rtl ? box.x+8 : box.x+box.width-8, y=box.y+box.height-100;
+   const x = rtl ? box.x+35 : box.x+box.width-35, y=box.y+box.height-100;
    await cdp.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x,y}]});
    await mobile.waitForTimeout(delay);
    const steps = delay === 40 ? 1 : 8;

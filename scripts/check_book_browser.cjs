@@ -4,6 +4,7 @@
  * Optional --fonts permits read-only Google Fonts requests for visual QA.
  */
 const { chromium } = require('playwright');
+const { revealBookControls } = require('./book_browser_helpers.cjs');
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
@@ -79,6 +80,7 @@ const base = 'http://127.0.0.1:8765';
   const zoom = page.locator('#sample-zoom');
   const zoomIn = zoom.locator('[data-zoom-step="10"]');
   const zoomOut = zoom.locator('[data-zoom-step="-10"]');
+  await revealBookControls(page);
   await zoomIn.click();
   assert.equal(await zoom.locator('output').textContent(), '110');
   await page.keyboard.press('ArrowRight');
@@ -86,6 +88,7 @@ const base = 'http://127.0.0.1:8765';
   await settled(page);
   assert.equal(await zoom.locator('output').textContent(), '110');
   assert.equal(await zoomOut.isDisabled(), false);
+  await revealBookControls(page);
   await zoomIn.click();
   await page.setViewportSize({ width: 400, height: 844 });
   await page.waitForTimeout(450);
@@ -117,6 +120,7 @@ const base = 'http://127.0.0.1:8765';
     assert.equal(await index(mobile), before + 1, 'Navigation remains usable after cancellation');
   }
   // Retain tap and press-and-hold behavior after the vendor lifecycle changes.
+  await revealBookControls(mobile);
   const next = await mobile.locator('#next').boundingBox();
   const point = { x: next.x + 20, y: next.y + 20 }, before = await index(mobile);
   await cdp.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [point] });

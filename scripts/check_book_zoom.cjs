@@ -4,6 +4,7 @@
  * Only local files and read-only font requests are allowed; no forms are sent.
  */
 const { chromium } = require('playwright');
+const { revealBookControls } = require('./book_browser_helpers.cjs');
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
@@ -71,7 +72,7 @@ fs.mkdirSync(out, { recursive: true });
       assert.ok(start.inner.width <= start.sheet.width + 1 && start.body.y + start.body.height <= start.sheet.y + start.sheet.height + 1,
         `${label}: the complete text area and footnotes must fit at 100%`);
       assert.ok(Math.abs(start.scrollWidth - start.sheet.width) <= 1, `${label}: no blank horizontal overflow at 100%`);
-      assert.ok(start.zoom.width <= 70 && start.zoom.height <= 22, `${label}: slim controls`);
+      assert.ok(start.zoom.width <= (width <= 1100 ? 110 : 70) && start.zoom.height <= 22, `${label}: slim controls`);
       assert.ok(Math.abs((start.zoom.x + start.zoom.width / 2) - (start.paper.x + start.paper.width / 2)) < 1,
         `${label}: centered on the header in LTR and RTL: ${JSON.stringify({paper:start.paper, zoom:start.zoom})}`);
       assert.ok(start.zoom.y >= start.paper.y + 2, `${label}: inside the top paper edge`);
@@ -92,6 +93,7 @@ fs.mkdirSync(out, { recursive: true });
       await page.locator('#sample-zoom output').click();
       assert.equal(await index(page), original, `${label}: percentage must not turn the paper`);
       for (const percentage of [110, 120, 130]) {
+        await revealBookControls(page);
         await page.locator(plus).click();
         const current = await measure(page);
         assert.ok(Math.abs(current.inner.width / start.inner.width - percentage / 100) < 0.002,
@@ -126,6 +128,7 @@ fs.mkdirSync(out, { recursive: true });
       await assertZoom(120, 'keyboard next preserves zoom');
       await page.locator('#previous').click();
       await assertZoom(120, 'previous button preserves zoom');
+      await revealBookControls(page);
       await page.locator(plus).click();
       await page.locator(minus).focus();
       await page.keyboard.press('Enter');
@@ -159,6 +162,7 @@ fs.mkdirSync(out, { recursive: true });
           `${label}: zoomed footnotes remain accessible within the reading area`);
         await page.screenshot({path: `${out}/${lang.code}-${width}-notes-200.png`});
       }
+      await revealBookControls(page);
       await page.locator(plus).click();
       await page.locator('.bookmark[data-section="story"]').click();
       await page.waitForFunction(() => document.querySelector('#stage').dataset.section === 'story');
@@ -229,9 +233,11 @@ fs.mkdirSync(out, { recursive: true });
     await mobile.waitForTimeout(1000);
     assert.ok(Math.abs((await measure(mobile)).inner.width / initial.inner.width - 2.9) < 0.002,
       `${lang}: mobile previous preserves zoom`);
+    await revealBookControls(mobile);
     await mobile.locator('.bookmark[data-section="story"]').tap();
     await mobile.waitForFunction(() => document.querySelector('#stage').dataset.section === 'story'
       && !document.querySelector('#stage').matches('.is-turning,.is-riffling'));
+    await revealBookControls(mobile);
     await mobile.locator('.bookmark[data-section="sample"]').tap();
     await mobile.waitForFunction(() => document.querySelector('#stage').dataset.section === 'sample'
       && !document.querySelector('#stage').matches('.is-turning,.is-riffling'));
