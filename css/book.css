@@ -195,9 +195,23 @@ a:hover {
   min-width: 0 !important;
 }
 
+/* Edge swipes belong to the reader, not browser history navigation. */
+html.js { overscroll-behavior-x: none; }
+
+.book-shell,
 #book,
 #book .stf__block,
 #book .stf__wrapper {
+  touch-action: pan-y pinch-zoom;
+}
+
+#book :is(input, textarea, select) {
+  touch-action: pan-y pinch-zoom;
+}
+
+/* Overflow-clipped paper is itself a scrolling ancestor for touch-action.
+   Set this on the sheet too, including its bare top/side edges. */
+#book .page {
   touch-action: pan-y pinch-zoom;
 }
 
@@ -1708,6 +1722,8 @@ html[dir="rtl"] .sample-page__head {
   }
 }
 
+.book-shell:has(.sample-page.is-zoomed[aria-hidden="false"]),
+#book .sample-page.is-zoomed,
 #book:has(.sample-page.is-zoomed),
 #book:has(.sample-page.is-zoomed) .stf__block,
 #book:has(.sample-page.is-zoomed) .stf__wrapper {
@@ -1914,10 +1930,13 @@ html[dir="rtl"] .is-back-cover .book-menu-toggle {
   font: 19px Georgia, serif;
   color: #89785c;
   position: relative;
+  border-radius: 50%;
 }
 
-.book-controls > button:hover {
+.book-controls > button:focus-visible {
   color: var(--rust);
+  background: #8d744d12;
+  box-shadow: inset 0 0 0 1px #8d744d24;
 }
 
 .folio {
@@ -1930,18 +1949,23 @@ html[dir="rtl"] .is-back-cover .book-menu-toggle {
   position: absolute;
   bottom: -12px;
   right: -15px;
-  width: 28px;
-  height: 28px;
+  width: 34px;
+  height: 34px;
   background: linear-gradient(135deg, #c5b89e00 45%, #c7b99e 49%, #fff9e7 54%, #d7c9ad 95%);
   clip-path: polygon(100% 0, 100% 100%, 0 100%);
-  filter: drop-shadow(-2px -2px 2px #0004);
+  filter: drop-shadow(-3px -3px 3px #0005);
   transform-origin: bottom right;
-  animation: corner-breathe 4s ease-in-out infinite;
+  pointer-events: none;
+  transition: width .16s ease, height .16s ease;
 }
 
-.next:hover .curl {
-  width: 40px;
-  height: 40px;
+@media (hover: hover) and (pointer: fine) {
+  .book-controls > button:hover {
+    color: var(--rust);
+    background: #8d744d12;
+    box-shadow: inset 0 0 0 1px #8d744d24;
+  }
+  .next:hover .curl { width: 40px; height: 40px; }
 }
 
 .is-turning .curl,
@@ -1950,8 +1974,7 @@ html[dir="rtl"] .is-back-cover .book-menu-toggle {
   opacity: 0;
 }
 
-.is-turning .book-controls,
-.is-turning .book-controls button,
+.is-turning .book-shell .page,
 .is-riffling .book-controls button,
 .is-riffling .book-shell {
   pointer-events: none;
@@ -2015,12 +2038,6 @@ html[dir="rtl"] .is-back-cover .book-menu-toggle {
 .cover-open:hover .cover-invitation,
 .cover-open:focus-visible .cover-invitation {
   opacity: 1;
-}
-
-@keyframes corner-breathe {
-  0%, 70%, 100% { width: 25px; height: 25px; }
-  83% { width: 33px; height: 33px; }
-  92% { width: 29px; height: 29px; }
 }
 
 /* ------------------------------------------------------------------ extras */

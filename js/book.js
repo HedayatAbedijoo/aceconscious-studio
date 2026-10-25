@@ -27,7 +27,7 @@
   const compactScreen = matchMedia("(max-width: 1100px), (pointer: coarse) and (max-width: 1400px)");
   const desktopScreen = matchMedia("(min-width: 900px) and (hover: hover) and (pointer: fine)");
   const normalFlipTime = 850;
-  const interactive = "a,button,input,textarea,select,form,label,.sample-zoom,.is-zoomed,.gift-page .page-body,.back-cover__links";
+  const interactive = "a,button,input,textarea,select,label,summary,[contenteditable]:not([contenteditable='false']),[role='button'],[role='tab'],.sample-zoom";
 
   let logical = [];
   let pages = [];
@@ -36,6 +36,9 @@
   let busy = false;
   let rebuilding = false;
   let pendingPage = null;
+  let turningTo = null;
+  let paperGesture = null;
+  let paperClickUntil = 0;
   let sectionTurn = null;
   let navigationFrame = 0;
   let resizeTimer = 0;
@@ -661,9 +664,6 @@
     current = index;
     const page = pages[index];
     if (!page) return;
-    // The ACE cards reach the paper's corner area. A hover preview would clone
-    // their live controls and cover the card just selected; explicit turns stay enabled.
-    pageFlip.getSettings().showPageCorners = !readingLayout && !sectionTurn && !page.classes.includes("ace-intro-page");
     const cover = index === 0;
     stage.classList.toggle("is-closed", cover);
     stage.classList.toggle("is-back-cover", page.id === "back-cover");
@@ -728,7 +728,6 @@
     shell.removeAttribute("aria-busy");
     if (pageFlip) {
       pageFlip.getSettings().flippingTime = normalFlipTime;
-      pageFlip.getSettings().showPageCorners = !readingLayout && !pages[current]?.classes.includes("ace-intro-page");
     }
   }
 
@@ -762,6 +761,7 @@
 
   function goToSection(index) {
     if (!pageFlip || index < 0 || index >= pages.length) return;
+    stopPaperGesture();
     stopHeldTurn();
     cancelAnimationFrame(navigationFrame);
     navigationFrame = 0;
@@ -786,6 +786,9 @@
 
   function go(index) {
     if (!pageFlip || index < 0 || index >= pages.length) return;
+    stopPaperGesture();
+    cancelAnimationFrame(navigationFrame);
+    navigationFrame = 0;
     stopHeldTurn();
     stopSectionTurn();
     sync(current);
@@ -796,14 +799,21 @@
     pendingPage = null;
     if (index === current) return;
     if (reducedMotion.matches) {
-      // Clear any corner preview before an immediate turn; otherwise its
-      // clipped sheet can cover the live controls on the destination page.
+      // Clear any in-flight paper before switching to reduced-motion output.
       pageFlip.cancelUserTouch();
       pageFlip.turnToPage(index);
       sync(index);
     } else {
+      turningTo = index;
       pageFlip.flip(index, "bottom");
     }
+  }
+
+  function turnPage(direction) {
+    // Resolve rapid alternating gestures against the destination already in
+    // flight, rather than the old page that remains visible during its curl.
+    const origin = pendingPage ?? turningTo ?? current;
+    go(Math.max(0, Math.min(pages.length - 1, origin + direction)));
   }
 
   function indexOfId(id) {
@@ -826,9 +836,11 @@
     const wasReading = readingLayout;
     stopHeldTurn();
     stopSamplePan();
+    stopPaperGesture();
     rebuilding = true;
     busy = false;
     pendingPage = null;
+    turningTo = null;
     stopSectionTurn();
     stage.classList.remove("is-turning");
     const size = sizeBook(Boolean(keep && keep.id !== "cover"));
@@ -871,11 +883,11 @@
       drawShadow: true,
       maxShadowOpacity: 0.32,
       flippingTime: normalFlipTime,
-      mobileScrollSupport: false,
-      showPageCorners: !readingLayout,
-      disableFlipByClick: false,
-      clickEventForward: true,
-      swipeDistance: 25,
+      // One input owner: the reader below handles taps and swipes. The engine
+      // only animates completed navigation requests, never hover/live drags.
+      useMouseEvents: false,
+      mobileScrollSupport: true,
+      showPageCorners: false,
     });
     pageFlip.on("flip", event => {
       if (!rebuilding) sync(event.data);
@@ -885,32 +897,20 @@
       busy = event.data === "flipping" || event.data === "user_fold";
       stage.classList.toggle("is-turning", busy);
       if (event.data !== "read") return;
+      turningTo = null;
       scheduleLayout();
       cancelAnimationFrame(navigationFrame);
       if (sectionTurn) {
         navigationFrame = requestAnimationFrame(advanceSectionTurn);
       } else if (pendingPage !== null) {
-        const destination = pendingPage;
-        pendingPage = null;
-        navigationFrame = requestAnimationFrame(() => go(destination));
+        navigationFrame = requestAnimationFrame(() => {
+          const destination = pendingPage;
+          pendingPage = null;
+          if (destination !== null) go(destination);
+        });
       }
     });
     pageFlip.loadFromHTML(pages.map(item => item.el));
-    // The upper corners belong to the header. Retain the existing lower
-    // corner preview, and keep the paper still while its menu is open.
-    const flip = pageFlip.getFlipController();
-    const isPointOnCorners = flip.isPointOnCorners.bind(flip);
-    flip.isPointOnCorners = point => !bookmarksVisible
-      && point.y >= pageFlip.getBoundsRect().height / 2 && isPointOnCorners(point);
-    // Mirror physical paper, then undo that mirror on each face. Map input
-    // into the engine's unchanged coordinate system (including its swipes).
-    if (rtl) {
-      const ui = pageFlip.getUI();
-      ui.getMousePos = (x, y) => {
-        const bounds = ui.getDistElement().getBoundingClientRect();
-        return { x: bounds.right - x, y: y - bounds.top };
-      };
-    }
     let index = 0;
     if (keep) {
       const first = pages.findIndex(item => containsId(item, keep.id));
@@ -968,7 +968,6 @@
     }
     if (pageFlip) {
       pageFlip.getSettings().flippingTime = normalFlipTime;
-      pageFlip.getSettings().showPageCorners = !readingLayout && !pages[current]?.classes.includes("ace-intro-page");
     }
   }
 
@@ -987,6 +986,7 @@
       const bounds = pageFlip.getBoundsRect();
       const pathLength = Math.floor(Math.max(2 * bounds.pageWidth - bounds.height / 10, bounds.height / 10)) + 1;
       pageFlip.getSettings().flippingTime = 130 / Math.min(1, pathLength / 1000);
+      turningTo = destination;
       pageFlip.flip(destination, "bottom");
     }
   }
@@ -1021,13 +1021,14 @@
         event.preventDefault();
         return;
       }
-      go(current + direction);
+      turnPage(direction);
     });
   }
 
   const stopPointerInteractions = () => {
     stopHeldTurn();
     stopSamplePan();
+    stopPaperGesture();
     clearBookmarkProximity();
   };
   window.addEventListener("blur", stopPointerInteractions);
@@ -1060,21 +1061,6 @@
       event.preventDefault();
       jump(destination.dataset.jump);
     }
-  });
-
-  // Keep links, forms and buttons independent from the paper gesture.
-  // New folds start only in the lower half; a fold already started there
-  // keeps its original drag path and can still travel across the full sheet.
-  function startsOnUpperPaper(point) {
-    const bounds = shell.getBoundingClientRect();
-    return point.clientY < bounds.top + bounds.height / 2;
-  }
-  ["mousedown", "touchstart"].forEach(type => {
-    shell.addEventListener(type, event => {
-      const point = event.touches?.[0] || event;
-      if (event.target.closest(interactive) || event.touches?.length > 1
-        || startsOnUpperPaper(point)) event.stopPropagation();
-    }, { capture: true });
   });
 
   // A real mouse grabs the enlarged printed sheet. Touch keeps its native
@@ -1124,44 +1110,90 @@
     }, { capture: true });
   }
 
-  // StPageFlip delays touch handling by 250 ms. Handle quick taps ourselves,
-  // leaving its corner drags and swipes intact and avoiding double turns.
-  let paperTap = null;
-  shell.addEventListener("touchstart", event => {
-    paperTap = null;
-    if (event.touches.length !== 1 || event.target.closest(interactive) || busy) return;
-    const touch = event.touches[0];
-    if (startsOnUpperPaper(touch)) return;
-    paperTap = { id: touch.identifier, x: touch.clientX, y: touch.clientY, at: performance.now(), page: current };
-  }, { capture: true, passive: true });
+  // Recognize a gesture before starting any paper animation. Native taps on
+  // controls still activate them; horizontal swipes may start on those same
+  // controls. Vertical scrolling, selection and enlarged samples stay native.
+  function stopPaperGesture() {
+    const gesture = paperGesture;
+    paperGesture = null;
+    if (gesture && shell.hasPointerCapture(gesture.id)) shell.releasePointerCapture(gesture.id);
+  }
 
-  shell.addEventListener("touchmove", event => {
-    if (!paperTap) return;
-    const touch = Array.from(event.touches).find(item => item.identifier === paperTap.id);
-    if (event.touches.length !== 1 || !touch
-      || Math.hypot(touch.clientX - paperTap.x, touch.clientY - paperTap.y) > 10) paperTap = null;
-  }, { capture: true, passive: true });
+  window.addEventListener("pointerdown", event => {
+    paperClickUntil = 0;
+    if (!event.isPrimary) stopPaperGesture();
+  }, { capture: true });
 
-  shell.addEventListener("touchcancel", () => { paperTap = null; }, { passive: true });
+  shell.addEventListener("pointerdown", event => {
+    stopPaperGesture();
+    if (!event.isPrimary || event.button !== 0 || !pageFlip || rebuilding || sectionTurn
+      || current === 0 || bookmarksVisible || samplePan
+      || event.metaKey || event.ctrlKey || event.altKey || event.shiftKey
+      || event.target.closest(".is-zoomed .sample-sheet")) return;
+    paperGesture = {
+      id: event.pointerId, kind: event.pointerType, x: event.clientX, y: event.clientY,
+      at: performance.now(), bounds: shell.getBoundingClientRect(), moved: false, axis: null,
+      control: Boolean(event.target.closest(interactive)),
+    };
+  }, { capture: true });
 
-  shell.addEventListener("touchend", event => {
-    const tap = paperTap;
-    paperTap = null;
-    if (!tap || event.touches.length || busy || rebuilding || tap.page !== current) return;
-    const touch = Array.from(event.changedTouches).find(item => item.identifier === tap.id);
-    if (!touch || Math.hypot(touch.clientX - tap.x, touch.clientY - tap.y) > 10) return;
-    if (performance.now() - tap.at >= 250) return;
-    // A tap turns the paper; cancel the delayed vendor touch to avoid a second turn.
-    const ui = pageFlip.getUI();
-    clearTimeout(ui.touchTimer);
-    ui.touchPoint = null;
-    pageFlip.cancelUserTouch();
-    if (event.cancelable) event.preventDefault();
-    hideBookmarks();
-    const bounds = shell.getBoundingClientRect();
-    const fraction = (touch.clientX - bounds.left) / bounds.width;
-    go(current + ((rtl ? 1 - fraction : fraction) < 0.25 ? -1 : 1));
+  window.addEventListener("pointermove", event => {
+    const gesture = paperGesture;
+    if (!gesture || event.pointerId !== gesture.id) return;
+    const dx = Math.abs(event.clientX - gesture.x), dy = Math.abs(event.clientY - gesture.y);
+    if (Math.max(dx, dy) <= 10) return;
+    gesture.moved = true;
+    // Mouse drags select text (or pan a zoomed sample); only clicks turn paper.
+    if (gesture.kind === "mouse") return;
+    if (!gesture.axis) {
+      if (dy >= dx) gesture.axis = "vertical";
+      else if (dx > dy * 1.35) gesture.axis = "horizontal";
+    }
+    if (gesture.axis === "horizontal") {
+      if (event.cancelable) event.preventDefault();
+      if (!shell.hasPointerCapture(event.pointerId)) shell.setPointerCapture(event.pointerId);
+    }
   }, { capture: true, passive: false });
+
+  window.addEventListener("pointerup", event => {
+    const gesture = paperGesture;
+    if (!gesture || event.pointerId !== gesture.id) return;
+    stopPaperGesture();
+    if (rebuilding || sectionTurn || bookmarksVisible || window.getSelection()?.isCollapsed === false) return;
+    const dx = event.clientX - gesture.x, dy = event.clientY - gesture.y;
+    const swipe = gesture.kind !== "mouse" && gesture.axis === "horizontal"
+      && Math.abs(dx) >= Math.min(60, Math.max(32, gesture.bounds.width * .1))
+      && Math.abs(dx) > Math.abs(dy) * 1.35;
+    const tap = !gesture.control && !gesture.moved && Math.hypot(dx, dy) <= 10
+      && performance.now() - gesture.at < 500;
+    // Swiping a button must never also click it, even if the drag is too short
+    // to turn. The window capture listener runs before delegated ACE handlers.
+    if (swipe || tap || gesture.axis === "horizontal") {
+      paperClickUntil = performance.now() + 700;
+      if (event.cancelable) event.preventDefault();
+    }
+    if (!swipe && !tap) return;
+    const physicalForward = swipe ? dx < 0 : event.clientX >= gesture.bounds.left + gesture.bounds.width / 2;
+    hideBookmarks();
+    turnPage(physicalForward !== rtl ? 1 : -1);
+  }, { capture: true });
+
+  for (const type of ["pointercancel", "lostpointercapture"]) {
+    window.addEventListener(type, event => {
+      // Touch starts with implicit capture on the text/button under the finger.
+      // Transferring it to the shell is not cancellation of the swipe.
+      if (event.pointerId === paperGesture?.id
+        && (type === "pointercancel" || event.target === shell)) stopPaperGesture();
+    }, { capture: true });
+  }
+  shell.addEventListener("contextmenu", stopPaperGesture);
+  window.addEventListener("click", event => {
+    if (event.detail && performance.now() < paperClickUntil) {
+      paperClickUntil = 0;
+      event.preventDefault();
+      event.stopImmediatePropagation();
+    }
+  }, { capture: true });
 
   $("#open").addEventListener("click", () => go(1));
   $("#open-label").addEventListener("click", () => go(1));
@@ -1206,7 +1238,7 @@
   bindPageControl($("#next"), 1);
 
   document.addEventListener("keydown", event => {
-    if (event.target.closest("input,textarea,select")) return;
+    if (event.target.closest("input,textarea,select,[contenteditable]:not([contenteditable='false'])")) return;
     if (event.key === " " && event.target.closest("button,a")) return;
     if (["ArrowRight", "ArrowLeft", "PageDown", "PageUp", "Home", "End", "Escape", " "].includes(event.key)) {
       event.preventDefault();
@@ -1216,8 +1248,8 @@
       menuToggle.focus({ preventScroll: true });
       return;
     }
-    if ([rtl ? "ArrowLeft" : "ArrowRight", "PageDown", " "].includes(event.key)) go(current + 1);
-    else if ([rtl ? "ArrowRight" : "ArrowLeft", "PageUp"].includes(event.key)) go(current - 1);
+    if ([rtl ? "ArrowLeft" : "ArrowRight", "PageDown", " "].includes(event.key)) turnPage(1);
+    else if ([rtl ? "ArrowRight" : "ArrowLeft", "PageUp"].includes(event.key)) turnPage(-1);
     else if (["Home", "Escape"].includes(event.key)) go(0);
     else if (event.key === "End") go(pages.length - 1);
   });

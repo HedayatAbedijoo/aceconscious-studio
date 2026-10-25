@@ -141,15 +141,15 @@ fs.mkdirSync(out, { recursive: true });
               await cdp.send('Input.dispatchTouchEvent', { type: 'touchMove', touchPoints: [{ x: physical(fraction), y: y - 15 }] });
               await page.waitForTimeout(30);
             }
-            assert.equal(await page.evaluate(() => window.testBook.getRender().getDirection()), 0,
-              language.code + ': held backward drag uses the same curl');
+            assert.equal(await page.evaluate(() => window.testBook.getState()), 'read',
+              language.code + ': no live fold or temporary copy while the finger is down');
             await cdp.send('Input.dispatchTouchEvent', { type: cancel ? 'touchCancel' : 'touchEnd', touchPoints: [] });
             await page.waitForFunction(() => window.testBook.getState() === 'read');
             assert.equal(await index(), before - (cancel ? 0 : 1), language.code + ': drag completion/cancellation');
           }
           await cdp.detach();
         }
-        console.log(`PASS ${language.code} ${mobile ? 'mobile: matching faster timing, frames, keyboard, tap, drag, cancel' : 'desktop: matching faster timing, frames, keyboard'}`);
+        console.log(`PASS ${language.code} ${mobile ? 'mobile: matching faster timing, frames, keyboard, tap, swipe, cancel' : 'desktop: matching faster timing, frames, keyboard'}`);
       }
       await context.close();
     }

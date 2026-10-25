@@ -76,6 +76,13 @@ const base = 'http://127.0.0.1:8765';
     assert.equal(await page.evaluate(() => Object.values(window.frameCounts).filter(n => n > 10).length), 1,
       'A resize left more than one renderer running');
   }
+  const idleWrites = await page.evaluate(() => new Promise(resolve => {
+    let writes = 0;
+    const observer = new MutationObserver(records => { writes += records.length; });
+    observer.observe(document.querySelector('#book'), { subtree: true, attributes: true, attributeFilter: ['style', 'class'] });
+    setTimeout(() => { observer.disconnect(); resolve(writes); }, 500);
+  }));
+  assert.equal(idleWrites, 0, 'Static paper must not rewrite every page on every animation frame');
   const zoom = page.locator('#sample-zoom');
   const zoomIn = zoom.locator('[data-zoom-step="10"]');
   const zoomOut = zoom.locator('[data-zoom-step="-10"]');

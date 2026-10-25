@@ -74,7 +74,10 @@ fs.mkdirSync(out, { recursive: true });
             await cdp.send('Input.dispatchTouchEvent', { type: 'touchMove', touchPoints: [{ x: end, y: y + 20 }] });
             await cdp.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
             await page.waitForTimeout(300);
-            assert.equal(await index(page), before, 'upper touch swipe/drag cannot turn the paper');
+            // Mobile touch hit testing expands the nearby ribbon/menu buttons
+            // into these extreme header corners. A drag must neither click
+            // those controls nor invoke browser history navigation.
+            assert.equal(await index(page), before, 'header control drags keep the current page');
           }
         } else {
           await page.mouse.move(x, y);

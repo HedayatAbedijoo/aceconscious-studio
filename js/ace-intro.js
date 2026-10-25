@@ -40,14 +40,6 @@
     tabs[index].focus({ preventScroll: true });
   }, true);
 
-  // Short screens can scroll an introduction sheet without turning the paper.
-  // Stop at the sheet so native button/link activation still receives events.
-  for (const group of document.querySelectorAll('.ace-intro')) {
-    for (const type of ['mousedown', 'touchstart', 'touchmove']) {
-      group.addEventListener(type, event => event.stopPropagation(), { passive: true });
-    }
-  }
-
   // Keep keyboard focus on the new sheet after an introduction navigation link.
   let focusNextSheet = null;
   document.addEventListener('click', event => {

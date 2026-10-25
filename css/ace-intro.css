@@ -28,6 +28,8 @@
   flex-direction: column;
   gap: 14px;
   overflow-y: auto;
+  /* The browser stops touch-action lookup at this scrolling container. */
+  touch-action: pan-y pinch-zoom;
   overscroll-behavior: contain;
   scrollbar-width: thin;
   scrollbar-color: #9ba68d transparent;
