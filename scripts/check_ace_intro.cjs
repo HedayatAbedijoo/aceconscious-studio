@@ -40,12 +40,46 @@ const expectedOrder = ['headline', 'reviews', 'story', 'ace', 'author', 'buy', '
   }
   const sheet = page => page.locator('.ace-intro-page[aria-hidden="false"]');
   const selected = page => sheet(page).locator('[role="tab"][aria-selected="true"]').getAttribute('id');
+  async function checkScrollCue(page, label) {
+    const reading = sheet(page).locator('.ace-intro-reading');
+    const cue = sheet(page).locator('.ace-intro-scroll');
+    const overflow = await reading.evaluate(el => el.scrollHeight - el.clientHeight > 2);
+    if (!overflow) {
+      assert.equal(await cue.isVisible(), false, `No unnecessary scroll cue: ${label}`);
+      return;
+    }
+    await cue.waitFor({ state: 'visible' });
+    const before = await cue.boundingBox();
+    const paper = await sheet(page).locator('.page-body').boundingBox();
+    assert.ok(before.x >= paper.x + paper.width - 20 && before.x + before.width <= paper.x + paper.width,
+      `Cue stays on the physical right, including RTL: ${label}`);
+    assert.ok(before.y >= paper.y && before.y + before.height <= paper.y + paper.height,
+      `Cue remains inside the visible paper: ${label}`);
+    const initialPage = await page.locator('#stage').getAttribute('data-page');
+    const initialThumb = await cue.locator('.ace-intro-scroll-thumb').boundingBox();
+    // Keyboard scrolling must reach the bottom without turning the book.
+    await reading.focus();
+    await page.keyboard.press('Control+End');
+    await page.waitForFunction(() => {
+      const el = document.querySelector('.ace-intro-page[aria-hidden="false"] .ace-intro-reading');
+      return el.scrollTop >= el.scrollHeight - el.clientHeight - 2;
+    });
+    await page.waitForFunction(() => document.querySelector('.ace-intro-page[aria-hidden="false"] .ace-intro-scroll').classList.contains('at-bottom'));
+    assert.equal(await page.locator('#stage').getAttribute('data-page'), initialPage);
+    const after = await cue.boundingBox();
+    const finalThumb = await cue.locator('.ace-intro-scroll-thumb').boundingBox();
+    assert.deepEqual(after, before, `Cue does not scroll away: ${label}`);
+    assert.ok(finalThumb.y > initialThumb.y, `Thumb tracks reading progress: ${label}`);
+    await reading.evaluate(el => { el.scrollTop = 0; });
+    await page.waitForFunction(() => document.querySelector('.ace-intro-page[aria-hidden="false"] .ace-intro-scroll').classList.contains('at-top'));
+    await reading.blur();
+  }
   const cases = languages.flatMap(lang => [[1366, 900], [390, 844]].map(size => [lang, ...size]));
   for (const code of ['en', 'fa']) {
     const lang = languages.find(item => item.code === code);
     cases.push([lang, 320, 568], [lang, 844, 390]);
   }
-  for (const [lang, width, height] of cases) {
+  for (const [lang, width, height] of process.argv.includes('--touch-only') ? [] : cases) {
     const code = lang.code, rtl = lang.dir === 'rtl';
     const home = code === 'en' ? '/' : `/${code}/`;
     const copy = JSON.parse(fs.readFileSync(path.join(root, `content/book/ace-intro.${code}.json`), 'utf8'));
@@ -64,6 +98,7 @@ const expectedOrder = ['headline', 'reviews', 'story', 'ace', 'author', 'buy', '
     assert.equal(await page.locator('#stage').getAttribute('data-section'), 'ace');
     assert.equal(await page.locator('.ace-intro-page').count(), 4, 'ACE must stay four physical book sheets');
     assert.equal(await sheet(page).locator('h2').textContent(), copy['concepts.title']);
+    assert.equal(await sheet(page).locator('.ace-intro-note, .ace-intro-duration').count(), 0);
     assert.equal(await selected(page), 'intro-tab-agency');
     // Tab arrows must select a card, without turning the surrounding book.
     await page.locator('#intro-tab-agency').focus();
@@ -91,7 +126,11 @@ const expectedOrder = ['headline', 'reviews', 'story', 'ace', 'author', 'buy', '
         const panel = page.locator('#intro-panel-' + card);
         assert.equal(await sheet(page).locator('[role="tabpanel"]:visible').count(), 1);
         assert.equal(await panel.locator('.ace-intro-example p').textContent(), copy[card + '.example']);
-        assert.equal(await panel.locator('.ace-intro-definition').textContent(), copy[card + '.body']);
+        if (copy[card + '.body']) {
+          assert.equal(await panel.locator('.ace-intro-definition').textContent(), copy[card + '.body']);
+        } else {
+          assert.equal(await panel.locator('.ace-intro-definition').count(), 0, 'Removed copy leaves no empty paragraph');
+        }
         assert.equal(await panel.locator('h3').textContent(), copy[card + '.heading']);
         assert.ok(await sheet(page).locator('[role="tab"] > span').evaluateAll(labels => labels.every(label => label.scrollWidth <= label.clientWidth + 1)), `Tab label overflow: ${code}, ${width}`);
         // Every line stays in a scrollable reading area, including narrow and
@@ -103,6 +142,7 @@ const expectedOrder = ['headline', 'reviews', 'story', 'ace', 'author', 'buy', '
         }));
         assert.ok(bounds.content <= bounds.width + 1, `Horizontal clipping at ${width}, ${card}`);
         assert.ok(bounds.reachable);
+        await checkScrollCue(page, `${code} ${width} ${card}`);
         await panel.locator('.ace-intro-example').scrollIntoViewIfNeeded();
       }
       await page.locator('#next').click();
@@ -137,22 +177,30 @@ const expectedOrder = ['headline', 'reviews', 'story', 'ace', 'author', 'buy', '
     console.log(`PASS ${code} ${width}×${height}: book order, four sheets, every translation/card, keyboard, navigation, resize, bounds.`);
   }
   // A real touch scroll must not turn the book while reading a card.
-  const touch = await context({ viewport: { width: 390, height: 844 }, hasTouch: true, isMobile: true, reducedMotion: 'reduce' });
+  const touch = await context({ viewport: { width: 320, height: 568 }, hasTouch: true, isMobile: true, reducedMotion: 'reduce' });
   const phone = await touch.newPage();
-  await open(phone);
-  const before = await phone.locator('#stage').getAttribute('data-page');
   const cdp = await touch.newCDPSession(phone);
-  const bounds = await phone.locator('#intro-panel-agency').boundingBox();
-  await cdp.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [{ x: bounds.x + 50, y: bounds.y + 70 }] });
-  for (let i = 1; i <= 6; i++) {
-    await cdp.send('Input.dispatchTouchEvent', { type: 'touchMove', touchPoints: [{ x: bounds.x + 50, y: bounds.y + 70 - i * 18 }] });
-    await phone.waitForTimeout(30);
+  for (const home of ['/', '/fa/']) {
+    await open(phone, home + '#ace');
+    const before = await phone.locator('#stage').getAttribute('data-page');
+    const bounds = await sheet(phone).locator('.ace-intro-reading').boundingBox();
+    const cue = sheet(phone).locator('.ace-intro-scroll');
+    await cue.waitFor({ state: 'visible' });
+    const cueBefore = await cue.boundingBox();
+    const x = bounds.x + bounds.width / 2, y = bounds.y + bounds.height * .8;
+    await cdp.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [{ x, y }] });
+    for (let i = 1; i <= 6; i++) {
+      await cdp.send('Input.dispatchTouchEvent', { type: 'touchMove', touchPoints: [{ x, y: y - i * 18 }] });
+      await phone.waitForTimeout(30);
+    }
+    await cdp.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
+    assert.equal(await phone.locator('#stage').getAttribute('data-page'), before);
+    assert.ok(await sheet(phone).locator('.ace-intro-reading').evaluate(el => el.scrollTop > 0));
+    assert.deepEqual(await cue.boundingBox(), cueBefore, 'The cue remains visible during a real touch scroll');
+    await phone.screenshot({ path: `${output}/${home === '/' ? 'en' : 'fa'}-320-touch-scroll.png` });
   }
-  await cdp.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
-  assert.equal(await phone.locator('#stage').getAttribute('data-page'), before);
-  assert.ok(await phone.locator('[data-intro-group="concepts"] .ace-intro-reading').evaluate(el => el.scrollTop > 0));
   await touch.close();
-  console.log('PASS mobile touch: card content scrolls without a page turn.');
+  console.log('PASS small mobile touch, LTR and RTL: content scrolls without a page turn and the cue stays visible.');
 
   const nojs = await context({ javaScriptEnabled: false, viewport: { width: 390, height: 844 } });
   const page = await nojs.newPage();

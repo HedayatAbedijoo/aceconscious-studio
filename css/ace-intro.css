@@ -7,6 +7,7 @@
 }
 .ace-intro-page .page-body { top: 64px; bottom: 52px; }
 .ace-intro {
+  position: relative;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -15,7 +16,8 @@
   overscroll-behavior: contain;
   scrollbar-width: thin;
   scrollbar-color: #9ba68d transparent;
-  padding: 5px 3px 6px;
+  /* The cue stays on the physical right in both LTR and RTL editions. */
+  padding: 5px 19px 6px 3px;
   color: var(--intro-ink);
   font: 16px/1.5 var(--book-serif);
   touch-action: pan-y pinch-zoom;
@@ -31,9 +33,48 @@
   /* The browser stops touch-action lookup at this scrolling container. */
   touch-action: pan-y pinch-zoom;
   overscroll-behavior: contain;
-  scrollbar-width: thin;
-  scrollbar-color: #9ba68d transparent;
+  scrollbar-width: none;
   padding: 3px 2px 5px;
+}
+.ace-intro-reading::-webkit-scrollbar { display: none; }
+.ace-intro-scroll {
+  position: absolute;
+  right: 0;
+  top: 9px;
+  bottom: 10px;
+  width: 14px;
+  color: #435c50;
+  pointer-events: none;
+}
+.ace-intro-scroll[hidden] { display: none; }
+.ace-intro-scroll::before,
+.ace-intro-scroll::after {
+  content: "";
+  position: absolute;
+  left: 3px;
+  width: 8px;
+  height: 8px;
+  border-left: 2px solid currentColor;
+  border-top: 2px solid currentColor;
+}
+.ace-intro-scroll::before { top: 3px; transform: rotate(45deg); }
+.ace-intro-scroll::after { bottom: 3px; transform: rotate(225deg); }
+.ace-intro-scroll.at-top::before,
+.ace-intro-scroll.at-bottom::after { opacity: .25; }
+.ace-intro-scroll-track {
+  position: absolute;
+  top: 22px;
+  bottom: 22px;
+  left: 5px;
+  width: 4px;
+  border-radius: 4px;
+  background: #435c5033;
+}
+.ace-intro-scroll-thumb {
+  display: block;
+  width: 4px;
+  border-radius: 4px;
+  background: currentColor;
 }
 .ace-intro-reading > * { flex-shrink: 0; }
 .ace-intro p { margin: 0; }
@@ -56,6 +97,7 @@
   line-height: 1.45;
   max-width: 35ch;
 }
+.ace-intro[data-intro-group="concepts"] .ace-intro-lead { max-width: none; }
 .ace-intro-tabs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 7px; }
 .ace-intro-tabs--concepts { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .ace-intro-tabs button {
@@ -92,10 +134,10 @@
 .ace-intro-mark { color: #ced5c2; font: 56px/.8 var(--book-serif); }
 .ace-intro-mark svg { display: block; height: 44px; width: 44px; color: #96a18b; }
 .ace-intro-panel h3 { font-size: 25px; letter-spacing: -.45px; line-height: 1.13; margin: 0 0 10px; }
-.ace-intro-panel .ace-intro-definition { font-size: 16px; line-height: 1.5; }
+.ace-intro-panel .ace-intro-definition { font-size: 16px; line-height: 1.5; white-space: pre-line; }
 .ace-intro-example { border-top: 1px solid var(--intro-line); padding-top: 10px; margin-top: 12px; }
-.ace-intro-example-label { display: block; margin-bottom: 6px; font: 9px/1.4 var(--book-ui); text-transform: uppercase; letter-spacing: .6px; color: #747b69; }
-.ace-intro-example p { font-size: 14px; line-height: 1.45; color: var(--intro-rust); }
+.ace-intro-example-label { display: block; margin-bottom: 6px; font: 9px/1.4 var(--book-ui); text-transform: uppercase; letter-spacing: .6px; color: var(--intro-rust); }
+.ace-intro-example p { font-size: 14px; line-height: 1.45; color: var(--intro-ink); }
 [data-intro-group="phases"] .ace-intro-example { background: #e8ebdd; border: 0; padding: 11px 13px; border-radius: 5px; }
 [data-intro-group="phases"] .ace-intro-example p { color: var(--intro-ink); }
 .ace-intro .ace-intro-note { font-size: 12px; line-height: 1.45; color: #69705f; }
@@ -166,7 +208,7 @@ html[dir="rtl"] .ace-intro-next > span:last-child { transform: scaleX(-1); }
 html:is(:lang(fa), :lang(ar), :lang(hi), :lang(zh)) .ace-intro :is(.ace-intro-kicker, .ace-intro-card-label, .ace-intro-example-label) { letter-spacing: 0; line-height: 1.7; }
 html:is(:lang(fa), :lang(ar), :lang(hi), :lang(zh)) .ace-intro :is(.ace-intro-definition, .ace-intro-example p, .ace-intro-play-body) { line-height: 1.75; }
 .ace-intro-tabs b, .ace-intro-mark, .ace-intro-fan > span { font-family: "EB Garamond", Georgia, serif; }
-html:not(.js) .ace-intro { height: auto; overflow: visible; margin-block: 2rem; }
+html:not(.js) .ace-intro { height: auto; overflow: visible; margin-block: 2rem; padding-right: 3px; }
 html:not(.js) .ace-intro .ace-intro-reading { overflow: visible; }
 html:not(.js) .ace-intro-tabs { display: none; }
 html:not(.js) .ace-intro-panel[hidden] { display: block; margin-top: 1rem; }

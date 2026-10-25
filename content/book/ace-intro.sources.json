@@ -1,25 +1,19 @@
 {
   "source": "../ace-await-ebooks-format/outputs/english/digital/ACE.await.en.epub",
   "sha256": "1f7235392b7258e03fc1f794b6e7c31ad06eac246ec5592905e9c145fcc9f6e7",
-  "note": "Editorial provenance only; not rendered. Examples paraphrase events from the supplied EPUB. Their assignment to ACE concepts is an explanatory reading, not a quotation. Preserve the distinction between the museum dream and waking events, and do not reveal the causes of the sound-system mystery or the outcome of the job decision.",
+  "note": "Editorial provenance only; not rendered. Unless an author-supplied revision is identified in the example’s source, examples paraphrase events from the supplied EPUB. Their assignment to ACE concepts is an explanatory reading, not a quotation. Preserve the distinction between the museum dream and waking events, and do not reveal the causes of the sound-system mystery. The author’s revised Agency example explicitly includes the outcome of the job decision.",
   "examples": {
     "agency.example": {
-      "chapter": 10,
-      "title": "Contracts",
-      "entry": "EPUB/text/ch013.xhtml",
-      "scene": "Fearing a hacker but curious about ACE, Hedayat unblocks port 3132 and resumes questioning Anonymous."
+      "source": "Author-supplied What is ACE? second revision, 2026-10-25",
+      "scene": "Guided by the Integration phase of Agency, Hedayat turned down the tempting job offer on the Kabulis’ space project. He chose to continue work that paid less but gave him a greater sense of meaning."
     },
     "connection.example": {
-      "chapter": 33,
-      "title": "Mr. Writer",
-      "entry": "EPUB/text/ch036.xhtml",
-      "scene": "Hedayat prevents Saman from reading the bedroom notes, promises him the first reading of the draft, and Saman accepts."
+      "source": "Author-supplied What is ACE? revision, 2026-10-25",
+      "scene": "Hedayat wanted Ava to believe in his imaginary world and his digital children; Ava wanted to protect Hedayat from losing the boundary between reality and imagination. Both were thinking about their own wishes, rather than the needs of their relationship."
     },
     "exchange.example": {
-      "chapter": 33,
-      "title": "Mr. Writer",
-      "entry": "EPUB/text/ch036.xhtml",
-      "scene": "Saman gives Hedayat the River of Consumerism painting for his birthday. Later Hedayat hands Sebastian fifteen euros, gathered with Saman's help, and confirms to Saman that Sebastian repays his loans."
+      "source": "Author-supplied What is ACE? revision, 2026-10-25",
+      "scene": "Instead of taking money in return for supplying solar panels, SAS Energy asks its customers to commit to returning the value of what they have received in the future, according to their abilities and resources."
     },
     "preparation.example": {
       "chapter": 15,
