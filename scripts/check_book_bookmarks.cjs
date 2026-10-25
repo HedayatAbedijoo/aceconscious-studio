@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /* Physical bookmark proof, local files only. Optional --fonts reads font hosts.
- * Capture the real opening/closing motion, hover and native touch scrolling. */
+ * Capture the real opening/closing motion, hover and short-screen touch. */
 const { chromium } = require('playwright');
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
@@ -90,11 +90,22 @@ fs.mkdirSync(out, { recursive: true });
       assert.ok(nearby.find(t => t.section === 'headline').grow > 0, 'neighboring tab responds more softly');
       assert.ok(nearby.find(t => t.section === 'sample').grow === 0, 'far tabs stay still');
       await page.screenshot({ path: `${out}/${lang}-hover.png` });
+      await page.evaluate(() => {
+        window.sectionSteps = [];
+        window.sectionObserver = new MutationObserver(() => {
+          const n = Number(document.querySelector('#stage').dataset.page);
+          if (sectionSteps.at(-1) !== n) sectionSteps.push(n);
+        });
+        sectionObserver.observe(document.querySelector('#stage'), { attributes: true, attributeFilter: ['data-page'] });
+      });
       await page.locator('.bookmark[data-section="author"]').click();
       await page.waitForFunction(() => document.querySelector('#stage').dataset.section === 'author'
         && !document.querySelector('#stage').matches('.is-turning,.is-riffling'));
       assert.equal(await page.locator('.bookmark[aria-current="true"]').getAttribute('data-section'), 'author');
       assert.equal(await quiet(page), true, 'selecting a section folds the slips away');
+      const riffle = await page.evaluate(() => { sectionObserver.disconnect(); return sectionSteps; });
+      assert.ok(riffle.length > 2 && riffle.every((n, i) => !i || n > riffle[i - 1]),
+        'choosing a paper bookmark retains successive page turns to its section');
       for (let frame = 0; frame < 9; frame++) {
         await page.screenshot({ path: `${out}/${lang}-fold-${frame}.png` });
         await page.waitForTimeout(65);
@@ -135,12 +146,18 @@ fs.mkdirSync(out, { recursive: true });
     }
     await cdp.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
     await page.waitForTimeout(600);
-    assert.ok(await page.locator('#bookmarks').evaluate(el => el.scrollTop > 60), 'short-screen tabs still scroll naturally');
+    assert.ok(await page.locator('#bookmarks').evaluate(el => {
+      const box = el.getBoundingClientRect();
+      return [...el.children].every(button => {
+        const b = button.getBoundingClientRect();
+        return b.top >= box.top && b.bottom <= box.bottom && b.left >= 0 && b.right <= innerWidth;
+      });
+    }), 'all short-screen tabs fit together without requiring a scroll');
     assert.equal(await page.locator('#stage').getAttribute('data-page'), before, 'sliding a finger never selects a section');
     assert.ok((await state(page)).every(tab => tab.grow === 0), 'touch release clears magnification');
-    await page.screenshot({ path: `${out}/fa-touch-scroll.png` });
+    await page.screenshot({ path: `${out}/fa-short-screen-touch.png` });
     await ctx.close();
     assert.deepEqual(errors, []);
-    console.log(`PASS native touch scroll. Local motion frames: ${out}`);
+    console.log(`PASS short-screen touch. Local motion frames: ${out}`);
   } finally { await browser.close(); }
 })().catch(e => { console.error(e); process.exit(1); });

@@ -42,6 +42,8 @@
   let sectionTurn = null;
   let navigationFrame = 0;
   let resizeTimer = 0;
+  let layoutViewport = null;
+  let resizePending = false;
   let heldTurn = null;
   let suppressedClick = null;
   let readingLayout = false;
@@ -564,6 +566,9 @@
   function sizeBook(reading) {
     const width = window.innerWidth;
     const height = window.innerHeight;
+    layoutViewport = { width, height };
+    resizePending = false;
+    document.documentElement.style.setProperty("--reader-height", height + "px");
     const desktop = desktopScreen.matches || !compactScreen.matches;
     readingLayout = !desktop && reading;
     sizedForReading = reading;
@@ -1254,18 +1259,41 @@
     else if (event.key === "End") go(pages.length - 1);
   });
 
-  window.addEventListener("resize", () => {
+  const editingField = () => shell.contains(document.activeElement)
+    && document.activeElement.matches("input,textarea,select,[contenteditable]:not([contenteditable='false'])");
+
+  function scheduleResize() {
     stopHeldTurn();
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(() => {
       if (!pages.length) return;
+      // Android keyboards/browser chrome can emit resize with or without a
+      // changed layout viewport. Reparenting a live form in build() blurs its
+      // input and dismisses the keyboard. Defer all reflow while editing,
+      // including rotation; moving between fields must not rebuild either.
+      if (editingField()) {
+        resizePending = true;
+        return;
+      }
+      document.documentElement.classList.remove("book-form-editing");
+      resizePending = false;
+      if (layoutViewport?.width === innerWidth && layoutViewport?.height === innerHeight) return;
       const index = sectionTurn?.target ?? pendingPage ?? current;
       const requestedAnchor = decodeURIComponent(location.hash.slice(1));
       const id = pages[index].reviewStarts?.includes(requestedAnchor) ? requestedAnchor : pages[index].id;
       const first = pages.findIndex(page => containsId(page, id));
       build({ id, offset: index - first });
     }, 220);
+  }
+
+  shell.addEventListener("focusin", () => {
+    if (editingField()) document.documentElement.classList.add("book-form-editing");
   });
+  shell.addEventListener("focusout", () => {
+    // Let the next focusin and the keyboard-closing resize settle first.
+    if (resizePending || document.documentElement.classList.contains("book-form-editing")) scheduleResize();
+  });
+  window.addEventListener("resize", scheduleResize);
 
   window.addEventListener("hashchange", () => {
     const id = decodeURIComponent(location.hash.slice(1));

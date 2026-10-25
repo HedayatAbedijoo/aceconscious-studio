@@ -47,6 +47,23 @@ Kirkus never shares a sheet with another review. The two short reviews use
 text fits; small screens retain readable type and can use separate sheets.
 Translated story headings reserve a separate column for the decorative 2313.
 
+Section bookmarks always remain one vertical stack of paper slips on the book
+edge. Their heights, spacing and label sizes share the available space, including
+short landscape displays; the paper folding and section riffle are preserved.
+All ten sections stay visible together at the tested phone/tablet sizes. While a
+live form field is focused, viewport resize must not rebuild/reparent the book:
+that dismisses mobile keyboards. Reflow waits until editing finishes, and
+unchanged layout dimensions do not trigger a rebuild.
+
+`node scripts/check_book_mobile.cjs` checks nine locales at thirteen touch
+viewport sizes, smaller desktop windows, every section's touch target, keyboard
+navigation and both live forms through simulated keyboard resize and rotation.
+It blocks external requests and never submits a form. Local screenshots and
+JSON results go to the ignored `docs/mobile-qa/vertical/` folder. `--baseline`
+records failures before a fix; `--interactions-only` runs the form/navigation
+portion separately. These are Chromium emulations, not physical Android/iOS
+keyboard tests. Provide Playwright on `NODE_PATH` and optionally `CHROME_BIN`.
+
 `content/book/` holds what exists only in the book:
 
 - `strings.<code>.json` — translated bookmarks, page furniture, headline, store

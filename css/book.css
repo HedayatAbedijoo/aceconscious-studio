@@ -92,6 +92,10 @@ a:hover {
   overflow: clip;
 }
 
+/* Keep the paper stationary while a keyboard resizes the layout viewport.
+   Native visual-viewport panning can still bring the focused field into view. */
+.book-form-editing .reading-room { height: var(--reader-height); }
+
 .ambient {
   position: absolute;
   inset: -30px;
@@ -2927,10 +2931,11 @@ html.desktop-book:not([lang="en"]) .headline-byline { font-size: clamp(11px, cal
 /* Longer, softly uneven desktop slips stay outside the paper. They use the
    same matte stock as the compact tabs, with less than half the sample's tilt. */
 .desktop-book .bookmarks {
+  container-type: size;
   top: clamp(50px, 8.5vh, 100px);
   bottom: clamp(45px, 7vh, 88px);
   padding: 8px 20px 16px 0;
-  gap: 9px;
+  gap: clamp(1.5px, calc((var(--book-h) - 260px) / 54), 9px);
   overflow-x: hidden;
   overflow-y: auto;
   scrollbar-width: none;
@@ -2941,16 +2946,19 @@ html.desktop-book[dir="rtl"] .bookmarks,
 html.desktop-book[dir="rtl"] .is-back-cover .bookmarks { padding: 8px 20px 16px 0; }
 html.desktop-book .bookmark {
   --tab: #cbb991;
-  flex: 1 0 36px;
-  min-height: 36px;
+  flex: 1 1 0px;
+  min-height: 0;
   max-height: clamp(48px, 6.8vh, 86px);
   padding: 4px 12px;
-  font-size: clamp(12px, 1.5vh, 16px);
+  font-size: min(clamp(12px, 1.5vh, 16px), clamp(9px, 2.8cqh, 16px));
   line-height: 1.35;
   letter-spacing: 0;
   background: var(--tab);
 }
-html.desktop-book .bookmark[aria-current="true"] { font-size: clamp(13px, 1.65vh, 17px); }
+html.desktop-book .bookmark[aria-current="true"] {
+  flex-basis: 2px;
+  font-size: min(clamp(13px, 1.65vh, 17px), clamp(9.5px, 3cqh, 17px));
+}
 html.desktop-book .paper-breeze[data-active-section] .bookmark[aria-current] {
   opacity: 1;
   transform: none;
@@ -2996,13 +3004,14 @@ html.immersive-reading[dir="rtl"] .is-back-cover .page-edges { inset: 2px -6px -
 .bookmark-canvas { display: none; }
 html.immersive-reading .bookmarks {
   --paper-origin: right center;
+  container-type: size;
   top: clamp(64px, 9vh, 82px);
   bottom: 62px;
   left: auto;
   right: -6px;
   z-index: 10;
   justify-content: flex-start;
-  gap: 10px;
+  gap: clamp(1.5px, calc((var(--book-h) - 260px) / 54), 10px);
   padding: 8px 0 16px 20px;
   overflow-y: auto;
   overflow-x: hidden;
@@ -3032,11 +3041,11 @@ html.immersive-reading .bookmark {
   --tab: #cbb991;
   --paper-scale: .94;
   --fold-angle: 0deg;
-  flex: 0 0 clamp(44px, 6vh, 52px);
-  min-height: 44px;
-  max-height: none;
+  flex: 1 1 0px;
+  min-height: 0;
+  max-height: 52px;
   padding: 0;
-  font-size: 11px;
+  font-size: clamp(9px, 2.8cqh, 11px);
   font-family: Arial, Tahoma, var(--book-ui);
   line-height: 1.35;
   letter-spacing: 0;
@@ -3091,8 +3100,9 @@ html.immersive-reading[dir="rtl"] .is-back-cover .bookmark-paper { border-radius
 .immersive-reading .bookmark-label { position: relative; transition: opacity .2s .12s; }
 html.immersive-reading .bookmark[aria-current="true"] {
   --paper-scale: 1.02;
-  flex-basis: clamp(46px, calc(6vh + 2px), 54px);
-  font-size: 12px;
+  flex-basis: 2px;
+  max-height: 54px;
+  font-size: clamp(9.5px, 3cqh, 12px);
 }
 html.immersive-reading .bookmark[aria-current="true"] .bookmark-paper {
   box-shadow: calc(-2px * var(--tab-direction)) 4px 7px #30281930;
@@ -3169,6 +3179,16 @@ html.immersive-reading[dir="rtl"] .is-back-cover .ribbon { right: auto; left: 11
 
 @media (max-height: 550px) {
   html.immersive-reading { --margin: clamp(24px, 6vw, 76px); --body-size: 18px; }
-  html.immersive-reading .bookmarks { top: 38px; bottom: 50px; }
-  html.immersive-reading .bookmark { flex-basis: 44px; }
+  html.immersive-reading .bookmarks { top: 48px; bottom: 46px; }
+}
+
+/* Always one vertical stack of paper slips, including short landscape screens.
+   Flex shares the measured height; container-relative type and tighter spacing
+   keep all ten labels on the same book edge without changing the paper effect. */
+@media (max-height: 650px) {
+  html:is(.immersive-reading, .desktop-book) .bookmarks {
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+  html:is(.immersive-reading, .desktop-book) .bookmark-paper { padding-block: 2px; }
 }
