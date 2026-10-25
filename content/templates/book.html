@@ -193,10 +193,14 @@
 <div class="book-stage is-closed" id="stage">
 <div aria-hidden="true" class="book-shadow"></div>
 <div aria-hidden="true" class="page-edges"></div>
+<button aria-label="Book sections" aria-controls="bookmarks" aria-expanded="false" class="book-menu-toggle" hidden="" id="book-menu-toggle" type="button">
+<svg aria-hidden="true" width="22" height="22" viewBox="0 0 26 26" fill="none"><path d="M3 6.5C9 5.5 17 7.5 23 6.5M3 13C9 12 17 14 23 13M3 19.5C9 18.5 17 20.5 23 19.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+</button>
 <nav aria-label="Book sections" class="bookmarks" id="bookmarks" inert=""></nav>
 <div class="book-shell" id="shell">
 <div class="book" id="book"></div>
 </div>
+<div aria-hidden="true" class="book-menu-dismiss" hidden="" id="book-menu-dismiss"></div>
 <div aria-label="Page zoom" class="sample-zoom" dir="ltr" hidden="" id="sample-zoom" role="group">
 <button aria-label="Zoom out by 10%" data-zoom-step="-10" disabled="" type="button">−</button>
 <output aria-atomic="true" aria-live="polite">100</output>

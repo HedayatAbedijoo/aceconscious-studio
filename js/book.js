@@ -13,8 +13,10 @@
   const stage = $("#stage");
   const shell = $("#shell");
   const tabs = $("#bookmarks");
+  const menuToggle = $("#book-menu-toggle");
+  const menuDismiss = $("#book-menu-dismiss");
   const source = $("#book-source");
-  if (!stage || !shell || !tabs || !source || typeof St === "undefined") return;
+  if (!stage || !shell || !tabs || !menuToggle || !menuDismiss || !source || typeof St === "undefined") return;
 
   const strings = JSON.parse($("#book-strings").textContent);
   const rtl = document.documentElement.dir === "rtl";
@@ -42,12 +44,10 @@
   let readingLayout = false;
   let sizedForReading = false;
   let layoutFrame = 0;
-  let bookmarkTimer = 0;
-  let bookmarksVisible = true;
+  let bookmarksVisible = false;
   let bookmarkHoverFrame = 0;
   let bookmarkHoverY = null;
   let bookmarkPaper = null;
-  const bookmarkTargets = "#bookmarks, .reader-edge";
 
   const number = (value, pad = false) => new Intl.NumberFormat(locale, { useGrouping: false, minimumIntegerDigits: pad ? 2 : 1 }).format(value);
 
@@ -599,28 +599,24 @@
   }
 
   function hideBookmarks() {
-    clearTimeout(bookmarkTimer);
-    if (!readingLayout) return;
-    // Keep the section tabs visible while keyboard users navigate them.
-    if (heldTurn || busy || sectionTurn
-      || (document.activeElement?.closest(bookmarkTargets) && document.activeElement.matches(":focus-visible"))) {
-      bookmarkTimer = setTimeout(hideBookmarks, 1000);
-      return;
-    }
+    if (tabs.contains(document.activeElement)) menuToggle.focus({ preventScroll: true });
     bookmarksVisible = false;
+    menuDismiss.hidden = true;
+    tabs.inert = true;
     clearBookmarkProximity();
     stage.classList.add("is-reading-quiet");
     bookmarkPaper?.setOpen(false);
-    stage.querySelectorAll(".reader-edge").forEach(edge => edge.setAttribute("aria-expanded", "false"));
+    menuToggle.setAttribute("aria-expanded", "false");
   }
 
-  function showBookmarks(delay = 4000) {
-    clearTimeout(bookmarkTimer);
+  function showBookmarks() {
+    if (pageFlip?.getState() === "fold_corner") pageFlip.cancelUserTouch();
     bookmarksVisible = true;
+    menuDismiss.hidden = false;
+    tabs.inert = false;
     stage.classList.remove("is-reading-quiet");
     bookmarkPaper?.setOpen(true);
-    stage.querySelectorAll(".reader-edge").forEach(edge => edge.setAttribute("aria-expanded", "true"));
-    if (readingLayout) bookmarkTimer = setTimeout(hideBookmarks, delay);
+    menuToggle.setAttribute("aria-expanded", "true");
   }
 
   function clearBookmarkProximity() {
@@ -652,16 +648,6 @@
     });
   }
 
-  function tapPaper(x) {
-    const bounds = shell.getBoundingClientRect();
-    const edge = Math.max(32, Math.min(64, bounds.width * .12));
-    if (x <= bounds.left + edge || x >= bounds.right - edge) showBookmarks();
-    else if (bookmarksVisible) {
-      if (document.activeElement?.closest(bookmarkTargets)) document.activeElement.blur();
-      hideBookmarks();
-    }
-  }
-
   function markSection(section) {
     tabs.dataset.activeSection = section;
     tabs.querySelectorAll("button").forEach(el => {
@@ -682,13 +668,16 @@
     stage.classList.toggle("is-closed", cover);
     stage.classList.toggle("is-back-cover", page.id === "back-cover");
     const focusFromCover = !cover && (document.activeElement === $("#open") || $("#cover-entry").contains(document.activeElement));
-    const focusFromClose = cover && document.activeElement === $("#close");
+    const focusFromClose = cover && (document.activeElement === $("#close")
+      || document.activeElement === menuToggle || tabs.contains(document.activeElement));
     $("#open").hidden = !cover;
     $("#cover-entry").hidden = !cover || Boolean(sectionTurn);
     if (!cover || sectionTurn) languageMenu.open = false;
     $("#controls").hidden = cover;
     $("#close").hidden = cover;
-    tabs.inert = cover;
+    if (cover) hideBookmarks();
+    menuToggle.hidden = cover;
+    tabs.inert = cover || !bookmarksVisible;
     if (focusFromCover) $("#close").focus({ preventScroll: true });
     if (focusFromClose) $("#open-label").focus({ preventScroll: true });
     $("#previous").disabled = Boolean(sectionTurn) || index === 0;
@@ -907,6 +896,12 @@
       }
     });
     pageFlip.loadFromHTML(pages.map(item => item.el));
+    // The upper corners belong to the header. Retain the existing lower
+    // corner preview, and keep the paper still while its menu is open.
+    const flip = pageFlip.getFlipController();
+    const isPointOnCorners = flip.isPointOnCorners.bind(flip);
+    flip.isPointOnCorners = point => !bookmarksVisible
+      && point.y >= pageFlip.getBoundsRect().height / 2 && isPointOnCorners(point);
     // Mirror physical paper, then undo that mirror on each face. Map input
     // into the engine's unchanged coordinate system (including its swipes).
     if (rtl) {
@@ -927,7 +922,6 @@
     rebuilding = false;
     fitSampleSheets();
     sync(current);
-    if (wasReading !== readingLayout || !readingLayout) showBookmarks(2600);
     if (wasReading !== readingLayout && !reducedMotion.matches) {
       const bounds = stage.getBoundingClientRect();
       stage.animate([
@@ -939,24 +933,13 @@
 
   /* ------------------------------------------------------------ interaction */
 
-  // Two slim paper-edge targets keep the original section tabs discoverable,
-  // including over a zoomed sample. Their labels use the translated nav name.
-  for (const side of ["left", "right"]) {
-    const edge = document.createElement("button");
-    edge.type = "button";
-    edge.className = "reader-edge reader-edge--" + side;
-    edge.setAttribute("aria-label", tabs.getAttribute("aria-label"));
-    edge.setAttribute("aria-controls", "bookmarks");
-    edge.setAttribute("aria-expanded", "true");
-    edge.addEventListener("click", () => showBookmarks());
-    edge.addEventListener("pointerenter", event => {
-      if (readingLayout && event.pointerType === "mouse" && mousePanAvailable.matches) showBookmarks();
-    });
-    edge.addEventListener("pointermove", event => {
-      if (readingLayout && event.pointerType === "mouse" && mousePanAvailable.matches) showBookmarks();
-    });
-    stage.append(edge);
-  }
+  menuToggle.addEventListener("click", () => {
+    if (bookmarksVisible) hideBookmarks();
+    else showBookmarks();
+  });
+  document.addEventListener("click", event => {
+    if (bookmarksVisible && !menuToggle.contains(event.target)) hideBookmarks();
+  });
   for (const type of ["pointerdown", "pointermove"]) {
     tabs.addEventListener(type, event => highlightBookmarks(event.clientY), { passive: true });
   }
@@ -972,39 +955,6 @@
     if (bookmarkHoverY !== null) highlightBookmarks(bookmarkHoverY);
   }, { passive: true });
   for (const type of ["touchend", "touchcancel"]) tabs.addEventListener(type, clearBookmarkProximity, { passive: true });
-  stage.addEventListener("focusin", event => {
-    if (event.target.closest(bookmarkTargets)) showBookmarks();
-  });
-  stage.addEventListener("focusout", event => {
-    if (readingLayout && bookmarksVisible && event.target.closest(bookmarkTargets)) {
-      clearTimeout(bookmarkTimer);
-      bookmarkTimer = setTimeout(hideBookmarks, 4000);
-    }
-  });
-  for (const type of ["pointerdown", "pointermove", "wheel"]) {
-    stage.addEventListener(type, event => {
-      if (readingLayout && event.target.closest(bookmarkTargets) && !event.target.closest(".reader-edge")) showBookmarks();
-    }, { passive: true });
-  }
-
-  // Mouse taps on compact layouts share the touch affordance. Movement still
-  // belongs to PageFlip, so dragging the actual paper remains a physical turn.
-  let mouseTap = null;
-  shell.addEventListener("pointerdown", event => {
-    mouseTap = readingLayout && event.pointerType === "mouse" && event.button === 0
-      && !busy && !event.target.closest("a,button,input,textarea,select,form,label")
-      ? { x: event.clientX, y: event.clientY } : null;
-  }, { capture: true });
-  shell.addEventListener("pointermove", event => {
-    if (mouseTap && Math.hypot(event.clientX - mouseTap.x, event.clientY - mouseTap.y) > 10) mouseTap = null;
-  }, { capture: true });
-  shell.addEventListener("pointercancel", () => { mouseTap = null; });
-  shell.addEventListener("pointerup", event => {
-    if (!mouseTap) return;
-    mouseTap = null;
-    pageFlip.cancelUserTouch();
-    tapPaper(event.clientX);
-  }, { capture: true });
 
   function stopHeldTurn() {
     const hold = heldTurn;
@@ -1113,9 +1063,17 @@
   });
 
   // Keep links, forms and buttons independent from the paper gesture.
+  // New folds start only in the lower half; a fold already started there
+  // keeps its original drag path and can still travel across the full sheet.
+  function startsOnUpperPaper(point) {
+    const bounds = shell.getBoundingClientRect();
+    return point.clientY < bounds.top + bounds.height / 2;
+  }
   ["mousedown", "touchstart"].forEach(type => {
     shell.addEventListener(type, event => {
-      if (event.target.closest(interactive) || event.touches?.length > 1) event.stopPropagation();
+      const point = event.touches?.[0] || event;
+      if (event.target.closest(interactive) || event.touches?.length > 1
+        || startsOnUpperPaper(point)) event.stopPropagation();
     }, { capture: true });
   });
 
@@ -1171,9 +1129,9 @@
   let paperTap = null;
   shell.addEventListener("touchstart", event => {
     paperTap = null;
-    if (event.touches.length !== 1 || event.target.closest(readingLayout
-      ? "a,button,input,textarea,select,form,label" : interactive) || busy) return;
+    if (event.touches.length !== 1 || event.target.closest(interactive) || busy) return;
     const touch = event.touches[0];
+    if (startsOnUpperPaper(touch)) return;
     paperTap = { id: touch.identifier, x: touch.clientX, y: touch.clientY, at: performance.now(), page: current };
   }, { capture: true, passive: true });
 
@@ -1192,19 +1150,14 @@
     if (!tap || event.touches.length || busy || rebuilding || tap.page !== current) return;
     const touch = Array.from(event.changedTouches).find(item => item.identifier === tap.id);
     if (!touch || Math.hypot(touch.clientX - tap.x, touch.clientY - tap.y) > 10) return;
-    if (readingLayout) {
-      // Cancel both the delayed vendor touch and its following synthetic click.
-      // Swipes have already cleared paperTap and continue through PageFlip.
-      const ui = pageFlip.getUI();
-      clearTimeout(ui.touchTimer);
-      ui.touchPoint = null;
-      pageFlip.cancelUserTouch();
-      if (event.cancelable) event.preventDefault();
-      if (performance.now() - tap.at < 700) tapPaper(touch.clientX);
-      return;
-    }
     if (performance.now() - tap.at >= 250) return;
+    // A tap turns the paper; cancel the delayed vendor touch to avoid a second turn.
+    const ui = pageFlip.getUI();
+    clearTimeout(ui.touchTimer);
+    ui.touchPoint = null;
+    pageFlip.cancelUserTouch();
     if (event.cancelable) event.preventDefault();
+    hideBookmarks();
     const bounds = shell.getBoundingClientRect();
     const fraction = (touch.clientX - bounds.left) / bounds.width;
     go(current + ((rtl ? 1 - fraction : fraction) < 0.25 ? -1 : 1));
@@ -1258,9 +1211,9 @@
     if (["ArrowRight", "ArrowLeft", "PageDown", "PageUp", "Home", "End", "Escape", " "].includes(event.key)) {
       event.preventDefault();
     }
-    if (event.key === "Escape" && readingLayout && bookmarksVisible) {
-      if (document.activeElement?.closest(bookmarkTargets)) document.activeElement.blur();
+    if (event.key === "Escape" && bookmarksVisible) {
       hideBookmarks();
+      menuToggle.focus({ preventScroll: true });
       return;
     }
     if ([rtl ? "ArrowLeft" : "ArrowRight", "PageDown", " "].includes(event.key)) go(current + 1);
@@ -1318,6 +1271,7 @@
     tabs.append(button);
   }
   bookmarkPaper = window.createBookmarkPaper?.({ nav: tabs, stage, reducedMotion }) || null;
+  hideBookmarks();
 
   const faces = [
     `400 1em ${getComputedStyle(document.body).fontFamily}`,

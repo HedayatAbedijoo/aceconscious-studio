@@ -93,7 +93,6 @@ fs.mkdirSync(out, { recursive: true });
       await page.locator('#sample-zoom output').click();
       assert.equal(await index(page), original, `${label}: percentage must not turn the paper`);
       for (const percentage of [110, 120, 130]) {
-        await revealBookControls(page);
         await page.locator(plus).click();
         const current = await measure(page);
         assert.ok(Math.abs(current.inner.width / start.inner.width - percentage / 100) < 0.002,
@@ -128,7 +127,6 @@ fs.mkdirSync(out, { recursive: true });
       await assertZoom(120, 'keyboard next preserves zoom');
       await page.locator('#previous').click();
       await assertZoom(120, 'previous button preserves zoom');
-      await revealBookControls(page);
       await page.locator(plus).click();
       await page.locator(minus).focus();
       await page.keyboard.press('Enter');
@@ -162,11 +160,12 @@ fs.mkdirSync(out, { recursive: true });
           `${label}: zoomed footnotes remain accessible within the reading area`);
         await page.screenshot({path: `${out}/${lang.code}-${width}-notes-200.png`});
       }
-      await revealBookControls(page);
       await page.locator(plus).click();
+      await revealBookControls(page);
       await page.locator('.bookmark[data-section="story"]').click();
       await page.waitForFunction(() => document.querySelector('#stage').dataset.section === 'story');
       assert.ok(await page.locator('#sample-zoom').isHidden(), `${label}: no zoom controls on other sections`);
+      await revealBookControls(page);
       await page.locator('.bookmark[data-section="sample"]').click();
       await page.waitForFunction(() => document.querySelector('#stage').dataset.section === 'sample');
       await assertZoom(100, 'returning from another section resets zoom');

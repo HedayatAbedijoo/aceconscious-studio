@@ -1716,6 +1716,46 @@ html[dir="rtl"] .sample-page__head {
 
 /* --------------------------------------------------------------- bookmarks */
 
+.book-menu-toggle {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  z-index: 20;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border-radius: 3px;
+  color: #574633;
+  touch-action: manipulation;
+}
+.book-menu-toggle[hidden] { display: none; }
+/* Reserve a little space in the printed header for the in-page icon. */
+.running-head { padding-inline-end: 32px; }
+.book-menu-toggle:hover,
+.book-menu-toggle[aria-expanded="true"] { color: var(--rust); background: #bdad8d20; }
+.book-menu-toggle:focus-visible { outline-offset: -2px; }
+html[dir="rtl"] .book-menu-toggle {
+  right: auto;
+  left: 8px;
+}
+/* Keep the back-cover ribbon free without moving the button off the paper. */
+.is-back-cover .book-menu-toggle {
+  right: 54px;
+}
+html[dir="rtl"] .is-back-cover .book-menu-toggle {
+  right: auto;
+  left: 54px;
+}
+.book-menu-dismiss {
+  position: absolute;
+  inset: 0;
+  z-index: 9;
+  touch-action: none;
+}
+.book-menu-dismiss[hidden] { display: none; }
+
 .bookmarks {
   --tab-direction: 1;
   position: absolute;
@@ -1727,7 +1767,7 @@ html[dir="rtl"] .sample-page__head {
   flex-direction: column;
   justify-content: space-between;
   gap: 5px;
-  z-index: 5;
+  z-index: 10;
   opacity: 1;
   transition: transform 0.65s, opacity 0.5s;
 }
@@ -2844,7 +2884,6 @@ html:not([lang="en"]) .page.story-page .story-heading h2 {
 
 /* Open paper fills a phone or tablet; the closed cover keeps its own scale.
    The root class also styles pagination probes outside the visible book. */
-.reader-edge { display: none; }
 
 /* Desktop uses the window's height while keeping the printed aspect ratio.
    Scale reading type with the larger paper, including each locale's optics. */
@@ -3055,7 +3094,7 @@ html.immersive-reading .bookmark:focus-visible { outline-offset: -3px; }
 
 /* Only the paper faces fold away, leaving the real coloured edges visible.
    The current section leaves a slightly wider bookmark in the closed stack. */
-html.immersive-reading .is-reading-quiet .bookmarks { pointer-events: none; }
+.is-reading-quiet .bookmarks { pointer-events: none; }
 html.immersive-reading .is-reading-quiet .bookmark { --fold-angle: calc(86deg * var(--tab-direction)); }
 html.immersive-reading .is-reading-quiet .bookmark[aria-current="true"] { --fold-angle: calc(82deg * var(--tab-direction)); }
 html.immersive-reading .is-reading-quiet .bookmark-paper {
@@ -3111,25 +3150,8 @@ html.immersive-reading[dir="rtl"] .ribbon { right: 11px; left: auto; }
 html.immersive-reading[dir="rtl"] .is-back-cover .ribbon { right: auto; left: 11px; }
 .immersive-reading .sample-zoom button { width: 44px; height: 44px; }
 
-/* The same edge target remains on top during the fold. Hovering can open
-   the slips without redirecting an in-flight click to a newly revealed tab. */
-.immersive-reading .reader-edge {
-  display: block;
-  position: absolute;
-  top: 54px;
-  bottom: 62px;
-  width: 22px;
-  padding: 0;
-  z-index: 11;
-  touch-action: manipulation;
-}
-.reader-edge--left { left: -6px; }
-.reader-edge--right { right: -6px; }
-.immersive-reading .reader-edge:focus-visible { outline-offset: -4px; }
-
 @media (max-height: 550px) {
   html.immersive-reading { --margin: clamp(24px, 6vw, 76px); --body-size: 18px; }
   html.immersive-reading .bookmarks { top: 38px; bottom: 50px; }
   html.immersive-reading .bookmark { flex-basis: 44px; }
-  .immersive-reading .reader-edge { top: 38px; bottom: 50px; }
 }

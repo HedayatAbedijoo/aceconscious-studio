@@ -44,6 +44,52 @@ fs.mkdirSync(out, { recursive: true });
       const box = await page.locator('#shell').boundingBox();
       await page.touchscreen.tap(box.x + box.width / 2, box.y + box.height / 2);
     }
+    async function checkMenuPlacement(page) {
+      const paper = await page.locator('#shell').boundingBox();
+      const menu = await page.locator('#book-menu-toggle').boundingBox();
+      const rtl = await page.locator('html').getAttribute('dir') === 'rtl';
+      assert.ok(menu.x >= paper.x && menu.y >= paper.y
+        && menu.x + menu.width <= paper.x + paper.width
+        && menu.y + menu.height <= paper.y + paper.height, 'hamburger is inside the book');
+      assert.ok(menu.y - paper.y <= 10 && menu.width <= 40 && menu.height <= 40, 'compact hamburger sits in the paper header');
+      assert.ok(rtl ? menu.x - paper.x < 12 : paper.x + paper.width - menu.x - menu.width < 12,
+        'hamburger follows the paper reading direction');
+      const title = page.locator('.page[aria-hidden="false"] .running-head span:last-child');
+      if (await title.isVisible()) {
+        const box = await title.boundingBox();
+        assert.ok(box.x + box.width <= menu.x || box.x >= menu.x + menu.width,
+          'hamburger has its own space beside the printed section title');
+      }
+    }
+    async function checkUpperCorners(page, touch) {
+      const paper = await page.locator('#shell').boundingBox(), before = await index(page);
+      const cdp = touch ? await page.context().newCDPSession(page) : null;
+      for (const side of ['left', 'right']) {
+        const x = side === 'left' ? paper.x + 3 : paper.x + paper.width - 3;
+        const y = paper.y + 3, end = x + (side === 'left' ? 1 : -1) * paper.width * .8;
+        if (touch) {
+          for (const delay of [40, 350]) {
+            await cdp.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [{ x, y }] });
+            await page.waitForTimeout(delay);
+            await cdp.send('Input.dispatchTouchEvent', { type: 'touchMove', touchPoints: [{ x: end, y: y + 20 }] });
+            await cdp.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
+            await page.waitForTimeout(300);
+            assert.equal(await index(page), before, 'upper touch swipe/drag cannot turn the paper');
+          }
+        } else {
+          await page.mouse.move(x, y);
+          await page.waitForTimeout(300);
+          assert.equal(await page.locator('.stf__outerShadow').isVisible(), false, 'upper hover has no fold preview');
+          await page.mouse.down();
+          await page.mouse.move(end, y + 20, { steps: 8 });
+          await page.mouse.up();
+          await page.waitForTimeout(300);
+          assert.equal(await index(page), before, 'upper mouse drag cannot turn the paper');
+        }
+        assert.equal(await page.locator('#stage.is-turning').count(), 0, 'upper corner leaves no active fold');
+      }
+      await cdp?.detach();
+    }
     async function checkPaper(page, width, height) {
       const box = await page.locator('#shell').boundingBox();
       assert.ok(box.x >= 0 && box.y >= 0 && box.x + box.width <= width && box.y + box.height <= height, 'paper stays inside display');
@@ -90,14 +136,28 @@ fs.mkdirSync(out, { recursive: true });
       const cover = await page.locator('#shell').boundingBox();
       const coverRatio = await page.locator('#shell').evaluate(el => el.offsetHeight / el.offsetWidth);
       assert.ok(Math.abs(coverRatio - 1.6) < .01, 'cover preserves its printed ratio');
+      assert.equal(await page.locator('#book-menu-toggle').isHidden(), true, 'closed cover has no hamburger');
       await page.screenshot({ path: `${out}/${locale}-cover.png` });
       await page.locator('#open-label').tap();
       await settled(page);
       await checkPaper(page, 390, 844);
       assert.equal(await page.locator('#stage').getAttribute('data-section'), 'headline');
+      const menu = page.locator('#book-menu-toggle');
+      await checkMenuPlacement(page);
+      assert.equal(await quiet(page), true, 'only the hamburger opens the tabs');
+      assert.equal(await page.locator('.reader-edge').count(), 0, 'paper has no menu hit areas');
+      await menu.tap();
+      assert.equal(await menu.getAttribute('aria-expanded'), 'true');
       await checkBookmarks(page);
       await page.screenshot({ path: `${out}/${locale}-tabs.png` });
-      await page.waitForFunction(() => document.querySelector('#stage').classList.contains('is-reading-quiet'));
+      const opened = await index(page);
+      await centerTap(page);
+      await settled(page);
+      assert.equal(await quiet(page), true, 'paper tap dismisses the menu');
+      assert.equal(await index(page), opened, 'menu dismissal consumes the tap without turning');
+      await menu.tap();
+      await menu.tap();
+      assert.equal(await menu.getAttribute('aria-expanded'), 'false');
       await page.waitForTimeout(550);
       await checkNavigation(page);
       await page.screenshot({ path: `${out}/${locale}-reading.png` });
@@ -109,30 +169,50 @@ fs.mkdirSync(out, { recursive: true });
       await page.locator('#previous').tap();
       await settled(page);
       assert.equal(await index(page), before, 'previous works without revealing section tabs');
+      await page.locator('#next').tap();
+      await settled(page);
       for (const side of ['left', 'right']) {
-        await page.locator(`.reader-edge--${side}`).tap();
-        assert.equal(await quiet(page), false, `${locale}: either edge reveals the tabs`);
-        assert.equal(await index(page), before, 'edge tap does not turn the paper');
-        await page.waitForTimeout(150);
-        await centerTap(page);
-        assert.equal(await quiet(page), true, 'center tap hides only section tabs');
+        const paper = await page.locator('#shell').boundingBox(), start = await index(page);
+        await page.touchscreen.tap(side === 'left' ? paper.x + 8 : paper.x + paper.width - 8, paper.y + paper.height / 2);
+        await settled(page);
+        assert.equal(await quiet(page), true, `${locale}: ${side} paper edge never opens the menu`);
+        assert.equal(await index(page), start + ((side === 'right') === (locale === 'en') ? 1 : -1), 'edge tap turns the paper in the localized direction');
+        await menu.tap();
+        const selected = await index(page);
+        const next = await page.locator('#next').boundingBox();
+        await page.touchscreen.tap(next.x + next.width / 2, next.y + next.height / 2);
+        await settled(page);
+        assert.equal(await quiet(page), true, 'a page control also dismisses the menu');
+        assert.equal(await index(page), selected, 'the dismissing tap cannot activate the underlying page control');
+        await page.locator('#next').tap();
+        await settled(page);
+        assert.equal(await index(page), selected + 1, 'the next tap retains the lower page control');
         await checkNavigation(page);
-        assert.equal(await index(page), before, 'center tap does not turn the paper');
       }
       await page.locator('#close').tap();
       await settled(page);
       assert.equal(await index(page), 0, 'cover ribbon works without revealing section tabs');
       await page.locator('#open-label').tap();
       await settled(page);
-      await centerTap(page);
-      // Focus must reveal controls and keep them visible for keyboard use.
+      // Focus alone never opens the menu; Enter and Space activate the button.
+      await menu.focus();
+      assert.equal(await quiet(page), true);
+      await page.keyboard.press('Enter');
+      assert.equal(await quiet(page), false);
       await page.keyboard.press('Tab');
+      assert.ok(await page.locator('#bookmarks').evaluate(el => el.contains(document.activeElement)), 'Tab reaches the open menu');
       await page.locator('.bookmark[data-section="story"]').focus();
       await page.waitForTimeout(4300);
-      assert.equal(await quiet(page), false, 'keyboard focus prevents auto-hide');
+      assert.equal(await quiet(page), false, 'the menu waits for an explicit dismissal');
       await page.keyboard.press('Enter');
       await settled(page);
       assert.equal(await page.locator('#stage').getAttribute('data-section'), 'story');
+      assert.equal(await quiet(page), true, 'selecting a section closes the menu');
+      await checkMenuPlacement(page);
+      await checkUpperCorners(page, true);
+      await menu.focus();
+      await page.keyboard.press('Space');
+      assert.equal(await quiet(page), false, 'Space reopens the menu from its button');
       await checkBookmarks(page);
       await page.screenshot({ path: `${out}/${locale}-story-tabs.png` });
       const story = await index(page);
@@ -141,6 +221,7 @@ fs.mkdirSync(out, { recursive: true });
       assert.equal(await index(page), story + 1, 'localized keyboard direction');
       await page.keyboard.press('Escape');
       assert.equal(await quiet(page), true, 'Escape first dismisses the section tabs');
+      assert.equal(await menu.evaluate(el => document.activeElement === el), true, 'Escape returns focus to the menu button');
       assert.equal(await index(page), story + 1);
       await page.keyboard.press('Escape');
       await settled(page);
@@ -159,8 +240,10 @@ fs.mkdirSync(out, { recursive: true });
       await page.locator('#sample-zoom [data-zoom-step="10"]').tap();
       assert.equal(await page.locator('.page[aria-hidden="false"]').getAttribute('data-zoom'), '120');
       assert.equal(await quiet(page), true, 'zoom stays available without reopening section tabs');
-      await page.locator('.reader-edge--left').tap();
-      assert.equal(await quiet(page), false, 'zoomed sample retains an edge target');
+      await menu.tap();
+      assert.equal(await quiet(page), false, 'zoomed sample retains the menu button');
+      await centerTap(page);
+      assert.equal(await quiet(page), true, 'a click on a zoomed sample closes the menu');
       assert.equal(await page.locator('.page[aria-hidden="false"] .sample-sheet__inner').textContent(), originalText);
       await page.setViewportSize({ width: 844, height: 390 });
       await page.waitForTimeout(500);
@@ -172,9 +255,13 @@ fs.mkdirSync(out, { recursive: true });
       await settled(page);
       assert.equal(await page.locator('#stage').getAttribute('data-section'), 'back-cover', 'scrolling tabs reaches the last section');
       await checkPaper(page, 844, 390);
+      assert.ok(await page.locator('#close').evaluate(el => {
+        const box = el.getBoundingClientRect();
+        return el.contains(document.elementFromPoint(box.x + box.width / 2, box.y + box.height / 2));
+      }), 'menu button leaves the back-cover ribbon reachable');
       await page.screenshot({ path: `${out}/${locale}-landscape.png` });
       await ctx.close();
-      console.log(`PASS ${locale}: cover, display usage, touch edges, quiet reading, keyboard, zoom, rotation and scrollable tabs`);
+      console.log(`PASS ${locale}: hamburger placement, touch page turns, dismissal, keyboard, zoom, rotation and scrollable tabs`);
     }
 
     for (const [width, height] of [[320,568], [768,1024], [1024,768], [1366,1024]]) {
@@ -197,16 +284,32 @@ fs.mkdirSync(out, { recursive: true });
     assert.ok(Math.abs(box.height / box.width - 1.6) < .01);
     assert.ok(box.height >= 900 * .95 && box.height <= 900 * .97, 'desktop paper uses nearly all of the window height');
     assert.ok(await page.locator('.bookmark').first().evaluate(el => el.clientWidth >= 110 && parseFloat(getComputedStyle(el).fontSize) >= 12), 'desktop slips are longer and legible');
+    await checkMenuPlacement(page);
+    await checkUpperCorners(page, false);
+    await page.screenshot({ path: `${out}/en-desktop-header.png` });
     await page.waitForTimeout(4300);
-    assert.equal(await quiet(page), false, 'desktop tabs stay visible');
+    assert.equal(await quiet(page), true, 'desktop tabs wait for the hamburger');
+    await page.locator('#book-menu-toggle').hover();
+    assert.equal(await quiet(page), true, 'hover never opens the menu');
+    await revealBookControls(page);
+    assert.equal(await quiet(page), false, 'desktop hamburger opens the original tabs');
+    await page.mouse.click(20, 450);
+    assert.equal(await quiet(page), true, 'a click outside the book closes the menu');
     await page.setViewportSize({ width: 768, height: 1024 });
     await page.waitForTimeout(500);
     await settled(page);
     await checkPaper(page, 768, 1024);
-    await page.mouse.click(384, 512);
-    assert.equal(await quiet(page), true, 'compact mouse click hides controls without turning');
+    const start = await index(page);
+    await page.mouse.move(738, 512);
+    assert.equal(await quiet(page), true, 'hovering the edge does not reveal controls');
+    await revealBookControls(page);
     await page.mouse.click(38, 512);
-    assert.equal(await quiet(page), false, 'compact mouse edge click reveals controls');
+    await settled(page);
+    assert.equal(await quiet(page), true, 'compact mouse edge click dismisses controls');
+    assert.equal(await index(page), start, 'menu dismissal cannot turn the paper with the mouse');
+    await page.mouse.click(38, 512);
+    await settled(page);
+    assert.equal(await index(page), start - 1, 'the subsequent lower-half mouse click still turns');
     await ctx.close();
     assert.deepEqual(errors, []);
     console.log(`PASS phone/tablet/desktop geometry and mouse behavior. Local screenshots: ${out}`);
