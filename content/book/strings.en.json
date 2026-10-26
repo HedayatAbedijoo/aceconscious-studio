@@ -93,8 +93,8 @@
   },
 
   "appendix": {
-    "heading": "Appendix",
-    "back": "← Back to the back cover",
+    "heading": "Appendices",
+    "back": "← Back to appendices",
     "items": {
       "privacy": "Privacy",
       "impressum": "Impressum",

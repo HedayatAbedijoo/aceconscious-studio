@@ -22,11 +22,12 @@ EDITIONS = json.loads((ROOT / "content/book/editions.json").read_text())
 SAMPLE = json.loads((ROOT / "content/book/sample-en.json").read_text())
 
 # Page-group order after the front cover. Reference pages have no bookmark;
-# their links live on the back cover.
+# their links live on the appendix opener and back cover.
 SECTIONS = ("headline", "reviews", "story", "ace", "buy", "community",
             "author", "contact", "sample", "appendix", "back-cover")
 BOOKMARKS = tuple(section for section in SECTIONS if section != "appendix")
-BACK_COVER_LINKS = ("rights", "screen", "privacy", "impressum", "contents")
+APPENDIX_ITEMS = ("contents", "screen", "rights", "privacy", "impressum")
+BACK_COVER_LINKS = APPENDIX_ITEMS
 
 # Links that lead to a page of this book turn pages instead of loading a page.
 JUMP_TARGETS = {
@@ -550,7 +551,7 @@ MAIL_MARK = ('<svg viewBox="0 0 24 24" role="img"><path d="M3 5h18a1 1 0 0 1 1 1
 
 
 def appendix_pages(pages_html, home, strings):
-    """Reference pages reached from the back-cover footer."""
+    """A single linked opener followed by references in reading order."""
     labels = STRINGS["appendix"]["items"]
     entries = []
 
@@ -577,12 +578,18 @@ def appendix_pages(pages_html, home, strings):
     entries.append(("contents", labels["contents"], strings["toc.label"],
                     [f'<p class="lede">{escape(strings["toc.lead"])}</p>', *chapters]))
 
-    result = []
+    links = [f'<li><a href="#{identifier}" data-jump="{identifier}">'
+             f'{escape(labels[identifier])}</a></li>' for identifier in APPENDIX_ITEMS]
+    result = [page("appendix", "appendix", STRINGS["appendix"]["heading"], [
+        f'<h2 class="appendix-title">{escape(STRINGS["appendix"]["heading"])}</h2>',
+        '<ol class="section-index">' + "".join(links) + '</ol>',
+    ], classes="appendix-page appendix-index", fixed=True)]
+    entries.sort(key=lambda entry: APPENDIX_ITEMS.index(entry[0]))
     for identifier, label, heading, body in entries:
         result.append(page(identifier, "appendix", label, [
             f'<p class="chapter-kicker">{escape(STRINGS["appendix"]["heading"])}</p>',
             f'<h2 class="appendix-title">{escape(heading)}</h2>', *body,
-            f'<p class="back-to-index"><button type="button" data-jump="back-cover">'
+            f'<p class="back-to-index"><button type="button" data-jump="appendix">'
             f'{escape(STRINGS["appendix"]["back"])}</button></p>'],
             classes="appendix-page screen-page" if identifier == "screen" else "appendix-page"))
     return result

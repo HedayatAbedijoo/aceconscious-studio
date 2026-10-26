@@ -4,7 +4,7 @@ import json
 from urllib.parse import urlsplit, unquote
 
 from build_locales import ROOT, SITE, LANGUAGES, PAGES, route, parse, template_for
-from book import SECTIONS, BOOKMARKS, BACK_COVER_LINKS
+from book import SECTIONS, BOOKMARKS, BACK_COVER_LINKS, APPENDIX_ITEMS
 
 
 # Anchors that other pages, search results and shared links point at.
@@ -37,7 +37,13 @@ def check_book(soup, path, code):
     assert soup.select_one('[data-page="cover"]')["data-image"] == ("/assets/cover-fa.jpg" if code == "fa" else "/assets/cover.jpg"), path
     strings = json.loads(soup.select_one("#book-strings").string)
     assert list(strings["sections"]) == list(BOOKMARKS), path
-    assert not soup.select('[data-page="appendix"]'), path
+    appendix = soup.select_one('[data-page="appendix"]')
+    assert appendix and appendix.has_attr("data-fixed"), path
+    assert [a["data-jump"] for a in appendix.select(".section-index a")] == list(APPENDIX_ITEMS), path
+    assert [p["id"] for p in pages if p["data-section"] == "appendix"] == ["appendix", *APPENDIX_ITEMS], path
+    assert pages[pages.index(appendix) - 1]["data-section"] == "sample", path
+    assert not soup.select('.bookmark[data-section="appendix"]'), path
+    assert all(a["data-jump"] == "appendix" for a in soup.select(".back-to-index [data-jump]")), path
     assert [a["data-jump"] for a in soup.select(".back-cover__links a")] == list(BACK_COVER_LINKS), path
     # Every bookmark needs pages, and the forms stay real forms.
     assert soup.select_one("#contact-form") and soup.select_one("#community-form"), path

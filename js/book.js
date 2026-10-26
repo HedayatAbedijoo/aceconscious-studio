@@ -479,7 +479,7 @@
     return packed;
   }
 
-  const canonicalId = id => ({ "contact-write": "contact", links: "back-cover", appendix: "back-cover" }[id] || id);
+  const canonicalId = id => ({ "contact-write": "contact", links: "back-cover" }[id] || id);
   const containsId = (page, id) => page.id === canonicalId(id) || page.reviewStarts?.includes(id);
 
 
