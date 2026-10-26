@@ -53,7 +53,7 @@ fs.mkdirSync(out, { recursive: true });
    await page.keyboard.press(rtl ? 'ArrowRight' : 'ArrowLeft');
    await settled();
    await page.screenshot({path: `${out}/${lang.code}-${width}-headline.png`});
-   for (const section of ['headline','reviews','story','ace','author','buy','community','contact','sample','back-cover']) {
+   for (const section of ['headline','reviews','story','ace','buy','community','author','contact','sample','back-cover']) {
     await revealBookControls(page);
     await page.locator(`.bookmark[data-section="${section}"]`).click();
     await settled();

@@ -52,13 +52,18 @@ def check_book(soup, path, code):
     intro = soup.select('#book-source [data-section="ace"]')
     assert [p["id"] for p in intro] == ["ace", "ace-pdaf", "ace-phases", "ace-play"], path
     assert all(p.has_attr("data-fixed") for p in intro), path
-    assert soup.select_one("#ace-play .ace-intro-play")["href"] == route("home", code), path
+    assert soup.select_one("#ace-play .ace-intro-play")["href"] == "#community", path
+    assert soup.select_one("#ace-play .ace-intro-contact")["href"] == "#contact", path
+    assert not soup.select(".ace-intro-kicker"), path
     assert not soup.select('.ace-intro [data-i18n="back"], .ace-intro-back'), path
     intro_copy = json.loads((ROOT / f"content/book/ace-intro.{code}.json").read_text())
     for el in soup.select('.ace-intro [data-i18n]'):
         assert el.get_text() == intro_copy[el["data-i18n"]], f"Intro translation mismatch: {path}: {el}"
     assert order.index("story") + 1 == order.index("ace"), path
-    assert order.index("ace") + 1 == order.index("author"), path
+    assert order.index("ace") + 1 == order.index("buy"), path
+    assert order.index("buy") + 1 == order.index("community"), path
+    assert order.index("community") + 1 == order.index("author"), path
+    assert order.index("author") + 1 == order.index("contact"), path
 
 
 

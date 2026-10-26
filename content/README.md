@@ -21,8 +21,8 @@ pages. `content/templates/book.html` and `scripts/book.py` use the matching
 locale's shared home, ACE, rights, screen, privacy and imprint content. Shared
 catalog corrections therefore update both the book and standalone pages.
 
-Page order after the cover: Headline, Reviews (Kirkus first), Story, ACE, Author, Buy,
-Gift, Contact, Sample, reference pages, then the back cover. Ten bookmarks
+Page order after the cover: Headline, Reviews (Kirkus first), Story, ACE, Buy, Gift,
+Author, Contact, Sample, reference pages, then the back cover. Ten bookmarks
 follow that order, with no Appendix bookmark or index page. The back-cover footer
 links to Rights & Representation, Book to Screen, Privacy, Impressum and Contents
 of the novel directly, without riffling; these pages return to the back cover.
@@ -88,16 +88,19 @@ four sheets: ACE, PDAF, Agency phases, and the play invitation. The structure is
 in `content/templates/ace-intro.html`, translated copy in
 `content/book/ace-intro.<code>.json`, and scoped assets in `css/ace-intro.css` and
 `js/ace-intro.js`. These catalogs participate in the normal key-parity and source
-hash checks. All labels, examples, navigation and accessibility text are translated;
+hash checks. All labels, definitions, navigation and accessibility text are translated;
 the ACE/PDAF letter symbols and the novel’s name stay unchanged. Arabic and Persian
 use RTL tab order, arrows and keyboard controls. The ordinary book pagination is
 the only previous-page control; the final Revisit ACE link returns to the start.
-The short examples are paraphrased scenes from Hedayat's story, with one sound-system
-incident followed across all four PDAF cards. `content/book/ace-intro.sources.json`
-records the supplied EPUB, chapters and scene context for future editorial checks;
-it is not rendered on the site.
-The play invitation temporarily links to the locale’s homepage. Change that target
-in the template when the game destination is ready. The full standalone `/ace/`
+Each sheet shows localized progress from 1 of 4 to 4 of 4. The headings are
+What is ACE?, The Decision Loop, Four Phases of Agency, and Would you like to play ACE?.
+The cards contain concise definitions; their earlier novel examples are no longer
+displayed. `content/book/ace-intro.sources.json` retains the original scene references
+for editorial history and is not rendered on the site.
+The final sheet retains the decorative cards and explains that Hedayat is developing
+a simple game. Its signup button opens the existing Community form at `#community`,
+and its Contact link opens `#contact`; neither starts a game or submits a form.
+The full standalone `/ace/`
 article and its translations remain separate. Run `node scripts/check_ace_intro.cjs`
 for all locales, card navigation, book order, keyboard, mobile/touch, resize, bounds
 and the no-JavaScript fallback. Provide Playwright on `NODE_PATH` and optionally

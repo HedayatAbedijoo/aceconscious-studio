@@ -9,7 +9,12 @@ const root = path.resolve(__dirname, '..');
 const base = 'http://127.0.0.1:8765';
 const output = '/tmp/ace-intro-locales-qa';
 const languages = JSON.parse(fs.readFileSync(path.join(root, 'content/languages.json'), 'utf8'));
-const expectedOrder = ['headline', 'reviews', 'story', 'ace', 'author', 'buy', 'community', 'contact', 'sample', 'back-cover'];
+const expectedOrder = ['headline', 'reviews', 'story', 'ace', 'buy', 'community', 'author', 'contact', 'sample', 'back-cover'];
+const proseSelector = '.ace-intro-lead, .ace-intro-definition, .ace-intro-panel h3, .ace-intro-example p, .ace-intro-note, .ace-intro-play-body, .ace-intro-signup';
+const typography = el => {
+  const style = getComputedStyle(el);
+  return [style.fontFamily, style.fontSize, style.fontWeight, style.lineHeight, style.letterSpacing, style.color];
+};
 
 (async () => {
   fs.mkdirSync(output, { recursive: true });
@@ -98,6 +103,8 @@ const expectedOrder = ['headline', 'reviews', 'story', 'ace', 'author', 'buy', '
     assert.equal(await page.locator('#stage').getAttribute('data-section'), 'ace');
     assert.equal(await page.locator('.ace-intro-page').count(), 4, 'ACE must stay four physical book sheets');
     assert.equal(await sheet(page).locator('h2').textContent(), copy['concepts.title']);
+    assert.equal(await page.locator('.ace-intro-kicker').count(), 0, 'Red kicker headings are removed');
+    const referenceTypography = await sheet(page).locator('.ace-intro-lead').evaluate(typography);
     assert.equal(await sheet(page).locator('.ace-intro-note, .ace-intro-duration').count(), 0);
     assert.equal(await selected(page), 'intro-tab-agency');
     // Tab arrows must select a card, without turning the surrounding book.
@@ -118,6 +125,9 @@ const expectedOrder = ['headline', 'reviews', 'story', 'ace', 'author', 'buy', '
       ['ace-phases', ['exploration', 'stabilization', 'expansion', 'integration']],
     ]) {
       assert.equal(new URL(page.url()).hash, '#' + anchor);
+      const sectionKey = { ace: 'concepts', 'ace-pdaf': 'pdaf', 'ace-phases': 'phases' }[anchor];
+      assert.equal(await sheet(page).locator('h2').textContent(), copy[sectionKey + '.title']);
+      assert.equal(await sheet(page).locator('.ace-intro-progress').textContent(), copy[sectionKey + '.progress']);
       await page.screenshot({ path: `${output}/${code}-${width}-${anchor}.png` });
       for (const card of cards) {
         await sheet(page).locator('#intro-tab-' + card).click();
@@ -125,13 +135,41 @@ const expectedOrder = ['headline', 'reviews', 'story', 'ace', 'author', 'buy', '
         assert.equal(new URL(page.url()).hash, '#' + anchor, 'Selecting a card keeps the current book page');
         const panel = page.locator('#intro-panel-' + card);
         assert.equal(await sheet(page).locator('[role="tabpanel"]:visible').count(), 1);
-        assert.equal(await panel.locator('.ace-intro-example p').textContent(), copy[card + '.example']);
-        if (copy[card + '.body']) {
+        if (anchor === 'ace') {
+          assert.equal(await panel.locator('.ace-intro-example, h3').count(), 0, 'Concept cards contain only uniform definitions');
+          assert.deepEqual(await panel.locator('.ace-intro-definition').allTextContents(),
+            [copy[card + '.heading'], copy[card + '.body']].filter(Boolean));
+          const typography = await panel.locator('.ace-intro-definition').evaluateAll(items => items.map(el => {
+            const style = getComputedStyle(el);
+            return [style.fontFamily, style.fontSize, style.fontWeight, style.lineHeight];
+          }));
+          assert.ok(typography.every(style => JSON.stringify(style) === JSON.stringify(typography[0]) && parseFloat(style[1]) >= 17),
+            'Concept sentences use the same readable typography');
+          assert.ok(await sheet(page).locator('.ace-intro-lead').evaluate(el => parseFloat(getComputedStyle(el).fontSize) >= 17),
+            'The ACE introduction remains readable on mobile');
+        } else if (anchor === 'ace-pdaf') {
+          assert.equal(await panel.locator('.ace-intro-example, h3').count(), 0, 'PDAF cards contain only the original definition');
           assert.equal(await panel.locator('.ace-intro-definition').textContent(), copy[card + '.body']);
+          assert.equal(await sheet(page).locator('.ace-intro-note').count(), 0, 'The PDAF cycle footer is removed');
+          assert.equal(await sheet(page).locator('.ace-intro-lead').count(), 0, 'The PDAF introductory sentence is removed');
+          if (['action', 'feedback'].includes(card) && ['en', 'fa'].includes(code)) {
+            await page.screenshot({ path: `${output}/${code}-${width}-${card}.png` });
+          }
+          if (card === 'decision') {
+            const decision = await panel.locator('.ace-intro-definition').textContent();
+            const phaseNames = ['exploration', 'stabilization', 'expansion', 'integration'].map(name => copy[name + '.name']);
+            assert.ok(decision.includes('\n'), 'The four phases follow the opening sentence on a new line');
+            assert.ok(phaseNames.every(name => decision.split('\n')[1].includes(name)), 'Decision lists all four localized phase names');
+            if (code === 'en' || code === 'fa') await page.screenshot({ path: `${output}/${code}-${width}-decision.png` });
+          }
         } else {
-          assert.equal(await panel.locator('.ace-intro-definition').count(), 0, 'Removed copy leaves no empty paragraph');
+          assert.equal(await sheet(page).locator('.ace-intro-lead').count(), 0, 'The phase introduction is removed');
+          assert.equal(await panel.locator('.ace-intro-example, h3').count(), 0, 'Each phase contains only its concise definition');
+          assert.equal(await panel.locator('.ace-intro-definition').textContent(), copy[card + '.body']);
+          if (['en', 'fa'].includes(code)) {
+            await page.screenshot({ path: `${output}/${code}-${width}-${card}.png` });
+          }
         }
-        assert.equal(await panel.locator('h3').textContent(), copy[card + '.heading']);
         assert.ok(await sheet(page).locator('[role="tab"] > span').evaluateAll(labels => labels.every(label => label.scrollWidth <= label.clientWidth + 1)), `Tab label overflow: ${code}, ${width}`);
         // Every line stays in a scrollable reading area, including narrow and
         // landscape screens; no horizontal clipping or fitted tiny text.
@@ -142,23 +180,48 @@ const expectedOrder = ['headline', 'reviews', 'story', 'ace', 'author', 'buy', '
         }));
         assert.ok(bounds.content <= bounds.width + 1, `Horizontal clipping at ${width}, ${card}`);
         assert.ok(bounds.reachable);
+        for (const text of await sheet(page).locator(proseSelector).all()) {
+          assert.deepEqual(await text.evaluate(typography), referenceTypography, `${code} ${width}: all ACE copy matches What is ACE?`);
+        }
         await checkScrollCue(page, `${code} ${width} ${card}`);
-        await panel.locator('.ace-intro-example').scrollIntoViewIfNeeded();
+        await panel.locator('.ace-intro-definition').last().scrollIntoViewIfNeeded();
       }
       await page.locator('#next').click();
       await settled(page);
     }
     assert.equal(new URL(page.url()).hash, '#ace-play');
-    assert.equal(await sheet(page).locator('.ace-intro-play').getAttribute('href'), home);
+    for (const text of await sheet(page).locator(proseSelector).all()) {
+      assert.deepEqual(await text.evaluate(typography), referenceTypography, `${code} ${width}: invitation copy matches What is ACE?`);
+    }
+    assert.equal(await sheet(page).locator('h2').textContent(), copy['play.title']);
+    assert.equal(await sheet(page).locator('.ace-intro-progress').textContent(), copy['play.progress']);
+    assert.equal(await sheet(page).locator('.ace-intro-play-lead, .ace-intro-novel').count(), 0);
+    assert.equal(await sheet(page).locator('.ace-intro-fan > span').count(), 3, 'The decorative cards remain');
+    assert.equal(await sheet(page).locator('.ace-intro-play-body').textContent(), copy['play.body']);
+    assert.equal(await sheet(page).locator('.ace-intro-signup').textContent(), copy['play.signup']);
+    assert.equal(await sheet(page).locator('.ace-intro-play').getAttribute('href'), '#community');
+    assert.equal(await sheet(page).locator('.ace-intro-contact').getAttribute('href'), '#contact');
     assert.ok(await sheet(page).locator('.ace-intro-play').evaluate(el => {
       const link = el.getBoundingClientRect(), paper = el.closest('.page-body').getBoundingClientRect();
       return link.top >= paper.top && link.bottom <= paper.bottom;
     }), 'The play invitation stays visible on a small screen');
     assert.equal(await sheet(page).locator('input,textarea,form').count(), 0);
     await page.screenshot({ path: `${output}/${code}-${width}-ace-play.png` });
+    for (const [selector, destination] of [['.ace-intro-play', 'community'], ['.ace-intro-contact', 'contact']]) {
+      await sheet(page).locator(selector).focus();
+      await page.keyboard.press('Enter');
+      await page.waitForFunction(section => document.querySelector('#stage')?.dataset.section === section, destination);
+      await settled(page);
+      assert.equal(new URL(page.url()).hash, '#' + destination, 'Signup/contact links stay inside the current edition');
+      await page.waitForFunction(() => !!document.activeElement.closest('#book .page[aria-hidden="false"]'));
+      if (destination === 'community') {
+        assert.equal(await page.locator('#community-email').evaluate(el => el === document.activeElement), true, 'Signup opens the real Community form');
+      }
+      await open(page, home + '#ace-play');
+    }
     await page.locator('#next').click();
     await settled(page);
-    assert.equal(await page.locator('#stage').getAttribute('data-section'), 'author');
+    assert.equal(await page.locator('#stage').getAttribute('data-section'), 'buy');
     await page.locator('#previous').click();
     await settled(page);
     assert.equal(new URL(page.url()).hash, '#ace-play');
@@ -182,6 +245,9 @@ const expectedOrder = ['headline', 'reviews', 'story', 'ace', 'author', 'buy', '
   const cdp = await touch.newCDPSession(phone);
   for (const home of ['/', '/fa/']) {
     await open(phone, home + '#ace');
+    // Agency can now fit without scrolling after removing the novel examples.
+    // Use the longer Connection definition to exercise a real touch scroll.
+    await phone.locator('#intro-tab-connection').click();
     const before = await phone.locator('#stage').getAttribute('data-page');
     const bounds = await sheet(phone).locator('.ace-intro-reading').boundingBox();
     const cue = sheet(phone).locator('.ace-intro-scroll');
@@ -207,6 +273,12 @@ const expectedOrder = ['headline', 'reviews', 'story', 'ace', 'author', 'buy', '
   for (const lang of languages) {
     await page.goto(base + (lang.code === 'en' ? '/' : `/${lang.code}/`) + '#ace');
     assert.equal(await page.locator('.ace-intro-panel:visible').count(), 11);
+    assert.equal(await page.locator('.ace-intro-play').getAttribute('href'), '#community');
+    assert.equal(await page.locator('.ace-intro-contact').getAttribute('href'), '#contact');
+    const referenceTypography = await page.locator('[data-intro-group="concepts"] .ace-intro-lead').evaluate(typography);
+    for (const text of await page.locator('.ace-intro').locator(proseSelector).all()) {
+      assert.deepEqual(await text.evaluate(typography), referenceTypography, `${lang.code}: consistent copy without JavaScript`);
+    }
   }
   await nojs.close();
   assert.deepEqual(errors, []);

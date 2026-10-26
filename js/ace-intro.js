@@ -2,6 +2,10 @@
 (() => {
   const introPages = new Map(Array.from(document.querySelectorAll('.ace-intro'),
     intro => [intro.parentElement.id, intro]));
+  const formDestinations = new Map([
+    ['community', document.getElementById('community-form')],
+    ['contact', document.getElementById('contact-form')],
+  ]);
   // A persistent cue sits outside the scrolling text. Native mobile scrollbars
   // disappear at rest, and an arrow inside the text would scroll out of view.
   const scrollUpdates = new Map();
@@ -98,17 +102,37 @@
   let focusNextSheet = null;
   document.addEventListener('click', event => {
     const link = event.target.closest('.ace-intro [data-jump]');
-    if (!event.defaultPrevented && link) focusNextSheet = introPages.get(link.dataset.jump);
+    if (!event.defaultPrevented && link) {
+      focusNextSheet = introPages.get(link.dataset.jump) || formDestinations.get(link.dataset.jump);
+    }
   }, true);
   const stage = document.querySelector('#stage');
   new MutationObserver(() => {
     if (!focusNextSheet || stage.matches('.is-turning,.is-riffling')) return;
     requestAnimationFrame(() => {
-      if (!focusNextSheet || stage.matches('.is-turning,.is-riffling')
-        || !focusNextSheet.closest('.page[aria-hidden="false"]')) return;
+      if (!focusNextSheet || stage.matches('.is-turning,.is-riffling')) return;
+      if (!focusNextSheet.closest('.page[aria-hidden="false"]')) {
+        // On a short sheet the Contact heading may precede the form itself.
+        // Keep keyboard focus on that visible opening, never on a hidden field.
+        const section = focusNextSheet.id === 'contact-form' ? 'contact' : 'community';
+        if (!focusNextSheet.matches('form') || stage.dataset.section !== section) return;
+        const opening = document.querySelector('#book .page[aria-hidden="false"] h2');
+        if (opening) {
+          opening.tabIndex = -1;
+          opening.focus({ preventScroll: true });
+        }
+        focusNextSheet = null;
+        return;
+      }
       // Focus the live sheet, never the page-turn animation's temporary copy.
-      focusNextSheet.querySelector('h2').focus({ preventScroll: true });
-      focusNextSheet.querySelector('.ace-intro-reading').scrollTop = 0;
+      if (focusNextSheet.matches('form')) {
+        const email = focusNextSheet.querySelector('input[type="email"]');
+        email.focus({ preventScroll: true });
+        email.scrollIntoView({ block: 'nearest' });
+      } else {
+        focusNextSheet.querySelector('h2').focus({ preventScroll: true });
+        focusNextSheet.querySelector('.ace-intro-reading').scrollTop = 0;
+      }
       focusNextSheet = null;
     });
   }).observe(stage, { attributes: true, attributeFilter: ['data-page', 'class'] });

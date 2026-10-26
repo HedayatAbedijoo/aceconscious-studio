@@ -23,8 +23,8 @@ SAMPLE = json.loads((ROOT / "content/book/sample-en.json").read_text())
 
 # Page-group order after the front cover. Reference pages have no bookmark;
 # their links live on the back cover.
-SECTIONS = ("headline", "reviews", "story", "ace", "author", "buy",
-            "community", "contact", "sample", "appendix", "back-cover")
+SECTIONS = ("headline", "reviews", "story", "ace", "buy", "community",
+            "author", "contact", "sample", "appendix", "back-cover")
 BOOKMARKS = tuple(section for section in SECTIONS if section != "appendix")
 BACK_COVER_LINKS = ("rights", "screen", "privacy", "impressum", "contents")
 
@@ -619,9 +619,10 @@ def compose(soup, render, source, strings):
 
     front, back = cover_pages(home, strings)
     buy, missing = buy_pages(strings)
+    gift, contact = contact_pages(strings)
     ordered = [front, headline_page(strings), *review_pages(home, strings),
-               *story_pages(home, strings), *ace_pages(), *author_pages(home, strings), *buy,
-               *contact_pages(strings), *localized_sample_pages(),
+               *story_pages(home, strings), *ace_pages(), *buy, gift,
+               *author_pages(home, strings), contact, *localized_sample_pages(),
                *appendix_pages(rendered, home, strings), back]
 
     html = []
