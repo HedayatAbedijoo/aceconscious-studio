@@ -70,11 +70,11 @@
   },
 
   "contact": {
-    "giftDescription": "If you’d like to receive the book as a gift first, then write a review after reading it or buy a copy later, please contact me using the contact form. I’ll send you a free copy.",
+    "giftDescription": "If you would like to receive the book as a gift first and then write a review or buy a copy later, please contact me. I will send you a free copy.",
     "giftContact": "Request a gift copy",
     "circleFooter": "Join",
     "circleHeading": "Join the Community",
-    "circleDescription": "Join our newsletter for occasional updates on what’s next, including when and where our next events take place and news of the game’s release. Be part of The Circle so we can stay connected and meet from time to time.",
+    "circleDescription": "Join our newsletter for occasional updates on what is next, including the next event, meetup, or game release. Be part of The Circle.",
     "circleEmailLabel": "Email address",
     "circleEmailPlaceholder": "you@example.com",
     "circleSubmit": "Join the reader circle",

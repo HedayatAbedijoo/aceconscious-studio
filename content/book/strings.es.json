@@ -65,11 +65,11 @@
     }
   },
   "contact": {
-    "giftDescription": "Si quieres recibir primero el libro como regalo y, después de leerlo, escribir una reseña o comprarlo más adelante, escríbeme a través del formulario de contacto. Te enviaré un ejemplar gratuito.",
+    "giftDescription": "Si quieres recibir primero el libro como regalo y luego escribir una reseña o comprar un ejemplar más adelante, ponte en contacto conmigo. Te enviaré un ejemplar gratuito.",
     "giftContact": "Pedir un ejemplar de regalo",
     "circleFooter": "Unirse",
     "circleHeading": "Únete a la comunidad",
-    "circleDescription": "Suscríbete a nuestro boletín para recibir de vez en cuando novedades sobre nuestros próximos pasos, incluidas las fechas y los lugares de los próximos eventos y noticias sobre el lanzamiento del juego. Forma parte de The Circle para seguir en contacto y encontrarnos de vez en cuando.",
+    "circleDescription": "Suscríbete a nuestro boletín para recibir novedades ocasionales sobre el próximo evento, encuentro o lanzamiento del juego. Forma parte de The Circle.",
     "circleEmailLabel": "Correo electrónico",
     "circleEmailPlaceholder": "you@example.com",
     "circleSubmit": "Unirme al círculo de lectores",

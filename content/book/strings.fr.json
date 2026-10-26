@@ -65,11 +65,11 @@
     }
   },
   "contact": {
-    "giftDescription": "Si vous souhaitez d’abord recevoir le livre en cadeau, puis donner votre avis après l’avoir lu ou l’acheter plus tard, contactez-moi via le formulaire de contact. Je vous enverrai un exemplaire gratuit.",
+    "giftDescription": "Si vous souhaitez d’abord recevoir le livre en cadeau, puis écrire un avis ou acheter un exemplaire plus tard, contactez-moi. Je vous enverrai un exemplaire gratuit.",
     "giftContact": "Demander un exemplaire gratuit",
     "circleFooter": "Rejoindre",
     "circleHeading": "Rejoignez la communauté",
-    "circleDescription": "Inscrivez-vous à notre newsletter pour recevoir de temps en temps des nouvelles de nos prochains projets, notamment les dates et lieux de nos événements à venir et les annonces concernant la sortie du jeu. Rejoignez The Circle pour garder le lien et nous retrouver à l’occasion.",
+    "circleDescription": "Inscrivez-vous à notre newsletter pour recevoir quelques nouvelles du prochain événement, d’une rencontre ou de la sortie du jeu. Rejoignez The Circle.",
     "circleEmailLabel": "Adresse e-mail",
     "circleEmailPlaceholder": "you@example.com",
     "circleSubmit": "Rejoindre le cercle de lecture",
