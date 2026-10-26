@@ -48,10 +48,8 @@ with sync_playwright() as p:
      page.locator('.bookmark[data-section="sample"]').focus();page.keyboard.press('Enter')
      page.wait_for_function('document.querySelector("#stage").dataset.section === "sample"')
      page.wait_for_timeout(150)
-     zoom=page.locator('.page[aria-hidden="false"] .sample-zoom')
-     zoom.click();assert zoom.get_attribute('aria-pressed')=='true'
+     assert page.locator('#sample-zoom, [data-zoom-step]').count()==0
      page.keyboard.press('ArrowRight');page.keyboard.press('ArrowLeft')
-     assert zoom.get_attribute('aria-pressed')=='false'
      page.screenshot(path=str(OUT/f'{code}-{width}.png'))
      notes.append(f'{width} {url} book OK')
      continue

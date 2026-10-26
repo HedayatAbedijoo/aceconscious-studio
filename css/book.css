@@ -1387,10 +1387,9 @@ html .page.gift-page .paper-form button { margin-top: 12px; }
 .sample-sheet__canvas {
   position: relative;
   flex: none;
-  width: calc(594px * var(--sheet-scale, 1) * var(--sheet-factor, 1));
-  height: calc(918px * var(--sheet-scale, 1) * var(--sheet-factor, 1));
-  /* Keep the original text coordinates at 100%. The empty upper margin is
-     outside the viewport, so scrolled text cannot run behind the zoom strip. */
+  width: calc(594px * var(--sheet-scale, 1));
+  height: calc(918px * var(--sheet-scale, 1));
+  /* Preserve the printed text coordinates below the running title. */
   margin: calc((var(--book-h) - 918px * var(--sheet-scale, 1)) / 2 - var(--sample-reading-top)) auto 0;
   overflow: hidden;
 }
@@ -1402,7 +1401,7 @@ html .page.gift-page .paper-form button { margin-top: 12px; }
   width: 594px;
   height: 918px;
   flex: none;
-  transform: scale(calc(var(--sheet-scale, 1) * var(--sheet-factor, 1)));
+  transform: scale(var(--sheet-scale, 1));
   transform-origin: top left;
   font-family: "Literata", Georgia, serif;
   color: #1a1a1a;
@@ -1429,7 +1428,7 @@ html .page.gift-page .paper-form button { margin-top: 12px; }
   justify-content: flex-end;
 }
 
-/* The running title sits above the fixed rule; only the sample body zooms. */
+/* Keep the running title and its continuous rule above the reading area. */
 .js .sample-sheet__inner > .sample-sheet__head {
   display: none;
 }
@@ -1443,6 +1442,17 @@ html .page.gift-page .paper-form button { margin-top: 12px; }
   border: 0;
   color: #1a1a1a;
   font: calc(15px * var(--sheet-scale, 1)) / calc(20px * var(--sheet-scale, 1)) "Literata", Georgia, serif;
+}
+
+.sample-page__head::after {
+  content: "";
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: #9998;
+  pointer-events: none;
 }
 
 .sample-page__head[lang="fa"] {
@@ -1630,106 +1640,6 @@ html[dir="rtl"] .sample-page__head {
 .sample-console__prompt {
   color: #999;
   flex: none;
-}
-
-.sample-zoom {
-  position: absolute;
-  left: 50%;
-  top: var(--sample-header-top);
-  z-index: 8;
-  transform: translateX(-50%);
-  height: 22px;
-  padding: 0;
-  background: transparent;
-  color: #6c6049;
-  font: 9px/1 var(--book-ui);
-  display: inline-flex;
-  align-items: center;
-  direction: ltr;
-  user-select: none;
-  touch-action: manipulation;
-  pointer-events: auto;
-}
-
-.sample-zoom::before,
-.sample-zoom::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  width: calc((var(--book-w) - 158px * var(--sheet-scale, 1)) / 2 - 50% - 8px);
-  height: 1px;
-  background: #9998;
-  pointer-events: none;
-}
-
-.sample-zoom::before { right: calc(100% + 8px); }
-.sample-zoom::after { left: calc(100% + 8px); }
-
-.is-turning .sample-zoom,
-.is-riffling .sample-zoom {
-  pointer-events: none;
-}
-
-.sample-zoom[hidden] {
-  display: none;
-}
-
-.sample-zoom button {
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  color: inherit;
-  font: 13px/1 Arial, sans-serif;
-  touch-action: manipulation;
-}
-
-.sample-zoom output {
-  min-width: 20px;
-  text-align: center;
-  font-variant-numeric: tabular-nums;
-  white-space: nowrap;
-}
-
-.sample-zoom button:hover:not(:disabled) {
-  color: var(--rust);
-  background: #f6eeda;
-}
-
-.sample-zoom button:disabled {
-  opacity: 0.3;
-  cursor: default;
-}
-
-.sample-zoom button:focus-visible {
-  outline-offset: 0;
-}
-
-.sample-page.is-zoomed .sample-sheet {
-  overflow: auto;
-  touch-action: pan-x pan-y;
-  overscroll-behavior: contain;
-  scrollbar-width: thin;
-  scrollbar-color: #b6a589 transparent;
-}
-
-@media (any-hover: hover) and (any-pointer: fine) {
-  .sample-page.is-zoomed .sample-sheet {
-    cursor: grab;
-    user-select: none;
-    -webkit-user-select: none;
-  }
-
-  .sample-page.is-zoomed .sample-sheet.is-panning {
-    cursor: grabbing;
-  }
-}
-
-.book-shell:has(.sample-page.is-zoomed[aria-hidden="false"]),
-#book .sample-page.is-zoomed,
-#book:has(.sample-page.is-zoomed),
-#book:has(.sample-page.is-zoomed) .stf__block,
-#book:has(.sample-page.is-zoomed) .stf__wrapper {
-  touch-action: pan-x pan-y pinch-zoom;
 }
 
 /* --------------------------------------------------------------- bookmarks */
@@ -2142,10 +2052,6 @@ html:not(.js) .sample-sheet__canvas {
     position: static;
     margin-block: 16px;
   }
-}
-
-html:not(.js) .sample-zoom {
-  display: none;
 }
 
 /* ------------------------------------------------------------- small books */
@@ -3159,7 +3065,7 @@ html.desktop-book[dir="rtl"] .bookmark-canvas,
 html.desktop-book .is-back-cover .bookmark-canvas { right: 0; left: auto; }
 html.desktop-book[dir="rtl"] .is-back-cover .bookmark-canvas { left: 0; right: auto; }
 
-/* Page navigation, folio, zoom and the cover ribbon stay available while
+/* Page navigation, folio and the cover ribbon stay available while
    reading. Only the section bookmarks retract. */
 .immersive-reading .book-controls { left: 8px; right: 8px; bottom: 6px; }
 /* Match the compact footer insets. Its 44px button extends 1.5px below
@@ -3173,7 +3079,6 @@ html.immersive-reading[dir="rtl"] .curl {
 .immersive-reading .ribbon { top: 0; }
 html.immersive-reading[dir="rtl"] .ribbon { right: 11px; left: auto; }
 html.immersive-reading[dir="rtl"] .is-back-cover .ribbon { right: auto; left: 11px; }
-.immersive-reading .sample-zoom button { width: 44px; height: 44px; }
 
 @media (max-height: 550px) {
   html.immersive-reading { --margin: clamp(24px, 6vw, 76px); --body-size: 18px; }

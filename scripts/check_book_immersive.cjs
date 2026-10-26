@@ -99,8 +99,8 @@ fs.mkdirSync(out, { recursive: true });
       assert.ok(box.width >= width - 25 && box.height >= height - 17, 'open paper uses the display');
       assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), 'no horizontal document overflow');
     }
-    async function checkNavigation(page, sample = false) {
-      const ids = ['close', 'controls', 'previous', 'next', 'folio', ...(sample ? ['sample-zoom'] : [])];
+    async function checkNavigation(page) {
+      const ids = ['close', 'controls', 'previous', 'next', 'folio'];
       const state = await page.evaluate(ids => ids.map(id => {
         const el = document.getElementById(id), style = getComputedStyle(el), box = el.getBoundingClientRect();
         return { id, visible: !el.hidden && style.opacity === '1' && style.visibility === 'visible' && box.width > 0 && box.height > 0,
@@ -234,19 +234,15 @@ fs.mkdirSync(out, { recursive: true });
 
       await page.goto(url + '#sample');
       await settled(page);
+      await revealBookControls(page);
       const originalText = await page.locator('.page[aria-hidden="false"] .sample-sheet__inner').textContent();
-      await page.locator('#sample-zoom [data-zoom-step="10"]').tap();
-      assert.equal(await page.locator('.page[aria-hidden="false"]').getAttribute('data-zoom'), '110');
       await centerTap(page);
-      assert.equal(await quiet(page), true, 'zoomed sample can dismiss section tabs');
-      await checkNavigation(page, true);
-      await page.locator('#sample-zoom [data-zoom-step="10"]').tap();
-      assert.equal(await page.locator('.page[aria-hidden="false"]').getAttribute('data-zoom'), '120');
-      assert.equal(await quiet(page), true, 'zoom stays available without reopening section tabs');
+      assert.equal(await quiet(page), true, 'sample can dismiss section tabs');
+      await checkNavigation(page);
       await menu.tap();
-      assert.equal(await quiet(page), false, 'zoomed sample retains the menu button');
+      assert.equal(await quiet(page), false, 'sample retains the menu button');
       await centerTap(page);
-      assert.equal(await quiet(page), true, 'a click on a zoomed sample closes the menu');
+      assert.equal(await quiet(page), true, 'a click on a sample closes the menu');
       assert.equal(await page.locator('.page[aria-hidden="false"] .sample-sheet__inner').textContent(), originalText);
       await page.setViewportSize({ width: 844, height: 390 });
       await page.waitForTimeout(500);
@@ -264,7 +260,7 @@ fs.mkdirSync(out, { recursive: true });
       }), 'menu button leaves the back-cover ribbon reachable');
       await page.screenshot({ path: `${out}/${locale}-landscape.png` });
       await ctx.close();
-      console.log(`PASS ${locale}: hamburger placement, touch page turns, dismissal, keyboard, zoom, rotation and scrollable tabs`);
+      console.log(`PASS ${locale}: hamburger placement, touch page turns, dismissal, keyboard, rotation and scrollable tabs`);
     }
 
     for (const [width, height] of [[320,568], [768,1024], [1024,768], [1366,1024]]) {

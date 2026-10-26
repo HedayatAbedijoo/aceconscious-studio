@@ -20,9 +20,6 @@
     "closeBook": "Закрыть книгу",
     "previousPage": "Предыдущая страница",
     "nextPage": "Следующая страница",
-    "zoomLabel": "Масштаб страницы",
-    "zoomIn": "Увеличить масштаб на 10 %",
-    "zoomOut": "Уменьшить масштаб на 10 %",
     "bookSections": "Разделы книги",
     "coverAlt": "Передняя обложка ACE.await",
     "backCoverAlt": "Задняя обложка ACE.await"

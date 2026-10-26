@@ -664,10 +664,7 @@ def compose(soup, render, source, strings):
     # Cover controls are outside the paper and never enter the paginated content.
     for selector, key in [("#open", "openBook"), ("#open-label", "openBook"),
                           ("#close", "closeBook"), ("#previous", "previousPage"), ("#next", "nextPage"),
-                          ("#book-menu-toggle", "bookSections"),
-                          ("#sample-zoom", "zoomLabel"),
-                          ('#sample-zoom [data-zoom-step="-10"]', "zoomOut"),
-                          ('#sample-zoom [data-zoom-step="10"]', "zoomIn")]:
+                          ("#book-menu-toggle", "bookSections")]:
         control = soup.select_one(selector)
         control["aria-label"] = STRINGS["ui"][key]
         if control.has_attr("title"):
