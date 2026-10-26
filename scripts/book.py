@@ -432,7 +432,8 @@ def contact_pages(strings):
         f'<p class="gift-description">{escape(circle["giftDescription"])}</p>',
         '<p class="gift-contact"><a class="text-link" href="#contact" data-jump="contact">'
         f'{escape(circle["giftContact"])}</a></p>',
-        f'<h3 class="gift-community-heading">{escape(circle["circleHeading"])}</h3>',
+        f'<h2 class="gift-community-heading">{escape(circle["circleHeading"])}</h2>',
+        f'<p class="gift-community-description">{escape(circle["circleDescription"])}</p>',
         join,
     ]
     second = [

@@ -1207,9 +1207,7 @@ html .page.gift-page .gift-description { margin-bottom: .65em; }
 html .page.gift-page .gift-contact { margin-bottom: 1em; font-size: .88em; }
 html .page.gift-page .gift-contact .text-link { margin: 0; padding: 4px 0; font-size: inherit; }
 html[lang] .page.gift-page .page-body .gift-community-heading {
-  margin: 1.5em 0 .8em;
-  font-size: 1.35em;
-  line-height: 1.35;
+  margin: 1em 0 .45em;
 }
 
 html .page.gift-page .paper-form button { margin-top: 12px; }
