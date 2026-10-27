@@ -10,6 +10,7 @@
     "community": "Geschenk",
     "contact": "Kontakt",
     "sample": "Leseprobe",
+    "appendix": "Anhänge",
     "back-cover": "Rückseite"
   },
   "ui": {
@@ -24,6 +25,15 @@
     "coverAlt": "Vorderseite von ACE.await",
     "backCoverAlt": "Rückseite von ACE.await"
   },
+  "actions": {
+    "nav": "Schnellzugriff zum Buch",
+    "coverHint": "Zurück zum Buchcover",
+    "buy": "Das Buch kaufen",
+    "buyHint": "Ausgaben und Buchshops entdecken",
+    "join": "Der Community beitreten",
+    "joinHint": "Newsletter, Veranstaltungen und Neuerscheinungen"
+  },
+
   "headline": {
     "studio": "Ace Conscious Studio",
     "placeAndYear": "Köln · 2026",

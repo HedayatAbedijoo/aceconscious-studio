@@ -10,6 +10,7 @@
     "community": "Cadeau",
     "contact": "Contact",
     "sample": "Extrait",
+    "appendix": "Annexes",
     "back-cover": "Quatrième de couverture"
   },
   "ui": {
@@ -24,6 +25,15 @@
     "coverAlt": "Première de couverture d’ACE.await",
     "backCoverAlt": "Quatrième de couverture d’ACE.await"
   },
+  "actions": {
+    "nav": "Raccourcis du livre",
+    "coverHint": "Revenir à la couverture",
+    "buy": "Acheter le livre",
+    "buyHint": "Découvrir les éditions et les librairies",
+    "join": "Rejoindre la communauté",
+    "joinHint": "Newsletter, événements et nouveautés"
+  },
+
   "headline": {
     "studio": "Ace Conscious Studio",
     "placeAndYear": "Cologne · 2026",

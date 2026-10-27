@@ -10,6 +10,7 @@
     "community": "هدیه",
     "contact": "تماس",
     "sample": "نمونه",
+    "appendix": "ضمائم",
     "back-cover": "پشت جلد"
   },
   "ui": {
@@ -24,6 +25,15 @@
     "coverAlt": "جلد روی کتاب ACE.await",
     "backCoverAlt": "پشت جلد کتاب ACE.await"
   },
+  "actions": {
+    "nav": "دسترسی سریع به بخش‌های کتاب",
+    "coverHint": "بازگشت به جلد",
+    "buy": "خرید کتاب",
+    "buyHint": "دیدن نسخه‌ها و فروشگاه‌ها",
+    "join": "پیوستن به جمع خوانندگان",
+    "joinHint": "خبرنامه، رویدادها و آثار تازه"
+  },
+
   "headline": {
     "studio": "Ace Conscious Studio",
     "placeAndYear": "کلن · ۲۰۲۶",

@@ -10,6 +10,7 @@
     "community": "Подарок",
     "contact": "Контакты",
     "sample": "Отрывок",
+    "appendix": "Приложения",
     "back-cover": "Задняя обложка"
   },
   "ui": {
@@ -24,6 +25,15 @@
     "coverAlt": "Передняя обложка ACE.await",
     "backCoverAlt": "Задняя обложка ACE.await"
   },
+  "actions": {
+    "nav": "Быстрый переход по книге",
+    "coverHint": "Вернуться к обложке",
+    "buy": "Купить книгу",
+    "buyHint": "Посмотреть издания и магазины",
+    "join": "Присоединиться к сообществу",
+    "joinHint": "Рассылка, события и новые выпуски"
+  },
+
   "headline": {
     "studio": "Ace Conscious Studio",
     "placeAndYear": "Кёльн · 2026",

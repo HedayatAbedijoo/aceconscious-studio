@@ -21,11 +21,11 @@ LANGUAGE = "en"
 EDITIONS = json.loads((ROOT / "content/book/editions.json").read_text())
 SAMPLE = json.loads((ROOT / "content/book/sample-en.json").read_text())
 
-# Page-group order after the front cover. Reference pages have no bookmark;
-# their links live on the appendix opener and back cover.
+# Page-group order after the front cover. The Appendices bookmark opens their
+# index; individual reference pages remain linked there and on the back cover.
 SECTIONS = ("headline", "reviews", "story", "ace", "buy", "community",
             "author", "contact", "sample", "appendix", "back-cover")
-BOOKMARKS = tuple(section for section in SECTIONS if section != "appendix")
+BOOKMARKS = SECTIONS
 APPENDIX_ITEMS = ("contents", "screen", "rights", "privacy", "impressum")
 BACK_COVER_LINKS = APPENDIX_ITEMS
 
@@ -678,6 +678,22 @@ def compose(soup, render, source, strings):
             control["title"] = STRINGS["ui"][key]
     soup.select_one("#open-label span").string = STRINGS["ui"]["openBook"]
     soup.select_one("#bookmarks")["aria-label"] = STRINGS["ui"]["bookSections"]
+
+    # Every edition shares the approved icon header and its own translated copy.
+    actions = parse((ROOT / "content/templates/book-actions.html").read_text()).select_one("nav")
+    for node in actions.select("[data-action-copy]") + [actions]:
+        value = STRINGS["actions"][node.attrs.pop("data-action-copy")]
+        attribute = node.attrs.pop("data-action-attribute", None)
+        if attribute:
+            node[attribute] = value
+        else:
+            node.string = value
+    soup.select_one("#close").decompose()
+    soup.select_one("#book-menu-toggle").insert_before(actions)
+    soup.html["class"] = soup.html.get("class", []) + ["book-has-actions"]
+    soup.head.append(soup.new_tag("link", rel="stylesheet", href="/css/book-actions.css"))
+    soup.head.append(soup.new_tag("script", src="/js/book-actions.js", defer=True))
+
     soup.select_one("#book-language-name").string = language["name"]
     soup.select_one('link[rel="preload"][as="image"]')["href"] = front["image"]
     menu = soup.select_one("#book-language-list")

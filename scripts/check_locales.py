@@ -42,7 +42,8 @@ def check_book(soup, path, code):
     assert [a["data-jump"] for a in appendix.select(".section-index a")] == list(APPENDIX_ITEMS), path
     assert [p["id"] for p in pages if p["data-section"] == "appendix"] == ["appendix", *APPENDIX_ITEMS], path
     assert pages[pages.index(appendix) - 1]["data-section"] == "sample", path
-    assert not soup.select('.bookmark[data-section="appendix"]'), path
+    bookmark_order = list(strings["sections"])
+    assert bookmark_order[bookmark_order.index("sample") + 1] == "appendix", path
     assert all(a["data-jump"] == "appendix" for a in soup.select(".back-to-index [data-jump]")), path
     assert [a["data-jump"] for a in soup.select(".back-cover__links a")] == list(BACK_COVER_LINKS), path
     # Every bookmark needs pages, and the forms stay real forms.

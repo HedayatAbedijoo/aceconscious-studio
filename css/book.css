@@ -1728,6 +1728,7 @@ html[dir="rtl"] .is-back-cover .book-menu-toggle {
 .bookmark[data-section="community"] { --tab: #9eaeb1; --tilt: -1.2deg; }
 .bookmark:nth-child(8) { --tab: #bda46e; --tilt: 0.8deg; }
 .bookmark[data-section="ace"] { --tab: #b6a2ad; --tilt: 1.1deg; }
+.bookmark[data-section="appendix"] { --tab: #b4acb9; --tilt: 0.6deg; }
 .bookmark[data-section="back-cover"] { --tab: #c9ba99; --tilt: -0.8deg; }
 
 .bookmark[data-section="back-cover"] {
@@ -1816,10 +1817,13 @@ html[dir="rtl"] .is-back-cover .book-menu-toggle {
 /* ---------------------------------------------------------------- controls */
 
 .book-controls {
+  --controls-bottom: 12px;
+  --controls-left: 19px;
+  --controls-right: 15px;
   position: absolute;
-  bottom: 12px;
-  left: 19px;
-  right: 15px;
+  bottom: var(--controls-bottom);
+  left: var(--controls-left);
+  right: var(--controls-right);
   height: 41px;
   display: flex;
   align-items: center;
@@ -1851,6 +1855,23 @@ html[dir="rtl"] .is-back-cover .book-menu-toggle {
   box-shadow: inset 0 0 0 1px #8d744d24;
 }
 
+.folio-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  text-align: center;
+}
+
+.book-studio {
+  font: 400 clamp(10px, calc(var(--book-w) * .022), 12px)/1.25 "EB Garamond", Georgia, serif;
+  letter-spacing: .035em;
+  color: #7b705d;
+  text-transform: none;
+  white-space: nowrap;
+}
+
 .folio {
   font: 10px/1 var(--book-ui);
   letter-spacing: 2px;
@@ -1859,14 +1880,16 @@ html[dir="rtl"] .is-back-cover .book-menu-toggle {
 
 .curl {
   position: absolute;
-  bottom: -12px;
-  right: -15px;
+  /* The 44px button extends 1.5px below the 41px footer row.
+     Cancel the current footer insets to meet the paper in every layout. */
+  bottom: calc(1.5px - var(--controls-bottom));
+  right: calc(-1 * var(--controls-right));
   width: 34px;
   height: 34px;
   background: linear-gradient(135deg, #c5b89e00 45%, #c7b99e 49%, #fff9e7 54%, #d7c9ad 95%);
   clip-path: polygon(100% 0, 100% 100%, 0 100%);
   filter: drop-shadow(-3px -3px 3px #0005);
-  transform-origin: bottom right;
+  transform-origin: center;
   pointer-events: none;
   transition: width .16s ease, height .16s ease;
 }
@@ -2133,7 +2156,7 @@ html:not(.js) .sample-sheet__canvas {
 
   .headline-page .page-body {
     top: 58px;
-    bottom: 40px;
+    bottom: 54px;
   }
 
   .headline-imprint {
@@ -2266,7 +2289,7 @@ html:not(.js) .sample-sheet__canvas {
   }
 
   .book-controls {
-    bottom: 5px;
+    --controls-bottom: 5px;
   }
 
   .paper-form textarea {
@@ -2317,7 +2340,7 @@ html:not(.js) .sample-sheet__canvas {
 .small-book .page-body h2 { font-size: 29px; }
 .small-book .page-body h3 { font-size: 22px; }
 .small-book .chapter-kicker { font-size: 7px; letter-spacing: 1.3px; margin-bottom: 12px !important; }
-.small-book .headline-page .page-body { top: 48px; bottom: 34px; }
+.small-book .headline-page .page-body { top: 48px; bottom: 54px; }
 .small-book .headline-imprint { font-size: 6.5px; line-height: 1.5; letter-spacing: 1.5px; margin-bottom: 6px !important; }
 .small-book .headline-title { font-size: 36px; letter-spacing: -2px; margin-bottom: 2px !important; }
 .small-book .headline-byline { font-size: clamp(10px, calc(var(--book-w) * 0.045), 11px); line-height: 1.4; }
@@ -2333,7 +2356,7 @@ html:not(.js) .sample-sheet__canvas {
 .small-book .review-page .rating { margin: 10px 0; }
 .small-book .review-page .rating strong { font-size: 38px; }
 .small-book .review-page .score-row { font-size: 12px; }
-.small-book .book-controls { bottom: 8px; }
+.small-book .book-controls { --controls-bottom: 8px; }
 .small-book .folio { font-size: 8px; }
 .small-book .paper-form textarea { height: 64px; }
 .small-book .store-card { min-height: 76px; gap: 5px; }
@@ -2514,7 +2537,7 @@ html[dir="rtl"] .is-back-cover .bookmark { border-radius: 0 4px 4px 0; transform
 html[dir="rtl"] .ribbon { left: auto; right: 25px; }
 html[dir="rtl"] .is-back-cover .ribbon { right: auto; left: 25px; }
 html[dir="rtl"] .book-controls { flex-direction: row; }
-html[dir="rtl"] .curl { right: auto; left: -15px; transform: scaleX(-1); }
+html[dir="rtl"] .curl { right: auto; left: calc(-1 * var(--controls-left)); transform: scaleX(-1); }
 html[dir="rtl"] .page-body :is(ul,ol) { padding-left: 0; padding-right: 1.2em; }
 html[dir="rtl"] .page-body .dropcap::first-letter { float: none; font: inherit; margin: 0; }
 html[dir="rtl"] .story-heading .story-year { right: auto; left: 0; }
@@ -2967,6 +2990,7 @@ html:is(.immersive-reading, .desktop-book) .bookmark[data-section="buy"] { --tab
 html:is(.immersive-reading, .desktop-book) .bookmark[data-section="contact"] { --tab: #c3b08a; }
 html:is(.immersive-reading, .desktop-book) .bookmark[data-section="community"] { --tab: #a5b5b8; }
 html:is(.immersive-reading, .desktop-book) .bookmark[data-section="sample"] { --tab: #beb195; }
+html:is(.immersive-reading, .desktop-book) .bookmark[data-section="appendix"] { --tab: #b4acb9; }
 html:is(.immersive-reading, .desktop-book) .bookmark[data-section="back-cover"] { --tab: #b8b09b; }
 /* Arial matches the prototype's Latin labels; retain the loaded script fonts
    where system Arial would substitute tiny or incomplete glyphs. */
@@ -3067,14 +3091,10 @@ html.desktop-book[dir="rtl"] .is-back-cover .bookmark-canvas { left: 0; right: a
 
 /* Page navigation, folio and the cover ribbon stay available while
    reading. Only the section bookmarks retract. */
-.immersive-reading .book-controls { left: 8px; right: 8px; bottom: 6px; }
-/* Match the compact footer insets. Its 44px button extends 1.5px below
-   the 41px controls row, so the fold meets the paper at bottom: -4.5px. */
-.immersive-reading .curl { right: -8px; bottom: -4.5px; }
-html.immersive-reading[dir="rtl"] .curl {
-  right: auto;
-  left: -8px;
-  transform-origin: center;
+.immersive-reading .book-controls {
+  --controls-left: 8px;
+  --controls-right: 8px;
+  --controls-bottom: 6px;
 }
 .immersive-reading .ribbon { top: 0; }
 html.immersive-reading[dir="rtl"] .ribbon { right: 11px; left: auto; }
@@ -3087,7 +3107,7 @@ html.immersive-reading[dir="rtl"] .is-back-cover .ribbon { right: auto; left: 11
 
 /* Always one vertical stack of paper slips, including short landscape screens.
    Flex shares the measured height; container-relative type and tighter spacing
-   keep all ten labels on the same book edge without changing the paper effect. */
+   keep all eleven labels on the same book edge without changing the paper effect. */
 @media (max-height: 650px) {
   html:is(.immersive-reading, .desktop-book) .bookmarks {
     padding-top: 8px;

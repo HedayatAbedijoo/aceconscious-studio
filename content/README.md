@@ -16,16 +16,31 @@ languages; the generator updates their cache hashes everywhere.
 
 ## The multilingual book edition
 
+Every book edition uses `templates/book-actions.html`, `css/book-actions.css`
+and `js/book-actions.js` for its shared header. Its accessible names and tooltips
+live in the `actions` block of every `book/strings.<code>.json` catalog and pass
+the standard key-parity and source-hash checks. The three compact icon ribbons
+use the existing cover, buy and community navigation. The header has no wordmark;
+the community tab uses a group-of-people icon. `ACE Conscious Studio` is centered
+under the page counter in the shared footer, with its exact capitalization and
+LTR direction in every locale.
+A single paper tab gently lifts and catches the light every 45 seconds, rotating
+through the icons. Cues pause during interaction, page turns,
+form editing, hidden tabs and reduced motion; text appears only on hover/focus.
+Arabic and Persian mirror the group and menu.
+Tooltips follow the locale's typography and wrap within the paper on small screens.
+
 Every localized home URL is a book that opens at its cover and is read by turning
 pages. `content/templates/book.html` and `scripts/book.py` use the matching
 locale's shared home, ACE, rights, screen, privacy and imprint content. Shared
 catalog corrections therefore update both the book and standalone pages.
 
 Page order after the cover: Headline, Reviews (Kirkus first), Story, ACE, Buy, Gift,
-Author, Contact, Sample, reference pages, then the back cover. Ten bookmarks
-follow that order, with no Appendix bookmark or index page. The back-cover footer
+Author, Contact, Sample, Appendices and its reference pages, then the back cover.
+Eleven bookmarks follow that order. The Appendices bookmark immediately follows
+Sample and opens the translated index of reference pages. The back-cover footer
 links to Rights & Representation, Book to Screen, Privacy, Impressum and Contents
-of the novel directly, without riffling; these pages return to the back cover.
+of the novel directly, without riffling; their return links reopen Appendices.
 Language selection exists only beside Open the book on the
 front cover. Closing with the ribbon or Escape returns there. The root always
 starts in English; browser language and saved preference do not redirect it.
@@ -50,7 +65,7 @@ Translated story headings reserve a separate column for the decorative 2313.
 Section bookmarks always remain one vertical stack of paper slips on the book
 edge. Their heights, spacing and label sizes share the available space, including
 short landscape displays; the paper folding and section riffle are preserved.
-All ten sections stay visible together at the tested phone/tablet sizes. While a
+All eleven sections stay visible together at the tested phone/tablet sizes. While a
 live form field is focused, viewport resize must not rebuild/reparent the book:
 that dismisses mobile keyboards. Reflow waits until editing finishes, and
 unchanged layout dimensions do not trigger a rebuild.
@@ -120,6 +135,10 @@ interception and mocks all form requests. `--fonts` permits Google Fonts reads.
 Multilingual behavior is checked with `node scripts/check_book_languages.cjs`: all
 nine covers, language selection, auto-opening, keyboard direction, mobile layout
 and content bounds. Screenshots are local under `/tmp/book-language-qa`.
+`node scripts/check_book_curl.cjs` checks the page-turn fold against the paper's
+physical corner in all nine languages at seven desktop, phone and tablet sizes,
+including hover, keyboard/touch navigation and live resizing. It blocks remote
+requests; screenshots stay local under `/tmp/book-curl-qa`.
 `node scripts/check_book_typography.cjs` proofs every review sheet and the story
 heading in all nine languages at seven viewport sizes, using actual web fonts.
 It checks text preservation, Kirkus isolation, short-review packing, bounds and

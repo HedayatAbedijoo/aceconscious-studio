@@ -10,6 +10,7 @@
     "community": "هدية",
     "contact": "التواصل",
     "sample": "مقتطف",
+    "appendix": "الملاحق",
     "back-cover": "الغلاف الخلفي"
   },
   "ui": {
@@ -24,6 +25,15 @@
     "coverAlt": "الغلاف الأمامي لرواية ACE.await",
     "backCoverAlt": "الغلاف الخلفي لرواية ACE.await"
   },
+  "actions": {
+    "nav": "اختصارات الكتاب",
+    "coverHint": "العودة إلى الغلاف",
+    "buy": "شراء الكتاب",
+    "buyHint": "استكشاف الطبعات والمتاجر",
+    "join": "انضم إلى مجتمع القراء",
+    "joinHint": "النشرة البريدية والفعاليات والإصدارات الجديدة"
+  },
+
   "headline": {
     "studio": "Ace Conscious Studio",
     "placeAndYear": "كولونيا · ٢٠٢٦",

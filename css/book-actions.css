@@ -1,0 +1,149 @@
+/* Localized book header: three paper tabs fixed to the book's top edge. */
+.book-actions {
+  --action-inset: 12px;
+  position: absolute;
+  z-index: 21;
+  inset: 0 auto auto;
+  inset-inline-start: var(--action-inset);
+  display: flex;
+  gap: 2px;
+  width: max-content;
+  height: 48px;
+}
+.book-actions[hidden] { display: none; }
+.book-actions .book-action[hidden] { display: none; }
+.book-actions .book-action {
+  position: relative;
+  inset: auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex: 0 0 44px;
+  width: 44px;
+  height: 48px;
+  padding: 0;
+  border: 0;
+  color: #faf3e3;
+  white-space: nowrap;
+  text-decoration: none;
+  cursor: pointer;
+  touch-action: manipulation;
+  isolation: isolate;
+  background: none;
+  clip-path: none;
+  filter: none;
+  transition: none;
+}
+.book-action__paper {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 43px;
+  padding-bottom: 5px;
+  isolation: isolate;
+  transform-origin: 50% 0;
+  filter: drop-shadow(1px 3px 2px #302d2638);
+  transition: transform .3s ease, filter .3s ease;
+  pointer-events: none;
+}
+.book-action__paper::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: linear-gradient(90deg, #00000016, transparent 18%, #ffffff0b 70%, #00000010), var(--action-color);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% calc(100% - 4px), 0 100%);
+  box-shadow: inset 1px 0 #ffffff26, inset -1px 0 #0002;
+}
+.book-action__paper::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 0 0 2px 2px;
+  border-inline-start: 1px solid #fff5df;
+  border-inline-end: 1px solid #fff5df70;
+  opacity: 0;
+}
+.book-actions .book-action--cover { --action-color: #8a4b39; }
+.book-action--buy { --action-color: #5c634c; }
+.book-action--join { --action-color: #536b70; }
+.book-action svg { width: 19px; height: 19px; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.book-action:is(:hover, :focus-visible) { color: #fff9ec; }
+.book-action:is(:hover, :focus-visible) .book-action__paper {
+  transform: scale(1.035, 1.045) rotate(-1deg);
+  filter: drop-shadow(1px 5px 3px #302d2640);
+}
+.book-actions .book-action:focus-visible { outline: 2px solid #302d26; outline-offset: 1px; border-radius: 2px; }
+.book-action[aria-current="location"] .book-action__paper::before { box-shadow: inset 0 -3px #e6d2a7, inset 1px 0 #fff4; }
+.book-action__hint {
+  position: absolute;
+  top: calc(100% + 4px);
+  inset-inline-start: 4px;
+  width: max-content;
+  max-width: min(240px, calc(var(--book-w) - 72px));
+  padding: 9px 11px;
+  background: #faf3e3;
+  border: 1px solid #bdad8d;
+  border-radius: 3px;
+  box-shadow: 0 4px 12px #302d2620;
+  color: #494133;
+  font: 12px/1.55 var(--book-serif);
+  text-align: start;
+  white-space: normal;
+  overflow-wrap: break-word;
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-3px);
+  transition: opacity .2s, transform .2s, visibility .2s;
+}
+/* Keep the community tooltip within even the narrowest paper. */
+.book-action--join .book-action__hint { inset-inline-start: -72px; }
+.book-action__hint::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  inset-inline-start: 13px;
+  width: 8px;
+  height: 8px;
+  background: inherit;
+  border-top: 1px solid #bdad8d;
+  border-left: 1px solid #bdad8d;
+  transform: rotate(45deg);
+}
+.book-action--join .book-action__hint::before { inset-inline-start: 89px; }
+.book-action:not(.hint-dismissed):is(:hover, :focus-visible) .book-action__hint { visibility: visible; opacity: 1; transform: none; }
+.book-action.is-nudging .book-action__paper { animation: book-action-lift 1.8s ease-in-out 1; }
+.book-action.is-nudging .book-action__paper::after { animation: book-action-glint 1.8s ease-in-out 1; }
+@keyframes book-action-lift {
+  0%, 100% { transform: none; filter: drop-shadow(1px 3px 2px #302d2638); }
+  45% { transform: scale(1.035, 1.045) rotate(-1deg); filter: drop-shadow(1px 5px 3px #302d2648); }
+}
+@keyframes book-action-glint {
+  0%, 100% { opacity: 0; }
+  45% { opacity: .55; }
+}
+@media (max-width: 600px) {
+  .book-actions { --action-inset: 6px; }
+}
+html.small-book .book-actions { --action-inset: 6px; }
+/* The header retains its printed rule below the three icon tabs. */
+.book-has-actions .running-head > span { visibility: hidden; }
+.book-has-actions .is-back-cover .book-menu-toggle { right: 8px; }
+.book-has-actions[dir="rtl"] .is-back-cover .book-menu-toggle { right: auto; left: 8px; }
+/* The printed excerpts carry their own header. Reserve the ribbon row before
+   fitting the sheet so landscape screens retain the title and every text line. */
+.book-has-actions .sample-page {
+  --sheet-scale: min(calc(var(--book-w) / 594px), calc((var(--book-h) - 60px) / 918px));
+  --action-sample-offset: calc(60px + (var(--book-h) - 60px - 918px * var(--sheet-scale)) / 2);
+  --sample-header-top: calc(var(--action-sample-offset) + 83px * var(--sheet-scale) - 28px);
+  --sample-reading-top: calc(var(--sample-header-top) + 24px);
+}
+.book-has-actions .sample-sheet__canvas { margin-top: calc(var(--action-sample-offset) - var(--sample-reading-top)); }
+@media (max-height: 550px) {
+  .book-has-actions .page:not(.sample-page) .page-body { top: max(54px, 12%); }
+  .book-has-actions .running-head { border-bottom: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .book-actions *, .book-actions *::before, .book-actions *::after { animation: none !important; transition: none !important; }
+}

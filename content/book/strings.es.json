@@ -10,6 +10,7 @@
     "community": "Regalo",
     "contact": "Contacto",
     "sample": "Muestra",
+    "appendix": "Apéndices",
     "back-cover": "Contraportada"
   },
   "ui": {
@@ -24,6 +25,15 @@
     "coverAlt": "Portada de ACE.await",
     "backCoverAlt": "Contraportada de ACE.await"
   },
+  "actions": {
+    "nav": "Accesos rápidos del libro",
+    "coverHint": "Volver a la portada",
+    "buy": "Comprar el libro",
+    "buyHint": "Explorar ediciones y librerías",
+    "join": "Unirse a la comunidad",
+    "joinHint": "Boletín, eventos y novedades"
+  },
+
   "headline": {
     "studio": "Ace Conscious Studio",
     "placeAndYear": "Colonia · 2026",

@@ -11,6 +11,7 @@
     "community": "Gift",
     "contact": "Contact",
     "sample": "Sample",
+    "appendix": "Appendices",
     "back-cover": "Back cover"
   },
 
@@ -25,6 +26,15 @@
     "bookSections": "Book sections",
     "coverAlt": "ACE.await front cover",
     "backCoverAlt": "ACE.await back cover"
+  },
+
+  "actions": {
+    "nav": "Book shortcuts",
+    "coverHint": "Return to the cover",
+    "buy": "Buy the book",
+    "buyHint": "Explore editions & stores",
+    "join": "Join the community",
+    "joinHint": "Newsletter, events & new releases"
   },
 
   "headline": {

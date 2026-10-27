@@ -10,6 +10,7 @@
     "community": "礼物",
     "contact": "联系",
     "sample": "试读",
+    "appendix": "附录",
     "back-cover": "封底"
   },
   "ui": {
@@ -24,6 +25,15 @@
     "coverAlt": "ACE.await 封面",
     "backCoverAlt": "ACE.await 封底"
   },
+  "actions": {
+    "nav": "图书快捷导航",
+    "coverHint": "返回封面",
+    "buy": "购买图书",
+    "buyHint": "查看版本与购买渠道",
+    "join": "加入读者社群",
+    "joinHint": "邮件简报、活动与新作"
+  },
+
   "headline": {
     "studio": "Ace Conscious Studio",
     "placeAndYear": "科隆 · 2026",

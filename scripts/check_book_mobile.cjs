@@ -43,7 +43,9 @@ async function menuState(page) {
   });
 }
 function checkMenu(state, name) {
-  assert.equal(state.buttons.length, 10, name);
+  assert.equal(state.buttons.length, 11, name);
+  const sections = state.buttons.map(button => button.section);
+  assert.equal(sections[sections.indexOf('sample') + 1], 'appendix', name);
   assert.ok(state.singleColumn, `${name}: paper bookmarks must stay in one vertical stack`);
   assert.ok(state.buttons.every(b => b.visible && b.clickable), `${name}: clipped/unreachable menus: ${JSON.stringify(state)}`);
   assert.deepEqual(state.clippedInk, [], `${name}: clipped lettering on paper`);
@@ -135,7 +137,7 @@ async function showForm(page, id) {
           if (!baseline) {
             checkMenu(state, name);
           }
-          console.log(`${baseline ? 'BASELINE' : 'PASS'} ${name}: ${state.buttons.filter(b => b.visible && b.clickable).length}/10 visible`);
+          console.log(`${baseline ? 'BASELINE' : 'PASS'} ${name}: ${state.buttons.filter(b => b.visible && b.clickable).length}/${state.buttons.length} visible`);
         }
         await ctx.close();
       }
@@ -229,7 +231,7 @@ async function showForm(page, id) {
           await settled(page);
           assert.equal(await page.locator('#stage').getAttribute('data-page'), '0');
           results.push({ test: 'touch-all-sections-keyboard-back-cover', lang, width, height, passed: true });
-          console.log(`PASS all 10 touch targets, back cover and keyboard: ${lang} ${width}x${height}`);
+          console.log(`PASS all ${sections.length} touch targets, back cover and keyboard: ${lang} ${width}x${height}`);
           await ctx.close();
         }
       }

@@ -10,6 +10,7 @@
     "community": "उपहार",
     "contact": "संपर्क",
     "sample": "पठन अंश",
+    "appendix": "परिशिष्ट",
     "back-cover": "पिछला आवरण"
   },
   "ui": {
@@ -24,6 +25,15 @@
     "coverAlt": "ACE.await का सामने का आवरण",
     "backCoverAlt": "ACE.await का पिछला आवरण"
   },
+  "actions": {
+    "nav": "पुस्तक के शॉर्टकट",
+    "coverHint": "आवरण पर लौटें",
+    "buy": "पुस्तक खरीदें",
+    "buyHint": "संस्करण और पुस्तक विक्रेता देखें",
+    "join": "पाठक समुदाय से जुड़ें",
+    "joinHint": "न्यूज़लेटर, कार्यक्रम और नई रचनाएँ"
+  },
+
   "headline": {
     "studio": "Ace Conscious Studio",
     "placeAndYear": "कोलोन · 2026",
