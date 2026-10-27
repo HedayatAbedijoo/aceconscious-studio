@@ -1,0 +1,24 @@
+<section id="gift" class="gift-community" aria-labelledby="gift-heading">
+<div class="container">
+<div class="gift-community__gift">
+<h2 class="section-label" id="gift-heading" data-i18n="giftCommunity.heading"></h2>
+<p class="section-lead" data-i18n="giftCommunity.giftDescription"></p>
+<a class="gift-community__link" href="#contact" data-focus-form="contact-email" data-i18n="giftCommunity.giftContact"></a>
+</div>
+<div id="community" class="gift-community__join" aria-labelledby="community-heading">
+<h3 class="section-label" id="community-heading" data-i18n="giftCommunity.circleHeading"></h3>
+<p class="section-lead" data-i18n="giftCommunity.circleDescription"></p>
+<form id="community-form" class="contact-form community-form" method="post" novalidate aria-labelledby="community-heading" data-i18n-attr="data-sending:giftCommunity.circleSending;data-success:giftCommunity.circleSuccess;data-error:giftCommunity.circleError;data-unavailable:giftCommunity.circleUnavailable;data-invalid-email:giftCommunity.invalidEmail;data-request-message:giftCommunity.circleRequestMessage">
+<fieldset disabled>
+<input class="contact-form__honeypot" type="text" name="website" autocomplete="off" tabindex="-1" aria-hidden="true"/>
+<label class="contact-form__label" for="community-email" data-i18n="giftCommunity.circleEmailLabel"></label>
+<div class="community-form__row">
+<input class="contact-form__input" id="community-email" name="email" type="email" autocomplete="email" inputmode="email" autocapitalize="none" spellcheck="false" maxlength="254" required dir="ltr" aria-describedby="community-status" data-i18n-attr="placeholder:giftCommunity.circleEmailPlaceholder"/>
+<button class="btn btn--primary" type="submit" data-i18n="giftCommunity.circleSubmit"></button>
+</div>
+</fieldset>
+<p class="contact-form__status" id="community-status" role="status" aria-live="polite" aria-atomic="true" data-i18n="giftCommunity.circleUnavailable"></p>
+</form>
+</div>
+</div>
+</section>

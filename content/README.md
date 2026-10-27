@@ -7,7 +7,8 @@ The site has nine languages, in this order: English, Deutsch, Français, Españo
 redirects it. Language links retain the current page, query parameters and section.
 
 All 54 public pages come from six shared templates in `content/templates/`:
-`home`, `ace`, `rights`, `screen`, `privacy`, and `impressum`. Layout/section changes
+`home`, `ace`, `rights`, `screen`, `privacy`, and `impressum`. The homepage also
+includes shared `buy`, `ace-intro`, and `gift-community` fragments. Layout/section changes
 belong in those templates and apply to every language in a single build. Do not
 edit generated public HTML directly. Shared styles and scripts also apply to all
 languages; the generator updates their cache hashes everywhere.
@@ -66,10 +67,41 @@ including switching without JavaScript. It requires Playwright and a running
 local server; use `--base`, `--executable` and `--output` as needed. The test blocks
 external requests and never submits a contact message.
 
+`scripts/check_home_extensions.py` checks the ACE/Gift additions in all nine
+languages at desktop and narrow mobile widths. It covers all steps and tabs,
+keyboard/RTL navigation, form focus, exact catalog copy, section order, no-script
+fallback, and mocked community validation, success, errors, duplicate requests,
+honeypot, unavailable configuration and the 20-second timeout. All external
+requests are blocked; no signup or contact messages reach the real endpoint.
+
+The ACE introduction uses the `aceIntro.*` catalog keys; Gift and Community use
+`giftCommunity.*`. Their approved copy and intentional newlines are preserved.
+The homepage order is hero, Reviews, Story, ACE introduction, Buy, Gift (including
+Community), Author, Contact, Voices, Sample, Contents, and the existing footer.
+The standalone ACE article retains its existing route. Community requests use
+`js/contact-config.js` and the contact backend; they do not confirm a subscription.
+
+The first three ACE steps use a compact vertical selector on the physical left
+and a shared reading panel, including in RTL layouts. Up/Down and Home/End select
+cards. Selecting a card types its copy, following the character reader's behavior;
+the complete accessible text remains available, and reduced motion shows it
+immediately. `scripts/check_ace_reader.py` checks all eleven cards, exact copy,
+responsive/RTL layout, keyboard selection, typing cancellation and no-script fallback.
+
+The homepage header keeps Reviews, Story, ACE, Buy, Gift and Contact inline while
+they fit; Author, Characters, Sample and Contents use the hamburger disclosure. At mobile
+widths all ten links move into it, and intermediate widths move trailing priority
+links as needed. `js/home-nav.js` measures real link widths (including translated
+labels and loaded fonts), so the header never wraps. ACE links to the introduction;
+the full model article remains linked in the footer. The new sections use the
+existing `.container`, section labels, Reviews controls, buttons and Contact form
+styles. The browser checker also verifies alignment and navigation across 12
+additional viewport sizes per language, including landscape and live resizing.
+
 ## Reviews
 
 `content/reviews.html` is the shared source immediately after the compact
-ACE.await hero, followed by the story and character voices. Kirkus Reviews is
+ACE.await hero, followed by the story. Character voices appear after Contact. Kirkus Reviews is
 first, BookLife second, and The Consciousness AI third. `js/reviews.js` derives the
 count and enables arrows, keyboard navigation and swiping.
 

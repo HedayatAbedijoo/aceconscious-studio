@@ -64,8 +64,8 @@ with sync_playwright() as p:
    page.wait_for_url(home)
    entries=page.locator('.site-nav__links a').evaluate_all('(els)=>els.map(a=>({key:a.dataset.i18n,hash:a.hash}))')
    for entry in entries:
-    if width==390:page.locator('.nav-toggle').click()
     link=page.locator(f'.site-nav__links [data-i18n="{entry["key"]}"]')
+    if not link.is_visible():page.locator('.nav-toggle').click()
     link.focus();link.press('Enter')
     expected=home+entry['hash'] if entry['hash'] else BASE+route('ace',code)
     page.wait_for_url(expected)

@@ -1,0 +1,126 @@
+/* Shared homepage width, section typography, buttons and Reviews navigation. */
+.ace-introduction { padding: 3rem 0 4rem; color: var(--ink-soft); }
+.ace-introduction [hidden] { display: none !important; }
+.ace-introduction__toolbar .reviews__arrow svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 1.5; }
+.ace-intro-progress { margin: 0 0 1rem; font: .8125rem/1.5 var(--font-mono); color: var(--ink-muted); }
+.ace-intro p { white-space: pre-line; }
+.ace-intro-heading .ace-intro-lead { max-width: none; }
+.ace-introduction.is-enhanced .ace-intro-reader {
+  display: grid;
+  grid-template-columns: clamp(10rem, 19vw, 13rem) minmax(0, 1fr);
+  direction: ltr;
+  border: 1px solid rgba(13, 13, 13, .22);
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--white);
+  box-shadow: 0 18px 48px -32px rgba(42, 37, 32, .45);
+}
+.ace-intro-tabs {
+  display: flex;
+  flex-direction: column;
+  gap: .375rem;
+  margin: 0;
+  padding: .625rem;
+  background: var(--console-bg);
+}
+.ace-intro-tabs button {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: .75rem;
+  min-width: 0;
+  min-height: 60px;
+  padding: .625rem .75rem;
+  border: 1px solid rgba(255, 255, 255, .12);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--parchment);
+  cursor: pointer;
+  font: inherit;
+  text-align: start;
+}
+.ace-intro-tabs b { flex: 0 0 1.75rem; text-align: center; font: 1.625rem/1 Georgia, serif; font-weight: 400; }
+.ace-intro-tabs button > span { min-width: 0; font-size: .875rem; line-height: 1.4; overflow-wrap: anywhere; hyphens: auto; text-wrap: balance; }
+.ace-intro-tabs button:hover { background: rgba(255, 255, 255, .09); }
+.ace-intro-tabs button[aria-selected="true"] { background: var(--white); border-color: var(--white); color: var(--ink); box-shadow: inset 3px 0 var(--accent); }
+.ace-intro-tabs svg { flex: 0 0 1.75rem; width: 1.75rem; height: 1.75rem; color: var(--parchment-deep); }
+.ace-intro-tabs [aria-selected="true"] svg { color: var(--accent); }
+.ace-introduction :is(button, a, [role="tabpanel"], h2):focus-visible { outline: 3px solid var(--accent); outline-offset: 5px; }
+.ace-intro-reader :is(button, [role="tabpanel"]):focus-visible { outline: 2px solid var(--accent); outline-offset: -4px; }
+.ace-intro-panel { border: 1px solid rgba(13, 13, 13, .2); border-radius: var(--radius); padding: 1.5rem; background: var(--white); }
+.ace-intro-panels { min-width: 0; }
+.ace-introduction.is-enhanced .ace-intro-panel { min-height: 100%; border: 0; border-radius: 0; padding: 0; background: transparent; }
+.ace-intro-card-top { display: flex; align-items: center; justify-content: space-between; gap: .75rem; margin-bottom: 1rem; }
+.ace-introduction.is-enhanced .ace-intro-card-top { margin: 0; padding: .875rem 1.5rem; border-bottom: 1px solid rgba(13, 13, 13, .12); }
+.ace-intro-card-label { color: var(--ink); font-size: 1.125rem; line-height: 1.5; }
+.ace-intro-mark { display: block; color: var(--ink-muted); opacity: .5; font: 2rem/1 Georgia, serif; }
+.ace-intro-mark svg { display: block; height: 2rem; width: 2rem; }
+.ace-intro-card-control { display: grid; place-items: center; position: relative; flex: 0 0 40px; height: 40px; }
+.ace-intro-panel.is-typing .ace-intro-mark { visibility: hidden; }
+.ace-intro-skip { position: absolute; inset: 0; display: grid; place-items: center; border: 1px solid rgba(13, 13, 13, .15); border-radius: 8px; background: var(--parchment); color: var(--ink); cursor: pointer; }
+.ace-intro-skip svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.5; }
+.ace-intro-panel-body { position: relative; padding: 1.25rem 1.5rem; }
+/* Keep the exact source copy in the flow and accessibility tree while its
+   decorative overlay types. This reserves the final height at every width. */
+.ace-intro-copy--typing { opacity: 0; }
+.ace-intro-copy--visual { position: absolute; inset: 1.25rem 1.5rem auto; pointer-events: none; }
+.ace-intro-cursor { display: inline-block; width: 2px; height: 1em; margin-inline-start: 2px; vertical-align: -.12em; background: var(--accent); animation: ace-caret .6s step-end infinite; }
+@keyframes ace-caret { 50% { opacity: 0; } }
+.ace-intro-definition { max-width: 70ch; margin: 0; }
+.ace-intro-definition + .ace-intro-definition { margin-top: 1rem; }
+.ace-intro-note { margin: 1.25rem 0 0; color: var(--ink-muted); }
+.ace-intro-fan { position: relative; height: 200px; max-width: 100%; }
+.ace-intro-fan > span {
+  position: absolute;
+  top: 5px;
+  left: calc(50% - 58px);
+  width: 116px;
+  height: 160px;
+  padding: 14px;
+  border-radius: 6px;
+  border: 1px solid var(--ink-muted);
+  background: var(--parchment-deep);
+  text-align: left;
+  font: 2.5rem/1 Georgia, serif;
+  box-shadow: 0 6px 9px #28372b15;
+}
+.ace-intro-fan .ace-intro-fan-c { transform: translate(-60px, 14px) rotate(-17deg); }
+.ace-intro-fan .ace-intro-fan-e { transform: translate(60px, 14px) rotate(17deg); text-align: right; }
+.ace-intro-fan .ace-intro-fan-a { background: var(--ink); color: var(--white); transform: rotate(-3deg); }
+.ace-intro-fan small { position: absolute; bottom: 14px; left: 10px; right: 10px; overflow-wrap: anywhere; font: .6875rem/1.4 var(--font-serif); }
+.ace-intro-fan svg { display: block; width: 45px; height: 45px; margin: 5px auto; color: var(--parchment-deep); }
+.ace-intro :is(.ace-intro-play-body, .ace-intro-signup) { margin: 0 0 1.25rem; }
+.ace-intro-play { max-width: 100%; }
+.ace-introduction:not(.is-enhanced) .ace-intro-step + .ace-intro-step { margin-top: 3rem; }
+.ace-introduction:not(.is-enhanced) .ace-intro-panel + .ace-intro-panel { margin-top: 1rem; }
+.ace-introduction.is-enhanced .ace-intro-step-progress { display: none; }
+.ace-introduction.is-enhanced .ace-intro-invitation .ace-intro-reading { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: 0 3rem; }
+.ace-introduction.is-enhanced .ace-intro-invitation .ace-intro-heading { display: none; }
+.ace-introduction.is-enhanced .ace-intro-fan { grid-column: 2; grid-row: 1; }
+.ace-introduction.is-enhanced .ace-intro-invitation-copy { grid-column: 1; grid-row: 1; align-self: start; }
+html[dir="rtl"] .ace-intro-play > span:last-child { transform: scaleX(-1); }
+html[dir="rtl"] .ace-intro-progress { font-family: var(--font-serif-fa); letter-spacing: 0; }
+/* The selector remains on the physical left, like the mobile Characters reader. */
+html[dir="rtl"] :is(.ace-intro-tabs, .ace-intro-panels) { direction: rtl; }
+@media (max-width: 900px) {
+  .ace-introduction { padding: 2.5rem 0 3.5rem; }
+  .ace-introduction.is-enhanced .ace-intro-invitation .ace-intro-reading { display: block; }
+  .ace-intro-fan { margin-block: 1.5rem; }
+}
+@media (max-width: 600px) {
+  .ace-introduction.is-enhanced .ace-intro-reader { grid-template-columns: clamp(92px, 28vw, 112px) minmax(0, 1fr); }
+  .ace-intro-tabs { padding: .375rem; gap: .375rem; }
+  .ace-intro-tabs button { flex-direction: column; justify-content: center; gap: .375rem; min-height: 68px; padding: .625rem .25rem; text-align: center; }
+  .ace-intro-tabs button > span { font-size: .75rem; }
+  .ace-intro-tabs b, .ace-intro-tabs svg { flex-basis: auto; }
+  .ace-introduction.is-enhanced .ace-intro-card-top { padding: .75rem; gap: .375rem; }
+  .ace-intro-card-label { font-size: .9375rem; overflow-wrap: anywhere; }
+  .ace-intro-card-control { flex-basis: 32px; height: 36px; }
+  .ace-intro-mark, .ace-intro-mark svg { font-size: 1.5rem; width: 1.5rem; height: 1.5rem; }
+  .ace-intro-panel-body { padding: 1rem .875rem; font-size: .9375rem; line-height: 1.65; }
+  .ace-intro-copy--visual { inset: 1rem .875rem auto; }
+  .ace-intro-fan { transform: scale(.85); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ace-intro-cursor { animation: none; }
+}

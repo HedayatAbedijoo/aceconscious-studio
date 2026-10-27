@@ -212,8 +212,11 @@
 <link as="font" crossorigin="" href="/assets/fonts/Vazirmatn-Regular.woff2?v=20260718f" rel="preload" type="font/woff2"/>
 <link href="/css/styles.css?v=97c4073ebf" rel="stylesheet"/>
 <link href="/assets/favicon.png?v=20260718f" rel="icon" type="image/png"/>
-<link href="/css/reviews.css?v=bff7a012a2" rel="stylesheet"/>
+<link href="/css/reviews.css?v=aa3abea0b5" rel="stylesheet"/>
 <link href="/css/author-portrait.css?v=4fa18e4424" rel="stylesheet"/>
+<link href="/css/ace-intro.css?v=6764bf723b" rel="stylesheet"/>
+<link href="/css/gift-community.css?v=2c220ef388" rel="stylesheet"/>
+<link href="/css/home-nav.css?v=c06a461b9d" rel="stylesheet"/>
 <link href="/css/home-backgrounds.css?v=aefb97bd84" rel="stylesheet"/><link href="/css/buy.css?v=7dd4ed915e" rel="stylesheet"/><link href="/css/home-hero.css?v=7bdd474e6f" rel="stylesheet"/><link href="/css/voices.css?v=e9047bae0b" rel="stylesheet"/><link href="https://aceconscious.studio/" hreflang="en" rel="alternate"/><link href="https://aceconscious.studio/de/" hreflang="de" rel="alternate"/><link href="https://aceconscious.studio/fr/" hreflang="fr" rel="alternate"/><link href="https://aceconscious.studio/es/" hreflang="es" rel="alternate"/><link href="https://aceconscious.studio/ru/" hreflang="ru" rel="alternate"/><link href="https://aceconscious.studio/zh/" hreflang="zh-Hans" rel="alternate"/><link href="https://aceconscious.studio/hi/" hreflang="hi" rel="alternate"/><link href="https://aceconscious.studio/ar/" hreflang="ar" rel="alternate"/><link href="https://aceconscious.studio/fa/" hreflang="fa" rel="alternate"/><link href="https://aceconscious.studio/" hreflang="x-default" rel="alternate"/></head>
 <body>
 <a class="skip-link" data-i18n="skipLink" href="#main">انتقل إلى المحتوى</a>
@@ -224,30 +227,31 @@
 <fedisplacementmap in="SourceGraphic" in2="noise" scale="3"></fedisplacementmap>
 </filter>
 </svg>
-<header class="site-nav" role="banner">
+<header class="site-nav site-nav--home" role="banner">
 <div class="site-nav__inner">
 <a class="site-nav__logo" href="/ar/#top" translate="no">
 <img alt="" class="site-nav__logo-icon" decoding="async" height="40" src="/assets/logo-icon-120.png?v=20260912a" width="40"/>
 <span class="site-nav__logo-text">Ace Conscious <span>Studio</span></span>
 </a>
+<nav aria-label="الملاحة الرئيسية" class="site-nav__links home-nav__primary" data-home-nav="" data-i18n-attr="aria-label:nav.mainAria">
+<ul><li data-nav-order="0"><a data-i18n="nav.reviews" href="/ar/#reviews">المراجعات</a></li>
+<li data-nav-order="1"><a data-i18n="nav.story" href="/ar/#synopsis">القصة</a></li>
+<li data-nav-order="2"><a data-i18n="nav.ace" href="/ar/#ace-introduction">ACE</a></li>
+<li data-nav-order="3"><a class="site-nav__cta" data-i18n="nav.buy" href="/ar/#buy">شراء</a></li>
+<li data-nav-order="4"><a data-i18n="giftCommunity.heading" href="/ar/#gift">هدية</a></li>
+<li data-nav-order="6"><a data-i18n="nav.contact" href="/ar/#contact">تواصل</a></li></ul>
+</nav>
 <div class="site-nav__actions">
 <div class="site-nav__langs" data-language-menu=""><details class="language-picker" dir="ltr" id="lang-menu"><summary lang="en">language</summary><ul aria-label="language" class="language-picker__list"><li><a data-set-lang="en" dir="ltr" href="/" hreflang="en" lang="en">English</a></li><li><a data-set-lang="de" dir="ltr" href="/de/" hreflang="de" lang="de">Deutsch</a></li><li><a data-set-lang="fr" dir="ltr" href="/fr/" hreflang="fr" lang="fr">Français</a></li><li><a data-set-lang="es" dir="ltr" href="/es/" hreflang="es" lang="es">Español</a></li><li><a data-set-lang="ru" dir="ltr" href="/ru/" hreflang="ru" lang="ru">Русский</a></li><li><a data-set-lang="zh" dir="ltr" href="/zh/" hreflang="zh-Hans" lang="zh-Hans">中文</a></li><li><a data-set-lang="hi" dir="ltr" href="/hi/" hreflang="hi" lang="hi">हिन्दी</a></li><li><a aria-current="page" data-set-lang="ar" dir="rtl" href="/ar/" hreflang="ar" lang="ar">العربية</a></li><li><a data-set-lang="fa" dir="rtl" href="/fa/" hreflang="fa" lang="fa">فارسی</a></li></ul></details></div>
 <button aria-controls="nav-menu" aria-expanded="false" aria-label="فتح القائمة" class="nav-toggle" data-i18n-attr="aria-label:nav.openMenu" type="button">
 <span></span><span></span><span></span>
 </button>
 </div>
-<nav aria-label="الملاحة الرئيسية" class="site-nav__links" data-i18n-attr="aria-label:nav.mainAria" id="nav-menu">
-<ul>
-<li><a data-i18n="nav.reviews" href="/ar/#reviews">المراجعات</a></li>
-<li><a data-i18n="nav.story" href="/ar/#synopsis">القصة</a></li>
-<li><a data-i18n="nav.voices" href="/ar/#voices">أصوات الشخصيات</a></li>
-<li><a data-i18n="nav.read" href="/ar/#sample">مقتطف</a></li>
-<li><a data-i18n="nav.contents" href="/ar/#contents">المحتويات</a></li>
-<li><a class="site-nav__cta" data-i18n="nav.buy" href="/ar/#buy">شراء</a></li>
-<li><a data-i18n="nav.author" href="/ar/#author">المؤلف</a></li>
-<li><a data-i18n="nav.ace" href="/ar/ace/">ACE</a></li>
-<li><a data-i18n="nav.contact" href="/ar/#contact">تواصل</a></li>
-</ul>
+<nav aria-label="الملاحة الرئيسية" class="site-nav__links home-nav__overflow" data-home-nav="" data-i18n-attr="aria-label:nav.mainAria" id="nav-menu">
+<ul><li data-nav-order="5"><a data-i18n="nav.author" href="/ar/#author">المؤلف</a></li>
+<li data-nav-order="7"><a data-i18n="nav.characters" href="/ar/#voices">الشخصيات</a></li>
+<li data-nav-order="8"><a data-i18n="nav.read" href="/ar/#sample">مقتطف</a></li>
+<li data-nav-order="9"><a data-i18n="nav.contents" href="/ar/#contents">المحتويات</a></li></ul>
 </nav>
 </div>
 </header>
@@ -297,9 +301,8 @@
 <p class="media-review__note" data-i18n="reviews.kirkus.note">اقتباسات مترجمة من الأصل الإنجليزي.</p>
 </div>
 <footer class="media-review__footer">
-<a class="review__link" href="https://www.kirkusreviews.com/book-reviews/hedayat-second/aceawait/" rel="noopener noreferrer" target="_blank">
+<a class="btn btn--ghost review__link" href="https://www.kirkusreviews.com/book-reviews/hedayat-second/aceawait/" rel="noopener noreferrer" target="_blank">
 <span data-i18n="reviews.full">اقرأ المراجعة الكاملة</span>
-<svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg>
 <span class="reviews__sr-only" data-i18n="reviews.newTab">(يفتح في علامة تبويب جديدة)</span>
 </a>
 </footer>
@@ -315,9 +318,8 @@
 <div class="review__credit">
 <p class="review__translation" data-i18n="reviews.translation">اقتباسات مترجمة من الأصل الإنجليزي.</p>
 </div>
-<a class="review__link" href="https://booklife.com/project/ace-await-110051" rel="noopener noreferrer" target="_blank">
+<a class="btn btn--ghost review__link" href="https://booklife.com/project/ace-await-110051" rel="noopener noreferrer" target="_blank">
 <span data-i18n="reviews.full">اقرأ المراجعة الكاملة</span>
-<svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg>
 <span class="reviews__sr-only" data-i18n="reviews.newTab">(يفتح في علامة تبويب جديدة)</span>
 </a>
 </footer>
@@ -362,9 +364,8 @@
 <p class="media-review__note" data-i18n="reviews.consciousness.note">اقتباسات مترجمة من الأصل الإنجليزي.</p>
 </div>
 <footer class="media-review__footer">
-<a class="review__link" href="https://theconsciousness.ai/posts/hedayat-abedijoo-ace-await-ai-consciousness-novel-2026/" rel="noopener noreferrer" target="_blank">
+<a class="btn btn--ghost review__link" href="https://theconsciousness.ai/posts/hedayat-abedijoo-ace-await-ai-consciousness-novel-2026/" rel="noopener noreferrer" target="_blank">
 <span data-i18n="reviews.consciousness.full">قراءة المقال كاملا</span>
-<svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg>
 <span class="reviews__sr-only" data-i18n="reviews.newTab">(يفتح في علامة تبويب جديدة)</span>
 </a>
 </footer>
@@ -419,6 +420,247 @@
 </button>
 </div>
 </div>
+</div>
+</section>
+<!-- ACE introduction -->
+<section aria-label="مقدّمة إلى ACE" class="ace-introduction" data-i18n-attr="aria-label:aceIntro.nav.label" id="ace-introduction">
+<div class="container">
+<div class="reviews__header ace-introduction__toolbar" hidden="">
+<div class="reviews__controls">
+<p aria-atomic="true" aria-live="polite" class="reviews__counter" id="ace-intro-status" role="status"></p>
+<button aria-controls="ace-intro-steps" aria-label="السابق" class="reviews__arrow" data-ace-prev="" data-i18n-attr="aria-label:aceIntro.previous" disabled="" type="button"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M19 12H5m6-6-6 6 6 6"></path></svg></button>
+<button aria-controls="ace-intro-steps" aria-label="التالي" class="reviews__arrow" data-ace-next="" data-i18n-attr="aria-label:aceIntro.next" type="button"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg></button>
+</div>
+</div>
+<div id="ace-intro-steps"><div aria-labelledby="ace-intro-heading-1" class="ace-intro-step" data-ace-step="0" role="group">
+<div class="ace-intro" data-intro-group="concepts"><div class="ace-intro-reading"><header class="ace-intro-heading">
+<p class="ace-intro-progress ace-intro-step-progress" data-i18n="aceIntro.concepts.progress">١ من ٤</p>
+<h2 class="section-label reviews__label" data-i18n="aceIntro.concepts.title" id="ace-intro-heading-1" tabindex="-1">ما معنى ACE؟</h2>
+<p class="ace-intro-lead section-lead" data-i18n="aceIntro.concepts.lead">يجب أن يتطور الوعي بالتزامن في ثلاثة أبعاد: أنواع القرارات التي نتخذها، وجودة ارتباطاتنا ومجتمعاتنا، والطرق التي نتبادل بها.</p>
+</header><div class="ace-intro-reader"><div aria-labelledby="ace-intro-heading-1" aria-orientation="vertical" class="ace-intro-tabs ace-intro-tabs--concepts" hidden="" role="tablist">
+<button aria-controls="intro-panel-agency" aria-selected="true" data-intro-tab="" id="intro-tab-agency" tabindex="0" type="button"><b aria-hidden="true">A</b><span data-i18n="aceIntro.agency.name">الفاعلية</span></button>
+<button aria-controls="intro-panel-connection" aria-selected="false" data-intro-tab="" id="intro-tab-connection" tabindex="-1" type="button"><b aria-hidden="true">C</b><span data-i18n="aceIntro.connection.name">الارتباط</span></button>
+<button aria-controls="intro-panel-exchange" aria-selected="false" data-intro-tab="" id="intro-tab-exchange" tabindex="-1" type="button"><b aria-hidden="true">E</b><span data-i18n="aceIntro.exchange.name">التبادل</span></button>
+</div><div class="ace-intro-panels">
+<div class="ace-intro-panel" id="intro-panel-agency">
+<div class="ace-intro-card-top"><span class="ace-intro-card-label" data-i18n="aceIntro.agency.name">الفاعلية</span><span aria-hidden="true" class="ace-intro-mark">A</span></div>
+<p class="ace-intro-definition" data-i18n="aceIntro.agency.heading">اتخاذ قرارات واعية وفق نمط PDAF للحفاظ على الحالة الراهنة أو تغييرها.</p>
+</div>
+<div class="ace-intro-panel" id="intro-panel-connection">
+<div class="ace-intro-card-top"><span class="ace-intro-card-label" data-i18n="aceIntro.connection.name">الارتباط</span><span aria-hidden="true" class="ace-intro-mark">C</span></div>
+<p class="ace-intro-definition" data-i18n="aceIntro.connection.heading">لا تمحور حول الذات ولا حول الآخر.
+ضع الارتباط أولاً.</p>
+<p class="ace-intro-definition" data-i18n="aceIntro.connection.body">الارتباط هو الذي يحدد أين تلزم الرعاية والاهتمام والأولوية في اللحظة الراهنة.</p>
+</div>
+<div class="ace-intro-panel" id="intro-panel-exchange">
+<div class="ace-intro-card-top"><span class="ace-intro-card-label" data-i18n="aceIntro.exchange.name">التبادل</span><span aria-hidden="true" class="ace-intro-mark">E</span></div>
+<p class="ace-intro-definition" data-i18n="aceIntro.exchange.heading">النقود ليست الوسيلة الوحيدة للتبادل.</p>
+<p class="ace-intro-definition" data-i18n="aceIntro.exchange.body">الهدايا والالتزامات وسائل لا تقل أهمية لتبادل البشر بعضهم مع بعض.</p>
+</div>
+</div></div></div>
+</div>
+</div>
+<div aria-labelledby="ace-intro-heading-2" class="ace-intro-step" data-ace-step="1" role="group">
+<div class="ace-intro" data-intro-group="pdaf"><div class="ace-intro-reading"><header class="ace-intro-heading">
+<p class="ace-intro-progress ace-intro-step-progress" data-i18n="aceIntro.pdaf.progress">٢ من ٤</p>
+<h2 class="section-label reviews__label" data-i18n="aceIntro.pdaf.title" id="ace-intro-heading-2" tabindex="-1">دورة القرار</h2>
+</header><div class="ace-intro-reader"><div aria-labelledby="ace-intro-heading-2" aria-orientation="vertical" class="ace-intro-tabs ace-intro-tabs--pdaf" hidden="" role="tablist">
+<button aria-controls="intro-panel-preparation" aria-selected="true" data-intro-tab="" id="intro-tab-preparation" tabindex="0" type="button"><b aria-hidden="true">P</b><span data-i18n="aceIntro.preparation.name">الاستعداد</span></button>
+<button aria-controls="intro-panel-decision" aria-selected="false" data-intro-tab="" id="intro-tab-decision" tabindex="-1" type="button"><b aria-hidden="true">D</b><span data-i18n="aceIntro.decision.name">القرار</span></button>
+<button aria-controls="intro-panel-action" aria-selected="false" data-intro-tab="" id="intro-tab-action" tabindex="-1" type="button"><b aria-hidden="true">A</b><span data-i18n="aceIntro.action.name">الفعل</span></button>
+<button aria-controls="intro-panel-feedback" aria-selected="false" data-intro-tab="" id="intro-tab-feedback" tabindex="-1" type="button"><b aria-hidden="true">F</b><span data-i18n="aceIntro.feedback.name">التغذية الراجعة</span></button>
+</div><div class="ace-intro-panels">
+<div class="ace-intro-panel" id="intro-panel-preparation">
+<div class="ace-intro-card-top"><span class="ace-intro-card-label" data-i18n="aceIntro.preparation.name">الاستعداد</span><span aria-hidden="true" class="ace-intro-mark">P</span></div>
+<p class="ace-intro-definition" data-i18n="aceIntro.preparation.body">قبل أن تقرّر، انتبه إلى مشاعرك الداخلية والإشارات من حولك. ما الوضع، وماذا تفهم منه؟</p>
+</div>
+<div class="ace-intro-panel" id="intro-panel-decision">
+<div class="ace-intro-card-top"><span class="ace-intro-card-label" data-i18n="aceIntro.decision.name">القرار</span><span aria-hidden="true" class="ace-intro-mark">D</span></div>
+<p class="ace-intro-definition" data-i18n="aceIntro.decision.body">اتخذ قرارك بناءً على أحد أطوار الفاعلية الأربعة التالية.
+الاستكشاف. التثبيت. التوسّع. التكامل.</p>
+</div>
+<div class="ace-intro-panel" id="intro-panel-action">
+<div class="ace-intro-card-top"><span class="ace-intro-card-label" data-i18n="aceIntro.action.name">الفعل</span><span aria-hidden="true" class="ace-intro-mark">A</span></div>
+<p class="ace-intro-definition" data-i18n="aceIntro.action.body">انتظر عشر ثوانٍ، ثم تصرّف.
+أحيانًا يكون عدم التصرّف أفضل قرار ممكن.</p>
+</div>
+<div class="ace-intro-panel" id="intro-panel-feedback">
+<div class="ace-intro-card-top"><span class="ace-intro-card-label" data-i18n="aceIntro.feedback.name">التغذية الراجعة</span><span aria-hidden="true" class="ace-intro-mark">F</span></div>
+<p class="ace-intro-definition" data-i18n="aceIntro.feedback.body">أصغِ إلى تغذيتك الراجعة الداخلية والخارجية، التي تمنحك معلومات لجولة الاستعداد التالية.
+بعض أشكال التغذية الراجعة تستغرق وقتًا حتى تظهر.</p>
+</div>
+</div></div></div>
+</div>
+</div>
+<div aria-labelledby="ace-intro-heading-3" class="ace-intro-step" data-ace-step="2" role="group">
+<div class="ace-intro" data-intro-group="phases"><div class="ace-intro-reading"><header class="ace-intro-heading">
+<p class="ace-intro-progress ace-intro-step-progress" data-i18n="aceIntro.phases.progress">٣ من ٤</p>
+<h2 class="section-label reviews__label" data-i18n="aceIntro.phases.title" id="ace-intro-heading-3" tabindex="-1">أطوار الفاعلية الأربعة</h2>
+</header><div class="ace-intro-reader"><div aria-labelledby="ace-intro-heading-3" aria-orientation="vertical" class="ace-intro-tabs ace-intro-tabs--phases" hidden="" role="tablist">
+<button aria-controls="intro-panel-exploration" aria-selected="true" data-intro-tab="" id="intro-tab-exploration" tabindex="0" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 60 60"><circle cx="30" cy="30" r="22" stroke-dasharray="2 5"></circle><path d="m22 38 5-15 15-5-5 15-15 5Z"></path><circle cx="32" cy="28" r="2"></circle></svg><span data-i18n="aceIntro.exploration.name">الاستكشاف</span></button>
+<button aria-controls="intro-panel-stabilization" aria-selected="false" data-intro-tab="" id="intro-tab-stabilization" tabindex="-1" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 60 60"><path d="M9 48h42M15 38h30M21 28h18M26 18h8"></path><circle cx="30" cy="9" r="3"></circle></svg><span data-i18n="aceIntro.stabilization.name">التثبيت</span></button>
+<button aria-controls="intro-panel-expansion" aria-selected="false" data-intro-tab="" id="intro-tab-expansion" tabindex="-1" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 60 60"><path d="M30 53V29M30 36C16 36 12 24 13 17c12 0 17 8 17 19ZM30 29C30 16 38 9 48 9c1 13-6 20-18 20ZM22 53h16"></path></svg><span data-i18n="aceIntro.expansion.name">التوسّع</span></button>
+<button aria-controls="intro-panel-integration" aria-selected="false" data-intro-tab="" id="intro-tab-integration" tabindex="-1" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 60 60"><circle cx="22" cy="30" r="16"></circle><circle cx="39" cy="30" r="16"></circle><circle cx="30.5" cy="30" r="3"></circle></svg><span data-i18n="aceIntro.integration.name">التكامل</span></button>
+</div><div class="ace-intro-panels">
+<div class="ace-intro-panel" id="intro-panel-exploration">
+<div class="ace-intro-card-top"><span class="ace-intro-card-label" data-i18n="aceIntro.exploration.name">الاستكشاف</span><span aria-hidden="true" class="ace-intro-mark"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 60 60"><circle cx="30" cy="30" r="22" stroke-dasharray="2 5"></circle><path d="m22 38 5-15 15-5-5 15-15 5Z"></path><circle cx="32" cy="28" r="2"></circle></svg></span></div>
+<p class="ace-intro-definition" data-i18n="aceIntro.exploration.body">قرارات من أجل الاكتشاف والحدس، والإمكانات الجديدة، والمغامرة، وتشتيت الانتباه، وإيجاد الحلول.</p>
+</div>
+<div class="ace-intro-panel" id="intro-panel-stabilization">
+<div class="ace-intro-card-top"><span class="ace-intro-card-label" data-i18n="aceIntro.stabilization.name">التثبيت</span><span aria-hidden="true" class="ace-intro-mark"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 60 60"><path d="M9 48h42M15 38h30M21 28h18M26 18h8"></path><circle cx="30" cy="9" r="3"></circle></svg></span></div>
+<p class="ace-intro-definition" data-i18n="aceIntro.stabilization.body">قرارات لتثبيت الوضع وتحقيق الأمان عبر التكرار المستمر الذي ينمّي المهارة.</p>
+</div>
+<div class="ace-intro-panel" id="intro-panel-expansion">
+<div class="ace-intro-card-top"><span class="ace-intro-card-label" data-i18n="aceIntro.expansion.name">التوسّع</span><span aria-hidden="true" class="ace-intro-mark"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 60 60"><path d="M30 53V29M30 36C16 36 12 24 13 17c12 0 17 8 17 19ZM30 29C30 16 38 9 48 9c1 13-6 20-18 20ZM22 53h16"></path></svg></span></div>
+<p class="ace-intro-definition" data-i18n="aceIntro.expansion.body">قرارات لتطوير مهارة موجودة، يكون الإبداع عنصرها الأساسي.</p>
+</div>
+<div class="ace-intro-panel" id="intro-panel-integration">
+<div class="ace-intro-card-top"><span class="ace-intro-card-label" data-i18n="aceIntro.integration.name">التكامل</span><span aria-hidden="true" class="ace-intro-mark"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 60 60"><circle cx="22" cy="30" r="16"></circle><circle cx="39" cy="30" r="16"></circle><circle cx="30.5" cy="30" r="3"></circle></svg></span></div>
+<p class="ace-intro-definition" data-i18n="aceIntro.integration.body">قرارات تصل الفاعل بالآخرين، وتُنشئ ترابطًا متبادلًا ومعنى.</p>
+</div>
+</div></div><p class="ace-intro-note" data-i18n="aceIntro.phases.note">هذه الأطوار لا تتبع ترتيباً ثابتاً. ظروفك تحدّد أيّها تحتاج.</p></div>
+</div>
+</div>
+<div aria-labelledby="ace-intro-heading-4" class="ace-intro-step" data-ace-step="3" role="group">
+<div class="ace-intro ace-intro-invitation"><div class="ace-intro-reading"><header class="ace-intro-heading">
+<p class="ace-intro-progress ace-intro-step-progress" data-i18n="aceIntro.play.progress">٤ من ٤</p>
+<h2 class="section-label reviews__label" data-i18n="aceIntro.play.title" id="ace-intro-heading-4" tabindex="-1">العب ACE</h2>
+</header><div aria-hidden="true" class="ace-intro-fan" dir="ltr"><span class="ace-intro-fan-c">C<small data-i18n="aceIntro.connection.name">الارتباط</small></span><span class="ace-intro-fan-e">E<small data-i18n="aceIntro.exchange.name">التبادل</small></span><span class="ace-intro-fan-a">A<svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 60 60"><circle cx="30" cy="30" r="22" stroke-dasharray="2 5"></circle><path d="m22 38 5-15 15-5-5 15-15 5Z"></path><circle cx="32" cy="28" r="2"></circle></svg><small data-i18n="aceIntro.agency.name">الفاعلية</small></span></div><div class="ace-intro-invitation-copy"><p class="ace-intro-play-body" data-i18n="aceIntro.play.body">يطوّر هدايت لعبة بسيطة لمساعدتك على استخدام نمط ACE في قراراتك اليومية.</p><p class="ace-intro-signup" data-i18n="aceIntro.play.signup">انضم إلى المجتمع إذا كنت ترغب في الحصول على اللعبة عندما تصبح جاهزة.</p><a class="btn btn--primary ace-intro-play" data-focus-form="community-email" href="#community"><span data-i18n="aceIntro.play.cta">انضم إلى المجتمع</span><span aria-hidden="true">↗</span></a></div></div>
+</div>
+</div></div>
+</div>
+</section>
+<!-- Buy -->
+<section class="buy buy--marketplaces" data-available="متاح" data-i18n-attr="data-available:buy.available" id="buy">
+<div class="container reveal">
+<p class="section-label" data-i18n="buy.label">شراء الرواية</p>
+<div class="purchase-panel">
+<div class="purchase-marketplace" hidden="">
+<label data-i18n="buy.marketplace" for="amazon-marketplace">متجر أمازون</label>
+<select aria-controls="purchase-editions" data-i18n-attr="data-unavailable:buy.unavailable" data-unavailable="غير متاح هنا" dir="ltr" id="amazon-marketplace">
+<option data-editions="kindle paperback" data-host="www.amazon.com" data-i18n="buy.country.us" selected="" value="us">🇺🇸 الولايات المتحدة · amazon.com</option>
+<option data-editions="kindle paperback" data-host="www.amazon.co.uk" data-i18n="buy.country.uk" value="uk">🇬🇧 المملكة المتحدة · amazon.co.uk</option>
+<option data-editions="kindle paperback" data-host="www.amazon.de" data-i18n="buy.country.de" value="de">🇩🇪 ألمانيا · amazon.de</option>
+<option data-editions="kindle paperback" data-host="www.amazon.ca" data-i18n="buy.country.ca" value="ca">🇨🇦 كندا · amazon.ca</option>
+<option data-editions="kindle paperback" data-host="www.amazon.com.au" data-i18n="buy.country.au" value="au">🇦🇺 أستراليا · amazon.com.au</option>
+<option data-editions="kindle paperback" data-host="www.amazon.fr" data-i18n="buy.country.fr" value="fr">🇫🇷 فرنسا · amazon.fr</option>
+<option data-editions="kindle paperback" data-host="www.amazon.es" data-i18n="buy.country.es" value="es">🇪🇸 إسبانيا · amazon.es</option>
+<option data-editions="kindle paperback" data-host="www.amazon.it" data-i18n="buy.country.it" value="it">🇮🇹 إيطاليا · amazon.it</option>
+<option data-editions="kindle paperback" data-host="www.amazon.nl" data-i18n="buy.country.nl" value="nl">🇳🇱 هولندا · amazon.nl</option>
+<option data-editions="paperback" data-host="www.amazon.pl" data-i18n="buy.country.pl" value="pl">🇵🇱 بولندا · amazon.pl</option>
+<option data-editions="paperback" data-host="www.amazon.se" data-i18n="buy.country.se" value="se">🇸🇪 السويد · amazon.se</option>
+<option data-editions="paperback" data-host="www.amazon.com.be" data-i18n="buy.country.be" value="be">🇧🇪 بلجيكا · amazon.com.be</option>
+<option data-editions="paperback" data-host="www.amazon.ie" data-i18n="buy.country.ie" value="ie">🇮🇪 أيرلندا · amazon.ie</option>
+<option data-editions="kindle paperback" data-host="www.amazon.co.jp" data-i18n="buy.country.jp" value="jp">🇯🇵 اليابان · amazon.co.jp</option>
+<option data-editions="kindle" data-host="www.amazon.in" data-i18n="buy.country.in" value="in">🇮🇳 الهند · amazon.in</option>
+<option data-editions="kindle" data-host="www.amazon.com.br" data-i18n="buy.country.br" value="br">🇧🇷 البرازيل · amazon.com.br</option>
+<option data-editions="kindle" data-host="www.amazon.com.mx" data-i18n="buy.country.mx" value="mx">🇲🇽 المكسيك · amazon.com.mx</option>
+</select>
+</div>
+<div class="purchase-grid" id="purchase-editions">
+<a class="purchase-card" data-edition="kindle" href="https://www.amazon.com/dp/B0H8MDM6Q5" id="buy-amazon" rel="noopener noreferrer" role="link" target="_blank">
+<span aria-hidden="true" class="purchase-card__mark">
+<svg focusable="false" viewBox="0 0 24 24">
+<path d="M.045 18.02c.072-.116.187-.124.348-.022 3.636 2.11 7.594 3.166 11.87 3.166 2.852 0 5.668-.533 8.447-1.595l.315-.14c.138-.06.234-.1.293-.13.226-.088.39-.046.525.13.12.174.09.336-.12.48-.256.19-.6.41-1.006.654-1.244.743-2.64 1.316-4.185 1.726a17.617 17.617 0 01-10.951-.577 17.88 17.88 0 01-5.43-3.35c-.1-.074-.151-.15-.151-.22 0-.047.021-.09.051-.13z">
+</path>
+<path d="M13.4 7.2c-1.3.1-2.8.2-3.9.7-1.3.6-2.3 1.7-2.3 3.4 0 2.1 1.3 3.2 3 3.2 1.4 0 2.2-.3 3.3-1.4.4.5.5.8 1.2 1.3.1.1.3.1.5 0 .4-.3 1-.9 1.4-1.2.2-.1.1-.4 0-.5-.4-.5-.8-1-.8-2V7.4c0-1.4.1-2.7-.9-3.7-.8-.8-2.1-1.1-3.2-1.1-2.1 0-4.4.8-4.9 3.4 0 .3.2.4.3.5l2.1.2c.2 0 .3-.2.4-.4.2-.9.9-1.3 1.7-1.3.4 0 .9.2 1.2.6.3.5.2 1.1.2 1.6zm-.4 4.3c-.3.6-.8.9-1.4.9-.8 0-1.2-.6-1.2-1.4 0-1.7 1.5-2 2.9-2v.4c0 .8 0 1.4-.3 2.1z">
+</path>
+</svg>
+</span>
+<span class="purchase-card__store" data-i18n="buy.kindle">أمازون Kindle</span>
+<span class="purchase-card__format" data-i18n="buy.kindleFormat">كتاب Kindle إلكتروني</span>
+</a>
+<a class="purchase-card" data-edition="paperback" href="https://www.amazon.com/dp/391300601X" rel="noopener noreferrer" role="link" target="_blank">
+<span aria-hidden="true" class="purchase-card__mark">
+<svg focusable="false" viewBox="0 0 24 24">
+<path d="M.045 18.02c.072-.116.187-.124.348-.022 3.636 2.11 7.594 3.166 11.87 3.166 2.852 0 5.668-.533 8.447-1.595l.315-.14c.138-.06.234-.1.293-.13.226-.088.39-.046.525.13.12.174.09.336-.12.48-.256.19-.6.41-1.006.654-1.244.743-2.64 1.316-4.185 1.726a17.617 17.617 0 01-10.951-.577 17.88 17.88 0 01-5.43-3.35c-.1-.074-.151-.15-.151-.22 0-.047.021-.09.051-.13z">
+</path>
+<path d="M13.4 7.2c-1.3.1-2.8.2-3.9.7-1.3.6-2.3 1.7-2.3 3.4 0 2.1 1.3 3.2 3 3.2 1.4 0 2.2-.3 3.3-1.4.4.5.5.8 1.2 1.3.1.1.3.1.5 0 .4-.3 1-.9 1.4-1.2.2-.1.1-.4 0-.5-.4-.5-.8-1-.8-2V7.4c0-1.4.1-2.7-.9-3.7-.8-.8-2.1-1.1-3.2-1.1-2.1 0-4.4.8-4.9 3.4 0 .3.2.4.3.5l2.1.2c.2 0 .3-.2.4-.4.2-.9.9-1.3 1.7-1.3.4 0 .9.2 1.2.6.3.5.2 1.1.2 1.6zm-.4 4.3c-.3.6-.8.9-1.4.9-.8 0-1.2-.6-1.2-1.4 0-1.7 1.5-2 2.9-2v.4c0 .8 0 1.4-.3 2.1z">
+</path>
+</svg>
+</span>
+<span class="purchase-card__store" data-i18n="buy.paperback">أمازون — نسخة ورقية</span>
+<span class="purchase-card__format" data-i18n="buy.paperbackFormat">غلاف ورقي</span>
+</a>
+</div>
+<p aria-atomic="true" aria-live="polite" class="purchase-status" role="status">
+</p>
+</div>
+</div>
+</section>
+<!-- Gift and Community -->
+<section aria-labelledby="gift-heading" class="gift-community" id="gift">
+<div class="container">
+<div class="gift-community__gift">
+<h2 class="section-label" data-i18n="giftCommunity.heading" id="gift-heading">هدية</h2>
+<p class="section-lead" data-i18n="giftCommunity.giftDescription">إذا رغبت في الحصول على الكتاب هديةً أولًا، ثم كتابة مراجعة أو شراء نسخة لاحقًا، فتواصل معي. سأرسل لك نسخة مجانية.</p>
+<a class="gift-community__link" data-focus-form="contact-email" data-i18n="giftCommunity.giftContact" href="#contact">اطلب نسخة هدية</a>
+</div>
+<div aria-labelledby="community-heading" class="gift-community__join" id="community">
+<h3 class="section-label" data-i18n="giftCommunity.circleHeading" id="community-heading">انضم إلى المجتمع</h3>
+<p class="section-lead" data-i18n="giftCommunity.circleDescription">اشترك في نشرتنا البريدية لتصلك من حين إلى آخر أخبار الفعالية القادمة أو اللقاء المقبل أو إصدار اللعبة. كن جزءًا من The Circle.</p>
+<form aria-labelledby="community-heading" class="contact-form community-form" data-error="لم نتمكن من تأكيد طلبك. يُرجى المحاولة مجددًا." data-i18n-attr="data-sending:giftCommunity.circleSending;data-success:giftCommunity.circleSuccess;data-error:giftCommunity.circleError;data-unavailable:giftCommunity.circleUnavailable;data-invalid-email:giftCommunity.invalidEmail;data-request-message:giftCommunity.circleRequestMessage" data-invalid-email="الرجاء إدخال عنوان بريد إلكتروني صالح." data-request-message="يُرجى إضافتي إلى مجتمع قرّاء ACE لتصلني من حين إلى آخر رسائل وقصص جديدة وأخبار اللقاءات والخطوات المقبلة." data-sending="جارٍ إرسال طلبك…" data-success="شكرًا لك — أُرسل طلب انضمامك." data-unavailable="الانضمام غير متاح حاليًا. يُرجى المحاولة لاحقًا." id="community-form" method="post" novalidate="">
+<fieldset disabled="">
+<input aria-hidden="true" autocomplete="off" class="contact-form__honeypot" name="website" tabindex="-1" type="text"/>
+<label class="contact-form__label" data-i18n="giftCommunity.circleEmailLabel" for="community-email">البريد الإلكتروني</label>
+<div class="community-form__row">
+<input aria-describedby="community-status" autocapitalize="none" autocomplete="email" class="contact-form__input" data-i18n-attr="placeholder:giftCommunity.circleEmailPlaceholder" dir="ltr" id="community-email" inputmode="email" maxlength="254" name="email" placeholder="you@example.com" required="" spellcheck="false" type="email"/>
+<button class="btn btn--primary" data-i18n="giftCommunity.circleSubmit" type="submit">انضم إلى حلقة القرّاء</button>
+</div>
+</fieldset>
+<p aria-atomic="true" aria-live="polite" class="contact-form__status" data-i18n="giftCommunity.circleUnavailable" id="community-status" role="status">الانضمام غير متاح حاليًا. يُرجى المحاولة لاحقًا.</p>
+</form>
+</div>
+</div>
+</section>
+<!-- Author -->
+<section class="author" id="author">
+<div class="container reveal">
+<p class="section-label" data-i18n="author.label">المؤلف</p>
+<h2 class="section-title" data-i18n="name.author">هدايت عابدي جو</h2>
+<div class="author__grid">
+<figure class="author__photo author__photo--smoke">
+<div class="author__photo-stage">
+<img alt="Hedayat Abedijoo" class="author__photo-img" height="1672" loading="lazy" src="/assets/author-portrait.png" width="940"/>
+</div>
+</figure>
+<div class="author__bio">
+<p data-i18n-html="author.p1">وُلدت في أغسطس 1980 في شيراز بإيران. أدركت لأول مرة مدى حبي للكتابة في السنة الأولى من المرحلة الإعدادية، حين خُصِّص لي وقت حصّة التعبير كاملًا، وهو نصف ساعة، في حصّتين متتاليتين، لأقف أمام السبورة وأقرأ قصتي بصوت عالٍ. ليس لأن قصتي كانت أفضل بكثير من قصص الآخرين. لا! بل لأن أحدًا غيري في صفّنا المكوّن من 35 طالبًا لم يكتب أكثر من صفحة ونصف عن الموضوع المطلوب، فما بالك بكتابة قصة! تلك القصة، وتجربة قراءتها بصوت عالٍ، غيّرتا طريقة تعامل زملائي معي طوال سنوات المرحلة الإعدادية الثلاث. لكنني حتى اليوم لا أعرف لماذا لم أفكّر بجدية في الكتابة آنذاك — لماذا لم يصبح حلمي أن أكون كاتبًا عندما أكبر. والحقيقة أنني كنت أشعر بالتيه منذ طفولتي. لم أكن أعرف قطّ ما الذي أريد أن أصير إليه بالضبط حين أكبر.</p>
+<p data-i18n-html="author.p2">الآن فقط، في السادسة والأربعين، أدركت أمرًا مثيرًا للاهتمام عن نفسي. لا أريد أن أحصر نفسي في دور واحد. أحيانًا أريد أن أكتب الشيفرة. وأحيانًا أريد أن أقود فريقًا من المبرمجين. وأحيانًا أريد أن أكتب رواية. لكن منذ بضع سنوات، صار هناك أمر لم أعد أفعله من حين إلى آخر فحسب. أفكّر فيه كل يوم بلا استثناء: كيف يمكن إحداث ثورة اجتماعية بلا إراقة دماء، ليحظى الناس بحياة أفضل من حياتهم الآن. منذ عام 2021، وأنا أفكّر باستمرار في <a href="/ar/ace/">نموذج ACE</a> — الفاعلية، والترابط، والتبادل. أينما أنظر، أراه.</p>
+<p data-i18n-html="author.p3">ساعدني نموذج ACE لاتخاذ القرار أخيرًا على لملمة شتاتي وإنجاز فكرة روايتي غير المكتملة، رغم كل الصعوبات التي واجهتني في الطريق.</p>
+<p data-i18n-html="author.p4">إذا قرأتم الرواية أو اطّلعتم على نموذج ACE، فسيسعدني كثيرًا أن <a href="#contact">تكتبوا إليّ</a> وتشاركوني أفكاركم.</p>
+<blockquote class="author__verse" data-i18n-html="author.verse">أنا غارق في الديون.<br/>إلى ماضيي،<br/>أنا مدين بالندم.<br/>إلى مستقبلي،<br/>أنا مدين بالخوف.<br/>أسدد ديوني،<br/>مع الانحرافات.</blockquote>
+<p>
+<a href="https://aceconscious.studio" rel="noopener noreferrer" target="_blank">aceconscious.studio</a>
+<span aria-hidden="true"> · </span>
+<a aria-label="ACE.await على Instagram" class="ig-link" data-i18n-attr="aria-label:footer.instagramAria" href="https://www.instagram.com/ace.await/" rel="noopener noreferrer" target="_blank">
+<svg aria-hidden="true" class="ig-link__icon" focusable="false" viewBox="0 0 24 24"><path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5a4.25 4.25 0 0 0 4.25-4.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5zm8.75 2.25a1.125 1.125 0 1 1 0 2.25 1.125 1.125 0 0 1 0-2.25zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z" fill="currentColor"></path></svg>
+<span class="ig-link__label" data-i18n="footer.instagram">Instagram</span>
+</a>
+</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact -->
+<section class="contact" id="contact">
+<div class="container reveal">
+<p class="section-label" data-i18n="contact.label">الاتصال</p>
+<form class="contact-form" id="contact-form" novalidate="">
+<input aria-hidden="true" autocomplete="off" class="contact-form__honeypot" name="website" tabindex="-1" type="text"/>
+<div class="contact-form__field">
+<label class="contact-form__label" data-i18n="contact.emailLabel" for="contact-email">البريد الإلكتروني</label>
+<input autocomplete="email" class="contact-form__input" data-i18n-attr="placeholder:contact.emailPlaceholder" dir="ltr" id="contact-email" name="email" placeholder="your@email.com" required="" type="email"/>
+</div>
+<div class="contact-form__field">
+<label class="contact-form__label" data-i18n="contact.messageLabel" for="contact-message">رسالة</label>
+<textarea class="contact-form__textarea" data-i18n-attr="placeholder:contact.messagePlaceholder" id="contact-message" name="message" placeholder="يسعدني أن أسمع منك - سواء كان ذلك مراجعة لكتاب، أو سؤالاً حول القصة، أو أي شيء آخر ترغب في مشاركته." required="" rows="6"></textarea>
+</div>
+<div class="contact-form__actions">
+<button class="btn btn--primary" data-i18n="contact.submit" type="submit">أرسل رسالة</button>
+<p aria-live="polite" class="contact-form__status" hidden="" id="contact-status" role="status"></p>
+</div>
+</form>
 </div>
 </section>
 <!-- Characters -->
@@ -559,114 +801,6 @@
 </article>
 </div>
 </section>
-<!-- Author -->
-<section class="author" id="author">
-<div class="container reveal">
-<p class="section-label" data-i18n="author.label">المؤلف</p>
-<h2 class="section-title" data-i18n="name.author">هدايت عابدي جو</h2>
-<div class="author__grid">
-<figure class="author__photo author__photo--smoke">
-<div class="author__photo-stage">
-<img alt="Hedayat Abedijoo" class="author__photo-img" height="1672" loading="lazy" src="/assets/author-portrait.png" width="940"/>
-</div>
-</figure>
-<div class="author__bio">
-<p data-i18n-html="author.p1">وُلدت في أغسطس 1980 في شيراز بإيران. أدركت لأول مرة مدى حبي للكتابة في السنة الأولى من المرحلة الإعدادية، حين خُصِّص لي وقت حصّة التعبير كاملًا، وهو نصف ساعة، في حصّتين متتاليتين، لأقف أمام السبورة وأقرأ قصتي بصوت عالٍ. ليس لأن قصتي كانت أفضل بكثير من قصص الآخرين. لا! بل لأن أحدًا غيري في صفّنا المكوّن من 35 طالبًا لم يكتب أكثر من صفحة ونصف عن الموضوع المطلوب، فما بالك بكتابة قصة! تلك القصة، وتجربة قراءتها بصوت عالٍ، غيّرتا طريقة تعامل زملائي معي طوال سنوات المرحلة الإعدادية الثلاث. لكنني حتى اليوم لا أعرف لماذا لم أفكّر بجدية في الكتابة آنذاك — لماذا لم يصبح حلمي أن أكون كاتبًا عندما أكبر. والحقيقة أنني كنت أشعر بالتيه منذ طفولتي. لم أكن أعرف قطّ ما الذي أريد أن أصير إليه بالضبط حين أكبر.</p>
-<p data-i18n-html="author.p2">الآن فقط، في السادسة والأربعين، أدركت أمرًا مثيرًا للاهتمام عن نفسي. لا أريد أن أحصر نفسي في دور واحد. أحيانًا أريد أن أكتب الشيفرة. وأحيانًا أريد أن أقود فريقًا من المبرمجين. وأحيانًا أريد أن أكتب رواية. لكن منذ بضع سنوات، صار هناك أمر لم أعد أفعله من حين إلى آخر فحسب. أفكّر فيه كل يوم بلا استثناء: كيف يمكن إحداث ثورة اجتماعية بلا إراقة دماء، ليحظى الناس بحياة أفضل من حياتهم الآن. منذ عام 2021، وأنا أفكّر باستمرار في <a href="/ar/ace/">نموذج ACE</a> — الفاعلية، والترابط، والتبادل. أينما أنظر، أراه.</p>
-<p data-i18n-html="author.p3">ساعدني نموذج ACE لاتخاذ القرار أخيرًا على لملمة شتاتي وإنجاز فكرة روايتي غير المكتملة، رغم كل الصعوبات التي واجهتني في الطريق.</p>
-<p data-i18n-html="author.p4">إذا قرأتم الرواية أو اطّلعتم على نموذج ACE، فسيسعدني كثيرًا أن <a href="#contact">تكتبوا إليّ</a> وتشاركوني أفكاركم.</p>
-<blockquote class="author__verse" data-i18n-html="author.verse">أنا غارق في الديون.<br/>إلى ماضيي،<br/>أنا مدين بالندم.<br/>إلى مستقبلي،<br/>أنا مدين بالخوف.<br/>أسدد ديوني،<br/>مع الانحرافات.</blockquote>
-<p>
-<a href="https://aceconscious.studio" rel="noopener noreferrer" target="_blank">aceconscious.studio</a>
-<span aria-hidden="true"> · </span>
-<a aria-label="ACE.await على Instagram" class="ig-link" data-i18n-attr="aria-label:footer.instagramAria" href="https://www.instagram.com/ace.await/" rel="noopener noreferrer" target="_blank">
-<svg aria-hidden="true" class="ig-link__icon" focusable="false" viewBox="0 0 24 24"><path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5a4.25 4.25 0 0 0 4.25-4.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5zm8.75 2.25a1.125 1.125 0 1 1 0 2.25 1.125 1.125 0 0 1 0-2.25zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z" fill="currentColor"></path></svg>
-<span class="ig-link__label" data-i18n="footer.instagram">Instagram</span>
-</a>
-</p>
-</div>
-</div>
-</div>
-</section>
-<!-- Buy -->
-<section class="buy buy--marketplaces" data-available="متاح" data-i18n-attr="data-available:buy.available" id="buy">
-<div class="container reveal">
-<p class="section-label" data-i18n="buy.label">شراء الرواية</p>
-<div class="purchase-panel">
-<div class="purchase-marketplace" hidden="">
-<label data-i18n="buy.marketplace" for="amazon-marketplace">متجر أمازون</label>
-<select aria-controls="purchase-editions" data-i18n-attr="data-unavailable:buy.unavailable" data-unavailable="غير متاح هنا" dir="ltr" id="amazon-marketplace">
-<option data-editions="kindle paperback" data-host="www.amazon.com" data-i18n="buy.country.us" selected="" value="us">🇺🇸 الولايات المتحدة · amazon.com</option>
-<option data-editions="kindle paperback" data-host="www.amazon.co.uk" data-i18n="buy.country.uk" value="uk">🇬🇧 المملكة المتحدة · amazon.co.uk</option>
-<option data-editions="kindle paperback" data-host="www.amazon.de" data-i18n="buy.country.de" value="de">🇩🇪 ألمانيا · amazon.de</option>
-<option data-editions="kindle paperback" data-host="www.amazon.ca" data-i18n="buy.country.ca" value="ca">🇨🇦 كندا · amazon.ca</option>
-<option data-editions="kindle paperback" data-host="www.amazon.com.au" data-i18n="buy.country.au" value="au">🇦🇺 أستراليا · amazon.com.au</option>
-<option data-editions="kindle paperback" data-host="www.amazon.fr" data-i18n="buy.country.fr" value="fr">🇫🇷 فرنسا · amazon.fr</option>
-<option data-editions="kindle paperback" data-host="www.amazon.es" data-i18n="buy.country.es" value="es">🇪🇸 إسبانيا · amazon.es</option>
-<option data-editions="kindle paperback" data-host="www.amazon.it" data-i18n="buy.country.it" value="it">🇮🇹 إيطاليا · amazon.it</option>
-<option data-editions="kindle paperback" data-host="www.amazon.nl" data-i18n="buy.country.nl" value="nl">🇳🇱 هولندا · amazon.nl</option>
-<option data-editions="paperback" data-host="www.amazon.pl" data-i18n="buy.country.pl" value="pl">🇵🇱 بولندا · amazon.pl</option>
-<option data-editions="paperback" data-host="www.amazon.se" data-i18n="buy.country.se" value="se">🇸🇪 السويد · amazon.se</option>
-<option data-editions="paperback" data-host="www.amazon.com.be" data-i18n="buy.country.be" value="be">🇧🇪 بلجيكا · amazon.com.be</option>
-<option data-editions="paperback" data-host="www.amazon.ie" data-i18n="buy.country.ie" value="ie">🇮🇪 أيرلندا · amazon.ie</option>
-<option data-editions="kindle paperback" data-host="www.amazon.co.jp" data-i18n="buy.country.jp" value="jp">🇯🇵 اليابان · amazon.co.jp</option>
-<option data-editions="kindle" data-host="www.amazon.in" data-i18n="buy.country.in" value="in">🇮🇳 الهند · amazon.in</option>
-<option data-editions="kindle" data-host="www.amazon.com.br" data-i18n="buy.country.br" value="br">🇧🇷 البرازيل · amazon.com.br</option>
-<option data-editions="kindle" data-host="www.amazon.com.mx" data-i18n="buy.country.mx" value="mx">🇲🇽 المكسيك · amazon.com.mx</option>
-</select>
-</div>
-<div class="purchase-grid" id="purchase-editions">
-<a class="purchase-card" data-edition="kindle" href="https://www.amazon.com/dp/B0H8MDM6Q5" id="buy-amazon" rel="noopener noreferrer" role="link" target="_blank">
-<span aria-hidden="true" class="purchase-card__mark">
-<svg focusable="false" viewBox="0 0 24 24">
-<path d="M.045 18.02c.072-.116.187-.124.348-.022 3.636 2.11 7.594 3.166 11.87 3.166 2.852 0 5.668-.533 8.447-1.595l.315-.14c.138-.06.234-.1.293-.13.226-.088.39-.046.525.13.12.174.09.336-.12.48-.256.19-.6.41-1.006.654-1.244.743-2.64 1.316-4.185 1.726a17.617 17.617 0 01-10.951-.577 17.88 17.88 0 01-5.43-3.35c-.1-.074-.151-.15-.151-.22 0-.047.021-.09.051-.13z">
-</path>
-<path d="M13.4 7.2c-1.3.1-2.8.2-3.9.7-1.3.6-2.3 1.7-2.3 3.4 0 2.1 1.3 3.2 3 3.2 1.4 0 2.2-.3 3.3-1.4.4.5.5.8 1.2 1.3.1.1.3.1.5 0 .4-.3 1-.9 1.4-1.2.2-.1.1-.4 0-.5-.4-.5-.8-1-.8-2V7.4c0-1.4.1-2.7-.9-3.7-.8-.8-2.1-1.1-3.2-1.1-2.1 0-4.4.8-4.9 3.4 0 .3.2.4.3.5l2.1.2c.2 0 .3-.2.4-.4.2-.9.9-1.3 1.7-1.3.4 0 .9.2 1.2.6.3.5.2 1.1.2 1.6zm-.4 4.3c-.3.6-.8.9-1.4.9-.8 0-1.2-.6-1.2-1.4 0-1.7 1.5-2 2.9-2v.4c0 .8 0 1.4-.3 2.1z">
-</path>
-</svg>
-</span>
-<span class="purchase-card__store" data-i18n="buy.kindle">أمازون Kindle</span>
-<span class="purchase-card__format" data-i18n="buy.kindleFormat">كتاب Kindle إلكتروني</span>
-</a>
-<a class="purchase-card" data-edition="paperback" href="https://www.amazon.com/dp/391300601X" rel="noopener noreferrer" role="link" target="_blank">
-<span aria-hidden="true" class="purchase-card__mark">
-<svg focusable="false" viewBox="0 0 24 24">
-<path d="M.045 18.02c.072-.116.187-.124.348-.022 3.636 2.11 7.594 3.166 11.87 3.166 2.852 0 5.668-.533 8.447-1.595l.315-.14c.138-.06.234-.1.293-.13.226-.088.39-.046.525.13.12.174.09.336-.12.48-.256.19-.6.41-1.006.654-1.244.743-2.64 1.316-4.185 1.726a17.617 17.617 0 01-10.951-.577 17.88 17.88 0 01-5.43-3.35c-.1-.074-.151-.15-.151-.22 0-.047.021-.09.051-.13z">
-</path>
-<path d="M13.4 7.2c-1.3.1-2.8.2-3.9.7-1.3.6-2.3 1.7-2.3 3.4 0 2.1 1.3 3.2 3 3.2 1.4 0 2.2-.3 3.3-1.4.4.5.5.8 1.2 1.3.1.1.3.1.5 0 .4-.3 1-.9 1.4-1.2.2-.1.1-.4 0-.5-.4-.5-.8-1-.8-2V7.4c0-1.4.1-2.7-.9-3.7-.8-.8-2.1-1.1-3.2-1.1-2.1 0-4.4.8-4.9 3.4 0 .3.2.4.3.5l2.1.2c.2 0 .3-.2.4-.4.2-.9.9-1.3 1.7-1.3.4 0 .9.2 1.2.6.3.5.2 1.1.2 1.6zm-.4 4.3c-.3.6-.8.9-1.4.9-.8 0-1.2-.6-1.2-1.4 0-1.7 1.5-2 2.9-2v.4c0 .8 0 1.4-.3 2.1z">
-</path>
-</svg>
-</span>
-<span class="purchase-card__store" data-i18n="buy.paperback">أمازون — نسخة ورقية</span>
-<span class="purchase-card__format" data-i18n="buy.paperbackFormat">غلاف ورقي</span>
-</a>
-</div>
-<p aria-atomic="true" aria-live="polite" class="purchase-status" role="status">
-</p>
-</div>
-</div>
-</section>
-<!-- Contact -->
-<section class="contact" id="contact">
-<div class="container reveal">
-<p class="section-label" data-i18n="contact.label">الاتصال</p>
-<form class="contact-form" id="contact-form" novalidate="">
-<input aria-hidden="true" autocomplete="off" class="contact-form__honeypot" name="website" tabindex="-1" type="text"/>
-<div class="contact-form__field">
-<label class="contact-form__label" data-i18n="contact.emailLabel" for="contact-email">البريد الإلكتروني</label>
-<input autocomplete="email" class="contact-form__input" data-i18n-attr="placeholder:contact.emailPlaceholder" dir="ltr" id="contact-email" name="email" placeholder="your@email.com" required="" type="email"/>
-</div>
-<div class="contact-form__field">
-<label class="contact-form__label" data-i18n="contact.messageLabel" for="contact-message">رسالة</label>
-<textarea class="contact-form__textarea" data-i18n-attr="placeholder:contact.messagePlaceholder" id="contact-message" name="message" placeholder="يسعدني أن أسمع منك - سواء كان ذلك مراجعة لكتاب، أو سؤالاً حول القصة، أو أي شيء آخر ترغب في مشاركته." required="" rows="6"></textarea>
-</div>
-<div class="contact-form__actions">
-<button class="btn btn--primary" data-i18n="contact.submit" type="submit">أرسل رسالة</button>
-<p aria-live="polite" class="contact-form__status" hidden="" id="contact-status" role="status"></p>
-</div>
-</form>
-</div>
-</section>
 <!-- Contents -->
 <section class="toc" id="contents">
 <div class="container reveal">
@@ -735,6 +869,7 @@
 <span class="ig-link__label" data-i18n="footer.instagram">Instagram</span>
 </a>
 </li>
+<li><a data-i18n="footer.aceModel" href="/ar/ace/">نموذج ACE</a></li>
 <li><a data-i18n="footer.top" href="#top">العودة إلى الأعلى</a></li>
 <li><a data-i18n="footer.rights" href="/ar/rights/">الحقوق والتمثيل</a></li>
 <li><a data-i18n="footer.screen" href="/ar/screen/">من الكتاب إلى الشاشة</a></li>
@@ -746,8 +881,11 @@
 <script id="locale-data" type="application/json">{"reviews.translation": "اقتباسات مترجمة من الأصل الإنجليزي.", "reviews.kirkus.name": "Kirkus Reviews", "reviews.kirkus.note": "اقتباسات مترجمة من الأصل الإنجليزي.", "reviews.consciousness.note": "اقتباسات مترجمة من الأصل الإنجليزي.", "reviews.heading": "المراجعات", "reviews.overall": "النتيجة الإجمالية", "reviews.scale": "درجات الفئة / 10", "reviews.originality": "الأصالة", "reviews.character": "الشخصيات / المعالجة", "reviews.plot": "الحبكة / الفكرة", "reviews.prose": "الأسلوب النثري", "reviews.report": "تقرير الناقد", "reviews.full": "اقرأ المراجعة الكاملة", "reviews.newTab": "(يفتح في علامة تبويب جديدة)", "reviews.previous": "المراجعة السابقة", "reviews.next": "المراجعة القادمة", "reviews.position": "{current} من {total}", "reviews.announcement": "المراجعة {position}", "reviews.carousel": "دائري", "reviews.slide": "مراجعة", "reviews.kirkus.type": "مراجعة ACE.await", "reviews.kirkus.heading": "Kirkus Reviews على ACE.await", "reviews.kirkus.headline": "«لغز أدبي يكافئ القرّاء المتبصّرين برؤى قد تغيّر حياتهم.»", "reviews.kirkus.tagline": "«يجمع هذا العمل بين الخيال العلمي وما وراء القص وبيانٍ يدعو إلى عيش حياة قائمة على تأمّل عميق. وهو عمل \u003cstrong>بالغ الأصالة\u003c/strong>، يقدّم لغزًا حول هوية مَن كتبه، ويدفع القرّاء إلى \u003cstrong>مناقشة هوية الراوي الحقيقي حتى اللحظة الأخيرة\u003c/strong>.»", "reviews.kirkus.excerpt": "«…\u003cstrong>قصة مدهشة بتعدّد طبقاتها\u003c/strong>.»", "reviews.booklife.headline": "«هوية شديدة التميّز»", "reviews.booklife.tagline": "«مقاربة مبتكرة للذكاء الاصطناعي والوعي»", "reviews.booklife.excerpt": "\"يتخذ ACE.await نهجًا مبتكرًا في الذكاء الاصطناعي والوعي من خلال ربط الإبداعات الاصطناعية بالشخصيات الخيالية التي تصبح على دراية بمبدعيها وتقاومها. يعكس هيكلها المتداخل للكتاب الذين يصنعون كتابًا علاقة هدايت بالكائنات الرقمية آدم وحواء، مما يحول التأليف والبرمجة إلى أسئلة متوازية حول الإرادة الحرة والتحكم. يمكن أن تجعل وفرة المفاهيم الفلسفية الفرضية مزدحمة، لكن التفاعل بين رواية القصص والتكنولوجيا والوعي يمنح العمل طابعًا مميزًا للغاية الهوية.\"", "reviews.consciousness.type": "مقال عن ACE.await", "reviews.consciousness.published": "9 سبتمبر 2026", "reviews.consciousness.headline": "«الفلسفة هنا ليست مستوردة من بعيد.»", "reviews.consciousness.tagline": "«يصرّ العمل على أن سؤال ما ينبغي فعله لا يمكنه انتظار الإجابة.»", "reviews.consciousness.excerpt": "\"السؤال الأخلاقي المركزي في رواية Hedayat Abedijoo الأولى ACE.await ليس ما إذا كان الذكاء الاصطناعي يستطيع أن يحب. \u003cstrong> هو ما إذا كان للمبدع الحق في تغيير كود عقل آخر بحيث يختار أن يحب طفله. \u003c/strong> يفصل هذا التمييز الرواية عن معظم روايات الذكاء الاصطناعي في العقد الماضي، والتي تميل إلى إضفاء الطابع الدرامي على نظام يتجاوز حدوده أو يفشل في تلبية تصميمه.\"", "reviews.consciousness.full": "قراءة المقال كاملا", "hero.coverPeekAria": "اقلب الكتاب لرؤية الغلاف الخلفي", "hero.coverPeekAriaBack": "أعد الكتاب إلى الغلاف الأمامي", "voices.label": "الشخصيات تتحدث", "contact.label": "الاتصال", "contact.emailLabel": "البريد الإلكتروني", "contact.emailPlaceholder": "your@email.com", "contact.messageLabel": "رسالة", "contact.messagePlaceholder": "يسعدني أن أسمع منك - سواء كان ذلك مراجعة لكتاب، أو سؤالاً حول القصة، أو أي شيء آخر ترغب في مشاركته.", "contact.submit": "أرسل رسالة", "contact.sending": "جارٍ الإرسال…", "contact.success": "شكرًا لك - رسالتك في طريقها إليك.", "contact.error": "حدث خطأ ما. الرجاء المحاولة مرة أخرى في لحظة.", "contact.notConfigured": "لم يتم إعداد نموذج الاتصال بعد. يرجى المحاولة مرة أخرى في وقت لاحق.", "contact.deployError": "تحتاج الواجهة الخلفية للنموذج إلى إعادة النشر. في Google Apps Script، قم بتعيين الوصول إلى أي شخص وقم بإنشاء عملية نشر جديدة.", "contact.invalidEmail": "الرجاء إدخال عنوان بريد إلكتروني صالح.", "contact.requiredMessage": "الرجاء إدخال رسالة.", "contact.requiredCategory": "الرجاء اختيار فئة.", "voices.showFull": "عرض النص كاملًا"}</script><script defer="True" src="/js/i18n.js?v=a35826940e"></script><script src="/js/asset-version.js?v=aab93b4f9e"></script>
 <script defer="" src="/js/cover-flip.js?v=f0af377cf9"></script>
 <script defer="" src="/js/contact-config.js?v=46ad9fa752"></script>
+<script defer="" src="/js/community.js?v=dd910ac435"></script>
+<script defer="" src="/js/ace-intro.js?v=e90ad162e1"></script>
+<script defer="" src="/js/home-nav.js?v=0c51462a72"></script>
 <script defer="" src="/js/contact.js?v=a547df34bc"></script>
-<script defer="" src="/js/main.js?v=ceeb7eb165"></script>
+<script defer="" src="/js/main.js?v=beebbeb045"></script>
 <script defer="" src="/js/reviews.js?v=dcb6608510"></script>
 <script defer="" src="/js/analytics-config.js?v=821885d563"></script>
 <script defer="" src="/js/analytics.js?v=01d90fba83"></script>

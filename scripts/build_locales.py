@@ -92,7 +92,10 @@ def menu(page, current):
 
 def localize_structured_data(soup, source, strings, page, lang):
     # Entity IDs stay stable across translated pages; WebPage URLs are localized.
-    lookup = {value: strings[key] for key, value in source.items()}
+    # Intro labels have their own approved translations. Do not let identical
+    # English terms replace the existing article's structured-data wording.
+    lookup = {value: strings[key] for key, value in source.items()
+              if not key.startswith(("aceIntro.", "giftCommunity."))}
     for script in soup.select('script[type="application/ld+json"]'):
         data = json.loads(script.string)
 
@@ -137,6 +140,9 @@ def render(page, lang, source, strings):
         soup.head.append(soup.new_tag("link", rel="stylesheet", href="/css/buy.css"))
         buy = parse((ROOT / "content/templates/buy.html").read_text()).select_one("#buy")
         soup.select_one("#buy").replace_with(buy)
+        for fragment, anchor in (("ace-intro", "ace-introduction"), ("gift-community", "gift")):
+            section = parse((ROOT / f"content/templates/{fragment}.html").read_text()).select_one(f"#{anchor}")
+            soup.select_one(f"#{anchor}").replace_with(section)
         soup.body.append(soup.new_tag("script", src="/js/buy.js", defer=True))
         soup.head.append(soup.new_tag("link", rel="stylesheet", href="/css/home-hero.css"))
     apply_strings(soup, strings)

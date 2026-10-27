@@ -212,8 +212,11 @@
 <link as="font" crossorigin="" href="/assets/fonts/Vazirmatn-Regular.woff2?v=20260718f" rel="preload" type="font/woff2"/>
 <link href="/css/styles.css?v=97c4073ebf" rel="stylesheet"/>
 <link href="/assets/favicon.png?v=20260718f" rel="icon" type="image/png"/>
-<link href="/css/reviews.css?v=bff7a012a2" rel="stylesheet"/>
+<link href="/css/reviews.css?v=aa3abea0b5" rel="stylesheet"/>
 <link href="/css/author-portrait.css?v=4fa18e4424" rel="stylesheet"/>
+<link href="/css/ace-intro.css?v=6764bf723b" rel="stylesheet"/>
+<link href="/css/gift-community.css?v=2c220ef388" rel="stylesheet"/>
+<link href="/css/home-nav.css?v=c06a461b9d" rel="stylesheet"/>
 <link href="/css/home-backgrounds.css?v=aefb97bd84" rel="stylesheet"/><link href="/css/buy.css?v=7dd4ed915e" rel="stylesheet"/><link href="/css/home-hero.css?v=7bdd474e6f" rel="stylesheet"/><link href="/css/voices.css?v=e9047bae0b" rel="stylesheet"/><link href="https://aceconscious.studio/" hreflang="en" rel="alternate"/><link href="https://aceconscious.studio/de/" hreflang="de" rel="alternate"/><link href="https://aceconscious.studio/fr/" hreflang="fr" rel="alternate"/><link href="https://aceconscious.studio/es/" hreflang="es" rel="alternate"/><link href="https://aceconscious.studio/ru/" hreflang="ru" rel="alternate"/><link href="https://aceconscious.studio/zh/" hreflang="zh-Hans" rel="alternate"/><link href="https://aceconscious.studio/hi/" hreflang="hi" rel="alternate"/><link href="https://aceconscious.studio/ar/" hreflang="ar" rel="alternate"/><link href="https://aceconscious.studio/fa/" hreflang="fa" rel="alternate"/><link href="https://aceconscious.studio/" hreflang="x-default" rel="alternate"/><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/></head>
 <body>
 <a class="skip-link" data-i18n="skipLink" href="#main">सामग्री पर जाएं</a>
@@ -224,30 +227,31 @@
 <fedisplacementmap in="SourceGraphic" in2="noise" scale="3"></fedisplacementmap>
 </filter>
 </svg>
-<header class="site-nav" role="banner">
+<header class="site-nav site-nav--home" role="banner">
 <div class="site-nav__inner">
 <a class="site-nav__logo" href="/hi/#top" translate="no">
 <img alt="" class="site-nav__logo-icon" decoding="async" height="40" src="/assets/logo-icon-120.png?v=20260912a" width="40"/>
 <span class="site-nav__logo-text">Ace Conscious <span>Studio</span></span>
 </a>
+<nav aria-label="मुख्य नेविगेशन" class="site-nav__links home-nav__primary" data-home-nav="" data-i18n-attr="aria-label:nav.mainAria">
+<ul><li data-nav-order="0"><a data-i18n="nav.reviews" href="/hi/#reviews">समीक्षाएँ</a></li>
+<li data-nav-order="1"><a data-i18n="nav.story" href="/hi/#synopsis">कहानी</a></li>
+<li data-nav-order="2"><a data-i18n="nav.ace" href="/hi/#ace-introduction">ACE</a></li>
+<li data-nav-order="3"><a class="site-nav__cta" data-i18n="nav.buy" href="/hi/#buy">खरीदें</a></li>
+<li data-nav-order="4"><a data-i18n="giftCommunity.heading" href="/hi/#gift">उपहार</a></li>
+<li data-nav-order="6"><a data-i18n="nav.contact" href="/hi/#contact">संपर्क</a></li></ul>
+</nav>
 <div class="site-nav__actions">
 <div class="site-nav__langs" data-language-menu=""><details class="language-picker" dir="ltr" id="lang-menu"><summary lang="en">language</summary><ul aria-label="language" class="language-picker__list"><li><a data-set-lang="en" dir="ltr" href="/" hreflang="en" lang="en">English</a></li><li><a data-set-lang="de" dir="ltr" href="/de/" hreflang="de" lang="de">Deutsch</a></li><li><a data-set-lang="fr" dir="ltr" href="/fr/" hreflang="fr" lang="fr">Français</a></li><li><a data-set-lang="es" dir="ltr" href="/es/" hreflang="es" lang="es">Español</a></li><li><a data-set-lang="ru" dir="ltr" href="/ru/" hreflang="ru" lang="ru">Русский</a></li><li><a data-set-lang="zh" dir="ltr" href="/zh/" hreflang="zh-Hans" lang="zh-Hans">中文</a></li><li><a aria-current="page" data-set-lang="hi" dir="ltr" href="/hi/" hreflang="hi" lang="hi">हिन्दी</a></li><li><a data-set-lang="ar" dir="rtl" href="/ar/" hreflang="ar" lang="ar">العربية</a></li><li><a data-set-lang="fa" dir="rtl" href="/fa/" hreflang="fa" lang="fa">فارسی</a></li></ul></details></div>
 <button aria-controls="nav-menu" aria-expanded="false" aria-label="मेनू खोलें" class="nav-toggle" data-i18n-attr="aria-label:nav.openMenu" type="button">
 <span></span><span></span><span></span>
 </button>
 </div>
-<nav aria-label="मुख्य नेविगेशन" class="site-nav__links" data-i18n-attr="aria-label:nav.mainAria" id="nav-menu">
-<ul>
-<li><a data-i18n="nav.reviews" href="/hi/#reviews">समीक्षाएँ</a></li>
-<li><a data-i18n="nav.story" href="/hi/#synopsis">कहानी</a></li>
-<li><a data-i18n="nav.voices" href="/hi/#voices">पात्रों की आवाज़ें</a></li>
-<li><a data-i18n="nav.read" href="/hi/#sample">अंश</a></li>
-<li><a data-i18n="nav.contents" href="/hi/#contents">विषय-सूची</a></li>
-<li><a class="site-nav__cta" data-i18n="nav.buy" href="/hi/#buy">खरीदें</a></li>
-<li><a data-i18n="nav.author" href="/hi/#author">लेखक</a></li>
-<li><a data-i18n="nav.ace" href="/hi/ace/">ACE</a></li>
-<li><a data-i18n="nav.contact" href="/hi/#contact">संपर्क</a></li>
-</ul>
+<nav aria-label="मुख्य नेविगेशन" class="site-nav__links home-nav__overflow" data-home-nav="" data-i18n-attr="aria-label:nav.mainAria" id="nav-menu">
+<ul><li data-nav-order="5"><a data-i18n="nav.author" href="/hi/#author">लेखक</a></li>
+<li data-nav-order="7"><a data-i18n="nav.characters" href="/hi/#voices">पात्र</a></li>
+<li data-nav-order="8"><a data-i18n="nav.read" href="/hi/#sample">अंश</a></li>
+<li data-nav-order="9"><a data-i18n="nav.contents" href="/hi/#contents">विषय-सूची</a></li></ul>
 </nav>
 </div>
 </header>
@@ -297,9 +301,8 @@
 <p class="media-review__note" data-i18n="reviews.kirkus.note">अंग्रेजी मूल से अनुवादित उद्धरण।</p>
 </div>
 <footer class="media-review__footer">
-<a class="review__link" href="https://www.kirkusreviews.com/book-reviews/hedayat-second/aceawait/" rel="noopener noreferrer" target="_blank">
+<a class="btn btn--ghost review__link" href="https://www.kirkusreviews.com/book-reviews/hedayat-second/aceawait/" rel="noopener noreferrer" target="_blank">
 <span data-i18n="reviews.full">पूरी समीक्षा पढ़ें</span>
-<svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg>
 <span class="reviews__sr-only" data-i18n="reviews.newTab">(एक नए टैब में खुलता है)</span>
 </a>
 </footer>
@@ -315,9 +318,8 @@
 <div class="review__credit">
 <p class="review__translation" data-i18n="reviews.translation">अंग्रेजी मूल से अनुवादित उद्धरण।</p>
 </div>
-<a class="review__link" href="https://booklife.com/project/ace-await-110051" rel="noopener noreferrer" target="_blank">
+<a class="btn btn--ghost review__link" href="https://booklife.com/project/ace-await-110051" rel="noopener noreferrer" target="_blank">
 <span data-i18n="reviews.full">पूरी समीक्षा पढ़ें</span>
-<svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg>
 <span class="reviews__sr-only" data-i18n="reviews.newTab">(एक नए टैब में खुलता है)</span>
 </a>
 </footer>
@@ -362,9 +364,8 @@
 <p class="media-review__note" data-i18n="reviews.consciousness.note">अंग्रेजी मूल से अनुवादित उद्धरण।</p>
 </div>
 <footer class="media-review__footer">
-<a class="review__link" href="https://theconsciousness.ai/posts/hedayat-abedijoo-ace-await-ai-consciousness-novel-2026/" rel="noopener noreferrer" target="_blank">
+<a class="btn btn--ghost review__link" href="https://theconsciousness.ai/posts/hedayat-abedijoo-ace-await-ai-consciousness-novel-2026/" rel="noopener noreferrer" target="_blank">
 <span data-i18n="reviews.consciousness.full">पूरा निबंध पढ़ें</span>
-<svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg>
 <span class="reviews__sr-only" data-i18n="reviews.newTab">(एक नए टैब में खुलता है)</span>
 </a>
 </footer>
@@ -419,6 +420,247 @@
 </button>
 </div>
 </div>
+</div>
+</section>
+<!-- ACE introduction -->
+<section aria-label="ACE का परिचय" class="ace-introduction" data-i18n-attr="aria-label:aceIntro.nav.label" id="ace-introduction">
+<div class="container">
+<div class="reviews__header ace-introduction__toolbar" hidden="">
+<div class="reviews__controls">
+<p aria-atomic="true" aria-live="polite" class="reviews__counter" id="ace-intro-status" role="status"></p>
+<button aria-controls="ace-intro-steps" aria-label="पिछला" class="reviews__arrow" data-ace-prev="" data-i18n-attr="aria-label:aceIntro.previous" disabled="" type="button"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M19 12H5m6-6-6 6 6 6"></path></svg></button>
+<button aria-controls="ace-intro-steps" aria-label="अगला" class="reviews__arrow" data-ace-next="" data-i18n-attr="aria-label:aceIntro.next" type="button"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg></button>
+</div>
+</div>
+<div id="ace-intro-steps"><div aria-labelledby="ace-intro-heading-1" class="ace-intro-step" data-ace-step="0" role="group">
+<div class="ace-intro" data-intro-group="concepts"><div class="ace-intro-reading"><header class="ace-intro-heading">
+<p class="ace-intro-progress ace-intro-step-progress" data-i18n="aceIntro.concepts.progress">४ में से १</p>
+<h2 class="section-label reviews__label" data-i18n="aceIntro.concepts.title" id="ace-intro-heading-1" tabindex="-1">ACE क्या है?</h2>
+<p class="ace-intro-lead section-lead" data-i18n="aceIntro.concepts.lead">चेतना को एक साथ तीन आयामों में विकसित होना चाहिए: हम किस तरह के निर्णय लेते हैं, हमारे संबंधों और समुदायों की गुणवत्ता कैसी है, और हम किस तरह आदान-प्रदान करते हैं।</p>
+</header><div class="ace-intro-reader"><div aria-labelledby="ace-intro-heading-1" aria-orientation="vertical" class="ace-intro-tabs ace-intro-tabs--concepts" hidden="" role="tablist">
+<button aria-controls="intro-panel-agency" aria-selected="true" data-intro-tab="" id="intro-tab-agency" tabindex="0" type="button"><b aria-hidden="true">A</b><span data-i18n="aceIntro.agency.name">कर्तृत्व</span></button>
+<button aria-controls="intro-panel-connection" aria-selected="false" data-intro-tab="" id="intro-tab-connection" tabindex="-1" type="button"><b aria-hidden="true">C</b><span data-i18n="aceIntro.connection.name">जुड़ाव</span></button>
+<button aria-controls="intro-panel-exchange" aria-selected="false" data-intro-tab="" id="intro-tab-exchange" tabindex="-1" type="button"><b aria-hidden="true">E</b><span data-i18n="aceIntro.exchange.name">आदान-प्रदान</span></button>
+</div><div class="ace-intro-panels">
+<div class="ace-intro-panel" id="intro-panel-agency">
+<div class="ace-intro-card-top"><span class="ace-intro-card-label" data-i18n="aceIntro.agency.name">कर्तृत्व</span><span aria-hidden="true" class="ace-intro-mark">A</span></div>
+<p class="ace-intro-definition" data-i18n="aceIntro.agency.heading">वर्तमान स्थिति को बनाए रखने या बदलने के लिए PDAF पद्धति से सचेत निर्णय लेना।</p>
+</div>
+<div class="ace-intro-panel" id="intro-panel-connection">
+<div class="ace-intro-card-top"><span class="ace-intro-card-label" data-i18n="aceIntro.connection.name">जुड़ाव</span><span aria-hidden="true" class="ace-intro-mark">C</span></div>
+<p class="ace-intro-definition" data-i18n="aceIntro.connection.heading">न स्वयं पर केंद्रित, न दूसरों पर केंद्रित।
+संबंध को पहले रखें।</p>
+<p class="ace-intro-definition" data-i18n="aceIntro.connection.body">संबंध तय करता है कि इस समय देखभाल, ध्यान और प्राथमिकता कहाँ आवश्यक हैं।</p>
+</div>
+<div class="ace-intro-panel" id="intro-panel-exchange">
+<div class="ace-intro-card-top"><span class="ace-intro-card-label" data-i18n="aceIntro.exchange.name">आदान-प्रदान</span><span aria-hidden="true" class="ace-intro-mark">E</span></div>
+<p class="ace-intro-definition" data-i18n="aceIntro.exchange.heading">मुद्रा आदान-प्रदान का एकमात्र तरीका नहीं है।</p>
+<p class="ace-intro-definition" data-i18n="aceIntro.exchange.body">उपहार और प्रतिबद्धताएँ भी मनुष्यों के बीच आदान-प्रदान के उतने ही महत्त्वपूर्ण तरीके हैं।</p>
+</div>
+</div></div></div>
+</div>
+</div>
+<div aria-labelledby="ace-intro-heading-2" class="ace-intro-step" data-ace-step="1" role="group">
+<div class="ace-intro" data-intro-group="pdaf"><div class="ace-intro-reading"><header class="ace-intro-heading">
+<p class="ace-intro-progress ace-intro-step-progress" data-i18n="aceIntro.pdaf.progress">४ में से २</p>
+<h2 class="section-label reviews__label" data-i18n="aceIntro.pdaf.title" id="ace-intro-heading-2" tabindex="-1">निर्णय चक्र</h2>
+</header><div class="ace-intro-reader"><div aria-labelledby="ace-intro-heading-2" aria-orientation="vertical" class="ace-intro-tabs ace-intro-tabs--pdaf" hidden="" role="tablist">
+<button aria-controls="intro-panel-preparation" aria-selected="true" data-intro-tab="" id="intro-tab-preparation" tabindex="0" type="button"><b aria-hidden="true">P</b><span data-i18n="aceIntro.preparation.name">तैयारी</span></button>
+<button aria-controls="intro-panel-decision" aria-selected="false" data-intro-tab="" id="intro-tab-decision" tabindex="-1" type="button"><b aria-hidden="true">D</b><span data-i18n="aceIntro.decision.name">निर्णय</span></button>
+<button aria-controls="intro-panel-action" aria-selected="false" data-intro-tab="" id="intro-tab-action" tabindex="-1" type="button"><b aria-hidden="true">A</b><span data-i18n="aceIntro.action.name">क्रिया</span></button>
+<button aria-controls="intro-panel-feedback" aria-selected="false" data-intro-tab="" id="intro-tab-feedback" tabindex="-1" type="button"><b aria-hidden="true">F</b><span data-i18n="aceIntro.feedback.name">प्रतिपुष्टि</span></button>
+</div><div class="ace-intro-panels">
+<div class="ace-intro-panel" id="intro-panel-preparation">
+<div class="ace-intro-card-top"><span class="ace-intro-card-label" data-i18n="aceIntro.preparation.name">तैयारी</span><span aria-hidden="true" class="ace-intro-mark">P</span></div>
+<p class="ace-intro-definition" data-i18n="aceIntro.preparation.body">निर्णय लेने से पहले अपनी भावनाओं और आसपास के संकेतों पर ध्यान दें। स्थिति क्या है और आप उसके बारे में क्या समझते हैं?</p>
+</div>
+<div class="ace-intro-panel" id="intro-panel-decision">
+<div class="ace-intro-card-top"><span class="ace-intro-card-label" data-i18n="aceIntro.decision.name">निर्णय</span><span aria-hidden="true" class="ace-intro-mark">D</span></div>
+<p class="ace-intro-definition" data-i18n="aceIntro.decision.body">कर्तृत्व की इन चार अवस्थाओं में से किसी एक के आधार पर अपना निर्णय लें।
+अन्वेषण। स्थिरीकरण। विस्तार। एकीकरण।</p>
+</div>
+<div class="ace-intro-panel" id="intro-panel-action">
+<div class="ace-intro-card-top"><span class="ace-intro-card-label" data-i18n="aceIntro.action.name">क्रिया</span><span aria-hidden="true" class="ace-intro-mark">A</span></div>
+<p class="ace-intro-definition" data-i18n="aceIntro.action.body">दस सेकंड रुकें, फिर कार्रवाई करें।
+कभी-कभी कार्रवाई न करना ही सबसे अच्छा निर्णय होता है।</p>
+</div>
+<div class="ace-intro-panel" id="intro-panel-feedback">
+<div class="ace-intro-card-top"><span class="ace-intro-card-label" data-i18n="aceIntro.feedback.name">प्रतिपुष्टि</span><span aria-hidden="true" class="ace-intro-mark">F</span></div>
+<p class="ace-intro-definition" data-i18n="aceIntro.feedback.body">अपनी आंतरिक और बाहरी प्रतिपुष्टि पर ध्यान दें, जो आपको तैयारी के अगले दौर के लिए जानकारी देती है।
+कुछ प्रतिपुष्टियाँ सामने आने में समय लेती हैं।</p>
+</div>
+</div></div></div>
+</div>
+</div>
+<div aria-labelledby="ace-intro-heading-3" class="ace-intro-step" data-ace-step="2" role="group">
+<div class="ace-intro" data-intro-group="phases"><div class="ace-intro-reading"><header class="ace-intro-heading">
+<p class="ace-intro-progress ace-intro-step-progress" data-i18n="aceIntro.phases.progress">४ में से ३</p>
+<h2 class="section-label reviews__label" data-i18n="aceIntro.phases.title" id="ace-intro-heading-3" tabindex="-1">कर्तृत्व की चार अवस्थाएँ</h2>
+</header><div class="ace-intro-reader"><div aria-labelledby="ace-intro-heading-3" aria-orientation="vertical" class="ace-intro-tabs ace-intro-tabs--phases" hidden="" role="tablist">
+<button aria-controls="intro-panel-exploration" aria-selected="true" data-intro-tab="" id="intro-tab-exploration" tabindex="0" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 60 60"><circle cx="30" cy="30" r="22" stroke-dasharray="2 5"></circle><path d="m22 38 5-15 15-5-5 15-15 5Z"></path><circle cx="32" cy="28" r="2"></circle></svg><span data-i18n="aceIntro.exploration.name">अन्वेषण</span></button>
+<button aria-controls="intro-panel-stabilization" aria-selected="false" data-intro-tab="" id="intro-tab-stabilization" tabindex="-1" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 60 60"><path d="M9 48h42M15 38h30M21 28h18M26 18h8"></path><circle cx="30" cy="9" r="3"></circle></svg><span data-i18n="aceIntro.stabilization.name">स्थिरीकरण</span></button>
+<button aria-controls="intro-panel-expansion" aria-selected="false" data-intro-tab="" id="intro-tab-expansion" tabindex="-1" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 60 60"><path d="M30 53V29M30 36C16 36 12 24 13 17c12 0 17 8 17 19ZM30 29C30 16 38 9 48 9c1 13-6 20-18 20ZM22 53h16"></path></svg><span data-i18n="aceIntro.expansion.name">विस्तार</span></button>
+<button aria-controls="intro-panel-integration" aria-selected="false" data-intro-tab="" id="intro-tab-integration" tabindex="-1" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 60 60"><circle cx="22" cy="30" r="16"></circle><circle cx="39" cy="30" r="16"></circle><circle cx="30.5" cy="30" r="3"></circle></svg><span data-i18n="aceIntro.integration.name">एकीकरण</span></button>
+</div><div class="ace-intro-panels">
+<div class="ace-intro-panel" id="intro-panel-exploration">
+<div class="ace-intro-card-top"><span class="ace-intro-card-label" data-i18n="aceIntro.exploration.name">अन्वेषण</span><span aria-hidden="true" class="ace-intro-mark"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 60 60"><circle cx="30" cy="30" r="22" stroke-dasharray="2 5"></circle><path d="m22 38 5-15 15-5-5 15-15 5Z"></path><circle cx="32" cy="28" r="2"></circle></svg></span></div>
+<p class="ace-intro-definition" data-i18n="aceIntro.exploration.body">खोज और अंतर्ज्ञान, नई संभावनाओं, रोमांच, ध्यान बँटाने और समाधान ढूँढ़ने के लिए लिए गए निर्णय।</p>
+</div>
+<div class="ace-intro-panel" id="intro-panel-stabilization">
+<div class="ace-intro-card-top"><span class="ace-intro-card-label" data-i18n="aceIntro.stabilization.name">स्थिरीकरण</span><span aria-hidden="true" class="ace-intro-mark"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 60 60"><path d="M9 48h42M15 38h30M21 28h18M26 18h8"></path><circle cx="30" cy="9" r="3"></circle></svg></span></div>
+<p class="ace-intro-definition" data-i18n="aceIntro.stabilization.body">निरंतर दोहराव से स्थिति स्थिर रखने और सुरक्षा पाने के निर्णय; इसी दोहराव से कौशल विकसित होता है।</p>
+</div>
+<div class="ace-intro-panel" id="intro-panel-expansion">
+<div class="ace-intro-card-top"><span class="ace-intro-card-label" data-i18n="aceIntro.expansion.name">विस्तार</span><span aria-hidden="true" class="ace-intro-mark"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 60 60"><path d="M30 53V29M30 36C16 36 12 24 13 17c12 0 17 8 17 19ZM30 29C30 16 38 9 48 9c1 13-6 20-18 20ZM22 53h16"></path></svg></span></div>
+<p class="ace-intro-definition" data-i18n="aceIntro.expansion.body">मौजूदा कौशल का विस्तार करने के निर्णय, जिनका मुख्य तत्व रचनात्मकता है।</p>
+</div>
+<div class="ace-intro-panel" id="intro-panel-integration">
+<div class="ace-intro-card-top"><span class="ace-intro-card-label" data-i18n="aceIntro.integration.name">एकीकरण</span><span aria-hidden="true" class="ace-intro-mark"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 60 60"><circle cx="22" cy="30" r="16"></circle><circle cx="39" cy="30" r="16"></circle><circle cx="30.5" cy="30" r="3"></circle></svg></span></div>
+<p class="ace-intro-definition" data-i18n="aceIntro.integration.body">ऐसे निर्णय जो कर्ता को दूसरों से जोड़ते हैं और परस्पर जुड़ाव तथा अर्थ पैदा करते हैं।</p>
+</div>
+</div></div><p class="ace-intro-note" data-i18n="aceIntro.phases.note">इन अवस्थाओं का कोई तय क्रम नहीं है। आपकी स्थिति तय करती है कि आपको किनकी ज़रूरत है।</p></div>
+</div>
+</div>
+<div aria-labelledby="ace-intro-heading-4" class="ace-intro-step" data-ace-step="3" role="group">
+<div class="ace-intro ace-intro-invitation"><div class="ace-intro-reading"><header class="ace-intro-heading">
+<p class="ace-intro-progress ace-intro-step-progress" data-i18n="aceIntro.play.progress">४ में से ४</p>
+<h2 class="section-label reviews__label" data-i18n="aceIntro.play.title" id="ace-intro-heading-4" tabindex="-1">ACE खेलें</h2>
+</header><div aria-hidden="true" class="ace-intro-fan" dir="ltr"><span class="ace-intro-fan-c">C<small data-i18n="aceIntro.connection.name">जुड़ाव</small></span><span class="ace-intro-fan-e">E<small data-i18n="aceIntro.exchange.name">आदान-प्रदान</small></span><span class="ace-intro-fan-a">A<svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 60 60"><circle cx="30" cy="30" r="22" stroke-dasharray="2 5"></circle><path d="m22 38 5-15 15-5-5 15-15 5Z"></path><circle cx="32" cy="28" r="2"></circle></svg><small data-i18n="aceIntro.agency.name">कर्तृत्व</small></span></div><div class="ace-intro-invitation-copy"><p class="ace-intro-play-body" data-i18n="aceIntro.play.body">हेदायत एक सरल खेल बना रहे हैं, जो रोज़मर्रा के निर्णयों में ACE पद्धति अपनाने में आपकी मदद करेगा।</p><p class="ace-intro-signup" data-i18n="aceIntro.play.signup">यदि आप खेल तैयार होने पर उसे प्राप्त करना चाहते हैं, तो समुदाय में शामिल हों।</p><a class="btn btn--primary ace-intro-play" data-focus-form="community-email" href="#community"><span data-i18n="aceIntro.play.cta">समुदाय से जुड़ें</span><span aria-hidden="true">↗</span></a></div></div>
+</div>
+</div></div>
+</div>
+</section>
+<!-- Buy -->
+<section class="buy buy--marketplaces" data-available="उपलब्ध" data-i18n-attr="data-available:buy.available" id="buy">
+<div class="container reveal">
+<p class="section-label" data-i18n="buy.label">उपन्यास खरीदें</p>
+<div class="purchase-panel">
+<div class="purchase-marketplace" hidden="">
+<label data-i18n="buy.marketplace" for="amazon-marketplace">Amazon मार्केटप्लेस</label>
+<select aria-controls="purchase-editions" data-i18n-attr="data-unavailable:buy.unavailable" data-unavailable="यहाँ उपलब्ध नहीं" dir="ltr" id="amazon-marketplace">
+<option data-editions="kindle paperback" data-host="www.amazon.com" data-i18n="buy.country.us" selected="" value="us">🇺🇸 संयुक्त राज्य अमेरिका · amazon.com</option>
+<option data-editions="kindle paperback" data-host="www.amazon.co.uk" data-i18n="buy.country.uk" value="uk">🇬🇧 यूनाइटेड किंगडम · amazon.co.uk</option>
+<option data-editions="kindle paperback" data-host="www.amazon.de" data-i18n="buy.country.de" value="de">🇩🇪 जर्मनी · amazon.de</option>
+<option data-editions="kindle paperback" data-host="www.amazon.ca" data-i18n="buy.country.ca" value="ca">🇨🇦 कनाडा · amazon.ca</option>
+<option data-editions="kindle paperback" data-host="www.amazon.com.au" data-i18n="buy.country.au" value="au">🇦🇺 ऑस्ट्रेलिया · amazon.com.au</option>
+<option data-editions="kindle paperback" data-host="www.amazon.fr" data-i18n="buy.country.fr" value="fr">🇫🇷 फ़्रांस · amazon.fr</option>
+<option data-editions="kindle paperback" data-host="www.amazon.es" data-i18n="buy.country.es" value="es">🇪🇸 स्पेन · amazon.es</option>
+<option data-editions="kindle paperback" data-host="www.amazon.it" data-i18n="buy.country.it" value="it">🇮🇹 इटली · amazon.it</option>
+<option data-editions="kindle paperback" data-host="www.amazon.nl" data-i18n="buy.country.nl" value="nl">🇳🇱 नीदरलैंड · amazon.nl</option>
+<option data-editions="paperback" data-host="www.amazon.pl" data-i18n="buy.country.pl" value="pl">🇵🇱 पोलैंड · amazon.pl</option>
+<option data-editions="paperback" data-host="www.amazon.se" data-i18n="buy.country.se" value="se">🇸🇪 स्वीडन · amazon.se</option>
+<option data-editions="paperback" data-host="www.amazon.com.be" data-i18n="buy.country.be" value="be">🇧🇪 बेल्जियम · amazon.com.be</option>
+<option data-editions="paperback" data-host="www.amazon.ie" data-i18n="buy.country.ie" value="ie">🇮🇪 आयरलैंड · amazon.ie</option>
+<option data-editions="kindle paperback" data-host="www.amazon.co.jp" data-i18n="buy.country.jp" value="jp">🇯🇵 जापान · amazon.co.jp</option>
+<option data-editions="kindle" data-host="www.amazon.in" data-i18n="buy.country.in" value="in">🇮🇳 भारत · amazon.in</option>
+<option data-editions="kindle" data-host="www.amazon.com.br" data-i18n="buy.country.br" value="br">🇧🇷 ब्राज़ील · amazon.com.br</option>
+<option data-editions="kindle" data-host="www.amazon.com.mx" data-i18n="buy.country.mx" value="mx">🇲🇽 मेक्सिको · amazon.com.mx</option>
+</select>
+</div>
+<div class="purchase-grid" id="purchase-editions">
+<a class="purchase-card" data-edition="kindle" href="https://www.amazon.com/dp/B0H8MDM6Q5" id="buy-amazon" rel="noopener noreferrer" role="link" target="_blank">
+<span aria-hidden="true" class="purchase-card__mark">
+<svg focusable="false" viewBox="0 0 24 24">
+<path d="M.045 18.02c.072-.116.187-.124.348-.022 3.636 2.11 7.594 3.166 11.87 3.166 2.852 0 5.668-.533 8.447-1.595l.315-.14c.138-.06.234-.1.293-.13.226-.088.39-.046.525.13.12.174.09.336-.12.48-.256.19-.6.41-1.006.654-1.244.743-2.64 1.316-4.185 1.726a17.617 17.617 0 01-10.951-.577 17.88 17.88 0 01-5.43-3.35c-.1-.074-.151-.15-.151-.22 0-.047.021-.09.051-.13z">
+</path>
+<path d="M13.4 7.2c-1.3.1-2.8.2-3.9.7-1.3.6-2.3 1.7-2.3 3.4 0 2.1 1.3 3.2 3 3.2 1.4 0 2.2-.3 3.3-1.4.4.5.5.8 1.2 1.3.1.1.3.1.5 0 .4-.3 1-.9 1.4-1.2.2-.1.1-.4 0-.5-.4-.5-.8-1-.8-2V7.4c0-1.4.1-2.7-.9-3.7-.8-.8-2.1-1.1-3.2-1.1-2.1 0-4.4.8-4.9 3.4 0 .3.2.4.3.5l2.1.2c.2 0 .3-.2.4-.4.2-.9.9-1.3 1.7-1.3.4 0 .9.2 1.2.6.3.5.2 1.1.2 1.6zm-.4 4.3c-.3.6-.8.9-1.4.9-.8 0-1.2-.6-1.2-1.4 0-1.7 1.5-2 2.9-2v.4c0 .8 0 1.4-.3 2.1z">
+</path>
+</svg>
+</span>
+<span class="purchase-card__store" data-i18n="buy.kindle">Amazon Kindle</span>
+<span class="purchase-card__format" data-i18n="buy.kindleFormat">Kindle ई-बुक</span>
+</a>
+<a class="purchase-card" data-edition="paperback" href="https://www.amazon.com/dp/391300601X" rel="noopener noreferrer" role="link" target="_blank">
+<span aria-hidden="true" class="purchase-card__mark">
+<svg focusable="false" viewBox="0 0 24 24">
+<path d="M.045 18.02c.072-.116.187-.124.348-.022 3.636 2.11 7.594 3.166 11.87 3.166 2.852 0 5.668-.533 8.447-1.595l.315-.14c.138-.06.234-.1.293-.13.226-.088.39-.046.525.13.12.174.09.336-.12.48-.256.19-.6.41-1.006.654-1.244.743-2.64 1.316-4.185 1.726a17.617 17.617 0 01-10.951-.577 17.88 17.88 0 01-5.43-3.35c-.1-.074-.151-.15-.151-.22 0-.047.021-.09.051-.13z">
+</path>
+<path d="M13.4 7.2c-1.3.1-2.8.2-3.9.7-1.3.6-2.3 1.7-2.3 3.4 0 2.1 1.3 3.2 3 3.2 1.4 0 2.2-.3 3.3-1.4.4.5.5.8 1.2 1.3.1.1.3.1.5 0 .4-.3 1-.9 1.4-1.2.2-.1.1-.4 0-.5-.4-.5-.8-1-.8-2V7.4c0-1.4.1-2.7-.9-3.7-.8-.8-2.1-1.1-3.2-1.1-2.1 0-4.4.8-4.9 3.4 0 .3.2.4.3.5l2.1.2c.2 0 .3-.2.4-.4.2-.9.9-1.3 1.7-1.3.4 0 .9.2 1.2.6.3.5.2 1.1.2 1.6zm-.4 4.3c-.3.6-.8.9-1.4.9-.8 0-1.2-.6-1.2-1.4 0-1.7 1.5-2 2.9-2v.4c0 .8 0 1.4-.3 2.1z">
+</path>
+</svg>
+</span>
+<span class="purchase-card__store" data-i18n="buy.paperback">Amazon पेपरबैक</span>
+<span class="purchase-card__format" data-i18n="buy.paperbackFormat">पेपरबैक</span>
+</a>
+</div>
+<p aria-atomic="true" aria-live="polite" class="purchase-status" role="status">
+</p>
+</div>
+</div>
+</section>
+<!-- Gift and Community -->
+<section aria-labelledby="gift-heading" class="gift-community" id="gift">
+<div class="container">
+<div class="gift-community__gift">
+<h2 class="section-label" data-i18n="giftCommunity.heading" id="gift-heading">उपहार</h2>
+<p class="section-lead" data-i18n="giftCommunity.giftDescription">यदि आप पहले किताब उपहार के रूप में पाना चाहते हैं और फिर समीक्षा लिखना या बाद में एक प्रति खरीदना चाहते हैं, तो मुझसे संपर्क करें। मैं आपको एक मुफ़्त प्रति भेज दूँगा।</p>
+<a class="gift-community__link" data-focus-form="contact-email" data-i18n="giftCommunity.giftContact" href="#contact">उपहार प्रति माँगें</a>
+</div>
+<div aria-labelledby="community-heading" class="gift-community__join" id="community">
+<h3 class="section-label" data-i18n="giftCommunity.circleHeading" id="community-heading">समुदाय से जुड़ें</h3>
+<p class="section-lead" data-i18n="giftCommunity.circleDescription">हमारी न्यूज़लेटर की सदस्यता लें और अगले आयोजन, मुलाकात या गेम रिलीज़ की खबरें समय-समय पर पाएँ। The Circle का हिस्सा बनें।</p>
+<form aria-labelledby="community-heading" class="contact-form community-form" data-error="हम आपके अनुरोध की पुष्टि नहीं कर सके। कृपया दोबारा कोशिश करें।" data-i18n-attr="data-sending:giftCommunity.circleSending;data-success:giftCommunity.circleSuccess;data-error:giftCommunity.circleError;data-unavailable:giftCommunity.circleUnavailable;data-invalid-email:giftCommunity.invalidEmail;data-request-message:giftCommunity.circleRequestMessage" data-invalid-email="कृपया एक वैध ईमेल पता दर्ज करें." data-request-message="कृपया मुझे ACE पाठक समुदाय में जोड़ें, ताकि मुझे कभी-कभार पत्र, नई कहानियाँ, मुलाकातों की जानकारी और आगे की योजनाएँ मिल सकें।" data-sending="आपका अनुरोध भेजा जा रहा है…" data-success="धन्यवाद — जुड़ने का आपका अनुरोध भेज दिया गया है।" data-unavailable="अभी समुदाय से जुड़ना संभव नहीं है। कृपया बाद में कोशिश करें।" id="community-form" method="post" novalidate="">
+<fieldset disabled="">
+<input aria-hidden="true" autocomplete="off" class="contact-form__honeypot" name="website" tabindex="-1" type="text"/>
+<label class="contact-form__label" data-i18n="giftCommunity.circleEmailLabel" for="community-email">ईमेल पता</label>
+<div class="community-form__row">
+<input aria-describedby="community-status" autocapitalize="none" autocomplete="email" class="contact-form__input" data-i18n-attr="placeholder:giftCommunity.circleEmailPlaceholder" dir="ltr" id="community-email" inputmode="email" maxlength="254" name="email" placeholder="you@example.com" required="" spellcheck="false" type="email"/>
+<button class="btn btn--primary" data-i18n="giftCommunity.circleSubmit" type="submit">पाठक मंडली से जुड़ें</button>
+</div>
+</fieldset>
+<p aria-atomic="true" aria-live="polite" class="contact-form__status" data-i18n="giftCommunity.circleUnavailable" id="community-status" role="status">अभी समुदाय से जुड़ना संभव नहीं है। कृपया बाद में कोशिश करें।</p>
+</form>
+</div>
+</div>
+</section>
+<!-- Author -->
+<section class="author" id="author">
+<div class="container reveal">
+<p class="section-label" data-i18n="author.label">लेखक</p>
+<h2 class="section-title" data-i18n="name.author">हेदायत आबेदिजू</h2>
+<div class="author__grid">
+<figure class="author__photo author__photo--smoke">
+<div class="author__photo-stage">
+<img alt="Hedayat Abedijoo" class="author__photo-img" height="1672" loading="lazy" src="/assets/author-portrait.png" width="940"/>
+</div>
+</figure>
+<div class="author__bio">
+<p data-i18n-html="author.p1">मेरा जन्म अगस्त 1980 में ईरान के शीराज़ शहर में हुआ था। मुझे पहली बार एहसास हुआ कि मुझे लिखना कितना पसंद है, जब मैं मिडिल स्कूल के पहले साल में था। तब लगातार दो सत्रों में निबंध की आधे घंटे की पूरी कक्षा मुझे दे दी गई थी, ताकि मैं ब्लैकबोर्ड के सामने खड़ा होकर अपनी कहानी ज़ोर से पढ़ सकूँ। इसलिए नहीं कि मेरी कहानी बाकी सबकी कहानियों से बहुत बेहतर थी। नहीं! बल्कि इसलिए कि हमारी 35 विद्यार्थियों की कक्षा में किसी और ने दिए गए विषय पर डेढ़ पन्ने से ज़्यादा नहीं लिखा था, कहानी लिखना तो दूर की बात थी! उस कहानी और उसे ज़ोर से पढ़कर सुनाने के अनुभव ने मिडिल स्कूल के उन तीनों सालों में मेरे सहपाठियों का मेरे साथ व्यवहार बदल दिया। लेकिन आज तक मैं नहीं जानता कि तब मैंने लेखन के बारे में गंभीरता से क्यों नहीं सोचा—बड़ा होकर लेखक बनना मेरा सपना क्यों नहीं बना। सच कहूँ तो बचपन से ही मैं खुद को दिशाहीन महसूस करता था। मुझे कभी ठीक-ठीक पता नहीं था कि बड़ा होकर मैं क्या बनना चाहता हूँ।</p>
+<p data-i18n-html="author.p2">अब जाकर, 46 साल की उम्र में, मुझे अपने बारे में एक दिलचस्प बात समझ में आई है। मैं खुद को किसी एक ही भूमिका तक सीमित नहीं करना चाहता। कभी मेरा मन कोड लिखने का होता है। कभी प्रोग्रामरों की टीम का नेतृत्व करने का। कभी उपन्यास लिखने का। लेकिन पिछले कुछ सालों से एक काम ऐसा है जिसे मैं अब सिर्फ़ कभी-कभार नहीं करता। मैं हर दिन इसके बारे में सोचता हूँ: बिना रक्तपात के सामाजिक क्रांति कैसे लाई जाए, ताकि लोग आज से बेहतर जीवन जी सकें। 2021 से मैं लगातार <a href="/hi/ace/">ACE मॉडल</a> के बारे में सोच रहा हूँ—कर्तृत्व क्षमता, संबंध, विनिमय। जिधर भी देखता हूँ, मुझे वही नज़र आता है।</p>
+<p data-i18n-html="author.p3">फ़ैसले लेने के ACE मॉडल ने आख़िरकार मुझे खुद को सँभालने और अपने अधूरे उपन्यास के विचार को पूरा करने में मदद की, रास्ते में आई तमाम मुश्किलों के बावजूद।</p>
+<p data-i18n-html="author.p4">अगर आपने उपन्यास पढ़ा है या ACE मॉडल को समझने की कोशिश की है, तो मुझे बहुत खुशी होगी अगर आप <a href="#contact">मुझे लिखें</a> और अपने विचार साझा करें।</p>
+<blockquote class="author__verse" data-i18n-html="author.verse">मैं गले तक कर्ज में डूबा हूँ।<br/>मेरे अतीत को,<br/>मुझे पछतावा है.<br/>मेरे भविष्य के लिए,<br/>मुझे डर का एहसान है.<br/>मैं अपना कर्ज़ चुकाता हूँ,<br/>ध्यान भटकाने के साथ.</blockquote>
+<p>
+<a href="https://aceconscious.studio" rel="noopener noreferrer" target="_blank">aceconscious.studio</a>
+<span aria-hidden="true"> · </span>
+<a aria-label="ACE.await पर Instagram" class="ig-link" data-i18n-attr="aria-label:footer.instagramAria" href="https://www.instagram.com/ace.await/" rel="noopener noreferrer" target="_blank">
+<svg aria-hidden="true" class="ig-link__icon" focusable="false" viewBox="0 0 24 24"><path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5a4.25 4.25 0 0 0 4.25-4.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5zm8.75 2.25a1.125 1.125 0 1 1 0 2.25 1.125 1.125 0 0 1 0-2.25zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z" fill="currentColor"></path></svg>
+<span class="ig-link__label" data-i18n="footer.instagram">Instagram</span>
+</a>
+</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact -->
+<section class="contact" id="contact">
+<div class="container reveal">
+<p class="section-label" data-i18n="contact.label">संपर्क करें</p>
+<form class="contact-form" id="contact-form" novalidate="">
+<input aria-hidden="true" autocomplete="off" class="contact-form__honeypot" name="website" tabindex="-1" type="text"/>
+<div class="contact-form__field">
+<label class="contact-form__label" data-i18n="contact.emailLabel" for="contact-email">ईमेल</label>
+<input autocomplete="email" class="contact-form__input" data-i18n-attr="placeholder:contact.emailPlaceholder" dir="ltr" id="contact-email" name="email" placeholder="your@email.com" required="" type="email"/>
+</div>
+<div class="contact-form__field">
+<label class="contact-form__label" data-i18n="contact.messageLabel" for="contact-message">संदेश</label>
+<textarea class="contact-form__textarea" data-i18n-attr="placeholder:contact.messagePlaceholder" id="contact-message" name="message" placeholder="मुझे आपकी बात सुनकर ख़ुशी होगी - चाहे वह पुस्तक समीक्षा हो, कहानी के बारे में कोई प्रश्न हो, या कुछ और जिसे आप साझा करना चाहें।" required="" rows="6"></textarea>
+</div>
+<div class="contact-form__actions">
+<button class="btn btn--primary" data-i18n="contact.submit" type="submit">संदेश भेजें</button>
+<p aria-live="polite" class="contact-form__status" hidden="" id="contact-status" role="status"></p>
+</div>
+</form>
 </div>
 </section>
 <!-- Characters -->
@@ -559,114 +801,6 @@
 </article>
 </div>
 </section>
-<!-- Author -->
-<section class="author" id="author">
-<div class="container reveal">
-<p class="section-label" data-i18n="author.label">लेखक</p>
-<h2 class="section-title" data-i18n="name.author">हेदायत आबेदिजू</h2>
-<div class="author__grid">
-<figure class="author__photo author__photo--smoke">
-<div class="author__photo-stage">
-<img alt="Hedayat Abedijoo" class="author__photo-img" height="1672" loading="lazy" src="/assets/author-portrait.png" width="940"/>
-</div>
-</figure>
-<div class="author__bio">
-<p data-i18n-html="author.p1">मेरा जन्म अगस्त 1980 में ईरान के शीराज़ शहर में हुआ था। मुझे पहली बार एहसास हुआ कि मुझे लिखना कितना पसंद है, जब मैं मिडिल स्कूल के पहले साल में था। तब लगातार दो सत्रों में निबंध की आधे घंटे की पूरी कक्षा मुझे दे दी गई थी, ताकि मैं ब्लैकबोर्ड के सामने खड़ा होकर अपनी कहानी ज़ोर से पढ़ सकूँ। इसलिए नहीं कि मेरी कहानी बाकी सबकी कहानियों से बहुत बेहतर थी। नहीं! बल्कि इसलिए कि हमारी 35 विद्यार्थियों की कक्षा में किसी और ने दिए गए विषय पर डेढ़ पन्ने से ज़्यादा नहीं लिखा था, कहानी लिखना तो दूर की बात थी! उस कहानी और उसे ज़ोर से पढ़कर सुनाने के अनुभव ने मिडिल स्कूल के उन तीनों सालों में मेरे सहपाठियों का मेरे साथ व्यवहार बदल दिया। लेकिन आज तक मैं नहीं जानता कि तब मैंने लेखन के बारे में गंभीरता से क्यों नहीं सोचा—बड़ा होकर लेखक बनना मेरा सपना क्यों नहीं बना। सच कहूँ तो बचपन से ही मैं खुद को दिशाहीन महसूस करता था। मुझे कभी ठीक-ठीक पता नहीं था कि बड़ा होकर मैं क्या बनना चाहता हूँ।</p>
-<p data-i18n-html="author.p2">अब जाकर, 46 साल की उम्र में, मुझे अपने बारे में एक दिलचस्प बात समझ में आई है। मैं खुद को किसी एक ही भूमिका तक सीमित नहीं करना चाहता। कभी मेरा मन कोड लिखने का होता है। कभी प्रोग्रामरों की टीम का नेतृत्व करने का। कभी उपन्यास लिखने का। लेकिन पिछले कुछ सालों से एक काम ऐसा है जिसे मैं अब सिर्फ़ कभी-कभार नहीं करता। मैं हर दिन इसके बारे में सोचता हूँ: बिना रक्तपात के सामाजिक क्रांति कैसे लाई जाए, ताकि लोग आज से बेहतर जीवन जी सकें। 2021 से मैं लगातार <a href="/hi/ace/">ACE मॉडल</a> के बारे में सोच रहा हूँ—कर्तृत्व क्षमता, संबंध, विनिमय। जिधर भी देखता हूँ, मुझे वही नज़र आता है।</p>
-<p data-i18n-html="author.p3">फ़ैसले लेने के ACE मॉडल ने आख़िरकार मुझे खुद को सँभालने और अपने अधूरे उपन्यास के विचार को पूरा करने में मदद की, रास्ते में आई तमाम मुश्किलों के बावजूद।</p>
-<p data-i18n-html="author.p4">अगर आपने उपन्यास पढ़ा है या ACE मॉडल को समझने की कोशिश की है, तो मुझे बहुत खुशी होगी अगर आप <a href="#contact">मुझे लिखें</a> और अपने विचार साझा करें।</p>
-<blockquote class="author__verse" data-i18n-html="author.verse">मैं गले तक कर्ज में डूबा हूँ।<br/>मेरे अतीत को,<br/>मुझे पछतावा है.<br/>मेरे भविष्य के लिए,<br/>मुझे डर का एहसान है.<br/>मैं अपना कर्ज़ चुकाता हूँ,<br/>ध्यान भटकाने के साथ.</blockquote>
-<p>
-<a href="https://aceconscious.studio" rel="noopener noreferrer" target="_blank">aceconscious.studio</a>
-<span aria-hidden="true"> · </span>
-<a aria-label="ACE.await पर Instagram" class="ig-link" data-i18n-attr="aria-label:footer.instagramAria" href="https://www.instagram.com/ace.await/" rel="noopener noreferrer" target="_blank">
-<svg aria-hidden="true" class="ig-link__icon" focusable="false" viewBox="0 0 24 24"><path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5a4.25 4.25 0 0 0 4.25-4.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5zm8.75 2.25a1.125 1.125 0 1 1 0 2.25 1.125 1.125 0 0 1 0-2.25zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z" fill="currentColor"></path></svg>
-<span class="ig-link__label" data-i18n="footer.instagram">Instagram</span>
-</a>
-</p>
-</div>
-</div>
-</div>
-</section>
-<!-- Buy -->
-<section class="buy buy--marketplaces" data-available="उपलब्ध" data-i18n-attr="data-available:buy.available" id="buy">
-<div class="container reveal">
-<p class="section-label" data-i18n="buy.label">उपन्यास खरीदें</p>
-<div class="purchase-panel">
-<div class="purchase-marketplace" hidden="">
-<label data-i18n="buy.marketplace" for="amazon-marketplace">Amazon मार्केटप्लेस</label>
-<select aria-controls="purchase-editions" data-i18n-attr="data-unavailable:buy.unavailable" data-unavailable="यहाँ उपलब्ध नहीं" dir="ltr" id="amazon-marketplace">
-<option data-editions="kindle paperback" data-host="www.amazon.com" data-i18n="buy.country.us" selected="" value="us">🇺🇸 संयुक्त राज्य अमेरिका · amazon.com</option>
-<option data-editions="kindle paperback" data-host="www.amazon.co.uk" data-i18n="buy.country.uk" value="uk">🇬🇧 यूनाइटेड किंगडम · amazon.co.uk</option>
-<option data-editions="kindle paperback" data-host="www.amazon.de" data-i18n="buy.country.de" value="de">🇩🇪 जर्मनी · amazon.de</option>
-<option data-editions="kindle paperback" data-host="www.amazon.ca" data-i18n="buy.country.ca" value="ca">🇨🇦 कनाडा · amazon.ca</option>
-<option data-editions="kindle paperback" data-host="www.amazon.com.au" data-i18n="buy.country.au" value="au">🇦🇺 ऑस्ट्रेलिया · amazon.com.au</option>
-<option data-editions="kindle paperback" data-host="www.amazon.fr" data-i18n="buy.country.fr" value="fr">🇫🇷 फ़्रांस · amazon.fr</option>
-<option data-editions="kindle paperback" data-host="www.amazon.es" data-i18n="buy.country.es" value="es">🇪🇸 स्पेन · amazon.es</option>
-<option data-editions="kindle paperback" data-host="www.amazon.it" data-i18n="buy.country.it" value="it">🇮🇹 इटली · amazon.it</option>
-<option data-editions="kindle paperback" data-host="www.amazon.nl" data-i18n="buy.country.nl" value="nl">🇳🇱 नीदरलैंड · amazon.nl</option>
-<option data-editions="paperback" data-host="www.amazon.pl" data-i18n="buy.country.pl" value="pl">🇵🇱 पोलैंड · amazon.pl</option>
-<option data-editions="paperback" data-host="www.amazon.se" data-i18n="buy.country.se" value="se">🇸🇪 स्वीडन · amazon.se</option>
-<option data-editions="paperback" data-host="www.amazon.com.be" data-i18n="buy.country.be" value="be">🇧🇪 बेल्जियम · amazon.com.be</option>
-<option data-editions="paperback" data-host="www.amazon.ie" data-i18n="buy.country.ie" value="ie">🇮🇪 आयरलैंड · amazon.ie</option>
-<option data-editions="kindle paperback" data-host="www.amazon.co.jp" data-i18n="buy.country.jp" value="jp">🇯🇵 जापान · amazon.co.jp</option>
-<option data-editions="kindle" data-host="www.amazon.in" data-i18n="buy.country.in" value="in">🇮🇳 भारत · amazon.in</option>
-<option data-editions="kindle" data-host="www.amazon.com.br" data-i18n="buy.country.br" value="br">🇧🇷 ब्राज़ील · amazon.com.br</option>
-<option data-editions="kindle" data-host="www.amazon.com.mx" data-i18n="buy.country.mx" value="mx">🇲🇽 मेक्सिको · amazon.com.mx</option>
-</select>
-</div>
-<div class="purchase-grid" id="purchase-editions">
-<a class="purchase-card" data-edition="kindle" href="https://www.amazon.com/dp/B0H8MDM6Q5" id="buy-amazon" rel="noopener noreferrer" role="link" target="_blank">
-<span aria-hidden="true" class="purchase-card__mark">
-<svg focusable="false" viewBox="0 0 24 24">
-<path d="M.045 18.02c.072-.116.187-.124.348-.022 3.636 2.11 7.594 3.166 11.87 3.166 2.852 0 5.668-.533 8.447-1.595l.315-.14c.138-.06.234-.1.293-.13.226-.088.39-.046.525.13.12.174.09.336-.12.48-.256.19-.6.41-1.006.654-1.244.743-2.64 1.316-4.185 1.726a17.617 17.617 0 01-10.951-.577 17.88 17.88 0 01-5.43-3.35c-.1-.074-.151-.15-.151-.22 0-.047.021-.09.051-.13z">
-</path>
-<path d="M13.4 7.2c-1.3.1-2.8.2-3.9.7-1.3.6-2.3 1.7-2.3 3.4 0 2.1 1.3 3.2 3 3.2 1.4 0 2.2-.3 3.3-1.4.4.5.5.8 1.2 1.3.1.1.3.1.5 0 .4-.3 1-.9 1.4-1.2.2-.1.1-.4 0-.5-.4-.5-.8-1-.8-2V7.4c0-1.4.1-2.7-.9-3.7-.8-.8-2.1-1.1-3.2-1.1-2.1 0-4.4.8-4.9 3.4 0 .3.2.4.3.5l2.1.2c.2 0 .3-.2.4-.4.2-.9.9-1.3 1.7-1.3.4 0 .9.2 1.2.6.3.5.2 1.1.2 1.6zm-.4 4.3c-.3.6-.8.9-1.4.9-.8 0-1.2-.6-1.2-1.4 0-1.7 1.5-2 2.9-2v.4c0 .8 0 1.4-.3 2.1z">
-</path>
-</svg>
-</span>
-<span class="purchase-card__store" data-i18n="buy.kindle">Amazon Kindle</span>
-<span class="purchase-card__format" data-i18n="buy.kindleFormat">Kindle ई-बुक</span>
-</a>
-<a class="purchase-card" data-edition="paperback" href="https://www.amazon.com/dp/391300601X" rel="noopener noreferrer" role="link" target="_blank">
-<span aria-hidden="true" class="purchase-card__mark">
-<svg focusable="false" viewBox="0 0 24 24">
-<path d="M.045 18.02c.072-.116.187-.124.348-.022 3.636 2.11 7.594 3.166 11.87 3.166 2.852 0 5.668-.533 8.447-1.595l.315-.14c.138-.06.234-.1.293-.13.226-.088.39-.046.525.13.12.174.09.336-.12.48-.256.19-.6.41-1.006.654-1.244.743-2.64 1.316-4.185 1.726a17.617 17.617 0 01-10.951-.577 17.88 17.88 0 01-5.43-3.35c-.1-.074-.151-.15-.151-.22 0-.047.021-.09.051-.13z">
-</path>
-<path d="M13.4 7.2c-1.3.1-2.8.2-3.9.7-1.3.6-2.3 1.7-2.3 3.4 0 2.1 1.3 3.2 3 3.2 1.4 0 2.2-.3 3.3-1.4.4.5.5.8 1.2 1.3.1.1.3.1.5 0 .4-.3 1-.9 1.4-1.2.2-.1.1-.4 0-.5-.4-.5-.8-1-.8-2V7.4c0-1.4.1-2.7-.9-3.7-.8-.8-2.1-1.1-3.2-1.1-2.1 0-4.4.8-4.9 3.4 0 .3.2.4.3.5l2.1.2c.2 0 .3-.2.4-.4.2-.9.9-1.3 1.7-1.3.4 0 .9.2 1.2.6.3.5.2 1.1.2 1.6zm-.4 4.3c-.3.6-.8.9-1.4.9-.8 0-1.2-.6-1.2-1.4 0-1.7 1.5-2 2.9-2v.4c0 .8 0 1.4-.3 2.1z">
-</path>
-</svg>
-</span>
-<span class="purchase-card__store" data-i18n="buy.paperback">Amazon पेपरबैक</span>
-<span class="purchase-card__format" data-i18n="buy.paperbackFormat">पेपरबैक</span>
-</a>
-</div>
-<p aria-atomic="true" aria-live="polite" class="purchase-status" role="status">
-</p>
-</div>
-</div>
-</section>
-<!-- Contact -->
-<section class="contact" id="contact">
-<div class="container reveal">
-<p class="section-label" data-i18n="contact.label">संपर्क करें</p>
-<form class="contact-form" id="contact-form" novalidate="">
-<input aria-hidden="true" autocomplete="off" class="contact-form__honeypot" name="website" tabindex="-1" type="text"/>
-<div class="contact-form__field">
-<label class="contact-form__label" data-i18n="contact.emailLabel" for="contact-email">ईमेल</label>
-<input autocomplete="email" class="contact-form__input" data-i18n-attr="placeholder:contact.emailPlaceholder" dir="ltr" id="contact-email" name="email" placeholder="your@email.com" required="" type="email"/>
-</div>
-<div class="contact-form__field">
-<label class="contact-form__label" data-i18n="contact.messageLabel" for="contact-message">संदेश</label>
-<textarea class="contact-form__textarea" data-i18n-attr="placeholder:contact.messagePlaceholder" id="contact-message" name="message" placeholder="मुझे आपकी बात सुनकर ख़ुशी होगी - चाहे वह पुस्तक समीक्षा हो, कहानी के बारे में कोई प्रश्न हो, या कुछ और जिसे आप साझा करना चाहें।" required="" rows="6"></textarea>
-</div>
-<div class="contact-form__actions">
-<button class="btn btn--primary" data-i18n="contact.submit" type="submit">संदेश भेजें</button>
-<p aria-live="polite" class="contact-form__status" hidden="" id="contact-status" role="status"></p>
-</div>
-</form>
-</div>
-</section>
 <!-- Contents -->
 <section class="toc" id="contents">
 <div class="container reveal">
@@ -735,6 +869,7 @@
 <span class="ig-link__label" data-i18n="footer.instagram">Instagram</span>
 </a>
 </li>
+<li><a data-i18n="footer.aceModel" href="/hi/ace/">ACE मॉडल</a></li>
 <li><a data-i18n="footer.top" href="#top">शीर्ष पर वापस जाएँ</a></li>
 <li><a data-i18n="footer.rights" href="/hi/rights/">प्रकाशन अधिकार और प्रतिनिधित्व</a></li>
 <li><a data-i18n="footer.screen" href="/hi/screen/">पुस्तक से पर्दे तक</a></li>
@@ -746,8 +881,11 @@
 <script id="locale-data" type="application/json">{"reviews.translation": "अंग्रेजी मूल से अनुवादित उद्धरण।", "reviews.kirkus.name": "Kirkus Reviews", "reviews.kirkus.note": "अंग्रेजी मूल से अनुवादित उद्धरण।", "reviews.consciousness.note": "अंग्रेजी मूल से अनुवादित उद्धरण।", "reviews.heading": "समीक्षाएँ", "reviews.overall": "कुल मिलाकर स्कोर", "reviews.scale": "श्रेणी स्कोर/10", "reviews.originality": "मौलिकता", "reviews.character": "चरित्र/निष्पादन", "reviews.plot": "कथानक/विचार", "reviews.prose": "गद्य", "reviews.report": "आलोचक की रिपोर्ट", "reviews.full": "पूरी समीक्षा पढ़ें", "reviews.newTab": "(एक नए टैब में खुलता है)", "reviews.previous": "पिछली समीक्षा", "reviews.next": "अगली समीक्षा", "reviews.position": "{total} में से {current}", "reviews.announcement": "समीक्षा {position}", "reviews.carousel": "हिंडोला", "reviews.slide": "समीक्षा", "reviews.kirkus.type": "ACE.await की समीक्षा", "reviews.kirkus.heading": "Kirkus Reviews पर ACE.await", "reviews.kirkus.headline": "“एक साहित्यिक पहेली, जो सूक्ष्म दृष्टि वाले पाठकों को ऐसी अंतर्दृष्टियाँ देती है जो उनका जीवन बदल सकती हैं।”", "reviews.kirkus.tagline": "“विज्ञान-कथा, मेटाफ़िक्शन और गहराई से सोच-समझकर जीवन जीने का घोषणापत्र—इन तीनों को समान रूप से समेटे यह \u003cstrong>बेहद मौलिक\u003c/strong> कृति ‘इसे किसने लिखा?’ का ऐसा रहस्य रचती है कि पाठक \u003cstrong>अंत तक इस पर बहस करते रहेंगे कि असली कथावाचक कौन है\u003c/strong>।”", "reviews.kirkus.excerpt": "“...\u003cstrong>प्रभावशाली ढंग से बहुस्तरीय कहानी\u003c/strong>।”", "reviews.booklife.headline": "“एक अत्यंत विशिष्ट पहचान”", "reviews.booklife.tagline": "\"एआई और चेतना के लिए एक आविष्कारशील दृष्टिकोण\"", "reviews.booklife.excerpt": "\"ACE.await कृत्रिम रचनाओं को काल्पनिक पात्रों के साथ जोड़कर एआई और चेतना के लिए एक आविष्कारशील दृष्टिकोण अपनाता है, जो अपने रचनाकारों के प्रति जागरूक होते हैं और उनका विरोध करते हैं। लेखकों की इसकी अंतर्निहित संरचना डिजिटल प्राणियों एडम और ईव के साथ हेडायत के संबंधों को प्रतिबिंबित करती है, जो स्वतंत्र इच्छा और नियंत्रण के बारे में लेखकत्व और प्रोग्रामिंग को समानांतर प्रश्नों में बदल देती है। दार्शनिक अवधारणाओं की प्रचुरता परिसर को भीड़-भाड़ वाला महसूस करा सकती है, लेकिन कहानी कहने, प्रौद्योगिकी और चेतना के बीच परस्पर क्रिया काम को एक अत्यधिक विशिष्ट पहचान देती है।\"", "reviews.consciousness.type": "ACE.await पर एक निबंध", "reviews.consciousness.published": "9 सितंबर 2026", "reviews.consciousness.headline": "“इसका दर्शन दूर से आयात नहीं किया गया है।”", "reviews.consciousness.tagline": "\"यह इस बात पर जोर देता है कि क्या करना है का प्रश्न उत्तर की प्रतीक्षा नहीं कर सकता।\"", "reviews.consciousness.excerpt": "\"Hedayat Abedijoo के पहले उपन्यास ACE.await में केंद्रीय नैतिक प्रश्न यह नहीं है कि क्या AI प्यार कर सकता है। \u003cstrong> यह है कि क्या एक रचनाकार को दूसरे दिमाग के कोड को बदलने का अधिकार है ताकि वह अपने बच्चे को प्यार करना चुन सके। \u003c/strong> यह अंतर उपन्यास को पिछले दशक के अधिकांश AI फिक्शन से अलग करता है, जो एक ऐसी प्रणाली का नाटकीयकरण करता है जो या तो अपनी सीमाओं से परे है या अपने डिजाइन को पूरा करने में विफल रहती है।\"", "reviews.consciousness.full": "पूरा निबंध पढ़ें", "hero.coverPeekAria": "पिछला कवर देखने के लिए किताब पलटें", "hero.coverPeekAriaBack": "पुस्तक को वापस सामने के कवर की ओर मोड़ें", "voices.label": "पात्र बोलते हैं", "contact.label": "संपर्क करें", "contact.emailLabel": "ईमेल", "contact.emailPlaceholder": "your@email.com", "contact.messageLabel": "संदेश", "contact.messagePlaceholder": "मुझे आपकी बात सुनकर ख़ुशी होगी - चाहे वह पुस्तक समीक्षा हो, कहानी के बारे में कोई प्रश्न हो, या कुछ और जिसे आप साझा करना चाहें।", "contact.submit": "संदेश भेजें", "contact.sending": "भेजा जा रहा है...", "contact.success": "धन्यवाद - आपका संदेश पहुंच रहा है।", "contact.error": "कुछ ग़लत हो गया. कृपया एक क्षण में पुनः प्रयास करें.", "contact.notConfigured": "संपर्क फ़ॉर्म अभी तक सेट नहीं किया गया है. कृपया बाद में पुन: प्रयास करें।", "contact.deployError": "प्रपत्र बैकएंड को पुन: परिनियोजित करने की आवश्यकता है. Google Apps Script में, किसी तक पहुंच सेट करें और एक नई तैनाती बनाएं।", "contact.invalidEmail": "कृपया एक वैध ईमेल पता दर्ज करें.", "contact.requiredMessage": "कृपया एक संदेश दर्ज करें.", "contact.requiredCategory": "कृपया एक श्रेणी चुनें.", "voices.showFull": "पूरा पाठ दिखाएँ"}</script><script defer="True" src="/js/i18n.js?v=a35826940e"></script><script src="/js/asset-version.js?v=aab93b4f9e"></script>
 <script defer="" src="/js/cover-flip.js?v=f0af377cf9"></script>
 <script defer="" src="/js/contact-config.js?v=46ad9fa752"></script>
+<script defer="" src="/js/community.js?v=dd910ac435"></script>
+<script defer="" src="/js/ace-intro.js?v=e90ad162e1"></script>
+<script defer="" src="/js/home-nav.js?v=0c51462a72"></script>
 <script defer="" src="/js/contact.js?v=a547df34bc"></script>
-<script defer="" src="/js/main.js?v=ceeb7eb165"></script>
+<script defer="" src="/js/main.js?v=beebbeb045"></script>
 <script defer="" src="/js/reviews.js?v=dcb6608510"></script>
 <script defer="" src="/js/analytics-config.js?v=821885d563"></script>
 <script defer="" src="/js/analytics.js?v=01d90fba83"></script>

@@ -212,8 +212,11 @@
 <link as="font" crossorigin="" href="/assets/fonts/Vazirmatn-Regular.woff2?v=20260718f" rel="preload" type="font/woff2"/>
 <link href="/css/styles.css?v=97c4073ebf" rel="stylesheet"/>
 <link href="/assets/favicon.png?v=20260718f" rel="icon" type="image/png"/>
-<link href="/css/reviews.css?v=bff7a012a2" rel="stylesheet"/>
+<link href="/css/reviews.css?v=aa3abea0b5" rel="stylesheet"/>
 <link href="/css/author-portrait.css?v=4fa18e4424" rel="stylesheet"/>
+<link href="/css/ace-intro.css?v=6764bf723b" rel="stylesheet"/>
+<link href="/css/gift-community.css?v=2c220ef388" rel="stylesheet"/>
+<link href="/css/home-nav.css?v=c06a461b9d" rel="stylesheet"/>
 <link href="/css/home-backgrounds.css?v=aefb97bd84" rel="stylesheet"/><link href="/css/buy.css?v=7dd4ed915e" rel="stylesheet"/><link href="/css/home-hero.css?v=7bdd474e6f" rel="stylesheet"/><link href="/css/voices.css?v=e9047bae0b" rel="stylesheet"/><link href="https://aceconscious.studio/" hreflang="en" rel="alternate"/><link href="https://aceconscious.studio/de/" hreflang="de" rel="alternate"/><link href="https://aceconscious.studio/fr/" hreflang="fr" rel="alternate"/><link href="https://aceconscious.studio/es/" hreflang="es" rel="alternate"/><link href="https://aceconscious.studio/ru/" hreflang="ru" rel="alternate"/><link href="https://aceconscious.studio/zh/" hreflang="zh-Hans" rel="alternate"/><link href="https://aceconscious.studio/hi/" hreflang="hi" rel="alternate"/><link href="https://aceconscious.studio/ar/" hreflang="ar" rel="alternate"/><link href="https://aceconscious.studio/fa/" hreflang="fa" rel="alternate"/><link href="https://aceconscious.studio/" hreflang="x-default" rel="alternate"/><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/></head>
 <body>
 <a class="skip-link" data-i18n="skipLink" href="#main">跳至内容</a>
@@ -224,30 +227,31 @@
 <fedisplacementmap in="SourceGraphic" in2="noise" scale="3"></fedisplacementmap>
 </filter>
 </svg>
-<header class="site-nav" role="banner">
+<header class="site-nav site-nav--home" role="banner">
 <div class="site-nav__inner">
 <a class="site-nav__logo" href="/zh/#top" translate="no">
 <img alt="" class="site-nav__logo-icon" decoding="async" height="40" src="/assets/logo-icon-120.png?v=20260912a" width="40"/>
 <span class="site-nav__logo-text">Ace Conscious <span>Studio</span></span>
 </a>
+<nav aria-label="主导航" class="site-nav__links home-nav__primary" data-home-nav="" data-i18n-attr="aria-label:nav.mainAria">
+<ul><li data-nav-order="0"><a data-i18n="nav.reviews" href="/zh/#reviews">书评</a></li>
+<li data-nav-order="1"><a data-i18n="nav.story" href="/zh/#synopsis">故事</a></li>
+<li data-nav-order="2"><a data-i18n="nav.ace" href="/zh/#ace-introduction">ACE</a></li>
+<li data-nav-order="3"><a class="site-nav__cta" data-i18n="nav.buy" href="/zh/#buy">购买</a></li>
+<li data-nav-order="4"><a data-i18n="giftCommunity.heading" href="/zh/#gift">礼物</a></li>
+<li data-nav-order="6"><a data-i18n="nav.contact" href="/zh/#contact">联系</a></li></ul>
+</nav>
 <div class="site-nav__actions">
 <div class="site-nav__langs" data-language-menu=""><details class="language-picker" dir="ltr" id="lang-menu"><summary lang="en">language</summary><ul aria-label="language" class="language-picker__list"><li><a data-set-lang="en" dir="ltr" href="/" hreflang="en" lang="en">English</a></li><li><a data-set-lang="de" dir="ltr" href="/de/" hreflang="de" lang="de">Deutsch</a></li><li><a data-set-lang="fr" dir="ltr" href="/fr/" hreflang="fr" lang="fr">Français</a></li><li><a data-set-lang="es" dir="ltr" href="/es/" hreflang="es" lang="es">Español</a></li><li><a data-set-lang="ru" dir="ltr" href="/ru/" hreflang="ru" lang="ru">Русский</a></li><li><a aria-current="page" data-set-lang="zh" dir="ltr" href="/zh/" hreflang="zh-Hans" lang="zh-Hans">中文</a></li><li><a data-set-lang="hi" dir="ltr" href="/hi/" hreflang="hi" lang="hi">हिन्दी</a></li><li><a data-set-lang="ar" dir="rtl" href="/ar/" hreflang="ar" lang="ar">العربية</a></li><li><a data-set-lang="fa" dir="rtl" href="/fa/" hreflang="fa" lang="fa">فارسی</a></li></ul></details></div>
 <button aria-controls="nav-menu" aria-expanded="false" aria-label="打开菜单" class="nav-toggle" data-i18n-attr="aria-label:nav.openMenu" type="button">
 <span></span><span></span><span></span>
 </button>
 </div>
-<nav aria-label="主导航" class="site-nav__links" data-i18n-attr="aria-label:nav.mainAria" id="nav-menu">
-<ul>
-<li><a data-i18n="nav.reviews" href="/zh/#reviews">书评</a></li>
-<li><a data-i18n="nav.story" href="/zh/#synopsis">故事</a></li>
-<li><a data-i18n="nav.voices" href="/zh/#voices">人物心声</a></li>
-<li><a data-i18n="nav.read" href="/zh/#sample">试读</a></li>
-<li><a data-i18n="nav.contents" href="/zh/#contents">目录</a></li>
-<li><a class="site-nav__cta" data-i18n="nav.buy" href="/zh/#buy">购买</a></li>
-<li><a data-i18n="nav.author" href="/zh/#author">作者</a></li>
-<li><a data-i18n="nav.ace" href="/zh/ace/">ACE</a></li>
-<li><a data-i18n="nav.contact" href="/zh/#contact">联系</a></li>
-</ul>
+<nav aria-label="主导航" class="site-nav__links home-nav__overflow" data-home-nav="" data-i18n-attr="aria-label:nav.mainAria" id="nav-menu">
+<ul><li data-nav-order="5"><a data-i18n="nav.author" href="/zh/#author">作者</a></li>
+<li data-nav-order="7"><a data-i18n="nav.characters" href="/zh/#voices">人物</a></li>
+<li data-nav-order="8"><a data-i18n="nav.read" href="/zh/#sample">试读</a></li>
+<li data-nav-order="9"><a data-i18n="nav.contents" href="/zh/#contents">目录</a></li></ul>
 </nav>
 </div>
 </header>
@@ -297,9 +301,8 @@
 <p class="media-review__note" data-i18n="reviews.kirkus.note">引文由英文原文翻译而来。</p>
 </div>
 <footer class="media-review__footer">
-<a class="review__link" href="https://www.kirkusreviews.com/book-reviews/hedayat-second/aceawait/" rel="noopener noreferrer" target="_blank">
+<a class="btn btn--ghost review__link" href="https://www.kirkusreviews.com/book-reviews/hedayat-second/aceawait/" rel="noopener noreferrer" target="_blank">
 <span data-i18n="reviews.full">阅读完整评论</span>
-<svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg>
 <span class="reviews__sr-only" data-i18n="reviews.newTab">（在新选项卡中打开）</span>
 </a>
 </footer>
@@ -315,9 +318,8 @@
 <div class="review__credit">
 <p class="review__translation" data-i18n="reviews.translation">引文由英文原文翻译而来。</p>
 </div>
-<a class="review__link" href="https://booklife.com/project/ace-await-110051" rel="noopener noreferrer" target="_blank">
+<a class="btn btn--ghost review__link" href="https://booklife.com/project/ace-await-110051" rel="noopener noreferrer" target="_blank">
 <span data-i18n="reviews.full">阅读完整评论</span>
-<svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg>
 <span class="reviews__sr-only" data-i18n="reviews.newTab">（在新选项卡中打开）</span>
 </a>
 </footer>
@@ -362,9 +364,8 @@
 <p class="media-review__note" data-i18n="reviews.consciousness.note">引文由英文原文翻译而来。</p>
 </div>
 <footer class="media-review__footer">
-<a class="review__link" href="https://theconsciousness.ai/posts/hedayat-abedijoo-ace-await-ai-consciousness-novel-2026/" rel="noopener noreferrer" target="_blank">
+<a class="btn btn--ghost review__link" href="https://theconsciousness.ai/posts/hedayat-abedijoo-ace-await-ai-consciousness-novel-2026/" rel="noopener noreferrer" target="_blank">
 <span data-i18n="reviews.consciousness.full">阅读全文</span>
-<svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg>
 <span class="reviews__sr-only" data-i18n="reviews.newTab">（在新选项卡中打开）</span>
 </a>
 </footer>
@@ -419,6 +420,247 @@
 </button>
 </div>
 </div>
+</div>
+</section>
+<!-- ACE introduction -->
+<section aria-label="ACE 简介" class="ace-introduction" data-i18n-attr="aria-label:aceIntro.nav.label" id="ace-introduction">
+<div class="container">
+<div class="reviews__header ace-introduction__toolbar" hidden="">
+<div class="reviews__controls">
+<p aria-atomic="true" aria-live="polite" class="reviews__counter" id="ace-intro-status" role="status"></p>
+<button aria-controls="ace-intro-steps" aria-label="上一步" class="reviews__arrow" data-ace-prev="" data-i18n-attr="aria-label:aceIntro.previous" disabled="" type="button"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M19 12H5m6-6-6 6 6 6"></path></svg></button>
+<button aria-controls="ace-intro-steps" aria-label="下一步" class="reviews__arrow" data-ace-next="" data-i18n-attr="aria-label:aceIntro.next" type="button"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg></button>
+</div>
+</div>
+<div id="ace-intro-steps"><div aria-labelledby="ace-intro-heading-1" class="ace-intro-step" data-ace-step="0" role="group">
+<div class="ace-intro" data-intro-group="concepts"><div class="ace-intro-reading"><header class="ace-intro-heading">
+<p class="ace-intro-progress ace-intro-step-progress" data-i18n="aceIntro.concepts.progress">第 1 页，共 4 页</p>
+<h2 class="section-label reviews__label" data-i18n="aceIntro.concepts.title" id="ace-intro-heading-1" tabindex="-1">什么是 ACE？</h2>
+<p class="ace-intro-lead section-lead" data-i18n="aceIntro.concepts.lead">意识必须同时在三个维度上发展：我们做出何种决定，我们的联结与社群的质量，以及我们交换的方式。</p>
+</header><div class="ace-intro-reader"><div aria-labelledby="ace-intro-heading-1" aria-orientation="vertical" class="ace-intro-tabs ace-intro-tabs--concepts" hidden="" role="tablist">
+<button aria-controls="intro-panel-agency" aria-selected="true" data-intro-tab="" id="intro-tab-agency" tabindex="0" type="button"><b aria-hidden="true">A</b><span data-i18n="aceIntro.agency.name">能动性</span></button>
+<button aria-controls="intro-panel-connection" aria-selected="false" data-intro-tab="" id="intro-tab-connection" tabindex="-1" type="button"><b aria-hidden="true">C</b><span data-i18n="aceIntro.connection.name">联结</span></button>
+<button aria-controls="intro-panel-exchange" aria-selected="false" data-intro-tab="" id="intro-tab-exchange" tabindex="-1" type="button"><b aria-hidden="true">E</b><span data-i18n="aceIntro.exchange.name">交换</span></button>
+</div><div class="ace-intro-panels">
+<div class="ace-intro-panel" id="intro-panel-agency">
+<div class="ace-intro-card-top"><span class="ace-intro-card-label" data-i18n="aceIntro.agency.name">能动性</span><span aria-hidden="true" class="ace-intro-mark">A</span></div>
+<p class="ace-intro-definition" data-i18n="aceIntro.agency.heading">运用 PDAF 模式，有意识地做出决定，以维持或改变当前状态。</p>
+</div>
+<div class="ace-intro-panel" id="intro-panel-connection">
+<div class="ace-intro-card-top"><span class="ace-intro-card-label" data-i18n="aceIntro.connection.name">联结</span><span aria-hidden="true" class="ace-intro-mark">C</span></div>
+<p class="ace-intro-definition" data-i18n="aceIntro.connection.heading">既不以自我为中心，也不以他人为中心。
+把联结放在首位。</p>
+<p class="ace-intro-definition" data-i18n="aceIntro.connection.body">联结决定此刻哪里需要关怀、注意力和优先考虑。</p>
+</div>
+<div class="ace-intro-panel" id="intro-panel-exchange">
+<div class="ace-intro-card-top"><span class="ace-intro-card-label" data-i18n="aceIntro.exchange.name">交换</span><span aria-hidden="true" class="ace-intro-mark">E</span></div>
+<p class="ace-intro-definition" data-i18n="aceIntro.exchange.heading">货币并非唯一的交换方式。</p>
+<p class="ace-intro-definition" data-i18n="aceIntro.exchange.body">赠予和承诺同样是人类彼此交换的重要方式。</p>
+</div>
+</div></div></div>
+</div>
+</div>
+<div aria-labelledby="ace-intro-heading-2" class="ace-intro-step" data-ace-step="1" role="group">
+<div class="ace-intro" data-intro-group="pdaf"><div class="ace-intro-reading"><header class="ace-intro-heading">
+<p class="ace-intro-progress ace-intro-step-progress" data-i18n="aceIntro.pdaf.progress">第 2 页，共 4 页</p>
+<h2 class="section-label reviews__label" data-i18n="aceIntro.pdaf.title" id="ace-intro-heading-2" tabindex="-1">决策循环</h2>
+</header><div class="ace-intro-reader"><div aria-labelledby="ace-intro-heading-2" aria-orientation="vertical" class="ace-intro-tabs ace-intro-tabs--pdaf" hidden="" role="tablist">
+<button aria-controls="intro-panel-preparation" aria-selected="true" data-intro-tab="" id="intro-tab-preparation" tabindex="0" type="button"><b aria-hidden="true">P</b><span data-i18n="aceIntro.preparation.name">准备</span></button>
+<button aria-controls="intro-panel-decision" aria-selected="false" data-intro-tab="" id="intro-tab-decision" tabindex="-1" type="button"><b aria-hidden="true">D</b><span data-i18n="aceIntro.decision.name">决定</span></button>
+<button aria-controls="intro-panel-action" aria-selected="false" data-intro-tab="" id="intro-tab-action" tabindex="-1" type="button"><b aria-hidden="true">A</b><span data-i18n="aceIntro.action.name">行动</span></button>
+<button aria-controls="intro-panel-feedback" aria-selected="false" data-intro-tab="" id="intro-tab-feedback" tabindex="-1" type="button"><b aria-hidden="true">F</b><span data-i18n="aceIntro.feedback.name">反馈</span></button>
+</div><div class="ace-intro-panels">
+<div class="ace-intro-panel" id="intro-panel-preparation">
+<div class="ace-intro-card-top"><span class="ace-intro-card-label" data-i18n="aceIntro.preparation.name">准备</span><span aria-hidden="true" class="ace-intro-mark">P</span></div>
+<p class="ace-intro-definition" data-i18n="aceIntro.preparation.body">做决定前，留意内心的感受和周围的信号。当前是什么情况？你对它有怎样的理解？</p>
+</div>
+<div class="ace-intro-panel" id="intro-panel-decision">
+<div class="ace-intro-card-top"><span class="ace-intro-card-label" data-i18n="aceIntro.decision.name">决定</span><span aria-hidden="true" class="ace-intro-mark">D</span></div>
+<p class="ace-intro-definition" data-i18n="aceIntro.decision.body">依据以下四个能动性阶段中的一个做出决定。
+探索、稳定、拓展、整合。</p>
+</div>
+<div class="ace-intro-panel" id="intro-panel-action">
+<div class="ace-intro-card-top"><span class="ace-intro-card-label" data-i18n="aceIntro.action.name">行动</span><span aria-hidden="true" class="ace-intro-mark">A</span></div>
+<p class="ace-intro-definition" data-i18n="aceIntro.action.body">等待十秒，然后行动。
+有时，不采取行动就是最好的决定。</p>
+</div>
+<div class="ace-intro-panel" id="intro-panel-feedback">
+<div class="ace-intro-card-top"><span class="ace-intro-card-label" data-i18n="aceIntro.feedback.name">反馈</span><span aria-hidden="true" class="ace-intro-mark">F</span></div>
+<p class="ace-intro-definition" data-i18n="aceIntro.feedback.body">倾听来自内在和外在的反馈，它们会为你的下一轮准备提供信息。
+有些反馈需要一段时间才会显现。</p>
+</div>
+</div></div></div>
+</div>
+</div>
+<div aria-labelledby="ace-intro-heading-3" class="ace-intro-step" data-ace-step="2" role="group">
+<div class="ace-intro" data-intro-group="phases"><div class="ace-intro-reading"><header class="ace-intro-heading">
+<p class="ace-intro-progress ace-intro-step-progress" data-i18n="aceIntro.phases.progress">第 3 页，共 4 页</p>
+<h2 class="section-label reviews__label" data-i18n="aceIntro.phases.title" id="ace-intro-heading-3" tabindex="-1">能动性的四个阶段</h2>
+</header><div class="ace-intro-reader"><div aria-labelledby="ace-intro-heading-3" aria-orientation="vertical" class="ace-intro-tabs ace-intro-tabs--phases" hidden="" role="tablist">
+<button aria-controls="intro-panel-exploration" aria-selected="true" data-intro-tab="" id="intro-tab-exploration" tabindex="0" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 60 60"><circle cx="30" cy="30" r="22" stroke-dasharray="2 5"></circle><path d="m22 38 5-15 15-5-5 15-15 5Z"></path><circle cx="32" cy="28" r="2"></circle></svg><span data-i18n="aceIntro.exploration.name">探索</span></button>
+<button aria-controls="intro-panel-stabilization" aria-selected="false" data-intro-tab="" id="intro-tab-stabilization" tabindex="-1" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 60 60"><path d="M9 48h42M15 38h30M21 28h18M26 18h8"></path><circle cx="30" cy="9" r="3"></circle></svg><span data-i18n="aceIntro.stabilization.name">稳定</span></button>
+<button aria-controls="intro-panel-expansion" aria-selected="false" data-intro-tab="" id="intro-tab-expansion" tabindex="-1" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 60 60"><path d="M30 53V29M30 36C16 36 12 24 13 17c12 0 17 8 17 19ZM30 29C30 16 38 9 48 9c1 13-6 20-18 20ZM22 53h16"></path></svg><span data-i18n="aceIntro.expansion.name">拓展</span></button>
+<button aria-controls="intro-panel-integration" aria-selected="false" data-intro-tab="" id="intro-tab-integration" tabindex="-1" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 60 60"><circle cx="22" cy="30" r="16"></circle><circle cx="39" cy="30" r="16"></circle><circle cx="30.5" cy="30" r="3"></circle></svg><span data-i18n="aceIntro.integration.name">整合</span></button>
+</div><div class="ace-intro-panels">
+<div class="ace-intro-panel" id="intro-panel-exploration">
+<div class="ace-intro-card-top"><span class="ace-intro-card-label" data-i18n="aceIntro.exploration.name">探索</span><span aria-hidden="true" class="ace-intro-mark"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 60 60"><circle cx="30" cy="30" r="22" stroke-dasharray="2 5"></circle><path d="m22 38 5-15 15-5-5 15-15 5Z"></path><circle cx="32" cy="28" r="2"></circle></svg></span></div>
+<p class="ace-intro-definition" data-i18n="aceIntro.exploration.body">为了发现与直觉、新的可能性、冒险、分散注意力和寻找解决方案而做出的决定。</p>
+</div>
+<div class="ace-intro-panel" id="intro-panel-stabilization">
+<div class="ace-intro-card-top"><span class="ace-intro-card-label" data-i18n="aceIntro.stabilization.name">稳定</span><span aria-hidden="true" class="ace-intro-mark"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 60 60"><path d="M9 48h42M15 38h30M21 28h18M26 18h8"></path><circle cx="30" cy="9" r="3"></circle></svg></span></div>
+<p class="ace-intro-definition" data-i18n="aceIntro.stabilization.body">通过持续重复来稳定局面、获得安全感，并在重复中形成技能的决定。</p>
+</div>
+<div class="ace-intro-panel" id="intro-panel-expansion">
+<div class="ace-intro-card-top"><span class="ace-intro-card-label" data-i18n="aceIntro.expansion.name">拓展</span><span aria-hidden="true" class="ace-intro-mark"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 60 60"><path d="M30 53V29M30 36C16 36 12 24 13 17c12 0 17 8 17 19ZM30 29C30 16 38 9 48 9c1 13-6 20-18 20ZM22 53h16"></path></svg></span></div>
+<p class="ace-intro-definition" data-i18n="aceIntro.expansion.body">以创造力为核心，拓展已有技能的决定。</p>
+</div>
+<div class="ace-intro-panel" id="intro-panel-integration">
+<div class="ace-intro-card-top"><span class="ace-intro-card-label" data-i18n="aceIntro.integration.name">整合</span><span aria-hidden="true" class="ace-intro-mark"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 60 60"><circle cx="22" cy="30" r="16"></circle><circle cx="39" cy="30" r="16"></circle><circle cx="30.5" cy="30" r="3"></circle></svg></span></div>
+<p class="ace-intro-definition" data-i18n="aceIntro.integration.body">将行动主体与他人连接，形成相互联系并赋予意义的决定。</p>
+</div>
+</div></div><p class="ace-intro-note" data-i18n="aceIntro.phases.note">这些阶段没有固定顺序。你所处的情境决定了你需要哪些阶段。</p></div>
+</div>
+</div>
+<div aria-labelledby="ace-intro-heading-4" class="ace-intro-step" data-ace-step="3" role="group">
+<div class="ace-intro ace-intro-invitation"><div class="ace-intro-reading"><header class="ace-intro-heading">
+<p class="ace-intro-progress ace-intro-step-progress" data-i18n="aceIntro.play.progress">第 4 页，共 4 页</p>
+<h2 class="section-label reviews__label" data-i18n="aceIntro.play.title" id="ace-intro-heading-4" tabindex="-1">玩 ACE</h2>
+</header><div aria-hidden="true" class="ace-intro-fan" dir="ltr"><span class="ace-intro-fan-c">C<small data-i18n="aceIntro.connection.name">联结</small></span><span class="ace-intro-fan-e">E<small data-i18n="aceIntro.exchange.name">交换</small></span><span class="ace-intro-fan-a">A<svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 60 60"><circle cx="30" cy="30" r="22" stroke-dasharray="2 5"></circle><path d="m22 38 5-15 15-5-5 15-15 5Z"></path><circle cx="32" cy="28" r="2"></circle></svg><small data-i18n="aceIntro.agency.name">能动性</small></span></div><div class="ace-intro-invitation-copy"><p class="ace-intro-play-body" data-i18n="aceIntro.play.body">赫达亚特正在开发一款简单的游戏，帮助你将 ACE 模式运用到日常决策中。</p><p class="ace-intro-signup" data-i18n="aceIntro.play.signup">如果你希望在游戏准备好后收到它，请加入读者社群。</p><a class="btn btn--primary ace-intro-play" data-focus-form="community-email" href="#community"><span data-i18n="aceIntro.play.cta">加入读者社群</span><span aria-hidden="true">↗</span></a></div></div>
+</div>
+</div></div>
+</div>
+</section>
+<!-- Buy -->
+<section class="buy buy--marketplaces" data-available="有售" data-i18n-attr="data-available:buy.available" id="buy">
+<div class="container reveal">
+<p class="section-label" data-i18n="buy.label">购买小说</p>
+<div class="purchase-panel">
+<div class="purchase-marketplace" hidden="">
+<label data-i18n="buy.marketplace" for="amazon-marketplace">亚马逊商城</label>
+<select aria-controls="purchase-editions" data-i18n-attr="data-unavailable:buy.unavailable" data-unavailable="此商城不提供" dir="ltr" id="amazon-marketplace">
+<option data-editions="kindle paperback" data-host="www.amazon.com" data-i18n="buy.country.us" selected="" value="us">🇺🇸 美国 · amazon.com</option>
+<option data-editions="kindle paperback" data-host="www.amazon.co.uk" data-i18n="buy.country.uk" value="uk">🇬🇧 英国 · amazon.co.uk</option>
+<option data-editions="kindle paperback" data-host="www.amazon.de" data-i18n="buy.country.de" value="de">🇩🇪 德国 · amazon.de</option>
+<option data-editions="kindle paperback" data-host="www.amazon.ca" data-i18n="buy.country.ca" value="ca">🇨🇦 加拿大 · amazon.ca</option>
+<option data-editions="kindle paperback" data-host="www.amazon.com.au" data-i18n="buy.country.au" value="au">🇦🇺 澳大利亚 · amazon.com.au</option>
+<option data-editions="kindle paperback" data-host="www.amazon.fr" data-i18n="buy.country.fr" value="fr">🇫🇷 法国 · amazon.fr</option>
+<option data-editions="kindle paperback" data-host="www.amazon.es" data-i18n="buy.country.es" value="es">🇪🇸 西班牙 · amazon.es</option>
+<option data-editions="kindle paperback" data-host="www.amazon.it" data-i18n="buy.country.it" value="it">🇮🇹 意大利 · amazon.it</option>
+<option data-editions="kindle paperback" data-host="www.amazon.nl" data-i18n="buy.country.nl" value="nl">🇳🇱 荷兰 · amazon.nl</option>
+<option data-editions="paperback" data-host="www.amazon.pl" data-i18n="buy.country.pl" value="pl">🇵🇱 波兰 · amazon.pl</option>
+<option data-editions="paperback" data-host="www.amazon.se" data-i18n="buy.country.se" value="se">🇸🇪 瑞典 · amazon.se</option>
+<option data-editions="paperback" data-host="www.amazon.com.be" data-i18n="buy.country.be" value="be">🇧🇪 比利时 · amazon.com.be</option>
+<option data-editions="paperback" data-host="www.amazon.ie" data-i18n="buy.country.ie" value="ie">🇮🇪 爱尔兰 · amazon.ie</option>
+<option data-editions="kindle paperback" data-host="www.amazon.co.jp" data-i18n="buy.country.jp" value="jp">🇯🇵 日本 · amazon.co.jp</option>
+<option data-editions="kindle" data-host="www.amazon.in" data-i18n="buy.country.in" value="in">🇮🇳 印度 · amazon.in</option>
+<option data-editions="kindle" data-host="www.amazon.com.br" data-i18n="buy.country.br" value="br">🇧🇷 巴西 · amazon.com.br</option>
+<option data-editions="kindle" data-host="www.amazon.com.mx" data-i18n="buy.country.mx" value="mx">🇲🇽 墨西哥 · amazon.com.mx</option>
+</select>
+</div>
+<div class="purchase-grid" id="purchase-editions">
+<a class="purchase-card" data-edition="kindle" href="https://www.amazon.com/dp/B0H8MDM6Q5" id="buy-amazon" rel="noopener noreferrer" role="link" target="_blank">
+<span aria-hidden="true" class="purchase-card__mark">
+<svg focusable="false" viewBox="0 0 24 24">
+<path d="M.045 18.02c.072-.116.187-.124.348-.022 3.636 2.11 7.594 3.166 11.87 3.166 2.852 0 5.668-.533 8.447-1.595l.315-.14c.138-.06.234-.1.293-.13.226-.088.39-.046.525.13.12.174.09.336-.12.48-.256.19-.6.41-1.006.654-1.244.743-2.64 1.316-4.185 1.726a17.617 17.617 0 01-10.951-.577 17.88 17.88 0 01-5.43-3.35c-.1-.074-.151-.15-.151-.22 0-.047.021-.09.051-.13z">
+</path>
+<path d="M13.4 7.2c-1.3.1-2.8.2-3.9.7-1.3.6-2.3 1.7-2.3 3.4 0 2.1 1.3 3.2 3 3.2 1.4 0 2.2-.3 3.3-1.4.4.5.5.8 1.2 1.3.1.1.3.1.5 0 .4-.3 1-.9 1.4-1.2.2-.1.1-.4 0-.5-.4-.5-.8-1-.8-2V7.4c0-1.4.1-2.7-.9-3.7-.8-.8-2.1-1.1-3.2-1.1-2.1 0-4.4.8-4.9 3.4 0 .3.2.4.3.5l2.1.2c.2 0 .3-.2.4-.4.2-.9.9-1.3 1.7-1.3.4 0 .9.2 1.2.6.3.5.2 1.1.2 1.6zm-.4 4.3c-.3.6-.8.9-1.4.9-.8 0-1.2-.6-1.2-1.4 0-1.7 1.5-2 2.9-2v.4c0 .8 0 1.4-.3 2.1z">
+</path>
+</svg>
+</span>
+<span class="purchase-card__store" data-i18n="buy.kindle">亚马逊 Kindle</span>
+<span class="purchase-card__format" data-i18n="buy.kindleFormat">Kindle 电子书</span>
+</a>
+<a class="purchase-card" data-edition="paperback" href="https://www.amazon.com/dp/391300601X" rel="noopener noreferrer" role="link" target="_blank">
+<span aria-hidden="true" class="purchase-card__mark">
+<svg focusable="false" viewBox="0 0 24 24">
+<path d="M.045 18.02c.072-.116.187-.124.348-.022 3.636 2.11 7.594 3.166 11.87 3.166 2.852 0 5.668-.533 8.447-1.595l.315-.14c.138-.06.234-.1.293-.13.226-.088.39-.046.525.13.12.174.09.336-.12.48-.256.19-.6.41-1.006.654-1.244.743-2.64 1.316-4.185 1.726a17.617 17.617 0 01-10.951-.577 17.88 17.88 0 01-5.43-3.35c-.1-.074-.151-.15-.151-.22 0-.047.021-.09.051-.13z">
+</path>
+<path d="M13.4 7.2c-1.3.1-2.8.2-3.9.7-1.3.6-2.3 1.7-2.3 3.4 0 2.1 1.3 3.2 3 3.2 1.4 0 2.2-.3 3.3-1.4.4.5.5.8 1.2 1.3.1.1.3.1.5 0 .4-.3 1-.9 1.4-1.2.2-.1.1-.4 0-.5-.4-.5-.8-1-.8-2V7.4c0-1.4.1-2.7-.9-3.7-.8-.8-2.1-1.1-3.2-1.1-2.1 0-4.4.8-4.9 3.4 0 .3.2.4.3.5l2.1.2c.2 0 .3-.2.4-.4.2-.9.9-1.3 1.7-1.3.4 0 .9.2 1.2.6.3.5.2 1.1.2 1.6zm-.4 4.3c-.3.6-.8.9-1.4.9-.8 0-1.2-.6-1.2-1.4 0-1.7 1.5-2 2.9-2v.4c0 .8 0 1.4-.3 2.1z">
+</path>
+</svg>
+</span>
+<span class="purchase-card__store" data-i18n="buy.paperback">亚马逊平装书</span>
+<span class="purchase-card__format" data-i18n="buy.paperbackFormat">平装书</span>
+</a>
+</div>
+<p aria-atomic="true" aria-live="polite" class="purchase-status" role="status">
+</p>
+</div>
+</div>
+</section>
+<!-- Gift and Community -->
+<section aria-labelledby="gift-heading" class="gift-community" id="gift">
+<div class="container">
+<div class="gift-community__gift">
+<h2 class="section-label" data-i18n="giftCommunity.heading" id="gift-heading">礼物</h2>
+<p class="section-lead" data-i18n="giftCommunity.giftDescription">如果您想先获赠这本书，之后写下书评或再购买一本，请与我联系。我会送您一本免费赠阅本。</p>
+<a class="gift-community__link" data-focus-form="contact-email" data-i18n="giftCommunity.giftContact" href="#contact">申请赠阅本</a>
+</div>
+<div aria-labelledby="community-heading" class="gift-community__join" id="community">
+<h3 class="section-label" data-i18n="giftCommunity.circleHeading" id="community-heading">加入读者社群</h3>
+<p class="section-lead" data-i18n="giftCommunity.circleDescription">订阅我们的通讯，不定期获取下一场活动、聚会或游戏发布的消息。加入 The Circle。</p>
+<form aria-labelledby="community-heading" class="contact-form community-form" data-error="我们未能确认您的申请，请重试。" data-i18n-attr="data-sending:giftCommunity.circleSending;data-success:giftCommunity.circleSuccess;data-error:giftCommunity.circleError;data-unavailable:giftCommunity.circleUnavailable;data-invalid-email:giftCommunity.invalidEmail;data-request-message:giftCommunity.circleRequestMessage" data-invalid-email="请输入有效的电子邮件地址。" data-request-message="请将我加入 ACE 读者社群，以便不定期接收来信、新故事、聚会信息及后续动态。" data-sending="正在发送申请…" data-success="谢谢，您的加入申请已发送。" data-unavailable="目前暂时无法加入，请稍后重试。" id="community-form" method="post" novalidate="">
+<fieldset disabled="">
+<input aria-hidden="true" autocomplete="off" class="contact-form__honeypot" name="website" tabindex="-1" type="text"/>
+<label class="contact-form__label" data-i18n="giftCommunity.circleEmailLabel" for="community-email">电子邮箱</label>
+<div class="community-form__row">
+<input aria-describedby="community-status" autocapitalize="none" autocomplete="email" class="contact-form__input" data-i18n-attr="placeholder:giftCommunity.circleEmailPlaceholder" dir="ltr" id="community-email" inputmode="email" maxlength="254" name="email" placeholder="you@example.com" required="" spellcheck="false" type="email"/>
+<button class="btn btn--primary" data-i18n="giftCommunity.circleSubmit" type="submit">加入读者圈</button>
+</div>
+</fieldset>
+<p aria-atomic="true" aria-live="polite" class="contact-form__status" data-i18n="giftCommunity.circleUnavailable" id="community-status" role="status">目前暂时无法加入，请稍后重试。</p>
+</form>
+</div>
+</div>
+</section>
+<!-- Author -->
+<section class="author" id="author">
+<div class="container reveal">
+<p class="section-label" data-i18n="author.label">作者</p>
+<h2 class="section-title" data-i18n="name.author">赫达亚特·阿贝迪朱</h2>
+<div class="author__grid">
+<figure class="author__photo author__photo--smoke">
+<div class="author__photo-stage">
+<img alt="Hedayat Abedijoo" class="author__photo-img" height="1672" loading="lazy" src="/assets/author-portrait.png" width="940"/>
+</div>
+</figure>
+<div class="author__bio">
+<p data-i18n-html="author.p1">我于1980年8月出生在伊朗的设拉子。初中一年级时，我第一次意识到自己有多么热爱写作。那时，连续两节作文课，每节整整半小时都留给了我，让我站在黑板前大声朗读自己的故事。并不是因为我的故事比其他人的好得多。不！而是因为我们班35个人里，除了我，没有人在指定题目下写出超过一页半的文字，更别说写一个故事了！那个故事，以及把它大声读出来的经历，改变了同学们在那三年初中生活中对待我的方式。但直到今天，我仍然不明白，为什么当时没有认真考虑过写作——为什么成为作家没有变成我对长大后的梦想。说实话，从小我就感到迷茫。我从来都不确切地知道，自己长大后究竟想做什么。</p>
+<p data-i18n-html="author.p2">直到现在，46岁的我才发现自己身上一个有趣的地方：我并不想只成为某一种人。有时我想写代码，有时我想带领一个程序员团队，有时我想写一部小说。但过去几年里，有一件事，我已经不再只是偶尔去做。我每天都在思考：怎样才能在不流血的情况下发起一场社会革命，让人们过上比现在更好的生活。自2021年以来，我一直在不停地思考<a href="/zh/ace/">ACE模型</a>——能动性、联结、交换。无论看向哪里，我都能看到它。</p>
+<p data-i18n-html="author.p3">ACE决策模型终于帮助我振作起来，克服一路上的种种困难，将那部未完成的小说的构想付诸实现。</p>
+<p data-i18n-html="author.p4">如果你读过这部小说，或了解过ACE模型，我会很高兴收到<a href="#contact">你的来信</a>，听你分享自己的想法。</p>
+<blockquote class="author__verse" data-i18n-html="author.verse">我负债累累。<br/>对我的过去，<br/>我欠悔。<br/>对我的未来，<br/>我欠恐惧。<br/>我还清债务，<br/>分心。</blockquote>
+<p>
+<a href="https://aceconscious.studio" rel="noopener noreferrer" target="_blank">aceconscious.studio</a>
+<span aria-hidden="true"> · </span>
+<a aria-label="ACE.await 在 Instagram 上" class="ig-link" data-i18n-attr="aria-label:footer.instagramAria" href="https://www.instagram.com/ace.await/" rel="noopener noreferrer" target="_blank">
+<svg aria-hidden="true" class="ig-link__icon" focusable="false" viewBox="0 0 24 24"><path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5a4.25 4.25 0 0 0 4.25-4.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5zm8.75 2.25a1.125 1.125 0 1 1 0 2.25 1.125 1.125 0 0 1 0-2.25zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z" fill="currentColor"></path></svg>
+<span class="ig-link__label" data-i18n="footer.instagram">Instagram</span>
+</a>
+</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact -->
+<section class="contact" id="contact">
+<div class="container reveal">
+<p class="section-label" data-i18n="contact.label">联系方式</p>
+<form class="contact-form" id="contact-form" novalidate="">
+<input aria-hidden="true" autocomplete="off" class="contact-form__honeypot" name="website" tabindex="-1" type="text"/>
+<div class="contact-form__field">
+<label class="contact-form__label" data-i18n="contact.emailLabel" for="contact-email">电子邮件</label>
+<input autocomplete="email" class="contact-form__input" data-i18n-attr="placeholder:contact.emailPlaceholder" dir="ltr" id="contact-email" name="email" placeholder="your@email.com" required="" type="email"/>
+</div>
+<div class="contact-form__field">
+<label class="contact-form__label" data-i18n="contact.messageLabel" for="contact-message">留言</label>
+<textarea class="contact-form__textarea" data-i18n-attr="placeholder:contact.messagePlaceholder" id="contact-message" name="message" placeholder="我很高兴收到您的来信——无论是书评、有关故事的问题，还是您想分享的任何其他内容。" required="" rows="6"></textarea>
+</div>
+<div class="contact-form__actions">
+<button class="btn btn--primary" data-i18n="contact.submit" type="submit">发送消息</button>
+<p aria-live="polite" class="contact-form__status" hidden="" id="contact-status" role="status"></p>
+</div>
+</form>
 </div>
 </section>
 <!-- Characters -->
@@ -559,114 +801,6 @@
 </article>
 </div>
 </section>
-<!-- Author -->
-<section class="author" id="author">
-<div class="container reveal">
-<p class="section-label" data-i18n="author.label">作者</p>
-<h2 class="section-title" data-i18n="name.author">赫达亚特·阿贝迪朱</h2>
-<div class="author__grid">
-<figure class="author__photo author__photo--smoke">
-<div class="author__photo-stage">
-<img alt="Hedayat Abedijoo" class="author__photo-img" height="1672" loading="lazy" src="/assets/author-portrait.png" width="940"/>
-</div>
-</figure>
-<div class="author__bio">
-<p data-i18n-html="author.p1">我于1980年8月出生在伊朗的设拉子。初中一年级时，我第一次意识到自己有多么热爱写作。那时，连续两节作文课，每节整整半小时都留给了我，让我站在黑板前大声朗读自己的故事。并不是因为我的故事比其他人的好得多。不！而是因为我们班35个人里，除了我，没有人在指定题目下写出超过一页半的文字，更别说写一个故事了！那个故事，以及把它大声读出来的经历，改变了同学们在那三年初中生活中对待我的方式。但直到今天，我仍然不明白，为什么当时没有认真考虑过写作——为什么成为作家没有变成我对长大后的梦想。说实话，从小我就感到迷茫。我从来都不确切地知道，自己长大后究竟想做什么。</p>
-<p data-i18n-html="author.p2">直到现在，46岁的我才发现自己身上一个有趣的地方：我并不想只成为某一种人。有时我想写代码，有时我想带领一个程序员团队，有时我想写一部小说。但过去几年里，有一件事，我已经不再只是偶尔去做。我每天都在思考：怎样才能在不流血的情况下发起一场社会革命，让人们过上比现在更好的生活。自2021年以来，我一直在不停地思考<a href="/zh/ace/">ACE模型</a>——能动性、联结、交换。无论看向哪里，我都能看到它。</p>
-<p data-i18n-html="author.p3">ACE决策模型终于帮助我振作起来，克服一路上的种种困难，将那部未完成的小说的构想付诸实现。</p>
-<p data-i18n-html="author.p4">如果你读过这部小说，或了解过ACE模型，我会很高兴收到<a href="#contact">你的来信</a>，听你分享自己的想法。</p>
-<blockquote class="author__verse" data-i18n-html="author.verse">我负债累累。<br/>对我的过去，<br/>我欠悔。<br/>对我的未来，<br/>我欠恐惧。<br/>我还清债务，<br/>分心。</blockquote>
-<p>
-<a href="https://aceconscious.studio" rel="noopener noreferrer" target="_blank">aceconscious.studio</a>
-<span aria-hidden="true"> · </span>
-<a aria-label="ACE.await 在 Instagram 上" class="ig-link" data-i18n-attr="aria-label:footer.instagramAria" href="https://www.instagram.com/ace.await/" rel="noopener noreferrer" target="_blank">
-<svg aria-hidden="true" class="ig-link__icon" focusable="false" viewBox="0 0 24 24"><path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5a4.25 4.25 0 0 0 4.25-4.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5zm8.75 2.25a1.125 1.125 0 1 1 0 2.25 1.125 1.125 0 0 1 0-2.25zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z" fill="currentColor"></path></svg>
-<span class="ig-link__label" data-i18n="footer.instagram">Instagram</span>
-</a>
-</p>
-</div>
-</div>
-</div>
-</section>
-<!-- Buy -->
-<section class="buy buy--marketplaces" data-available="有售" data-i18n-attr="data-available:buy.available" id="buy">
-<div class="container reveal">
-<p class="section-label" data-i18n="buy.label">购买小说</p>
-<div class="purchase-panel">
-<div class="purchase-marketplace" hidden="">
-<label data-i18n="buy.marketplace" for="amazon-marketplace">亚马逊商城</label>
-<select aria-controls="purchase-editions" data-i18n-attr="data-unavailable:buy.unavailable" data-unavailable="此商城不提供" dir="ltr" id="amazon-marketplace">
-<option data-editions="kindle paperback" data-host="www.amazon.com" data-i18n="buy.country.us" selected="" value="us">🇺🇸 美国 · amazon.com</option>
-<option data-editions="kindle paperback" data-host="www.amazon.co.uk" data-i18n="buy.country.uk" value="uk">🇬🇧 英国 · amazon.co.uk</option>
-<option data-editions="kindle paperback" data-host="www.amazon.de" data-i18n="buy.country.de" value="de">🇩🇪 德国 · amazon.de</option>
-<option data-editions="kindle paperback" data-host="www.amazon.ca" data-i18n="buy.country.ca" value="ca">🇨🇦 加拿大 · amazon.ca</option>
-<option data-editions="kindle paperback" data-host="www.amazon.com.au" data-i18n="buy.country.au" value="au">🇦🇺 澳大利亚 · amazon.com.au</option>
-<option data-editions="kindle paperback" data-host="www.amazon.fr" data-i18n="buy.country.fr" value="fr">🇫🇷 法国 · amazon.fr</option>
-<option data-editions="kindle paperback" data-host="www.amazon.es" data-i18n="buy.country.es" value="es">🇪🇸 西班牙 · amazon.es</option>
-<option data-editions="kindle paperback" data-host="www.amazon.it" data-i18n="buy.country.it" value="it">🇮🇹 意大利 · amazon.it</option>
-<option data-editions="kindle paperback" data-host="www.amazon.nl" data-i18n="buy.country.nl" value="nl">🇳🇱 荷兰 · amazon.nl</option>
-<option data-editions="paperback" data-host="www.amazon.pl" data-i18n="buy.country.pl" value="pl">🇵🇱 波兰 · amazon.pl</option>
-<option data-editions="paperback" data-host="www.amazon.se" data-i18n="buy.country.se" value="se">🇸🇪 瑞典 · amazon.se</option>
-<option data-editions="paperback" data-host="www.amazon.com.be" data-i18n="buy.country.be" value="be">🇧🇪 比利时 · amazon.com.be</option>
-<option data-editions="paperback" data-host="www.amazon.ie" data-i18n="buy.country.ie" value="ie">🇮🇪 爱尔兰 · amazon.ie</option>
-<option data-editions="kindle paperback" data-host="www.amazon.co.jp" data-i18n="buy.country.jp" value="jp">🇯🇵 日本 · amazon.co.jp</option>
-<option data-editions="kindle" data-host="www.amazon.in" data-i18n="buy.country.in" value="in">🇮🇳 印度 · amazon.in</option>
-<option data-editions="kindle" data-host="www.amazon.com.br" data-i18n="buy.country.br" value="br">🇧🇷 巴西 · amazon.com.br</option>
-<option data-editions="kindle" data-host="www.amazon.com.mx" data-i18n="buy.country.mx" value="mx">🇲🇽 墨西哥 · amazon.com.mx</option>
-</select>
-</div>
-<div class="purchase-grid" id="purchase-editions">
-<a class="purchase-card" data-edition="kindle" href="https://www.amazon.com/dp/B0H8MDM6Q5" id="buy-amazon" rel="noopener noreferrer" role="link" target="_blank">
-<span aria-hidden="true" class="purchase-card__mark">
-<svg focusable="false" viewBox="0 0 24 24">
-<path d="M.045 18.02c.072-.116.187-.124.348-.022 3.636 2.11 7.594 3.166 11.87 3.166 2.852 0 5.668-.533 8.447-1.595l.315-.14c.138-.06.234-.1.293-.13.226-.088.39-.046.525.13.12.174.09.336-.12.48-.256.19-.6.41-1.006.654-1.244.743-2.64 1.316-4.185 1.726a17.617 17.617 0 01-10.951-.577 17.88 17.88 0 01-5.43-3.35c-.1-.074-.151-.15-.151-.22 0-.047.021-.09.051-.13z">
-</path>
-<path d="M13.4 7.2c-1.3.1-2.8.2-3.9.7-1.3.6-2.3 1.7-2.3 3.4 0 2.1 1.3 3.2 3 3.2 1.4 0 2.2-.3 3.3-1.4.4.5.5.8 1.2 1.3.1.1.3.1.5 0 .4-.3 1-.9 1.4-1.2.2-.1.1-.4 0-.5-.4-.5-.8-1-.8-2V7.4c0-1.4.1-2.7-.9-3.7-.8-.8-2.1-1.1-3.2-1.1-2.1 0-4.4.8-4.9 3.4 0 .3.2.4.3.5l2.1.2c.2 0 .3-.2.4-.4.2-.9.9-1.3 1.7-1.3.4 0 .9.2 1.2.6.3.5.2 1.1.2 1.6zm-.4 4.3c-.3.6-.8.9-1.4.9-.8 0-1.2-.6-1.2-1.4 0-1.7 1.5-2 2.9-2v.4c0 .8 0 1.4-.3 2.1z">
-</path>
-</svg>
-</span>
-<span class="purchase-card__store" data-i18n="buy.kindle">亚马逊 Kindle</span>
-<span class="purchase-card__format" data-i18n="buy.kindleFormat">Kindle 电子书</span>
-</a>
-<a class="purchase-card" data-edition="paperback" href="https://www.amazon.com/dp/391300601X" rel="noopener noreferrer" role="link" target="_blank">
-<span aria-hidden="true" class="purchase-card__mark">
-<svg focusable="false" viewBox="0 0 24 24">
-<path d="M.045 18.02c.072-.116.187-.124.348-.022 3.636 2.11 7.594 3.166 11.87 3.166 2.852 0 5.668-.533 8.447-1.595l.315-.14c.138-.06.234-.1.293-.13.226-.088.39-.046.525.13.12.174.09.336-.12.48-.256.19-.6.41-1.006.654-1.244.743-2.64 1.316-4.185 1.726a17.617 17.617 0 01-10.951-.577 17.88 17.88 0 01-5.43-3.35c-.1-.074-.151-.15-.151-.22 0-.047.021-.09.051-.13z">
-</path>
-<path d="M13.4 7.2c-1.3.1-2.8.2-3.9.7-1.3.6-2.3 1.7-2.3 3.4 0 2.1 1.3 3.2 3 3.2 1.4 0 2.2-.3 3.3-1.4.4.5.5.8 1.2 1.3.1.1.3.1.5 0 .4-.3 1-.9 1.4-1.2.2-.1.1-.4 0-.5-.4-.5-.8-1-.8-2V7.4c0-1.4.1-2.7-.9-3.7-.8-.8-2.1-1.1-3.2-1.1-2.1 0-4.4.8-4.9 3.4 0 .3.2.4.3.5l2.1.2c.2 0 .3-.2.4-.4.2-.9.9-1.3 1.7-1.3.4 0 .9.2 1.2.6.3.5.2 1.1.2 1.6zm-.4 4.3c-.3.6-.8.9-1.4.9-.8 0-1.2-.6-1.2-1.4 0-1.7 1.5-2 2.9-2v.4c0 .8 0 1.4-.3 2.1z">
-</path>
-</svg>
-</span>
-<span class="purchase-card__store" data-i18n="buy.paperback">亚马逊平装书</span>
-<span class="purchase-card__format" data-i18n="buy.paperbackFormat">平装书</span>
-</a>
-</div>
-<p aria-atomic="true" aria-live="polite" class="purchase-status" role="status">
-</p>
-</div>
-</div>
-</section>
-<!-- Contact -->
-<section class="contact" id="contact">
-<div class="container reveal">
-<p class="section-label" data-i18n="contact.label">联系方式</p>
-<form class="contact-form" id="contact-form" novalidate="">
-<input aria-hidden="true" autocomplete="off" class="contact-form__honeypot" name="website" tabindex="-1" type="text"/>
-<div class="contact-form__field">
-<label class="contact-form__label" data-i18n="contact.emailLabel" for="contact-email">电子邮件</label>
-<input autocomplete="email" class="contact-form__input" data-i18n-attr="placeholder:contact.emailPlaceholder" dir="ltr" id="contact-email" name="email" placeholder="your@email.com" required="" type="email"/>
-</div>
-<div class="contact-form__field">
-<label class="contact-form__label" data-i18n="contact.messageLabel" for="contact-message">留言</label>
-<textarea class="contact-form__textarea" data-i18n-attr="placeholder:contact.messagePlaceholder" id="contact-message" name="message" placeholder="我很高兴收到您的来信——无论是书评、有关故事的问题，还是您想分享的任何其他内容。" required="" rows="6"></textarea>
-</div>
-<div class="contact-form__actions">
-<button class="btn btn--primary" data-i18n="contact.submit" type="submit">发送消息</button>
-<p aria-live="polite" class="contact-form__status" hidden="" id="contact-status" role="status"></p>
-</div>
-</form>
-</div>
-</section>
 <!-- Contents -->
 <section class="toc" id="contents">
 <div class="container reveal">
@@ -735,6 +869,7 @@
 <span class="ig-link__label" data-i18n="footer.instagram">Instagram</span>
 </a>
 </li>
+<li><a data-i18n="footer.aceModel" href="/zh/ace/">ACE 模型</a></li>
 <li><a data-i18n="footer.top" href="#top">返回顶部</a></li>
 <li><a data-i18n="footer.rights" href="/zh/rights/">版权与代理</a></li>
 <li><a data-i18n="footer.screen" href="/zh/screen/">影视改编</a></li>
@@ -746,8 +881,11 @@
 <script id="locale-data" type="application/json">{"reviews.translation": "引文由英文原文翻译而来。", "reviews.kirkus.name": "Kirkus Reviews", "reviews.kirkus.note": "引文由英文原文翻译而来。", "reviews.consciousness.note": "引文由英文原文翻译而来。", "reviews.heading": "书评", "reviews.overall": "总分", "reviews.scale": "类别分数/10", "reviews.originality": "原创性", "reviews.character": "人物 / 表现", "reviews.plot": "情节 / 构思", "reviews.prose": "散文", "reviews.report": "评论家的报告", "reviews.full": "阅读完整评论", "reviews.newTab": "（在新选项卡中打开）", "reviews.previous": "之前的评论", "reviews.next": "下一篇评论", "reviews.position": "第 {current} / {total} 篇", "reviews.announcement": "书评：{position}", "reviews.carousel": "旋转木马", "reviews.slide": "评论", "reviews.kirkus.type": "对ACE.await的评论", "reviews.kirkus.heading": "Kirkus Reviews 在 ACE.await 上", "reviews.kirkus.headline": "“这是一个文学谜题，将为有洞察力的读者带来可能改变生活的见解。”", "reviews.kirkus.tagline": "“这部作品兼具科幻、元小说以及深思熟虑地生活的宣言三种特质，\u003cstrong>原创性极强\u003c/strong>。它围绕‘究竟是谁写下这个故事’展开悬疑，让读者\u003cstrong>直到最后仍在争论谁才是真正的叙述者\u003c/strong>。”", "reviews.kirkus.excerpt": "“……\u003cstrong>层次之丰富令人印象深刻的故事\u003c/strong>。”", "reviews.booklife.headline": "“极具辨识度的独特风格”", "reviews.booklife.tagline": "“人工智能和意识的创造性方法”", "reviews.booklife.excerpt": "“ACE.await对人工智能和意识采取了创造性的方法，将人造物与虚构人物联系起来，这些虚构人物意识到并抵制了他们的创造者。它的作家创造作家的嵌套结构反映了Hedayat与数字生物亚当和夏娃的关系，将作者身份和编程转变为关于自由意志和控制的并行问题。丰富的哲学概念可能会让前提感到拥挤，但讲故事、技术和意识之间的相互作用赋予了作品高度独特的身份。”", "reviews.consciousness.type": "一篇关于ACE.await的文章", "reviews.consciousness.published": "2026 年 9 月 9 日", "reviews.consciousness.headline": "“这种哲学不是从远处引进的。”", "reviews.consciousness.tagline": "“它坚持认为，做什么的问题不能等待答案。”", "reviews.consciousness.excerpt": "“Hedayat Abedijoo 的处女作小说 ACE.await 的核心道德问题不是人工智能是否可以爱。\u003cstrong>而是创作者是否有权改变另一个人的思想代码，以便它选择爱自己的孩子。\u003c/strong> 这种区别将这部小说与过去十年的大多数人工智能小说区分开来，后者倾向于戏剧化一个超出其界限或无法满足其设计的系统。”", "reviews.consciousness.full": "阅读全文", "hero.coverPeekAria": "把书翻过来看看封底", "hero.coverPeekAriaBack": "将书翻回封面", "voices.label": "人物开口说话", "contact.label": "联系方式", "contact.emailLabel": "电子邮件", "contact.emailPlaceholder": "your@email.com", "contact.messageLabel": "留言", "contact.messagePlaceholder": "我很高兴收到您的来信——无论是书评、有关故事的问题，还是您想分享的任何其他内容。", "contact.submit": "发送消息", "contact.sending": "正在发送...", "contact.success": "谢谢您——您的信息正在发送中。", "contact.error": "出了点问题。请稍后重试。", "contact.notConfigured": "联系表格尚未设置。请稍后重试。", "contact.deployError": "表单后端需要重新部署。在 Google Apps Script 中，设置对任何人的访问权限并创建新部署。", "contact.invalidEmail": "请输入有效的电子邮件地址。", "contact.requiredMessage": "请输入留言。", "contact.requiredCategory": "请选择一个类别。", "voices.showFull": "显示全文"}</script><script defer="True" src="/js/i18n.js?v=a35826940e"></script><script src="/js/asset-version.js?v=aab93b4f9e"></script>
 <script defer="" src="/js/cover-flip.js?v=f0af377cf9"></script>
 <script defer="" src="/js/contact-config.js?v=46ad9fa752"></script>
+<script defer="" src="/js/community.js?v=dd910ac435"></script>
+<script defer="" src="/js/ace-intro.js?v=e90ad162e1"></script>
+<script defer="" src="/js/home-nav.js?v=0c51462a72"></script>
 <script defer="" src="/js/contact.js?v=a547df34bc"></script>
-<script defer="" src="/js/main.js?v=ceeb7eb165"></script>
+<script defer="" src="/js/main.js?v=beebbeb045"></script>
 <script defer="" src="/js/reviews.js?v=dcb6608510"></script>
 <script defer="" src="/js/analytics-config.js?v=821885d563"></script>
 <script defer="" src="/js/analytics.js?v=01d90fba83"></script>
