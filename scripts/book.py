@@ -26,16 +26,17 @@ SAMPLE = json.loads((ROOT / "content/book/sample-en.json").read_text())
 SECTIONS = ("headline", "reviews", "story", "ace", "buy", "community",
             "author", "contact", "sample", "appendix", "back-cover")
 BOOKMARKS = SECTIONS
-APPENDIX_ITEMS = ("contents", "screen", "rights", "privacy", "impressum")
-BACK_COVER_LINKS = APPENDIX_ITEMS
+APPENDIX_ITEMS = ("voices", "contents", "screen", "rights", "privacy", "impressum")
+BACK_COVER_LINKS = ("contents", "screen", "rights", "privacy", "impressum")
+CHARACTERS = ("hedayat", "anonymous", "writer", "ava", "sam", "saman", "adam", "god")
 
 # Links that lead to a page of this book turn pages instead of loading a page.
 JUMP_TARGETS = {
     "/": "headline", "/#top": "headline", "/#reviews": "reviews", "/#synopsis": "synopsis",
     "/#buy": "buy", "/#author": "author", "/#contact": "contact", "/#sample": "sample",
-    "/#contents": "contents", "/ace/": "ace", "/privacy/": "privacy",
+    "/#contents": "contents", "/#voices": "voices", "/ace/": "ace", "/privacy/": "privacy",
     "/impressum/": "impressum", "/rights/": "rights", "/screen/": "screen",
-    "#contact": "contact", "#synopsis": "synopsis", "#author": "author", "#sample": "sample",
+    "#contact": "contact", "#synopsis": "synopsis", "#author": "author", "#sample": "sample", "#voices": "voices",
 }
 
 BLOCK_TAGS = {"p", "h2", "h3", "h4", "ul", "ol", "blockquote", "figure", "table", "dl", "img"}
@@ -550,6 +551,40 @@ MAIL_MARK = ('<svg viewBox="0 0 24 24" role="img"><path d="M3 5h18a1 1 0 0 1 1 1
              ' 1-1-1V6a1 1 0 0 1 1-1zm1.6 2L12 12.3 19.4 7zM20 17V8.6l-7.4 5.3a1 1 0 0 1-1.2 0L4 8.6V17z"/></svg>')
 
 
+def voices_page(home):
+    """One live reading surface for all original, localized character voices."""
+    from build_locales import parse
+    view = parse((ROOT / "content/templates/book-voices.html").read_text())
+    title = STRINGS["appendix"]["items"]["voices"]
+    view.select_one("[data-voices-kicker]").string = STRINGS["appendix"]["heading"]
+    view.select_one("[data-voices-title]").string = title
+    tabs = view.select_one("[data-voices-tabs]")
+    tabs["aria-label"] = title
+    panels = view.select_one("[data-voices-panels]")
+    cards = home.select("#voices .character-card")
+    assert len(cards) == len(CHARACTERS), "Every character voice must be present"
+    for index, (identifier, card) in enumerate(zip(CHARACTERS, cards)):
+        name = escape(text(card.select_one(".character-card__name")))
+        role = escape(text(card.select_one(".character-card__role")))
+        tab_id, panel_id = f"voice-tab-{identifier}", f"voice-panel-{identifier}"
+        tabs.append(parse(
+            f'<button id="{tab_id}" type="button" role="tab" aria-controls="{panel_id}" '
+            f'aria-selected="{"false" if index else "true"}" tabindex="{-1 if index else 0}">'
+            f'<span>{name}</span></button>').find(True))
+        paragraphs = "".join(f'<p class="ace-intro-definition">{inner(p)}</p>'
+                             for p in card.select(".character-card__body > p"))
+        panels.append(parse(
+            f'<div class="ace-intro-panel" id="{panel_id}" role="tabpanel" '
+            f'aria-labelledby="{tab_id}" tabindex="0"{" hidden" if index else ""}>'
+            f'<header class="ace-intro-card-top"><h3 class="book-voice-name">{name}</h3>'
+            f'<p class="book-voice-role"><bdi>{role}</bdi></p></header>{paragraphs}</div>').find(True))
+    for node in view.select("[data-voices-kicker], [data-voices-title], [data-voices-tabs], [data-voices-panels]"):
+        for attribute in list(node.attrs):
+            if attribute.startswith("data-voices-"):
+                del node[attribute]
+    return page("voices", "appendix", title, [str(view.find(True))], "voices-page", fixed=True)
+
+
 def appendix_pages(pages_html, home, strings):
     """A single linked opener followed by references in reading order."""
     labels = STRINGS["appendix"]["items"]
@@ -583,7 +618,7 @@ def appendix_pages(pages_html, home, strings):
     result = [page("appendix", "appendix", STRINGS["appendix"]["heading"], [
         f'<h2 class="appendix-title">{escape(STRINGS["appendix"]["heading"])}</h2>',
         '<ol class="section-index">' + "".join(links) + '</ol>',
-    ], classes="appendix-page appendix-index", fixed=True)]
+    ], classes="appendix-page appendix-index", fixed=True), voices_page(home)]
     entries.sort(key=lambda entry: APPENDIX_ITEMS.index(entry[0]))
     for identifier, label, heading, body in entries:
         result.append(page(identifier, "appendix", label, [

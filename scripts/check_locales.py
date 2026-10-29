@@ -3,14 +3,14 @@
 import json
 from urllib.parse import urlsplit, unquote
 
-from build_locales import ROOT, SITE, LANGUAGES, PAGES, route, parse, template_for
-from book import SECTIONS, BOOKMARKS, BACK_COVER_LINKS, APPENDIX_ITEMS
+from build_locales import ROOT, SITE, LANGUAGES, PAGES, route, parse, template_for, apply_strings
+from book import SECTIONS, BOOKMARKS, BACK_COVER_LINKS, APPENDIX_ITEMS, CHARACTERS
 
 
 # Anchors that other pages, search results and shared links point at.
 BOOK_ANCHORS = ("headline", "reviews", "synopsis", "buy", "author", "contact", "sample",
                 "contents", "community", "privacy", "impressum", "rights",
-                "screen", "ace")
+                "screen", "ace", "voices")
 
 
 def check_book(soup, path, code):
@@ -46,6 +46,25 @@ def check_book(soup, path, code):
     assert bookmark_order[bookmark_order.index("sample") + 1] == "appendix", path
     assert all(a["data-jump"] == "appendix" for a in soup.select(".back-to-index [data-jump]")), path
     assert [a["data-jump"] for a in soup.select(".back-cover__links a")] == list(BACK_COVER_LINKS), path
+    voices = soup.select_one('#voices[data-section="appendix"][data-fixed]')
+    assert voices and voices.select_one('.book-voices[data-live][data-intro-typewriter]'), path
+    assert [tab["aria-controls"] for tab in voices.select('[role="tab"]')] == [
+        f"voice-panel-{name}" for name in CHARACTERS], path
+    # Reuse the full published dialogue, including paragraphs and emphasis, in
+    # every language. Voices must not become abbreviated or untranslated cards.
+    original = parse(str(parse((ROOT / "content/templates/home.html").read_text()).select_one("#voices")))
+    apply_strings(original, json.loads((ROOT / f"content/locales/{code}.json").read_text()))
+    for name, card in zip(CHARACTERS, original.select(".character-card")):
+        panel = voices.select_one(f"#voice-panel-{name}")
+        assert panel and panel["aria-labelledby"] == f"voice-tab-{name}", path
+        for old, new in ((".character-card__name", ".book-voice-name"), (".character-card__role", ".book-voice-role")):
+            assert card.select_one(old).get_text(strip=True) == panel.select_one(new).get_text(strip=True), path
+        source = card.select(".character-card__body > p")
+        target = panel.select(".ace-intro-definition")
+        assert len(source) == len(target), path
+        for before, after in zip(source, target):
+            assert before.get_text().strip() == after.get_text().strip(), (path, name)
+            assert [str(el) for el in before.select("strong, em")] == [str(el) for el in after.select("strong, em")], (path, name)
     # Every bookmark needs pages, and the forms stay real forms.
     assert soup.select_one("#contact-form") and soup.select_one("#community-form"), path
     assert soup.select_one('[data-page="contact"] #contact-form'), path
@@ -61,7 +80,7 @@ def check_book(soup, path, code):
     assert all(p.has_attr("data-fixed") for p in intro), path
     assert soup.select_one("#ace-play .ace-intro-play")["href"] == "#community", path
     assert not soup.select(".ace-intro-nav, .ace-intro-contact, .ace-intro-revisit"), path
-    assert len(soup.select(".ace-intro[data-intro-typewriter]")) == 3, path
+    assert len(soup.select('[data-section="ace"] .ace-intro[data-intro-typewriter]')) == 3, path
     assert not soup.select(".ace-intro-kicker"), path
     assert not soup.select('.ace-intro [data-i18n="back"], .ace-intro-back'), path
     intro_copy = json.loads((ROOT / f"content/book/ace-intro.{code}.json").read_text())

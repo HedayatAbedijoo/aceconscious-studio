@@ -143,6 +143,18 @@ animation, cursor following, rapid selection, responsive layout and reduced-moti
 checks (the same Playwright environment and optional `--fonts` apply). Add
 `--locales` to check Persian, Arabic, Hindi and Chinese typing and RTL layout.
 
+The first item in the Appendices index and its first reading sheet is
+The Characters Speak (`#voices`); it adds no main bookmark or back-cover link.
+`content/templates/book-voices.html` supplies the shared structure. `scripts/book.py`
+reuses all eight localized character cards from `content/templates/home.html` and
+`content/locales/`, preserving the original roles, paragraphs and emphasis. The
+section title lives in `appendix.items.voices` in each book strings catalog.
+The same ACE typewriter handles the voices, including inline emphasis, a fixed
+reading surface, keyboard selection, RTL prose, reduced motion and no-JavaScript
+reading. Names sit at the left on mobile and in two rows above the prose on large
+desktops. `node scripts/check_book_voices.cjs` checks the appendix order, all eight
+voices, text/markup fidelity, mobile/RTL layout and typing behavior locally.
+
 `js/book.js` reflows the static markup in `#book-source` onto paper sheets and
 hands them to StPageFlip (`js/vendor/page-flip.js`, MIT). Without JavaScript the
 same markup reads as an ordinary page, which is also what crawlers see. The contact

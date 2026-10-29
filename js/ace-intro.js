@@ -1,4 +1,4 @@
-/* Localized paper/typewriter cards with a fixed ACE/PDAF choice order. */
+/* Localized paper/typewriter cards for ACE and the character voices. */
 (() => {
   const introPages = new Map(Array.from(document.querySelectorAll('.ace-intro'),
     intro => [intro.parentElement.id, intro]));
@@ -39,20 +39,32 @@
       const visual = document.createElement('div');
       visual.className = 'ace-intro-typescript';
       visual.setAttribute('aria-hidden', 'true');
-      const lines = Array.from(copy.children, paragraph => {
-        const element = document.createElement('p');
+      const runs = [];
+      for (const paragraph of copy.children) {
+        // Type through the original inline markup so names/emphasis keep their
+        // typography and reserve the same space as the accessible full copy.
+        const element = paragraph.cloneNode(true);
         element.className = 'ace-intro-typed-line';
-        const text = document.createTextNode(paragraph.textContent);
-        element.append(text);
+        for (const node of [element, ...element.querySelectorAll('*')]) {
+          node.removeAttribute('id');
+          for (const attribute of Array.from(node.attributes)) {
+            if (attribute.name.startsWith('data-')) node.removeAttribute(attribute.name);
+          }
+        }
         visual.append(element);
-        const letters = segmenter
-          ? Array.from(segmenter.segment(paragraph.textContent), part => part.segment)
-          : Array.from(paragraph.textContent);
-        return { element, text, letters };
-      });
+        const walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT);
+        while (walker.nextNode()) {
+          const text = walker.currentNode;
+          if (!text.data) continue;
+          const letters = segmenter
+            ? Array.from(segmenter.segment(text.data), part => part.segment)
+            : Array.from(text.data);
+          runs.push({ text, letters });
+        }
+      }
       prose.append(copy, visual);
       panel.append(prose);
-      panels.set(panel, lines);
+      panels.set(panel, runs);
     }
     const cursor = document.createElement('span');
     cursor.className = 'ace-intro-cursor';
@@ -60,7 +72,7 @@
     function finish() {
       clearTimeout(timer);
       if (active) {
-        for (const line of panels.get(active)) line.text.data = line.letters.join('');
+        for (const run of panels.get(active)) run.text.data = run.letters.join('');
         active.classList.remove('is-typing');
       }
       cursor.remove();
@@ -76,27 +88,27 @@
       finish();
       scroller.scrollTop = 0;
       follow = true;
-      if (motion.matches) return;
+      const runs = panels.get(panel);
+      if (motion.matches || !runs.length) return;
       active = panel;
       active.classList.add('is-typing');
       cursor.classList.remove('is-idle');
-      const lines = panels.get(panel);
-      for (const line of lines) line.text.data = '';
+      for (const run of runs) run.text.data = '';
       let row = 0, column = 0;
-      lines[0].element.append(cursor);
+      runs[0].text.after(cursor);
       function type() {
-        const line = lines[row];
-        const letter = line.letters[column++];
-        line.text.appendData(letter);
+        const run = runs[row];
+        const letter = run.letters[column++];
+        run.text.appendData(letter);
         keepCursorVisible();
-        if (column === line.letters.length) {
-          if (++row === lines.length) {
+        if (column === run.letters.length) {
+          if (++row === runs.length) {
             cursor.classList.add('is-idle');
             timer = setTimeout(finish, 1000);
             return;
           }
           column = 0;
-          lines[row].element.append(cursor);
+          runs[row].text.after(cursor);
           keepCursorVisible();
         }
         const pause = /[.!?؟。！？।\n]/.test(letter) ? 150 : /[,;:،؛，、]/.test(letter) ? 80 : 19 + column % 4 * 4;
@@ -216,8 +228,7 @@
   document.addEventListener('keydown', event => {
     const intro = event.target.closest('.ace-intro');
     const reading = intro && readingArea(intro);
-    if (!reading || reading.scrollHeight <= reading.clientHeight + 2
-      || !['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', 'Home', 'End', ' '].includes(event.key)
+    if (!reading || !['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', 'Home', 'End', ' '].includes(event.key)
       || event.target.closest('button,a,input,textarea,select,[contenteditable]')) return;
     event.stopImmediatePropagation();
   }, true);

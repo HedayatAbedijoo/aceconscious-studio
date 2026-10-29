@@ -103,7 +103,7 @@ const typography = el => {
     await settled(page);
     assert.equal(await page.locator('#stage').getAttribute('data-section'), 'ace');
     assert.equal(await page.locator('.ace-intro-page').count(), 4, 'ACE must stay four physical book sheets');
-    assert.equal(await page.locator('.ace-intro.is-typewriter').count(), 3, 'Every edition uses typewriter cards');
+    assert.equal(await page.locator('.ace-intro-page .ace-intro.is-typewriter').count(), 3, 'Every edition uses typewriter cards');
     assert.equal(await sheet(page).locator('h2').textContent(), copy['concepts.title']);
     assert.equal(await page.locator('.ace-intro-kicker').count(), 0, 'Red kicker headings are removed');
     const referenceTypography = await sheet(page).locator('.ace-intro-lead').evaluate(typography);
@@ -293,11 +293,11 @@ const typography = el => {
   const page = await nojs.newPage();
   for (const lang of languages) {
     await page.goto(base + (lang.code === 'en' ? '/' : `/${lang.code}/`) + '#ace');
-    assert.equal(await page.locator('.ace-intro-panel:visible').count(), 11);
+    assert.equal(await page.locator('[data-section="ace"] .ace-intro-panel:visible').count(), 11);
     assert.equal(await page.locator('.ace-intro-play').getAttribute('href'), '#community');
     assert.equal(await page.locator('.ace-intro-nav, .ace-intro-contact, .ace-intro-revisit').count(), 0);
     const referenceTypography = await page.locator('[data-intro-group="concepts"] .ace-intro-lead').evaluate(typography);
-    for (const text of await page.locator('.ace-intro').locator(proseSelector).all()) {
+    for (const text of await page.locator('[data-section="ace"] .ace-intro').locator(proseSelector).all()) {
       assert.deepEqual(await text.evaluate(typography), referenceTypography, `${lang.code}: consistent copy without JavaScript`);
     }
   }
