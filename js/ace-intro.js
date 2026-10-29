@@ -1,4 +1,4 @@
-/* Localized click-to-read cards. No gameplay or stored user data. */
+/* Localized paper/typewriter cards with a fixed ACE/PDAF choice order. */
 (() => {
   const introPages = new Map(Array.from(document.querySelectorAll('.ace-intro'),
     intro => [intro.parentElement.id, intro]));
@@ -6,11 +6,124 @@
     ['community', document.getElementById('community-form')],
     ['contact', document.getElementById('contact-form')],
   ]);
+  const motion = matchMedia('(prefers-reduced-motion: reduce)');
+  const segmenter = typeof Intl.Segmenter === 'function'
+    ? new Intl.Segmenter(document.documentElement.lang, { granularity: 'grapheme' }) : null;
+  const typists = new Map();
+  const readingArea = intro => intro.querySelector(intro.classList.contains('is-typewriter')
+    ? '.ace-intro-panels' : '.ace-intro-reading');
+  function revealTab(tab) {
+    const rail = tab.closest('[role="tablist"]');
+    const item = tab.getBoundingClientRect(), bounds = rail.getBoundingClientRect();
+    if (item.top < bounds.top) rail.scrollTop -= bounds.top - item.top + 3;
+    else if (item.bottom > bounds.bottom) rail.scrollTop += item.bottom - bounds.bottom + 3;
+  }
+
+  for (const intro of introPages.values()) {
+    if (!intro.hasAttribute('data-intro-typewriter')) continue;
+    intro.classList.add('is-typewriter');
+    const scroller = readingArea(intro);
+    scroller.tabIndex = -1;
+    intro.querySelector('.ace-intro-reading').tabIndex = -1;
+    const tabs = intro.querySelector('[role="tablist"]');
+    const panels = new Map();
+    let timer = 0, active = null, follow = true;
+    for (const panel of intro.querySelectorAll('[role="tabpanel"]')) {
+      const prose = document.createElement('div');
+      prose.className = 'ace-intro-prose';
+      const copy = document.createElement('div');
+      copy.className = 'ace-intro-full-copy';
+      copy.append(...panel.querySelectorAll('.ace-intro-definition'));
+      // Keep complete, semantic text available to assistive technology. The
+      // visual layer reserves that same space and never announces each letter.
+      const visual = document.createElement('div');
+      visual.className = 'ace-intro-typescript';
+      visual.setAttribute('aria-hidden', 'true');
+      const lines = Array.from(copy.children, paragraph => {
+        const element = document.createElement('p');
+        element.className = 'ace-intro-typed-line';
+        const text = document.createTextNode(paragraph.textContent);
+        element.append(text);
+        visual.append(element);
+        const letters = segmenter
+          ? Array.from(segmenter.segment(paragraph.textContent), part => part.segment)
+          : Array.from(paragraph.textContent);
+        return { element, text, letters };
+      });
+      prose.append(copy, visual);
+      panel.append(prose);
+      panels.set(panel, lines);
+    }
+    const cursor = document.createElement('span');
+    cursor.className = 'ace-intro-cursor';
+    cursor.setAttribute('aria-hidden', 'true');
+    function finish() {
+      clearTimeout(timer);
+      if (active) {
+        for (const line of panels.get(active)) line.text.data = line.letters.join('');
+        active.classList.remove('is-typing');
+      }
+      cursor.remove();
+      active = null;
+    }
+    function keepCursorVisible() {
+      if (!follow || !cursor.isConnected) return;
+      const mark = cursor.getBoundingClientRect();
+      const area = scroller.getBoundingClientRect();
+      if (mark.bottom > area.bottom - 16) scroller.scrollTop += mark.bottom - area.bottom + 16;
+    }
+    function start(panel) {
+      finish();
+      scroller.scrollTop = 0;
+      follow = true;
+      if (motion.matches) return;
+      active = panel;
+      active.classList.add('is-typing');
+      cursor.classList.remove('is-idle');
+      const lines = panels.get(panel);
+      for (const line of lines) line.text.data = '';
+      let row = 0, column = 0;
+      lines[0].element.append(cursor);
+      function type() {
+        const line = lines[row];
+        const letter = line.letters[column++];
+        line.text.appendData(letter);
+        keepCursorVisible();
+        if (column === line.letters.length) {
+          if (++row === lines.length) {
+            cursor.classList.add('is-idle');
+            timer = setTimeout(finish, 1000);
+            return;
+          }
+          column = 0;
+          lines[row].element.append(cursor);
+          keepCursorVisible();
+        }
+        const pause = /[.!?؟。！？।\n]/.test(letter) ? 150 : /[,;:،؛，、]/.test(letter) ? 80 : 19 + column % 4 * 4;
+        timer = setTimeout(type, pause);
+      }
+      timer = setTimeout(type, 100);
+    }
+    // If the reader scrolls deliberately, let them read without pulling them
+    // back to the cursor. A new selection resumes automatic following.
+    for (const event of ['wheel', 'touchstart', 'pointerdown', 'keydown']) {
+      scroller.addEventListener(event, () => { follow = false; }, { passive: true });
+    }
+    const orient = () => {
+      const vertical = getComputedStyle(tabs).gridTemplateColumns.split(' ').length === 1;
+      tabs.setAttribute('aria-orientation', vertical ? 'vertical' : 'horizontal');
+      revealTab(tabs.querySelector('[aria-selected="true"]'));
+      keepCursorVisible();
+    };
+    new ResizeObserver(orient).observe(tabs);
+    motion.addEventListener('change', () => { if (motion.matches) finish(); });
+    typists.set(intro, { start, finish });
+  }
   // A persistent cue sits outside the scrolling text. Native mobile scrollbars
   // disappear at rest, and an arrow inside the text would scroll out of view.
   const scrollUpdates = new Map();
   for (const intro of introPages.values()) {
-    const reading = intro.querySelector('.ace-intro-reading');
+    const reading = readingArea(intro);
     const indicator = document.createElement('div');
     indicator.className = 'ace-intro-scroll';
     indicator.setAttribute('aria-hidden', 'true');
@@ -29,6 +142,11 @@
       const overflowing = reading.clientHeight > 0 && maximum > 2;
       indicator.hidden = !overflowing;
       if (!overflowing) return;
+      if (intro.classList.contains('is-typewriter')) {
+        const area = reading.getBoundingClientRect(), bounds = intro.getBoundingClientRect();
+        indicator.style.top = area.top - bounds.top + 'px';
+        indicator.style.bottom = bounds.bottom - area.bottom + 'px';
+      }
       const progress = Math.min(1, Math.max(0, reading.scrollTop / maximum));
       const height = Math.min(track.clientHeight, Math.max(28,
         track.clientHeight * reading.clientHeight / reading.scrollHeight));
@@ -45,8 +163,9 @@
     // These live nodes survive the book's resize/rebuild. Observe both the
     // viewport and its content, including font loading and card changes.
     const observer = new ResizeObserver(schedule);
+    observer.observe(intro);
     observer.observe(reading);
-    for (const child of reading.children) observer.observe(child);
+    for (const child of reading.querySelectorAll(':scope > *, .ace-intro-workspace > *')) observer.observe(child);
     schedule();
   }
   function select(group, selected) {
@@ -57,7 +176,9 @@
       // Use the live group: the book moves these nodes when resizing.
       group.querySelector('#' + tab.getAttribute('aria-controls')).hidden = !active;
     }
-    group.querySelector('.ace-intro-reading').scrollTop = 0;
+    readingArea(group).scrollTop = 0;
+    if (typists.has(group)) revealTab(selected);
+    typists.get(group)?.start(group.querySelector('#' + selected.getAttribute('aria-controls')));
     scrollUpdates.get(group)?.();
   }
 
@@ -72,7 +193,9 @@
   // the existing book keyboard navigation keeps working.
   document.addEventListener('keydown', event => {
     const tab = event.target.closest('.ace-intro [role="tab"]');
-    if (!tab || !['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
+    if (!tab) return;
+    const vertical = tab.closest('[role="tablist"]').getAttribute('aria-orientation') === 'vertical';
+    if (!['ArrowLeft', 'ArrowRight', 'Home', 'End', ...(vertical ? ['ArrowUp', 'ArrowDown'] : [])].includes(event.key)) return;
     event.preventDefault();
     event.stopImmediatePropagation();
     const group = tab.closest('[data-intro-group]');
@@ -81,8 +204,8 @@
     if (event.key === 'Home') index = 0;
     else if (event.key === 'End') index = tabs.length - 1;
     else {
-      const forward = getComputedStyle(group).direction === 'rtl' ? 'ArrowLeft' : 'ArrowRight';
-      index = (index + (event.key === forward ? 1 : -1) + tabs.length) % tabs.length;
+      const forward = getComputedStyle(tab.closest('[role="tablist"]')).direction === 'rtl' ? 'ArrowLeft' : 'ArrowRight';
+      index = (index + (event.key === forward || event.key === 'ArrowDown' ? 1 : -1) + tabs.length) % tabs.length;
     }
     select(group, tabs[index]);
     tabs[index].focus({ preventScroll: true });
@@ -91,7 +214,8 @@
   // Vertical reading keys belong to the focused scroll area. Left/right still
   // turn the book, and the tablist retains its own Home/End behavior above.
   document.addEventListener('keydown', event => {
-    const reading = event.target.closest('.ace-intro-reading');
+    const intro = event.target.closest('.ace-intro');
+    const reading = intro && readingArea(intro);
     if (!reading || reading.scrollHeight <= reading.clientHeight + 2
       || !['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', 'Home', 'End', ' '].includes(event.key)
       || event.target.closest('button,a,input,textarea,select,[contenteditable]')) return;
@@ -107,7 +231,17 @@
     }
   }, true);
   const stage = document.querySelector('#stage');
+  let visibleIntro = null;
+  const syncTypewriter = () => {
+    if (stage.matches('.is-turning,.is-riffling')) return;
+    const current = Array.from(typists.keys()).find(intro => intro.closest('.page[aria-hidden="false"]'));
+    if (current === visibleIntro) return;
+    typists.get(visibleIntro)?.finish();
+    visibleIntro = current;
+    if (current) typists.get(current).start(current.querySelector('[role="tabpanel"]:not([hidden])'));
+  };
   new MutationObserver(() => {
+    syncTypewriter();
     if (!focusNextSheet || stage.matches('.is-turning,.is-riffling')) return;
     requestAnimationFrame(() => {
       if (!focusNextSheet || stage.matches('.is-turning,.is-riffling')) return;
@@ -136,4 +270,5 @@
       focusNextSheet = null;
     });
   }).observe(stage, { attributes: true, attributeFilter: ['data-page', 'class'] });
+  requestAnimationFrame(syncTypewriter);
 })();

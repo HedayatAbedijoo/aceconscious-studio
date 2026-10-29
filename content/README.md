@@ -98,28 +98,50 @@ keyboard tests. Provide Playwright on `NODE_PATH` and optionally `CHROME_BIN`.
   edition. Persian store cards link to the Persian Kindle and paperback editions
   in `amazon.localizedEditions.fa`; other locales retain the English editions.
 
+Printed sample sizing is calculated numerically in `js/book.js`, including the
+`--sample-header-space` reserved by `css/book-actions.css`. Avoid dividing CSS
+lengths by lengths for `--sheet-scale`: older engines such as Responsively's
+Chromium 118 accept the custom property but cannot use it, collapsing the sample
+viewport to zero size. `node scripts/check_book_sample.cjs` checks visible ink,
+all published sample pages, RTL, page turns and resizing; run it with both modern
+and older `CHROME_BIN` values. `--fonts` enables the existing public web fonts.
+
 The ACE bookmark follows Story and precedes Author in every language. It uses
 four sheets: ACE, PDAF, Agency phases, and the play invitation. The structure is
 in `content/templates/ace-intro.html`, translated copy in
 `content/book/ace-intro.<code>.json`, and scoped assets in `css/ace-intro.css` and
 `js/ace-intro.js`. These catalogs participate in the normal key-parity and source
 hash checks. All labels, definitions, navigation and accessibility text are translated;
-the ACE/PDAF letter symbols and the novel’s name stay unchanged. Arabic and Persian
-use RTL tab order, arrows and keyboard controls. The ordinary book pagination is
-the only previous-page control; the final Revisit ACE link returns to the start.
+the ACE/PDAF letter symbols and the novel’s name stay unchanged. The choices keep
+the same left-to-right order in every language (top-to-bottom on mobile), with
+matching tab keyboard controls. Arabic and Persian prose and book navigation
+retain their RTL direction. The ordinary book pagination is the only page control.
 Each sheet shows localized progress from 1 of 4 to 4 of 4. The headings are
-What is ACE?, The Decision Loop, Four Phases of Agency, and Would you like to play ACE?.
+What is ACE?, The Decision Loop, Four Phases of Agency, and Play ACE.
 The cards contain concise definitions; their earlier novel examples are no longer
 displayed. `content/book/ace-intro.sources.json` retains the original scene references
 for editorial history and is not rendered on the site.
 The final sheet retains the decorative cards and explains that Hedayat is developing
-a simple game. Its signup button opens the existing Community form at `#community`,
-and its Contact link opens `#contact`; neither starts a game or submits a form.
+a simple game. Its signup button opens the existing Community form at `#community`;
+it does not start a game or submit a form. Contact and Revisit ACE footer links are
+removed in every edition.
 The full standalone `/ace/`
 article and its translations remain separate. Run `node scripts/check_ace_intro.cjs`
 for all locales, card navigation, book order, keyboard, mobile/touch, resize, bounds
 and the no-JavaScript fallback. Provide Playwright on `NODE_PATH` and optionally
 `CHROME_BIN`; `--fonts` loads the actual site fonts for visual QA.
+
+Every edition uses a typewriter interaction on all three tabbed sheets.
+`scripts/book.py` enables it with `data-intro-typewriter`; the fourth invitation
+sheet has no tabs. Choices sit beside a
+fixed writing surface on mobile and above it on large desktops. Long definitions
+scroll inside that surface, following the cursor until the reader scrolls manually.
+Typing preserves complete graphemes and connected scripts. Full semantic text
+remains available to screen readers, and reduced motion shows
+the complete text immediately. Run `node scripts/check_ace_typewriter.cjs` for
+animation, cursor following, rapid selection, responsive layout and reduced-motion
+checks (the same Playwright environment and optional `--fonts` apply). Add
+`--locales` to check Persian, Arabic, Hindi and Chinese typing and RTL layout.
 
 `js/book.js` reflows the static markup in `#book-source` onto paper sheets and
 hands them to StPageFlip (`js/vendor/page-flip.js`, MIT). Without JavaScript the

@@ -60,7 +60,8 @@ def check_book(soup, path, code):
     assert [p["id"] for p in intro] == ["ace", "ace-pdaf", "ace-phases", "ace-play"], path
     assert all(p.has_attr("data-fixed") for p in intro), path
     assert soup.select_one("#ace-play .ace-intro-play")["href"] == "#community", path
-    assert soup.select_one("#ace-play .ace-intro-contact")["href"] == "#contact", path
+    assert not soup.select(".ace-intro-nav, .ace-intro-contact, .ace-intro-revisit"), path
+    assert len(soup.select(".ace-intro[data-intro-typewriter]")) == 3, path
     assert not soup.select(".ace-intro-kicker"), path
     assert not soup.select('.ace-intro [data-i18n="back"], .ace-intro-back'), path
     intro_copy = json.loads((ROOT / f"content/book/ace-intro.{code}.json").read_text())

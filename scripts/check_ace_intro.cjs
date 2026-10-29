@@ -9,8 +9,8 @@ const root = path.resolve(__dirname, '..');
 const base = 'http://127.0.0.1:8765';
 const output = '/tmp/ace-intro-locales-qa';
 const languages = JSON.parse(fs.readFileSync(path.join(root, 'content/languages.json'), 'utf8'));
-const expectedOrder = ['headline', 'reviews', 'story', 'ace', 'buy', 'community', 'author', 'contact', 'sample', 'back-cover'];
-const proseSelector = '.ace-intro-lead, .ace-intro-definition, .ace-intro-panel h3, .ace-intro-example p, .ace-intro-note, .ace-intro-play-body, .ace-intro-signup';
+const expectedOrder = ['headline', 'reviews', 'story', 'ace', 'buy', 'community', 'author', 'contact', 'sample', 'appendix', 'back-cover'];
+const proseSelector = '.ace-intro-lead, .ace-intro-definition, .ace-intro-typed-line, .ace-intro-panel h3, .ace-intro-example p, .ace-intro-note, .ace-intro-play-body, .ace-intro-signup';
 const typography = el => {
   const style = getComputedStyle(el);
   return [style.fontFamily, style.fontSize, style.fontWeight, style.lineHeight, style.letterSpacing, style.color];
@@ -44,9 +44,10 @@ const typography = el => {
     await settled(page);
   }
   const sheet = page => page.locator('.ace-intro-page[aria-hidden="false"]');
+  const readingSelector = '.is-typewriter .ace-intro-panels, .ace-intro:not(.is-typewriter) .ace-intro-reading';
   const selected = page => sheet(page).locator('[role="tab"][aria-selected="true"]').getAttribute('id');
   async function checkScrollCue(page, label) {
-    const reading = sheet(page).locator('.ace-intro-reading');
+    const reading = sheet(page).locator(readingSelector);
     const cue = sheet(page).locator('.ace-intro-scroll');
     const overflow = await reading.evaluate(el => el.scrollHeight - el.clientHeight > 2);
     if (!overflow) {
@@ -66,7 +67,7 @@ const typography = el => {
     await reading.focus();
     await page.keyboard.press('Control+End');
     await page.waitForFunction(() => {
-      const el = document.querySelector('.ace-intro-page[aria-hidden="false"] .ace-intro-reading');
+      const el = document.querySelector('.ace-intro-page[aria-hidden="false"] .is-typewriter .ace-intro-panels, .ace-intro-page[aria-hidden="false"] .ace-intro:not(.is-typewriter) .ace-intro-reading');
       return el.scrollTop >= el.scrollHeight - el.clientHeight - 2;
     });
     await page.waitForFunction(() => document.querySelector('.ace-intro-page[aria-hidden="false"] .ace-intro-scroll').classList.contains('at-bottom'));
@@ -102,6 +103,7 @@ const typography = el => {
     await settled(page);
     assert.equal(await page.locator('#stage').getAttribute('data-section'), 'ace');
     assert.equal(await page.locator('.ace-intro-page').count(), 4, 'ACE must stay four physical book sheets');
+    assert.equal(await page.locator('.ace-intro.is-typewriter').count(), 3, 'Every edition uses typewriter cards');
     assert.equal(await sheet(page).locator('h2').textContent(), copy['concepts.title']);
     assert.equal(await page.locator('.ace-intro-kicker').count(), 0, 'Red kicker headings are removed');
     const referenceTypography = await sheet(page).locator('.ace-intro-lead').evaluate(typography);
@@ -110,7 +112,7 @@ const typography = el => {
     // Tab arrows must select a card, without turning the surrounding book.
     await page.locator('#intro-tab-agency').focus();
     const initialPage = await page.locator('#stage').getAttribute('data-page');
-    await page.keyboard.press(rtl ? 'ArrowLeft' : 'ArrowRight');
+    await page.keyboard.press('ArrowRight');
     assert.equal(await selected(page), 'intro-tab-connection');
     assert.equal(await page.locator('#stage').getAttribute('data-page'), initialPage);
     await page.keyboard.press('End');
@@ -128,6 +130,21 @@ const typography = el => {
       const sectionKey = { ace: 'concepts', 'ace-pdaf': 'pdaf', 'ace-phases': 'phases' }[anchor];
       assert.equal(await sheet(page).locator('h2').textContent(), copy[sectionKey + '.title']);
       assert.equal(await sheet(page).locator('.ace-intro-progress').textContent(), copy[sectionKey + '.progress']);
+      const positions = await sheet(page).locator('[role="tab"]').evaluateAll(tabs => tabs.map(tab => {
+        const box = tab.getBoundingClientRect();
+        return { id: tab.id, x: box.x, y: box.y };
+      }));
+      assert.deepEqual(positions.map(tab => tab.id), cards.map(card => 'intro-tab-' + card));
+      const vertical = await sheet(page).locator('[role="tablist"]').getAttribute('aria-orientation') === 'vertical';
+      assert.ok(positions.every((tab, i) => !i || tab[vertical ? 'y' : 'x'] > positions[i - 1][vertical ? 'y' : 'x']),
+        `${code}: ACE/PDAF/phases retain their physical LTR/top-to-bottom order`);
+      assert.equal(await sheet(page).locator('.ace-intro-panels').evaluate(el => getComputedStyle(el).direction), lang.dir,
+        'The text retains the edition direction');
+      if (vertical) {
+        const rail = await sheet(page).locator('[role="tablist"]').boundingBox();
+        const paper = await sheet(page).locator('.ace-intro-panels').boundingBox();
+        assert.ok(rail.x + rail.width <= paper.x + 1, 'The choices stay on the physical left in every language');
+      }
       await page.screenshot({ path: `${output}/${code}-${width}-${anchor}.png` });
       for (const card of cards) {
         await sheet(page).locator('#intro-tab-' + card).click();
@@ -174,7 +191,7 @@ const typography = el => {
         // Every line stays in a scrollable reading area, including narrow and
         // landscape screens; no horizontal clipping or fitted tiny text.
         assert.equal(await sheet(page).locator('.page-fit').count(), 0);
-        const bounds = await sheet(page).locator('.ace-intro-reading').evaluate(el => ({
+        const bounds = await sheet(page).locator(readingSelector).evaluate(el => ({
           width: el.clientWidth, content: el.scrollWidth,
           reachable: getComputedStyle(el).overflowY === 'auto',
         }));
@@ -200,19 +217,20 @@ const typography = el => {
     assert.equal(await sheet(page).locator('.ace-intro-play-body').textContent(), copy['play.body']);
     assert.equal(await sheet(page).locator('.ace-intro-signup').textContent(), copy['play.signup']);
     assert.equal(await sheet(page).locator('.ace-intro-play').getAttribute('href'), '#community');
-    assert.equal(await sheet(page).locator('.ace-intro-contact').getAttribute('href'), '#contact');
+    assert.equal(await page.locator('.ace-intro-nav, .ace-intro-contact, .ace-intro-revisit').count(), 0);
+    if (code === 'en') assert.equal(await sheet(page).locator('h2').textContent(), 'Play ACE');
     assert.ok(await sheet(page).locator('.ace-intro-play').evaluate(el => {
       const link = el.getBoundingClientRect(), paper = el.closest('.page-body').getBoundingClientRect();
       return link.top >= paper.top && link.bottom <= paper.bottom;
     }), 'The play invitation stays visible on a small screen');
     assert.equal(await sheet(page).locator('input,textarea,form').count(), 0);
     await page.screenshot({ path: `${output}/${code}-${width}-ace-play.png` });
-    for (const [selector, destination] of [['.ace-intro-play', 'community'], ['.ace-intro-contact', 'contact']]) {
+    for (const [selector, destination] of [['.ace-intro-play', 'community']]) {
       await sheet(page).locator(selector).focus();
       await page.keyboard.press('Enter');
       await page.waitForFunction(section => document.querySelector('#stage')?.dataset.section === section, destination);
       await settled(page);
-      assert.equal(new URL(page.url()).hash, '#' + destination, 'Signup/contact links stay inside the current edition');
+      assert.equal(new URL(page.url()).hash, '#' + destination, 'The signup link stays inside the current edition');
       await page.waitForFunction(() => !!document.activeElement.closest('#book .page[aria-hidden="false"]'));
       if (destination === 'community') {
         assert.equal(await page.locator('#community-email').evaluate(el => el === document.activeElement), true, 'Signup opens the real Community form');
@@ -225,8 +243,11 @@ const typography = el => {
     await page.locator('#previous').click();
     await settled(page);
     assert.equal(new URL(page.url()).hash, '#ace-play');
-    await sheet(page).getByRole('link', { name: copy.restart }).click();
-    await settled(page);
+    for (let i = 0; i < 3; i++) {
+      await page.locator('#previous').click();
+      await settled(page);
+    }
+    assert.equal(new URL(page.url()).hash, '#ace', 'Ordinary pagination returns to ACE without a duplicate footer menu');
     await page.locator('#intro-tab-connection').click();
     await page.setViewportSize({ width: width + 5, height });
     await page.waitForTimeout(450);
@@ -249,7 +270,7 @@ const typography = el => {
     // Use the longer Connection definition to exercise a real touch scroll.
     await phone.locator('#intro-tab-connection').click();
     const before = await phone.locator('#stage').getAttribute('data-page');
-    const bounds = await sheet(phone).locator('.ace-intro-reading').boundingBox();
+    const bounds = await sheet(phone).locator(readingSelector).boundingBox();
     const cue = sheet(phone).locator('.ace-intro-scroll');
     await cue.waitFor({ state: 'visible' });
     const cueBefore = await cue.boundingBox();
@@ -261,7 +282,7 @@ const typography = el => {
     }
     await cdp.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
     assert.equal(await phone.locator('#stage').getAttribute('data-page'), before);
-    assert.ok(await sheet(phone).locator('.ace-intro-reading').evaluate(el => el.scrollTop > 0));
+    assert.ok(await sheet(phone).locator(readingSelector).evaluate(el => el.scrollTop > 0));
     assert.deepEqual(await cue.boundingBox(), cueBefore, 'The cue remains visible during a real touch scroll');
     await phone.screenshot({ path: `${output}/${home === '/' ? 'en' : 'fa'}-320-touch-scroll.png` });
   }
@@ -274,7 +295,7 @@ const typography = el => {
     await page.goto(base + (lang.code === 'en' ? '/' : `/${lang.code}/`) + '#ace');
     assert.equal(await page.locator('.ace-intro-panel:visible').count(), 11);
     assert.equal(await page.locator('.ace-intro-play').getAttribute('href'), '#community');
-    assert.equal(await page.locator('.ace-intro-contact').getAttribute('href'), '#contact');
+    assert.equal(await page.locator('.ace-intro-nav, .ace-intro-contact, .ace-intro-revisit').count(), 0);
     const referenceTypography = await page.locator('[data-intro-group="concepts"] .ace-intro-lead').evaluate(typography);
     for (const text of await page.locator('.ace-intro').locator(proseSelector).all()) {
       assert.deepEqual(await text.evaluate(typography), referenceTypography, `${lang.code}: consistent copy without JavaScript`);

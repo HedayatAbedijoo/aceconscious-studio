@@ -133,9 +133,9 @@ html.small-book .book-actions { --action-inset: 6px; }
 .book-has-actions[dir="rtl"] .is-back-cover .book-menu-toggle { right: auto; left: 8px; }
 /* The printed excerpts carry their own header. Reserve the ribbon row before
    fitting the sheet so landscape screens retain the title and every text line. */
+.book-has-actions { --sample-header-space: 60px; }
 .book-has-actions .sample-page {
-  --sheet-scale: min(calc(var(--book-w) / 594px), calc((var(--book-h) - 60px) / 918px));
-  --action-sample-offset: calc(60px + (var(--book-h) - 60px - 918px * var(--sheet-scale)) / 2);
+  --action-sample-offset: calc(var(--sample-header-space) + (var(--book-h) - var(--sample-header-space) - 918px * var(--sheet-scale)) / 2);
   --sample-header-top: calc(var(--action-sample-offset) + 83px * var(--sheet-scale) - 28px);
   --sample-reading-top: calc(var(--sample-header-top) + 24px);
 }

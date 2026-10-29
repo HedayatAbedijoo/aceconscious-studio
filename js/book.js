@@ -486,10 +486,14 @@
   /* ------------------------------------------------------------ the sample */
 
   function fitSampleSheets() {
-    const width = parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--book-w"));
-    const height = parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--book-h"));
-    const scale = Math.min(width / 594, height / 918);
-    document.documentElement.style.setProperty("--sheet-scale", scale.toFixed(4));
+    const style = getComputedStyle(document.documentElement);
+    const width = parseFloat(style.getPropertyValue("--book-w"));
+    const height = parseFloat(style.getPropertyValue("--book-h"));
+    const headerSpace = parseFloat(style.getPropertyValue("--sample-header-space")) || 0;
+    // Keep the scale numeric. CSS length/length division collapses the sample
+    // in older engines (including Responsively's Chromium 118).
+    const scale = Math.min(width / 594, Math.max(1, height - headerSpace) / 918);
+    document.documentElement.style.setProperty("--sheet-scale", scale.toFixed(6));
   }
 
   /* --------------------------------------------------------------- the book */

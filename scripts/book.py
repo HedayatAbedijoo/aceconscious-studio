@@ -601,6 +601,8 @@ def ace_pages():
     intro = parse((ROOT / "content/templates/ace-intro.html").read_text())
     copy = json.loads((ROOT / f"content/book/ace-intro.{LANGUAGE}.json").read_text())
     apply_strings(intro, copy)
+    for group in intro.select("[data-intro-group]"):
+        group["data-intro-typewriter"] = ""
     return [page(section["id"], "ace", text(section.select_one("h2")),
                  [str(section.select_one(".ace-intro"))],
                  "ace-intro-page", fixed=True)
