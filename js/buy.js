@@ -9,6 +9,11 @@
   const section = document.querySelector(".buy--marketplaces");
   if (!section) return;
   const select = section.querySelector("#amazon-marketplace");
+  const pageLanguage = document.documentElement.lang.toLowerCase().split("-")[0];
+  const preferredMarketplace = pageLanguage === "en" ? "us" : pageLanguage;
+  select.value = Array.from(select.options).some(option => option.value === preferredMarketplace)
+    ? preferredMarketplace
+    : "us";
   const status = section.querySelector(".purchase-status");
   const editions = Array.from(section.querySelectorAll("[data-edition]"), card => ({
     card,
