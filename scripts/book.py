@@ -321,7 +321,12 @@ def buy_pages(strings):
     """Link verified editions; future stores remain inactive placeholders."""
     amazon = EDITIONS["amazon"]
     markets = amazon["markets"]
-    default = markets[0]
+    # Start on the marketplace that matches this book's language when one is
+    # available. The Persian book currently links to its English edition, so
+    # keep it on the US storefront. Unknown language codes also fall back to US.
+    preferred_market = "us" if LANGUAGE in ("en", "fa") else LANGUAGE
+    default = next((market for market in markets if market["code"] == preferred_market),
+                   next((market for market in markets if market["code"] == "us"), markets[0]))
     cards, missing = [], []
     editions = amazon.get("localizedEditions", {}).get(LANGUAGE, amazon["editions"])
     for edition in editions:
