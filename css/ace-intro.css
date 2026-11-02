@@ -66,8 +66,8 @@
 .ace-intro-copy--visual { position: absolute; inset: 1.25rem 1.5rem auto; pointer-events: none; }
 .ace-intro-cursor { display: inline-block; width: 2px; height: 1em; margin-inline-start: 2px; vertical-align: -.12em; background: var(--accent); animation: ace-caret .6s step-end infinite; }
 @keyframes ace-caret { 50% { opacity: 0; } }
-.ace-intro-definition { max-width: 70ch; margin: 0; }
-.ace-intro-definition + .ace-intro-definition { margin-top: 1rem; }
+.ace-intro-definition { max-width: 70ch; margin: 0; line-height: 1.55; }
+.ace-intro-definition + .ace-intro-definition { margin-top: .625rem; }
 .ace-intro-note { margin: 1.25rem 0 0; color: var(--ink-muted); }
 .ace-intro-fan { position: relative; height: 200px; max-width: 100%; }
 .ace-intro-fan > span {
