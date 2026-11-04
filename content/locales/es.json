@@ -875,5 +875,6 @@
   "aceIntro.previous": "Anterior",
   "aceIntro.next": "Siguiente",
   "nav.characters": "Personajes",
-  "footer.aceModel": "Modelo ACE"
+  "footer.aceModel": "Modelo ACE",
+  "nav.forum": "Foro"
 }

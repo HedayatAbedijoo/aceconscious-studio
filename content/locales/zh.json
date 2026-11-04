@@ -875,5 +875,6 @@
   "aceIntro.previous": "上一步",
   "aceIntro.next": "下一步",
   "nav.characters": "人物",
-  "footer.aceModel": "ACE 模型"
+  "footer.aceModel": "ACE 模型",
+  "nav.forum": "论坛"
 }

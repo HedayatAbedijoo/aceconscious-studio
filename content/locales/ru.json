@@ -875,5 +875,6 @@
   "aceIntro.previous": "Назад",
   "aceIntro.next": "Далее",
   "nav.characters": "Персонажи",
-  "footer.aceModel": "Модель ACE"
+  "footer.aceModel": "Модель ACE",
+  "nav.forum": "Форум"
 }
