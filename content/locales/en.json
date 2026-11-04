@@ -876,5 +876,9 @@
   "aceIntro.next": "Next",
   "nav.characters": "Characters",
   "footer.aceModel": "ACE model",
-  "nav.forum": "Forum"
+  "nav.forum": "Forum",
+  "hero.award.eyebrow": "Finalist · 2026 Best Book Awards",
+  "hero.award.categoryLabel": "Category",
+  "hero.award.link": "View official results",
+  "hero.award.aria": "ACE.await, finalist in Fiction: Visionary at the 2026 Best Book Awards. See official results (opens in a new tab)."
 }

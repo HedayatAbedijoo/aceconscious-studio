@@ -876,5 +876,9 @@
   "aceIntro.next": "अगला",
   "nav.characters": "पात्र",
   "footer.aceModel": "ACE मॉडल",
-  "nav.forum": "फ़ोरम"
+  "nav.forum": "फ़ोरम",
+  "hero.award.eyebrow": "फाइनलिस्ट · 2026 Best Book Awards",
+  "hero.award.categoryLabel": "श्रेणी",
+  "hero.award.link": "आधिकारिक परिणाम देखें",
+  "hero.award.aria": "ACE.await, 2026 Best Book Awards की Fiction: Visionary श्रेणी में फाइनलिस्ट। आधिकारिक परिणाम देखें (नए टैब में खुलेगा)।"
 }

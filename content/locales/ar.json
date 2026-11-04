@@ -876,5 +876,9 @@
   "aceIntro.next": "التالي",
   "nav.characters": "الشخصيات",
   "footer.aceModel": "نموذج ACE",
-  "nav.forum": "المنتدى"
+  "nav.forum": "المنتدى",
+  "hero.award.eyebrow": "ضمن القائمة النهائية · جوائز أفضل الكتب 2026",
+  "hero.award.categoryLabel": "الفئة",
+  "hero.award.link": "عرض النتائج الرسمية",
+  "hero.award.aria": "رواية ACE.await ضمن القائمة النهائية في فئة Fiction: Visionary من جوائز Best Book Awards لعام 2026. عرض النتائج الرسمية (يفتح في علامة تبويب جديدة)."
 }

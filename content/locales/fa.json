@@ -876,5 +876,9 @@
   "aceIntro.next": "بعدی",
   "nav.characters": "شخصیت‌ها",
   "footer.aceModel": "مدل ACE",
-  "nav.forum": "انجمن"
+  "nav.forum": "انجمن",
+  "hero.award.eyebrow": "فینالیست · جوایز بهترین کتاب ۲۰۲۶",
+  "hero.award.categoryLabel": "دسته‌بندی",
+  "hero.award.link": "دیدن نتایج رسمی",
+  "hero.award.aria": "ACE.await فینالیست دستهٔ Fiction: Visionary در جوایز Best Book Awards سال ۲۰۲۶ است. دیدن نتایج رسمی (در زبانهٔ جدید باز می‌شود)."
 }

@@ -876,5 +876,9 @@
   "aceIntro.next": "下一步",
   "nav.characters": "人物",
   "footer.aceModel": "ACE 模型",
-  "nav.forum": "论坛"
+  "nav.forum": "论坛",
+  "hero.award.eyebrow": "入围 · 2026 Best Book Awards",
+  "hero.award.categoryLabel": "类别",
+  "hero.award.link": "查看官方结果",
+  "hero.award.aria": "ACE.await 入围 2026 Best Book Awards「Fiction: Visionary」类别。查看官方结果（在新标签页中打开）。"
 }

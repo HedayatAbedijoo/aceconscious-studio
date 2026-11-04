@@ -876,5 +876,9 @@
   "aceIntro.next": "Weiter",
   "nav.characters": "Figuren",
   "footer.aceModel": "ACE-Modell",
-  "nav.forum": "Forum"
+  "nav.forum": "Forum",
+  "hero.award.eyebrow": "Finalist beim Best Book Award 2026",
+  "hero.award.categoryLabel": "Kategorie",
+  "hero.award.link": "Offizielle Ergebnisse ansehen",
+  "hero.award.aria": "ACE.await, Finalist in Fiction: Visionary beim Best Book Award 2026. Offizielle Ergebnisse ansehen (wird in einem neuen Tab geöffnet)."
 }

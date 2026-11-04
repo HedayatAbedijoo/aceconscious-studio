@@ -876,5 +876,9 @@
   "aceIntro.next": "Далее",
   "nav.characters": "Персонажи",
   "footer.aceModel": "Модель ACE",
-  "nav.forum": "Форум"
+  "nav.forum": "Форум",
+  "hero.award.eyebrow": "Финалист · Best Book Awards 2026",
+  "hero.award.categoryLabel": "Категория",
+  "hero.award.link": "Официальные результаты",
+  "hero.award.aria": "ACE.await — финалист в категории Fiction: Visionary премии Best Book Awards 2026. Официальные результаты (откроются в новой вкладке)."
 }
