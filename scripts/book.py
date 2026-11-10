@@ -50,7 +50,7 @@ KEEP_CLASSES = {"lede", "aside", "quiet", "dropcap", "chapter-kicker",
                 "rating", "quote-mark", "contents-row", "section-index", "ace-letters",
                 "contact-email", "review-excerpt", "back-to-index", "store-grid", "store-card",
                 "link-list", "headline-eyebrow", "headline-title", "headline-tagline",
-                "headline-logline", "marketplace", "paper-form", "dot"}
+                "marketplace", "paper-form", "dot"}
 
 SKIP_SELECTORS = (
     "nav", "script", "style", "noscript", "form", "button",
@@ -226,6 +226,15 @@ def cover_pages(home, strings):
 
 def headline_page(strings):
     headline = STRINGS["headline"]
+    award = (
+        f'<a class="headline-award" href="{escape(headline["awardUrl"])}" '
+        'target="_blank" rel="noopener noreferrer">'
+        '<img class="headline-award__medal" src="/assets/award-finalist-2026.png" '
+        'alt="" aria-hidden="true" width="1398" height="1125" loading="eager">'
+        f'<span class="headline-award__title" dir="ltr">{escape(headline["awardTitle"])}</span>'
+        '<span class="headline-award__rule" aria-hidden="true"></span>'
+        '</a>'
+    )
     return page("headline", "headline", "ACE.await", [
         '<div class="headline-frontmatter">'
         f'<p class="headline-imprint">{escape(headline["studio"])}<br>'
@@ -236,7 +245,7 @@ def headline_page(strings):
         '<span class="ornament" aria-hidden="true">❧</span></div>',
         '<div class="headline-summary">'
         f'<p class="headline-tagline">{escape(headline["tagline"])}</p>'
-        f'<p class="headline-logline">{escape(headline["logline"])}</p></div>',
+        f'<div class="headline-awards">{award}</div></div>',
         f'<p class="headline-eyebrow">{escape(headline["eyebrow"])}</p>',
     ], "headline-page", fixed=True)
 
