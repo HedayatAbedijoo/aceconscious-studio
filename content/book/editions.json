@@ -218,12 +218,12 @@
   ],
   "covers": {
     "en": {
-      "front": "/assets/cover.jpg",
-      "back": "/assets/cover-back.jpg"
+      "front": "/assets/cover-front.webp",
+      "back": "/assets/cover-back.webp"
     },
     "fa": {
-      "front": "/assets/cover-fa.jpg",
-      "back": "/assets/cover-back-fa.jpg"
+      "front": "/assets/cover-fa.webp",
+      "back": "/assets/cover-back-fa.webp"
     }
   }
 }

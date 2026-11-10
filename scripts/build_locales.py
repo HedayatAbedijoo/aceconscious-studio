@@ -112,6 +112,8 @@ def localize_structured_data(soup, source, strings, page, lang):
                 elif kind == "Book":
                     # Website languages are not additional published book editions.
                     result["inLanguage"] = ["en", "fa"]
+                    if page == "home" and lang["code"] == "fa":
+                        result["image"] = SITE + "/assets/cover-fa.webp"
                 elif "inLanguage" in result:
                     result["inLanguage"] = lang["htmlLang"]
                 return result
@@ -172,7 +174,7 @@ def render(page, lang, source, strings, template=None):
         soup.select_one(".reviews__status").string = strings["reviews.announcement"].replace("{position}", position)
         if code == "fa":
             for img in soup.select(".hero__cover"):
-                img["src"] = img["src"].replace("cover-back.jpg", "cover-back-fa.jpg").replace("cover.jpg", "cover-fa.jpg")
+                img["src"] = img["src"].replace("cover-back.webp", "cover-back-fa.webp").replace("cover-front-640.webp", "cover-fa.webp")
                 img.attrs.pop("srcset", None)
             soup.select_one("#buy-amazon")["href"] = "https://www.amazon.com/dp/B0H9JXNVCV"
 
@@ -192,7 +194,7 @@ def render(page, lang, source, strings, template=None):
         el["content"] = lang["ogLocale"]
     if page == "home" and code == "fa":
         for el in soup.select('meta[property="og:image"], meta[property="og:image:secure_url"], meta[name="twitter:image"]'):
-            el["content"] = SITE + "/assets/cover-fa.jpg"
+            el["content"] = SITE + "/assets/cover-fa.webp"
     localize_structured_data(soup, source, strings, page, lang)
     locale_fonts = {"hi": "Noto+Serif+Devanagari", "zh": "Noto+Serif+SC", "ru": "Noto+Serif"}
     if code in locale_fonts:

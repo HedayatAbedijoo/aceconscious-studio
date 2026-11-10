@@ -1,5 +1,7 @@
 {
   "_": "fr translation of strings.en.json. Shared page wording comes from content/locales/fr.json.",
+  "backCoverDesigner": "Cover Design: Afshin Mayabadi",
+  "backCoverCopyright": "© Copyright 2026 ACE Conscious Studio. Tous droits réservés.",
   "sections": {
     "headline": "Ouverture",
     "reviews": "Critiques",
@@ -33,7 +35,6 @@
     "join": "Rejoindre la communauté",
     "joinHint": "Newsletter, événements et nouveautés"
   },
-
   "headline": {
     "studio": "Ace Conscious Studio",
     "placeAndYear": "Cologne · 2026",

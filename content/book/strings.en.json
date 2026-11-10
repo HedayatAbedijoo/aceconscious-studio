@@ -1,6 +1,7 @@
 {
   "_": "English wording for the book edition only. Shared page text still comes from content/locales/en.json; this file holds the words that exist only inside the book (bookmarks, page furniture, the headline, store labels and the reader circle). See content/README.md.",
-
+  "backCoverDesigner": "Cover Design: Afshin Mayabadi",
+  "backCoverCopyright": "© Copyright 2026 ACE Conscious Studio. All Rights Reserved.",
   "sections": {
     "headline": "Headline",
     "reviews": "Reviews",
@@ -14,7 +15,6 @@
     "appendix": "Appendices",
     "back-cover": "Back cover"
   },
-
   "ui": {
     "continued": "continued",
     "page": "page",
@@ -27,7 +27,6 @@
     "coverAlt": "ACE.await front cover",
     "backCoverAlt": "ACE.await back cover"
   },
-
   "actions": {
     "nav": "Book shortcuts",
     "coverHint": "Return to the cover",
@@ -36,7 +35,6 @@
     "join": "Join the community",
     "joinHint": "Newsletter, events & new releases"
   },
-
   "headline": {
     "studio": "Ace Conscious Studio",
     "placeAndYear": "Cologne · 2026",
@@ -44,7 +42,6 @@
     "tagline": "A novel about the decisions we make — and the world our creations inherit.",
     "logline": "An Iranian immigrant programmer is invited to the ACE game, where conscious decisions become social therapy—and a bloodless revolution could heal humanity and its creations."
   },
-
   "buy": {
     "comingSoon": "Coming soon",
     "marketplaceLabel": "Amazon marketplace",
@@ -75,7 +72,6 @@
       "mx": "Mexico"
     }
   },
-
   "contact": {
     "giftDescription": "If you would like to receive the book as a gift first and then write a review or buy a copy later, please contact me. I will send you a free copy.",
     "giftContact": "Request a gift copy",
@@ -93,7 +89,6 @@
     "writeHeading": "Write to Hedayat",
     "emailDirect": "Or write directly:"
   },
-
   "links": {
     "heading": "Links",
     "instagram": "Instagram",
@@ -101,7 +96,6 @@
     "email": "Email",
     "press": "In the press"
   },
-
   "appendix": {
     "heading": "Appendices",
     "back": "← Back to appendices",

@@ -1,5 +1,7 @@
 {
   "_": "fa translation of strings.en.json. Shared page wording comes from content/locales/fa.json.",
+  "backCoverDesigner": "طراح جلد: افشین می‌آبادی",
+  "backCoverCopyright": "© حق نشر ۲۰۲۶ ACE Conscious Studio. تمامی حقوق محفوظ است.",
   "sections": {
     "headline": "آغاز",
     "reviews": "بازخوردها",
@@ -33,7 +35,6 @@
     "join": "پیوستن به جمع خوانندگان",
     "joinHint": "خبرنامه، رویدادها و آثار تازه"
   },
-
   "headline": {
     "studio": "Ace Conscious Studio",
     "placeAndYear": "کلن · ۲۰۲۶",

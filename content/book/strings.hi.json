@@ -1,5 +1,7 @@
 {
   "_": "hi translation of strings.en.json. Shared page wording comes from content/locales/hi.json.",
+  "backCoverDesigner": "Cover Design: Afshin Mayabadi",
+  "backCoverCopyright": "© कॉपीराइट 2026 ACE Conscious Studio. सर्वाधिकार सुरक्षित।",
   "sections": {
     "headline": "परिचय",
     "reviews": "समीक्षाएँ",
@@ -33,7 +35,6 @@
     "join": "पाठक समुदाय से जुड़ें",
     "joinHint": "न्यूज़लेटर, कार्यक्रम और नई रचनाएँ"
   },
-
   "headline": {
     "studio": "Ace Conscious Studio",
     "placeAndYear": "कोलोन · 2026",

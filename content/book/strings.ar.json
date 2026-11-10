@@ -1,5 +1,7 @@
 {
   "_": "ar translation of strings.en.json. Shared page wording comes from content/locales/ar.json.",
+  "backCoverDesigner": "Cover Design: Afshin Mayabadi",
+  "backCoverCopyright": "© حقوق النشر 2026 ACE Conscious Studio. جميع الحقوق محفوظة.",
   "sections": {
     "headline": "افتتاحية",
     "reviews": "المراجعات",
@@ -33,7 +35,6 @@
     "join": "انضم إلى مجتمع القراء",
     "joinHint": "النشرة البريدية والفعاليات والإصدارات الجديدة"
   },
-
   "headline": {
     "studio": "Ace Conscious Studio",
     "placeAndYear": "كولونيا · ٢٠٢٦",

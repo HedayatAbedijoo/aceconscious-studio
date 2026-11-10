@@ -34,7 +34,7 @@ def check_book(soup, path, code):
     for a in links:
         target = a["data-set-lang"]
         assert a["href"] == route("home", target) + ("" if target in ("en", "fa") else "#headline"), path
-    assert soup.select_one('[data-page="cover"]')["data-image"] == ("/assets/cover-fa.jpg" if code == "fa" else "/assets/cover.jpg"), path
+    assert soup.select_one('[data-page="cover"]')["data-image"] == ("/assets/cover-fa.webp" if code == "fa" else "/assets/cover-front.webp"), path
     strings = json.loads(soup.select_one("#book-strings").string)
     assert list(strings["sections"]) == list(BOOKMARKS), path
     appendix = soup.select_one('[data-page="appendix"]')

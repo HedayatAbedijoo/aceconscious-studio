@@ -28,6 +28,7 @@
 :root {
   --parchment: #e8dcc8;
   --parchment-deep: #d4c4a8;
+  --menu-texture: url("/assets/menu-texture.webp?v=20261110a");
   --parchment-dark: #1a1612;
   --ink: #0d0d0d;
   --ink-soft: #2a2520;
@@ -211,7 +212,11 @@ a:hover {
   height: var(--nav-h);
   display: flex;
   align-items: center;
-  background: rgba(232, 220, 200, 0.82);
+  background-color: #f7f6f2;
+  background-image: var(--menu-texture);
+  background-size: cover;
+  background-position: center 48%;
+  background-repeat: no-repeat;
   backdrop-filter: blur(16px);
   border-bottom: 1px solid rgba(13, 13, 13, 0.08);
 }
@@ -1877,7 +1882,11 @@ html.js .reveal.visible {
     right: 0;
     flex-direction: column;
     padding: 1.5rem;
-    background: rgba(232, 220, 200, 0.97);
+    background-color: #f7f6f2;
+    background-image: var(--menu-texture);
+    background-size: cover;
+    background-position: center 48%;
+    background-repeat: no-repeat;
     backdrop-filter: blur(16px);
     border-bottom: 1px solid rgba(13, 13, 13, 0.08);
     transform: translateY(-120%);
@@ -1958,7 +1967,11 @@ html.js .reveal.visible {
   padding: .4rem;
   margin: 0;
   list-style: none;
-  background: var(--white);
+  background-color: #f7f6f2;
+  background-image: var(--menu-texture);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   border: 1px solid rgba(13, 13, 13, .2);
   border-radius: 8px;
   box-shadow: 0 12px 28px rgba(13, 13, 13, .14);

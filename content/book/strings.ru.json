@@ -1,5 +1,7 @@
 {
   "_": "ru translation of strings.en.json. Shared page wording comes from content/locales/ru.json.",
+  "backCoverDesigner": "Cover Design: Afshin Mayabadi",
+  "backCoverCopyright": "© Авторское право 2026 ACE Conscious Studio. Все права защищены.",
   "sections": {
     "headline": "Вступление",
     "reviews": "Рецензии",
@@ -33,7 +35,6 @@
     "join": "Присоединиться к сообществу",
     "joinHint": "Рассылка, события и новые выпуски"
   },
-
   "headline": {
     "studio": "Ace Conscious Studio",
     "placeAndYear": "Кёльн · 2026",

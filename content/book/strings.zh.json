@@ -1,5 +1,7 @@
 {
   "_": "zh translation of strings.en.json. Shared page wording comes from content/locales/zh.json.",
+  "backCoverDesigner": "Cover Design: Afshin Mayabadi",
+  "backCoverCopyright": "© 版权所有 2026 ACE Conscious Studio。保留所有权利。",
   "sections": {
     "headline": "开篇",
     "reviews": "书评",
@@ -33,7 +35,6 @@
     "join": "加入读者社群",
     "joinHint": "邮件简报、活动与新作"
   },
-
   "headline": {
     "studio": "Ace Conscious Studio",
     "placeAndYear": "科隆 · 2026",

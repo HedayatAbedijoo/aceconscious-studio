@@ -1,5 +1,7 @@
 {
   "_": "es translation of strings.en.json. Shared page wording comes from content/locales/es.json.",
+  "backCoverDesigner": "Cover Design: Afshin Mayabadi",
+  "backCoverCopyright": "© Copyright 2026 ACE Conscious Studio. Todos los derechos reservados.",
   "sections": {
     "headline": "Presentación",
     "reviews": "Reseñas",
@@ -33,7 +35,6 @@
     "join": "Unirse a la comunidad",
     "joinHint": "Boletín, eventos y novedades"
   },
-
   "headline": {
     "studio": "Ace Conscious Studio",
     "placeAndYear": "Colonia · 2026",

@@ -4,6 +4,7 @@
 
 :root {
   --paper: #f0e8d6;
+  --paper-texture: url("/assets/site-texture.webp?v=20261110f");
   --ink: #302d26;
   --muted: #847760;
   --rust: #934d39;
@@ -140,10 +141,10 @@ a:hover {
 .page-edges {
   position: absolute;
   inset: 3px -8px -5px 3px;
-  background: repeating-linear-gradient(to right, #b9aa8c 0, #e2d8c2 1px, #c9bea8 2px, #eee4d0 3px);
+  background: repeating-linear-gradient(to right, #aaa97b 0, #d7d5aa 1px, #bebc8d 2px, #dedbb2 3px);
   border-radius: 0 4px 5px 0;
-  border-right: 1px solid #88795f;
-  border-bottom: 3px solid #bfb296;
+  border-right: 1px solid #87845d;
+  border-bottom: 2px solid #b6b47e;
   z-index: -1;
 }
 
@@ -153,8 +154,8 @@ a:hover {
   bottom: 0;
   left: 1px;
   right: 2px;
-  height: 5px;
-  background: repeating-linear-gradient(to bottom, #b2a58e 0 1px, #e0d5bf 1px 2px);
+  height: 4px;
+  background: repeating-linear-gradient(to bottom, #aaa87a 0 1px, #d8d6a8 1px 2px);
 }
 
 .book-shell {
@@ -176,7 +177,7 @@ a:hover {
   inset: 3px 3px -5px -8px;
   border-radius: 4px 0 0 5px;
   border-right: 0;
-  border-left: 1px solid #88795f;
+  border-left: 1px solid #87845d;
 }
 
 .is-back-cover .book-shadow {
@@ -233,6 +234,11 @@ html.js { overscroll-behavior-x: none; }
 
 .page {
   background: var(--paper);
+  background-image: var(--paper-texture);
+  /* Fit one texture sample to each sheet. Repeating the 512px source exposed
+     its uneven bottom/top edge as a horizontal crease halfway down the page. */
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
   width: var(--book-w);
   height: var(--book-h);
   overflow: hidden;
@@ -246,8 +252,7 @@ html.js { overscroll-behavior-x: none; }
   inset: 0;
   pointer-events: none;
   background:
-    linear-gradient(90deg, #5a43221a, transparent 6%, #fff1 50%, #b3966a0a 94%, #8d744d16),
-    url("data:image/svg+xml,%3Csvg viewBox='0 0 150 150' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.7' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Cpath fill='%23796545' opacity='.10' filter='url(%23p)' d='M0 0h150v150H0z'/%3E%3C/svg%3E");
+    linear-gradient(90deg, #5a432218, transparent 9%, transparent 91%, #8d744d10);
   z-index: 1;
 }
 
@@ -266,6 +271,10 @@ html.js { overscroll-behavior-x: none; }
   background: transparent;
 }
 
+.page.cover .cover-image {
+  object-fit: cover;
+}
+
 .page.cover::before {
   background: linear-gradient(90deg, #0004, #fff2 2%, #0003 3%, transparent 6%);
 }
@@ -279,18 +288,17 @@ html.js { overscroll-behavior-x: none; }
 }
 
 .page.back-cover {
-  /* Extend only the artwork's blank bottom margin behind the live footer. */
-  background: #e5d9b9 url("/assets/cover-back.jpg") center bottom / 100% 1000%;
+  background-color: var(--paper);
+  background-image: var(--paper-texture);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
 }
 
 /* PageFlip owns the sheet's display property; lay out its contents separately. */
 .page.back-cover .back-cover__layout {
   position: absolute;
   inset: 0;
-  display: flex;
-  flex-direction: column;
-  padding: 12px 0 58px;
-  gap: 8px;
+  display: block;
 }
 
 .page.back-cover::before {
@@ -303,69 +311,75 @@ html.js { overscroll-behavior-x: none; }
 }
 
 .page.back-cover .back-cover__artwork {
-  position: relative;
-  flex: 1;
-  min-height: 0;
+  position: absolute;
+  inset: 0;
   overflow: hidden;
-  container-type: size;
-  mask-image: linear-gradient(transparent, #000 3%, #000 97%, transparent);
 }
 
 .page.back-cover .cover-image {
   position: absolute;
-  left: 50%;
-  top: 50%;
-  /* Fit the printed area (8%–78%) without cropping any words or distorting it.
-     The footer keeps its readable type size when the book gets smaller. */
-  width: min(100cqw, 89.2857cqh);
-  height: auto;
-  transform: translate(-50%, -43%);
-  mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  /* Preserve the complete supplied artwork edge to edge on the book sheet. */
+  object-fit: fill;
+  transform: none;
+  mask-image: none;
 }
 
 .back-cover__imprint {
-  position: relative;
-  flex: none;
-  margin: 0 8%;
-  z-index: 2;
+  position: absolute;
+  right: 6%;
+  bottom: clamp(55px, calc(var(--book-h) * 0.085), 70px);
+  left: 6%;
+  margin: 0;
+  padding: clamp(12px, calc(var(--book-h) * 0.018), 16px)
+    clamp(8px, calc(var(--book-w) * 0.024), 14px)
+    clamp(9px, calc(var(--book-h) * 0.014), 12px);
+  border-top: 1px solid #73474466;
+  border-radius: 14px;
+  background: #ded9b0e8;
+  box-shadow: 0 -4px 16px #29251f26;
+  z-index: 4;
   text-align: center;
-  color: #3b332a;
+  color: #573a37;
 }
 
 .back-cover__studio {
-  margin: 0 0 6px;
-  font: 400 clamp(12px, calc(var(--book-w) * 0.031), 16px)/1.3 var(--book-serif);
-  letter-spacing: 1.5px;
+  margin: 0 0 5px;
+  font: 600 clamp(12px, calc(var(--book-w) * 0.035), 16px)/1.25 var(--book-serif);
+  letter-spacing: 1px;
   text-transform: uppercase;
 }
 
 .back-cover__studio a { color: inherit; text-decoration: none; }
 .back-cover__studio a:hover { text-decoration: underline; }
 
+.back-cover__designer { margin-bottom: 3px; }
+
 .back-cover__legal {
   margin: 0;
-  font: 400 clamp(10px, calc(var(--book-w) * 0.024), 12px)/1.4 var(--book-serif);
-  color: #5b5042;
+  font: 400 clamp(10px, calc(var(--book-w) * 0.027), 12.5px)/1.25 var(--book-serif);
+  color: #51483c;
 }
 
 .back-cover__links {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  column-gap: 12px;
-  margin: 9px 0 0;
-  padding: 7px 0 0;
-  border-top: 1px solid #84776066;
+  column-gap: clamp(7px, calc(var(--book-w) * 0.022), 11px);
+  margin: 8px 0 0;
+  padding: 0;
   list-style: none;
-  font: 400 clamp(11px, calc(var(--book-w) * 0.028), 14px)/1.3 var(--book-serif);
+  font: 500 clamp(12px, calc(var(--book-w) * 0.034), 15px)/1.25 var(--book-serif);
 }
 
 .back-cover__links a {
   display: inline-flex;
   align-items: center;
-  min-height: 22px;
-  color: #5c392a;
-  text-decoration-color: #934d3955;
+  min-height: 28px;
+  color: #713f43;
+  text-decoration-color: #713f4388;
   text-underline-offset: 3px;
 }
 
@@ -2320,20 +2334,11 @@ html:not(.js) .sample-sheet__canvas {
 
 .small-book .bookmarks { top: 22px; bottom: 30px; gap: 3px; }
 .small-book .bookmark { min-height: 0; font-size: 8px; }
-.small-book .page.back-cover .back-cover__layout { padding-top: 7px; padding-bottom: 53px; gap: 5px; }
-.small-book .back-cover__imprint { margin-inline: 7%; }
-.small-book .back-cover__studio { font-size: 11px; letter-spacing: 1px; margin-bottom: 4px; }
-.small-book .back-cover__legal { font-size: 9px; }
-.small-book .back-cover__links { font-size: 10px; column-gap: 8px; margin-top: 6px; padding-top: 4px; }
-.small-book .back-cover__links a { min-height: 18px; }
-.small-book .back-cover__links {
-  max-height: calc(var(--book-h) * .25);
-  overflow-y: auto;
-  overscroll-behavior: contain;
-  scrollbar-width: thin;
-  scrollbar-color: #b6a589 transparent;
-  touch-action: pan-y pinch-zoom;
-}
+.small-book .back-cover__imprint { left: 5%; right: 5%; padding: 10px 2% 8px; border-radius: 12px; }
+.small-book .back-cover__studio { font-size: 11px; letter-spacing: .7px; margin-bottom: 4px; }
+.small-book .back-cover__legal { font-size: 9px; line-height: 1.2; }
+.small-book .back-cover__links { font-size: 11px; column-gap: 6px; margin-top: 5px; }
+.small-book .back-cover__links a { min-height: 22px; }
 .small-book .running-head { top: 17px; padding-bottom: 8px; font-size: 6px; letter-spacing: 0.7px; }
 .small-book .running-head .book-name { font-size: 10px; }
 .small-book .page-body { top: 54px; bottom: 51px; line-height: 1.48; }
@@ -2528,8 +2533,8 @@ html[dir="rtl"] .book-stage { transform: translateX(16px); }
 html[dir="rtl"] .book-stage.is-closed { transform: translate(3px, -18px) rotate(1deg); }
 html[dir="rtl"] .book-stage.is-back-cover { transform: translateX(-16px); }
 html[dir="rtl"] .cover-entry { transform: translateX(-50%) rotate(-1deg); }
-html[dir="rtl"] .page-edges { inset: 3px 3px -5px -8px; border-radius: 4px 0 0 5px; border-right: 0; border-left: 1px solid #88795f; }
-html[dir="rtl"] .is-back-cover .page-edges { inset: 3px -8px -5px 3px; border-left: 0; border-right: 1px solid #88795f; }
+html[dir="rtl"] .page-edges { inset: 3px 3px -5px -8px; border-radius: 4px 0 0 5px; border-right: 0; border-left: 1px solid #87845d; }
+html[dir="rtl"] .is-back-cover .page-edges { inset: 3px -8px -5px 3px; border-left: 0; border-right: 1px solid #87845d; }
 html[dir="rtl"] .bookmarks { right: auto; left: calc(-1 * var(--tab-width) + 8px); --tab-direction: -1; }
 html[dir="rtl"] .bookmark { border-radius: 4px 0 0 4px; transform-origin: right center; padding: 0 11px 0 5px; }
 html[dir="rtl"] .is-back-cover .bookmarks { left: auto; right: calc(-1 * var(--tab-width) + 8px); --tab-direction: 1; }

@@ -217,7 +217,8 @@ def cover_pages(home, strings):
         '<p class="back-cover__studio"><a href="https://aceconscious.studio/" '
         'target="_blank" rel="noopener noreferrer">'
         f'{inner(footer.select_one(".site-footer__brand"))}</a></p>'
-        f'<p class="back-cover__legal">{inner(footer.select_one(".site-footer__legal"))}</p>'
+        f'<p class="back-cover__designer back-cover__legal">{escape(STRINGS["backCoverDesigner"])}</p>'
+        f'<p class="back-cover__legal">{escape(STRINGS["backCoverCopyright"])}</p>'
         '<ul class="back-cover__links">' + "".join(links) + '</ul></footer>',
     ], "cover back-cover", image=EDITIONS["covers"].get(LANGUAGE, EDITIONS["covers"]["en"])["back"], alt=STRINGS["ui"]["backCoverAlt"])
     return front, back
@@ -689,8 +690,9 @@ def compose(soup, render, source, strings):
                               f'data-alt="{escape(item["alt"], quote=True)}"')
         body = "".join(item["blocks"])
         if item.get("image"):
+            loading = ' loading="lazy"' if item["id"] == "back-cover" else ""
             artwork = (f'<img class="cover-image" src="{item["image"]}" '
-                       f'alt="{escape(item["alt"], quote=True)}" width="1600" height="2560">')
+                       f'alt="{escape(item["alt"], quote=True)}" width="1800" height="2700"{loading}>')
             if item["id"] == "back-cover":
                 artwork = f'<div class="back-cover__artwork">{artwork}</div>'
             body = artwork + body
