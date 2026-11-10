@@ -242,11 +242,11 @@ def headline_page(strings):
 
 
 def review_pages(home, strings):
-    """Keep Kirkus in full; the other two book reviews use their short quotes."""
+    """Keep Kirkus in full and use short quotes for compact review entries."""
     pages = []
     for position, article in enumerate(home.select("[data-review-id]"), start=1):
         identifier = article["data-review-id"]
-        compact = identifier in {"booklife-2026", "consciousness-2026"}
+        compact = identifier in {"booklife-2026", "readerviews-2026"}
         quote = article.select_one(f'#{article["aria-labelledby"]}')
         brand = text(article.select_one(".media-review__name, .review__score-source"))
         kind = text(article.select_one(".media-review__publication p, .media-review__eyebrow"))
@@ -257,10 +257,20 @@ def review_pages(home, strings):
         body.append(f'<p class="review-brand">{escape(brand)}'
                     + (f"<small>{escape(small)}</small>" if small else "") + "</p>")
         body.append('<span class="quote-mark" aria-hidden="true">“</span>')
-        body.append(f'<p class="pullquote">{inner(quote.select_one("p") or quote)}</p>')
-        for secondary in article.select(".media-review__secondary-quote p, .review__tagline p"):
-            body.append(f'<p class="lede">{inner(secondary)}</p>')
-        closing_start = len(body)
+        link = article.select_one("a.review__link")
+        link_html = ""
+        if link:
+            label = text(link.select_one("span"))
+            link_html = (
+                f' <a class="review-link review-link--inline" href="{escape(link["href"])}" '
+                'target="_blank" rel="noopener noreferrer">'
+                f'<span>{escape(label)}</span> <span aria-hidden="true">↗</span>'
+                f'<span class="sr-only">{escape(strings["reviews.newTab"])}</span></a>'
+            )
+        body.append(f'<p class="pullquote">{inner(quote.select_one("p") or quote)}{link_html}</p>')
+        if identifier != "booklife-2026":
+            for secondary in article.select(".media-review__secondary-quote p, .review__tagline p"):
+                body.append(f'<p class="lede">{inner(secondary)}</p>')
         if not compact:
             for excerpt in article.select(".media-review__excerpt p, .review__excerpt p"):
                 body.append(f'<p class="review-excerpt">{inner(excerpt)}</p>')
@@ -274,22 +284,10 @@ def review_pages(home, strings):
         note = text(article.select_one(".media-review__note, .review__translation"))
         if note:
             body.append(f'<p class="quiet">{escape(note)}</p>')
-        link = article.select_one("a.review__link")
-        if link:
-            label = text(link.select_one("span"))
-            body.append(f'<a class="review-link" href="{escape(link["href"])}" target="_blank" '
-                        f'rel="noopener noreferrer">{escape(label)} '
-                        f'<span aria-hidden="true">↗</span></a>')
-        if identifier == "kirkus-2026":
-            # The source link belongs with the final quote, never on its own sheet.
-            body[closing_start:] = [
-                '<div class="review-closing" data-keep-together>'
-                + "".join(body[closing_start:]) + "</div>"
-            ]
         pages.append(page("reviews" if position == 1 else identifier, "reviews",
                           brand or strings["reviews.heading"], body,
-                          "review-page short-review-page" if compact else "review-page",
-                          fixed=compact))
+                          "review-page short-review-page" if compact or identifier == "kirkus-2026" else "review-page",
+                          fixed=compact or identifier == "kirkus-2026"))
     return pages
 
 

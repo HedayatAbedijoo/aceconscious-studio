@@ -652,8 +652,8 @@ html.js { overscroll-behavior-x: none; }
 }
 
 .review-entry + .review-entry {
-  margin-top: clamp(20px, calc(var(--book-w) * 0.06), 28px);
-  padding-top: clamp(18px, calc(var(--book-w) * 0.05), 24px);
+  margin-top: clamp(14px, calc(var(--book-w) * 0.04), 20px);
+  padding-top: clamp(14px, calc(var(--book-w) * 0.04), 20px);
 }
 
 .review-page .chapter-kicker {
@@ -710,11 +710,27 @@ html.js { overscroll-behavior-x: none; }
 }
 
 .review-page .review-link {
-  font: 10px var(--book-ui);
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  margin-top: 12px;
-  display: inline-block;
+  font: 9px/1.4 var(--book-ui);
+  letter-spacing: .35px;
+  text-transform: none;
+}
+
+.review-page .pullquote .review-link--inline {
+  display: inline;
+  margin: 0;
+  margin-inline-start: .55em;
+  padding-inline: .1em;
+  color: var(--rust);
+  font-weight: 600;
+  white-space: nowrap;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-thickness: .7px;
+}
+
+.review-page .pullquote .review-link--inline:focus-visible {
+  outline: 2px solid var(--rust);
+  outline-offset: 2px;
 }
 
 /* Shared sheets use closer internal spacing, with a clear gap between reviews. */
@@ -2750,9 +2766,8 @@ html:not([lang="en"]) .page:not(.sample-page) .paper-form .form-status { font-si
   html:not([lang="en"]) .headline-logline { font-size: .86em; }
 }
 
-/* Translated short reviews share one sheet whenever the actual text fits.
-   Their quieter scale includes translation notes; the long Kirkus review
-   retains its independent layout and can continue on small screens. */
+/* Translated reviews use a quieter scale so the opening reviews can share a
+   sheet where the text fits. */
 html:not([lang="en"]) .page.short-review-page .page-body {
   font-size: calc(var(--locale-body) * .94);
   line-height: 1.5;
@@ -2787,8 +2802,8 @@ html:not([lang="en"]) .page.short-review-page .lede {
 html:not([lang="en"]) .page.short-review-page .quiet { font-size: .75em; margin-bottom: 8px; }
 html:not([lang="en"]) .page.short-review-page .review-link { font-size: 8px; line-height: 1.5; margin-top: 4px; }
 html:not([lang="en"]) .page.short-review-page .review-entry + .review-entry {
-  margin-top: clamp(14px, calc(var(--book-w) * .04), 20px);
-  padding-top: clamp(12px, calc(var(--book-w) * .03), 16px);
+  margin-top: clamp(12px, calc(var(--book-w) * .035), 16px);
+  padding-top: clamp(12px, calc(var(--book-w) * .03), 14px);
 }
 
 /* Reserve separate columns for translated story titles and the decorative

@@ -73,8 +73,9 @@ fs.mkdirSync(out, { recursive: true });
       let reviewCount = 0, paired = false;
       while (await page.locator('#stage').getAttribute('data-section') === 'reviews') {
         const ids = await active().locator('.review-entry').evaluateAll(entries => entries.map(entry => entry.dataset.reviewId));
-        record(!ids.includes('reviews') || ids.length === 1, `${label}: Kirkus shares a page`);
-        paired ||= ids.includes('booklife-2026') && ids.includes('consciousness-2026');
+        record(ids.includes('reviews') === ids.includes('booklife-2026'), `${label}: Kirkus and BookLife should share one sheet`);
+        record(ids.length <= 3, `${label}: too many reviews share a sheet`);
+        paired ||= ids.includes('reviews') && ids.includes('booklife-2026');
         record(await checkBounds(), `${label}: review ${reviewCount + 1} overflows`);
         const image = `${lang.code}-${width}x${height}-review-${++reviewCount}.png`;
         await page.screenshot({ path: path.join(out, image), animations: 'disabled' });
@@ -86,7 +87,7 @@ fs.mkdirSync(out, { recursive: true });
         if (reviewCount > 15) throw Error(`${label}: review navigation did not end`);
       }
       const book = await page.locator('#shell').boundingBox();
-      if (book.width >= 400 && book.height >= 700) record(paired, `${label}: short reviews should share the full-size sheet`);
+      if (book.width >= 400 && book.height >= 700) record(paired, `${label}: Kirkus and BookLife should share the full-size sheet`);
       await revealBookControls(page);
       await page.locator('.bookmark[data-section="story"]').click();
       await settled();

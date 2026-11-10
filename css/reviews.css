@@ -225,6 +225,9 @@ html[dir="rtl"] .review__excerpt { font-size: 1.0625rem; line-height: 1.95; }
 .media-review__secondary-quote { max-width: 42rem; font: 400 clamp(1.3rem, 2.2vw, 1.8rem)/1.6 var(--font-serif); color: var(--ink-soft); text-wrap: pretty; }
 .media-review__footer { border-top: 1px solid rgba(13,13,13,.23); padding-top: .75rem; }
 .media-review__footer .review__link { font-size: .9375rem; }
+.media-review--kirkus .media-review__footer { justify-content: flex-start; margin-top: 1.5rem; padding-top: 0; border-top: 0; }
+.media-review--kirkus .review__link { padding: .75rem 1rem; border: 1px solid var(--ink); border-radius: 2px; color: var(--white); background: var(--ink); }
+.media-review--kirkus .review__link:hover { color: var(--ink); background: transparent; }
 
 /* A: the publisher occupies the same space as BookLife's score card. */
 .review.media-review--a { grid-template-columns: minmax(0, 2.1fr) minmax(0, 1fr); }
@@ -255,7 +258,6 @@ html[dir="rtl"] .media-review__secondary-quote { font-family: var(--font-serif-f
 html[dir="rtl"] .media-review__excerpt { font-size: 1.0625rem; line-height: 2; }
 html[dir="rtl"] .media-review--kirkus .media-review__excerpt { font-size: 1.125rem; line-height: 1.95; }
 .review[data-review-id="booklife-2026"] .review__excerpt,
-.review[data-review-id="consciousness-2026"] .media-review__excerpt { font-size: 1.125rem; }
 
 @media (max-width: 900px) {
   .review.media-review--a { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }

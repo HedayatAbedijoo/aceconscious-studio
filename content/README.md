@@ -57,9 +57,11 @@ and Hindi request their appropriate Noto Serif families. English retains its
 approved typography and paper effects.
 
 Localized type scales in `css/book.css` account for each script's visual size.
-Kirkus never shares a sheet with another review. The two short reviews use
-`short-review-page` spacing and share a sheet when their complete translated
-text fits; small screens retain readable type and can use separate sheets.
+Kirkus, BookLife Prize and Reader Views are the first review entries. Fit up to
+three on the first sheet when the text fits, and up to two per following sheet;
+never allow the review pages to scroll. BookLife contains one quote. The
+review title's existing underline separates entries. Keep every group within
+the page bounds in every locale and on small screens.
 Translated story headings reserve a separate column for the decorative 2313.
 
 Section bookmarks always remain one vertical stack of paper slips on the book
@@ -175,8 +177,8 @@ including hover, keyboard/touch navigation and live resizing. It blocks remote
 requests; screenshots stay local under `/tmp/book-curl-qa`.
 `node scripts/check_book_typography.cjs` proofs every review sheet and the story
 heading in all nine languages at seven viewport sizes, using actual web fonts.
-It checks text preservation, Kirkus isolation, short-review packing, bounds and
-title/2313 collisions. Screenshots and a comparison gallery stay local under
+It checks text preservation, review grouping, bounds and title/2313 collisions.
+Screenshots and a comparison gallery stay local under
 `/tmp/book-review-proof`; `--smoke` runs two representative viewport sizes.
 The shared Python browser suite also supports `--local-files` to run without a
 preview server. Static checks verify that legal introductions and ACE comparison
@@ -240,7 +242,7 @@ external requests and never submits a contact message.
 
 `content/reviews.html` is the shared source immediately after the compact
 ACE.await hero, followed by the story and character voices. Kirkus Reviews is
-first, BookLife second, and The Consciousness AI third. `js/reviews.js` derives the
+first, BookLife second, and Reader Views third. `js/reviews.js` derives the
 count and enables arrows, keyboard navigation and swiping.
 
 To add a review, copy an article in the shared fragment, give it a unique

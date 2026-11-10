@@ -432,9 +432,8 @@
     return packReviews(output);
   }
 
-  // Short reviews stay intact, but need not occupy a sheet of their own.
-  // Measure the full pair, including their separator, at the current book size.
-  // Never shrink text just to make two reviews share a page.
+  // Pack up to three opening reviews on the first sheet, then up to two on
+  // each following sheet when their complete text fits without scrolling.
   function packReviews(sheets) {
     const probe = pageElement({ title: "" }, "review-page short-review-page shared-reviews measure");
     const probeBody = $(".page-body", probe);
@@ -459,12 +458,30 @@
 
       const previous = packed[packed.length - 1];
       const previousBody = previous?.section === "reviews" && $(".page-body", previous.el);
-      if (sheet.fixed && previous?.fixed && !sheet.continued && previousBody
-        && !body.classList.contains("is-fitted") && !previousBody.classList.contains("is-fitted")) {
-        probeBody.replaceChildren(...Array.from(previousBody.children, node => node.cloneNode(true)),
-          entry.cloneNode(true));
-        if (probeBody.scrollHeight <= probeBody.clientHeight + 1) {
-          previousBody.append(entry);
+      const groupLimit = previous?.reviewStarts?.includes("reviews") ? 3 : 2;
+      const canMerge = previous?.reviewStarts?.length < groupLimit;
+      if (canMerge && sheet.fixed && previous?.fixed && !sheet.continued && previousBody) {
+        const previousContent = $(".page-fit", previousBody) || previousBody;
+        const currentContent = $(".page-fit", body) || body;
+        probeBody.replaceChildren(...Array.from(previousContent.children, node => node.cloneNode(true)),
+          ...Array.from(currentContent.children, node => node.cloneNode(true)));
+        let fit = 1;
+        if (probeBody.scrollHeight > probeBody.clientHeight + 1) {
+          probeBody.classList.add("is-fitted");
+          fit = Math.max(0.5, (probeBody.clientHeight - 6) / probeBody.scrollHeight);
+          probeBody.classList.remove("is-fitted");
+        }
+        if (fit >= 0.62) {
+          if (fit < 1) {
+            const fitted = document.createElement("div");
+            fitted.className = "page-fit";
+            fitted.style.setProperty("--fit", fit.toFixed(3));
+            fitted.append(...Array.from(previousContent.children), entry);
+            previousBody.replaceChildren(fitted);
+            previousBody.classList.add("is-fitted");
+          } else {
+            previousContent.append(entry);
+          }
           previous.el.classList.add("shared-reviews");
           previous.reviewStarts.push(...sheet.reviewStarts);
           previous.title += " · " + sheet.title;
