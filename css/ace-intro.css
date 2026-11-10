@@ -1,11 +1,11 @@
 /* Localized paper cards for the ACE introduction and character voices. */
 .ace-intro {
-  --intro-ink: #293b32;
-  --intro-rust: #984d36;
-  --intro-line: #b7b9a477;
-  --intro-green: #dee4d4;
-  --intro-copy-size: 18px;
-  --intro-copy-leading: 1.6;
+  --intro-ink: var(--ink);
+  --intro-rust: var(--rust);
+  --intro-line: #bdad8d88;
+  --intro-green: #e8dfca;
+  --intro-copy-size: var(--body-size);
+  --intro-copy-leading: 1.55;
 }
 :is(.ace-intro-page, .voices-page) .page-body { top: 64px; bottom: 52px; }
 .ace-intro {
@@ -87,7 +87,7 @@
   align-items: center;
   gap: 12px;
   margin-bottom: 12px;
-  color: #526354;
+  color: var(--muted);
   font: 400 16px/1.4 var(--book-serif);
   font-variant-numeric: tabular-nums;
 }
@@ -98,10 +98,13 @@
   background: var(--intro-line);
 }
 .ace-intro-heading h2 {
-  font-size: 39px;
+  font-family: var(--book-heading);
+  font-size: clamp(32px, calc(var(--book-w) * 0.102), 52px);
+  font-weight: 400;
   line-height: 1.04;
   letter-spacing: -1.2px;
   margin: 0 0 12px;
+  color: var(--ink);
 }
 .ace-intro-heading .ace-intro-lead {
   max-width: none;
@@ -124,7 +127,7 @@
   transition: background .15s, border-color .15s;
 }
 .ace-intro-tabs b { font: 38px/1 var(--book-serif); }
-.ace-intro-tabs button > span { font: 10px/1.4 var(--book-ui); max-width: 100%; overflow-wrap: anywhere; hyphens: auto; }
+.ace-intro-tabs button > span { color: currentColor; font: 500 clamp(11px, calc(var(--book-w) * .027), 12px)/1.35 var(--book-serif); max-width: 100%; overflow-wrap: anywhere; hyphens: auto; }
 .ace-intro-tabs button:hover { background: #e2e3d3; border-color: #7a8872; }
 .ace-intro-tabs button[aria-selected="true"] { background: var(--intro-ink); border-color: var(--intro-ink); color: #faf5e7; }
 .ace-intro-tabs--phases button[aria-selected="true"] { background: var(--intro-green); color: var(--intro-ink); }
@@ -139,13 +142,13 @@
 }
 .ace-intro-panel[hidden] { display: none; }
 .ace-intro-card-top { display: flex; align-items: center; justify-content: space-between; height: 28px; margin-bottom: 9px; }
-.ace-intro-card-label { color: var(--intro-rust); font: 10px/1.4 var(--book-ui); letter-spacing: .35px; }
-.ace-intro-mark { color: #ced5c2; font: 56px/.8 var(--book-serif); }
-.ace-intro-mark svg { display: block; height: 44px; width: 44px; color: #96a18b; }
+.ace-intro-card-label { color: var(--intro-rust); font: 11px/1.45 var(--book-ui); letter-spacing: .35px; }
+.ace-intro-mark { color: #b8ad92; font: 56px/.8 var(--book-serif); }
+.ace-intro-mark svg { display: block; height: 44px; width: 44px; color: var(--muted); }
 .ace-intro-panel h3 { margin: 0 0 10px; }
 .ace-intro-panel .ace-intro-definition { white-space: pre-line; }
 .ace-intro-example { border-top: 1px solid var(--intro-line); padding-top: 10px; margin-top: 12px; }
-.ace-intro-example-label { display: block; margin-bottom: 6px; font: 9px/1.4 var(--book-ui); text-transform: uppercase; letter-spacing: .6px; color: var(--intro-rust); }
+.ace-intro-example-label { display: block; margin-bottom: 6px; font: 10px/1.4 var(--book-ui); text-transform: uppercase; letter-spacing: .6px; color: var(--intro-rust); }
 [data-intro-group="phases"] .ace-intro-example { background: #e8ebdd; border: 0; padding: 11px 13px; border-radius: 5px; }
 [data-intro-group="phases"] .ace-intro-example p { color: var(--intro-ink); }
 .ace-intro-next { display: inline-flex; justify-content: space-between; align-items: center; gap: 12px; min-height: 44px; max-width: 100%; font: 11px/1.4 var(--book-ui); text-decoration: none; }
@@ -162,7 +165,7 @@
 .ace-intro-fan .ace-intro-fan-e { transform: translate(58px, 14px) rotate(17deg); text-align: right; }
 .ace-intro-fan-e small { left: auto; right: 13px; }
 .ace-intro-fan .ace-intro-fan-a { background: var(--intro-ink); color: #faf5e7; transform: rotate(-3deg); }
-.ace-intro-fan small { position: absolute; bottom: 14px; left: 13px; font: 9px/1 var(--book-ui); }
+.ace-intro-fan small { position: absolute; bottom: 14px; left: 13px; font: 10px/1.2 var(--book-ui); }
 .ace-intro-fan svg { display: block; width: 45px; height: 45px; margin: 3px auto; color: #d5b89b; }
 .ace-intro :is(.ace-intro-play-body, .ace-intro-signup) { max-width: 35ch; margin: 0 auto; }
 .ace-intro-play { width: 100%; justify-content: center; font-size: 13px; min-height: 48px; }
@@ -182,16 +185,16 @@
   .ace-intro-tabs { gap: 5px; }
   .ace-intro-tabs button { min-height: 58px; padding: 6px 1px; }
   .ace-intro-tabs b { font-size: 28px; }
-  .ace-intro-tabs button > span { font-size: 8px; }
+  .ace-intro-tabs button > span { font-size: 11px; }
   .ace-intro-tabs svg { width: 27px; height: 27px; }
   .ace-intro-panel { padding: 12px 13px; }
   .ace-intro-card-top { height: 24px; margin-bottom: 8px; }
-  .ace-intro-card-label { font-size: 9px; }
+  .ace-intro-card-label { font-size: 10px; }
   .ace-intro-mark { font-size: 40px; }
   .ace-intro-mark svg { width: 32px; height: 32px; }
   .ace-intro-panel h3 { margin-bottom: 9px; }
   .ace-intro-example { padding-top: 9px; margin-top: 11px; }
-  .ace-intro-example-label { font-size: 8px; margin-bottom: 4px; }
+  .ace-intro-example-label { font-size: 9px; margin-bottom: 4px; }
   .ace-intro-next { font-size: 10px; padding: 8px 10px; gap: 8px; }
   .ace-intro-duration { display: none; }
   .ace-intro-fan { height: 153px; }
@@ -199,7 +202,7 @@
   .ace-intro-fan .ace-intro-fan-c { transform: translate(-44px, 11px) rotate(-17deg); }
   .ace-intro-fan .ace-intro-fan-e { transform: translate(44px, 11px) rotate(17deg); }
   .ace-intro-fan svg { width: 34px; height: 34px; }
-  .ace-intro-fan small { font-size: 8px; bottom: 11px; left: 10px; }
+  .ace-intro-fan small { font-size: 9px; bottom: 11px; left: 10px; }
 }
 .small-book :is(.ace-intro-page, .voices-page) .page-body { top: 47px; bottom: 39px; left: 17px; right: 17px; }
 .small-book .ace-intro-tabs--phases { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -251,7 +254,7 @@ html:not(.js) .ace-intro-panel[hidden] { display: block; margin-top: 1rem; }
   padding: 9px 3px;
   gap: 6px;
 }
-.is-typewriter .ace-intro-tabs button > span { font-size: 9px; }
+.is-typewriter .ace-intro-tabs button > span { font-size: 11px; }
 .is-typewriter .ace-intro-tabs b { font-size: 31px; }
 .is-typewriter .ace-intro-tabs svg { width: 29px; height: 29px; }
 .is-typewriter .ace-intro-tabs button[aria-selected="true"]::after {
@@ -296,7 +299,7 @@ html[dir="rtl"] :is(.ace-intro-tabs button > span, .is-typewriter .ace-intro-pan
 }
 .is-typewriter .ace-intro-mark { font-size: 34px; }
 .is-typewriter .ace-intro-mark svg { width: 27px; height: 27px; }
-.is-typewriter .ace-intro-card-label { font-size: 10px; }
+.is-typewriter .ace-intro-card-label { font-size: 11px; }
 .ace-intro-prose { position: relative; }
 .ace-intro-full-copy { opacity: 0; }
 .ace-intro-typescript { position: absolute; inset: 0; pointer-events: none; }
@@ -330,11 +333,11 @@ html[dir="rtl"] :is(.ace-intro-tabs button > span, .is-typewriter .ace-intro-pan
   .is-typewriter .ace-intro-workspace { grid-template-columns: 55px minmax(0, 1fr); gap: 8px; }
   .is-typewriter .ace-intro-tabs { gap: 6px; }
   .is-typewriter .ace-intro-tabs button { min-height: 58px; padding: 6px 2px; gap: 4px; }
-  .is-typewriter .ace-intro-tabs button > span { font-size: 8px; }
+  .is-typewriter .ace-intro-tabs button > span { font-size: 10px; }
   .is-typewriter .ace-intro-tabs b { font-size: 27px; }
   .is-typewriter .ace-intro-tabs svg { width: 24px; height: 24px; }
   .is-typewriter .ace-intro-panel { padding: 12px 10px 20px; }
-  .is-typewriter .ace-intro-card-label { font-size: 9px; }
+  .is-typewriter .ace-intro-card-label { font-size: 10px; }
 }
 @media (max-width: 360px) and (min-height: 500px) {
   .is-typewriter .ace-intro-heading { max-height: 60%; }

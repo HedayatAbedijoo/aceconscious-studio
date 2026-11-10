@@ -327,15 +327,28 @@ html.js { overscroll-behavior-x: none; }
   mask-image: none;
 }
 
+.back-cover__ant {
+  position: absolute;
+  z-index: 3;
+  top: clamp(68px, calc(var(--book-h) * 0.11), 92px);
+  left: 50%;
+  width: clamp(180px, calc(var(--book-w) * 0.62), 274px);
+  height: auto;
+  transform: translateX(-50%);
+  object-fit: contain;
+  pointer-events: none;
+}
+
 .back-cover__imprint {
   position: absolute;
+  top: 50%;
   right: 6%;
-  bottom: clamp(55px, calc(var(--book-h) * 0.085), 70px);
   left: 6%;
+  width: auto;
+  transform: translateY(-50%);
   margin: 0;
-  padding: clamp(12px, calc(var(--book-h) * 0.018), 16px)
-    clamp(8px, calc(var(--book-w) * 0.024), 14px)
-    clamp(9px, calc(var(--book-h) * 0.014), 12px);
+  padding: clamp(22px, calc(var(--book-h) * 0.045), 32px)
+    clamp(14px, calc(var(--book-w) * 0.045), 24px);
   border-top: 1px solid #73474466;
   border-radius: 14px;
   background: #ded9b0e8;
@@ -347,7 +360,7 @@ html.js { overscroll-behavior-x: none; }
 
 .back-cover__studio {
   margin: 0 0 5px;
-  font: 600 clamp(12px, calc(var(--book-w) * 0.035), 16px)/1.25 var(--book-serif);
+  font: 600 clamp(15px, calc(var(--book-w) * 0.041), 19px)/1.3 var(--book-serif);
   letter-spacing: 1px;
   text-transform: uppercase;
 }
@@ -359,7 +372,7 @@ html.js { overscroll-behavior-x: none; }
 
 .back-cover__legal {
   margin: 0;
-  font: 400 clamp(10px, calc(var(--book-w) * 0.027), 12.5px)/1.25 var(--book-serif);
+  font: 400 clamp(12px, calc(var(--book-w) * 0.032), 15px)/1.4 var(--book-serif);
   color: #51483c;
 }
 
@@ -367,17 +380,18 @@ html.js { overscroll-behavior-x: none; }
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  column-gap: clamp(7px, calc(var(--book-w) * 0.022), 11px);
-  margin: 8px 0 0;
+  column-gap: clamp(9px, calc(var(--book-w) * 0.027), 14px);
+  row-gap: 2px;
+  margin: 14px 0 0;
   padding: 0;
   list-style: none;
-  font: 500 clamp(12px, calc(var(--book-w) * 0.034), 15px)/1.25 var(--book-serif);
+  font: 500 clamp(14px, calc(var(--book-w) * 0.038), 17px)/1.35 var(--book-serif);
 }
 
 .back-cover__links a {
   display: inline-flex;
   align-items: center;
-  min-height: 28px;
+  min-height: 34px;
   color: #713f43;
   text-decoration-color: #713f4388;
   text-underline-offset: 3px;
@@ -1216,15 +1230,10 @@ html.js { overscroll-behavior-x: none; }
 }
 
 /* The gift invitation and the existing reader form share one paper sheet. */
-.page.gift-page {
-  --locale-body: clamp(14px, calc(var(--book-w) * .038), 18px);
-  --locale-leading: 1.5;
-  --locale-heading: clamp(25px, calc(var(--book-w) * .075), 37px);
-}
-
 html .page.gift-page .page-body {
-  font-size: clamp(14px, calc(var(--book-w) * .038), 18px);
-  line-height: 1.5;
+  font-family: var(--book-serif);
+  font-size: var(--locale-body, var(--body-size));
+  line-height: var(--locale-leading, 1.55);
   overflow-y: auto;
   overscroll-behavior: contain;
   scrollbar-width: thin;
@@ -2350,11 +2359,11 @@ html:not(.js) .sample-sheet__canvas {
 
 .small-book .bookmarks { top: 22px; bottom: 30px; gap: 3px; }
 .small-book .bookmark { min-height: 0; font-size: 8px; }
-.small-book .back-cover__imprint { left: 5%; right: 5%; padding: 10px 2% 8px; border-radius: 12px; }
-.small-book .back-cover__studio { font-size: 11px; letter-spacing: .7px; margin-bottom: 4px; }
-.small-book .back-cover__legal { font-size: 9px; line-height: 1.2; }
-.small-book .back-cover__links { font-size: 11px; column-gap: 6px; margin-top: 5px; }
-.small-book .back-cover__links a { min-height: 22px; }
+.small-book .back-cover__imprint { left: 5%; right: 5%; padding: 18px 4%; border-radius: 12px; }
+.small-book .back-cover__studio { font-size: 14px; letter-spacing: .7px; margin-bottom: 6px; }
+.small-book .back-cover__legal { font-size: 12px; line-height: 1.4; }
+.small-book .back-cover__links { font-size: 13px; column-gap: 8px; row-gap: 2px; margin-top: 10px; }
+.small-book .back-cover__links a { min-height: 28px; }
 .small-book .running-head { top: 17px; padding-bottom: 8px; font-size: 6px; letter-spacing: 0.7px; }
 .small-book .running-head .book-name { font-size: 10px; }
 .small-book .page-body { top: 54px; bottom: 51px; line-height: 1.48; }

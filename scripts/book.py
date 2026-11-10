@@ -655,7 +655,7 @@ def compose(soup, render, source, strings):
     from build_locales import LANGUAGES, parse, route as build_route
     global STRINGS, LANGUAGE
     LANGUAGE = soup.html["data-locale"]
-    soup.head.append(soup.new_tag("link", rel="stylesheet", href="/css/ace-intro.css"))
+    soup.head.append(soup.new_tag("link", rel="stylesheet", href="/css/ace-intro.css?v=20261111a"))
     # Initialize the live cards before book.js moves the source off-DOM.
     soup.head.append(soup.new_tag("script", src="/js/ace-intro.js", defer=True))
     STRINGS = json.loads((ROOT / f"content/book/strings.{LANGUAGE}.json").read_text())
@@ -695,7 +695,9 @@ def compose(soup, render, source, strings):
                 artwork = f'<div class="back-cover__artwork">{artwork}</div>'
             body = artwork + body
             if item["id"] == "back-cover":
-                body = f'<div class="back-cover__layout">{body}</div>'
+                ant = ('<img class="back-cover__ant" src="/assets/back-cover-ant.webp" '
+                       'alt="" aria-hidden="true" width="1774" height="887" loading="lazy">')
+                body = f'<div class="back-cover__layout">{body}{ant}</div>'
         html.append(f'<section {" ".join(attributes)}>{body}</section>')
 
     container = soup.select_one("#book-source")
