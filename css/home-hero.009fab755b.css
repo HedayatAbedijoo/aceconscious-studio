@@ -1,0 +1,186 @@
+/* Shared homepage hero; keep all rules scoped to this introduction. */
+@font-face {
+  font-family: "Hero Bodoni";
+  src: url("/assets/fonts/BodoniModa-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+/* The decorative zero-size SVG must not create an empty line above the hero. */
+html[data-page="home"] body > svg[height="0"] {
+  position: absolute;
+}
+
+html[data-page="home"] main > #top.hero--literary {
+  position: relative;
+  isolation: isolate;
+  min-height: 0;
+  margin-top: var(--nav-h);
+  padding: 76px 0 36px;
+  display: block;
+  text-align: start;
+  color: #f7f3eb;
+  background:
+    radial-gradient(ellipse at 100% 0%, rgba(104, 75, 54, 0.16), transparent 65%),
+    linear-gradient(105deg, #202120 0%, #242321 100%);
+}
+
+.hero--literary::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  opacity: 0.06;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='grain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Cpath fill='%23fff' opacity='.18' filter='url(%23grain)' d='M0 0h180v180H0z'/%3E%3C/svg%3E");
+}
+
+.hero--literary .container {
+  width: min(var(--max), 100% - 3rem);
+  padding-inline-start: min(26vw, 280px);
+}
+
+.hero--literary .hero__intro-copy {
+  max-width: 640px;
+}
+
+.hero--literary .hero__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 0 0 36px;
+  color: #c4936c;
+  font: 400 11px/20px var(--font-mono);
+  letter-spacing: 2.1px;
+  text-transform: uppercase;
+}
+
+.hero--literary .hero__eyebrow::before {
+  content: "";
+  flex: 0 0 30px;
+  height: 1px;
+  background: currentColor;
+}
+
+html[data-page="home"] .hero--literary .hero__title {
+  margin: 0 0 26px;
+  color: #f7f3eb;
+  font: 400 clamp(4.5rem, 11.15vw, 7rem)/1.07143 "Hero Bodoni", Georgia, serif;
+  letter-spacing: -0.045em;
+  white-space: nowrap;
+}
+
+.hero-award {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: .9rem;
+  width: min(460px, 100%);
+  max-width: 100%;
+  margin: 1.7rem 0 0;
+  padding: .35rem .8rem .08rem .3rem;
+  border: 1px solid rgba(226, 199, 137, .24);
+  border-inline-start: 3px solid #d1a947;
+  border-radius: 9px;
+  color: #eee5d8;
+  background: rgba(10, 9, 8, .28);
+  text-decoration: none;
+  transition: background .18s ease, border-color .18s ease;
+}
+.hero-award:hover { background: rgba(10, 9, 8, .48); border-color: rgba(226, 199, 137, .48); }
+.hero-award:focus-visible { outline: 3px solid #e9c760; outline-offset: 4px; }
+.hero-award__image { position: relative; z-index: 1; display: block; width: clamp(126px, 22vw, 156px); height: auto; flex: 0 0 auto; margin-block: -18px; filter: drop-shadow(0 8px 10px rgba(0, 0, 0, .42)); }
+.hero-award__copy { display: grid; gap: .05rem; min-width: 0; }
+.hero-award__eyebrow { color: #f0d17a; font: 500 .72rem/1.4 var(--font-mono); letter-spacing: .015em; }
+.hero-award__category { font: 400 .8rem/1.45 Arial, sans-serif; color: #e8ddcc; }
+.hero-award__link { margin-top: .08rem; color: #e9c760; font: 500 .72rem/1.4 Arial, sans-serif; }
+.hero-award__sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+.hero-award__copy bdi { font-weight: 600; }
+
+.hero--literary .hero__title-dot {
+  color: #bd906e;
+}
+
+.hero--literary .hero__tagline {
+  max-width: 580px;
+  margin: 0 0 24px;
+  color: #eee5d8;
+  font: 400 28px/1.36 Georgia, "Times New Roman", serif;
+  text-wrap: initial;
+}
+
+.hero--literary .hero__summary {
+  margin: 0;
+  color: #c2b29e;
+  font: 400 15.5px/27px Arial, sans-serif;
+}
+
+/* Script-aware typography and mirrored RTL alignment, limited to the hero. */
+html[dir="rtl"] .hero--literary .hero__title {
+  text-align: right;
+}
+
+html[dir="rtl"] .hero--literary :is(.hero__eyebrow, .hero__tagline, .hero__summary) {
+  font-family: var(--font-serif-fa);
+}
+
+html[dir="rtl"] .hero--literary .hero__eyebrow {
+  font-size: 12px;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+html[dir="rtl"] .hero--literary .hero__tagline {
+  font-style: normal;
+  line-height: 1.6;
+}
+
+html:is([lang="hi"], [lang="zh-Hans"]) .hero--literary .hero__eyebrow {
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+html:is([lang="hi"], [lang="zh-Hans"]) .hero--literary .hero__tagline {
+  font-family: var(--font-serif);
+  line-height: 1.55;
+}
+
+html:is([lang="hi"], [lang="zh-Hans"]) .hero--literary .hero__summary {
+  font-family: var(--font-display);
+}
+
+@media (max-width: 800px) {
+  html[data-page="home"] main > #top.hero--literary {
+    padding: 54px 0 26px;
+  }
+
+  .hero--literary .container {
+    padding-inline-start: 0;
+    max-width: 640px;
+  }
+
+  .hero--literary .hero__eyebrow {
+    margin-bottom: 28px;
+    font-size: 10px;
+    letter-spacing: 1.6px;
+  }
+
+  .hero-award { margin-top: 1.45rem; gap: .65rem; padding: .3rem .7rem .04rem .35rem; }
+  .hero-award__image { width: clamp(92px, 25vw, 116px); margin-block: -12px; }
+  .hero-award__eyebrow { font-size: .7rem; }
+  .hero-award__category, .hero-award__link { font-size: .76rem; }
+
+  html[data-page="home"] .hero--literary .hero__title {
+    font-size: clamp(3.75rem, 12vw, 6rem);
+    margin-bottom: 24px;
+  }
+
+  .hero--literary .hero__tagline {
+    font-size: clamp(1.4rem, 3.5vw, 1.75rem);
+  }
+
+  .hero--literary .hero__summary {
+    font-size: 15px;
+  }
+}

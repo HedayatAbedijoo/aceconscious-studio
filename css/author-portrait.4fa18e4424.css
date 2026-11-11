@@ -1,0 +1,30 @@
+/* Shared author portrait styling. Keep the original photograph intact. */
+.author__photo--smoke {
+  width: 100%;
+  max-width: 20rem;
+  margin-inline: auto;
+  aspect-ratio: 4 / 5;
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent;
+  mix-blend-mode: multiply;
+}
+
+.author__photo--smoke .author__photo-stage {
+  filter: grayscale(1) sepia(0.12) contrast(0.94) brightness(1.08);
+  opacity: 0.94;
+  -webkit-mask: url('/assets/author-portrait-mask.svg') center / 100% 100% no-repeat;
+  mask: url('/assets/author-portrait-mask.svg') center / 100% 100% no-repeat;
+}
+
+.author__photo--smoke .author__photo-img {
+  object-position: center 90%;
+  animation: none;
+  will-change: auto;
+}
+
+@media (max-width: 900px) {
+  .author__photo--smoke {
+    max-width: 16rem;
+  }
+}
