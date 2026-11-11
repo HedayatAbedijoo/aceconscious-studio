@@ -117,7 +117,7 @@ def localize_structured_data(soup, source, strings, page, lang):
                     # Website languages are not additional published book editions.
                     result["inLanguage"] = ["en", "fa"]
                     if page == "home" and lang["code"] == "fa":
-                        result["image"] = SITE + "/assets/cover-fa.webp"
+                        result["image"] = SITE + "/assets/social-preview-fa.webp"
                 elif "inLanguage" in result:
                     result["inLanguage"] = lang["htmlLang"]
                 return result
@@ -215,7 +215,7 @@ def render(page, lang, source, strings, template=None):
         el["content"] = lang["ogLocale"]
     if page == "home" and code == "fa":
         for el in soup.select('meta[property="og:image"], meta[property="og:image:secure_url"], meta[name="twitter:image"]'):
-            el["content"] = SITE + "/assets/cover-fa.webp"
+            el["content"] = SITE + "/assets/social-preview-fa.webp"
     localize_structured_data(soup, source, strings, page, lang)
     locale_fonts = {"hi": "Noto+Serif+Devanagari", "zh": "Noto+Serif+SC", "ru": "Noto+Serif"}
     if code in locale_fonts:
