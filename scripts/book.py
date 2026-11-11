@@ -643,15 +643,19 @@ def reference_pages(pages_html, home, strings):
 def ace_pages():
     """Four translated introduction sheets; the standalone article is separate."""
     from build_locales import parse, apply_strings
-    intro = parse((ROOT / "content/templates/ace-intro.html").read_text())
+    intro = parse((ROOT / "content/book/ace-intro.html").read_text())
     copy = json.loads((ROOT / f"content/book/ace-intro.{LANGUAGE}.json").read_text())
     apply_strings(intro, copy)
     for group in intro.select("[data-intro-group]"):
         group["data-intro-typewriter"] = ""
-    return [page(section["id"], "ace", text(section.select_one("h2")),
-                 [str(section.select_one(".ace-intro"))],
-                 "ace-intro-page", fixed=True)
-            for section in intro.select("section[data-intro-page]")]
+    result = []
+    for section in intro.select("section[data-intro-page]"):
+        content = section.select_one(".ace-intro")
+        if section["id"] == "ace":
+            content["id"] = "ace-introduction"
+        result.append(page(section["id"], "ace", text(section.select_one("h2")),
+                           [str(content)], "ace-intro-page", fixed=True))
+    return result
 
 
 def cover_srcset(image, original_width=1800):

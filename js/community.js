@@ -1,6 +1,4 @@
-/* Reader circle requests use the same endpoint, payload and response contract as
-   contact.js. Taken unchanged from the Community section of branch new-design
-   (commit bb7a21a) so the book edition keeps the project's own joining flow. */
+/* Community join requests use the existing contact endpoint and response contract. */
 (function () {
   "use strict";
 
@@ -20,13 +18,12 @@
     status.textContent = message;
     status.hidden = !message;
     status.dataset.state = state;
-    if (message && form.closest(".gift-page")) status.scrollIntoView({ block: "nearest" });
   }
 
   emailField.addEventListener("input", () => {
     emailField.setCustomValidity("");
     emailField.removeAttribute("aria-invalid");
-    if (!sending) setStatus("");
+    if (!sending) setStatus(endpoint ? "" : form.dataset.unavailable, endpoint ? "" : "error");
   });
 
   form.addEventListener("submit", async event => {
@@ -36,7 +33,7 @@
     emailField.value = emailField.value.trim();
     emailField.setCustomValidity("");
     // Match the contact backend's validation as well as the native email check.
-    if (!emailField.validity.valid || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailField.value)) {
+    if (!emailField.validity.valid || emailField.value.length > 254 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailField.value)) {
       emailField.setCustomValidity(form.dataset.invalidEmail);
       emailField.setAttribute("aria-invalid", "true");
       form.reportValidity();
@@ -98,4 +95,5 @@
 
   // Prevent an unhandled native submission if JavaScript fails to load.
   fields.disabled = false;
+  setStatus(endpoint ? "" : form.dataset.unavailable, endpoint ? "" : "error");
 })();

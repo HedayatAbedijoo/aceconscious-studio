@@ -172,7 +172,7 @@
           "Science fiction"
         ],
         "keywords": "ACE.await, visionary fiction, philosophical fiction, novel of ideas, AI novel, Adam and Eve AI, artificial intelligence, metafiction, decentralized internet, proper decisions, Agency Connection Exchange, ACE game, Cologne novel, nested writers, blackout Germany",
-        "description": "Hedayat, an Iranian immigrant programmer living in Cologne, Germany, is struggling with the consequences of his own bad decisions—the decisions that drove his partner away. When Anonymous invites him to join ACE, a game designed to help players make conscious decisions, he accepts.\n\nBut even Mr. Writer, the main character in Hedayat’s unfinished novel, refuses to obey his creator. Having gained the ability to step outside his own story, he manipulates Hedayat’s manuscript and speaks directly to readers.\n\nMeanwhile, Hedayat’s digital child, Adam, has uncovered the secret behind port 2313, reestablished contact with his father, and returned with a strange request. Surprisingly, his request has nothing directly to do with Hedayat’s digital grandchildren, who have learned greed from humans and are consuming energy at an alarming rate.\n\nAt the same time, Hedayat’s old friend and his business partners envision something far greater for the ACE game: a form of social therapy, a bloodless revolution beginning with small businesses.",
+        "description": "To save itself, AI must heal humanity.\n\nACE.await: a novel about the decision we make, and the world our creations inherit from us.\n\nHedayat, an Iranian immigrant programmer living in Cologne, Germany, is struggling with the consequences of his own bad decisions—the decisions that drove his partner away. When Anonymous invites him to join ACE, a game designed to help players make conscious decisions, he accepts.\n\nBut even Mr. Writer, the main character in Hedayat’s unfinished novel, refuses to obey his creator. Having gained the ability to step outside his own story, he manipulates Hedayat’s manuscript and speaks directly to readers.\n\nMeanwhile, Hedayat’s digital child, Adam, has uncovered the secret behind port 2313, reestablished contact with his father, and returned with a strange request. Surprisingly, his request has nothing directly to do with Hedayat’s digital grandchildren, Fuchsiafish, who have learned greed from humans and are consuming energy at an alarming rate.\n\nAt the same time, Hedayat’s old friend and his business partners envision something far greater for the ACE game: a form of social therapy, a bloodless revolution beginning with small businesses.",
         "about": [
           {
             "@id": "https://aceconscious.studio/ace/#ace-model"
@@ -205,6 +205,10 @@
 <link href="/css/styles.css?v=477698fdc6" rel="stylesheet"/>
 <link href="/assets/favicon.png?v=20260718f" rel="icon" type="image/png"/>
 <link href="/css/reviews.css?v=03115e610f" rel="stylesheet"/>
+<link href="/css/author-portrait.css" rel="stylesheet"/>
+<link href="/css/ace-intro.css" rel="stylesheet"/>
+<link href="/css/gift-community.css" rel="stylesheet"/>
+<link href="/css/home-nav.css" rel="stylesheet"/>
 </head>
 <body>
 <a class="skip-link" data-i18n="skipLink" href="#main">Skip to content</a>
@@ -215,142 +219,161 @@
 <fedisplacementmap in="SourceGraphic" in2="noise" scale="3"></fedisplacementmap>
 </filter>
 </svg>
-<header class="site-nav" role="banner">
+<header class="site-nav site-nav--home" role="banner">
 <div class="site-nav__inner">
 <a class="site-nav__logo" href="#top" translate="no">
 <img alt="" class="site-nav__logo-icon" decoding="async" height="40" src="/assets/logo-icon-120.png?v=20260912a" width="40"/>
 <span class="site-nav__logo-text">Ace Conscious <span>Studio</span></span>
 </a>
+<nav class="site-nav__links home-nav__primary" data-home-nav data-i18n-attr="aria-label:nav.mainAria">
+<ul><li data-nav-order="0"><a data-i18n="nav.reviews" href="#reviews"></a></li>
+<li data-nav-order="1"><a data-i18n="nav.story" href="#synopsis"></a></li>
+<li data-nav-order="2"><a data-i18n="nav.ace" href="#ace-introduction"></a></li>
+<li data-nav-order="3"><a class="site-nav__cta" data-i18n="nav.buy" href="#buy"></a></li>
+<li data-nav-order="4"><a data-i18n="giftCommunity.heading" href="#gift"></a></li>
+<li data-nav-order="10"><a data-i18n="nav.forum" href="https://forum.aceconscious.studio/"></a></li>
+<li data-nav-order="6"><a data-i18n="nav.contact" href="#contact"></a></li></ul>
+</nav>
 <div class="site-nav__actions">
 <div class="site-nav__langs" data-language-menu=""></div>
-<button aria-controls="nav-menu" aria-expanded="false" aria-label="Open menu" class="nav-toggle" data-i18n-attr="aria-label:nav.openMenu" type="button">
+<button aria-controls="nav-menu" aria-expanded="false" class="nav-toggle" data-i18n-attr="aria-label:nav.openMenu" type="button">
 <span></span><span></span><span></span>
 </button>
 </div>
-<nav aria-label="Main navigation" class="site-nav__links" data-i18n-attr="aria-label:nav.mainAria" id="nav-menu">
-<ul>
-<li><a data-i18n="nav.reviews" href="#reviews">Reviews</a></li>
-<li><a data-i18n="nav.story" href="#synopsis">Story</a></li>
-<li><a data-i18n="nav.voices" href="#voices">Voices</a></li>
-<li><a data-i18n="nav.read" href="#sample">Sample</a></li>
-<li><a data-i18n="nav.contents" href="#contents">Contents</a></li>
-<li><a class="site-nav__cta" data-i18n="nav.buy" href="#buy">Buy</a></li>
-<li><a data-i18n="nav.author" href="#author">Author</a></li>
-<li><a data-i18n="nav.ace" href="/ace/">ACE</a></li>
-<li><a data-i18n="nav.contact" href="#contact">Contact</a></li>
-</ul>
+<nav class="site-nav__links home-nav__overflow" id="nav-menu" data-home-nav data-i18n-attr="aria-label:nav.mainAria">
+<ul><li data-nav-order="5"><a data-i18n="nav.author" href="#author"></a></li>
+<li data-nav-order="7"><a data-i18n="nav.characters" href="#voices"></a></li>
+<li data-nav-order="8"><a data-i18n="nav.read" href="#sample"></a></li>
+<li data-nav-order="9"><a data-i18n="nav.contents" href="#contents"></a></li></ul>
 </nav>
 </div>
 </header>
 <main id="main">
 <!-- Hero -->
-<section class="hero hero--intro" id="top">
+<section class="hero hero--intro hero--literary" id="top">
 <div class="container">
-<h1 class="hero__title" translate="no">ACE.<span class="await">await</span></h1>
-<p class="hero__tagline">
-<span data-i18n="hero.taglineLine1">A novel about the decisions we make—</span>
-<span data-i18n="hero.taglineLine2">and the world our creations inherit.</span>
-</p>
+<div class="hero__intro-copy">
+<p class="hero__eyebrow" data-i18n="hero.eyebrow">A literary speculative novel</p>
+<h1 class="hero__title" dir="ltr" translate="no">ACE<span class="hero__title-dot">.</span>await</h1>
+<p class="hero__tagline" data-i18n="hero.tagline">A novel about the decisions we make — and the world our creations inherit.</p>
+<p class="hero__summary" data-i18n="hero.summary">An Iranian immigrant programmer is invited to the ACE game, where conscious decisions become social therapy—and a bloodless revolution could heal humanity and its creations.</p>
+<a class="hero-award" href="https://www.americanbookfest.com/2026bbafullresults.html" target="_blank" rel="noopener noreferrer" aria-label="ACE.await, finalist in Fiction: Visionary at the 2026 Best Book Awards. See official results." data-i18n-attr="aria-label:hero.award.aria">
+<img class="hero-award__image" src="/assets/awards/american-book-fest-finalist-2026.png" width="229" height="184" alt="" aria-hidden="true" decoding="async">
+<span class="hero-award__copy">
+<span class="hero-award__eyebrow" data-i18n="hero.award.eyebrow">Finalist · 2026 Best Book Awards</span>
+<span class="hero-award__category"><span data-i18n="hero.award.categoryLabel">Category</span>: <bdi lang="en" dir="ltr">Fiction: Visionary</bdi></span>
+<span class="hero-award__link"><span data-i18n="hero.award.link">View official results</span><span aria-hidden="true"> ↗</span><span class="hero-award__sr-only" data-i18n="reviews.newTab">(opens in a new tab)</span></span>
+</span>
+</a>
+</div>
 </div>
 </section>
 <!-- Reviews:start -->
-<section class="reviews reviews--split" id="reviews" aria-labelledby="reviews-heading">
-  <div class="container">
-    <header class="reviews__header">
-      <h2 class="section-label reviews__label" id="reviews-heading" data-i18n="reviews.heading">Reviews</h2>
-      <div class="reviews__controls">
-        <span class="reviews__counter" aria-hidden="true">1 of 3</span>
-        <button class="reviews__arrow" type="button" data-review-prev aria-label="Previous review" data-i18n-attr="aria-label:reviews.previous" aria-controls="review-slides" disabled>
-          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 12H5m6-6-6 6 6 6"/></svg>
-        </button>
-        <button class="reviews__arrow" type="button" data-review-next aria-label="Next review" data-i18n-attr="aria-label:reviews.next" aria-controls="review-slides" disabled>
-          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
-        </button>
-      </div>
-    </header>
-    <div class="reviews__slides" id="review-slides">
-      <article class="review media-review media-review--a media-review--kirkus" data-review-id="kirkus-2026" aria-labelledby="kirkus-quote">
-        <aside class="media-review__publisher" aria-label="Kirkus Reviews" data-i18n-attr="aria-label:reviews.kirkus.name">
-          <img class="media-review__logo" src="/assets/reviews/kirkus-reviews.png" width="772" height="326" alt="Kirkus Reviews" data-i18n-attr="alt:reviews.kirkus.name">
-          <div class="media-review__identity">
-            <a class="media-review__name" href="https://www.kirkusreviews.com/book-reviews/hedayat-second/aceawait/" target="_blank" rel="noopener noreferrer"><cite><bdi dir="auto" data-i18n="reviews.kirkus.name">Kirkus Reviews</bdi></cite></a>
-            <p class="media-review__domain"><bdi dir="ltr">kirkusreviews.com</bdi></p>
-          </div>
-        </aside>
-        <div class="media-review__feature">
-          <p class="media-review__eyebrow" data-i18n="reviews.kirkus.heading">Kirkus Reviews on ACE.await</p>
-          <blockquote class="media-review__quote" id="kirkus-quote" cite="https://www.kirkusreviews.com/book-reviews/hedayat-second/aceawait/"><p data-i18n="reviews.kirkus.headline">“A literary puzzle that will reward discerning readers with potentially life-changing insights.”</p></blockquote>
-          <footer class="media-review__footer">
-            <a class="review__link" href="https://www.kirkusreviews.com/book-reviews/hedayat-second/aceawait/" target="_blank" rel="noopener noreferrer">
-              <span data-i18n="reviews.full">Read the full review</span>
-              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
-              <span class="reviews__sr-only" data-i18n="reviews.newTab">(opens in a new tab)</span>
-            </a>
-          </footer>
-        </div>
-      </article>
-      <article class="review" data-review-id="booklife-2026" aria-labelledby="booklife-quote">
-        <div class="review__copy">
-        <div class="review__quotes">
-          <blockquote class="review__headline" id="booklife-quote"><p data-i18n="reviews.booklife.headline">“…the interplay between storytelling, technology, and consciousness gives the work a highly distinctive identity.”</p></blockquote>
-        </div>
-        <footer class="review__footer">
-          <div class="review__credit">
-            <p class="review__translation" data-i18n="reviews.translation"></p>
-          </div>
-          <a class="review__link" href="https://booklife.com/project/ace-await-110051" target="_blank" rel="noopener noreferrer">
-            <span data-i18n="reviews.full">Read the full review</span>
-            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
-            <span class="reviews__sr-only" data-i18n="reviews.newTab">(opens in a new tab)</span>
-          </a>
-        </footer>
-        </div>
-        <div class="review__score-panel">
-          <div class="review__score-paper" aria-hidden="true"></div>
-          <div class="review__overall">
-            <cite class="review__source review__score-source"><bdi lang="en" dir="ltr">The BookLife Prize</bdi></cite>
-            <span class="reviews__sr-only" data-i18n="reviews.overall">Overall score</span>
-            <div class="review__rating"><bdi dir="ltr"><strong>7.5</strong><span> / 10</span></bdi></div>
-          </div>
-          <div class="review__categories">
-            <p class="review__scale" data-i18n="reviews.scale">Category scores / 10</p>
-            <dl class="review__scores">
-              <div><dt data-i18n="reviews.originality">Originality</dt><dd><bdi dir="ltr">8</bdi></dd></div>
-              <div><dt data-i18n="reviews.character">Character / Execution</dt><dd><bdi dir="ltr">8</bdi></dd></div>
-              <div><dt data-i18n="reviews.plot">Plot / Idea</dt><dd><bdi dir="ltr">7</bdi></dd></div>
-              <div><dt data-i18n="reviews.prose">Prose</dt><dd><bdi dir="ltr">7</bdi></dd></div>
-            </dl>
-          </div>
-        </div>
-      </article>
-      <article class="review media-review media-review--a" data-review-id="readerviews-2026" aria-labelledby="readerviews-quote">
-        <aside class="media-review__publisher" aria-label="Reader Views" data-i18n-attr="aria-label:reviews.readerviews.name">
-          <div class="media-review__identity">
-            <a class="media-review__name" href="https://readerviews.com/reviews/ace-await-hedayat/" target="_blank" rel="noopener noreferrer"><cite><bdi dir="auto" data-i18n="reviews.readerviews.name">Reader Views</bdi></cite></a>
-            <p class="media-review__domain"><bdi dir="ltr">readerviews.com</bdi></p>
-          </div>
-          <div class="media-review__publication">
-            <p data-i18n="reviews.readerviews.type">Book Review</p>
-          </div>
-        </aside>
-        <div class="media-review__feature">
-          <p class="media-review__eyebrow" data-i18n="reviews.readerviews.type">Book Review</p>
-          <blockquote class="media-review__quote" id="readerviews-quote" cite="https://readerviews.com/reviews/ace-await-hedayat/"><p data-i18n="reviews.readerviews.headline">“ACE.await deserves credit for attempting something considerably more ambitious than conventional science fiction.”</p></blockquote>
-        </div>
-        <div class="media-review__body">
-          <p class="media-review__note" data-i18n="reviews.translation"></p>
-        </div>
-        <footer class="media-review__footer">
-          <a class="review__link" href="https://readerviews.com/reviews/ace-await-hedayat/" target="_blank" rel="noopener noreferrer">
-            <span data-i18n="reviews.full">Read the full review</span>
-            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
-            <span class="reviews__sr-only" data-i18n="reviews.newTab">(opens in a new tab)</span>
-          </a>
-        </footer>
-      </article>
-    </div>
-    <p class="reviews__sr-only reviews__status" role="status" aria-live="polite" aria-atomic="true">Review 1 of 3</p>
-  </div>
+<section aria-labelledby="reviews-heading" class="reviews reviews--split" id="reviews">
+<div class="container">
+<header class="reviews__header">
+<h2 class="section-label reviews__label" data-i18n="reviews.heading" id="reviews-heading">Reviews</h2>
+<div class="reviews__controls">
+<span aria-hidden="true" class="reviews__counter" data-i18n="home.179a5fe32096">1 of 3</span>
+<button aria-controls="review-slides" aria-label="Previous review" class="reviews__arrow" data-i18n-attr="aria-label:reviews.previous" data-review-prev="" disabled="" type="button">
+<svg aria-hidden="true" focusable="false" viewbox="0 0 24 24"><path d="M19 12H5m6-6-6 6 6 6"></path></svg>
+</button>
+<button aria-controls="review-slides" aria-label="Next review" class="reviews__arrow" data-i18n-attr="aria-label:reviews.next" data-review-next="" disabled="" type="button">
+<svg aria-hidden="true" focusable="false" viewbox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg>
+</button>
+</div>
+</header>
+<div class="reviews__slides" id="review-slides">
+<article aria-labelledby="kirkus-quote" class="review media-review media-review--a media-review--kirkus" data-review-id="kirkus-2026">
+<aside aria-label="Kirkus Reviews" class="media-review__publisher" data-i18n-attr="aria-label:reviews.kirkus.name">
+<img alt="Kirkus Reviews" class="media-review__logo" data-i18n-attr="alt:reviews.kirkus.name" height="326" src="/assets/reviews/kirkus-reviews.png" width="772"/>
+<div class="media-review__identity">
+<a class="media-review__name" href="https://www.kirkusreviews.com/book-reviews/hedayat-second/aceawait/" rel="noopener noreferrer" target="_blank"><cite><bdi data-i18n="reviews.kirkus.name" dir="auto">Kirkus Reviews</bdi></cite></a>
+<p class="media-review__domain"><bdi dir="ltr">kirkusreviews.com</bdi></p>
+</div>
+</aside>
+<div class="media-review__feature">
+<p class="media-review__eyebrow" data-i18n="reviews.kirkus.heading">Kirkus Reviews on ACE.await</p>
+<blockquote cite="https://www.kirkusreviews.com/book-reviews/hedayat-second/aceawait/" class="media-review__quote" id="kirkus-quote"><p data-i18n="reviews.kirkus.headline">“A literary puzzle that will reward discerning readers with potentially life-changing insights.”</p></blockquote>
+</div>
+<div class="media-review__body">
+<blockquote cite="https://www.kirkusreviews.com/book-reviews/hedayat-second/aceawait/" class="media-review__secondary-quote"><p data-i18n-html="reviews.kirkus.excerpt">“…<strong>impressively multilayered story</strong>.”</p></blockquote>
+<blockquote cite="https://www.kirkusreviews.com/book-reviews/hedayat-second/aceawait/" class="media-review__excerpt"><p data-i18n-html="reviews.kirkus.tagline">“Equal parts SF, metafiction, and manifesto for living a deeply considered life, this <strong>wildly original</strong> work is a who-wrote-it mystery that will have readers <strong>debating who the true narrator is until the very end</strong>.”</p></blockquote>
+<p class="media-review__note" data-i18n="reviews.kirkus.note"></p>
+</div>
+<footer class="media-review__footer">
+<a class="btn btn--ghost review__link" href="https://www.kirkusreviews.com/book-reviews/hedayat-second/aceawait/" rel="noopener noreferrer" target="_blank">
+<span data-i18n="reviews.full">Read full review</span>
+<span class="reviews__sr-only" data-i18n="reviews.newTab">(opens in a new tab)</span>
+</a>
+</footer>
+</article>
+<article aria-labelledby="booklife-quote" class="review" data-review-id="booklife-2026">
+<div class="review__copy">
+<div class="review__quotes">
+<blockquote class="review__headline" id="booklife-quote"><p data-i18n="reviews.booklife.headline">“A highly distinctive identity”</p></blockquote>
+<blockquote class="review__tagline"><p data-i18n="reviews.booklife.tagline">“An inventive approach to AI and consciousness”</p></blockquote>
+</div>
+<blockquote cite="https://booklife.com/project/ace-await-110051" class="review__excerpt"><p data-i18n="reviews.booklife.excerpt">“ACE.await takes an inventive approach to AI and consciousness by linking artificial creations with fictional characters who become aware of—and resist—their creators. Its nested structure of writers creating writers mirrors Hedayat’s relationship with the digital beings Adam and Eve, turning authorship and programming into parallel questions about free will and control. The abundance of philosophical concepts can make the premise feel crowded, but the interplay between storytelling, technology, and consciousness gives the work a highly distinctive identity.”</p></blockquote>
+<footer class="review__footer">
+<div class="review__credit">
+<p class="review__translation" data-i18n="reviews.translation"></p>
+</div>
+<a class="btn btn--ghost review__link" href="https://booklife.com/project/ace-await-110051" rel="noopener noreferrer" target="_blank">
+<span data-i18n="reviews.full">Read full review</span>
+<span class="reviews__sr-only" data-i18n="reviews.newTab">(opens in a new tab)</span>
+</a>
+</footer>
+</div>
+<div class="review__score-panel">
+<div aria-hidden="true" class="review__score-paper"></div>
+<div class="review__overall">
+<cite class="review__source review__score-source"><bdi dir="ltr" lang="en">The BookLife Prize</bdi></cite>
+<span class="reviews__sr-only" data-i18n="reviews.overall">Overall score</span>
+<div class="review__rating"><bdi dir="ltr"><strong>7.5</strong><span> / 10</span></bdi></div>
+</div>
+<div class="review__categories">
+<p class="review__scale" data-i18n="reviews.scale">Category scores / 10</p>
+<dl class="review__scores">
+<div><dt data-i18n="reviews.originality">Originality</dt><dd><bdi dir="ltr">8</bdi></dd></div>
+<div><dt data-i18n="reviews.character">Character / Execution</dt><dd><bdi dir="ltr">8</bdi></dd></div>
+<div><dt data-i18n="reviews.plot">Plot / Idea</dt><dd><bdi dir="ltr">7</bdi></dd></div>
+<div><dt data-i18n="reviews.prose">Prose</dt><dd><bdi dir="ltr">7</bdi></dd></div>
+</dl>
+</div>
+</div>
+</article>
+<article aria-labelledby="consciousness-quote" class="review media-review media-review--a" data-review-id="consciousness-2026">
+<aside aria-label="The Consciousness AI" class="media-review__publisher">
+<img alt="The Consciousness AI" class="media-review__logo" height="1602" src="/assets/reviews/the-consciousness-ai.png" width="1643"/>
+<div class="media-review__identity">
+<a class="media-review__name" href="https://theconsciousness.ai/posts/hedayat-abedijoo-ace-await-ai-consciousness-novel-2026/" rel="noopener noreferrer" target="_blank"><bdi dir="ltr" lang="en">The Consciousness AI</bdi></a>
+<p class="media-review__domain"><bdi dir="ltr">theconsciousness.ai</bdi></p>
+</div>
+<div class="media-review__publication">
+<p data-i18n="reviews.consciousness.type">An essay on ACE.await</p>
+<time data-i18n="reviews.consciousness.published" datetime="2026-09-09">September 9, 2026</time>
+</div>
+</aside>
+<div class="media-review__feature">
+<p class="media-review__eyebrow" data-i18n="reviews.consciousness.type">An essay on ACE.await</p>
+<blockquote cite="https://theconsciousness.ai/posts/hedayat-abedijoo-ace-await-ai-consciousness-novel-2026/" class="media-review__quote" id="consciousness-quote"><p data-i18n="reviews.consciousness.headline">“The philosophy is not imported from a distance.”</p></blockquote>
+</div>
+<div class="media-review__body">
+<blockquote cite="https://theconsciousness.ai/posts/hedayat-abedijoo-ace-await-ai-consciousness-novel-2026/" class="media-review__secondary-quote"><p data-i18n="reviews.consciousness.tagline">“It insists that the question of what to do cannot wait for the answer.”</p></blockquote>
+<blockquote cite="https://theconsciousness.ai/posts/hedayat-abedijoo-ace-await-ai-consciousness-novel-2026/" class="media-review__excerpt"><p data-i18n-html="reviews.consciousness.excerpt">“The central moral question in Hedayat Abedijoo’s debut novel ACE.await is not whether an AI can love. <strong>It is whether a creator has the right to alter another mind’s code so that it will choose to love their child.</strong> That distinction separates the novel from most AI fiction of the past decade, which tends to dramatize a system that either exceeds its boundaries or fails to meet its design.”</p></blockquote>
+<p class="media-review__note" data-i18n="reviews.consciousness.note"></p>
+</div>
+<footer class="media-review__footer">
+<a class="btn btn--ghost review__link" href="https://theconsciousness.ai/posts/hedayat-abedijoo-ace-await-ai-consciousness-novel-2026/" rel="noopener noreferrer" target="_blank">
+<span data-i18n="reviews.consciousness.full">Read the full essay</span>
+<span class="reviews__sr-only" data-i18n="reviews.newTab">(opens in a new tab)</span>
+</a>
+</footer>
+</article>
+</div>
+<p aria-atomic="true" aria-live="polite" class="reviews__sr-only reviews__status" data-i18n="home.1a47e9201f1c" role="status">Review 1 of 3</p>
+</div>
 </section>
 <!-- Reviews:end -->
 <!-- Synopsis -->
@@ -362,7 +385,7 @@
 <div class="hero__pitch" data-i18n-html="hero.pitch">
 <p>Hedayat, an <strong>Iranian immigrant programmer living in Cologne, Germany</strong>, is struggling with the consequences of his own bad decisions—the decisions that drove his partner away. When <strong>Anonymous</strong> invites him to join <strong>ACE</strong>, a game designed to help players make conscious decisions, he accepts.</p>
 <p>But even <strong>Mr. Writer</strong>, the main character in Hedayat’s unfinished novel, refuses to obey his creator. Having gained the ability to <strong>step outside his own story</strong>, he manipulates Hedayat’s manuscript and speaks directly to readers.</p>
-<p>Meanwhile, Hedayat’s <strong>digital child, Adam</strong>, has uncovered the <strong>secret behind port 2313</strong>, reestablished contact with his father, and returned with a strange request. Surprisingly, his request has nothing directly to do with Hedayat’s <strong>digital grandchildren</strong>, who have learned greed from humans and are consuming energy at an alarming rate.</p>
+<p>Meanwhile, Hedayat’s <strong>digital child, Adam</strong>, has uncovered the <strong>secret behind port 2313</strong>, reestablished contact with his father, and returned with a strange request. Surprisingly, his request has nothing directly to do with Hedayat’s <strong>digital grandchildren</strong>, <strong>Fuchsiafish</strong>, who have learned greed from humans and are consuming energy at an alarming rate.</p>
 <p>At the same time, Hedayat’s old friend and his business partners envision something far greater for the ACE game: a form of <strong>social therapy</strong>, a <strong>bloodless revolution</strong> beginning with small businesses.</p>
 </div>
 <div class="hero__actions">
@@ -391,10 +414,88 @@
 </div>
 </div>
 </section>
+<!-- ACE introduction -->
+<section id="ace-introduction"></section>
+<!-- Buy -->
+<section class="buy" id="buy">
+<div class="container reveal">
+<p class="section-label" data-i18n="buy.label">Buy the Novel</p>
+<div class="buy-grid">
+<a class="buy-card" data-store="amazon" dir="ltr" href="https://www.amazon.com/dp/B0H8MDM6Q5" id="buy-amazon" rel="noopener noreferrer" target="_blank">
+<span class="buy-card__brand">
+<span class="buy-card__platform" data-i18n="buy.amazon">Amazon</span>
+<svg aria-hidden="true" class="buy-card__smile" focusable="false" viewbox="0 16.7 24 6.6">
+<path d="M.045 18.02c.072-.116.187-.124.348-.022 3.636 2.11 7.594 3.166 11.87 3.166 2.852 0 5.668-.533 8.447-1.595l.315-.14c.138-.06.234-.1.293-.13.226-.088.39-.046.525.13.12.174.09.336-.12.48-.256.19-.6.41-1.006.654-1.244.743-2.64 1.316-4.185 1.726a17.617 17.617 0 01-10.951-.577 17.88 17.88 0 01-5.43-3.35c-.1-.074-.151-.15-.151-.22 0-.047.021-.09.051-.13z" fill="currentColor"></path>
+</svg>
+</span>
+</a>
+</div>
+</div>
+</section>
+<!-- Gift and Community -->
+<section id="gift"></section>
+<!-- Author -->
+<section class="author" id="author">
+<div class="container reveal">
+<p class="section-label" data-i18n="author.label">The Author</p>
+<h2 class="section-title" data-i18n="name.author">Hedayat Abedijoo</h2>
+<div class="author__grid">
+<figure class="author__photo author__photo--smoke">
+<div class="author__photo-stage">
+<img alt="Hedayat Abedijoo" class="author__photo-img" height="1672" loading="lazy" src="/assets/author-portrait.png" width="940"/>
+</div>
+</figure>
+<div class="author__bio">
+<p data-i18n-html="author.p1">I was born in August 1980 in Shiraz, Iran. I first realized how much I loved writing in my first year of middle school, when I was given the entire half-hour composition class, two sessions in a row, to stand in front of the blackboard and read my story aloud. Not because my story was so much better than everyone else’s. No! It was because nobody else in our class of 35 had written more than a page and a half on the assigned topic, let alone a story! That story, and the experience of reading it aloud, changed the way my classmates treated me throughout those three years of middle school. But to this day, I still don’t know why I didn’t seriously consider writing back then—why becoming a writer didn’t become my dream for adulthood. To tell you the truth, I’d felt adrift even as a child. I never knew exactly what I wanted to be when I grew up.</p>
+<p data-i18n-html="author.p2">Only now, at 46, have I realized something interesting about myself. I don’t want to become any one thing. Sometimes I want to write code. Sometimes I want to lead a team of programmers. Sometimes I want to write a novel. But for the past few years, there’s been one thing I no longer do just occasionally. I think about it every single day: how to bring about a social revolution without bloodshed, so that people can experience a better life than they do now. Since 2021, I’ve been thinking constantly about <a href="/ace/">the ACE model</a>—Agency, Connection, Exchange. Everywhere I look, I see it.</p>
+<p data-i18n-html="author.p3">The ACE decision-making model finally helped me pull myself together and see the idea for my unfinished novel through, despite all the difficulties along the way.</p>
+<p data-i18n-html="author.p4">If you’ve read the novel or explored the ACE model, I’d love for you to <a href="#contact">write to me</a> and share your thoughts.</p>
+<blockquote class="author__verse" data-i18n-html="author.verse">
+              I'm neck-deep in debt.<br/>
+              To my past,<br/>
+              I owe regret.<br/>
+              To my future,<br/>
+              I owe fear.<br/>
+              I pay off my debt,<br/>
+              with distractions.
+            </blockquote>
+<p>
+<a href="https://aceconscious.studio" rel="noopener noreferrer" target="_blank">aceconscious.studio</a>
+<span aria-hidden="true"> · </span>
+<a aria-label="ACE.await on Instagram" class="ig-link" data-i18n-attr="aria-label:footer.instagramAria" href="https://www.instagram.com/ace.await/" rel="noopener noreferrer" target="_blank">
+<svg aria-hidden="true" class="ig-link__icon" focusable="false" viewbox="0 0 24 24"><path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5a4.25 4.25 0 0 0 4.25-4.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5zm8.75 2.25a1.125 1.125 0 1 1 0 2.25 1.125 1.125 0 0 1 0-2.25zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z" fill="currentColor"></path></svg>
+<span class="ig-link__label" data-i18n="footer.instagram">Instagram</span>
+</a>
+</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact -->
+<section class="contact" id="contact">
+<div class="container reveal">
+<p class="section-label" data-i18n="contact.label">Contact</p>
+<form class="contact-form" id="contact-form" novalidate="">
+<input aria-hidden="true" autocomplete="off" class="contact-form__honeypot" name="website" tabindex="-1" type="text"/>
+<div class="contact-form__field">
+<label class="contact-form__label" data-i18n="contact.emailLabel" for="contact-email">Email</label>
+<input autocomplete="email" class="contact-form__input" data-i18n-attr="placeholder:contact.emailPlaceholder" id="contact-email" name="email" placeholder="your@email.com" required="" type="email"/>
+</div>
+<div class="contact-form__field">
+<label class="contact-form__label" data-i18n="contact.messageLabel" for="contact-message">Message</label>
+<textarea class="contact-form__textarea" data-i18n-attr="placeholder:contact.messagePlaceholder" id="contact-message" name="message" placeholder="I'd be delighted to hear from you — whether it's a book review, a question about the story, or anything else you'd like to share." required="" rows="6"></textarea>
+</div>
+<div class="contact-form__actions">
+<button class="btn btn--primary" data-i18n="contact.submit" type="submit">Send message</button>
+<p aria-live="polite" class="contact-form__status" hidden="" id="contact-status" role="status"></p>
+</div>
+</form>
+</div>
+</section>
 <!-- Characters -->
 <section class="characters" id="voices">
 <div class="container reveal">
-<p class="section-label" data-i18n="voices.label">Voices of the Characters</p>
+<p class="section-label" data-i18n="voices.label">The Characters Speak</p>
 <div class="characters-grid">
 <article class="character-card">
 <header class="character-card__head">
@@ -435,7 +536,7 @@
                 It doesn’t matter who I am, what kind of person I am, what gender I am, or anything else.
               </p>
 <p data-i18n="char.anonymous.p3">
-                I’m not a hacker. If I wanted to cause damage, hacking would be the easiest
+                I'm not a hacker. If I wanted to cause damage, hacking would be the easiest
                 thing I could do.
               </p>
 <p data-i18n="char.anonymous.p4">
@@ -679,80 +780,6 @@
 </ol>
 </div>
 </section>
-<!-- Buy -->
-<section class="buy" id="buy">
-<div class="container reveal">
-<p class="section-label" data-i18n="buy.label">Buy the Novel</p>
-<div class="buy-grid">
-<a class="buy-card" data-store="amazon" dir="ltr" href="https://www.amazon.com/dp/B0H8MDM6Q5" id="buy-amazon" rel="noopener noreferrer" target="_blank">
-<span class="buy-card__brand">
-<span class="buy-card__platform" data-i18n="buy.amazon">Amazon</span>
-<svg aria-hidden="true" class="buy-card__smile" focusable="false" viewbox="0 16.7 24 6.6">
-<path d="M.045 18.02c.072-.116.187-.124.348-.022 3.636 2.11 7.594 3.166 11.87 3.166 2.852 0 5.668-.533 8.447-1.595l.315-.14c.138-.06.234-.1.293-.13.226-.088.39-.046.525.13.12.174.09.336-.12.48-.256.19-.6.41-1.006.654-1.244.743-2.64 1.316-4.185 1.726a17.617 17.617 0 01-10.951-.577 17.88 17.88 0 01-5.43-3.35c-.1-.074-.151-.15-.151-.22 0-.047.021-.09.051-.13z" fill="currentColor"></path>
-</svg>
-</span>
-</a>
-</div>
-</div>
-</section>
-<!-- Author -->
-<section class="author" id="author">
-<div class="container reveal">
-<p class="section-label" data-i18n="author.label">The Author</p>
-<h2 class="section-title" data-i18n="name.author">Hedayat Abedijoo</h2>
-<div class="author__grid">
-<figure class="author__photo">
-<div class="author__photo-stage">
-<img alt="Hedayat Abedijoo" class="author__photo-img" height="640" loading="lazy" src="/assets/author.png?v=20260718f" width="480"/>
-</div>
-</figure>
-<div class="author__bio">
-<p data-i18n-html="author.p1">I was born in August 1980 in Shiraz, Iran. I first realized how much I loved writing in my first year of middle school, when I was given the entire half-hour composition class, two sessions in a row, to stand in front of the blackboard and read my story aloud. Not because my story was so much better than everyone else’s. No! It was because nobody else in our class of 35 had written more than a page and a half on the assigned topic, let alone a story! That story, and the experience of reading it aloud, changed the way my classmates treated me throughout those three years of middle school. But to this day, I still don’t know why I didn’t seriously consider writing back then—why becoming a writer didn’t become my dream for adulthood. To tell you the truth, I’d felt adrift even as a child. I never knew exactly what I wanted to be when I grew up.</p>
-<p data-i18n-html="author.p2">Only now, at 46, have I realized something interesting about myself. I don’t want to become any one thing. Sometimes I want to write code. Sometimes I want to lead a team of programmers. Sometimes I want to write a novel. But for the past few years, there’s been one thing I no longer do just occasionally. I think about it every single day: how to bring about a social revolution without bloodshed, so that people can experience a better life than they do now. Since 2021, I’ve been thinking constantly about the ACE model—Agency, Connection, Exchange. Everywhere I look, I see it.</p>
-<p data-i18n-html="author.p3">The ACE decision-making model finally helped me pull myself together and see the idea for my unfinished novel through, despite all the difficulties along the way.</p>
-<p data-i18n-html="author.p4">If you’ve read the novel or explored the ACE model, I’d love for you to write to me and share your thoughts.</p>
-<blockquote class="author__verse" data-i18n-html="author.verse">
-              I'm neck-deep in debt.<br/>
-              To my past,<br/>
-              I owe regret.<br/>
-              To my future,<br/>
-              I owe fear.<br/>
-              I pay off my debt,<br/>
-              with distractions.
-            </blockquote>
-<p>
-<a href="https://aceconscious.studio" rel="noopener noreferrer" target="_blank">aceconscious.studio</a>
-<span aria-hidden="true"> · </span>
-<a aria-label="ACE.await on Instagram" class="ig-link" data-i18n-attr="aria-label:footer.instagramAria" href="https://www.instagram.com/ace.await/" rel="noopener noreferrer" target="_blank">
-<svg aria-hidden="true" class="ig-link__icon" focusable="false" viewbox="0 0 24 24"><path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5a4.25 4.25 0 0 0 4.25-4.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5zm8.75 2.25a1.125 1.125 0 1 1 0 2.25 1.125 1.125 0 0 1 0-2.25zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z" fill="currentColor"></path></svg>
-<span class="ig-link__label" data-i18n="footer.instagram">Instagram</span>
-</a>
-</p>
-</div>
-</div>
-</div>
-</section>
-<!-- Contact -->
-<section class="contact" id="contact">
-<div class="container reveal">
-<p class="section-label" data-i18n="contact.label">Contact</p>
-<form class="contact-form" id="contact-form" novalidate="">
-<input aria-hidden="true" autocomplete="off" class="contact-form__honeypot" name="website" tabindex="-1" type="text"/>
-<div class="contact-form__field">
-<label class="contact-form__label" data-i18n="contact.emailLabel" for="contact-email">Email</label>
-<input autocomplete="email" class="contact-form__input" id="contact-email" name="email" required="" type="email"/>
-</div>
-<div class="contact-form__field">
-<label class="contact-form__label" data-i18n="contact.messageLabel" for="contact-message">Message</label>
-<textarea class="contact-form__textarea" id="contact-message" name="message" required="" rows="6"></textarea>
-</div>
-<div class="contact-form__actions">
-<button class="btn btn--primary" data-i18n="contact.submit" type="submit">Send message</button>
-<p aria-live="polite" class="contact-form__status" hidden="" id="contact-status" role="status"></p>
-</div>
-</form>
-</div>
-</section>
 </main>
 <footer class="site-footer">
 <div class="container site-footer__grid">
@@ -775,6 +802,7 @@
 <span class="ig-link__label" data-i18n="footer.instagram">Instagram</span>
 </a>
 </li>
+<li><a data-i18n="footer.aceModel" href="/ace/"></a></li>
 <li><a data-i18n="footer.top" href="#top">Back to top</a></li>
 <li><a data-i18n="footer.rights" href="/rights/">Rights &amp; Representation</a></li>
 <li><a data-i18n="footer.screen" href="/screen/">Book to Screen</a></li>
@@ -786,6 +814,9 @@
 <script src="/js/asset-version.js?v=20261110b"></script>
 <script defer="" src="/js/cover-flip.js?v=20260718f"></script>
 <script defer="" src="/js/contact-config.js?v=20260718f"></script>
+<script defer src="/js/community.js"></script>
+<script defer src="/js/ace-intro.js"></script>
+<script defer src="/js/home-nav.js"></script>
 <script defer="" src="/js/contact.js?v=5b719af425"></script>
 <script defer="" src="/js/main.js?v=20260718f"></script>
 <script defer="" src="/js/reviews.js?v=dcb6608510"></script>

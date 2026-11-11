@@ -1,369 +1,126 @@
-/* Localized paper cards for the ACE introduction and character voices. */
-.ace-intro {
-  --intro-ink: var(--ink);
-  --intro-rust: var(--rust);
-  --intro-line: #bdad8d88;
-  --intro-green: #e8dfca;
-  --intro-copy-size: var(--body-size);
-  --intro-copy-leading: 1.55;
-}
-:is(.ace-intro-page, .voices-page) .page-body { top: 64px; bottom: 52px; }
-.ace-intro {
-  position: relative;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
+/* Shared homepage width, section typography, buttons and Reviews navigation. */
+.ace-introduction { padding: 3rem 0 4rem; color: var(--ink-soft); }
+.ace-introduction [hidden] { display: none !important; }
+.ace-introduction__toolbar .reviews__arrow svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 1.5; }
+.ace-intro-progress { margin: 0 0 1rem; font: .8125rem/1.5 var(--font-mono); color: var(--ink-muted); }
+.ace-intro p { white-space: pre-line; }
+.ace-intro-heading .ace-intro-lead { max-width: none; }
+.ace-introduction.is-enhanced .ace-intro-reader {
+  display: grid;
+  grid-template-columns: clamp(10rem, 19vw, 13rem) minmax(0, 1fr);
+  direction: ltr;
+  border: 1px solid rgba(13, 13, 13, .22);
+  border-radius: 16px;
   overflow: hidden;
-  overscroll-behavior: contain;
-  scrollbar-width: thin;
-  scrollbar-color: #9ba68d transparent;
-  /* The cue stays on the physical right in both LTR and RTL editions. */
-  padding: 5px 19px 6px 3px;
-  color: var(--intro-ink);
-  font: 16px/1.5 var(--book-serif);
-  touch-action: pan-y pinch-zoom;
+  background: var(--white);
+  box-shadow: 0 18px 48px -32px rgba(42, 37, 32, .45);
 }
-.ace-intro > * { flex-shrink: 0; }
-.ace-intro .ace-intro-reading {
-  flex: 1;
-  min-height: 0;
+.ace-intro-tabs {
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  overflow-y: auto;
-  /* The browser stops touch-action lookup at this scrolling container. */
-  touch-action: pan-y pinch-zoom;
-  overscroll-behavior: contain;
-  scrollbar-width: none;
-  padding: 3px 2px 5px;
+  gap: .375rem;
+  margin: 0;
+  padding: .625rem;
+  background: var(--console-bg);
 }
-.ace-intro-reading::-webkit-scrollbar { display: none; }
-.ace-intro-scroll {
-  position: absolute;
-  right: 0;
-  top: 9px;
-  bottom: 10px;
-  width: 14px;
-  color: #435c50;
-  pointer-events: none;
-}
-.ace-intro-scroll[hidden] { display: none; }
-.ace-intro-scroll::before,
-.ace-intro-scroll::after {
-  content: "";
-  position: absolute;
-  left: 3px;
-  width: 8px;
-  height: 8px;
-  border-left: 2px solid currentColor;
-  border-top: 2px solid currentColor;
-}
-.ace-intro-scroll::before { top: 3px; transform: rotate(45deg); }
-.ace-intro-scroll::after { bottom: 3px; transform: rotate(225deg); }
-.ace-intro-scroll.at-top::before,
-.ace-intro-scroll.at-bottom::after { opacity: .25; }
-.ace-intro-scroll-track {
-  position: absolute;
-  top: 22px;
-  bottom: 22px;
-  left: 5px;
-  width: 4px;
-  border-radius: 4px;
-  background: #435c5033;
-}
-.ace-intro-scroll-thumb {
-  display: block;
-  width: 4px;
-  border-radius: 4px;
-  background: currentColor;
-}
-.ace-intro-reading > * { flex-shrink: 0; }
-.ace-intro-workspace { display: contents; }
-.ace-intro-workspace > * { flex-shrink: 0; }
-.ace-intro p { margin: 0; }
-.ace-intro-heading .ace-intro-progress {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 12px;
-  color: var(--muted);
-  font: 400 16px/1.4 var(--book-serif);
-  font-variant-numeric: tabular-nums;
-}
-.ace-intro-progress::after {
-  content: "";
-  width: 48px;
-  height: 1px;
-  background: var(--intro-line);
-}
-.ace-intro-heading h2 {
-  font-family: var(--book-heading);
-  font-size: clamp(32px, calc(var(--book-w) * 0.102), 52px);
-  font-weight: 400;
-  line-height: 1.04;
-  letter-spacing: -1.2px;
-  margin: 0 0 12px;
-  color: var(--ink);
-}
-.ace-intro-heading .ace-intro-lead {
-  max-width: none;
-}
-.ace-intro:is([data-intro-group="concepts"], .book-voices) .ace-intro-definition + .ace-intro-definition { margin-top: 12px; }
-.ace-intro-tabs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 7px; direction: ltr; }
-.ace-intro-tabs--concepts { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .ace-intro-tabs button {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  gap: .75rem;
   min-width: 0;
-  min-height: clamp(80px, calc(var(--book-w) * .19), 112px);
-  gap: clamp(5px, calc(var(--book-w) * .014), 9px);
-  padding: clamp(10px, calc(var(--book-w) * .024), 15px) 3px;
-  border: 1px solid var(--intro-line);
-  border-radius: 7px;
-  color: var(--intro-ink);
-  transition: background .15s, border-color .15s;
+  min-height: 60px;
+  padding: .625rem .75rem;
+  border: 1px solid rgba(255, 255, 255, .12);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--parchment);
+  cursor: pointer;
+  font: inherit;
+  text-align: start;
 }
-.ace-intro-tabs b { font: clamp(38px, calc(var(--book-w) * .085), 50px)/1 var(--book-serif); }
-.ace-intro-tabs button > span { color: currentColor; font: 500 clamp(12px, calc(var(--book-w) * .034), 18px)/1.3 var(--book-serif); max-width: 100%; white-space: nowrap; overflow-wrap: normal; hyphens: none; }
-.ace-intro-tabs button:hover { background: #e2e3d3; border-color: #7a8872; }
-.ace-intro-tabs button[aria-selected="true"] { background: var(--intro-ink); border-color: var(--intro-ink); color: #faf5e7; }
-.ace-intro-tabs--phases button[aria-selected="true"] { background: var(--intro-green); color: var(--intro-ink); }
-.ace-intro-tabs svg { width: clamp(36px, calc(var(--book-w) * .09), 48px); height: clamp(36px, calc(var(--book-w) * .09), 48px); color: var(--intro-rust); }
-.ace-intro :is(button, a, [role="tabpanel"]):focus-visible { outline: 2px solid var(--intro-rust); outline-offset: 2px; }
-.ace-intro h2:focus { outline: none; }
-.ace-intro-panel {
-  border: 1px solid var(--intro-line);
-  border-radius: 9px;
-  padding: 15px 17px;
-  background: #fffcf2b8;
-}
-.ace-intro-panel[hidden] { display: none; }
-.ace-intro-card-top { display: flex; align-items: center; justify-content: space-between; height: clamp(30px, calc(var(--book-w) * .075), 40px); margin-bottom: clamp(9px, calc(var(--book-w) * .022), 13px); }
-.ace-intro-card-label { color: var(--intro-rust); font: 500 clamp(13px, calc(var(--book-w) * .032), 17px)/1.45 var(--book-ui); letter-spacing: .35px; }
-.ace-intro-mark { color: #b8ad92; font: 56px/.8 var(--book-serif); }
-.ace-intro-mark svg { display: block; height: 44px; width: 44px; color: var(--muted); }
-.ace-intro-panel h3 { margin: 0 0 10px; }
-.ace-intro-panel .ace-intro-definition { white-space: pre-line; }
-.ace-intro-example { border-top: 1px solid var(--intro-line); padding-top: 10px; margin-top: 12px; }
-.ace-intro-example-label { display: block; margin-bottom: 6px; font: 500 clamp(12px, calc(var(--book-w) * .029), 15px)/1.4 var(--book-ui); text-transform: uppercase; letter-spacing: .6px; color: var(--intro-rust); }
-[data-intro-group="phases"] .ace-intro-example { background: #e8ebdd; border: 0; padding: 11px 13px; border-radius: 5px; }
-[data-intro-group="phases"] .ace-intro-example p { color: var(--intro-ink); }
-.ace-intro-next { display: inline-flex; justify-content: space-between; align-items: center; gap: 12px; min-height: 44px; max-width: 100%; font: 11px/1.4 var(--book-ui); text-decoration: none; }
-.ace-intro-next { border: 1px solid var(--intro-ink); background: var(--intro-ink); color: #faf5e7; padding: 10px 14px; border-radius: 5px; }
-.ace-intro-next:hover { background: #405343; color: #faf5e7; }
-.ace-intro-next > span:last-child { font-size: 18px; }
-.ace-intro-duration { color: #69705f; font-size: 11px; line-height: 1.4; }
-.ace-intro-invitation { text-align: center; gap: 14px; }
-.ace-intro-invitation .ace-intro-heading { text-align: start; }
-.ace-intro-invitation h2 { max-width: none; }
-.ace-intro-fan { position: relative; height: 172px; margin: 3px 0 0; }
-.ace-intro-fan > span { position: absolute; top: 5px; left: calc(50% - 55px); width: 110px; height: 150px; padding: 13px; border-radius: 6px; border: 1px solid #939c87; background: #e0e4d4; text-align: left; font: 43px/1 var(--book-serif); box-shadow: 0 6px 9px #28372b15; }
-.ace-intro-fan .ace-intro-fan-c { transform: translate(-58px, 14px) rotate(-17deg); }
-.ace-intro-fan .ace-intro-fan-e { transform: translate(58px, 14px) rotate(17deg); text-align: right; }
-.ace-intro-fan-e small { left: auto; right: 13px; }
-.ace-intro-fan .ace-intro-fan-a { background: var(--intro-ink); color: #faf5e7; transform: rotate(-3deg); }
-.ace-intro-fan small { position: absolute; bottom: 14px; left: 13px; font: 10px/1.2 var(--book-ui); }
-.ace-intro-fan svg { display: block; width: 45px; height: 45px; margin: 3px auto; color: #d5b89b; }
-.ace-intro :is(.ace-intro-play-body, .ace-intro-signup) { max-width: 35ch; margin: 0 auto; }
-.ace-intro-play { width: 100%; justify-content: center; font-size: 13px; min-height: 48px; }
-/* All explanatory copy follows the approved What is ACE? typography. */
-:is(.page.ace-intro-page .page-body, .page.voices-page .page-body, #book-source) .ace-intro :is(.ace-intro-lead, .ace-intro-definition, .ace-intro-panel h3, .ace-intro-example p, .ace-intro-note, .ace-intro-play-body, .ace-intro-signup) {
-  color: var(--intro-ink);
-  font: 400 var(--intro-copy-size)/var(--intro-copy-leading) var(--book-serif);
-  letter-spacing: normal;
-}
-@media (max-width: 600px), (max-height: 760px) {
-  .ace-intro { --intro-copy-size: 17px; }
-  :is(.ace-intro-page, .voices-page) .page-body { top: 59px; bottom: 47px; left: 24px; right: 24px; }
-  .ace-intro { gap: 12px; }
-  .ace-intro .ace-intro-reading { gap: 12px; }
-  .ace-intro-heading .ace-intro-progress { font-size: 14px; margin-bottom: 8px; }
-  .ace-intro-heading h2 { font-size: 30px; margin-bottom: 8px; }
-  .ace-intro-tabs { gap: 5px; }
-  .ace-intro-tabs--concepts,
-  .ace-intro-tabs--pdaf,
-  .ace-intro-tabs--phases,
-  .book-voices .ace-intro-tabs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .ace-intro-tabs button { min-height: 58px; padding: 6px 1px; }
-  .ace-intro-tabs b { font-size: 28px; }
-  .ace-intro-tabs button > span { font-size: clamp(11px, calc(var(--book-w) * .03), 13px); }
-  .ace-intro-tabs svg { width: 27px; height: 27px; }
-  .ace-intro-panel { padding: 12px 13px; }
-  .ace-intro-card-top { height: 24px; margin-bottom: 8px; }
-  .ace-intro-card-label { font-size: 12px; }
-  .ace-intro-mark { font-size: 40px; }
-  .ace-intro-mark svg { width: 32px; height: 32px; }
-  .ace-intro-panel h3 { margin-bottom: 9px; }
-  .ace-intro-example { padding-top: 9px; margin-top: 11px; }
-  .ace-intro-example-label { font-size: 9px; margin-bottom: 4px; }
-  .ace-intro-next { font-size: 10px; padding: 8px 10px; gap: 8px; }
-  .ace-intro-duration { display: none; }
-  .ace-intro-fan { height: 153px; }
-  .ace-intro-fan > span { width: 88px; height: 121px; left: calc(50% - 44px); font-size: 32px; padding: 10px; }
-  .ace-intro-fan .ace-intro-fan-c { transform: translate(-44px, 11px) rotate(-17deg); }
-  .ace-intro-fan .ace-intro-fan-e { transform: translate(44px, 11px) rotate(17deg); }
-  .ace-intro-fan svg { width: 34px; height: 34px; }
-  .ace-intro-fan small { font-size: 9px; bottom: 11px; left: 10px; }
-}
-.small-book :is(.ace-intro-page, .voices-page) .page-body { top: 47px; bottom: 39px; left: 17px; right: 17px; }
-.small-book .ace-intro-tabs--phases { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-.small-book .ace-intro-tabs--phases button { flex-direction: row; min-height: 44px; gap: 4px; }
-.small-book .ace-intro-tabs--phases svg { width: 22px; height: 22px; }
-html[dir="rtl"] .ace-intro-next > span:last-child { transform: scaleX(-1); }
-html:is(:lang(fa), :lang(ar), :lang(hi), :lang(zh)) .ace-intro :is(.ace-intro-card-label, .ace-intro-example-label) { letter-spacing: 0; line-height: 1.7; }
-html:is(:lang(fa), :lang(ar), :lang(hi), :lang(zh)) .ace-intro { --intro-copy-leading: 1.75; }
-.ace-intro-tabs b, .ace-intro-mark, .ace-intro-fan > span { font-family: "EB Garamond", Georgia, serif; }
-html:not(.js) .ace-intro { height: auto; overflow: visible; margin-block: 2rem; padding-right: 3px; }
-html:not(.js) .ace-intro .ace-intro-reading { overflow: visible; }
-html:not(.js) .ace-intro-tabs { display: none; }
-html:not(.js) .ace-intro-panel[hidden] { display: block; margin-top: 1rem; }
-@media (prefers-reduced-motion: reduce) {
-  .ace-intro-tabs button { transition: none; }
-}
-
-/* The choices and writing surface stay in view together in every edition.
-   The full text sets the paper height before the first letter is typed. */
-.ace-intro.is-typewriter .ace-intro-reading { overflow: hidden; }
-.is-typewriter .ace-intro-heading {
-  flex-shrink: 1;
-  min-height: 0;
-  max-height: 48%;
-  overflow-y: auto;
-  scrollbar-width: thin;
-}
-.is-typewriter .ace-intro-workspace {
-  display: grid;
-  direction: ltr;
-  grid-template-columns: clamp(82px, 22%, 104px) minmax(0, 1fr);
-  gap: 10px;
-  flex: 1;
-  min-height: 0;
-}
-.is-typewriter .ace-intro-tabs {
-  grid-template-columns: minmax(0, 1fr);
-  align-content: start;
-  gap: 8px;
-  overflow-y: auto;
-  scrollbar-width: thin;
-  padding: 3px;
-  margin: -3px;
-}
-.is-typewriter .ace-intro-tabs button {
-  position: relative;
-  flex-direction: column;
-  min-height: clamp(68px, calc(var(--book-w) * .17), 88px);
-  padding: clamp(9px, calc(var(--book-w) * .022), 13px) 4px;
-  gap: clamp(6px, calc(var(--book-w) * .015), 9px);
-}
-.is-typewriter .ace-intro-tabs button > span { font-size: clamp(12px, calc(var(--book-w) * .032), 17px); }
-.is-typewriter .ace-intro-tabs b { font-size: 31px; }
-.is-typewriter .ace-intro-tabs svg { width: clamp(29px, calc(var(--book-w) * .075), 40px); height: clamp(29px, calc(var(--book-w) * .075), 40px); }
-.is-typewriter .ace-intro-tabs button[aria-selected="true"]::after {
-  content: "";
+.ace-intro-tabs b { flex: 0 0 1.75rem; text-align: center; font: 1.625rem/1 Georgia, serif; font-weight: 400; }
+.ace-intro-tabs button > span { min-width: 0; font-size: .875rem; line-height: 1.4; overflow-wrap: anywhere; hyphens: auto; text-wrap: balance; }
+.ace-intro-tabs button:hover { background: rgba(255, 255, 255, .09); }
+.ace-intro-tabs button[aria-selected="true"] { background: var(--white); border-color: var(--white); color: var(--ink); box-shadow: inset 3px 0 var(--accent); }
+.ace-intro-tabs svg { flex: 0 0 1.75rem; width: 1.75rem; height: 1.75rem; color: var(--parchment-deep); }
+.ace-intro-tabs [aria-selected="true"] svg { color: var(--accent); }
+.ace-introduction :is(button, a, [role="tabpanel"], h2):focus-visible { outline: 3px solid var(--accent); outline-offset: 5px; }
+.ace-intro-reader :is(button, [role="tabpanel"]):focus-visible { outline: 2px solid var(--accent); outline-offset: -4px; }
+.ace-intro-panel { border: 1px solid rgba(13, 13, 13, .2); border-radius: var(--radius); padding: 1.5rem; background: var(--white); }
+.ace-intro-panels { min-width: 0; }
+.ace-introduction.is-enhanced .ace-intro-panel { min-height: 100%; border: 0; border-radius: 0; padding: 0; background: transparent; }
+.ace-intro-card-top { display: flex; align-items: center; justify-content: space-between; gap: .75rem; margin-bottom: 1rem; }
+.ace-introduction.is-enhanced .ace-intro-card-top { margin: 0; padding: .875rem 1.5rem; border-bottom: 1px solid rgba(13, 13, 13, .12); }
+.ace-intro-card-label { color: var(--ink); font-size: 1.125rem; line-height: 1.5; }
+.ace-intro-mark { display: block; color: var(--ink-muted); opacity: .5; font: 2rem/1 Georgia, serif; }
+.ace-intro-mark svg { display: block; height: 2rem; width: 2rem; }
+.ace-intro-card-control { display: grid; place-items: center; position: relative; flex: 0 0 40px; height: 40px; }
+.ace-intro-panel.is-typing .ace-intro-mark { visibility: hidden; }
+.ace-intro-skip { position: absolute; inset: 0; display: grid; place-items: center; border: 1px solid rgba(13, 13, 13, .15); border-radius: 8px; background: var(--parchment); color: var(--ink); cursor: pointer; }
+.ace-intro-skip svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.5; }
+.ace-intro-panel-body { position: relative; padding: 1.25rem 1.5rem; }
+/* Keep the exact source copy in the flow and accessibility tree while its
+   decorative overlay types. This reserves the final height at every width. */
+.ace-intro-copy--typing { opacity: 0; }
+.ace-intro-copy--visual { position: absolute; inset: 1.25rem 1.5rem auto; pointer-events: none; }
+.ace-intro-cursor { display: inline-block; width: 2px; height: 1em; margin-inline-start: 2px; vertical-align: -.12em; background: var(--accent); animation: ace-caret .6s step-end infinite; }
+@keyframes ace-caret { 50% { opacity: 0; } }
+.ace-intro-definition { max-width: 70ch; margin: 0; line-height: 1.55; }
+.ace-intro-definition + .ace-intro-definition { margin-top: .625rem; }
+.ace-intro-note { margin: 1.25rem 0 0; color: var(--ink-muted); }
+.ace-intro-fan { position: relative; height: 200px; max-width: 100%; }
+.ace-intro-fan > span {
   position: absolute;
-  right: -5px;
-  top: calc(50% - 4px);
-  width: 8px;
-  height: 8px;
-  transform: rotate(45deg);
-  background: var(--intro-ink);
+  top: 5px;
+  left: calc(50% - 58px);
+  width: 116px;
+  height: 160px;
+  padding: 14px;
+  border-radius: 6px;
+  border: 1px solid var(--ink-muted);
+  background: var(--parchment-deep);
+  text-align: left;
+  font: 2.5rem/1 Georgia, serif;
+  box-shadow: 0 6px 9px #28372b15;
 }
-.is-typewriter .ace-intro-tabs--phases button[aria-selected="true"]::after { background: var(--intro-green); }
-.is-typewriter .ace-intro-panels {
-  min-width: 0;
-  min-height: 0;
-  overflow-y: auto;
-  overscroll-behavior: contain;
-  touch-action: pan-y pinch-zoom;
-  scrollbar-width: none;
-  border: 1px solid var(--intro-line);
-  border-radius: 9px;
-  background: linear-gradient(105deg, #fffcf27a, #fffcf2b8);
-  box-shadow: inset 3px 0 12px #8d795506, 0 2px 3px #6a584708;
+.ace-intro-fan .ace-intro-fan-c { transform: translate(-60px, 14px) rotate(-17deg); }
+.ace-intro-fan .ace-intro-fan-e { transform: translate(60px, 14px) rotate(17deg); text-align: right; }
+.ace-intro-fan .ace-intro-fan-a { background: var(--ink); color: var(--white); transform: rotate(-3deg); }
+.ace-intro-fan small { position: absolute; bottom: 14px; left: 10px; right: 10px; overflow-wrap: anywhere; font: .6875rem/1.4 var(--font-serif); }
+.ace-intro-fan svg { display: block; width: 45px; height: 45px; margin: 5px auto; color: var(--parchment-deep); }
+.ace-intro :is(.ace-intro-play-body, .ace-intro-signup) { margin: 0 0 1.25rem; }
+.ace-intro-play { max-width: 100%; }
+.ace-introduction:not(.is-enhanced) .ace-intro-step + .ace-intro-step { margin-top: 3rem; }
+.ace-introduction:not(.is-enhanced) .ace-intro-panel + .ace-intro-panel { margin-top: 1rem; }
+.ace-introduction.is-enhanced .ace-intro-step-progress { display: none; }
+.ace-introduction.is-enhanced .ace-intro-invitation .ace-intro-reading { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: 0 3rem; }
+.ace-introduction.is-enhanced .ace-intro-invitation .ace-intro-heading { display: none; }
+.ace-introduction.is-enhanced .ace-intro-fan { grid-column: 2; grid-row: 1; }
+.ace-introduction.is-enhanced .ace-intro-invitation-copy { grid-column: 1; grid-row: 1; align-self: start; }
+html[dir="rtl"] .ace-intro-play > span:last-child { transform: scaleX(-1); }
+html[dir="rtl"] .ace-intro-progress { font-family: var(--font-serif-fa); letter-spacing: 0; }
+/* The selector remains on the physical left, like the mobile Characters reader. */
+html[dir="rtl"] :is(.ace-intro-tabs, .ace-intro-panels) { direction: rtl; }
+@media (max-width: 900px) {
+  .ace-introduction { padding: 2.5rem 0 3.5rem; }
+  .ace-introduction.is-enhanced .ace-intro-invitation .ace-intro-reading { display: block; }
+  .ace-intro-fan { margin-block: 1.5rem; }
 }
-.is-typewriter .ace-intro-panels::-webkit-scrollbar { display: none; }
-/* Only the choice layout is LTR; localized labels and prose retain their script. */
-html[dir="rtl"] :is(.ace-intro-tabs button > span, .is-typewriter .ace-intro-panels) { direction: rtl; }
-.is-typewriter .ace-intro-panel {
-  min-height: 100%;
-  padding: 16px 14px 24px;
-  border: 0;
-  background: none;
-  overflow-wrap: break-word;
-}
-.is-typewriter .ace-intro-panel:focus-visible { outline-offset: -3px; }
-.is-typewriter .ace-intro-card-top {
-  height: 31px;
-  padding-bottom: 12px;
-  margin-bottom: 14px;
-  border-bottom: 1px solid var(--intro-line);
-}
-.is-typewriter .ace-intro-mark { font-size: 34px; }
-.is-typewriter .ace-intro-mark svg { width: 27px; height: 27px; }
-.is-typewriter .ace-intro-card-label { font-size: clamp(13px, calc(var(--book-w) * .032), 17px); }
-.ace-intro-prose { position: relative; }
-.ace-intro-full-copy { opacity: 0; }
-.ace-intro-typescript { position: absolute; inset: 0; pointer-events: none; }
-:is(.page.ace-intro-page .page-body, .page.voices-page .page-body, #book-source) .ace-intro .ace-intro-typed-line {
-  color: var(--intro-ink);
-  font: 400 var(--intro-copy-size)/var(--intro-copy-leading) var(--book-serif);
-  letter-spacing: normal;
-  white-space: pre-line;
-}
-.ace-intro-typed-line + .ace-intro-typed-line { margin-top: 12px; }
-.ace-intro-cursor {
-  display: inline-block;
-  width: 0;
-  height: 1em;
-  margin-inline: 2px -4px;
-  border-inline-start: 2px solid var(--intro-rust);
-  vertical-align: -.13em;
-}
-.ace-intro-cursor.is-idle { animation: ace-intro-caret .85s steps(1, end) infinite; }
-.is-typewriter .ace-intro-note { max-height: 25%; overflow-y: auto; scrollbar-width: thin; }
-@keyframes ace-intro-caret { 0%, 55% { opacity: 1; } 56%, 100% { opacity: 0; } }
-@media (min-width: 1000px) and (min-height: 800px) {
-  .is-typewriter .ace-intro-workspace { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto minmax(0, 1fr); gap: 14px; }
-  .is-typewriter .ace-intro-tabs { grid-template-columns: repeat(4, minmax(0, 1fr)); overflow: visible; }
-  .is-typewriter .ace-intro-tabs--concepts { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .is-typewriter .ace-intro-tabs button { min-height: clamp(80px, calc(var(--book-w) * .19), 112px); }
-  .is-typewriter .ace-intro-tabs button[aria-selected="true"]::after { top: auto; bottom: -5px; right: calc(50% - 4px); }
-  .is-typewriter .ace-intro-panel { padding: 20px 22px 26px; }
-}
-@media (max-width: 360px), (max-height: 600px) {
-  .is-typewriter .ace-intro-workspace { grid-template-columns: 78px minmax(0, 1fr); gap: 8px; }
-  .is-typewriter .ace-intro-tabs { gap: 6px; }
-  .is-typewriter .ace-intro-tabs button { min-height: 58px; padding: 6px 2px; gap: 4px; }
-  .is-typewriter .ace-intro-tabs button > span { font-size: 10px; }
-  .is-typewriter .ace-intro-tabs b { font-size: 27px; }
-  .is-typewriter .ace-intro-tabs svg { width: 24px; height: 24px; }
-  .is-typewriter .ace-intro-panel { padding: 12px 10px 20px; }
-  .is-typewriter .ace-intro-card-label { font-size: 10px; }
-}
-@media (max-width: 360px) and (min-height: 500px) {
-  .is-typewriter .ace-intro-heading { max-height: 60%; }
-  .is-typewriter .ace-intro-tabs button { min-height: 48px; padding: 4px 2px; gap: 2px; }
-  .is-typewriter .ace-intro-tabs b { font-size: 24px; }
+@media (max-width: 600px) {
+  .ace-introduction.is-enhanced .ace-intro-reader { grid-template-columns: clamp(92px, 28vw, 112px) minmax(0, 1fr); }
+  .ace-intro-tabs { padding: .375rem; gap: .375rem; }
+  .ace-intro-tabs button { flex-direction: column; justify-content: center; gap: .375rem; min-height: 68px; padding: .625rem .25rem; text-align: center; }
+  .ace-intro-tabs button > span { font-size: .75rem; }
+  .ace-intro-tabs b, .ace-intro-tabs svg { flex-basis: auto; }
+  .ace-introduction.is-enhanced .ace-intro-card-top { padding: .75rem; gap: .375rem; }
+  .ace-intro-card-label { font-size: .9375rem; overflow-wrap: anywhere; }
+  .ace-intro-card-control { flex-basis: 32px; height: 36px; }
+  .ace-intro-mark, .ace-intro-mark svg { font-size: 1.5rem; width: 1.5rem; height: 1.5rem; }
+  .ace-intro-panel-body { padding: 1rem .875rem; font-size: .9375rem; line-height: 1.65; }
+  .ace-intro-copy--visual { inset: 1rem .875rem auto; }
+  .ace-intro-fan { transform: scale(.85); }
 }
 @media (prefers-reduced-motion: reduce) {
-  .ace-intro-cursor.is-idle { animation: none; }
-}
-
-/* Eight voices share one paper surface. Names stay readable in the phone rail. */
-.book-voices.is-typewriter .ace-intro-workspace { grid-template-columns: clamp(86px, 28%, 110px) minmax(0, 1fr); }
-.book-voices.is-typewriter .ace-intro-tabs button { min-height: clamp(48px, calc(var(--book-w) * .14), 76px); padding: clamp(9px, calc(var(--book-w) * .022), 13px) 5px; }
-.book-voices .ace-intro-tabs button > span { font: 500 clamp(13px, calc(var(--book-w) * .034), 18px)/1.4 var(--book-ui); overflow-wrap: normal; hyphens: auto; }
-.book-voices .ace-intro-card-top { height: auto; flex-direction: column; align-items: start; gap: 4px; }
-:is(.page.voices-page .page-body, #book-source) .book-voices h3.book-voice-name { margin: 0; font-size: clamp(22px, calc(var(--book-w) * .055), 30px); line-height: 1.3; }
-.book-voices .book-voice-role { color: var(--intro-rust); font: 500 clamp(13px, calc(var(--book-w) * .031), 16px)/1.5 var(--book-ui); }
-.book-voices .ace-intro-definition, .book-voices .ace-intro-typed-line { text-align: start; }
-@media (min-width: 1000px) and (min-height: 800px) {
-  .book-voices.is-typewriter .ace-intro-workspace { grid-template-columns: minmax(0, 1fr); }
-}
-@media (max-width: 360px), (max-height: 600px) {
-  .book-voices.is-typewriter .ace-intro-workspace { grid-template-columns: 82px minmax(0, 1fr); }
-  .book-voices .ace-intro-tabs button > span { font-size: 12px; }
+  .ace-intro-cursor { animation: none; }
 }

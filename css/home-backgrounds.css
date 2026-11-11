@@ -1,0 +1,14 @@
+/* Shared homepage palette: a strong introduction, softer reviews, then
+   one uninterrupted ivory surface from the story to the footer. */
+html[data-page="home"] main > section {
+  background: #efe4d2;
+  box-shadow: none;
+}
+
+html[data-page="home"] main > #reviews {
+  background: linear-gradient(145deg, #eee3d0 0%, #e5d7be 65%, #e1d0b3 100%);
+}
+
+html[data-page="home"] main > #top {
+  background: linear-gradient(145deg, #e4d5bc 0%, #d9c7a8 65%, #d3c1a1 100%);
+}
