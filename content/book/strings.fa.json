@@ -1,0 +1,111 @@
+{
+  "_": "fa translation of strings.en.json. Shared page wording comes from content/locales/fa.json.",
+  "backCoverDesigner": "طراح جلد: افشین می‌آبادی",
+  "backCoverCopyright": "© حق نشر ۲۰۲۶ ACE Conscious Studio. تمامی حقوق محفوظ است.",
+  "sections": {
+    "headline": "آغاز",
+    "reviews": "بازخوردها",
+    "story": "داستان",
+    "ace": "ACE",
+    "author": "نویسنده",
+    "buy": "خرید",
+    "community": "هدیه",
+    "contact": "تماس",
+    "characters": "شخصیت‌ها",
+    "sample": "نمونه",
+    "back-cover": "پشت جلد"
+  },
+  "ui": {
+    "continued": "ادامه",
+    "page": "صفحه",
+    "of": "از",
+    "openBook": "کتاب را باز کنید",
+    "closeBook": "کتاب را ببندید",
+    "previousPage": "صفحهٔ قبل",
+    "nextPage": "صفحهٔ بعد",
+    "bookSections": "بخش‌های کتاب",
+    "coverAlt": "جلد روی کتاب ACE.await",
+    "backCoverAlt": "پشت جلد کتاب ACE.await"
+  },
+  "actions": {
+    "nav": "دسترسی سریع به بخش‌های کتاب",
+    "coverHint": "بازگشت به جلد",
+    "buy": "خرید کتاب",
+    "buyHint": "دیدن نسخه‌ها و فروشگاه‌ها",
+    "join": "پیوستن به جمع خوانندگان",
+    "joinHint": "خبرنامه، رویدادها و آثار تازه"
+  },
+  "headline": {
+    "studio": "Ace Conscious Studio",
+    "placeAndYear": "کلن · ۲۰۲۶",
+    "eyebrow": "برای کسانی که می‌خواهند آگاهانه انتخاب کنند",
+    "tagline": "رمانی دربارهٔ تصمیم‌هایی که می‌گیریم — و جهانی که آفریده‌هایمان به ارث می‌برند.",
+    "awardTitle": "2026 Best Book Awards",
+    "awardUrl": "https://www.americanbookfest.com/2026bbafullresults.html"
+  },
+  "buy": {
+    "comingSoon": "به‌زودی",
+    "marketplaceLabel": "فروشگاه آمازون",
+    "marketplaceNote": "انتخاب کشور فقط پیوندهای آمازون را تغییر می‌دهد و زبان این کتاب را عوض نمی‌کند.",
+    "unavailable": "اینجا موجود نیست",
+    "formats": {
+      "kindle": "آمازون · کتاب الکترونیکی کیندل",
+      "paperback": "آمازون · جلد شومیز"
+    },
+    "editionNote": "این لینک‌ها برای خرید نسخهٔ فارسی رمان هستند.",
+    "markets": {
+      "us": "ایالات متحده",
+      "uk": "بریتانیا",
+      "de": "آلمان",
+      "ca": "کانادا",
+      "au": "استرالیا",
+      "fr": "فرانسه",
+      "es": "اسپانیا",
+      "it": "ایتالیا",
+      "nl": "هلند",
+      "pl": "لهستان",
+      "se": "سوئد",
+      "be": "بلژیک",
+      "ie": "ایرلند",
+      "jp": "ژاپن",
+      "in": "هند",
+      "br": "برزیل",
+      "mx": "مکزیک"
+    }
+  },
+  "contact": {
+    "giftDescription": "اگر مایلید ابتدا کتاب را هدیه بگیرید و سپس نقدی بنویسید یا بعداً نسخه‌ای بخرید، لطفاً با من تماس بگیرید. یک نسخهٔ رایگان برایتان می‌فرستم.",
+    "giftContact": "درخواست نسخهٔ هدیه",
+    "circleFooter": "پیوستن",
+    "circleHeading": "به انجمن بپیوندید",
+    "circleDescription": "عضو خبرنامه شوید تا هر از گاهی از رویداد بعدی، دورهمی یا انتشار بازی باخبر شوید. بخشی از The Circle باشید.",
+    "circleEmailLabel": "نشانی ایمیل",
+    "circleEmailPlaceholder": "you@example.com",
+    "circleSubmit": "پیوستن به حلقهٔ خوانندگان",
+    "circleSending": "در حال ارسال درخواست شما…",
+    "circleSuccess": "سپاسگزاریم — درخواست عضویت شما ارسال شد.",
+    "circleError": "نتوانستیم درخواست شما را تأیید کنیم. لطفاً دوباره تلاش کنید.",
+    "circleUnavailable": "در حال حاضر امکان عضویت وجود ندارد. لطفاً بعداً دوباره تلاش کنید.",
+    "circleRequestMessage": "لطفاً مرا به انجمن خوانندگان ایس اضافه کنید تا هر از گاهی نامه‌ها، داستان‌های تازه و خبر دیدارها و گام‌های بعدی را دریافت کنم.",
+    "writeHeading": "به هدایت بنویسید",
+    "emailDirect": "یا مستقیم بنویسید:"
+  },
+  "links": {
+    "heading": "پیوندها",
+    "instagram": "Instagram",
+    "website": "Ace Conscious Studio",
+    "email": "ایمیل",
+    "press": "در رسانه‌ها"
+  },
+  "references": {
+    "back": "← بازگشت به پشت جلد",
+    "items": {
+      "voices": "شخصیت‌ها با شما سخن می‌گویند",
+      "privacy": "حریم خصوصی",
+      "impressum": "اطلاعات حقوقی",
+      "rights": "حقوق و نمایندگی",
+      "screen": "از کتاب تا پردهٔ سینما",
+      "contents": "فهرست رمان"
+    }
+  }
+}

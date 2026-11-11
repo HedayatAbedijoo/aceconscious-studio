@@ -1,0 +1,111 @@
+{
+  "_": "es translation of strings.en.json. Shared page wording comes from content/locales/es.json.",
+  "backCoverDesigner": "Cover Design: Afshin Mayabadi",
+  "backCoverCopyright": "© Copyright 2026 ACE Conscious Studio. Todos los derechos reservados.",
+  "sections": {
+    "headline": "Presentación",
+    "reviews": "Reseñas",
+    "story": "Historia",
+    "ace": "ACE",
+    "author": "Autor",
+    "buy": "Comprar",
+    "community": "Regalo",
+    "contact": "Contacto",
+    "characters": "Personajes",
+    "sample": "Muestra",
+    "back-cover": "Contraportada"
+  },
+  "ui": {
+    "continued": "continuación",
+    "page": "página",
+    "of": "de",
+    "openBook": "Abrir el libro",
+    "closeBook": "Cerrar el libro",
+    "previousPage": "Página anterior",
+    "nextPage": "Página siguiente",
+    "bookSections": "Secciones del libro",
+    "coverAlt": "Portada de ACE.await",
+    "backCoverAlt": "Contraportada de ACE.await"
+  },
+  "actions": {
+    "nav": "Accesos rápidos del libro",
+    "coverHint": "Volver a la portada",
+    "buy": "Comprar el libro",
+    "buyHint": "Explorar ediciones y librerías",
+    "join": "Unirse a la comunidad",
+    "joinHint": "Boletín, eventos y novedades"
+  },
+  "headline": {
+    "studio": "Ace Conscious Studio",
+    "placeAndYear": "Colonia · 2026",
+    "eyebrow": "Para quienes quieren tomar decisiones conscientes",
+    "tagline": "Una novela sobre las decisiones que tomamos — y el mundo que heredan nuestras creaciones.",
+    "awardTitle": "2026 Best Book Awards",
+    "awardUrl": "https://www.americanbookfest.com/2026bbafullresults.html"
+  },
+  "buy": {
+    "comingSoon": "Próximamente",
+    "marketplaceLabel": "Tienda de Amazon",
+    "marketplaceNote": "Elegir un país solo cambia los enlaces de Amazon. No cambia el idioma de este libro.",
+    "unavailable": "No disponible aquí",
+    "formats": {
+      "kindle": "Amazon · Libro electrónico Kindle",
+      "paperback": "Amazon · Tapa blanda"
+    },
+    "editionNote": "Estos enlaces de compra corresponden a la edición en inglés de la novela.",
+    "markets": {
+      "us": "Estados Unidos",
+      "uk": "Reino Unido",
+      "de": "Alemania",
+      "ca": "Canadá",
+      "au": "Australia",
+      "fr": "Francia",
+      "es": "España",
+      "it": "Italia",
+      "nl": "Países Bajos",
+      "pl": "Polonia",
+      "se": "Suecia",
+      "be": "Bélgica",
+      "ie": "Irlanda",
+      "jp": "Japón",
+      "in": "India",
+      "br": "Brasil",
+      "mx": "México"
+    }
+  },
+  "contact": {
+    "giftDescription": "Si quieres recibir primero el libro como regalo y luego escribir una reseña o comprar un ejemplar más adelante, ponte en contacto conmigo. Te enviaré un ejemplar gratuito.",
+    "giftContact": "Pedir un ejemplar de regalo",
+    "circleFooter": "Unirse",
+    "circleHeading": "Únete a la comunidad",
+    "circleDescription": "Suscríbete a nuestro boletín para recibir novedades ocasionales sobre el próximo evento, encuentro o lanzamiento del juego. Forma parte de The Circle.",
+    "circleEmailLabel": "Correo electrónico",
+    "circleEmailPlaceholder": "you@example.com",
+    "circleSubmit": "Unirme al círculo de lectores",
+    "circleSending": "Enviando tu solicitud…",
+    "circleSuccess": "Gracias — tu solicitud para unirte se ha enviado.",
+    "circleError": "No hemos podido confirmar tu solicitud. Inténtalo de nuevo.",
+    "circleUnavailable": "En este momento no es posible inscribirse. Inténtalo más tarde.",
+    "circleRequestMessage": "Quiero unirme a la comunidad de lectores de ACE para recibir de vez en cuando cartas, nuevas historias y noticias sobre encuentros y próximos pasos.",
+    "writeHeading": "Escribe a Hedayat",
+    "emailDirect": "O escribe directamente a:"
+  },
+  "links": {
+    "heading": "Enlaces",
+    "instagram": "Instagram",
+    "website": "Ace Conscious Studio",
+    "email": "Correo electrónico",
+    "press": "En la prensa"
+  },
+  "references": {
+    "back": "← Volver a la contraportada",
+    "items": {
+      "voices": "Los personajes hablan",
+      "privacy": "Privacidad",
+      "impressum": "Aviso legal",
+      "rights": "Derechos y representación",
+      "screen": "Del libro a la pantalla",
+      "contents": "Índice de la novela"
+    }
+  }
+}
