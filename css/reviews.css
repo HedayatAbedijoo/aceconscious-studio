@@ -256,6 +256,7 @@ html[dir="rtl"] .media-review__secondary-quote { font-family: var(--font-serif-f
 html[dir="rtl"] .media-review__excerpt { font-size: 1.0625rem; line-height: 2; }
 html[dir="rtl"] .media-review--kirkus .media-review__excerpt { font-size: 1.125rem; line-height: 1.95; }
 .review[data-review-id="booklife-2026"] .review__excerpt,
+.review[data-review-id="consciousness-2026"] .media-review__excerpt { font-size: 1.125rem; }
 
 @media (max-width: 900px) {
   .review.media-review--a { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }

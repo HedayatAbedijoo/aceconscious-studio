@@ -34,8 +34,6 @@ def route(page, lang):
 
 ROUTES = {route(page, lang["code"]): page for page in PAGES for lang in LANGUAGES}
 ROUTES.update({"/en/": "home", "/de/ace/": "ace", "/fa/ace/": "ace", "/de/privacy/": "privacy"})
-# Content the book edition cannot link yet; reported at the end of a build.
-MISSING = []
 
 
 def localize_url(value, lang):
@@ -115,8 +113,6 @@ def localize_structured_data(soup, source, strings, page, lang):
                 elif kind == "Book":
                     # Website languages are not additional published book editions.
                     result["inLanguage"] = ["en", "fa"]
-                    if page == "home" and lang["code"] == "fa":
-                        result["image"] = SITE + "/assets/cover-fa.webp"
                 elif "inLanguage" in result:
                     result["inLanguage"] = lang["htmlLang"]
                 return result
@@ -127,15 +123,9 @@ def localize_structured_data(soup, source, strings, page, lang):
         script.string = json.dumps(visit(data), ensure_ascii=False, indent=2).replace("</", "<\\/")
 
 
-def template_for(page, lang):
-    # Every homepage is the same book, populated from its own locale.
-    return "book" if page == "home" else page
-
-
-def render(page, lang, source, strings, template=None):
+def render(page, lang, source, strings):
     code = lang["code"]
-    template = template or template_for(page, code)
-    soup = parse((ROOT / f"content/templates/{template}.html").read_text())
+    soup = parse((ROOT / f"content/templates/{page}.html").read_text())
     soup.html["lang"] = lang["htmlLang"]
     soup.html["dir"] = lang["dir"]
     soup.html["data-locale"] = code
@@ -143,7 +133,7 @@ def render(page, lang, source, strings, template=None):
     # Every page has its own real path; hash links remain on that page.
     for base in soup.select("base"):
         base.decompose()
-    if template == "home":
+    if page == "home":
         section = parse((ROOT / "content/reviews.html").read_text()).select_one("#reviews")
         soup.select_one("#reviews").replace_with(section)
         soup.head.append(soup.new_tag("link", rel="stylesheet", href="/css/home-backgrounds.css"))
@@ -156,9 +146,6 @@ def render(page, lang, source, strings, template=None):
         soup.body.append(soup.new_tag("script", src="/js/buy.js", defer=True))
         soup.head.append(soup.new_tag("link", rel="stylesheet", href="/css/home-hero.css"))
     apply_strings(soup, strings)
-    if template == "book":
-        import book
-        MISSING.extend(book.compose(soup, render, source, strings))
     # Shared character reader uses each page's translated character content.
     if page == "home":
         soup.head.append(soup.new_tag("link", rel="stylesheet", href="/css/voices.css"))
@@ -184,14 +171,14 @@ def render(page, lang, source, strings, template=None):
     for svg in soup.select("svg[viewbox]"):
         svg["viewBox"] = svg.attrs.pop("viewbox")
 
-    if template == "home":
+    if page == "home":
         total = len(soup.select("[data-review-id]"))
         position = strings["reviews.position"].replace("{current}", "1").replace("{total}", str(total))
         soup.select_one(".reviews__counter").string = position
         soup.select_one(".reviews__status").string = strings["reviews.announcement"].replace("{position}", position)
         if code == "fa":
             for img in soup.select(".hero__cover"):
-                img["src"] = img["src"].replace("cover-back.webp", "cover-back-fa.webp").replace("cover-front-640.webp", "cover-fa.webp")
+                img["src"] = img["src"].replace("cover-back.jpg", "cover-back-fa.jpg").replace("cover.jpg", "cover-fa.jpg")
                 img.attrs.pop("srcset", None)
             # Author-confirmed Persian products; all other locales sell English.
             for edition, asin in {"kindle": "B0H9JXNVCV", "paperback": "3913006044"}.items():
@@ -213,9 +200,9 @@ def render(page, lang, source, strings, template=None):
         el["content"] = lang["ogLocale"]
     if page == "home" and code == "fa":
         for el in soup.select('meta[property="og:image"], meta[property="og:image:secure_url"], meta[name="twitter:image"]'):
-            el["content"] = SITE + "/assets/cover-fa.webp"
+            el["content"] = SITE + "/assets/cover-fa.jpg"
     localize_structured_data(soup, source, strings, page, lang)
-    locale_fonts = {"hi": "Noto+Serif+Devanagari", "zh": "Noto+Serif+SC", "ru": "Noto+Serif"}
+    locale_fonts = {"hi": "Noto+Sans+Devanagari", "zh": "Noto+Sans+SC", "ru": "Oswald"}
     if code in locale_fonts:
         family = locale_fonts[code]
         soup.head.append(soup.new_tag("link", rel="stylesheet", href=f"https://fonts.googleapis.com/css2?family={family}:wght@400;500;600;700&display=swap"))
@@ -285,33 +272,10 @@ def sitemap():
 
 
 def build(check=False, record_translations=False):
-    import book
-    book.GENERATED_ASSETS.clear()
     catalogs = {lang["code"]: json.loads((CATALOGS / f'{lang["code"]}.json').read_text()) for lang in LANGUAGES}
     source = catalogs["en"]
     validate_catalogs(source, catalogs)
     signatures = {key: sha256(value.encode()).hexdigest() for key, value in source.items()}
-    def flatten(value, prefix=""):
-        result = {}
-        for key, item in value.items():
-            if key.startswith("_"):
-                continue
-            name = prefix + key
-            if isinstance(item, dict):
-                result.update(flatten(item, name + "."))
-            else:
-                result[name] = item
-        return result
-    book_catalogs = {lang["code"]: flatten(json.loads(
-        (ROOT / f'content/book/strings.{lang["code"]}.json').read_text())) for lang in LANGUAGES}
-    validate_catalogs(book_catalogs["en"], book_catalogs)
-    signatures.update({"book:" + key: sha256(value.encode()).hexdigest()
-                       for key, value in book_catalogs["en"].items()})
-    intro_catalogs = {lang["code"]: json.loads(
-        (ROOT / f'content/book/ace-intro.{lang["code"]}.json').read_text()) for lang in LANGUAGES}
-    validate_catalogs(intro_catalogs["en"], intro_catalogs)
-    signatures.update({"ace-intro:" + key: sha256(value.encode()).hexdigest()
-                       for key, value in intro_catalogs["en"].items()})
     source_record = ROOT / "content/translation-source-hashes.json"
     if record_translations:
         if check:
@@ -324,7 +288,6 @@ def build(check=False, record_translations=False):
     for page in PAGES:
         for lang in LANGUAGES:
             files[route(page, lang["code"]).lstrip("/") + "index.html"] = render(page, lang, source, catalogs[lang["code"]])
-    files.update(book.GENERATED_ASSETS)
     # Keep the existing GitHub Pages fallback, with English as its default.
     fallback = parse(files["index.html"])
     robots = fallback.select_one('meta[name="robots"]')
@@ -343,8 +306,6 @@ def build(check=False, record_translations=False):
     if check and stale:
         raise ValueError("Generated pages are stale; run python3 scripts/build_locales.py: " + ", ".join(stale))
     print(f"Verified {len(files)} generated files across {len(LANGUAGES)} languages." if check else f"Updated {len(stale)} files across {len(LANGUAGES)} languages.")
-    for note in dict.fromkeys(MISSING):
-        print("Awaiting content: " + note)
 
 
 if __name__ == "__main__":
