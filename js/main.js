@@ -4,7 +4,7 @@
   const navToggle = document.querySelector(".nav-toggle");
   const navLinks = document.querySelector(".site-nav__links");
 
-  if (navToggle && navLinks) {
+  if (navToggle && navLinks && !navLinks.hasAttribute("data-home-nav")) {
     navToggle.addEventListener("click", () => {
       const open = navLinks.classList.toggle("open");
       navToggle.setAttribute("aria-expanded", String(open));
@@ -15,6 +15,13 @@
         navLinks.classList.remove("open");
         navToggle.setAttribute("aria-expanded", "false");
       });
+    });
+    navLinks.addEventListener("keydown", event => {
+      if (event.key !== "Escape" || !navLinks.classList.contains("open")) return;
+      event.preventDefault();
+      navLinks.classList.remove("open");
+      navToggle.setAttribute("aria-expanded", "false");
+      navToggle.focus();
     });
   }
 

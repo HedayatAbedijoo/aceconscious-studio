@@ -94,7 +94,10 @@ def menu(page, current):
 
 def localize_structured_data(soup, source, strings, page, lang):
     # Entity IDs stay stable across translated pages; WebPage URLs are localized.
-    lookup = {value: strings[key] for key, value in source.items()}
+    # Intro labels have their own approved translations. Do not let identical
+    # English terms replace the existing article's structured-data wording.
+    lookup = {value: strings[key] for key, value in source.items()
+              if not key.startswith(("aceIntro.", "giftCommunity."))}
     for script in soup.select('script[type="application/ld+json"]'):
         data = json.loads(script.string)
 
@@ -143,6 +146,15 @@ def render(page, lang, source, strings, template=None):
     if template == "home":
         section = parse((ROOT / "content/reviews.html").read_text()).select_one("#reviews")
         soup.select_one("#reviews").replace_with(section)
+        soup.head.append(soup.new_tag("link", rel="stylesheet", href="/css/home-backgrounds.css"))
+        soup.head.append(soup.new_tag("link", rel="stylesheet", href="/css/buy.css"))
+        buy = parse((ROOT / "content/templates/buy.html").read_text()).select_one("#buy")
+        soup.select_one("#buy").replace_with(buy)
+        for fragment, anchor in (("ace-intro", "ace-introduction"), ("gift-community", "gift")):
+            section = parse((ROOT / f"content/templates/{fragment}.html").read_text()).select_one(f"#{anchor}")
+            soup.select_one(f"#{anchor}").replace_with(section)
+        soup.body.append(soup.new_tag("script", src="/js/buy.js", defer=True))
+        soup.head.append(soup.new_tag("link", rel="stylesheet", href="/css/home-hero.css"))
     apply_strings(soup, strings)
     if template == "book":
         import book
@@ -176,7 +188,9 @@ def render(page, lang, source, strings, template=None):
             for img in soup.select(".hero__cover"):
                 img["src"] = img["src"].replace("cover-back.webp", "cover-back-fa.webp").replace("cover-front-640.webp", "cover-fa.webp")
                 img.attrs.pop("srcset", None)
-            soup.select_one("#buy-amazon")["href"] = "https://www.amazon.com/dp/B0H9JXNVCV"
+            # Author-confirmed Persian products; all other locales sell English.
+            for edition, asin in {"kindle": "B0H9JXNVCV", "paperback": "3913006044"}.items():
+                soup.select_one(f'#buy [data-edition="{edition}"]')["href"] = f"https://www.amazon.com/dp/{asin}"
 
     # Canonicals, language alternates, and social metadata are rendered in HTML,
     # so crawlers and visitors without JavaScript see the same translations.
@@ -205,7 +219,8 @@ def render(page, lang, source, strings, template=None):
     for el in soup.select("[lang='en'][data-i18n], [lang='en'][data-i18n-html]"):
         el["lang"] = lang["htmlLang"]
 
-    runtime_keys = [k for k in strings if k.startswith(("contact.", "reviews.", "hero.coverPeek"))]
+    runtime_keys = [k for k in strings if k.startswith(("contact.", "reviews.", "hero.coverPeek"))
+                    or (page == "home" and k.startswith("voices."))]
     data = soup.new_tag("script", id="locale-data", type="application/json")
     data.string = json.dumps({k: strings[k] for k in runtime_keys}, ensure_ascii=False).replace("<", "\\u003c")
     first_script = soup.body.find("script", src=True)
