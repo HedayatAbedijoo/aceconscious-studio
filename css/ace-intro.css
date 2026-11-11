@@ -118,20 +118,20 @@
   align-items: center;
   justify-content: center;
   min-width: 0;
-  min-height: 80px;
-  gap: 5px;
-  padding: 10px 2px;
+  min-height: clamp(80px, calc(var(--book-w) * .19), 112px);
+  gap: clamp(5px, calc(var(--book-w) * .014), 9px);
+  padding: clamp(10px, calc(var(--book-w) * .024), 15px) 3px;
   border: 1px solid var(--intro-line);
   border-radius: 7px;
   color: var(--intro-ink);
   transition: background .15s, border-color .15s;
 }
-.ace-intro-tabs b { font: 38px/1 var(--book-serif); }
-.ace-intro-tabs button > span { color: currentColor; font: 500 clamp(11px, calc(var(--book-w) * .027), 12px)/1.35 var(--book-serif); max-width: 100%; overflow-wrap: anywhere; hyphens: auto; }
+.ace-intro-tabs b { font: clamp(38px, calc(var(--book-w) * .085), 50px)/1 var(--book-serif); }
+.ace-intro-tabs button > span { color: currentColor; font: 500 clamp(12px, calc(var(--book-w) * .034), 18px)/1.3 var(--book-serif); max-width: 100%; white-space: nowrap; overflow-wrap: normal; hyphens: none; }
 .ace-intro-tabs button:hover { background: #e2e3d3; border-color: #7a8872; }
 .ace-intro-tabs button[aria-selected="true"] { background: var(--intro-ink); border-color: var(--intro-ink); color: #faf5e7; }
 .ace-intro-tabs--phases button[aria-selected="true"] { background: var(--intro-green); color: var(--intro-ink); }
-.ace-intro-tabs svg { width: 36px; height: 36px; color: var(--intro-rust); }
+.ace-intro-tabs svg { width: clamp(36px, calc(var(--book-w) * .09), 48px); height: clamp(36px, calc(var(--book-w) * .09), 48px); color: var(--intro-rust); }
 .ace-intro :is(button, a, [role="tabpanel"]):focus-visible { outline: 2px solid var(--intro-rust); outline-offset: 2px; }
 .ace-intro h2:focus { outline: none; }
 .ace-intro-panel {
@@ -141,14 +141,14 @@
   background: #fffcf2b8;
 }
 .ace-intro-panel[hidden] { display: none; }
-.ace-intro-card-top { display: flex; align-items: center; justify-content: space-between; height: 28px; margin-bottom: 9px; }
-.ace-intro-card-label { color: var(--intro-rust); font: 11px/1.45 var(--book-ui); letter-spacing: .35px; }
+.ace-intro-card-top { display: flex; align-items: center; justify-content: space-between; height: clamp(30px, calc(var(--book-w) * .075), 40px); margin-bottom: clamp(9px, calc(var(--book-w) * .022), 13px); }
+.ace-intro-card-label { color: var(--intro-rust); font: 500 clamp(13px, calc(var(--book-w) * .032), 17px)/1.45 var(--book-ui); letter-spacing: .35px; }
 .ace-intro-mark { color: #b8ad92; font: 56px/.8 var(--book-serif); }
 .ace-intro-mark svg { display: block; height: 44px; width: 44px; color: var(--muted); }
 .ace-intro-panel h3 { margin: 0 0 10px; }
 .ace-intro-panel .ace-intro-definition { white-space: pre-line; }
 .ace-intro-example { border-top: 1px solid var(--intro-line); padding-top: 10px; margin-top: 12px; }
-.ace-intro-example-label { display: block; margin-bottom: 6px; font: 10px/1.4 var(--book-ui); text-transform: uppercase; letter-spacing: .6px; color: var(--intro-rust); }
+.ace-intro-example-label { display: block; margin-bottom: 6px; font: 500 clamp(12px, calc(var(--book-w) * .029), 15px)/1.4 var(--book-ui); text-transform: uppercase; letter-spacing: .6px; color: var(--intro-rust); }
 [data-intro-group="phases"] .ace-intro-example { background: #e8ebdd; border: 0; padding: 11px 13px; border-radius: 5px; }
 [data-intro-group="phases"] .ace-intro-example p { color: var(--intro-ink); }
 .ace-intro-next { display: inline-flex; justify-content: space-between; align-items: center; gap: 12px; min-height: 44px; max-width: 100%; font: 11px/1.4 var(--book-ui); text-decoration: none; }
@@ -183,13 +183,17 @@
   .ace-intro-heading .ace-intro-progress { font-size: 14px; margin-bottom: 8px; }
   .ace-intro-heading h2 { font-size: 30px; margin-bottom: 8px; }
   .ace-intro-tabs { gap: 5px; }
+  .ace-intro-tabs--concepts,
+  .ace-intro-tabs--pdaf,
+  .ace-intro-tabs--phases,
+  .book-voices .ace-intro-tabs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .ace-intro-tabs button { min-height: 58px; padding: 6px 1px; }
   .ace-intro-tabs b { font-size: 28px; }
-  .ace-intro-tabs button > span { font-size: 11px; }
+  .ace-intro-tabs button > span { font-size: clamp(11px, calc(var(--book-w) * .03), 13px); }
   .ace-intro-tabs svg { width: 27px; height: 27px; }
   .ace-intro-panel { padding: 12px 13px; }
   .ace-intro-card-top { height: 24px; margin-bottom: 8px; }
-  .ace-intro-card-label { font-size: 10px; }
+  .ace-intro-card-label { font-size: 12px; }
   .ace-intro-mark { font-size: 40px; }
   .ace-intro-mark svg { width: 32px; height: 32px; }
   .ace-intro-panel h3 { margin-bottom: 9px; }
@@ -233,7 +237,7 @@ html:not(.js) .ace-intro-panel[hidden] { display: block; margin-top: 1rem; }
 .is-typewriter .ace-intro-workspace {
   display: grid;
   direction: ltr;
-  grid-template-columns: clamp(58px, 17%, 78px) minmax(0, 1fr);
+  grid-template-columns: clamp(82px, 22%, 104px) minmax(0, 1fr);
   gap: 10px;
   flex: 1;
   min-height: 0;
@@ -250,13 +254,13 @@ html:not(.js) .ace-intro-panel[hidden] { display: block; margin-top: 1rem; }
 .is-typewriter .ace-intro-tabs button {
   position: relative;
   flex-direction: column;
-  min-height: 68px;
-  padding: 9px 3px;
-  gap: 6px;
+  min-height: clamp(68px, calc(var(--book-w) * .17), 88px);
+  padding: clamp(9px, calc(var(--book-w) * .022), 13px) 4px;
+  gap: clamp(6px, calc(var(--book-w) * .015), 9px);
 }
-.is-typewriter .ace-intro-tabs button > span { font-size: 11px; }
+.is-typewriter .ace-intro-tabs button > span { font-size: clamp(12px, calc(var(--book-w) * .032), 17px); }
 .is-typewriter .ace-intro-tabs b { font-size: 31px; }
-.is-typewriter .ace-intro-tabs svg { width: 29px; height: 29px; }
+.is-typewriter .ace-intro-tabs svg { width: clamp(29px, calc(var(--book-w) * .075), 40px); height: clamp(29px, calc(var(--book-w) * .075), 40px); }
 .is-typewriter .ace-intro-tabs button[aria-selected="true"]::after {
   content: "";
   position: absolute;
@@ -299,7 +303,7 @@ html[dir="rtl"] :is(.ace-intro-tabs button > span, .is-typewriter .ace-intro-pan
 }
 .is-typewriter .ace-intro-mark { font-size: 34px; }
 .is-typewriter .ace-intro-mark svg { width: 27px; height: 27px; }
-.is-typewriter .ace-intro-card-label { font-size: 11px; }
+.is-typewriter .ace-intro-card-label { font-size: clamp(13px, calc(var(--book-w) * .032), 17px); }
 .ace-intro-prose { position: relative; }
 .ace-intro-full-copy { opacity: 0; }
 .ace-intro-typescript { position: absolute; inset: 0; pointer-events: none; }
@@ -325,12 +329,12 @@ html[dir="rtl"] :is(.ace-intro-tabs button > span, .is-typewriter .ace-intro-pan
   .is-typewriter .ace-intro-workspace { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto minmax(0, 1fr); gap: 14px; }
   .is-typewriter .ace-intro-tabs { grid-template-columns: repeat(4, minmax(0, 1fr)); overflow: visible; }
   .is-typewriter .ace-intro-tabs--concepts { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .is-typewriter .ace-intro-tabs button { min-height: 80px; }
+  .is-typewriter .ace-intro-tabs button { min-height: clamp(80px, calc(var(--book-w) * .19), 112px); }
   .is-typewriter .ace-intro-tabs button[aria-selected="true"]::after { top: auto; bottom: -5px; right: calc(50% - 4px); }
   .is-typewriter .ace-intro-panel { padding: 20px 22px 26px; }
 }
 @media (max-width: 360px), (max-height: 600px) {
-  .is-typewriter .ace-intro-workspace { grid-template-columns: 55px minmax(0, 1fr); gap: 8px; }
+  .is-typewriter .ace-intro-workspace { grid-template-columns: 78px minmax(0, 1fr); gap: 8px; }
   .is-typewriter .ace-intro-tabs { gap: 6px; }
   .is-typewriter .ace-intro-tabs button { min-height: 58px; padding: 6px 2px; gap: 4px; }
   .is-typewriter .ace-intro-tabs button > span { font-size: 10px; }
@@ -349,17 +353,17 @@ html[dir="rtl"] :is(.ace-intro-tabs button > span, .is-typewriter .ace-intro-pan
 }
 
 /* Eight voices share one paper surface. Names stay readable in the phone rail. */
-.book-voices.is-typewriter .ace-intro-workspace { grid-template-columns: clamp(78px, 28%, 105px) minmax(0, 1fr); }
-.book-voices.is-typewriter .ace-intro-tabs button { min-height: 48px; padding: 9px 5px; }
-.book-voices .ace-intro-tabs button > span { font: 12px/1.45 var(--book-ui); overflow-wrap: normal; hyphens: auto; }
+.book-voices.is-typewriter .ace-intro-workspace { grid-template-columns: clamp(86px, 28%, 110px) minmax(0, 1fr); }
+.book-voices.is-typewriter .ace-intro-tabs button { min-height: clamp(48px, calc(var(--book-w) * .14), 76px); padding: clamp(9px, calc(var(--book-w) * .022), 13px) 5px; }
+.book-voices .ace-intro-tabs button > span { font: 500 clamp(13px, calc(var(--book-w) * .034), 18px)/1.4 var(--book-ui); overflow-wrap: normal; hyphens: auto; }
 .book-voices .ace-intro-card-top { height: auto; flex-direction: column; align-items: start; gap: 4px; }
-:is(.page.voices-page .page-body, #book-source) .book-voices h3.book-voice-name { margin: 0; font-size: 22px; line-height: 1.3; }
-.book-voices .book-voice-role { color: var(--intro-rust); font: 11px/1.5 var(--book-ui); }
+:is(.page.voices-page .page-body, #book-source) .book-voices h3.book-voice-name { margin: 0; font-size: clamp(22px, calc(var(--book-w) * .055), 30px); line-height: 1.3; }
+.book-voices .book-voice-role { color: var(--intro-rust); font: 500 clamp(13px, calc(var(--book-w) * .031), 16px)/1.5 var(--book-ui); }
 .book-voices .ace-intro-definition, .book-voices .ace-intro-typed-line { text-align: start; }
 @media (min-width: 1000px) and (min-height: 800px) {
   .book-voices.is-typewriter .ace-intro-workspace { grid-template-columns: minmax(0, 1fr); }
 }
 @media (max-width: 360px), (max-height: 600px) {
-  .book-voices.is-typewriter .ace-intro-workspace { grid-template-columns: 76px minmax(0, 1fr); }
-  .book-voices .ace-intro-tabs button > span { font-size: 11px; }
+  .book-voices.is-typewriter .ace-intro-workspace { grid-template-columns: 82px minmax(0, 1fr); }
+  .book-voices .ace-intro-tabs button > span { font-size: 12px; }
 }
