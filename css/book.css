@@ -369,7 +369,7 @@ html.js { overscroll-behavior-x: none; }
 }
 
 .back-cover__studio {
-  margin: 0 0 5px;
+  margin: clamp(10px, calc(var(--book-h) * 0.018), 16px) 0 5px;
   font: 600 clamp(15px, calc(var(--book-w) * 0.041), 19px)/1.3 var(--book-serif);
   letter-spacing: 1px;
   text-transform: uppercase;

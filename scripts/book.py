@@ -216,12 +216,12 @@ def cover_pages(home, strings):
              for identifier in BACK_COVER_LINKS]
     back = page("back-cover", "back-cover", STRINGS["sections"]["back-cover"], [
         '<footer class="back-cover__imprint">'
+        '<ol class="section-index back-cover__links">' + "".join(links) + '</ol>'
         '<p class="back-cover__studio"><a href="https://aceconscious.studio/" '
         'target="_blank" rel="noopener noreferrer">'
         f'{inner(footer.select_one(".site-footer__brand"))}</a></p>'
         f'<p class="back-cover__designer back-cover__legal">{escape(STRINGS["backCoverDesigner"])}</p>'
-        f'<p class="back-cover__legal">{escape(STRINGS["backCoverCopyright"])}</p>'
-        '<ol class="section-index back-cover__links">' + "".join(links) + '</ol></footer>',
+        f'<p class="back-cover__legal">{escape(STRINGS["backCoverCopyright"])}</p></footer>',
     ], "cover back-cover", image=EDITIONS["covers"].get(LANGUAGE, EDITIONS["covers"]["en"])["back"], alt=STRINGS["ui"]["backCoverAlt"])
     return front, back
 
