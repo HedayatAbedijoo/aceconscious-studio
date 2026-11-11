@@ -1,0 +1,111 @@
+{
+  "_": "fr translation of strings.en.json. Shared page wording comes from content/locales/fr.json.",
+  "backCoverDesigner": "Cover Design: Afshin Mayabadi",
+  "backCoverCopyright": "© Copyright 2026 ACE Conscious Studio. Tous droits réservés.",
+  "sections": {
+    "headline": "Ouverture",
+    "reviews": "Critiques",
+    "story": "Histoire",
+    "ace": "ACE",
+    "author": "Auteur",
+    "buy": "Acheter",
+    "community": "Cadeau",
+    "contact": "Contact",
+    "characters": "Personnages",
+    "sample": "Extrait",
+    "back-cover": "Quatrième de couverture"
+  },
+  "ui": {
+    "continued": "suite",
+    "page": "page",
+    "of": "sur",
+    "openBook": "Ouvrir le livre",
+    "closeBook": "Fermer le livre",
+    "previousPage": "Page précédente",
+    "nextPage": "Page suivante",
+    "bookSections": "Sections du livre",
+    "coverAlt": "Première de couverture d’ACE.await",
+    "backCoverAlt": "Quatrième de couverture d’ACE.await"
+  },
+  "actions": {
+    "nav": "Raccourcis du livre",
+    "coverHint": "Revenir à la couverture",
+    "buy": "Acheter le livre",
+    "buyHint": "Découvrir les éditions et les librairies",
+    "join": "Rejoindre la communauté",
+    "joinHint": "Newsletter, événements et nouveautés"
+  },
+  "headline": {
+    "studio": "Ace Conscious Studio",
+    "placeAndYear": "Cologne · 2026",
+    "eyebrow": "Pour celles et ceux qui veulent faire des choix conscients",
+    "tagline": "Un roman sur les décisions que nous prenons — et le monde dont héritent nos créations.",
+    "awardTitle": "2026 Best Book Awards",
+    "awardUrl": "https://www.americanbookfest.com/2026bbafullresults.html"
+  },
+  "buy": {
+    "comingSoon": "Bientôt disponible",
+    "marketplaceLabel": "Boutique Amazon",
+    "marketplaceNote": "Le choix du pays ne modifie que les liens Amazon. Il ne change pas la langue de ce livre.",
+    "unavailable": "Indisponible ici",
+    "formats": {
+      "kindle": "Amazon · Livre numérique Kindle",
+      "paperback": "Amazon · Broché"
+    },
+    "editionNote": "Ces liens marchands renvoient à l’édition anglaise du roman.",
+    "markets": {
+      "us": "États-Unis",
+      "uk": "Royaume-Uni",
+      "de": "Allemagne",
+      "ca": "Canada",
+      "au": "Australie",
+      "fr": "France",
+      "es": "Espagne",
+      "it": "Italie",
+      "nl": "Pays-Bas",
+      "pl": "Pologne",
+      "se": "Suède",
+      "be": "Belgique",
+      "ie": "Irlande",
+      "jp": "Japon",
+      "in": "Inde",
+      "br": "Brésil",
+      "mx": "Mexique"
+    }
+  },
+  "contact": {
+    "giftDescription": "Si vous souhaitez d’abord recevoir le livre en cadeau, puis écrire un avis ou acheter un exemplaire plus tard, contactez-moi. Je vous enverrai un exemplaire gratuit.",
+    "giftContact": "Demander un exemplaire gratuit",
+    "circleFooter": "Rejoindre",
+    "circleHeading": "Rejoignez la communauté",
+    "circleDescription": "Inscrivez-vous à notre newsletter pour recevoir quelques nouvelles du prochain événement, d’une rencontre ou de la sortie du jeu. Rejoignez The Circle.",
+    "circleEmailLabel": "Adresse e-mail",
+    "circleEmailPlaceholder": "you@example.com",
+    "circleSubmit": "Rejoindre le cercle de lecture",
+    "circleSending": "Envoi de votre demande…",
+    "circleSuccess": "Merci — votre demande d’adhésion a été envoyée.",
+    "circleError": "Nous n’avons pas pu confirmer votre demande. Veuillez réessayer.",
+    "circleUnavailable": "L’inscription est momentanément indisponible. Veuillez réessayer plus tard.",
+    "circleRequestMessage": "Merci de m’ajouter à la communauté des lecteurs ACE pour recevoir occasionnellement des lettres, de nouvelles histoires et des nouvelles des rencontres et des prochaines étapes.",
+    "writeHeading": "Écrire à Hedayat",
+    "emailDirect": "Ou écrivez directement à :"
+  },
+  "links": {
+    "heading": "Liens",
+    "instagram": "Instagram",
+    "website": "Ace Conscious Studio",
+    "email": "E-mail",
+    "press": "Dans la presse"
+  },
+  "references": {
+    "back": "← Retour à la quatrième de couverture",
+    "items": {
+      "voices": "Les personnages prennent la parole",
+      "privacy": "Confidentialité",
+      "impressum": "Mentions légales",
+      "rights": "Droits et représentation",
+      "screen": "Du livre à l’écran",
+      "contents": "Table des matières du roman"
+    }
+  }
+}
