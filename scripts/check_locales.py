@@ -3,100 +3,7 @@
 import json
 from urllib.parse import urlsplit, unquote
 
-from build_locales import ROOT, SITE, LANGUAGES, PAGES, route, parse, template_for, apply_strings
-from book import SECTIONS, BOOKMARKS, BACK_COVER_LINKS, BACK_COVER_ITEMS, CHARACTERS
-
-
-# Anchors that other pages, search results and shared links point at.
-BOOK_ANCHORS = ("headline", "reviews", "synopsis", "buy", "author", "contact", "sample",
-                "contents", "community", "privacy", "impressum", "rights",
-                "screen", "ace", "voices")
-
-
-def check_book(soup, path, code):
-    """Each locale is one book: ordered pages instead of a scrolling page."""
-    pages = soup.select("#book-source [data-page]")
-    assert pages, f"No book pages: {path}"
-    assert pages[0]["data-section"] == "cover" and pages[0]["id"] == "cover", path
-    assert pages[-1]["id"] == "back-cover", path
-    order = list(dict.fromkeys(page["data-section"] for page in pages
-                              if page["data-section"] in ("cover", *SECTIONS)))
-    assert order == ["cover", *SECTIONS], f"Section order drift: {path}: {order}"
-    assert all(page.get("data-title") for page in pages if page["data-section"] != "cover"), path
-    for anchor in BOOK_ANCHORS:
-        assert soup.find(id=anchor), f"Missing book anchor #{anchor}: {path}"
-    assert not soup.select("#book-source iframe, #book-source script"), path
-    assert not soup.select(".site-nav, .site-footer, #lang-menu"), f"Book has no site chrome: {path}"
-    chooser = soup.select_one("#cover-entry #book-language")
-    assert chooser and not soup.select("#book-source [data-set-lang]"), path
-    links = chooser.select("[data-set-lang]")
-    assert [a["data-set-lang"] for a in links] == [l["code"] for l in LANGUAGES], path
-    assert len(chooser.select('[aria-current="page"]')) == 1, path
-    for a in links:
-        target = a["data-set-lang"]
-        assert a["href"] == route("home", target) + ("" if target in ("en", "fa") else "#headline"), path
-    assert soup.select_one('[data-page="cover"]')["data-image"] == ("/assets/cover-fa.webp" if code == "fa" else "/assets/cover-front.webp"), path
-    strings = json.loads(soup.select_one("#book-strings").string)
-    assert list(strings["sections"]) == list(BOOKMARKS), path
-    assert not soup.select('[data-page="appendix"]'), path
-    characters = soup.select_one('#voices[data-section="characters"][data-fixed]')
-    assert characters and characters.has_attr("data-fixed"), path
-    assert [a["data-jump"] for a in soup.select(".back-cover__links a")] == list(BACK_COVER_LINKS), path
-    assert [p["id"] for p in pages if p["data-section"] == "references"] == list(BACK_COVER_ITEMS[1:]), path
-    assert [p["id"] for p in pages if p["data-section"] == "back-cover"] == ["back-cover"], path
-    assert pages[pages.index(characters) - 1]["data-section"] == "contact", path
-    assert pages[pages.index(characters) + 1]["data-section"] == "sample", path
-    bookmark_order = list(strings["sections"])
-    assert bookmark_order[bookmark_order.index("contact") + 1] == "characters", path
-    assert bookmark_order[bookmark_order.index("characters") + 1] == "sample", path
-    assert all(a["data-jump"] == "back-cover" for a in soup.select(".back-to-index [data-jump]")), path
-    assert [a["data-jump"] for a in soup.select(".back-cover__links a")] == list(BACK_COVER_LINKS), path
-    voices = soup.select_one('#voices[data-section="characters"][data-fixed]')
-    assert voices and voices.select_one('.book-voices[data-live][data-intro-typewriter]'), path
-    assert [tab["aria-controls"] for tab in voices.select('[role="tab"]')] == [
-        f"voice-panel-{name}" for name in CHARACTERS], path
-    # Reuse the full published dialogue, including paragraphs and emphasis, in
-    # every language. Voices must not become abbreviated or untranslated cards.
-    original = parse(str(parse((ROOT / "content/templates/home.html").read_text()).select_one("#voices")))
-    apply_strings(original, json.loads((ROOT / f"content/locales/{code}.json").read_text()))
-    for name, card in zip(CHARACTERS, original.select(".character-card")):
-        panel = voices.select_one(f"#voice-panel-{name}")
-        assert panel and panel["aria-labelledby"] == f"voice-tab-{name}", path
-        for old, new in ((".character-card__name", ".book-voice-name"), (".character-card__role", ".book-voice-role")):
-            assert card.select_one(old).get_text(strip=True) == panel.select_one(new).get_text(strip=True), path
-        source = card.select(".character-card__body > p")
-        target = panel.select(".ace-intro-definition")
-        assert len(source) == len(target), path
-        for before, after in zip(source, target):
-            assert before.get_text().strip() == after.get_text().strip(), (path, name)
-            assert [str(el) for el in before.select("strong, em")] == [str(el) for el in after.select("strong, em")], (path, name)
-    # Every bookmark needs pages, and the forms stay real forms.
-    assert soup.select_one("#contact-form") and soup.select_one("#community-form"), path
-    assert soup.select_one('[data-page="contact"] #contact-form'), path
-    assert soup.select_one('[data-page="community"] #community-form'), path
-    assert soup.select_one("#amazon-marketplace option[selected]"), path
-    # Conversion must retain the legal introductions.
-    for name in ("privacy", "impressum"):
-        original = parse((ROOT / (route(name, code).lstrip("/") + "index.html")).read_text())
-        intro = original.select_one(".legal-page__updated").get_text(" ", strip=True)
-        assert intro in soup.select_one("#" + name).get_text(" ", strip=True), path
-    intro = soup.select('#book-source [data-section="ace"]')
-    assert [p["id"] for p in intro] == ["ace", "ace-pdaf", "ace-phases", "ace-play"], path
-    assert all(p.has_attr("data-fixed") for p in intro), path
-    assert soup.select_one("#ace-play .ace-intro-play")["href"] == "#community", path
-    assert not soup.select(".ace-intro-nav, .ace-intro-contact, .ace-intro-revisit"), path
-    assert len(soup.select('[data-section="ace"] .ace-intro[data-intro-typewriter]')) == 3, path
-    assert not soup.select(".ace-intro-kicker"), path
-    assert not soup.select('.ace-intro [data-i18n="back"], .ace-intro-back'), path
-    intro_copy = json.loads((ROOT / f"content/book/ace-intro.{code}.json").read_text())
-    for el in soup.select('.ace-intro [data-i18n]'):
-        assert el.get_text() == intro_copy[el["data-i18n"]], f"Intro translation mismatch: {path}: {el}"
-    assert order.index("story") + 1 == order.index("ace"), path
-    assert order.index("ace") + 1 == order.index("buy"), path
-    assert order.index("buy") + 1 == order.index("community"), path
-    assert order.index("community") + 1 == order.index("author"), path
-    assert order.index("author") + 1 == order.index("contact"), path
-
+from build_locales import ROOT, SITE, LANGUAGES, PAGES, route, parse
 
 
 def check():
@@ -110,30 +17,26 @@ def check():
             html = (ROOT / (path.lstrip("/") + "index.html")).read_text()
             soup = parse(html)
             cache[path] = soup
-            book = template_for(name, code) == "book"
             assert soup.html["lang"] == lang["htmlLang"], path
             assert soup.html["dir"] == lang["dir"], path
-            assert soup.select_one('link[rel="canonical"]')["href"] == SITE + path, path
-            alternates = soup.select('link[rel="alternate"][hreflang]')
-            assert len(alternates) == len(LANGUAGES) + 1, path
-            ids = [el["id"] for el in soup.select("[id]")]
-            assert len(ids) == len(set(ids)), f"Duplicate ID: {path}"
-            for script in soup.select('script[type="application/ld+json"], script#locale-data'):
-                json.loads(script.string)
-            assert not soup.select("base"), f"Base URL breaks local anchors: {path}"
-            count += 1
-            if book:
-                check_book(soup, path, code)
-                continue
             assert soup.select_one("#lang-menu summary").get_text() == "language", path
             items = soup.select("#lang-menu [data-set-lang]")
             assert [a["data-set-lang"] for a in items] == [l["code"] for l in LANGUAGES], path
             assert [a["href"] for a in items] == [route(name, l["code"]) for l in LANGUAGES], path
             assert len(soup.select('#lang-menu [aria-current="page"]')) == 1, path
+            assert soup.select_one('link[rel="canonical"]')["href"] == SITE + path, path
+            alternates = soup.select('link[rel="alternate"][hreflang]')
+            assert len(alternates) == len(LANGUAGES) + 1, path
+            ids = [el["id"] for el in soup.select("[id]")]
+            assert len(ids) == len(set(ids)), f"Duplicate ID: {path}"
             sections = [(el.name, el.get("id")) for el in soup.select("main section, main article")]
             if reference is None:
                 reference = sections
             assert sections == reference, f"Section drift: {path}"
+            for script in soup.select('script[type="application/ld+json"], script#locale-data'):
+                json.loads(script.string)
+            assert not soup.select("base"), f"Base URL breaks local anchors: {path}"
+            count += 1
     errors = []
     for page_path, soup in cache.items():
         for el in soup.select("a[href], script[src], img[src], link[rel='stylesheet']"):
