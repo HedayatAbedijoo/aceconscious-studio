@@ -265,6 +265,8 @@ def sitemap():
 
 
 def build(check=False, record_translations=False):
+    import book
+    book.GENERATED_ASSETS.clear()
     catalogs = {lang["code"]: json.loads((CATALOGS / f'{lang["code"]}.json').read_text()) for lang in LANGUAGES}
     source = catalogs["en"]
     validate_catalogs(source, catalogs)
@@ -302,6 +304,7 @@ def build(check=False, record_translations=False):
     for page in PAGES:
         for lang in LANGUAGES:
             files[route(page, lang["code"]).lstrip("/") + "index.html"] = render(page, lang, source, catalogs[lang["code"]])
+    files.update(book.GENERATED_ASSETS)
     # Keep the existing GitHub Pages fallback, with English as its default.
     fallback = parse(files["index.html"])
     robots = fallback.select_one('meta[name="robots"]')

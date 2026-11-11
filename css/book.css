@@ -298,7 +298,13 @@ html.js { overscroll-behavior-x: none; }
 .page.back-cover .back-cover__layout {
   position: absolute;
   inset: 0;
-  display: block;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  gap: clamp(10px, calc(var(--book-h) * 0.025), 24px);
+  padding: 4% 0;
 }
 
 .page.back-cover::before {
@@ -328,32 +334,36 @@ html.js { overscroll-behavior-x: none; }
 }
 
 .back-cover__ant {
-  position: absolute;
+  position: relative;
   z-index: 3;
-  top: clamp(68px, calc(var(--book-h) * 0.11), 92px);
-  left: 50%;
-  width: clamp(180px, calc(var(--book-w) * 0.62), 274px);
+  width: clamp(150px, calc(var(--book-w) * 0.58), 274px);
   height: auto;
-  transform: translateX(-50%);
+  max-height: 17%;
+  flex: 0 1 auto;
   object-fit: contain;
   pointer-events: none;
 }
 
 .back-cover__imprint {
-  position: absolute;
-  top: 50%;
-  right: 6%;
-  left: 6%;
-  width: auto;
-  transform: translateY(-50%);
+  position: relative;
+  z-index: 4;
+  box-sizing: border-box;
+  flex: 0 1 auto;
+  min-height: 0;
+  width: 88%;
+  max-height: calc(100% - 30%);
   margin: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
   padding: clamp(22px, calc(var(--book-h) * 0.045), 32px)
     clamp(14px, calc(var(--book-w) * 0.045), 24px);
   border-top: 1px solid #73474466;
   border-radius: 14px;
   background: #ded9b0e8;
   box-shadow: 0 -4px 16px #29251f26;
-  z-index: 4;
   text-align: center;
   color: #573a37;
 }
@@ -2408,7 +2418,16 @@ html:not(.js) .sample-sheet__canvas {
 
 .small-book .bookmarks { top: 22px; bottom: 30px; gap: 3px; }
 .small-book .bookmark { min-height: 0; font-size: 8px; }
-.small-book .back-cover__imprint { left: 5%; right: 5%; padding: 18px 4%; border-radius: 12px; }
+.small-book .back-cover__ant {
+  width: min(58%, 190px);
+  max-height: 17%;
+  object-fit: contain;
+}
+.small-book .back-cover__imprint {
+  width: 90%;
+  padding: 12px 4%;
+  border-radius: 12px;
+}
 .small-book .back-cover__studio { font-size: 14px; letter-spacing: .7px; margin-bottom: 6px; }
 .small-book .back-cover__legal { font-size: 12px; line-height: 1.4; }
 .small-book .back-cover__links { font-size: 12px; margin-top: 7px; }

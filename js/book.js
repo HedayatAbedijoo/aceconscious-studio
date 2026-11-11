@@ -1,10 +1,10 @@
 /* ACE.await — each locale reads as a book.
  *
- * The page ships every section as ordinary HTML inside #book-source so the
- * content works without scripting and stays readable for crawlers. This script
- * reflows that markup into paper sheets, hands them to StPageFlip, and keeps
- * the real forms (contact, reader circle) alive by moving their nodes rather
- * than copying them. Every localized home page loads it.
+ * The page ships its sections as ordinary HTML inside #book-source, then fetches
+ * the sample excerpt only when a reader reaches it. This script reflows that
+ * markup into paper sheets, hands them to StPageFlip, and keeps the real forms
+ * alive by moving their nodes rather than copying them. Every localized home
+ * page loads it.
  */
 (function () {
   "use strict";
@@ -52,8 +52,82 @@
   let bookmarkHoverFrame = 0;
   let bookmarkHoverY = null;
   let bookmarkPaper = null;
+  let sampleLoadPromise = null;
+  let sampleLoaded = false;
+  const deferredScripts = new Map();
 
   const number = (value, pad = false) => new Intl.NumberFormat(locale, { useGrouping: false, minimumIntegerDigits: pad ? 2 : 1 }).format(value);
+
+  function loadScript(path) {
+    if (deferredScripts.has(path)) return deferredScripts.get(path);
+    const promise = new Promise((resolve, reject) => {
+      const script = document.createElement("script");
+      script.src = `/js/${path}?v=20261111a`;
+      script.async = true;
+      script.onload = () => resolve();
+      script.onerror = () => {
+        deferredScripts.delete(path);
+        reject(new Error(`Could not load ${path}`));
+      };
+      document.body.append(script);
+    });
+    deferredScripts.set(path, promise);
+    return promise;
+  }
+
+  function rebuildCurrentPage() {
+    const rebuild = () => {
+      if (busy || sectionTurn || rebuilding) {
+        setTimeout(rebuild, 50);
+        return;
+      }
+      const page = pages[current];
+      if (!page) return;
+      const first = pages.findIndex(item => containsId(item, page.id));
+      build({ id: page.id, offset: current - first });
+    };
+    rebuild();
+  }
+
+  function loadBookEnhancements(page) {
+    if (!page || page.id === "cover") return;
+    if (page.id === "buy") loadScript("book-buy.js").catch(() => {});
+    if (page.id === "community") {
+      loadScript("contact-config.js").then(() => loadScript("community.js")).catch(() => {});
+    }
+    if (page.id === "contact") {
+      loadScript("contact-config.js").then(() => loadScript("contact.js")).catch(() => {});
+    }
+    if (page.section === "sample" && !sampleLoaded && !sampleLoadPromise) loadSampleContent();
+  }
+
+  function loadSampleContent() {
+    const sampleSource = logical.find(item => item.sampleSrc)?.sampleSrc;
+    if (!sampleSource) return;
+    sampleLoadPromise = fetch(sampleSource, { credentials: "same-origin" })
+      .then(response => {
+        if (!response.ok) throw new Error(`Sample request failed: ${response.status}`);
+        return response.text();
+      })
+      .then(markup => {
+        const documentFragment = new DOMParser().parseFromString(markup, "text/html");
+        const samples = logical.filter(item => item.section === "sample");
+        for (const item of samples) {
+          const section = documentFragment.getElementById(item.id);
+          if (!section) throw new Error(`Missing sample sheet: ${item.id}`);
+          item.blocks = Array.from(section.children).map(node => ({
+            node,
+            live: node.hasAttribute("data-live"),
+            keepTogether: node.hasAttribute("data-keep-together"),
+          }));
+          item.sampleSrc = "";
+        }
+        sampleLoaded = true;
+        sampleLoadPromise = null;
+        rebuildCurrentPage();
+      })
+      .catch(() => { sampleLoadPromise = null; });
+  }
 
   /* ------------------------------------------------------------- the model */
 
@@ -71,6 +145,7 @@
       items.push({
         id: section.id || section.dataset.page,
         section: section.dataset.section,
+        sampleSrc: section.dataset.sampleSrc || "",
         title: section.dataset.title || "",
         classes: section.dataset.class || "",
         image: section.dataset.image || "",
@@ -653,10 +728,22 @@
       item.el.inert = position !== index;
       item.el.setAttribute("aria-hidden", String(position !== index));
     });
-    [index, index + 1, index + 2].forEach(position => {
-      const image = pages[position] && $("img", pages[position].el);
-      if (image) image.loading = "eager";
+    const imagePages = cover ? [index] : [index, index + 1];
+    imagePages.forEach(position => {
+      const images = pages[position]?.el.querySelectorAll("img");
+      images?.forEach(image => {
+        const source = image.dataset.src;
+        if (!source) return;
+        if (image.dataset.srcset) image.srcset = image.dataset.srcset;
+        if (image.dataset.sizes) image.sizes = image.dataset.sizes;
+        image.loading = "eager";
+        image.src = source;
+        delete image.dataset.src;
+        delete image.dataset.srcset;
+        delete image.dataset.sizes;
+      });
     });
+    loadBookEnhancements(page);
     stage.dataset.page = String(index);
     stage.dataset.section = page.section;
     const requestedAnchor = decodeURIComponent(location.hash.slice(1));
@@ -1215,26 +1302,30 @@
   }
   bookmarkPaper = window.createBookmarkPaper?.({ nav: tabs, stage, reducedMotion }) || null;
   hideBookmarks();
-
-  const faces = [
-    `400 1em ${getComputedStyle(document.body).fontFamily}`,
-    "400 1em 'EB Garamond'", "italic 400 1em 'EB Garamond'", "500 1em 'EB Garamond'",
-    "600 1em 'EB Garamond'", "400 1em 'Cormorant Garamond'", "500 1em 'Cormorant Garamond'",
-    "600 1em 'Cormorant Garamond'", "italic 400 1em 'Cormorant Garamond'",
-    "400 1em 'Literata'", "700 1em 'Literata'", "italic 400 1em 'Literata'",
-    "400 1em 'JetBrains Mono'",
-  ];
-  // Load the actual script and heading weights before measuring pages. A font
-  // request with the default space only loads Latin subsets of Unicode fonts.
-  const localeFamily = getComputedStyle(document.body).fontFamily;
-  const localeText = [...new Set(logical.flatMap(item => item.blocks.map(block => block.node.textContent)).join(""))].join("");
-  const localeFaces = locale === "en" ? [] : [400, 500, 600].map(weight =>
-    document.fonts.load(`${weight} 1em ${localeFamily}`, localeText).catch(() => null));
-  Promise.all([...faces.map(face => document.fonts.load(face).catch(() => null)), ...localeFaces])
-    .then(() => document.fonts.ready)
-    .then(() => {
-      // A shared link opens the book straight at its page.
-      const id = decodeURIComponent(location.hash.slice(1));
-      build(id ? { id, offset: 0 } : null);
-    });
+  // Render the cover and initialize the reader without waiting on web fonts.
+  // Load fonts after the initial page settles, then rebuild once to reflow the
+  // page typography while preserving the reader's current position.
+  const id = decodeURIComponent(location.hash.slice(1));
+  build(id ? { id, offset: 0 } : null);
+  window.addEventListener("load", () => {
+    const startFonts = () => {
+      const fontLink = document.querySelector("link[data-lazy-fonts]");
+      if (!fontLink) return;
+      fontLink.rel = "stylesheet";
+      fontLink.removeAttribute("data-lazy-fonts");
+      document.fonts.ready.then(() => {
+        if (!pages[current]) return;
+        const page = pages[current];
+        const first = pages.findIndex(item => containsId(item, page.id));
+        build({ id: page.id, offset: current - first });
+      });
+    };
+    if ("requestIdleCallback" in window) requestIdleCallback(startFonts, { timeout: 2500 });
+    else setTimeout(startFonts, 1200);
+  }, { once: true });
+  window.addEventListener("load", () => {
+    const startAnalytics = () => loadScript("analytics-config.js").then(() => loadScript("analytics.js")).catch(() => {});
+    if ("requestIdleCallback" in window) requestIdleCallback(startAnalytics, { timeout: 4000 });
+    else setTimeout(startAnalytics, 1800);
+  }, { once: true });
 })();

@@ -6,9 +6,10 @@ rendered locale pages (home, ace, rights, screen, privacy, impressum), the
 printed sample chapters and the edition data, then lays them out as the ordered
 pages of one book. Nothing here invents text, quotations, scores or store links.
 
-Every page is written into the document as ordinary HTML inside #book-source,
-so the content is complete without JavaScript and for crawlers; js/book.js
-reflows that markup onto paper sheets. Every locale uses the same layout and its own translated source pages.
+Book pages are written into the document as ordinary HTML inside #book-source.
+The published sample excerpt is emitted as a separate HTML fragment and fetched
+only when a reader reaches it. js/book.js reflows the markup onto paper sheets.
+Every locale uses the same layout and its own translated source pages.
 """
 import json
 from html import escape
@@ -18,6 +19,7 @@ from urllib.parse import urlsplit
 ROOT = Path(__file__).resolve().parent.parent
 STRINGS = {}
 LANGUAGE = "en"
+GENERATED_ASSETS = {}
 EDITIONS = json.loads((ROOT / "content/book/editions.json").read_text())
 SAMPLE = json.loads((ROOT / "content/book/sample-en.json").read_text())
 
@@ -229,8 +231,8 @@ def headline_page(strings):
     award = (
         f'<a class="headline-award" href="{escape(headline["awardUrl"])}" '
         'target="_blank" rel="noopener noreferrer">'
-        '<img class="headline-award__medal" src="/assets/award-finalist-2026.png" '
-        'alt="" aria-hidden="true" width="1398" height="1125" loading="eager">'
+        '<img class="headline-award__medal" data-src="/assets/award-finalist-2026.webp" '
+        'alt="" aria-hidden="true" width="1398" height="1125" loading="lazy" decoding="async">'
         f'<span class="headline-award__title" dir="ltr">{escape(headline["awardTitle"])}</span>'
         '<span class="headline-award__rule" aria-hidden="true"></span>'
         '</a>'
@@ -386,8 +388,9 @@ def author_pages(home, strings):
         f'<h2>{escape(strings["name.author"])}</h2>'
         '<div class="author-intro">'
         f'<div class="poem">{inner(verse)}</div>'
-        '<div class="author-portrait"><img src="/assets/author-book.png" '
-        f'alt="{escape(strings["name.author"])}" width="940" height="1672"></div>'
+        '<div class="author-portrait"><img data-src="/assets/author-book.webp" '
+        f'alt="{escape(strings["name.author"])}" width="940" height="1672" '
+        'loading="lazy" decoding="async"></div>'
         '</div><div class="ornament" aria-hidden="true">❧</div></div>'
     ]
     for element in bio.children:
@@ -651,16 +654,23 @@ def ace_pages():
             for section in intro.select("section[data-intro-page]")]
 
 
+def cover_srcset(image, original_width=1800):
+    """Responsive cover candidates for the closed cover and later back cover."""
+    stem = image.removesuffix(".webp")
+    variants = [f'{stem}-{width}.webp?v=20261111a {width}w' for width in (320, 640, 960)]
+    variants.append(f'{image}?v=20261111a {original_width}w')
+    return ", ".join(variants)
+
+
 # ------------------------------------------------------------------ assembly
 
 def compose(soup, render, source, strings):
-    """Fill #book-source with every page of this edition, in order."""
+    """Fill the edition pages and replace the sample text with lazy placeholders."""
     from build_locales import LANGUAGES, parse, route as build_route
     global STRINGS, LANGUAGE
     LANGUAGE = soup.html["data-locale"]
     soup.head.append(soup.new_tag("link", rel="stylesheet", href="/css/ace-intro.css?v=20261111a"))
-    # Initialize the live cards before book.js moves the source off-DOM.
-    soup.head.append(soup.new_tag("script", src="/js/ace-intro.js", defer=True))
+    soup.head.append(soup.new_tag("script", src="/js/ace-intro.js?v=20261111a", defer=True))
     STRINGS = json.loads((ROOT / f"content/book/strings.{LANGUAGE}.json").read_text())
     language = next(item for item in LANGUAGES if item["code"] == LANGUAGE)
     # The book draws on the shared translated pages, including the scrolling
@@ -672,12 +682,14 @@ def compose(soup, render, source, strings):
     front, back = cover_pages(home, strings)
     buy, missing = buy_pages(strings)
     gift, contact = contact_pages(strings)
+    samples = localized_sample_pages()
     ordered = [front, headline_page(strings), *review_pages(home, strings),
                *story_pages(home, strings), *ace_pages(), *buy, gift,
-               *author_pages(home, strings), contact, voices_page(home), *localized_sample_pages(),
+               *author_pages(home, strings), contact, voices_page(home), *samples,
                *reference_pages(rendered, home, strings), back]
 
     html = []
+    sample_html = []
     for item in ordered:
         attributes = [f'data-page="{item["id"]}"', f'id="{item["id"]}"',
                       f'data-section="{item["section"]}"',
@@ -691,17 +703,39 @@ def compose(soup, render, source, strings):
                               f'data-alt="{escape(item["alt"], quote=True)}"')
         body = "".join(item["blocks"])
         if item.get("image"):
-            loading = ' loading="lazy"' if item["id"] == "back-cover" else ""
-            artwork = (f'<img class="cover-image" src="{item["image"]}" '
-                       f'alt="{escape(item["alt"], quote=True)}" width="1800" height="2700"{loading}>')
+            if item["id"] == "cover":
+                artwork = (f'<img class="cover-image" src="{item["image"]}?v=20261111a" '
+                           f'alt="{escape(item["alt"], quote=True)}" width="1800" height="2700" '
+                           f'srcset="{cover_srcset(item["image"])}" '
+                           'sizes="(max-width: 520px) 85vw, 440px" fetchpriority="high" decoding="async">')
+            else:
+                artwork = (f'<img class="cover-image" data-src="{item["image"]}?v=20261111a" '
+                           f'alt="{escape(item["alt"], quote=True)}" width="1800" height="2700" '
+                           f'data-srcset="{cover_srcset(item["image"])}" '
+                           'data-sizes="(max-width: 520px) 85vw, 440px" loading="lazy" decoding="async">')
             if item["id"] == "back-cover":
                 artwork = f'<div class="back-cover__artwork">{artwork}</div>'
             body = artwork + body
             if item["id"] == "back-cover":
-                ant = ('<img class="back-cover__ant" src="/assets/back-cover-ant.webp" '
-                       'alt="" aria-hidden="true" width="1774" height="887" loading="lazy">')
+                ant = ('<img class="back-cover__ant" data-src="/assets/back-cover-ant.webp?v=20261111a" '
+                       f'data-srcset="{cover_srcset("/assets/back-cover-ant.webp", 1774)}" '
+                       'data-sizes="(max-width: 520px) 85vw, 440px" '
+                       'alt="" aria-hidden="true" width="1774" height="887" loading="lazy" decoding="async">')
                 body = f'<div class="back-cover__layout">{artwork}{ant}{"".join(item["blocks"])}</div>'
-        html.append(f'<section {" ".join(attributes)}>{body}</section>')
+        markup = f'<section {" ".join(attributes)}>{body}</section>'
+        if item["section"] == "sample":
+            sample_html.append(markup)
+            if item["id"] == "sample":
+                sample_path = "fa" if LANGUAGE == "fa" else "en"
+                attributes.append(f'data-sample-src="/assets/book-samples/{sample_path}.html?v=20261111a"')
+                body = '<p class="sample-loading" role="status" aria-live="polite">…</p>'
+            else:
+                body = ""
+            markup = f'<section {" ".join(attributes)}>{body}</section>'
+        html.append(markup)
+
+    if LANGUAGE in ("en", "fa"):
+        GENERATED_ASSETS[f"assets/book-samples/{LANGUAGE}.html"] = "\n".join(sample_html) + "\n"
 
     container = soup.select_one("#book-source")
     container.clear()
@@ -738,11 +772,14 @@ def compose(soup, render, source, strings):
     soup.select_one("#close").decompose()
     soup.select_one("#book-menu-toggle").insert_before(actions)
     soup.html["class"] = soup.html.get("class", []) + ["book-has-actions"]
-    soup.head.append(soup.new_tag("link", rel="stylesheet", href="/css/book-actions.css"))
-    soup.head.append(soup.new_tag("script", src="/js/book-actions.js", defer=True))
+    soup.head.append(soup.new_tag("link", rel="stylesheet", href="/css/book-actions.css?v=20261111a"))
+    soup.head.append(soup.new_tag("script", src="/js/book-actions.js?v=20261111a", defer=True))
 
     soup.select_one("#book-language-name").string = language["name"]
-    soup.select_one('link[rel="preload"][as="image"]')["href"] = front["image"]
+    cover_preload = soup.select_one('link[rel="preload"][as="image"]')
+    cover_preload["href"] = front["image"] + "?v=20261111a"
+    cover_preload["imagesrcset"] = cover_srcset(front["image"])
+    cover_preload["imagesizes"] = "(max-width: 520px) 85vw, 440px"
     menu = soup.select_one("#book-language-list")
     for item in LANGUAGES:
         own_cover = item["code"] in EDITIONS["covers"]
