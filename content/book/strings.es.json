@@ -11,8 +11,8 @@
     "buy": "Comprar",
     "community": "Regalo",
     "contact": "Contacto",
+    "characters": "Personajes",
     "sample": "Muestra",
-    "appendix": "Apéndices",
     "back-cover": "Contraportada"
   },
   "ui": {
@@ -97,9 +97,8 @@
     "email": "Correo electrónico",
     "press": "En la prensa"
   },
-  "appendix": {
-    "heading": "Apéndices",
-    "back": "← Volver a los apéndices",
+  "references": {
+    "back": "← Volver a la contraportada",
     "items": {
       "voices": "Los personajes hablan",
       "privacy": "Privacidad",

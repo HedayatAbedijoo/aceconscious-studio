@@ -721,7 +721,7 @@
     navigationFrame = 0;
     pendingPage = null;
     if (pages[index].id === "back-cover"
-      || (pages[current].id === "back-cover" && pages[index].section === "appendix")) {
+      || (pages[current].id === "back-cover" && pages[index].section === "references")) {
       // The back cover and its reference links open directly, without riffling.
       stopSectionTurn();
       pageFlip.cancelUserTouch();

@@ -11,8 +11,8 @@
     "buy": "खरीदें",
     "community": "उपहार",
     "contact": "संपर्क",
+    "characters": "पात्र",
     "sample": "पठन अंश",
-    "appendix": "परिशिष्ट",
     "back-cover": "पिछला आवरण"
   },
   "ui": {
@@ -97,9 +97,8 @@
     "email": "ईमेल",
     "press": "प्रेस में"
   },
-  "appendix": {
-    "heading": "परिशिष्ट",
-    "back": "← परिशिष्टों पर वापस जाएँ",
+  "references": {
+    "back": "← पीछे के कवर पर लौटें",
     "items": {
       "voices": "पात्र बोलते हैं",
       "privacy": "गोपनीयता",

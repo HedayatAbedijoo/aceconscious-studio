@@ -21,13 +21,13 @@ LANGUAGE = "en"
 EDITIONS = json.loads((ROOT / "content/book/editions.json").read_text())
 SAMPLE = json.loads((ROOT / "content/book/sample-en.json").read_text())
 
-# Page-group order after the front cover. The Appendices bookmark opens their
-# index; individual reference pages remain linked there and on the back cover.
+# Page-group order after the front cover. Characters has its own bookmark;
+# reference pages are linked from the numbered list on the back cover.
 SECTIONS = ("headline", "reviews", "story", "ace", "buy", "community",
-            "author", "contact", "sample", "appendix", "back-cover")
+            "author", "contact", "characters", "sample", "back-cover")
 BOOKMARKS = SECTIONS
-APPENDIX_ITEMS = ("voices", "contents", "screen", "rights", "privacy", "impressum")
-BACK_COVER_LINKS = ("contents", "screen", "rights", "privacy", "impressum")
+BACK_COVER_ITEMS = ("voices", "contents", "screen", "rights", "privacy", "impressum")
+BACK_COVER_LINKS = BACK_COVER_ITEMS[1:]
 CHARACTERS = ("hedayat", "anonymous", "writer", "ava", "sam", "saman", "adam", "god")
 
 # Links that lead to a page of this book turn pages instead of loading a page.
@@ -210,7 +210,7 @@ def cover_pages(home, strings):
                  image=EDITIONS["covers"].get(LANGUAGE, EDITIONS["covers"]["en"])["front"], alt=STRINGS["ui"]["coverAlt"])
     footer = home.select_one(".site-footer")
     links = [f'<li><a href="#{identifier}" data-jump="{identifier}">'
-             f'{escape(STRINGS["appendix"]["items"][identifier])}</a></li>'
+             f'{escape(STRINGS["references"]["items"][identifier])}</a></li>'
              for identifier in BACK_COVER_LINKS]
     back = page("back-cover", "back-cover", STRINGS["sections"]["back-cover"], [
         '<footer class="back-cover__imprint">'
@@ -219,7 +219,7 @@ def cover_pages(home, strings):
         f'{inner(footer.select_one(".site-footer__brand"))}</a></p>'
         f'<p class="back-cover__designer back-cover__legal">{escape(STRINGS["backCoverDesigner"])}</p>'
         f'<p class="back-cover__legal">{escape(STRINGS["backCoverCopyright"])}</p>'
-        '<ul class="back-cover__links">' + "".join(links) + '</ul></footer>',
+        '<ol class="section-index back-cover__links">' + "".join(links) + '</ol></footer>',
     ], "cover back-cover", image=EDITIONS["covers"].get(LANGUAGE, EDITIONS["covers"]["en"])["back"], alt=STRINGS["ui"]["backCoverAlt"])
     return front, back
 
@@ -568,8 +568,8 @@ def voices_page(home):
     """One live reading surface for all original, localized character voices."""
     from build_locales import parse
     view = parse((ROOT / "content/templates/book-voices.html").read_text())
-    title = STRINGS["appendix"]["items"]["voices"]
-    view.select_one("[data-voices-kicker]").string = STRINGS["appendix"]["heading"]
+    title = STRINGS["references"]["items"]["voices"]
+    view.select_one("[data-voices-kicker]").string = STRINGS["sections"]["characters"]
     view.select_one("[data-voices-title]").string = title
     tabs = view.select_one("[data-voices-tabs]")
     tabs["aria-label"] = title
@@ -595,12 +595,12 @@ def voices_page(home):
         for attribute in list(node.attrs):
             if attribute.startswith("data-voices-"):
                 del node[attribute]
-    return page("voices", "appendix", title, [str(view.find(True))], "voices-page", fixed=True)
+    return page("voices", "characters", title, [str(view.find(True))], "voices-page", fixed=True)
 
 
-def appendix_pages(pages_html, home, strings):
-    """A single linked opener followed by references in reading order."""
-    labels = STRINGS["appendix"]["items"]
+def reference_pages(pages_html, home, strings):
+    """Reference pages linked from the back cover, outside bookmark navigation."""
+    labels = STRINGS["references"]["items"]
     entries = []
 
     privacy = pages_html["privacy"].select_one(".legal-page__content")
@@ -626,19 +626,13 @@ def appendix_pages(pages_html, home, strings):
     entries.append(("contents", labels["contents"], strings["toc.label"],
                     [f'<p class="lede">{escape(strings["toc.lead"])}</p>', *chapters]))
 
-    links = [f'<li><a href="#{identifier}" data-jump="{identifier}">'
-             f'{escape(labels[identifier])}</a></li>' for identifier in APPENDIX_ITEMS]
-    result = [page("appendix", "appendix", STRINGS["appendix"]["heading"], [
-        f'<h2 class="appendix-title">{escape(STRINGS["appendix"]["heading"])}</h2>',
-        '<ol class="section-index">' + "".join(links) + '</ol>',
-    ], classes="appendix-page appendix-index", fixed=True), voices_page(home)]
-    entries.sort(key=lambda entry: APPENDIX_ITEMS.index(entry[0]))
+    result = []
+    entries.sort(key=lambda entry: BACK_COVER_ITEMS.index(entry[0]))
     for identifier, label, heading, body in entries:
-        result.append(page(identifier, "appendix", label, [
-            f'<p class="chapter-kicker">{escape(STRINGS["appendix"]["heading"])}</p>',
+        result.append(page(identifier, "references", label, [
             f'<h2 class="appendix-title">{escape(heading)}</h2>', *body,
-            f'<p class="back-to-index"><button type="button" data-jump="appendix">'
-            f'{escape(STRINGS["appendix"]["back"])}</button></p>'],
+            f'<p class="back-to-index"><button type="button" data-jump="back-cover">'
+            f'{escape(STRINGS["references"]["back"])}</button></p>'],
             classes="appendix-page screen-page" if identifier == "screen" else "appendix-page"))
     return result
 
@@ -680,8 +674,8 @@ def compose(soup, render, source, strings):
     gift, contact = contact_pages(strings)
     ordered = [front, headline_page(strings), *review_pages(home, strings),
                *story_pages(home, strings), *ace_pages(), *buy, gift,
-               *author_pages(home, strings), contact, *localized_sample_pages(),
-               *appendix_pages(rendered, home, strings), back]
+               *author_pages(home, strings), contact, voices_page(home), *localized_sample_pages(),
+               *reference_pages(rendered, home, strings), back]
 
     html = []
     for item in ordered:
@@ -706,7 +700,7 @@ def compose(soup, render, source, strings):
             if item["id"] == "back-cover":
                 ant = ('<img class="back-cover__ant" src="/assets/back-cover-ant.webp" '
                        'alt="" aria-hidden="true" width="1774" height="887" loading="lazy">')
-                body = f'<div class="back-cover__layout">{body}{ant}</div>'
+                body = f'<div class="back-cover__layout">{artwork}{ant}{"".join(item["blocks"])}</div>'
         html.append(f'<section {" ".join(attributes)}>{body}</section>')
 
     container = soup.select_one("#book-source")
@@ -716,7 +710,7 @@ def compose(soup, render, source, strings):
     # foreign-content parser state can nest <br> tags and emit extra </br>
     # breaks after addresses when the browser reads the generated document.
     for item, markup in zip(ordered, html):
-        if item["section"] == "appendix":
+        if item["classes"].startswith("appendix-page"):
             book_markup.find(id=item["id"]).replace_with(parse(markup).find(True))
     for node in list(book_markup.contents):
         container.append(node)

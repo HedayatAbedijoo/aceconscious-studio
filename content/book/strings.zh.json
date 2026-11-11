@@ -11,8 +11,8 @@
     "buy": "购买",
     "community": "礼物",
     "contact": "联系",
+    "characters": "人物",
     "sample": "试读",
-    "appendix": "附录",
     "back-cover": "封底"
   },
   "ui": {
@@ -97,9 +97,8 @@
     "email": "电子邮件",
     "press": "媒体报道"
   },
-  "appendix": {
-    "heading": "附录",
-    "back": "← 返回附录",
+  "references": {
+    "back": "← 返回封底",
     "items": {
       "voices": "角色开口了",
       "privacy": "隐私政策",

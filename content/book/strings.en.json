@@ -11,8 +11,8 @@
     "buy": "Buy",
     "community": "Gift",
     "contact": "Contact",
+    "characters": "Characters",
     "sample": "Sample",
-    "appendix": "Appendices",
     "back-cover": "Back cover"
   },
   "ui": {
@@ -97,9 +97,8 @@
     "email": "Email",
     "press": "In the press"
   },
-  "appendix": {
-    "heading": "Appendices",
-    "back": "← Back to appendices",
+  "references": {
+    "back": "← Back to back cover",
     "items": {
       "voices": "The Characters Speak",
       "privacy": "Privacy",

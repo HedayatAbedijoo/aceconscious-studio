@@ -378,24 +378,27 @@ html.js { overscroll-behavior-x: none; }
 
 .back-cover__links {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  column-gap: clamp(9px, calc(var(--book-w) * 0.027), 14px);
-  row-gap: 2px;
-  margin: 14px 0 0;
-  padding: 0;
-  list-style: none;
+  flex-direction: column;
+  margin: 9px auto 0;
+  padding-inline-start: 1.5em;
+  list-style: decimal;
   font: 500 clamp(14px, calc(var(--book-w) * 0.038), 17px)/1.35 var(--book-serif);
+  text-align: start;
 }
 
 .back-cover__links a {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  min-height: 34px;
+  justify-content: space-between;
+  min-height: 27px;
   color: #713f43;
   text-decoration-color: #713f4388;
   text-underline-offset: 3px;
+  border-bottom: 1px solid #c4b698;
+  text-decoration: none;
 }
+
+.back-cover__links a::after { content: "↗"; color: var(--rust); }
 
 .back-cover__links a:hover {
   text-decoration-color: currentColor;
@@ -1813,7 +1816,7 @@ html[dir="rtl"] .is-back-cover .book-menu-toggle {
 .bookmark[data-section="community"] { --tab: #9eaeb1; --tilt: -1.2deg; }
 .bookmark:nth-child(8) { --tab: #bda46e; --tilt: 0.8deg; }
 .bookmark[data-section="ace"] { --tab: #b6a2ad; --tilt: 1.1deg; }
-.bookmark[data-section="appendix"] { --tab: #b4acb9; --tilt: 0.6deg; }
+.bookmark[data-section="characters"] { --tab: #b4acb9; --tilt: 0.6deg; }
 .bookmark[data-section="back-cover"] { --tab: #c9ba99; --tilt: -0.8deg; }
 
 .bookmark[data-section="back-cover"] {
@@ -2408,8 +2411,8 @@ html:not(.js) .sample-sheet__canvas {
 .small-book .back-cover__imprint { left: 5%; right: 5%; padding: 18px 4%; border-radius: 12px; }
 .small-book .back-cover__studio { font-size: 14px; letter-spacing: .7px; margin-bottom: 6px; }
 .small-book .back-cover__legal { font-size: 12px; line-height: 1.4; }
-.small-book .back-cover__links { font-size: 13px; column-gap: 8px; row-gap: 2px; margin-top: 10px; }
-.small-book .back-cover__links a { min-height: 28px; }
+.small-book .back-cover__links { font-size: 12px; margin-top: 7px; }
+.small-book .back-cover__links a { min-height: 23px; }
 .small-book .running-head { top: 17px; padding-bottom: 8px; font-size: 6px; letter-spacing: 0.7px; }
 .small-book .running-head .book-name { font-size: 10px; }
 .small-book .page-body { top: 54px; bottom: 51px; line-height: 1.48; }
@@ -3062,7 +3065,7 @@ html:is(.immersive-reading, .desktop-book) .bookmark[data-section="buy"] { --tab
 html:is(.immersive-reading, .desktop-book) .bookmark[data-section="contact"] { --tab: #c3b08a; }
 html:is(.immersive-reading, .desktop-book) .bookmark[data-section="community"] { --tab: #a5b5b8; }
 html:is(.immersive-reading, .desktop-book) .bookmark[data-section="sample"] { --tab: #beb195; }
-html:is(.immersive-reading, .desktop-book) .bookmark[data-section="appendix"] { --tab: #b4acb9; }
+html:is(.immersive-reading, .desktop-book) .bookmark[data-section="characters"] { --tab: #b4acb9; }
 html:is(.immersive-reading, .desktop-book) .bookmark[data-section="back-cover"] { --tab: #b8b09b; }
 /* Arial matches the prototype's Latin labels; retain the loaded script fonts
    where system Arial would substitute tiny or incomplete glyphs. */

@@ -11,8 +11,8 @@
     "buy": "خرید",
     "community": "هدیه",
     "contact": "تماس",
+    "characters": "شخصیت‌ها",
     "sample": "نمونه",
-    "appendix": "ضمائم",
     "back-cover": "پشت جلد"
   },
   "ui": {
@@ -97,9 +97,8 @@
     "email": "ایمیل",
     "press": "در رسانه‌ها"
   },
-  "appendix": {
-    "heading": "ضمائم",
-    "back": "→ بازگشت به ضمائم",
+  "references": {
+    "back": "← بازگشت به پشت جلد",
     "items": {
       "voices": "شخصیت‌ها با شما سخن می‌گویند",
       "privacy": "حریم خصوصی",

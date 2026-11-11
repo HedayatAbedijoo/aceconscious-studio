@@ -11,8 +11,8 @@
     "buy": "Kaufen",
     "community": "Geschenk",
     "contact": "Kontakt",
+    "characters": "Figuren",
     "sample": "Leseprobe",
-    "appendix": "Anhänge",
     "back-cover": "Rückseite"
   },
   "ui": {
@@ -97,9 +97,8 @@
     "email": "E-Mail",
     "press": "In der Presse"
   },
-  "appendix": {
-    "heading": "Anhänge",
-    "back": "← Zurück zu den Anhängen",
+  "references": {
+    "back": "← Zurück zum Buchrücken",
     "items": {
       "voices": "Die Figuren sprechen",
       "privacy": "Datenschutz",

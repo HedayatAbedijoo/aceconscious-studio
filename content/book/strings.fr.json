@@ -11,8 +11,8 @@
     "buy": "Acheter",
     "community": "Cadeau",
     "contact": "Contact",
+    "characters": "Personnages",
     "sample": "Extrait",
-    "appendix": "Annexes",
     "back-cover": "Quatrième de couverture"
   },
   "ui": {
@@ -97,9 +97,8 @@
     "email": "E-mail",
     "press": "Dans la presse"
   },
-  "appendix": {
-    "heading": "Annexes",
-    "back": "← Retour aux annexes",
+  "references": {
+    "back": "← Retour à la quatrième de couverture",
     "items": {
       "voices": "Les personnages prennent la parole",
       "privacy": "Confidentialité",

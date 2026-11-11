@@ -36,11 +36,10 @@ locale's shared home, ACE, rights, screen, privacy and imprint content. Shared
 catalog corrections therefore update both the book and standalone pages.
 
 Page order after the cover: Headline, Reviews (Kirkus first), Story, ACE, Buy, Gift,
-Author, Contact, Sample, Appendices and its reference pages, then the back cover.
-Eleven bookmarks follow that order. The Appendices bookmark immediately follows
-Sample and opens the translated index of reference pages. The back-cover footer
-links to Rights & Representation, Book to Screen, Privacy, Impressum and Contents
-of the novel directly, without riffling; their return links reopen Appendices.
+Author, Contact, Characters, Sample, the linked reference pages, then the back cover.
+The Characters bookmark follows Contact and opens The Characters Speak. The back
+cover contains the numbered six-link reference index; its links open the same
+reading pages directly, without riffling, and those pages link back to the cover.
 Language selection exists only beside Open the book on the
 front cover. Closing with the ribbon or Escape returns there. The root always
 starts in English; browser language and saved preference do not redirect it.
@@ -145,16 +144,16 @@ animation, cursor following, rapid selection, responsive layout and reduced-moti
 checks (the same Playwright environment and optional `--fonts` apply). Add
 `--locales` to check Persian, Arabic, Hindi and Chinese typing and RTL layout.
 
-The first item in the Appendices index and its first reading sheet is
-The Characters Speak (`#voices`); it adds no main bookmark or back-cover link.
+The Characters bookmark and the first item in the back-cover reference index both
+open The Characters Speak (`#voices`).
 `content/templates/book-voices.html` supplies the shared structure. `scripts/book.py`
 reuses all eight localized character cards from `content/templates/home.html` and
 `content/locales/`, preserving the original roles, paragraphs and emphasis. The
-section title lives in `appendix.items.voices` in each book strings catalog.
+section title lives in `references.items.voices` in each book strings catalog.
 The same ACE typewriter handles the voices, including inline emphasis, a fixed
 reading surface, keyboard selection, RTL prose, reduced motion and no-JavaScript
 reading. Names sit at the left on mobile and in two rows above the prose on large
-desktops. `node scripts/check_book_voices.cjs` checks the appendix order, all eight
+desktops. `node scripts/check_book_voices.cjs` checks the character page order, all eight
 voices, text/markup fidelity, mobile/RTL layout and typing behavior locally.
 
 `js/book.js` reflows the static markup in `#book-source` onto paper sheets and

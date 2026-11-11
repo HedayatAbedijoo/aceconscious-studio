@@ -4,7 +4,7 @@ import json
 from urllib.parse import urlsplit, unquote
 
 from build_locales import ROOT, SITE, LANGUAGES, PAGES, route, parse, template_for, apply_strings
-from book import SECTIONS, BOOKMARKS, BACK_COVER_LINKS, APPENDIX_ITEMS, CHARACTERS
+from book import SECTIONS, BOOKMARKS, BACK_COVER_LINKS, BACK_COVER_ITEMS, CHARACTERS
 
 
 # Anchors that other pages, search results and shared links point at.
@@ -19,7 +19,8 @@ def check_book(soup, path, code):
     assert pages, f"No book pages: {path}"
     assert pages[0]["data-section"] == "cover" and pages[0]["id"] == "cover", path
     assert pages[-1]["id"] == "back-cover", path
-    order = list(dict.fromkeys(page["data-section"] for page in pages))
+    order = list(dict.fromkeys(page["data-section"] for page in pages
+                              if page["data-section"] in ("cover", *SECTIONS)))
     assert order == ["cover", *SECTIONS], f"Section order drift: {path}: {order}"
     assert all(page.get("data-title") for page in pages if page["data-section"] != "cover"), path
     for anchor in BOOK_ANCHORS:
@@ -37,16 +38,20 @@ def check_book(soup, path, code):
     assert soup.select_one('[data-page="cover"]')["data-image"] == ("/assets/cover-fa.webp" if code == "fa" else "/assets/cover-front.webp"), path
     strings = json.loads(soup.select_one("#book-strings").string)
     assert list(strings["sections"]) == list(BOOKMARKS), path
-    appendix = soup.select_one('[data-page="appendix"]')
-    assert appendix and appendix.has_attr("data-fixed"), path
-    assert [a["data-jump"] for a in appendix.select(".section-index a")] == list(APPENDIX_ITEMS), path
-    assert [p["id"] for p in pages if p["data-section"] == "appendix"] == ["appendix", *APPENDIX_ITEMS], path
-    assert pages[pages.index(appendix) - 1]["data-section"] == "sample", path
-    bookmark_order = list(strings["sections"])
-    assert bookmark_order[bookmark_order.index("sample") + 1] == "appendix", path
-    assert all(a["data-jump"] == "appendix" for a in soup.select(".back-to-index [data-jump]")), path
+    assert not soup.select('[data-page="appendix"]'), path
+    characters = soup.select_one('#voices[data-section="characters"][data-fixed]')
+    assert characters and characters.has_attr("data-fixed"), path
     assert [a["data-jump"] for a in soup.select(".back-cover__links a")] == list(BACK_COVER_LINKS), path
-    voices = soup.select_one('#voices[data-section="appendix"][data-fixed]')
+    assert [p["id"] for p in pages if p["data-section"] == "references"] == list(BACK_COVER_ITEMS[1:]), path
+    assert [p["id"] for p in pages if p["data-section"] == "back-cover"] == ["back-cover"], path
+    assert pages[pages.index(characters) - 1]["data-section"] == "contact", path
+    assert pages[pages.index(characters) + 1]["data-section"] == "sample", path
+    bookmark_order = list(strings["sections"])
+    assert bookmark_order[bookmark_order.index("contact") + 1] == "characters", path
+    assert bookmark_order[bookmark_order.index("characters") + 1] == "sample", path
+    assert all(a["data-jump"] == "back-cover" for a in soup.select(".back-to-index [data-jump]")), path
+    assert [a["data-jump"] for a in soup.select(".back-cover__links a")] == list(BACK_COVER_LINKS), path
+    voices = soup.select_one('#voices[data-section="characters"][data-fixed]')
     assert voices and voices.select_one('.book-voices[data-live][data-intro-typewriter]'), path
     assert [tab["aria-controls"] for tab in voices.select('[role="tab"]')] == [
         f"voice-panel-{name}" for name in CHARACTERS], path
