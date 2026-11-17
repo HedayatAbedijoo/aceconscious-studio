@@ -249,8 +249,8 @@ a:hover {
 
 .site-nav__logo-icon {
   flex-shrink: 0;
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 4rem;
+  height: 3rem;
   object-fit: contain;
   display: block;
 }
@@ -1550,6 +1550,14 @@ html[lang="fa"] .author__bio {
   font-size: 1.25rem;
   color: var(--white);
   letter-spacing: 0.04em;
+  margin: 0;
+}
+
+.site-footer__brand-logo {
+  display: block;
+  width: 7rem;
+  height: auto;
+  object-fit: contain;
 }
 
 .site-footer__legal {
@@ -1773,8 +1781,8 @@ html.js .reveal.visible {
   }
 
   .site-nav__logo-icon {
-    width: 2rem;
-    height: 2rem;
+    width: 3.5rem;
+    height: 2.625rem;
   }
 }
 

@@ -214,12 +214,15 @@ def cover_pages(home, strings):
     links = [f'<li><a href="#{identifier}" data-jump="{identifier}">'
              f'{escape(STRINGS["references"]["items"][identifier])}</a></li>'
              for identifier in BACK_COVER_LINKS]
+    studio_logo = inner(footer.select_one(".site-footer__brand"))
+    # The back-cover imprint sits on light paper, so use the full green logo.
+    studio_logo = studio_logo.replace("ace-logo-light.png", "ace-logo.png")
     back = page("back-cover", "back-cover", STRINGS["sections"]["back-cover"], [
         '<footer class="back-cover__imprint">'
         '<ol class="section-index back-cover__links">' + "".join(links) + '</ol>'
         '<p class="back-cover__studio"><a href="https://aceconscious.studio/" '
         'target="_blank" rel="noopener noreferrer">'
-        f'{inner(footer.select_one(".site-footer__brand"))}</a></p>'
+        f'{studio_logo}</a></p>'
         f'<p class="back-cover__designer back-cover__legal">{escape(STRINGS["backCoverDesigner"])}</p>'
         f'<p class="back-cover__legal">{escape(STRINGS["backCoverCopyright"])}</p></footer>',
     ], "cover back-cover", image=EDITIONS["covers"].get(LANGUAGE, EDITIONS["covers"]["en"])["back"], alt=STRINGS["ui"]["backCoverAlt"])
