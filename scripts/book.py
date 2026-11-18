@@ -215,7 +215,7 @@ def cover_pages(home, strings):
              f'{escape(STRINGS["references"]["items"][identifier])}</a></li>'
              for identifier in BACK_COVER_LINKS]
     studio_logo = inner(footer.select_one(".site-footer__brand"))
-    # The back-cover imprint sits on light paper, so use the full green logo.
+    # Use the dark mark on the light paper of the back-cover imprint.
     studio_logo = studio_logo.replace("ace-logo-light.png", "ace-logo.png")
     back = page("back-cover", "back-cover", STRINGS["sections"]["back-cover"], [
         '<footer class="back-cover__imprint">'
